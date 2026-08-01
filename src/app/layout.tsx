@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Archivo } from "next/font/google";
+import { AuthStatus } from "@/components/AuthStatus";
 import { AuthProvider } from "@/lib/auth-context";
 import "./globals.css";
 
@@ -22,7 +23,10 @@ export default function RootLayout({
   return (
     <html lang="vi" className={`${archivo.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col bg-bg text-ink">
-        <AuthProvider>{children}</AuthProvider>
+        <AuthProvider>
+          <AuthStatus />
+          {children}
+        </AuthProvider>
       </body>
     </html>
   );

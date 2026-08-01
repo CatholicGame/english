@@ -1,6 +1,7 @@
 "use client";
 
-import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
+import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
+import { useAuth } from "./auth-context";
 import { dayKey } from "./utils";
 
 export interface ProgressEntry {
@@ -52,6 +53,36 @@ function persistState(storageKey: string, state: ProgressState) {
   }
 }
 
+function mergeProgress(local: ProgressMap, cloud: ProgressMap): ProgressMap {
+  const keys = new Set([...Object.keys(local), ...Object.keys(cloud)]);
+  const out: ProgressMap = {};
+  for (const k of keys) {
+    const a = local[k];
+    const b = cloud[k];
+    out[k] = !a ? b : !b ? a : a.t >= b.t ? a : b;
+  }
+  return out;
+}
+
+function mergeDays(local: DaysMap, cloud: DaysMap): DaysMap {
+  const keys = new Set([...Object.keys(local), ...Object.keys(cloud)]);
+  const out: DaysMap = {};
+  for (const k of keys) {
+    out[k] = Math.max(local[k] ?? 0, cloud[k] ?? 0);
+  }
+  return out;
+}
+
+function pushToCloud(storageKey: string, state: ProgressState) {
+  fetch(`/api/drive/progress?key=${encodeURIComponent(storageKey)}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(state),
+  }).catch(() => {
+    // best-effort — localStorage remains the source of truth
+  });
+}
+
 export function ProgressProvider({
   storageKey,
   children,
@@ -59,13 +90,42 @@ export function ProgressProvider({
   storageKey: string;
   children: React.ReactNode;
 }) {
+  const { loading: authLoading, authenticated } = useAuth();
   const [loaded, setLoaded] = useState(false);
   const [state, setState] = useState<ProgressState>({ progress: {}, days: {} });
+  const pushTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     setState(loadState(storageKey));
     setLoaded(true);
   }, [storageKey]);
+
+  useEffect(() => {
+    if (authLoading || !authenticated) return;
+    let cancelled = false;
+
+    fetch(`/api/drive/progress?key=${encodeURIComponent(storageKey)}`)
+      .then((r) => (r.ok ? r.json() : Promise.reject(r)))
+      .then(({ data }) => {
+        if (cancelled || !data) return;
+        setState((prev) => {
+          const merged: ProgressState = {
+            progress: mergeProgress(prev.progress, data.progress ?? {}),
+            days: mergeDays(prev.days, data.days ?? {}),
+          };
+          persistState(storageKey, merged);
+          pushToCloud(storageKey, merged);
+          return merged;
+        });
+      })
+      .catch(() => {
+        // offline or not signed in — local state remains authoritative
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [authLoading, authenticated, storageKey]);
 
   const lvl = useCallback((key: string) => state.progress[key]?.l ?? 0, [state.progress]);
 
@@ -81,10 +141,16 @@ export function ProgressProvider({
         const nextDays: DaysMap = { ...prev.days, [k]: (prev.days[k] || 0) + 1 };
         const next = { progress: nextProgress, days: nextDays };
         persistState(storageKey, next);
+
+        if (authenticated) {
+          if (pushTimer.current) clearTimeout(pushTimer.current);
+          pushTimer.current = setTimeout(() => pushToCloud(storageKey, next), 3000);
+        }
+
         return next;
       });
     },
-    [storageKey],
+    [storageKey, authenticated],
   );
 
   let streak = 0;

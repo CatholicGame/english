@@ -35,19 +35,49 @@ function loadVoices(s: SpeechSynthesis): Promise<SpeechSynthesisVoice[]> {
   });
 }
 
-function bestEnglishVoice(voices: SpeechSynthesisVoice[]): SpeechSynthesisVoice | undefined {
+function voiceScore(v: SpeechSynthesisVoice): number {
+  let n = 0;
+  if (/natural|neural|online/i.test(v.name)) n += 10;
+  if (v.lang.toLowerCase() === "en-us") n += 2;
+  else if (v.lang.toLowerCase() === "en-gb") n += 1;
+  return n;
+}
+
+/** English voices available in this browser, best-sounding first. */
+export async function getEnglishVoices(): Promise<SpeechSynthesisVoice[]> {
+  const s = typeof window !== "undefined" ? window.speechSynthesis : undefined;
+  if (!s) return [];
+  voicesPromise ??= loadVoices(s);
+  const voices = await voicesPromise;
+  return voices.filter((v) => v.lang.toLowerCase().startsWith("en")).sort((a, b) => voiceScore(b) - voiceScore(a));
+}
+
+const VOICE_PREF_KEY = "englishapp:voice-uri";
+
+export function getPreferredVoiceURI(): string | null {
+  try {
+    return localStorage.getItem(VOICE_PREF_KEY);
+  } catch {
+    return null;
+  }
+}
+
+export function setPreferredVoiceURI(voiceURI: string): void {
+  try {
+    localStorage.setItem(VOICE_PREF_KEY, voiceURI);
+  } catch {
+    // localStorage unavailable — preference just won't persist
+  }
+}
+
+function pickVoice(voices: SpeechSynthesisVoice[]): SpeechSynthesisVoice | undefined {
+  const preferred = getPreferredVoiceURI();
+  const match = preferred && voices.find((v) => v.voiceURI === preferred);
+  if (match) return match;
+
   const english = voices.filter((v) => v.lang.toLowerCase().startsWith("en"));
   if (english.length === 0) return undefined;
-
-  const score = (v: SpeechSynthesisVoice) => {
-    let n = 0;
-    if (/natural|neural|online/i.test(v.name)) n += 10;
-    if (v.lang.toLowerCase() === "en-us") n += 2;
-    else if (v.lang.toLowerCase() === "en-gb") n += 1;
-    return n;
-  };
-
-  return english.sort((a, b) => score(b) - score(a))[0];
+  return english.sort((a, b) => voiceScore(b) - voiceScore(a))[0];
 }
 
 export async function speak(text: string) {
@@ -60,7 +90,7 @@ export async function speak(text: string) {
     u.rate = 0.88;
 
     voicesPromise ??= loadVoices(s);
-    const voice = bestEnglishVoice(await voicesPromise);
+    const voice = pickVoice(await voicesPromise);
     if (voice) u.voice = voice;
 
     s.speak(u);

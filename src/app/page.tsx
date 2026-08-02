@@ -24,9 +24,7 @@ export default function HomePage() {
                   <span className="label-xs whitespace-nowrap text-accent">{m.subtitle}</span>
                 </div>
                 <p className="mt-2 text-[13px] leading-relaxed text-neutral-700">{m.description}</p>
-                <div className="mt-3 text-[11px] text-neutral-600">
-                  {m.verbCount} verbs · {m.itemCount} phrases
-                </div>
+                <div className="mt-3 text-[11px] text-neutral-600">{m.statsLabel}</div>
               </Link>
             ) : (
               <div key={m.slug} className="border border-dashed border-neutral-400 p-4 opacity-60">

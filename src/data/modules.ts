@@ -1,12 +1,12 @@
 import { VERBS } from "./basic-verbs";
+import { LISTEN_LESSONS } from "./listen-a-minute";
 
 export interface ModuleDef {
   slug: string;
   title: string;
   subtitle: string;
   description: string;
-  itemCount: number;
-  verbCount: number;
+  statsLabel: string;
   available: boolean;
 }
 
@@ -19,8 +19,16 @@ export const MODULES: ModuleDef[] = [
     subtitle: "49 basic verbs",
     description:
       "Master the collocations and phrasal verbs built from the most common English verbs, grouped by meaning.",
-    itemCount: collocationsItemCount,
-    verbCount: VERBS.length,
+    statsLabel: `${VERBS.length} verbs · ${collocationsItemCount} phrases`,
+    available: true,
+  },
+  {
+    slug: "listen-a-minute",
+    title: "Listen A Minute",
+    subtitle: "Short listening topics",
+    description:
+      "Listen to a short one-minute topic, fill in the gaps, fix the spelling, then extend with speaking and writing tasks.",
+    statsLabel: `${LISTEN_LESSONS.length} topics · A–Z`,
     available: true,
   },
 ];

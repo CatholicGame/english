@@ -98,3 +98,11 @@ export async function speak(text: string) {
     // speech synthesis unavailable — silently ignore
   }
 }
+
+export function stopSpeaking() {
+  try {
+    window.speechSynthesis?.cancel();
+  } catch {
+    // speech synthesis unavailable — silently ignore
+  }
+}

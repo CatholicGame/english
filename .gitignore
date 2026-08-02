@@ -36,6 +36,12 @@ yarn-error.log*
 # vercel
 .vercel
 
+# raw scraped source material for content-generation scripts (~350MB of audio) —
+# audio is uploaded to Vercel Blob by scripts/upload-listen-a-minute-audio.mjs and
+# the derived text/timing data lives in src/data/listen-a-minute.ts (committed);
+# this folder itself never needs to leave the machine that ran the pipeline
+/src/assets/listening_a_minute/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

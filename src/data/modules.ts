@@ -1,5 +1,6 @@
 import { VERBS } from "./basic-verbs";
 import { LISTEN_LESSONS } from "./listen-a-minute";
+import { UNITS_META } from "./cambridge-vocabulary-ielts";
 
 export interface ModuleDef {
   slug: string;
@@ -29,6 +30,15 @@ export const MODULES: ModuleDef[] = [
     description:
       "Listen to a short one-minute topic, fill in the gaps, fix the spelling, then extend with speaking and writing tasks.",
     statsLabel: `${LISTEN_LESSONS.length} topics · A–Z`,
+    available: true,
+  },
+  {
+    slug: "cambridge-vocabulary-ielts-advanced",
+    title: "Cambridge Vocabulary for IELTS Advanced",
+    subtitle: "25 units · C1–C2",
+    description:
+      "Work through each unit's real listening, reading, speaking and vocabulary-building tasks from the Cambridge IELTS Advanced coursebook, fully interactive.",
+    statsLabel: `${UNITS_META.length} units · ${UNITS_META.filter((u) => u.available).length} ready`,
     available: true,
   },
 ];

@@ -1,0 +1,941 @@
+"use client";
+
+import { useEffect, useMemo, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
+import {
+  getCambridgeUnit,
+  type FillMcStep,
+  type ListeningClozeStep,
+  type ReadingTfNgStep,
+  type RevealPairsStep,
+  type SortStep,
+  type SpeakingStep,
+  type TypeFillStep,
+  type UnitStep,
+  type VocabStep,
+} from "@/data/cambridge-vocabulary-ielts";
+import { parseCloze } from "@/lib/cloze";
+import { useProgress } from "@/lib/progress-context";
+import { norm, speak } from "@/lib/utils";
+
+interface Score {
+  correct: number;
+  total: number;
+}
+
+function BackIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="block h-[18px] w-[18px]"
+    >
+      <path d="m15 18-6-6 6-6" />
+    </svg>
+  );
+}
+
+function SpeakerIcon({ className = "h-[34px] w-[34px]" }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={`block ${className}`}
+    >
+      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+      <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+      <path d="M19.07 4.93a7 7 0 0 1 0 14.14" />
+    </svg>
+  );
+}
+
+function PauseIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="block h-[34px] w-[34px]"
+    >
+      <rect x="6" y="4" width="4" height="16" />
+      <rect x="14" y="4" width="4" height="16" />
+    </svg>
+  );
+}
+
+function Tip({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="mb-4 bg-accent-100 px-4 py-3 text-[12px] leading-relaxed text-accent-800">
+      <span className="label-xs mb-0.5 block text-accent-700">Test tip</span>
+      {children}
+    </div>
+  );
+}
+
+function ContinueButton({ onClick, label = "Continue" }: { onClick: () => void; label?: string }) {
+  return (
+    <button className="btn btn-primary btn-block mt-auto px-4 py-3" onClick={onClick}>
+      {label}
+    </button>
+  );
+}
+
+// ---------- Vocabulary deep-dive cards ----------
+
+function ChipRow({ label, items, tone }: { label: string; items: string[]; tone: "neutral" | "accent" }) {
+  if (!items.length) return null;
+  return (
+    <div className="mb-3">
+      <div className="label-xs mb-1.5">{label}</div>
+      <div className="flex flex-wrap gap-1.5">
+        {items.map((it) => (
+          <span
+            key={it}
+            className="border px-2.5 py-1 text-[12px] font-bold"
+            style={
+              tone === "accent"
+                ? { borderColor: "var(--color-accent)", background: "var(--color-accent-100)", color: "var(--color-accent-800)" }
+                : { borderColor: "var(--color-divider)", background: "var(--color-bg)", color: "var(--color-text)" }
+            }
+          >
+            {it}
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function VocabStepView({ step, onNext }: { step: VocabStep; onNext: (score?: Score) => void }) {
+  const [i, setI] = useState(0);
+  const [revealed, setRevealed] = useState(false);
+  const w = step.words[i];
+  const last = i === step.words.length - 1;
+
+  function goTo(next: number) {
+    setRevealed(false);
+    setI(next);
+  }
+
+  return (
+    <div className="flex flex-1 flex-col p-4 pb-[96px]">
+      <div className="mb-3 flex items-center justify-between gap-3">
+        <span className="text-[13px] text-neutral-700">{step.instructions ?? "Tap a card to reveal its meaning."}</span>
+        <span className="label-xs whitespace-nowrap">
+          {i + 1}/{step.words.length}
+        </span>
+      </div>
+
+      <div className="bg-surface p-5">
+        <div className="flex items-baseline justify-between gap-3">
+          <div>
+            <span className="label-xs block text-accent">{w.pos}</span>
+            <span className="text-[26px] leading-tight font-extrabold tracking-tight text-balance">{w.term}</span>
+            <span className="mt-0.5 block text-[13px] text-neutral-600">{w.ipa}</span>
+          </div>
+          <button className="btn btn-icon flex-none" onClick={() => speak(w.term)} aria-label="Play pronunciation">
+            <SpeakerIcon className="h-5 w-5" />
+          </button>
+        </div>
+        <div className="mt-2 text-[13px] leading-relaxed text-neutral-700">{w.en}</div>
+
+        {!revealed ? (
+          <button className="btn btn-primary btn-block mt-4 px-4 py-3" onClick={() => setRevealed(true)}>
+            Xem giải thích chi tiết
+          </button>
+        ) : (
+          <div className="animate-pop mt-4">
+            <div className="mb-4 border-l-2 border-accent pl-3">
+              <div className="text-[13px] leading-relaxed text-neutral-700">{w.usageNote}</div>
+              <div className="mt-1 text-[15px] font-extrabold text-accent-700">{w.vi}</div>
+            </div>
+
+            <div className="label-xs mb-2 text-accent">🌟 Ý chính</div>
+            <ChipRow label="Từ đồng nghĩa" items={w.synonyms} tone="neutral" />
+            <ChipRow label="Trái nghĩa" items={w.antonyms} tone="accent" />
+
+            <div className="label-xs mb-2 text-accent">📌 Ví dụ</div>
+            {w.examples.map((ex, idx) => (
+              <div key={idx} className="mb-2 text-[13px] leading-relaxed">
+                <div>{ex.en}</div>
+                <div className="text-neutral-600">→ {ex.vi}</div>
+              </div>
+            ))}
+
+            <div className="mt-3 bg-accent-100 px-3 py-2.5 text-[12px] leading-relaxed text-accent-800">
+              <span className="label-xs mb-0.5 block text-accent-700">🎯 IELTS tip</span>
+              {w.ieltsTip}
+            </div>
+
+            <div className="mt-3 text-[13px] leading-relaxed font-bold">👉 {w.summary}</div>
+          </div>
+        )}
+      </div>
+
+      <div className="fixed inset-x-0 bottom-0 bg-bg">
+        <div className="divider-t mx-auto max-w-[480px] p-4">
+          <div className="flex gap-0.5">
+            <button
+              className="btn btn-secondary flex-1 justify-center px-4 py-3"
+              disabled={i === 0}
+              onClick={() => goTo(Math.max(0, i - 1))}
+            >
+              Previous
+            </button>
+            <button
+              className="btn btn-primary flex-1 justify-center px-4 py-3"
+              onClick={() => {
+                if (last) {
+                  onNext();
+                  return;
+                }
+                goTo(i + 1);
+              }}
+            >
+              {last ? "Continue" : "Next word"}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ---------- Listening + cloze notes ----------
+
+function ListeningClozeStepView({ step, onNext }: { step: ListeningClozeStep; onNext: (score?: Score) => void }) {
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const [playing, setPlaying] = useState(false);
+  const [showScript, setShowScript] = useState(false);
+  const segments = useMemo(() => parseCloze(step.template), [step.template]);
+  const blanks = useMemo(() => segments.filter((s): s is { blank: string } => "blank" in s).map((s) => s.blank), [segments]);
+  const blankIndexBySegment = useMemo(() => {
+    const arr: number[] = [];
+    let n = 0;
+    for (const s of segments) {
+      if ("blank" in s) {
+        arr.push(n);
+        n += 1;
+      } else {
+        arr.push(-1);
+      }
+    }
+    return arr;
+  }, [segments]);
+  const [inputs, setInputs] = useState<string[]>(() => blanks.map(() => ""));
+  const [checked, setChecked] = useState(false);
+
+  useEffect(() => () => audioRef.current?.pause(), []);
+
+  const correctCount = inputs.filter((v, i) => norm(v) === norm(blanks[i])).length;
+
+  return (
+    <div className="flex flex-1 flex-col p-4">
+      <div className="mb-3 text-[13px] text-neutral-700">{step.instructions}</div>
+      <div className="mb-4 flex flex-col items-center gap-2 bg-surface px-4 py-6">
+        <audio
+          ref={audioRef}
+          src={step.audioUrl}
+          onPlay={() => setPlaying(true)}
+          onPause={() => setPlaying(false)}
+          onEnded={() => setPlaying(false)}
+        />
+        <button
+          className="btn btn-primary flex h-[64px] w-[64px] items-center justify-center p-0"
+          onClick={() => {
+            const el = audioRef.current;
+            if (!el) return;
+            if (el.paused) el.play();
+            else el.pause();
+          }}
+          aria-label={playing ? "Pause" : "Play"}
+        >
+          {playing ? <PauseIcon /> : <SpeakerIcon />}
+        </button>
+        <div className="label-xs">{playing ? "Playing…" : "Tap to listen"}</div>
+      </div>
+      <button className="btn btn-secondary mb-4" onClick={() => setShowScript((v) => !v)}>
+        {showScript ? "Hide script" : "Show script"}
+      </button>
+      {showScript && (
+        <div className="mb-4 bg-surface p-4 text-[13px] leading-relaxed whitespace-pre-wrap">{step.script}</div>
+      )}
+      <div className="mb-4 bg-surface p-4 text-[15px] leading-loose whitespace-pre-wrap text-pretty">
+        {segments.map((s, i) => {
+          if ("text" in s) return <span key={i}>{s.text}</span>;
+          const idx = blankIndexBySegment[i];
+          const ok = checked && norm(inputs[idx]) === norm(blanks[idx]);
+          return (
+            <input
+              key={i}
+              className="input mx-1 inline-block w-[120px]"
+              style={{
+                display: "inline-block",
+                borderColor: checked ? (ok ? "var(--color-text)" : "var(--color-accent)") : undefined,
+              }}
+              disabled={checked}
+              value={inputs[idx]}
+              onChange={(e) => {
+                const next = [...inputs];
+                next[idx] = e.target.value;
+                setInputs(next);
+              }}
+              placeholder="..."
+            />
+          );
+        })}
+      </div>
+      {checked && (
+        <div className="mb-3 bg-accent-100 px-4 py-3 text-[13px] leading-relaxed text-accent-800">
+          <span className="label-xs mb-0.5 block">Score</span>
+          <span className="font-extrabold">
+            {correctCount}/{blanks.length} correct
+          </span>
+        </div>
+      )}
+      {step.tip && !checked && <Tip>{step.tip}</Tip>}
+      {checked ? (
+        <ContinueButton onClick={() => onNext({ correct: correctCount, total: blanks.length })} />
+      ) : (
+        <button className="btn btn-primary btn-block mt-auto px-4 py-3" onClick={() => setChecked(true)}>
+          Check
+        </button>
+      )}
+    </div>
+  );
+}
+
+// ---------- Sort into two buckets ----------
+
+function SortStepView({ step, onNext }: { step: SortStep; onNext: (score?: Score) => void }) {
+  const [assigned, setAssigned] = useState<Record<string, 0 | 1 | undefined>>({});
+  const [selected, setSelected] = useState<string | null>(null);
+  const [checked, setChecked] = useState(false);
+
+  const pool = step.items.filter((it) => assigned[it.term] === undefined);
+  const bucketItems = (b: 0 | 1) => step.items.filter((it) => assigned[it.term] === b);
+  const allAssigned = pool.length === 0;
+  const correctCount = step.items.filter((it) => assigned[it.term] === it.bucket).length;
+
+  function assign(b: 0 | 1) {
+    if (!selected) return;
+    setAssigned((a) => ({ ...a, [selected]: b }));
+    setSelected(null);
+  }
+
+  return (
+    <div className="flex flex-1 flex-col p-4">
+      <div className="mb-3 text-[13px] text-neutral-700">{step.instructions}</div>
+
+      {!checked && pool.length > 0 && (
+        <div className="mb-4 flex flex-wrap gap-1.5">
+          {pool.map((it) => (
+            <button
+              key={it.term}
+              onClick={() => setSelected((s) => (s === it.term ? null : it.term))}
+              className="border px-3 py-1.5 text-[13px] font-bold"
+              style={{
+                borderColor: selected === it.term ? "var(--color-accent)" : "var(--color-divider)",
+                background: selected === it.term ? "var(--color-accent-100)" : "var(--color-surface)",
+                color: selected === it.term ? "var(--color-accent-800)" : "var(--color-text)",
+              }}
+            >
+              {it.term}
+            </button>
+          ))}
+        </div>
+      )}
+
+      <div className="grid grid-cols-2 gap-2">
+        {([0, 1] as const).map((b) => (
+          <button
+            key={b}
+            disabled={checked || !selected}
+            onClick={() => assign(b)}
+            className="min-h-[160px] border border-dashed border-[color:var(--color-divider)] bg-bg p-2 text-left align-top disabled:opacity-100"
+          >
+            <div className="label-xs mb-2 text-accent">{step.buckets[b]}</div>
+            <div className="flex flex-wrap gap-1">
+              {bucketItems(b).map((it) => {
+                const wrong = checked && it.bucket !== b;
+                return (
+                  <span
+                    key={it.term}
+                    className="border px-2 py-1 text-[12px] font-bold"
+                    style={
+                      checked
+                        ? wrong
+                          ? { borderColor: "var(--color-accent)", background: "var(--color-accent-100)", color: "var(--color-accent-800)" }
+                          : { borderColor: "var(--color-text)", background: "var(--color-text)", color: "var(--color-bg)" }
+                        : { borderColor: "var(--color-divider)", background: "var(--color-surface)" }
+                    }
+                  >
+                    {it.term}
+                  </span>
+                );
+              })}
+            </div>
+          </button>
+        ))}
+      </div>
+
+      {checked && (
+        <div className="mt-4 bg-accent-100 px-4 py-3 text-[13px] leading-relaxed text-accent-800">
+          <span className="label-xs mb-0.5 block">Score</span>
+          <span className="font-extrabold">
+            {correctCount}/{step.items.length} correct
+          </span>
+        </div>
+      )}
+
+      {checked ? (
+        <ContinueButton onClick={() => onNext({ correct: correctCount, total: step.items.length })} />
+      ) : (
+        <button
+          className="btn btn-primary btn-block mt-4 px-4 py-3 disabled:opacity-40"
+          disabled={!allAssigned}
+          onClick={() => setChecked(true)}
+        >
+          Check
+        </button>
+      )}
+    </div>
+  );
+}
+
+// ---------- Type the answer ----------
+
+function TypeFillStepView({ step, onNext }: { step: TypeFillStep; onNext: (score?: Score) => void }) {
+  const [inputs, setInputs] = useState<string[]>(() => step.items.map(() => ""));
+  const [checked, setChecked] = useState(false);
+  const correctCount = inputs.filter((v, i) => norm(v) === norm(step.items[i].answer)).length;
+
+  return (
+    <div className="flex flex-1 flex-col p-4">
+      <div className="mb-3 text-[13px] text-neutral-700">{step.instructions}</div>
+      {step.items.map((it, i) => {
+        const ok = checked && norm(inputs[i]) === norm(it.answer);
+        const bad = checked && !ok;
+        return (
+          <div key={i} className="mb-3">
+            <div className="mb-1 text-[15px] font-extrabold">{it.prompt}</div>
+            <input
+              className="input"
+              style={{ borderColor: bad ? "var(--color-accent)" : ok ? "var(--color-text)" : undefined }}
+              disabled={checked}
+              value={inputs[i]}
+              onChange={(e) => {
+                const next = [...inputs];
+                next[i] = e.target.value;
+                setInputs(next);
+              }}
+              placeholder="Type the negative form"
+            />
+            {bad && (
+              <div className="mt-1 text-[12px] text-accent-700">
+                Answer: <span className="font-extrabold">{it.answer}</span>
+              </div>
+            )}
+          </div>
+        );
+      })}
+      {checked && (
+        <div className="mb-3 bg-accent-100 px-4 py-3 text-[13px] leading-relaxed text-accent-800">
+          <span className="label-xs mb-0.5 block">Score</span>
+          <span className="font-extrabold">
+            {correctCount}/{step.items.length} correct
+          </span>
+        </div>
+      )}
+      {checked ? (
+        <ContinueButton onClick={() => onNext({ correct: correctCount, total: step.items.length })} />
+      ) : (
+        <button className="btn btn-primary btn-block mt-auto px-4 py-3" onClick={() => setChecked(true)}>
+          Check
+        </button>
+      )}
+    </div>
+  );
+}
+
+// ---------- Multiple choice fill-in ----------
+
+function FillMcStepView({ step, onNext }: { step: FillMcStep; onNext: (score?: Score) => void }) {
+  const [picked, setPicked] = useState<(string | null)[]>(() => step.items.map(() => null));
+  const [checked, setChecked] = useState(false);
+  const allPicked = picked.every((p) => p !== null);
+  const correctCount = picked.filter((p, i) => p === step.items[i].answer).length;
+
+  return (
+    <div className="flex flex-1 flex-col p-4">
+      <div className="mb-3 text-[13px] text-neutral-700">{step.instructions}</div>
+      {step.items.map((it, i) => (
+        <div key={i} className="mb-4">
+          <div className="mb-2 text-[14px] leading-relaxed">
+            {it.before} <span className="font-extrabold text-accent-700">{picked[i] ?? "____"}</span> {it.after}
+          </div>
+          <div className="flex flex-wrap gap-1.5">
+            {it.options.map((o) => {
+              const isAnswer = o === it.answer;
+              const isPicked = picked[i] === o;
+              let style: React.CSSProperties = {
+                borderColor: "var(--color-divider)",
+                background: "var(--color-surface)",
+                color: "var(--color-text)",
+              };
+              if (checked) {
+                if (isAnswer) style = { borderColor: "var(--color-text)", background: "var(--color-text)", color: "var(--color-bg)" };
+                else if (isPicked) style = { borderColor: "var(--color-accent)", background: "var(--color-accent-100)", color: "var(--color-accent-800)" };
+                else style = { borderColor: "var(--color-divider)", background: "var(--color-bg)", color: "var(--color-neutral-600)" };
+              } else if (isPicked) {
+                style = { borderColor: "var(--color-accent)", background: "var(--color-accent-100)", color: "var(--color-accent-800)" };
+              }
+              return (
+                <button
+                  key={o}
+                  disabled={checked}
+                  style={style}
+                  className="border px-3 py-1.5 text-[13px] font-bold"
+                  onClick={() => {
+                    const next = [...picked];
+                    next[i] = o;
+                    setPicked(next);
+                  }}
+                >
+                  {o}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      ))}
+      {checked && (
+        <div className="mb-3 bg-accent-100 px-4 py-3 text-[13px] leading-relaxed text-accent-800">
+          <span className="label-xs mb-0.5 block">Score</span>
+          <span className="font-extrabold">
+            {correctCount}/{step.items.length} correct
+          </span>
+        </div>
+      )}
+      {checked ? (
+        <ContinueButton onClick={() => onNext({ correct: correctCount, total: step.items.length })} />
+      ) : (
+        <button
+          className="btn btn-primary btn-block mt-auto px-4 py-3 disabled:opacity-40"
+          disabled={!allPicked}
+          onClick={() => setChecked(true)}
+        >
+          Check
+        </button>
+      )}
+    </div>
+  );
+}
+
+// ---------- Reading: True / False / Not given ----------
+
+function ReadingTfNgStepView({ step, onNext }: { step: ReadingTfNgStep; onNext: (score?: Score) => void }) {
+  const OPTIONS = ["True", "False", "Not given"] as const;
+  const [picked, setPicked] = useState<(string | null)[]>(() => step.questions.map(() => null));
+  const [checked, setChecked] = useState(false);
+  const [showPassage, setShowPassage] = useState(true);
+  const allPicked = picked.every((p) => p !== null);
+  const correctCount = picked.filter((p, i) => p === step.questions[i].answer).length;
+
+  return (
+    <div className="flex flex-1 flex-col p-4">
+      <button className="btn btn-secondary mb-3" onClick={() => setShowPassage((v) => !v)}>
+        {showPassage ? "Hide passage" : "Show passage"}
+      </button>
+      {showPassage && (
+        <div className="mb-4 max-h-[280px] overflow-y-auto bg-surface p-4">
+          <div className="mb-2 text-[14px] font-extrabold">{step.passageTitle}</div>
+          <div className="text-[13px] leading-relaxed whitespace-pre-line text-neutral-800">{step.passage}</div>
+        </div>
+      )}
+      {step.questions.map((q, i) => {
+        const ok = checked && picked[i] === q.answer;
+        return (
+          <div key={i} className="mb-4">
+            <div className="mb-2 text-[13px] leading-relaxed">
+              <span className="mr-1.5 text-neutral-600">{i + 1}.</span>
+              {q.text}
+            </div>
+            <div className="flex gap-1.5">
+              {OPTIONS.map((o) => {
+                const isAnswer = o === q.answer;
+                const isPicked = picked[i] === o;
+                let style: React.CSSProperties = {
+                  borderColor: "var(--color-divider)",
+                  background: "var(--color-surface)",
+                  color: "var(--color-text)",
+                };
+                if (checked) {
+                  if (isAnswer) style = { borderColor: "var(--color-text)", background: "var(--color-text)", color: "var(--color-bg)" };
+                  else if (isPicked) style = { borderColor: "var(--color-accent)", background: "var(--color-accent-100)", color: "var(--color-accent-800)" };
+                  else style = { borderColor: "var(--color-divider)", background: "var(--color-bg)", color: "var(--color-neutral-600)" };
+                } else if (isPicked) {
+                  style = { borderColor: "var(--color-accent)", background: "var(--color-accent-100)", color: "var(--color-accent-800)" };
+                }
+                return (
+                  <button
+                    key={o}
+                    disabled={checked}
+                    style={style}
+                    className="flex-1 border px-2 py-1.5 text-[12px] font-bold"
+                    onClick={() => {
+                      const next = [...picked];
+                      next[i] = o;
+                      setPicked(next);
+                    }}
+                  >
+                    {o}
+                  </button>
+                );
+              })}
+            </div>
+            {checked && (
+              <div className={`mt-1.5 text-[12px] leading-relaxed ${ok ? "text-neutral-600" : "text-accent-700"}`}>
+                “{q.justification}”
+              </div>
+            )}
+          </div>
+        );
+      })}
+      {checked && (
+        <div className="mb-3 bg-accent-100 px-4 py-3 text-[13px] leading-relaxed text-accent-800">
+          <span className="label-xs mb-0.5 block">Score</span>
+          <span className="font-extrabold">
+            {correctCount}/{step.questions.length} correct
+          </span>
+        </div>
+      )}
+      {checked ? (
+        <ContinueButton onClick={() => onNext({ correct: correctCount, total: step.questions.length })} />
+      ) : (
+        <button
+          className="btn btn-primary btn-block mt-auto px-4 py-3 disabled:opacity-40"
+          disabled={!allPicked}
+          onClick={() => setChecked(true)}
+        >
+          Check
+        </button>
+      )}
+    </div>
+  );
+}
+
+// ---------- Tap to reveal paraphrase pairs ----------
+
+function RevealPairsStepView({ step, onNext }: { step: RevealPairsStep; onNext: (score?: Score) => void }) {
+  const [revealed, setRevealed] = useState<boolean[]>(() => step.pairs.map(() => false));
+
+  return (
+    <div className="flex flex-1 flex-col p-4">
+      <div className="mb-3 text-[13px] text-neutral-700">{step.instructions}</div>
+      <div className="flex flex-col gap-px bg-[color:var(--color-divider)]">
+        {step.pairs.map((p, i) => (
+          <button
+            key={i}
+            onClick={() => {
+              const next = [...revealed];
+              next[i] = !next[i];
+              setRevealed(next);
+            }}
+            className="bg-surface p-3 text-left"
+          >
+            <div className="text-[14px] font-extrabold">{p.prompt}</div>
+            {revealed[i] ? (
+              <div className="mt-1 text-[13px] leading-relaxed text-accent-700">{p.reveal}</div>
+            ) : (
+              <div className="label-xs mt-1">Tap to reveal</div>
+            )}
+          </button>
+        ))}
+      </div>
+      <ContinueButton onClick={() => onNext()} />
+    </div>
+  );
+}
+
+// ---------- Speaking practice timer ----------
+
+function SpeakingStepView({ step, onNext }: { step: SpeakingStep; onNext: (score?: Score) => void }) {
+  const [phase, setPhase] = useState<"idle" | "prep" | "speak" | "done">("idle");
+  const [secondsLeft, setSecondsLeft] = useState(step.prepSeconds);
+
+  useEffect(() => {
+    if (phase !== "prep" && phase !== "speak") return;
+    const t = setTimeout(() => {
+      setSecondsLeft((s) => {
+        if (s > 1) return s - 1;
+        setPhase((p) => (p === "prep" ? "speak" : "done"));
+        return phase === "prep" ? step.talkSeconds : 0;
+      });
+    }, 1000);
+    return () => clearTimeout(t);
+  }, [phase, secondsLeft, step.talkSeconds]);
+
+  function fmt(s: number) {
+    const m = Math.floor(s / 60);
+    const r = s % 60;
+    return `${m}:${r.toString().padStart(2, "0")}`;
+  }
+
+  return (
+    <div className="flex flex-1 flex-col p-4">
+      <div className="mb-4 bg-surface p-4">
+        <div className="label-xs mb-2 text-accent">Cue card</div>
+        <div className="mb-3 text-[16px] font-extrabold leading-snug">{step.prompt}</div>
+        <div className="mb-1 text-[12px] text-neutral-600">You should talk about:</div>
+        <ul className="list-disc pl-5 text-[13px] leading-relaxed">
+          {step.bullets.map((b, i) => (
+            <li key={i}>{b}</li>
+          ))}
+        </ul>
+      </div>
+
+      {phase === "idle" && (
+        <button
+          className="btn btn-primary btn-block px-4 py-3"
+          onClick={() => {
+            setSecondsLeft(step.prepSeconds);
+            setPhase("prep");
+          }}
+        >
+          Start 1-minute preparation
+        </button>
+      )}
+
+      {(phase === "prep" || phase === "speak") && (
+        <div className="flex flex-1 flex-col items-center justify-center gap-3 bg-bg py-8">
+          <div className="label-xs text-accent">{phase === "prep" ? "Preparation time" : "Speak now"}</div>
+          <div className="text-[56px] leading-none font-extrabold tabular-nums">{fmt(secondsLeft)}</div>
+          {phase === "prep" ? (
+            <button
+              className="btn btn-secondary"
+              onClick={() => {
+                setSecondsLeft(step.talkSeconds);
+                setPhase("speak");
+              }}
+            >
+              Start speaking now
+            </button>
+          ) : (
+            <button className="btn btn-secondary" onClick={() => setPhase("done")}>
+              Stop
+            </button>
+          )}
+        </div>
+      )}
+
+      {phase === "done" && (
+        <>
+          <Tip>{step.tip}</Tip>
+          <ContinueButton onClick={() => onNext()} />
+        </>
+      )}
+    </div>
+  );
+}
+
+// ---------- Wizard shell ----------
+
+const STEP_KIND_LABELS: Record<UnitStep["kind"], string> = {
+  vocab: "Vocabulary",
+  listening_cloze: "Listening",
+  sort: "Matching",
+  type_fill: "Fill in",
+  fill_mc: "Multiple choice",
+  reading_tfng: "Reading",
+  reveal_pairs: "Paraphrase",
+  speaking: "Speaking",
+};
+
+function ListIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="block h-4 w-4"
+    >
+      <path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01" />
+    </svg>
+  );
+}
+
+export function UnitClient({ slug }: { slug: string }) {
+  const router = useRouter();
+  const { grade } = useProgress();
+  const unit = useMemo(() => getCambridgeUnit(slug), [slug]);
+
+  const [stepIndex, setStepIndex] = useState(0);
+  const [tally, setTally] = useState<Score>({ correct: 0, total: 0 });
+  const [finished, setFinished] = useState(false);
+  const [showStepList, setShowStepList] = useState(false);
+
+  if (!unit) {
+    return (
+      <div className="p-4">
+        <p className="text-[13px] text-neutral-600">Unit not found.</p>
+        <button className="btn btn-ghost mt-3" onClick={() => router.push("/modules/cambridge-vocabulary-ielts-advanced")}>
+          All units
+        </button>
+      </div>
+    );
+  }
+
+  const steps: UnitStep[] = unit.steps;
+  const step = steps[stepIndex];
+
+  function goBack() {
+    if (stepIndex === 0) {
+      router.push("/modules/cambridge-vocabulary-ielts-advanced");
+      return;
+    }
+    setStepIndex((i) => i - 1);
+  }
+
+  function handleNext(score?: Score) {
+    const nextTally = score ? { correct: tally.correct + score.correct, total: tally.total + score.total } : tally;
+    setTally(nextTally);
+    if (stepIndex + 1 >= steps.length) {
+      grade(unit!.slug, true);
+      setFinished(true);
+      return;
+    }
+    setStepIndex((i) => i + 1);
+  }
+
+  function restart() {
+    setStepIndex(0);
+    setTally({ correct: 0, total: 0 });
+    setFinished(false);
+  }
+
+  if (finished) {
+    const pct = tally.total ? Math.round((tally.correct / tally.total) * 100) : 100;
+    const sub = pct >= 90 ? "Excellent work." : pct >= 70 ? "Solid work." : "Worth another look.";
+    return (
+      <div className="flex min-h-screen flex-col">
+        <div className="divider-b px-4 pt-8 pb-6">
+          <div className="label-xs text-accent">Unit complete</div>
+          <div className="mt-2 text-[30px] leading-tight font-extrabold">{unit.title}</div>
+          <div className="mt-3 text-[64px] leading-[0.95] font-extrabold tracking-tight">{pct}%</div>
+          <div className="mt-2 text-[13px] text-neutral-600">
+            {sub} {tally.correct}/{tally.total} across the graded exercises.
+          </div>
+        </div>
+        <div className="flex gap-[2px] p-4">
+          <button
+            className="btn btn-secondary flex-1 justify-center px-4 py-3"
+            onClick={() => router.push("/modules/cambridge-vocabulary-ielts-advanced")}
+          >
+            All units
+          </button>
+          <button className="btn btn-primary flex-1 justify-center px-4 py-3" onClick={restart}>
+            Redo unit
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="flex min-h-screen flex-col">
+      <div className="divider-b flex items-center gap-3 px-4 py-3">
+        <button onClick={goBack} className="relative h-[18px] w-[18px] flex-none text-neutral-600 hover:text-accent">
+          <BackIcon />
+        </button>
+        <div className="h-1.5 flex-1 bg-neutral-300">
+          <div className="h-full bg-accent" style={{ width: `${(stepIndex / steps.length) * 100}%` }} />
+        </div>
+      </div>
+      <div className="px-4 pt-3">
+        <span className="label-xs block text-accent">
+          Unit {unit.unit} · {unit.title} — {step.title}
+        </span>
+      </div>
+      <div className="flex items-center justify-between gap-3 px-4 pt-2">
+        <button
+          className="btn btn-ghost px-0 text-[11px]"
+          onClick={() => router.push("/modules/cambridge-vocabulary-ielts-advanced")}
+        >
+          ← Thoát
+        </button>
+        <div className="flex flex-none items-center gap-3">
+          <button
+            className="flex items-center gap-1 text-[11px] tabular-nums text-neutral-600 hover:text-accent"
+            onClick={() => setShowStepList(true)}
+            aria-label="Jump to exercise"
+          >
+            <ListIcon />
+            {stepIndex + 1}/{steps.length}
+          </button>
+          {stepIndex + 1 < steps.length && (
+            <button className="btn btn-ghost px-0 text-[11px]" onClick={() => handleNext()}>
+              Skip →
+            </button>
+          )}
+        </div>
+      </div>
+
+      {showStepList && (
+        <div className="fixed inset-0 z-[60] bg-bg">
+          <div className="mx-auto flex h-full max-w-[480px] flex-col">
+            <div className="divider-b flex items-center justify-between px-4 py-3">
+              <span className="text-[16px] font-extrabold">Exercises in this unit</span>
+              <button className="btn btn-ghost" onClick={() => setShowStepList(false)}>
+                Close
+              </button>
+            </div>
+            <div className="flex-1 overflow-y-auto">
+              {steps.map((s, i) => (
+                <button
+                  key={i}
+                  onClick={() => {
+                    setStepIndex(i);
+                    setShowStepList(false);
+                  }}
+                  className="divider-b flex w-full items-center gap-3 px-4 py-3 text-left hover:bg-surface"
+                  style={i === stepIndex ? { background: "var(--color-accent-100)" } : undefined}
+                >
+                  <span className="label-xs w-6 flex-none text-neutral-600">{i + 1}</span>
+                  <span className="flex-1">
+                    <span className="block text-[14px] font-extrabold">{s.title}</span>
+                    <span className="label-xs mt-0.5 block text-neutral-600">{STEP_KIND_LABELS[s.kind]}</span>
+                  </span>
+                  {i < stepIndex && <span className="label-xs text-accent">Done</span>}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {step.kind === "vocab" && <VocabStepView key={stepIndex} step={step} onNext={handleNext} />}
+      {step.kind === "listening_cloze" && <ListeningClozeStepView key={stepIndex} step={step} onNext={handleNext} />}
+      {step.kind === "sort" && <SortStepView key={stepIndex} step={step} onNext={handleNext} />}
+      {step.kind === "type_fill" && <TypeFillStepView key={stepIndex} step={step} onNext={handleNext} />}
+      {step.kind === "fill_mc" && <FillMcStepView key={stepIndex} step={step} onNext={handleNext} />}
+      {step.kind === "reading_tfng" && <ReadingTfNgStepView key={stepIndex} step={step} onNext={handleNext} />}
+      {step.kind === "reveal_pairs" && <RevealPairsStepView key={stepIndex} step={step} onNext={handleNext} />}
+      {step.kind === "speaking" && <SpeakingStepView key={stepIndex} step={step} onNext={handleNext} />}
+    </div>
+  );
+}

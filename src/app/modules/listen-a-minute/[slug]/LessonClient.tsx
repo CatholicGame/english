@@ -124,7 +124,7 @@ export function LessonClient({ slug }: { slug: string }) {
   useEffect(
     () => () => {
       audioRef.current?.pause();
-      if (boundWatchRef.current != null) cancelAnimationFrame(boundWatchRef.current);
+      if (boundWatchRef.current != null) clearInterval(boundWatchRef.current);
     },
     [],
   );
@@ -146,24 +146,25 @@ export function LessonClient({ slug }: { slug: string }) {
 
   function stopBoundWatch() {
     if (boundWatchRef.current != null) {
-      cancelAnimationFrame(boundWatchRef.current);
+      clearInterval(boundWatchRef.current);
       boundWatchRef.current = null;
     }
   }
 
-  // timeupdate only fires a few times a second, which let playback bleed ~0.5s
-  // past a sentence's end before the check ran — requestAnimationFrame checks the
-  // bound every frame instead, so playback stops right at the boundary.
-  function watchBound() {
+  // requestAnimationFrame seemed like the precise choice, but mobile browsers
+  // suspend/throttle rAF once the tab isn't actively painting (backgrounded, screen
+  // dimmed, low-power mode…) while the <audio> element keeps playing regardless —
+  // so the bound was silently never checked and sentences ran past their end on
+  // phones. setInterval keeps firing in those cases; onAudioTimeUpdate below is a
+  // second, independent backstop tied to the media clock rather than rendering.
+  function checkBound() {
     const el = audioRef.current;
     if (!el) return;
     if (boundEndRef.current != null && el.currentTime >= boundEndRef.current) {
       el.pause();
       boundEndRef.current = null;
-      boundWatchRef.current = null;
-      return;
+      stopBoundWatch();
     }
-    boundWatchRef.current = requestAnimationFrame(watchBound);
   }
 
   function playSentence(i: number) {
@@ -180,7 +181,7 @@ export function LessonClient({ slug }: { slug: string }) {
       el.removeEventListener("seeked", onSeeked);
       if (playGenRef.current !== gen) return;
       el.play();
-      boundWatchRef.current = requestAnimationFrame(watchBound);
+      boundWatchRef.current = window.setInterval(checkBound, 50);
     };
     el.addEventListener("seeked", onSeeked);
     el.currentTime = sentence.start;
@@ -189,6 +190,7 @@ export function LessonClient({ slug }: { slug: string }) {
   function onAudioTimeUpdate() {
     const el = audioRef.current;
     if (!el) return;
+    checkBound();
     const t = el.currentTime;
     setActiveSentence(lesson!.sentences.findIndex((s) => t >= s.start && t < s.end));
   }

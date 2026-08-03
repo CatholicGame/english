@@ -72,8 +72,8 @@ export default function ListenAMinutePage() {
   }
 
   return (
-    <div className="flex-1">
-      <div className="divider-b px-4 py-4">
+    <div className="flex-1 lg:flex lg:flex-row lg:items-stretch lg:gap-8 lg:px-4 lg:py-6">
+      <div className="divider-b px-4 py-4 lg:w-[300px] lg:flex-none lg:sticky lg:top-6 lg:self-stretch lg:border-r-2 lg:border-b-0 lg:border-[color:var(--color-divider)] lg:py-0 lg:pl-0 lg:pr-6">
         <Link href="/" className="btn btn-ghost mb-2 px-0">
           <svg
             viewBox="0 0 24 24"
@@ -131,36 +131,41 @@ export default function ListenAMinutePage() {
         </div>
       </div>
 
-      {groups.map(([letter, lessons]) => {
-        const open = searching || !collapsed[letter];
-        return (
-          <div key={letter}>
-            <button
-              onClick={() => toggleLetter(letter)}
-              className="divider-b flex w-full items-center justify-between px-4 py-2 text-left hover:bg-surface"
-              disabled={searching}
-            >
-              <span className="label-xs text-accent">{letter}</span>
-              {!searching && <ChevronIcon open={open} />}
-            </button>
-            {open &&
-              lessons.map((lesson) => {
-                const done = lvlOf(progress, lesson.slug) > 0;
-                return (
-                  <Link
-                    key={lesson.slug}
-                    href={`/modules/listen-a-minute/${lesson.slug}`}
-                    className="divider-b flex items-center justify-between gap-3 px-4 py-3 pl-6 hover:bg-surface"
-                  >
-                    <span className="text-[16px] font-extrabold">{lesson.title}</span>
-                    {done && <span className="label-xs text-accent">Done</span>}
-                  </Link>
-                );
-              })}
-          </div>
-        );
-      })}
-      {filtered.length === 0 && <div className="px-4 py-8 text-[13px] text-neutral-600">No match.</div>}
+      <div className="lg:flex-1">
+        {groups.map(([letter, lessons]) => {
+          const open = searching || !collapsed[letter];
+          return (
+            <div key={letter}>
+              <button
+                onClick={() => toggleLetter(letter)}
+                className="divider-b flex w-full items-center justify-between px-4 py-2 text-left hover:bg-surface"
+                disabled={searching}
+              >
+                <span className="label-xs text-accent">{letter}</span>
+                {!searching && <ChevronIcon open={open} />}
+              </button>
+              {open && (
+                <div className="lg:grid lg:grid-cols-2 lg:gap-x-4">
+                  {lessons.map((lesson) => {
+                    const done = lvlOf(progress, lesson.slug) > 0;
+                    return (
+                      <Link
+                        key={lesson.slug}
+                        href={`/modules/listen-a-minute/${lesson.slug}`}
+                        className="divider-b flex items-center justify-between gap-3 px-4 py-3 pl-6 hover:bg-surface"
+                      >
+                        <span className="text-[16px] font-extrabold">{lesson.title}</span>
+                        {done && <span className="label-xs text-accent">Done</span>}
+                      </Link>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+          );
+        })}
+        {filtered.length === 0 && <div className="px-4 py-8 text-[13px] text-neutral-600">No match.</div>}
+      </div>
     </div>
   );
 }

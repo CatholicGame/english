@@ -29,8 +29,8 @@ export default function CambridgeUnitsPage() {
   const donePct = total ? Math.round((doneCount / total) * 100) : 0;
 
   return (
-    <div className="flex-1">
-      <div className="divider-b px-4 py-4">
+    <div className="flex-1 lg:flex lg:flex-row lg:items-stretch lg:gap-8 lg:px-4 lg:py-6">
+      <div className="divider-b px-4 py-4 lg:w-[300px] lg:flex-none lg:sticky lg:top-6 lg:self-stretch lg:border-r-2 lg:border-b-0 lg:border-[color:var(--color-divider)] lg:py-0 lg:pl-0 lg:pr-6">
         <Link href="/" className="btn btn-ghost mb-2 px-0">
           <svg
             viewBox="0 0 24 24"
@@ -61,45 +61,49 @@ export default function CambridgeUnitsPage() {
         </div>
       </div>
 
-      <div className="label-xs px-4 pt-4 pb-2">Units</div>
-      {UNITS_META.map((u) => {
-        const done = lvlOf(progress, u.slug) > 0;
-        const body = (
-          <>
-            <div className="flex items-baseline justify-between gap-3">
-              <span className="text-[15px] font-extrabold">
-                <span className="mr-1.5 text-neutral-600">{u.unit}.</span>
-                {u.title}
-              </span>
-              {done ? (
-                <span className="label-xs whitespace-nowrap text-accent">Done</span>
-              ) : !u.available ? (
-                <span className="label-xs flex items-center gap-1 whitespace-nowrap text-neutral-500">
-                  <LockIcon />
-                  Soon
-                </span>
-              ) : null}
-            </div>
-            <div className="mt-1 text-[12px] text-neutral-600">{u.topics}</div>
-            <div className="mt-1.5 text-[11px] text-neutral-600">
-              Test practice: <span className="text-accent">{u.testPractice}</span>
-            </div>
-          </>
-        );
-        return u.available ? (
-          <Link
-            key={u.slug}
-            href={`/modules/cambridge-vocabulary-ielts-advanced/${u.slug}`}
-            className="divider-b block px-4 py-3 hover:bg-surface"
-          >
-            {body}
-          </Link>
-        ) : (
-          <div key={u.slug} className="divider-b px-4 py-3 opacity-50">
-            {body}
-          </div>
-        );
-      })}
+      <div className="lg:flex-1">
+        <div className="label-xs px-4 pt-4 pb-2 lg:px-0">Units</div>
+        <div className="lg:grid lg:grid-cols-2 lg:gap-x-4">
+          {UNITS_META.map((u) => {
+            const done = lvlOf(progress, u.slug) > 0;
+            const body = (
+              <>
+                <div className="flex items-baseline justify-between gap-3">
+                  <span className="text-[15px] font-extrabold">
+                    <span className="mr-1.5 text-neutral-600">{u.unit}.</span>
+                    {u.title}
+                  </span>
+                  {done ? (
+                    <span className="label-xs whitespace-nowrap text-accent">Done</span>
+                  ) : !u.available ? (
+                    <span className="label-xs flex items-center gap-1 whitespace-nowrap text-neutral-500">
+                      <LockIcon />
+                      Soon
+                    </span>
+                  ) : null}
+                </div>
+                <div className="mt-1 text-[12px] text-neutral-600">{u.topics}</div>
+                <div className="mt-1.5 text-[11px] text-neutral-600">
+                  Test practice: <span className="text-accent">{u.testPractice}</span>
+                </div>
+              </>
+            );
+            return u.available ? (
+              <Link
+                key={u.slug}
+                href={`/modules/cambridge-vocabulary-ielts-advanced/${u.slug}`}
+                className="divider-b block px-4 py-3 hover:bg-surface"
+              >
+                {body}
+              </Link>
+            ) : (
+              <div key={u.slug} className="divider-b px-4 py-3 opacity-50">
+                {body}
+              </div>
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 }

@@ -12,17 +12,21 @@ export default function ModuleLayout({ children }: { children: React.ReactNode }
 
   return (
     <ProgressProvider storageKey={MODULE_KEY}>
-      <div className="min-h-screen bg-bg">
-        <div className={`mx-auto flex min-h-screen w-full max-w-[480px] flex-col bg-bg ${hideNav ? "" : "pb-[74px]"}`}>
-          {children}
-        </div>
+      <div className="min-h-screen bg-bg lg:mx-auto lg:flex lg:w-full lg:max-w-[1040px] lg:flex-row lg:items-start lg:border-x-2 lg:border-[color:var(--color-divider)]">
         {!hideNav && (
-          <div className="fixed right-0 bottom-0 left-0 bg-bg">
-            <div className="mx-auto max-w-[480px]">
+          <div className="fixed right-0 bottom-0 left-0 bg-bg lg:sticky lg:inset-auto lg:top-0 lg:h-screen lg:w-[220px] lg:flex-none lg:border-r-2 lg:border-[color:var(--color-divider)]">
+            <div className="mx-auto max-w-[480px] lg:mx-0 lg:h-full lg:max-w-none">
               <BottomNav />
             </div>
           </div>
         )}
+        <div
+          className={`mx-auto flex min-h-screen w-full max-w-[480px] flex-col bg-bg lg:mx-0 lg:max-w-none lg:flex-1 ${
+            hideNav ? "" : "pb-[74px] lg:pb-0"
+          }`}
+        >
+          {children}
+        </div>
       </div>
     </ProgressProvider>
   );

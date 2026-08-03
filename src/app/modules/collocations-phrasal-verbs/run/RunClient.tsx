@@ -228,12 +228,14 @@ export function RunClient() {
         {missedUnique.length > 0 && (
           <div className="flex-1">
             <div className="label-xs px-4 pt-4 pb-2">Review these</div>
-            {missedUnique.map((m) => (
-              <div key={m.key} className="divider-t px-4 py-3">
-                <div className="text-[15px] font-extrabold">{m.term}</div>
-                <div className="mt-0.5 text-[12px] leading-relaxed text-neutral-700">{m.en}</div>
-              </div>
-            ))}
+            <div className="lg:grid lg:grid-cols-2 lg:gap-x-4">
+              {missedUnique.map((m) => (
+                <div key={m.key} className="divider-t px-4 py-3">
+                  <div className="text-[15px] font-extrabold">{m.term}</div>
+                  <div className="mt-0.5 text-[12px] leading-relaxed text-neutral-700">{m.en}</div>
+                </div>
+              ))}
+            </div>
           </div>
         )}
         <div className="flex gap-[2px] p-4">
@@ -280,7 +282,7 @@ export function RunClient() {
       <div className="label-xs px-4 pt-3 text-accent">{MODE_LABELS[session.mode]}</div>
 
       {q?.kind === "flash" && (
-        <div className="flex flex-1 flex-col p-4">
+        <div className="flex flex-1 flex-col p-4 lg:mx-auto lg:w-full lg:max-w-[640px]">
           <button
             onClick={() => {
               if (!flipped) speak(q.item.term);
@@ -339,59 +341,63 @@ export function RunClient() {
               : "What does it mean?";
           return (
             <div className="flex flex-1 flex-col p-4">
-              <div className="mb-4 bg-surface px-4 py-6">
-                {cq.kind === "listen" ? (
-                  <button
-                    className="btn btn-primary flex h-[72px] w-[72px] items-center justify-center p-0"
-                    onClick={() => speak(cq.item.term)}
-                  >
-                    <SpeakerIcon className="h-[34px] w-[34px]" />
-                  </button>
-                ) : (
-                  <div className="text-[28px] leading-tight font-extrabold tracking-tight text-balance">
-                    {cq.item.term}
-                  </div>
-                )}
-                <div className="label-xs mt-3">{hint}</div>
-              </div>
-              {cq.options.map((o) => {
-                let bg = SURF,
-                  bc = LINE,
-                  fg = INK;
-                if (ans) {
-                  if (o === cq.answer) {
-                    bg = INK;
-                    bc = INK;
-                    fg = BG;
-                  } else if (o === ans.picked) {
-                    bg = "var(--color-accent-100)";
-                    bc = ACC;
-                    fg = "var(--color-accent-800)";
-                  } else {
-                    fg = "var(--color-neutral-600)";
-                    bg = BG;
-                  }
-                }
-                return (
-                  <button
-                    key={o}
-                    style={{ borderColor: bc, background: bg, color: fg }}
-                    className="mb-0.5 w-full border p-3 text-left text-[14px] leading-snug"
-                    onClick={() => {
-                      if (ans) {
-                        next();
-                        return;
+              <div className="lg:flex lg:flex-row lg:items-start lg:gap-8">
+                <div className="mb-4 bg-surface px-4 py-6 lg:mb-0 lg:w-[300px] lg:flex-none lg:sticky lg:top-6">
+                  {cq.kind === "listen" ? (
+                    <button
+                      className="btn btn-primary flex h-[72px] w-[72px] items-center justify-center p-0"
+                      onClick={() => speak(cq.item.term)}
+                    >
+                      <SpeakerIcon className="h-[34px] w-[34px]" />
+                    </button>
+                  ) : (
+                    <div className="text-[28px] leading-tight font-extrabold tracking-tight text-balance">
+                      {cq.item.term}
+                    </div>
+                  )}
+                  <div className="label-xs mt-3">{hint}</div>
+                </div>
+                <div className="lg:flex-1">
+                  {cq.options.map((o) => {
+                    let bg = SURF,
+                      bc = LINE,
+                      fg = INK;
+                    if (ans) {
+                      if (o === cq.answer) {
+                        bg = INK;
+                        bc = INK;
+                        fg = BG;
+                      } else if (o === ans.picked) {
+                        bg = "var(--color-accent-100)";
+                        bc = ACC;
+                        fg = "var(--color-accent-800)";
+                      } else {
+                        fg = "var(--color-neutral-600)";
+                        bg = BG;
                       }
-                      const ok = o === cq.answer;
-                      setAns({ picked: o, ok });
-                      handleGrade(cq.item, ok);
-                      setTimeout(() => next(), ok ? 750 : 1700);
-                    }}
-                  >
-                    {o}
-                  </button>
-                );
-              })}
+                    }
+                    return (
+                      <button
+                        key={o}
+                        style={{ borderColor: bc, background: bg, color: fg }}
+                        className="mb-0.5 w-full border p-3 text-left text-[14px] leading-snug"
+                        onClick={() => {
+                          if (ans) {
+                            next();
+                            return;
+                          }
+                          const ok = o === cq.answer;
+                          setAns({ picked: o, ok });
+                          handleGrade(cq.item, ok);
+                          setTimeout(() => next(), ok ? 750 : 1700);
+                        }}
+                      >
+                        {o}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
             </div>
           );
         })()}
@@ -409,50 +415,54 @@ export function RunClient() {
           const slotText = ans ? wq.answer : input || " ";
           return (
             <div className="flex flex-1 flex-col p-4">
-              <div className="mb-4 bg-surface p-4">
-                {wq.kind === "fill" ? (
-                  <div className="text-[19px] leading-relaxed text-pretty">
-                    <span>{wq.before}</span>
-                    <span className="inline-block min-w-[84px] border-b-2 border-accent font-extrabold text-accent-700">
-                      {slotText}
-                    </span>
-                    <span>{wq.after}</span>
-                  </div>
-                ) : (
-                  <div>
-                    <div className="text-[19px] leading-snug font-extrabold text-pretty">{wq.item.en}</div>
-                    <div className="mt-1.5 text-[14px] leading-relaxed text-neutral-600">{wq.item.vi}</div>
-                  </div>
-                )}
-                <div className="label-xs mt-3">{hint}</div>
-              </div>
-              <input
-                className="input"
-                style={{
-                  minHeight: 48,
-                  fontSize: 16,
-                  borderColor: ans ? (ans.ok ? INK : ACC) : LINE,
-                  color: ans && !ans.ok ? "var(--color-accent-800)" : INK,
-                }}
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter") submitWrite();
-                }}
-                placeholder="Type here"
-              />
-              {ans && !ans.ok && (
-                <div className="mt-2 bg-accent-100 px-4 py-3 text-[13px] leading-relaxed text-accent-800">
-                  <span className="label-xs mb-0.5 block">Answer</span>
-                  <span className="font-extrabold">{wq.answer}</span>
+              <div className="lg:flex lg:flex-row lg:items-start lg:gap-8">
+                <div className="mb-4 bg-surface p-4 lg:mb-0 lg:w-[300px] lg:flex-none lg:sticky lg:top-6">
+                  {wq.kind === "fill" ? (
+                    <div className="text-[19px] leading-relaxed text-pretty">
+                      <span>{wq.before}</span>
+                      <span className="inline-block min-w-[84px] border-b-2 border-accent font-extrabold text-accent-700">
+                        {slotText}
+                      </span>
+                      <span>{wq.after}</span>
+                    </div>
+                  ) : (
+                    <div>
+                      <div className="text-[19px] leading-snug font-extrabold text-pretty">{wq.item.en}</div>
+                      <div className="mt-1.5 text-[14px] leading-relaxed text-neutral-600">{wq.item.vi}</div>
+                    </div>
+                  )}
+                  <div className="label-xs mt-3">{hint}</div>
                 </div>
-              )}
-              <button className="btn btn-primary btn-block mt-3 px-4 py-3" onClick={submitWrite}>
-                {ans ? "Continue" : "Check"}
-              </button>
-              <button className="btn btn-ghost mt-2" onClick={skipWrite}>
-                Skip
-              </button>
+                <div className="lg:flex-1">
+                  <input
+                    className="input"
+                    style={{
+                      minHeight: 48,
+                      fontSize: 16,
+                      borderColor: ans ? (ans.ok ? INK : ACC) : LINE,
+                      color: ans && !ans.ok ? "var(--color-accent-800)" : INK,
+                    }}
+                    value={input}
+                    onChange={(e) => setInput(e.target.value)}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter") submitWrite();
+                    }}
+                    placeholder="Type here"
+                  />
+                  {ans && !ans.ok && (
+                    <div className="mt-2 bg-accent-100 px-4 py-3 text-[13px] leading-relaxed text-accent-800">
+                      <span className="label-xs mb-0.5 block">Answer</span>
+                      <span className="font-extrabold">{wq.answer}</span>
+                    </div>
+                  )}
+                  <button className="btn btn-primary btn-block mt-3 px-4 py-3" onClick={submitWrite}>
+                    {ans ? "Continue" : "Check"}
+                  </button>
+                  <button className="btn btn-ghost mt-2" onClick={skipWrite}>
+                    Skip
+                  </button>
+                </div>
+              </div>
             </div>
           );
         })()}
@@ -470,7 +480,7 @@ export function RunClient() {
                   ? { bg: ACC, bc: ACC, fg: BG }
                   : { bg: SURF, bc: LINE, fg: INK };
           return (
-            <div className="flex-1 p-4">
+            <div className="flex-1 p-4 lg:mx-auto lg:w-full lg:max-w-[640px]">
               <div className="mb-4 text-[13px] text-neutral-700">Tap a phrase, then its meaning.</div>
               {mq.items.map((it, i) => {
                 const right = mq.right[i];

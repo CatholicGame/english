@@ -87,34 +87,36 @@ export default function ProgressPage() {
         </div>
       </div>
 
-      <div className="divider-b px-4 py-4">
-        <div className="label-xs mb-3">Mastery</div>
-        {mastery.map((m) => (
-          <div key={m.label} className="mb-3">
-            <div className="mb-1 flex justify-between text-[12px]">
-              <span>{m.label}</span>
-              <span className="tabular-nums text-neutral-600">{m.n}</span>
+      <div className="lg:grid lg:grid-cols-2 lg:gap-6">
+        <div className="divider-b px-4 py-4 lg:border-b-0">
+          <div className="label-xs mb-3">Mastery</div>
+          {mastery.map((m) => (
+            <div key={m.label} className="mb-3">
+              <div className="mb-1 flex justify-between text-[12px]">
+                <span>{m.label}</span>
+                <span className="tabular-nums text-neutral-600">{m.n}</span>
+              </div>
+              <div className="h-1.5 bg-neutral-300">
+                <div className="h-full" style={{ background: m.color, width: `${m.pct}%` }} />
+              </div>
             </div>
-            <div className="h-1.5 bg-neutral-300">
-              <div className="h-full" style={{ background: m.color, width: `${m.pct}%` }} />
-            </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
 
-      <div className="px-4 py-4">
-        <div className="label-xs mb-3">By group</div>
-        {groups.map((g) => (
-          <div key={g.label} className="mb-3">
-            <div className="mb-1 flex justify-between gap-3 text-[12px]">
-              <span className="truncate">{g.label}</span>
-              <span className="flex-none tabular-nums text-neutral-600">{g.n}</span>
+        <div className="px-4 py-4">
+          <div className="label-xs mb-3">By group</div>
+          {groups.map((g) => (
+            <div key={g.label} className="mb-3">
+              <div className="mb-1 flex justify-between gap-3 text-[12px]">
+                <span className="truncate">{g.label}</span>
+                <span className="flex-none tabular-nums text-neutral-600">{g.n}</span>
+              </div>
+              <div className="h-1.5 bg-neutral-300">
+                <div className="h-full bg-accent" style={{ width: `${g.pct}%` }} />
+              </div>
             </div>
-            <div className="h-1.5 bg-neutral-300">
-              <div className="h-full bg-accent" style={{ width: `${g.pct}%` }} />
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );

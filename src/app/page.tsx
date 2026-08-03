@@ -3,7 +3,7 @@ import { MODULES } from "@/data/modules";
 
 export default function HomePage() {
   return (
-    <div className="mx-auto flex min-h-screen w-full max-w-[480px] flex-col bg-bg">
+    <div className="mx-auto flex min-h-screen w-full max-w-[480px] flex-col bg-bg lg:max-w-[1040px] lg:border-x-2 lg:border-[color:var(--color-divider)]">
       <div className="divider-b px-4 py-6">
         <h1 className="text-[30px]">English App</h1>
         <p className="mt-1 text-[13px] text-neutral-600">Choose a topic to start practicing.</p>
@@ -11,7 +11,7 @@ export default function HomePage() {
 
       <div className="flex-1 px-4 py-4">
         <div className="label-xs mb-2">Topics</div>
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2 lg:grid lg:grid-cols-2 lg:gap-3">
           {MODULES.map((m) =>
             m.available ? (
               <Link

@@ -102,39 +102,41 @@ export function VerbDetailClient({ slug }: { slug: string }) {
         </button>
       </div>
 
-      {items.map((it) => {
-        const lvl = lvlOf(progress, `${verb.verb}::${it.term}`);
-        return (
-          <div key={it.term} className="divider-b px-4 py-3">
-            <div className="flex items-start justify-between gap-3">
-              <span className="text-[16px] font-extrabold">{it.term}</span>
-              <span className="flex flex-none items-center gap-2">
-                <span className="flex gap-0.5">
-                  {[0, 1, 2, 3, 4].map((n) => (
-                    <span
-                      key={n}
-                      className="block h-1.5 w-1.5"
-                      style={{ background: n < lvl ? "var(--color-accent)" : "var(--color-neutral-300)" }}
-                    />
-                  ))}
+      <div className="lg:grid lg:grid-cols-2 lg:gap-x-4">
+        {items.map((it) => {
+          const lvl = lvlOf(progress, `${verb.verb}::${it.term}`);
+          return (
+            <div key={it.term} className="divider-b px-4 py-3">
+              <div className="flex items-start justify-between gap-3">
+                <span className="text-[16px] font-extrabold">{it.term}</span>
+                <span className="flex flex-none items-center gap-2">
+                  <span className="flex gap-0.5">
+                    {[0, 1, 2, 3, 4].map((n) => (
+                      <span
+                        key={n}
+                        className="block h-1.5 w-1.5"
+                        style={{ background: n < lvl ? "var(--color-accent)" : "var(--color-neutral-300)" }}
+                      />
+                    ))}
+                  </span>
+                  <button
+                    className="flex h-[26px] w-[26px] items-center justify-center text-neutral-600 hover:text-accent"
+                    onClick={() => speak(it.term)}
+                    aria-label="Pronounce"
+                  >
+                    <SpeakerIcon className="h-4 w-4" />
+                  </button>
                 </span>
-                <button
-                  className="flex h-[26px] w-[26px] items-center justify-center text-neutral-600 hover:text-accent"
-                  onClick={() => speak(it.term)}
-                  aria-label="Pronounce"
-                >
-                  <SpeakerIcon className="h-4 w-4" />
-                </button>
-              </span>
+              </div>
+              <div className="mt-1 text-[13px] leading-relaxed">{it.en}</div>
+              <div className="mt-0.5 text-[12px] leading-relaxed text-neutral-600">{it.vi}</div>
+              <div className="mt-2 border-l-2 border-[color:var(--color-divider)] pl-3 text-[12px] leading-relaxed text-neutral-700">
+                {it.ex}
+              </div>
             </div>
-            <div className="mt-1 text-[13px] leading-relaxed">{it.en}</div>
-            <div className="mt-0.5 text-[12px] leading-relaxed text-neutral-600">{it.vi}</div>
-            <div className="mt-2 border-l-2 border-[color:var(--color-divider)] pl-3 text-[12px] leading-relaxed text-neutral-700">
-              {it.ex}
-            </div>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
       {items.length === 0 && (
         <div className="px-4 py-8 text-[13px] text-neutral-600">Nothing listed here for this verb.</div>
       )}

@@ -96,7 +96,7 @@ export default function TodayPage() {
       </div>
 
       <div className="label-xs px-4 pt-4 pb-2">Practice</div>
-      <div className="divider-t grid grid-cols-2 gap-[2px] bg-[color:var(--color-divider)]">
+      <div className="divider-t grid grid-cols-2 gap-[2px] bg-[color:var(--color-divider)] lg:grid-cols-3">
         {PRACTICE_MODES.map((m) => (
           <button
             key={m.mode}

@@ -32,66 +32,72 @@ export default function VerbsPage() {
   );
 
   return (
-    <div>
-      <div className="divider-b px-4 py-4">
-        <h1 className="mb-3 text-[30px]">Verbs</h1>
-        <input
-          className="input"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder="Search verb, phrase or meaning"
-        />
+    <div className="lg:flex lg:flex-row lg:items-stretch lg:gap-8 lg:px-4 lg:py-6">
+      <div className="lg:w-[280px] lg:flex-none lg:sticky lg:top-6 lg:self-stretch lg:border-r-2 lg:border-[color:var(--color-divider)] lg:pr-6">
+        <div className="divider-b px-4 py-4 lg:border-b-0 lg:px-0 lg:py-0">
+          <h1 className="mb-3 text-[30px]">Verbs</h1>
+          <input
+            className="input"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Search verb, phrase or meaning"
+          />
+        </div>
+
+        <div className="divider-b flex gap-[2px] overflow-x-auto bg-[color:var(--color-divider)] lg:mt-3 lg:flex-col lg:gap-1 lg:overflow-visible lg:border-b-0 lg:bg-transparent">
+          {GROUP_KEYS.map((k) => (
+            <button
+              key={k}
+              onClick={() => setGroup(k)}
+              className={`flex-none px-3.5 py-2.5 text-[11px] font-extrabold tracking-wider uppercase lg:text-left ${
+                group === k ? "bg-ink text-bg" : "bg-bg text-ink"
+              }`}
+            >
+              {k === "all" ? "All" : `${k} · ${GROUP_LABELS[k].split(" /")[0]}`}
+            </button>
+          ))}
+        </div>
       </div>
 
-      <div className="divider-b flex gap-[2px] overflow-x-auto bg-[color:var(--color-divider)]">
-        {GROUP_KEYS.map((k) => (
-          <button
-            key={k}
-            onClick={() => setGroup(k)}
-            className={`flex-none px-3.5 py-2.5 text-[11px] font-extrabold tracking-wider uppercase ${
-              group === k ? "bg-ink text-bg" : "bg-bg text-ink"
-            }`}
-          >
-            {k === "all" ? "All" : `${k} · ${GROUP_LABELS[k].split(" /")[0]}`}
-          </button>
-        ))}
+      <div className="lg:flex-1">
+        <div className="lg:grid lg:grid-cols-2 lg:gap-x-4">
+          {listVerbs.map((v) => {
+            const done = v.items.filter((it) => lvlOf(progress, `${v.verb}::${it.term}`) >= 3).length;
+            const pct = v.items.length ? Math.round((done / v.items.length) * 100) : 0;
+            return (
+              <Link
+                key={v.verb}
+                href={`/modules/collocations-phrasal-verbs/verbs/${v.verb.toLowerCase()}`}
+                className="divider-b flex items-center gap-3 px-4 py-3 hover:bg-surface"
+              >
+                <span className="min-w-0 flex-1">
+                  <span className="flex items-baseline gap-2">
+                    <span className="text-[18px] font-extrabold tracking-tight uppercase">{v.verb}</span>
+                    <span className="text-[10px] tracking-wider text-accent">{v.group}</span>
+                  </span>
+                  <span className="mt-0.5 block truncate text-[11px] text-neutral-600">
+                    {v.items
+                      .slice(0, 3)
+                      .map((it) => it.term)
+                      .join(" · ")}
+                  </span>
+                </span>
+                <span className="w-11 flex-none">
+                  <span className="mb-1 block text-right text-[11px] tabular-nums text-neutral-600">
+                    {v.items.length}
+                  </span>
+                  <span className="block h-1 bg-neutral-300">
+                    <span className="block h-full bg-accent" style={{ width: `${pct}%` }} />
+                  </span>
+                </span>
+              </Link>
+            );
+          })}
+        </div>
+        {listVerbs.length === 0 && (
+          <div className="px-4 py-8 text-[13px] text-neutral-600">No match.</div>
+        )}
       </div>
-
-      {listVerbs.map((v) => {
-        const done = v.items.filter((it) => lvlOf(progress, `${v.verb}::${it.term}`) >= 3).length;
-        const pct = v.items.length ? Math.round((done / v.items.length) * 100) : 0;
-        return (
-          <Link
-            key={v.verb}
-            href={`/modules/collocations-phrasal-verbs/verbs/${v.verb.toLowerCase()}`}
-            className="divider-b flex items-center gap-3 px-4 py-3 hover:bg-surface"
-          >
-            <span className="min-w-0 flex-1">
-              <span className="flex items-baseline gap-2">
-                <span className="text-[18px] font-extrabold tracking-tight uppercase">{v.verb}</span>
-                <span className="text-[10px] tracking-wider text-accent">{v.group}</span>
-              </span>
-              <span className="mt-0.5 block truncate text-[11px] text-neutral-600">
-                {v.items
-                  .slice(0, 3)
-                  .map((it) => it.term)
-                  .join(" · ")}
-              </span>
-            </span>
-            <span className="w-11 flex-none">
-              <span className="mb-1 block text-right text-[11px] tabular-nums text-neutral-600">
-                {v.items.length}
-              </span>
-              <span className="block h-1 bg-neutral-300">
-                <span className="block h-full bg-accent" style={{ width: `${pct}%` }} />
-              </span>
-            </span>
-          </Link>
-        );
-      })}
-      {listVerbs.length === 0 && (
-        <div className="px-4 py-8 text-[13px] text-neutral-600">No match.</div>
-      )}
     </div>
   );
 }

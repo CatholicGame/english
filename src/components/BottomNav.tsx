@@ -61,15 +61,15 @@ const TABS = [
 export function BottomNav() {
   const pathname = usePathname();
   return (
-    <div className="divider-t flex h-[74px] gap-px bg-bg">
+    <div className="divider-t flex h-[74px] gap-px bg-bg lg:h-full lg:flex-col lg:gap-1 lg:border-t-0 lg:p-3">
       {TABS.map((t) => {
         const active = t.match(pathname);
         return (
           <Link
             key={t.href}
             href={t.href}
-            className={`flex-1 pt-3.5 text-center text-[9px] font-extrabold tracking-wider uppercase ${
-              active ? "text-accent" : "text-neutral-600"
+            className={`flex-1 pt-3.5 text-center text-[9px] font-extrabold tracking-wider uppercase lg:flex lg:flex-none lg:items-center lg:justify-start lg:gap-3 lg:px-3 lg:py-2.5 lg:text-left lg:text-[13px] lg:normal-case lg:tracking-normal lg:pt-0 ${
+              active ? "text-accent lg:bg-accent-100" : "text-neutral-600"
             }`}
           >
             <svg
@@ -79,7 +79,7 @@ export function BottomNav() {
               strokeWidth={2}
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="mx-auto mb-1.5 block h-5 w-5"
+              className="mx-auto mb-1.5 block h-5 w-5 lg:mx-0 lg:mb-0 lg:flex-none"
             >
               {t.icon}
               {"icon2" in t ? t.icon2 : null}

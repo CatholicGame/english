@@ -137,25 +137,29 @@ function VocabStepView({ step, onNext }: { step: VocabStep; onNext: (score?: Sco
         </span>
       </div>
 
-      <div className="bg-surface p-5">
-        <div className="flex items-baseline justify-between gap-3">
-          <div>
-            <span className="label-xs block text-accent">{w.pos}</span>
-            <span className="text-[26px] leading-tight font-extrabold tracking-tight text-balance">{w.term}</span>
-            <span className="mt-0.5 block text-[13px] text-neutral-600">{w.ipa}</span>
+      <div className="bg-surface p-5 lg:flex lg:flex-row lg:items-start lg:gap-8 lg:p-8">
+        <div className="lg:w-[300px] lg:flex-none lg:sticky lg:top-6">
+          <div className="flex items-baseline justify-between gap-3">
+            <div>
+              <span className="label-xs block text-accent">{w.pos}</span>
+              <span className="text-[26px] leading-tight font-extrabold tracking-tight text-balance">{w.term}</span>
+              <span className="mt-0.5 block text-[13px] text-neutral-600">{w.ipa}</span>
+            </div>
+            <button className="btn btn-icon flex-none" onClick={() => speak(w.term)} aria-label="Play pronunciation">
+              <SpeakerIcon className="h-5 w-5" />
+            </button>
           </div>
-          <button className="btn btn-icon flex-none" onClick={() => speak(w.term)} aria-label="Play pronunciation">
-            <SpeakerIcon className="h-5 w-5" />
-          </button>
-        </div>
-        <div className="mt-2 text-[13px] leading-relaxed text-neutral-700">{w.en}</div>
+          <div className="mt-2 text-[13px] leading-relaxed text-neutral-700">{w.en}</div>
 
-        {!revealed ? (
-          <button className="btn btn-primary btn-block mt-4 px-4 py-3" onClick={() => setRevealed(true)}>
-            Xem giải thích chi tiết
-          </button>
-        ) : (
-          <div className="animate-pop mt-4">
+          {!revealed && (
+            <button className="btn btn-primary btn-block mt-4 px-4 py-3" onClick={() => setRevealed(true)}>
+              Xem giải thích chi tiết
+            </button>
+          )}
+        </div>
+
+        {revealed && (
+          <div className="animate-pop mt-4 lg:mt-0 lg:flex-1">
             <div className="mb-4 border-l-2 border-accent pl-3">
               <div className="text-[13px] leading-relaxed text-neutral-700">{w.usageNote}</div>
               <div className="mt-1 text-[15px] font-extrabold text-accent-700">{w.vi}</div>
@@ -184,7 +188,7 @@ function VocabStepView({ step, onNext }: { step: VocabStep; onNext: (score?: Sco
       </div>
 
       <div className="fixed inset-x-0 bottom-0 bg-bg">
-        <div className="divider-t mx-auto max-w-[480px] p-4">
+        <div className="divider-t mx-auto max-w-[480px] p-4 lg:max-w-[1040px]">
           <div className="flex gap-0.5">
             <button
               className="btn btn-secondary flex-1 justify-center px-4 py-3"
@@ -243,58 +247,64 @@ function ListeningClozeStepView({ step, onNext }: { step: ListeningClozeStep; on
   return (
     <div className="flex flex-1 flex-col p-4">
       <div className="mb-3 text-[13px] text-neutral-700">{step.instructions}</div>
-      <div className="mb-4 flex flex-col items-center gap-2 bg-surface px-4 py-6">
-        <audio
-          ref={audioRef}
-          src={step.audioUrl}
-          onPlay={() => setPlaying(true)}
-          onPause={() => setPlaying(false)}
-          onEnded={() => setPlaying(false)}
-        />
-        <button
-          className="btn btn-primary flex h-[64px] w-[64px] items-center justify-center p-0"
-          onClick={() => {
-            const el = audioRef.current;
-            if (!el) return;
-            if (el.paused) el.play();
-            else el.pause();
-          }}
-          aria-label={playing ? "Pause" : "Play"}
-        >
-          {playing ? <PauseIcon /> : <SpeakerIcon />}
-        </button>
-        <div className="label-xs">{playing ? "Playing…" : "Tap to listen"}</div>
-      </div>
-      <button className="btn btn-secondary mb-4" onClick={() => setShowScript((v) => !v)}>
-        {showScript ? "Hide script" : "Show script"}
-      </button>
-      {showScript && (
-        <div className="mb-4 bg-surface p-4 text-[13px] leading-relaxed whitespace-pre-wrap">{step.script}</div>
-      )}
-      <div className="mb-4 bg-surface p-4 text-[15px] leading-loose whitespace-pre-wrap text-pretty">
-        {segments.map((s, i) => {
-          if ("text" in s) return <span key={i}>{s.text}</span>;
-          const idx = blankIndexBySegment[i];
-          const ok = checked && norm(inputs[idx]) === norm(blanks[idx]);
-          return (
-            <input
-              key={i}
-              className="input mx-1 inline-block w-[120px]"
-              style={{
-                display: "inline-block",
-                borderColor: checked ? (ok ? "var(--color-text)" : "var(--color-accent)") : undefined,
-              }}
-              disabled={checked}
-              value={inputs[idx]}
-              onChange={(e) => {
-                const next = [...inputs];
-                next[idx] = e.target.value;
-                setInputs(next);
-              }}
-              placeholder="..."
-            />
-          );
-        })}
+      <div className="lg:flex lg:flex-row lg:items-start lg:gap-8">
+        <div className="mb-4 flex flex-col items-center gap-2 bg-surface px-4 py-6 lg:mb-0 lg:w-[300px] lg:flex-none lg:sticky lg:top-6">
+          <audio
+            ref={audioRef}
+            src={step.audioUrl}
+            onPlay={() => setPlaying(true)}
+            onPause={() => setPlaying(false)}
+            onEnded={() => setPlaying(false)}
+          />
+          <button
+            className="btn btn-primary flex h-[64px] w-[64px] items-center justify-center p-0"
+            onClick={() => {
+              const el = audioRef.current;
+              if (!el) return;
+              if (el.paused) el.play();
+              else el.pause();
+            }}
+            aria-label={playing ? "Pause" : "Play"}
+          >
+            {playing ? <PauseIcon /> : <SpeakerIcon />}
+          </button>
+          <div className="label-xs">{playing ? "Playing…" : "Tap to listen"}</div>
+        </div>
+        <div className="lg:flex-1">
+          <button className="btn btn-secondary mb-4 lg:hidden" onClick={() => setShowScript((v) => !v)}>
+            {showScript ? "Hide script" : "Show script"}
+          </button>
+          <div
+            className={`mb-4 bg-surface p-4 text-[13px] leading-relaxed whitespace-pre-wrap lg:block ${showScript ? "block" : "hidden"}`}
+          >
+            {step.script}
+          </div>
+          <div className="mb-4 bg-surface p-4 text-[15px] leading-loose whitespace-pre-wrap text-pretty">
+            {segments.map((s, i) => {
+              if ("text" in s) return <span key={i}>{s.text}</span>;
+              const idx = blankIndexBySegment[i];
+              const ok = checked && norm(inputs[idx]) === norm(blanks[idx]);
+              return (
+                <input
+                  key={i}
+                  className="input mx-1 inline-block w-[120px]"
+                  style={{
+                    display: "inline-block",
+                    borderColor: checked ? (ok ? "var(--color-text)" : "var(--color-accent)") : undefined,
+                  }}
+                  disabled={checked}
+                  value={inputs[idx]}
+                  onChange={(e) => {
+                    const next = [...inputs];
+                    next[idx] = e.target.value;
+                    setInputs(next);
+                  }}
+                  placeholder="..."
+                />
+              );
+            })}
+          </div>
+        </div>
       </div>
       {checked && (
         <div className="mb-3 bg-accent-100 px-4 py-3 text-[13px] leading-relaxed text-accent-800">
@@ -338,27 +348,28 @@ function SortStepView({ step, onNext }: { step: SortStep; onNext: (score?: Score
     <div className="flex flex-1 flex-col p-4">
       <div className="mb-3 text-[13px] text-neutral-700">{step.instructions}</div>
 
-      {!checked && pool.length > 0 && (
-        <div className="mb-4 flex flex-wrap gap-1.5">
-          {pool.map((it) => (
-            <button
-              key={it.term}
-              onClick={() => setSelected((s) => (s === it.term ? null : it.term))}
-              className="border px-3 py-1.5 text-[13px] font-bold"
-              style={{
-                borderColor: selected === it.term ? "var(--color-accent)" : "var(--color-divider)",
-                background: selected === it.term ? "var(--color-accent-100)" : "var(--color-surface)",
-                color: selected === it.term ? "var(--color-accent-800)" : "var(--color-text)",
-              }}
-            >
-              {it.term}
-            </button>
-          ))}
-        </div>
-      )}
+      <div className="lg:grid lg:grid-cols-3 lg:items-start lg:gap-3">
+        {!checked && pool.length > 0 && (
+          <div className="mb-4 flex flex-wrap gap-1.5 lg:mb-0 lg:flex-col lg:flex-nowrap lg:items-start">
+            {pool.map((it) => (
+              <button
+                key={it.term}
+                onClick={() => setSelected((s) => (s === it.term ? null : it.term))}
+                className="border px-3 py-1.5 text-[13px] font-bold"
+                style={{
+                  borderColor: selected === it.term ? "var(--color-accent)" : "var(--color-divider)",
+                  background: selected === it.term ? "var(--color-accent-100)" : "var(--color-surface)",
+                  color: selected === it.term ? "var(--color-accent-800)" : "var(--color-text)",
+                }}
+              >
+                {it.term}
+              </button>
+            ))}
+          </div>
+        )}
 
-      <div className="grid grid-cols-2 gap-2">
-        {([0, 1] as const).map((b) => (
+        <div className="grid grid-cols-2 gap-2 lg:contents">
+          {([0, 1] as const).map((b) => (
           <button
             key={b}
             disabled={checked || !selected}
@@ -388,6 +399,7 @@ function SortStepView({ step, onNext }: { step: SortStep; onNext: (score?: Score
             </div>
           </button>
         ))}
+        </div>
       </div>
 
       {checked && (
@@ -424,32 +436,34 @@ function TypeFillStepView({ step, onNext }: { step: TypeFillStep; onNext: (score
   return (
     <div className="flex flex-1 flex-col p-4">
       <div className="mb-3 text-[13px] text-neutral-700">{step.instructions}</div>
-      {step.items.map((it, i) => {
-        const ok = checked && norm(inputs[i]) === norm(it.answer);
-        const bad = checked && !ok;
-        return (
-          <div key={i} className="mb-3">
-            <div className="mb-1 text-[15px] font-extrabold">{it.prompt}</div>
-            <input
-              className="input"
-              style={{ borderColor: bad ? "var(--color-accent)" : ok ? "var(--color-text)" : undefined }}
-              disabled={checked}
-              value={inputs[i]}
-              onChange={(e) => {
-                const next = [...inputs];
-                next[i] = e.target.value;
-                setInputs(next);
-              }}
-              placeholder="Type the negative form"
-            />
-            {bad && (
-              <div className="mt-1 text-[12px] text-accent-700">
-                Answer: <span className="font-extrabold">{it.answer}</span>
-              </div>
-            )}
-          </div>
-        );
-      })}
+      <div className="lg:grid lg:grid-cols-2 lg:gap-x-6">
+        {step.items.map((it, i) => {
+          const ok = checked && norm(inputs[i]) === norm(it.answer);
+          const bad = checked && !ok;
+          return (
+            <div key={i} className="mb-3">
+              <div className="mb-1 text-[15px] font-extrabold">{it.prompt}</div>
+              <input
+                className="input"
+                style={{ borderColor: bad ? "var(--color-accent)" : ok ? "var(--color-text)" : undefined }}
+                disabled={checked}
+                value={inputs[i]}
+                onChange={(e) => {
+                  const next = [...inputs];
+                  next[i] = e.target.value;
+                  setInputs(next);
+                }}
+                placeholder="Type the negative form"
+              />
+              {bad && (
+                <div className="mt-1 text-[12px] text-accent-700">
+                  Answer: <span className="font-extrabold">{it.answer}</span>
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
       {checked && (
         <div className="mb-3 bg-accent-100 px-4 py-3 text-[13px] leading-relaxed text-accent-800">
           <span className="label-xs mb-0.5 block">Score</span>
@@ -480,46 +494,48 @@ function FillMcStepView({ step, onNext }: { step: FillMcStep; onNext: (score?: S
   return (
     <div className="flex flex-1 flex-col p-4">
       <div className="mb-3 text-[13px] text-neutral-700">{step.instructions}</div>
-      {step.items.map((it, i) => (
-        <div key={i} className="mb-4">
-          <div className="mb-2 text-[14px] leading-relaxed">
-            {it.before} <span className="font-extrabold text-accent-700">{picked[i] ?? "____"}</span> {it.after}
+      <div className="lg:grid lg:grid-cols-2 lg:gap-x-6">
+        {step.items.map((it, i) => (
+          <div key={i} className="mb-4">
+            <div className="mb-2 text-[14px] leading-relaxed">
+              {it.before} <span className="font-extrabold text-accent-700">{picked[i] ?? "____"}</span> {it.after}
+            </div>
+            <div className="flex flex-wrap gap-1.5">
+              {it.options.map((o) => {
+                const isAnswer = o === it.answer;
+                const isPicked = picked[i] === o;
+                let style: React.CSSProperties = {
+                  borderColor: "var(--color-divider)",
+                  background: "var(--color-surface)",
+                  color: "var(--color-text)",
+                };
+                if (checked) {
+                  if (isAnswer) style = { borderColor: "var(--color-text)", background: "var(--color-text)", color: "var(--color-bg)" };
+                  else if (isPicked) style = { borderColor: "var(--color-accent)", background: "var(--color-accent-100)", color: "var(--color-accent-800)" };
+                  else style = { borderColor: "var(--color-divider)", background: "var(--color-bg)", color: "var(--color-neutral-600)" };
+                } else if (isPicked) {
+                  style = { borderColor: "var(--color-accent)", background: "var(--color-accent-100)", color: "var(--color-accent-800)" };
+                }
+                return (
+                  <button
+                    key={o}
+                    disabled={checked}
+                    style={style}
+                    className="border px-3 py-1.5 text-[13px] font-bold"
+                    onClick={() => {
+                      const next = [...picked];
+                      next[i] = o;
+                      setPicked(next);
+                    }}
+                  >
+                    {o}
+                  </button>
+                );
+              })}
+            </div>
           </div>
-          <div className="flex flex-wrap gap-1.5">
-            {it.options.map((o) => {
-              const isAnswer = o === it.answer;
-              const isPicked = picked[i] === o;
-              let style: React.CSSProperties = {
-                borderColor: "var(--color-divider)",
-                background: "var(--color-surface)",
-                color: "var(--color-text)",
-              };
-              if (checked) {
-                if (isAnswer) style = { borderColor: "var(--color-text)", background: "var(--color-text)", color: "var(--color-bg)" };
-                else if (isPicked) style = { borderColor: "var(--color-accent)", background: "var(--color-accent-100)", color: "var(--color-accent-800)" };
-                else style = { borderColor: "var(--color-divider)", background: "var(--color-bg)", color: "var(--color-neutral-600)" };
-              } else if (isPicked) {
-                style = { borderColor: "var(--color-accent)", background: "var(--color-accent-100)", color: "var(--color-accent-800)" };
-              }
-              return (
-                <button
-                  key={o}
-                  disabled={checked}
-                  style={style}
-                  className="border px-3 py-1.5 text-[13px] font-bold"
-                  onClick={() => {
-                    const next = [...picked];
-                    next[i] = o;
-                    setPicked(next);
-                  }}
-                >
-                  {o}
-                </button>
-              );
-            })}
-          </div>
-        </div>
-      ))}
+        ))}
+      </div>
       {checked && (
         <div className="mb-3 bg-accent-100 px-4 py-3 text-[13px] leading-relaxed text-accent-800">
           <span className="label-xs mb-0.5 block">Score</span>
@@ -555,64 +571,70 @@ function ReadingTfNgStepView({ step, onNext }: { step: ReadingTfNgStep; onNext: 
 
   return (
     <div className="flex flex-1 flex-col p-4">
-      <button className="btn btn-secondary mb-3" onClick={() => setShowPassage((v) => !v)}>
-        {showPassage ? "Hide passage" : "Show passage"}
-      </button>
-      {showPassage && (
-        <div className="mb-4 max-h-[280px] overflow-y-auto bg-surface p-4">
-          <div className="mb-2 text-[14px] font-extrabold">{step.passageTitle}</div>
-          <div className="text-[13px] leading-relaxed whitespace-pre-line text-neutral-800">{step.passage}</div>
-        </div>
-      )}
-      {step.questions.map((q, i) => {
-        const ok = checked && picked[i] === q.answer;
-        return (
-          <div key={i} className="mb-4">
-            <div className="mb-2 text-[13px] leading-relaxed">
-              <span className="mr-1.5 text-neutral-600">{i + 1}.</span>
-              {q.text}
-            </div>
-            <div className="flex gap-1.5">
-              {OPTIONS.map((o) => {
-                const isAnswer = o === q.answer;
-                const isPicked = picked[i] === o;
-                let style: React.CSSProperties = {
-                  borderColor: "var(--color-divider)",
-                  background: "var(--color-surface)",
-                  color: "var(--color-text)",
-                };
-                if (checked) {
-                  if (isAnswer) style = { borderColor: "var(--color-text)", background: "var(--color-text)", color: "var(--color-bg)" };
-                  else if (isPicked) style = { borderColor: "var(--color-accent)", background: "var(--color-accent-100)", color: "var(--color-accent-800)" };
-                  else style = { borderColor: "var(--color-divider)", background: "var(--color-bg)", color: "var(--color-neutral-600)" };
-                } else if (isPicked) {
-                  style = { borderColor: "var(--color-accent)", background: "var(--color-accent-100)", color: "var(--color-accent-800)" };
-                }
-                return (
-                  <button
-                    key={o}
-                    disabled={checked}
-                    style={style}
-                    className="flex-1 border px-2 py-1.5 text-[12px] font-bold"
-                    onClick={() => {
-                      const next = [...picked];
-                      next[i] = o;
-                      setPicked(next);
-                    }}
-                  >
-                    {o}
-                  </button>
-                );
-              })}
-            </div>
-            {checked && (
-              <div className={`mt-1.5 text-[12px] leading-relaxed ${ok ? "text-neutral-600" : "text-accent-700"}`}>
-                “{q.justification}”
-              </div>
-            )}
+      <div className="lg:flex lg:flex-row lg:items-start lg:gap-8">
+        <div className="lg:w-[380px] lg:flex-none lg:sticky lg:top-4">
+          <button className="btn btn-secondary mb-3 lg:hidden" onClick={() => setShowPassage((v) => !v)}>
+            {showPassage ? "Hide passage" : "Show passage"}
+          </button>
+          <div
+            className={`mb-4 max-h-[280px] overflow-y-auto bg-surface p-4 lg:mb-0 lg:block lg:max-h-[calc(100vh-140px)] ${showPassage ? "block" : "hidden"}`}
+          >
+            <div className="mb-2 text-[14px] font-extrabold">{step.passageTitle}</div>
+            <div className="text-[13px] leading-relaxed whitespace-pre-line text-neutral-800">{step.passage}</div>
           </div>
-        );
-      })}
+        </div>
+        <div className="lg:flex-1">
+          {step.questions.map((q, i) => {
+            const ok = checked && picked[i] === q.answer;
+            return (
+              <div key={i} className="mb-4">
+                <div className="mb-2 text-[13px] leading-relaxed">
+                  <span className="mr-1.5 text-neutral-600">{i + 1}.</span>
+                  {q.text}
+                </div>
+                <div className="flex gap-1.5">
+                  {OPTIONS.map((o) => {
+                    const isAnswer = o === q.answer;
+                    const isPicked = picked[i] === o;
+                    let style: React.CSSProperties = {
+                      borderColor: "var(--color-divider)",
+                      background: "var(--color-surface)",
+                      color: "var(--color-text)",
+                    };
+                    if (checked) {
+                      if (isAnswer) style = { borderColor: "var(--color-text)", background: "var(--color-text)", color: "var(--color-bg)" };
+                      else if (isPicked) style = { borderColor: "var(--color-accent)", background: "var(--color-accent-100)", color: "var(--color-accent-800)" };
+                      else style = { borderColor: "var(--color-divider)", background: "var(--color-bg)", color: "var(--color-neutral-600)" };
+                    } else if (isPicked) {
+                      style = { borderColor: "var(--color-accent)", background: "var(--color-accent-100)", color: "var(--color-accent-800)" };
+                    }
+                    return (
+                      <button
+                        key={o}
+                        disabled={checked}
+                        style={style}
+                        className="flex-1 border px-2 py-1.5 text-[12px] font-bold"
+                        onClick={() => {
+                          const next = [...picked];
+                          next[i] = o;
+                          setPicked(next);
+                        }}
+                      >
+                        {o}
+                      </button>
+                    );
+                  })}
+                </div>
+                {checked && (
+                  <div className={`mt-1.5 text-[12px] leading-relaxed ${ok ? "text-neutral-600" : "text-accent-700"}`}>
+                    “{q.justification}”
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </div>
       {checked && (
         <div className="mb-3 bg-accent-100 px-4 py-3 text-[13px] leading-relaxed text-accent-800">
           <span className="label-xs mb-0.5 block">Score</span>
@@ -644,7 +666,7 @@ function RevealPairsStepView({ step, onNext }: { step: RevealPairsStep; onNext: 
   return (
     <div className="flex flex-1 flex-col p-4">
       <div className="mb-3 text-[13px] text-neutral-700">{step.instructions}</div>
-      <div className="flex flex-col gap-px bg-[color:var(--color-divider)]">
+      <div className="flex flex-col gap-px bg-[color:var(--color-divider)] lg:grid lg:grid-cols-2 lg:gap-2 lg:bg-transparent">
         {step.pairs.map((p, i) => (
           <button
             key={i}
@@ -653,7 +675,7 @@ function RevealPairsStepView({ step, onNext }: { step: RevealPairsStep; onNext: 
               next[i] = !next[i];
               setRevealed(next);
             }}
-            className="bg-surface p-3 text-left"
+            className="bg-surface p-3 text-left lg:border lg:border-[color:var(--color-divider)]"
           >
             <div className="text-[14px] font-extrabold">{p.prompt}</div>
             {revealed[i] ? (
@@ -694,7 +716,7 @@ function SpeakingStepView({ step, onNext }: { step: SpeakingStep; onNext: (score
   }
 
   return (
-    <div className="flex flex-1 flex-col p-4">
+    <div className="flex flex-1 flex-col p-4 lg:mx-auto lg:w-full lg:max-w-[640px]">
       <div className="mb-4 bg-surface p-4">
         <div className="label-xs mb-2 text-accent">Cue card</div>
         <div className="mb-3 text-[16px] font-extrabold leading-snug">{step.prompt}</div>
@@ -897,7 +919,7 @@ export function UnitClient({ slug }: { slug: string }) {
 
       {showStepList && (
         <div className="fixed inset-0 z-[60] bg-bg">
-          <div className="mx-auto flex h-full max-w-[480px] flex-col">
+          <div className="mx-auto flex h-full max-w-[480px] flex-col lg:max-w-[1040px]">
             <div className="divider-b flex items-center justify-between px-4 py-3">
               <span className="text-[16px] font-extrabold">Exercises in this unit</span>
               <button className="btn btn-ghost" onClick={() => setShowStepList(false)}>

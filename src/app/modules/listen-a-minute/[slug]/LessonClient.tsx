@@ -232,65 +232,73 @@ export function LessonClient({ slug }: { slug: string }) {
 
       {step === 1 && (
         <div className="flex flex-1 flex-col p-4">
-          <div className="mb-4 flex flex-col items-center gap-3 bg-surface px-4 py-8">
-            <audio
-              ref={audioRef}
-              src={lesson.audioUrl}
-              onPlay={() => setPlaying(true)}
-              onPause={() => {
-                setPlaying(false);
-                stopBoundWatch();
-              }}
-              onEnded={() => setPlaying(false)}
-              onTimeUpdate={onAudioTimeUpdate}
-            />
-            <button
-              className="btn btn-primary flex h-[72px] w-[72px] items-center justify-center p-0"
-              onClick={() => {
-                const el = audioRef.current;
-                if (!el) return;
-                if (el.paused) {
-                  boundEndRef.current = null;
-                  playGenRef.current++;
+          <div className="lg:flex lg:flex-1 lg:flex-row lg:items-start lg:gap-8">
+            <div className="mb-4 flex flex-col items-center gap-3 bg-surface px-4 py-8 lg:mb-0 lg:w-[340px] lg:flex-none lg:sticky lg:top-6">
+              <audio
+                ref={audioRef}
+                src={lesson.audioUrl}
+                onPlay={() => setPlaying(true)}
+                onPause={() => {
+                  setPlaying(false);
                   stopBoundWatch();
-                  el.play();
-                } else {
-                  el.pause();
-                }
-              }}
-              aria-label={playing ? "Pause" : "Play"}
-            >
-              {playing ? <PauseIcon /> : <SpeakerIcon />}
-            </button>
-            <div className="label-xs">{playing ? "Playing…" : "Tap to listen"}</div>
-          </div>
-          <button className="btn btn-secondary" onClick={() => setShowScript((v) => !v)}>
-            {showScript ? "Hide script" : "Show script"}
-          </button>
-          {showScript && lesson.sentences.length > 0 && (
-            <div className="mt-3 flex flex-col gap-px bg-[color:var(--color-divider)] text-[14px] leading-relaxed">
-              {lesson.sentences.map((s, i) => (
-                <button
-                  key={i}
-                  onClick={() => playSentence(i)}
-                  className="px-4 py-2.5 text-left"
-                  style={{
-                    background: i === activeSentence ? "var(--color-accent-100)" : "var(--color-surface)",
-                    color: i === activeSentence ? "var(--color-accent-800)" : "var(--color-text)",
-                  }}
+                }}
+                onEnded={() => setPlaying(false)}
+                onTimeUpdate={onAudioTimeUpdate}
+              />
+              <button
+                className="btn btn-primary flex h-[72px] w-[72px] items-center justify-center p-0"
+                onClick={() => {
+                  const el = audioRef.current;
+                  if (!el) return;
+                  if (el.paused) {
+                    boundEndRef.current = null;
+                    playGenRef.current++;
+                    stopBoundWatch();
+                    el.play();
+                  } else {
+                    el.pause();
+                  }
+                }}
+                aria-label={playing ? "Pause" : "Play"}
+              >
+                {playing ? <PauseIcon /> : <SpeakerIcon />}
+              </button>
+              <div className="label-xs">{playing ? "Playing…" : "Tap to listen"}</div>
+            </div>
+            <div className="lg:flex-1">
+              <button className="btn btn-secondary lg:hidden" onClick={() => setShowScript((v) => !v)}>
+                {showScript ? "Hide script" : "Show script"}
+              </button>
+              {lesson.sentences.length > 0 && (
+                <div
+                  className={`mt-3 flex flex-col gap-px bg-[color:var(--color-divider)] text-[14px] leading-relaxed lg:mt-0 lg:block ${showScript ? "block" : "hidden"}`}
                 >
-                  {s.text}
-                </button>
-              ))}
+                  {lesson.sentences.map((s, i) => (
+                    <button
+                      key={i}
+                      onClick={() => playSentence(i)}
+                      className="px-4 py-2.5 text-left"
+                      style={{
+                        background: i === activeSentence ? "var(--color-accent-100)" : "var(--color-surface)",
+                        color: i === activeSentence ? "var(--color-accent-800)" : "var(--color-text)",
+                      }}
+                    >
+                      {s.text}
+                    </button>
+                  ))}
+                </div>
+              )}
+              {lesson.sentences.length === 0 && (
+                <div
+                  className={`mt-3 bg-surface p-4 text-[14px] leading-relaxed lg:mt-0 lg:block ${showScript ? "block" : "hidden"}`}
+                >
+                  {renderClozePlain(lesson.clozeTemplate)}
+                </div>
+              )}
             </div>
-          )}
-          {showScript && lesson.sentences.length === 0 && (
-            <div className="mt-3 bg-surface p-4 text-[14px] leading-relaxed">
-              {renderClozePlain(lesson.clozeTemplate)}
-            </div>
-          )}
+          </div>
           <button
-            className="btn btn-primary btn-block mt-auto px-4 py-3"
+            className="btn btn-primary btn-block mt-auto px-4 py-3 lg:mt-6"
             onClick={() => {
               audioRef.current?.pause();
               setStep(2);
@@ -303,7 +311,7 @@ export function LessonClient({ slug }: { slug: string }) {
 
       {step === 2 && (
         <div className="flex flex-1 flex-col p-4">
-          <div className="mb-4 bg-surface p-4 text-[16px] leading-loose text-pretty">
+          <div className="mb-4 bg-surface p-4 text-[16px] leading-loose text-pretty lg:mx-auto lg:max-w-[720px]">
             {segments.map((s, i) => {
               if ("text" in s) return <span key={i}>{s.text}</span>;
               const idx = blankIndexBySegment[i];
@@ -353,32 +361,34 @@ export function LessonClient({ slug }: { slug: string }) {
           <div className="mb-2 text-[13px] text-neutral-700">
             Unscramble the letters to spell each word correctly.
           </div>
-          {lesson.spellingWords.map((word, i) => {
-            const ok = spellSubmitted && norm(spellInputs[i]) === norm(word);
-            const bad = spellSubmitted && !ok;
-            return (
-              <div key={i} className="mb-3">
-                <div className="label-xs mb-1 tracking-widest">{scrambled[i].toUpperCase()}</div>
-                <input
-                  className="input"
-                  style={{ borderColor: bad ? "var(--color-accent)" : ok ? "var(--color-text)" : undefined }}
-                  disabled={spellSubmitted}
-                  value={spellInputs[i]}
-                  onChange={(e) => {
-                    const next = [...spellInputs];
-                    next[i] = e.target.value;
-                    setSpellInputs(next);
-                  }}
-                  placeholder="Type the correct spelling"
-                />
-                {bad && (
-                  <div className="mt-1 text-[12px] text-accent-700">
-                    Answer: <span className="font-extrabold">{word}</span>
-                  </div>
-                )}
-              </div>
-            );
-          })}
+          <div className="lg:grid lg:grid-cols-2 lg:gap-x-6">
+            {lesson.spellingWords.map((word, i) => {
+              const ok = spellSubmitted && norm(spellInputs[i]) === norm(word);
+              const bad = spellSubmitted && !ok;
+              return (
+                <div key={i} className="mb-3">
+                  <div className="label-xs mb-1 tracking-widest">{scrambled[i].toUpperCase()}</div>
+                  <input
+                    className="input"
+                    style={{ borderColor: bad ? "var(--color-accent)" : ok ? "var(--color-text)" : undefined }}
+                    disabled={spellSubmitted}
+                    value={spellInputs[i]}
+                    onChange={(e) => {
+                      const next = [...spellInputs];
+                      next[i] = e.target.value;
+                      setSpellInputs(next);
+                    }}
+                    placeholder="Type the correct spelling"
+                  />
+                  {bad && (
+                    <div className="mt-1 text-[12px] text-accent-700">
+                      Answer: <span className="font-extrabold">{word}</span>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
           {spellSubmitted ? (
             <>
               <div className="mb-3 bg-accent-100 px-4 py-3 text-[13px] leading-relaxed text-accent-800">
@@ -404,17 +414,19 @@ export function LessonClient({ slug }: { slug: string }) {
           <div className="mb-3 text-[13px] text-neutral-700">
             Extend what you have learned with these follow-up tasks.
           </div>
-          {tasks.map((t) => (
-            <label key={t.key} className="divider-b flex items-start gap-3 py-3">
-              <input
-                type="checkbox"
-                className="mt-1 h-4 w-4 flex-none accent-[var(--color-accent)]"
-                checked={!!checked[t.key]}
-                onChange={(e) => setChecked((c) => ({ ...c, [t.key]: e.target.checked }))}
-              />
-              <span className="text-[13px] leading-relaxed">{t.label}</span>
-            </label>
-          ))}
+          <div className="lg:grid lg:grid-cols-2 lg:gap-x-6">
+            {tasks.map((t) => (
+              <label key={t.key} className="divider-b flex items-start gap-3 py-3">
+                <input
+                  type="checkbox"
+                  className="mt-1 h-4 w-4 flex-none accent-[var(--color-accent)]"
+                  checked={!!checked[t.key]}
+                  onChange={(e) => setChecked((c) => ({ ...c, [t.key]: e.target.checked }))}
+                />
+                <span className="text-[13px] leading-relaxed">{t.label}</span>
+              </label>
+            ))}
+          </div>
           <button className="btn btn-primary btn-block mt-auto px-4 py-3" onClick={finish}>
             Finish lesson
           </button>

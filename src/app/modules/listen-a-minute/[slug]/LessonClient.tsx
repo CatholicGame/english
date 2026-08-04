@@ -2,11 +2,18 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import { extensionTasks, LISTEN_LESSONS } from "@/data/listen-a-minute";
+import {
+  extensionLanguageNotes,
+  extensionSample,
+  extensionTasks,
+  LISTEN_LESSONS,
+  type ListenLesson,
+} from "@/data/listen-a-minute";
 import { parseCloze, renderClozePlain } from "@/lib/cloze";
 import { clearCurrentLesson, getCurrentLesson, setCurrentLesson } from "@/lib/listen-progress";
 import { useProgress } from "@/lib/progress-context";
 import { norm, shuffle } from "@/lib/utils";
+import { lookupVocabWord, type VocabEntry } from "@/lib/vocab-lookup";
 
 const TOTAL_STEPS = 4;
 const STEP_LABELS = ["Listening", "Gap fill", "Spelling", "Extension"];
@@ -38,7 +45,7 @@ function BackIcon() {
   );
 }
 
-function SpeakerIcon() {
+function SpeakerIcon({ className = "block h-[34px] w-[34px]" }: { className?: string }) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -47,7 +54,7 @@ function SpeakerIcon() {
       strokeWidth={2}
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="block h-[34px] w-[34px]"
+      className={className}
     >
       <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
       <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
@@ -56,7 +63,7 @@ function SpeakerIcon() {
   );
 }
 
-function PauseIcon() {
+function PauseIcon({ className = "block h-[34px] w-[34px]" }: { className?: string }) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -65,11 +72,79 @@ function PauseIcon() {
       strokeWidth={2}
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="block h-[34px] w-[34px]"
+      className={className}
     >
       <rect x="6" y="4" width="4" height="16" />
       <rect x="14" y="4" width="4" height="16" />
     </svg>
+  );
+}
+
+function formatTime(t: number): string {
+  if (!isFinite(t) || t < 0) return "0:00";
+  const m = Math.floor(t / 60);
+  const s = Math.floor(t % 60);
+  return `${m}:${s.toString().padStart(2, "0")}`;
+}
+
+function VocabList({ lesson }: { lesson: ListenLesson }) {
+  const [entries, setEntries] = useState<(VocabEntry | null)[]>(() => lesson.spellingWords.map(() => null));
+
+  useEffect(() => {
+    let cancelled = false;
+    lesson.spellingWords.forEach((w, i) => {
+      lookupVocabWord(w, lesson).then((entry) => {
+        if (cancelled) return;
+        setEntries((prev) => prev.map((e, j) => (j === i ? entry : e)));
+      });
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [lesson]);
+
+  return (
+    <div className="flex flex-col gap-5">
+      {entries.map((e, i) =>
+        !e ? (
+          <div key={i} className="divider-b pb-4 text-[13px] text-neutral-500 last:border-b-0">
+            {lesson.spellingWords[i]} — đang tra từ điển…
+          </div>
+        ) : (
+        <div key={i} className="divider-b pb-4 last:border-b-0">
+          <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
+            <span className="text-[16px] font-extrabold">{e.word}</span>
+            {e.phonetic && <span className="text-[13px] text-neutral-600">{e.phonetic}</span>}
+            {e.partOfSpeech && <span className="text-[12px] italic text-neutral-600">{e.partOfSpeech}</span>}
+          </div>
+          {e.definition && <div className="mt-1.5 text-[13px] leading-relaxed">{e.definition}</div>}
+          {e.vi && (
+            <div className="mt-1.5 text-[13px] leading-relaxed text-accent-700">
+              <span className="font-extrabold">Nghĩa: </span>
+              {e.vi}
+            </div>
+          )}
+          {e.contextSentence ? (
+            <div className="mt-2 bg-surface p-2.5 text-[13px] leading-relaxed">
+              <span className="label-xs mb-1 block">Ví dụ trong bài</span>
+              <span className="italic">&ldquo;{e.contextSentence}&rdquo;</span>
+              {e.contextSentenceVi && <div className="mt-0.5 text-neutral-600">→ {e.contextSentenceVi}</div>}
+            </div>
+          ) : (
+            e.dictExample && (
+              <div className="mt-2 bg-surface p-2.5 text-[13px] leading-relaxed">
+                <span className="label-xs mb-1 block">Ví dụ</span>
+                <span className="italic">&ldquo;{e.dictExample}&rdquo;</span>
+              </div>
+            )
+          )}
+          {!e.found && (
+            <div className="mt-1.5 text-[12px] text-neutral-500">Không tra được nghĩa cho từ này.</div>
+          )}
+        </div>
+        ),
+      )}
+    </div>
   );
 }
 
@@ -85,6 +160,8 @@ export function LessonClient({ slug }: { slug: string }) {
   const [showScript, setShowScript] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
   const [playing, setPlaying] = useState(false);
+  const [duration, setDuration] = useState(0);
+  const [currentTime, setCurrentTime] = useState(0);
   const [activeSentence, setActiveSentence] = useState(-1);
   const boundEndRef = useRef<number | null>(null);
   const boundWatchRef = useRef<number | null>(null);
@@ -120,6 +197,7 @@ export function LessonClient({ slug }: { slug: string }) {
 
   const tasks = useMemo(() => (lesson ? extensionTasks(lesson.title) : []), [lesson]);
   const [checked, setChecked] = useState<Record<string, boolean>>({});
+  const [sampleKey, setSampleKey] = useState<string | null>(null);
 
   useEffect(
     () => () => {
@@ -192,7 +270,32 @@ export function LessonClient({ slug }: { slug: string }) {
     if (!el) return;
     checkBound();
     const t = el.currentTime;
+    setCurrentTime(t);
     setActiveSentence(lesson!.sentences.findIndex((s) => t >= s.start && t < s.end));
+  }
+
+  function togglePlay() {
+    const el = audioRef.current;
+    if (!el) return;
+    if (el.paused) {
+      if (el.ended) el.currentTime = 0;
+      boundEndRef.current = null;
+      playGenRef.current++;
+      stopBoundWatch();
+      el.play();
+    } else {
+      el.pause();
+    }
+  }
+
+  function seekTo(t: number) {
+    const el = audioRef.current;
+    if (!el) return;
+    boundEndRef.current = null;
+    playGenRef.current++;
+    stopBoundWatch();
+    el.currentTime = t;
+    setCurrentTime(t);
   }
 
   function goBack() {
@@ -230,35 +333,49 @@ export function LessonClient({ slug }: { slug: string }) {
         {lesson.title} · Step {step}: {STEP_LABELS[step - 1]}
       </div>
 
+      <audio
+        ref={audioRef}
+        src={lesson.audioUrl}
+        onPlay={() => setPlaying(true)}
+        onPause={() => {
+          setPlaying(false);
+          stopBoundWatch();
+        }}
+        onEnded={() => setPlaying(false)}
+        onLoadedMetadata={(e) => setDuration(e.currentTarget.duration)}
+        onTimeUpdate={onAudioTimeUpdate}
+      />
+      <div className="divider-b flex items-center gap-3 px-4 py-2.5">
+        <button
+          className="flex h-8 w-8 flex-none items-center justify-center text-accent"
+          onClick={togglePlay}
+          aria-label={playing ? "Pause" : "Play"}
+        >
+          {playing ? <PauseIcon className="block h-5 w-5" /> : <SpeakerIcon className="block h-5 w-5" />}
+        </button>
+        <span className="w-8 flex-none text-right text-[11px] tabular-nums text-neutral-600">
+          {formatTime(currentTime)}
+        </span>
+        <input
+          type="range"
+          min={0}
+          max={duration || 0}
+          step={0.1}
+          value={Math.min(currentTime, duration || 0)}
+          onChange={(e) => seekTo(Number(e.target.value))}
+          className="h-1 flex-1 accent-[var(--color-accent)]"
+          aria-label="Seek audio"
+        />
+        <span className="w-8 flex-none text-[11px] tabular-nums text-neutral-600">{formatTime(duration)}</span>
+      </div>
+
       {step === 1 && (
         <div className="flex flex-1 flex-col p-4">
           <div className="lg:flex lg:flex-1 lg:flex-row lg:items-start lg:gap-8">
             <div className="mb-4 flex flex-col items-center gap-3 bg-surface px-4 py-8 lg:mb-0 lg:w-[340px] lg:flex-none lg:sticky lg:top-6">
-              <audio
-                ref={audioRef}
-                src={lesson.audioUrl}
-                onPlay={() => setPlaying(true)}
-                onPause={() => {
-                  setPlaying(false);
-                  stopBoundWatch();
-                }}
-                onEnded={() => setPlaying(false)}
-                onTimeUpdate={onAudioTimeUpdate}
-              />
               <button
                 className="btn btn-primary flex h-[72px] w-[72px] items-center justify-center p-0"
-                onClick={() => {
-                  const el = audioRef.current;
-                  if (!el) return;
-                  if (el.paused) {
-                    boundEndRef.current = null;
-                    playGenRef.current++;
-                    stopBoundWatch();
-                    el.play();
-                  } else {
-                    el.pause();
-                  }
-                }}
+                onClick={togglePlay}
                 aria-label={playing ? "Pause" : "Play"}
               >
                 {playing ? <PauseIcon /> : <SpeakerIcon />}
@@ -270,14 +387,12 @@ export function LessonClient({ slug }: { slug: string }) {
                 {showScript ? "Hide script" : "Show script"}
               </button>
               {lesson.sentences.length > 0 && (
-                <div
-                  className={`mt-3 flex flex-col gap-px bg-[color:var(--color-divider)] text-[14px] leading-relaxed lg:mt-0 lg:block ${showScript ? "block" : "hidden"}`}
-                >
+                <div className={`mt-3 lg:mt-0 lg:block ${showScript ? "block" : "hidden"}`}>
                   {lesson.sentences.map((s, i) => (
                     <button
                       key={i}
                       onClick={() => playSentence(i)}
-                      className="px-4 py-2.5 text-left"
+                      className="divider-b block w-full px-4 py-2.5 text-left text-[15px] leading-relaxed"
                       style={{
                         background: i === activeSentence ? "var(--color-accent-100)" : "var(--color-surface)",
                         color: i === activeSentence ? "var(--color-accent-800)" : "var(--color-text)",
@@ -290,7 +405,7 @@ export function LessonClient({ slug }: { slug: string }) {
               )}
               {lesson.sentences.length === 0 && (
                 <div
-                  className={`mt-3 bg-surface p-4 text-[14px] leading-relaxed lg:mt-0 lg:block ${showScript ? "block" : "hidden"}`}
+                  className={`mt-3 bg-surface p-4 text-[15px] leading-relaxed lg:mt-0 lg:block ${showScript ? "block" : "hidden"}`}
                 >
                   {renderClozePlain(lesson.clozeTemplate)}
                 </div>
@@ -311,7 +426,7 @@ export function LessonClient({ slug }: { slug: string }) {
 
       {step === 2 && (
         <div className="flex flex-1 flex-col p-4">
-          <div className="mb-4 bg-surface p-4 text-[16px] leading-loose text-pretty lg:mx-auto lg:max-w-[720px]">
+          <div className="mb-4 bg-surface p-4 text-[16px] leading-[2.75] text-pretty lg:mx-auto lg:max-w-[720px]">
             {segments.map((s, i) => {
               if ("text" in s) return <span key={i}>{s.text}</span>;
               const idx = blankIndexBySegment[i];
@@ -319,7 +434,7 @@ export function LessonClient({ slug }: { slug: string }) {
               return (
                 <input
                   key={i}
-                  className="input mx-1 inline-block w-[104px]"
+                  className="input mx-1 my-1.5 inline-block w-[104px]"
                   style={{
                     display: "inline-block",
                     borderColor: gapSubmitted ? (ok ? "var(--color-text)" : "var(--color-accent)") : undefined,
@@ -344,9 +459,14 @@ export function LessonClient({ slug }: { slug: string }) {
                   {gapCorrect}/{blankAnswers.length} correct
                 </span>
               </div>
-              <button className="btn btn-primary btn-block mt-auto px-4 py-3" onClick={() => setStep(3)}>
-                Continue
-              </button>
+              <div className="mt-auto flex gap-3">
+                <button className="btn btn-secondary flex-1 px-4 py-3" onClick={() => setGapSubmitted(false)}>
+                  Redo
+                </button>
+                <button className="btn btn-primary flex-1 px-4 py-3" onClick={() => setStep(3)}>
+                  Continue
+                </button>
+              </div>
             </>
           ) : (
             <button className="btn btn-primary btn-block mt-auto px-4 py-3" onClick={() => setGapSubmitted(true)}>
@@ -416,20 +536,67 @@ export function LessonClient({ slug }: { slug: string }) {
           </div>
           <div className="lg:grid lg:grid-cols-2 lg:gap-x-6">
             {tasks.map((t) => (
-              <label key={t.key} className="divider-b flex items-start gap-3 py-3">
-                <input
-                  type="checkbox"
-                  className="mt-1 h-4 w-4 flex-none accent-[var(--color-accent)]"
-                  checked={!!checked[t.key]}
-                  onChange={(e) => setChecked((c) => ({ ...c, [t.key]: e.target.checked }))}
-                />
-                <span className="text-[13px] leading-relaxed">{t.label}</span>
-              </label>
+              <div key={t.key} className="divider-b flex items-start gap-3 py-3">
+                <label className="flex flex-1 items-start gap-3">
+                  <input
+                    type="checkbox"
+                    className="mt-1 h-4 w-4 flex-none accent-[var(--color-accent)]"
+                    checked={!!checked[t.key]}
+                    onChange={(e) => setChecked((c) => ({ ...c, [t.key]: e.target.checked }))}
+                  />
+                  <span className="text-[13px] leading-relaxed">{t.label}</span>
+                </label>
+                <button
+                  type="button"
+                  className="btn btn-ghost flex-none self-start px-3 py-1 text-[12px]"
+                  onClick={() => setSampleKey(t.key)}
+                >
+                  Show
+                </button>
+              </div>
             ))}
           </div>
           <button className="btn btn-primary btn-block mt-auto px-4 py-3" onClick={finish}>
             Finish lesson
           </button>
+        </div>
+      )}
+
+      {sampleKey && (
+        <div className="fixed inset-0 z-[60] bg-bg">
+          <div className="mx-auto flex h-full max-w-[480px] flex-col lg:max-w-[720px]">
+            <div className="divider-b flex items-center justify-between px-4 py-3">
+              <span className="text-[16px] font-extrabold">{sampleKey === "vocab" ? "Từ vựng trong bài" : "Sample"}</span>
+              <button className="btn btn-ghost" onClick={() => setSampleKey(null)}>
+                Close
+              </button>
+            </div>
+            <div className="flex-1 overflow-y-auto p-4">
+              {sampleKey === "vocab" ? (
+                <VocabList lesson={lesson} />
+              ) : (
+                <>
+                  <div className="whitespace-pre-wrap text-[14px] leading-relaxed">
+                    {extensionSample(sampleKey, lesson)}
+                  </div>
+                  {extensionLanguageNotes(sampleKey).length > 0 && (
+                    <div className="divider-t mt-5 pt-4">
+                      <div className="label-xs mb-2">Collocations, phrasal verbs & idioms</div>
+                      <div className="flex flex-col gap-2.5">
+                        {extensionLanguageNotes(sampleKey).map((n, i) => (
+                          <div key={i} className="text-[13px] leading-relaxed">
+                            <span className="font-extrabold">{n.phrase}</span>{" "}
+                            <span className="text-[11px] italic text-neutral-600">({n.type})</span>
+                            <span className="text-accent-700"> — {n.meaning}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </>
+              )}
+            </div>
+          </div>
         </div>
       )}
     </div>

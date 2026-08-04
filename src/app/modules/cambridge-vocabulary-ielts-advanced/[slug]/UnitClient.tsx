@@ -13,6 +13,7 @@ import {
   type TypeFillStep,
   type UnitStep,
   type VocabStep,
+  type WritingTaskStep,
 } from "@/data/cambridge-vocabulary-ielts";
 import { parseCloze } from "@/lib/cloze";
 import { useProgress } from "@/lib/progress-context";
@@ -119,19 +120,19 @@ function ChipRow({ label, items, tone }: { label: string; items: string[]; tone:
 
 function VocabStepView({ step, onNext }: { step: VocabStep; onNext: (score?: Score) => void }) {
   const [i, setI] = useState(0);
-  const [revealed, setRevealed] = useState(false);
+  const [revealed, setRevealed] = useState(true);
   const w = step.words[i];
   const last = i === step.words.length - 1;
 
   function goTo(next: number) {
-    setRevealed(false);
+    setRevealed(true);
     setI(next);
   }
 
   return (
     <div className="flex flex-1 flex-col p-4 pb-[96px]">
       <div className="mb-3 flex items-center justify-between gap-3">
-        <span className="text-[13px] text-neutral-700">{step.instructions ?? "Tap a card to reveal its meaning."}</span>
+        <span className="text-[13px] text-neutral-700">{step.instructions ?? "Study each card, then move to the next word."}</span>
         <span className="label-xs whitespace-nowrap">
           {i + 1}/{step.words.length}
         </span>
@@ -772,6 +773,56 @@ function SpeakingStepView({ step, onNext }: { step: SpeakingStep; onNext: (score
   );
 }
 
+// ---------- Writing task (Task 1 chart / Task 2 essay) ----------
+
+function WritingTaskStepView({ step, onNext }: { step: WritingTaskStep; onNext: (score?: Score) => void }) {
+  const [draft, setDraft] = useState("");
+  const [showModel, setShowModel] = useState(false);
+  const wordCount = draft.trim() === "" ? 0 : draft.trim().split(/\s+/).length;
+
+  return (
+    <div className="flex flex-1 flex-col p-4 lg:mx-auto lg:w-full lg:max-w-[720px]">
+      <div className="mb-4 bg-surface p-4">
+        <div className="label-xs mb-2 text-accent">{step.taskLabel}</div>
+        <div className="mb-3 text-[14px] leading-relaxed font-extrabold">{step.prompt}</div>
+        {step.chartRows && step.chartRows.length > 0 && (
+          <div className="border border-[color:var(--color-divider)] bg-bg p-3">
+            {step.chartCaption && <div className="label-xs mb-2">{step.chartCaption}</div>}
+            <ul className="flex flex-col gap-1 text-[13px] leading-relaxed">
+              {step.chartRows.map((r, i) => (
+                <li key={i}>{r}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+
+      <textarea
+        className="input mb-2 min-h-[180px] resize-y"
+        placeholder={`Write at least ${step.minWords} words...`}
+        value={draft}
+        onChange={(e) => setDraft(e.target.value)}
+      />
+      <div className="label-xs mb-4 text-right">{wordCount} words</div>
+
+      {showModel ? (
+        <>
+          <div className="mb-3 bg-accent-100 p-4 text-[13px] leading-relaxed whitespace-pre-wrap text-accent-800">
+            <span className="label-xs mb-1 block text-accent-700">Model answer</span>
+            {step.modelAnswer}
+          </div>
+          <Tip>{step.tip}</Tip>
+          <ContinueButton onClick={() => onNext()} />
+        </>
+      ) : (
+        <button className="btn btn-primary btn-block mt-auto px-4 py-3" onClick={() => setShowModel(true)}>
+          Show model answer
+        </button>
+      )}
+    </div>
+  );
+}
+
 // ---------- Wizard shell ----------
 
 const STEP_KIND_LABELS: Record<UnitStep["kind"], string> = {
@@ -783,6 +834,7 @@ const STEP_KIND_LABELS: Record<UnitStep["kind"], string> = {
   reading_tfng: "Reading",
   reveal_pairs: "Paraphrase",
   speaking: "Speaking",
+  writing_task: "Writing",
 };
 
 function ListIcon() {
@@ -958,6 +1010,7 @@ export function UnitClient({ slug }: { slug: string }) {
       {step.kind === "reading_tfng" && <ReadingTfNgStepView key={stepIndex} step={step} onNext={handleNext} />}
       {step.kind === "reveal_pairs" && <RevealPairsStepView key={stepIndex} step={step} onNext={handleNext} />}
       {step.kind === "speaking" && <SpeakingStepView key={stepIndex} step={step} onNext={handleNext} />}
+      {step.kind === "writing_task" && <WritingTaskStepView key={stepIndex} step={step} onNext={handleNext} />}
     </div>
   );
 }

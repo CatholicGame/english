@@ -66,7 +66,7 @@ export function AuthStatus() {
   }
 
   return (
-    <div className="pointer-events-none fixed inset-x-0 top-2 z-50 mx-auto flex max-w-[480px] justify-end px-2">
+    <div className="pointer-events-none fixed inset-x-0 top-2 z-50 mx-auto flex max-w-[480px] justify-end px-2 lg:max-w-[1040px]">
       <div ref={rootRef} className="pointer-events-auto relative">
         <button
           className="btn btn-icon overflow-hidden bg-bg/90 backdrop-blur"

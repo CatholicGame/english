@@ -10,6 +10,7 @@ import {
   type ListenLesson,
 } from "@/data/listen-a-minute";
 import { parseCloze, renderClozePlain } from "@/lib/cloze";
+import { getExtensionNotes, newNoteId, saveExtensionNotes, type ExtensionNote } from "@/lib/extension-notes";
 import { clearCurrentLesson, getCurrentLesson, setCurrentLesson } from "@/lib/listen-progress";
 import { useProgress } from "@/lib/progress-context";
 import { norm, shuffle } from "@/lib/utils";
@@ -198,6 +199,48 @@ export function LessonClient({ slug }: { slug: string }) {
   const tasks = useMemo(() => (lesson ? extensionTasks(lesson.title) : []), [lesson]);
   const [checked, setChecked] = useState<Record<string, boolean>>({});
   const [sampleKey, setSampleKey] = useState<string | null>(null);
+  const [notesByTask, setNotesByTask] = useState<Record<string, ExtensionNote[]>>(() => {
+    if (!lesson) return {};
+    const initial: Record<string, ExtensionNote[]> = {};
+    for (const t of tasks) initial[t.key] = getExtensionNotes(lesson.slug, t.key);
+    return initial;
+  });
+  const [editingNote, setEditingNote] = useState<{ taskKey: string; note: ExtensionNote | null } | null>(null);
+  const [draftTitle, setDraftTitle] = useState("");
+  const [draftContent, setDraftContent] = useState("");
+
+  function openNewNote(taskKey: string) {
+    setEditingNote({ taskKey, note: null });
+    setDraftTitle("");
+    setDraftContent("");
+  }
+
+  function openExistingNote(taskKey: string, note: ExtensionNote) {
+    setEditingNote({ taskKey, note });
+    setDraftTitle(note.title);
+    setDraftContent(note.content);
+  }
+
+  function saveNote() {
+    if (!editingNote || !lesson) return;
+    const { taskKey, note } = editingNote;
+    const list = notesByTask[taskKey] ?? [];
+    const nextList = note
+      ? list.map((n) => (n.id === note.id ? { ...n, title: draftTitle, content: draftContent, updatedAt: Date.now() } : n))
+      : [...list, { id: newNoteId(), title: draftTitle, content: draftContent, updatedAt: Date.now() }];
+    setNotesByTask((prev) => ({ ...prev, [taskKey]: nextList }));
+    saveExtensionNotes(lesson.slug, taskKey, nextList);
+    setEditingNote(null);
+  }
+
+  function deleteNote() {
+    if (!editingNote?.note || !lesson) return;
+    const { taskKey, note } = editingNote;
+    const nextList = (notesByTask[taskKey] ?? []).filter((n) => n.id !== note.id);
+    setNotesByTask((prev) => ({ ...prev, [taskKey]: nextList }));
+    saveExtensionNotes(lesson.slug, taskKey, nextList);
+    setEditingNote(null);
+  }
 
   useEffect(
     () => () => {
@@ -318,55 +361,57 @@ export function LessonClient({ slug }: { slug: string }) {
 
   return (
     <div className="flex min-h-screen flex-col">
-      <div className="divider-b flex items-center gap-3 px-4 py-3">
-        <button onClick={goBack} className="relative h-[18px] w-[18px] flex-none text-neutral-600 hover:text-accent">
-          <BackIcon />
-        </button>
-        <div className="h-1.5 flex-1 bg-neutral-300">
-          <div className="h-full bg-accent" style={{ width: `${(step / TOTAL_STEPS) * 100}%` }} />
+      <div className="sticky top-0 z-30 bg-bg">
+        <div className="divider-b flex items-center gap-3 px-4 py-3">
+          <button onClick={goBack} className="relative h-[18px] w-[18px] flex-none text-neutral-600 hover:text-accent">
+            <BackIcon />
+          </button>
+          <div className="h-1.5 flex-1 bg-neutral-300">
+            <div className="h-full bg-accent" style={{ width: `${(step / TOTAL_STEPS) * 100}%` }} />
+          </div>
+          <span className="w-9 flex-none text-right text-[11px] tabular-nums text-neutral-600">
+            {step}/{TOTAL_STEPS}
+          </span>
         </div>
-        <span className="w-9 flex-none text-right text-[11px] tabular-nums text-neutral-600">
-          {step}/{TOTAL_STEPS}
-        </span>
-      </div>
-      <div className="label-xs px-4 pt-3 text-accent">
-        {lesson.title} · Step {step}: {STEP_LABELS[step - 1]}
-      </div>
+        <div className="label-xs px-4 pt-3 text-accent">
+          {lesson.title} · Step {step}: {STEP_LABELS[step - 1]}
+        </div>
 
-      <audio
-        ref={audioRef}
-        src={lesson.audioUrl}
-        onPlay={() => setPlaying(true)}
-        onPause={() => {
-          setPlaying(false);
-          stopBoundWatch();
-        }}
-        onEnded={() => setPlaying(false)}
-        onLoadedMetadata={(e) => setDuration(e.currentTarget.duration)}
-        onTimeUpdate={onAudioTimeUpdate}
-      />
-      <div className="divider-b flex items-center gap-3 px-4 py-2.5">
-        <button
-          className="flex h-8 w-8 flex-none items-center justify-center text-accent"
-          onClick={togglePlay}
-          aria-label={playing ? "Pause" : "Play"}
-        >
-          {playing ? <PauseIcon className="block h-5 w-5" /> : <SpeakerIcon className="block h-5 w-5" />}
-        </button>
-        <span className="w-8 flex-none text-right text-[11px] tabular-nums text-neutral-600">
-          {formatTime(currentTime)}
-        </span>
-        <input
-          type="range"
-          min={0}
-          max={duration || 0}
-          step={0.1}
-          value={Math.min(currentTime, duration || 0)}
-          onChange={(e) => seekTo(Number(e.target.value))}
-          className="h-1 flex-1 accent-[var(--color-accent)]"
-          aria-label="Seek audio"
+        <audio
+          ref={audioRef}
+          src={lesson.audioUrl}
+          onPlay={() => setPlaying(true)}
+          onPause={() => {
+            setPlaying(false);
+            stopBoundWatch();
+          }}
+          onEnded={() => setPlaying(false)}
+          onLoadedMetadata={(e) => setDuration(e.currentTarget.duration)}
+          onTimeUpdate={onAudioTimeUpdate}
         />
-        <span className="w-8 flex-none text-[11px] tabular-nums text-neutral-600">{formatTime(duration)}</span>
+        <div className="divider-b flex items-center gap-3 px-4 py-2.5">
+          <button
+            className="flex h-8 w-8 flex-none items-center justify-center text-accent"
+            onClick={togglePlay}
+            aria-label={playing ? "Pause" : "Play"}
+          >
+            {playing ? <PauseIcon className="block h-5 w-5" /> : <SpeakerIcon className="block h-5 w-5" />}
+          </button>
+          <span className="w-8 flex-none text-right text-[11px] tabular-nums text-neutral-600">
+            {formatTime(currentTime)}
+          </span>
+          <input
+            type="range"
+            min={0}
+            max={duration || 0}
+            step={0.1}
+            value={Math.min(currentTime, duration || 0)}
+            onChange={(e) => seekTo(Number(e.target.value))}
+            className="h-1 flex-1 accent-[var(--color-accent)]"
+            aria-label="Seek audio"
+          />
+          <span className="w-8 flex-none text-[11px] tabular-nums text-neutral-600">{formatTime(duration)}</span>
+        </div>
       </div>
 
       {step === 1 && (
@@ -536,22 +581,45 @@ export function LessonClient({ slug }: { slug: string }) {
           </div>
           <div className="lg:grid lg:grid-cols-2 lg:gap-x-6">
             {tasks.map((t) => (
-              <div key={t.key} className="divider-b flex items-start gap-3 py-3">
-                <label className="flex flex-1 items-start gap-3">
-                  <input
-                    type="checkbox"
-                    className="mt-1 h-4 w-4 flex-none accent-[var(--color-accent)]"
-                    checked={!!checked[t.key]}
-                    onChange={(e) => setChecked((c) => ({ ...c, [t.key]: e.target.checked }))}
-                  />
-                  <span className="text-[13px] leading-relaxed">{t.label}</span>
-                </label>
+              <div key={t.key} className="divider-b py-3">
+                <div className="flex items-start gap-3">
+                  <label className="flex flex-1 items-start gap-3">
+                    <input
+                      type="checkbox"
+                      className="mt-1 h-4 w-4 flex-none accent-[var(--color-accent)]"
+                      checked={!!checked[t.key]}
+                      onChange={(e) => setChecked((c) => ({ ...c, [t.key]: e.target.checked }))}
+                    />
+                    <span className="text-[13px] leading-relaxed">{t.label}</span>
+                  </label>
+                  <button
+                    type="button"
+                    className="btn btn-ghost flex-none self-start px-3 py-1 text-[12px]"
+                    onClick={() => setSampleKey(t.key)}
+                  >
+                    Show
+                  </button>
+                </div>
+                {(notesByTask[t.key]?.length ?? 0) > 0 && (
+                  <div className="mt-2 flex flex-col gap-1">
+                    {notesByTask[t.key].map((n) => (
+                      <button
+                        key={n.id}
+                        type="button"
+                        className="truncate text-left text-[12px] text-accent-700 underline decoration-[color:var(--color-accent-100)] underline-offset-2"
+                        onClick={() => openExistingNote(t.key, n)}
+                      >
+                        {n.title || "Untitled note"}
+                      </button>
+                    ))}
+                  </div>
+                )}
                 <button
                   type="button"
-                  className="btn btn-ghost flex-none self-start px-3 py-1 text-[12px]"
-                  onClick={() => setSampleKey(t.key)}
+                  className="label-xs mt-2 block text-accent"
+                  onClick={() => openNewNote(t.key)}
                 >
-                  Show
+                  + Add note
                 </button>
               </div>
             ))}
@@ -595,6 +663,47 @@ export function LessonClient({ slug }: { slug: string }) {
                   )}
                 </>
               )}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {editingNote && (
+        <div className="fixed inset-0 z-[60] bg-bg">
+          <div className="mx-auto flex h-full max-w-[480px] flex-col lg:max-w-[720px]">
+            <div className="divider-b flex items-center justify-between px-4 py-3">
+              <span className="text-[16px] font-extrabold">{editingNote.note ? "Edit note" : "New note"}</span>
+              <button className="btn btn-ghost" onClick={() => setEditingNote(null)}>
+                Close
+              </button>
+            </div>
+            <div className="flex flex-1 flex-col gap-3 overflow-y-auto p-4">
+              <input
+                className="input"
+                placeholder="Title"
+                value={draftTitle}
+                onChange={(e) => setDraftTitle(e.target.value)}
+              />
+              <textarea
+                className="input min-h-[240px] flex-1 resize-y"
+                placeholder="Write your note…"
+                value={draftContent}
+                onChange={(e) => setDraftContent(e.target.value)}
+              />
+            </div>
+            <div className="divider-t flex gap-3 p-4">
+              {editingNote.note && (
+                <button className="btn btn-secondary flex-1 px-4 py-3" onClick={deleteNote}>
+                  Delete
+                </button>
+              )}
+              <button
+                className="btn btn-primary flex-1 px-4 py-3 disabled:opacity-40"
+                disabled={draftTitle.trim() === ""}
+                onClick={saveNote}
+              >
+                Save
+              </button>
             </div>
           </div>
         </div>

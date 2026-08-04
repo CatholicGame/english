@@ -160,19 +160,19 @@ export const UNITS_META: UnitMeta[] = [
   { unit: 10, slug: "rocket-science", title: "Rocket science", topics: "Space, physics", testPractice: "Listening Section 4", available: true },
   { unit: 11, slug: "progress", title: "Progress", topics: "Technology, design", testPractice: "Reading", available: true },
   { unit: 12, slug: "the-latest-thing", title: "The latest thing", topics: "Fashion and trends, consumerism", testPractice: "Reading", available: true },
-  { unit: 13, slug: "urban-jungle", title: "Urban jungle", topics: "Rural life, city life", testPractice: "Listening Section 1", available: false },
-  { unit: 14, slug: "tackling-issues", title: "Tackling issues", topics: "Problems, solutions", testPractice: "Writing Task 2", available: false },
-  { unit: 15, slug: "this-earth", title: "This Earth", topics: "Natural phenomena, agriculture", testPractice: "Listening Section 3", available: false },
-  { unit: 16, slug: "energy-efficient", title: "Energy efficient", topics: "Energy, natural resources", testPractice: "Writing Task 2", available: false },
-  { unit: 17, slug: "getting-down-to-business", title: "Getting down to business", topics: "Management, personal finance", testPractice: "Reading", available: false },
-  { unit: 18, slug: "law-enforcement", title: "Law enforcement", topics: "Crime, punishment", testPractice: "Writing Task 2", available: false },
-  { unit: 19, slug: "the-media", title: "The media", topics: "Fame and the media, media bias", testPractice: "Speaking", available: false },
-  { unit: 20, slug: "a-matter-of-taste", title: "A matter of taste", topics: "The arts, personal taste", testPractice: "Reading", available: false },
-  { unit: 21, slug: "learning-vocabulary", title: "Learning vocabulary", topics: "Dictionaries, wordlists", testPractice: "Reference", available: false },
-  { unit: 22, slug: "ielts-reading", title: "IELTS Reading", topics: "Reading skills, question types", testPractice: "Reference", available: false },
-  { unit: 23, slug: "ielts-writing", title: "IELTS Writing", topics: "Writing Task 1, Writing Task 2", testPractice: "Reference", available: false },
-  { unit: 24, slug: "ielts-listening", title: "IELTS Listening", topics: "Section 1 and 2, Section 3 and 4", testPractice: "Reference", available: false },
-  { unit: 25, slug: "ielts-speaking", title: "IELTS Speaking", topics: "Part 1, Part 2, Part 3", testPractice: "Reference", available: false },
+  { unit: 13, slug: "urban-jungle", title: "Urban jungle", topics: "Rural life, city life", testPractice: "Listening Section 1", available: true },
+  { unit: 14, slug: "tackling-issues", title: "Tackling issues", topics: "Problems, solutions", testPractice: "Writing Task 2", available: true },
+  { unit: 15, slug: "this-earth", title: "This Earth", topics: "Natural phenomena, agriculture", testPractice: "Listening Section 3", available: true },
+  { unit: 16, slug: "energy-efficient", title: "Energy efficient", topics: "Energy, natural resources", testPractice: "Writing Task 2", available: true },
+  { unit: 17, slug: "getting-down-to-business", title: "Getting down to business", topics: "Management, personal finance", testPractice: "Reading", available: true },
+  { unit: 18, slug: "law-enforcement", title: "Law enforcement", topics: "Crime, punishment", testPractice: "Writing Task 2", available: true },
+  { unit: 19, slug: "the-media", title: "The media", topics: "Fame and the media, media bias", testPractice: "Speaking", available: true },
+  { unit: 20, slug: "a-matter-of-taste", title: "A matter of taste", topics: "The arts, personal taste", testPractice: "Reading", available: true },
+  { unit: 21, slug: "learning-vocabulary", title: "Learning vocabulary", topics: "Dictionaries, wordlists", testPractice: "Reference", available: true },
+  { unit: 22, slug: "ielts-reading", title: "IELTS Reading", topics: "Reading skills, question types", testPractice: "Reference", available: true },
+  { unit: 23, slug: "ielts-writing", title: "IELTS Writing", topics: "Writing Task 1, Writing Task 2", testPractice: "Reference", available: true },
+  { unit: 24, slug: "ielts-listening", title: "IELTS Listening", topics: "Section 1 and 2, Section 3 and 4", testPractice: "Reference", available: true },
+  { unit: 25, slug: "ielts-speaking", title: "IELTS Speaking", topics: "Part 1, Part 2, Part 3", testPractice: "Reference", available: true },
 ];
 
 const unit1Vocab: VocabWord[] = [
@@ -5986,6 +5986,5090 @@ const UNIT_1_HUMAN_NATURE: CambridgeUnit = {
   ],
 };
 
+const unit13Vocab: VocabWord[] = [
+  {
+    term: "tranquillity",
+    ipa: "/træŋˈkwɪləti/",
+    pos: "noun",
+    usageNote: "danh từ không đếm được, chỉ trạng thái yên bình, tĩnh lặng của một nơi chốn",
+    en: "a state of calm and quiet",
+    vi: "sự yên bình, tĩnh lặng",
+    synonyms: ["serenity", "peace"],
+    antonyms: ["chaos", "commotion"],
+    examples: [
+      { en: "I love the peace and tranquillity of the area where I grew up.", vi: "Tôi yêu sự yên bình, tĩnh lặng của vùng quê nơi tôi lớn lên." },
+      { en: "Visitors come here for the tranquillity of the surrounding countryside.", vi: "Du khách đến đây vì sự yên bình của vùng nông thôn xung quanh." },
+    ],
+    ieltsTip: "\"Peace and tranquillity\" là cụm cố định rất hay dùng khi nói về ưu điểm của cuộc sống nông thôn trong Speaking Part 1 và 3.",
+    summary: "tranquillity = sự yên bình, tĩnh lặng.",
+  },
+  {
+    term: "serenity",
+    ipa: "/səˈrenəti/",
+    pos: "noun",
+    usageNote: "trang trọng hơn tranquillity, nhấn mạnh cảm giác thanh thản trong tâm hồn",
+    en: "the quality of being calm, peaceful and untroubled",
+    vi: "sự thanh bình, an nhiên",
+    synonyms: ["tranquillity", "calmness"],
+    antonyms: ["turmoil"],
+    examples: [
+      { en: "The serenity of village life appeals to people escaping the city.", vi: "Sự thanh bình của cuộc sống làng quê hấp dẫn những người muốn thoát khỏi thành phố." },
+      { en: "Nothing disturbed the serenity of the lake at dawn.", vi: "Không gì làm xáo trộn sự thanh bình của mặt hồ lúc bình minh." },
+    ],
+    ieltsTip: "\"Serenity\" trang trọng hơn \"tranquillity\" — dùng tốt trong Writing khi mô tả môi trường sống lý tưởng.",
+    summary: "serenity = sự thanh bình, an nhiên (thanh thản trong tâm hồn).",
+  },
+  {
+    term: "tranquil",
+    ipa: "/ˈtræŋkwɪl/",
+    pos: "adjective",
+    usageNote: "dạng tính từ của tranquillity, mô tả nơi chốn yên tĩnh, không bị quấy rầy",
+    en: "quiet and peaceful",
+    vi: "yên bình, tĩnh lặng",
+    synonyms: ["peaceful", "serene"],
+    antonyms: ["frantic", "hectic"],
+    examples: [
+      { en: "They moved to a tranquil village on the edge of the moors.", vi: "Họ chuyển đến một ngôi làng yên bình ở rìa vùng đồng hoang." },
+      { en: "The garden is a tranquil escape from the noise of the city.", vi: "Khu vườn là nơi trốn thoát yên bình khỏi tiếng ồn của thành phố." },
+    ],
+    ieltsTip: "Cặp \"tranquil ↔ frantic\" là cách đối lập nông thôn – thành thị rất tự nhiên trong Speaking Part 3.",
+    summary: "tranquil = yên bình, tĩnh lặng (tính từ).",
+  },
+  {
+    term: "remote",
+    ipa: "/rɪˈməʊt/",
+    pos: "adjective",
+    usageNote: "mô tả nơi ở rất xa các thị trấn, thành phố và khó đi lại",
+    en: "far away from towns or other places where people live",
+    vi: "hẻo lánh, xa xôi",
+    synonyms: ["isolated", "far-flung"],
+    antonyms: ["central", "accessible"],
+    examples: [
+      { en: "Medical care is hard to provide in remote rural areas.", vi: "Rất khó cung cấp dịch vụ y tế ở những vùng nông thôn hẻo lánh." },
+      { en: "Their farm is so remote that the nearest shop is an hour away.", vi: "Trang trại của họ hẻo lánh đến mức cửa hàng gần nhất cũng cách một tiếng đi đường." },
+    ],
+    ieltsTip: "\"Remoteness\" (danh từ) hay xuất hiện trong Listening khi nói về nhược điểm của vùng nông thôn.",
+    summary: "remote = hẻo lánh, xa xôi (cách xa khu dân cư).",
+  },
+  {
+    term: "isolated",
+    ipa: "/ˈaɪsəleɪtɪd/",
+    pos: "adjective",
+    usageNote: "vừa mô tả nơi chốn biệt lập, vừa mô tả cảm giác bị tách biệt khỏi mọi người",
+    en: "far from other places or people; feeling alone and separated from others",
+    vi: "biệt lập; cảm thấy cô lập",
+    synonyms: ["remote", "cut off"],
+    antonyms: ["connected"],
+    examples: [
+      { en: "Because all the properties are so spread out, it's easy to feel isolated at times.", vi: "Vì các ngôi nhà nằm cách xa nhau, đôi lúc rất dễ cảm thấy bị cô lập." },
+      { en: "Older people living in isolated villages often lack support.", vi: "Người già sống ở những ngôi làng biệt lập thường thiếu sự hỗ trợ." },
+    ],
+    ieltsTip: "Phân biệt: \"isolated\" nói được cả về nơi chốn lẫn cảm xúc, còn \"remote\" chỉ nói về khoảng cách địa lý.",
+    summary: "isolated = biệt lập (nơi chốn) / cảm thấy cô lập (con người).",
+  },
+  {
+    term: "cherished",
+    ipa: "/ˈtʃerɪʃt/",
+    pos: "adjective",
+    usageNote: "mô tả điều gì đó được yêu quý và gìn giữ, thường mang sắc thái tình cảm",
+    en: "loved, valued and carefully protected",
+    vi: "được trân trọng, quý mến",
+    synonyms: ["treasured", "valued"],
+    antonyms: ["neglected"],
+    examples: [
+      { en: "The less rural life is practised, the more it is cherished.", vi: "Lối sống nông thôn càng ít được duy trì thì lại càng được trân trọng." },
+      { en: "Village traditions are still cherished by local families.", vi: "Những truyền thống làng quê vẫn được các gia đình địa phương trân trọng." },
+    ],
+    ieltsTip: "\"Cherished\" là cách diễn đạt nâng cao thay cho \"loved\" — ghi điểm lexical resource trong Writing Task 2.",
+    summary: "cherished = được trân trọng, quý mến và gìn giữ.",
+  },
+  {
+    term: "a sense of community",
+    ipa: "/ə sens əv kəˈmjuːnəti/",
+    pos: "phrase",
+    usageNote: "chỉ cảm giác gắn bó, thân thuộc giữa những người sống cùng một khu vực",
+    en: "a feeling of belonging and of caring about the people who live around you",
+    vi: "tinh thần cộng đồng, tình làng nghĩa xóm",
+    synonyms: ["community spirit"],
+    antonyms: ["anonymity"],
+    examples: [
+      { en: "Rural communities usually have a strong sense of community.", vi: "Các cộng đồng nông thôn thường có tinh thần cộng đồng rất mạnh." },
+      { en: "High-rise living can weaken the sense of community in a city.", vi: "Sống trong nhà cao tầng có thể làm suy yếu tinh thần cộng đồng ở thành phố." },
+    ],
+    ieltsTip: "Đây là ý tưởng \"ăn điểm\" khi so sánh nông thôn với thành thị trong Speaking Part 3 và Writing Task 2.",
+    summary: "a sense of community = tinh thần cộng đồng, sự gắn bó láng giềng.",
+  },
+  {
+    term: "a slow pace of life",
+    ipa: "/ə sləʊ peɪs əv laɪf/",
+    pos: "phrase",
+    usageNote: "cụm mô tả nhịp sống thong thả, không vội vã, đặc trưng của vùng quê",
+    en: "a way of living that is unhurried and relaxed",
+    vi: "nhịp sống chậm rãi",
+    synonyms: ["a relaxed lifestyle"],
+    antonyms: ["a hectic lifestyle"],
+    examples: [
+      { en: "What I like most about the countryside is the slow pace of life.", vi: "Điều tôi thích nhất ở nông thôn là nhịp sống chậm rãi." },
+      { en: "After ten years in the city, he wanted a slower pace of life.", vi: "Sau mười năm ở thành phố, anh ấy muốn một nhịp sống chậm hơn." },
+    ],
+    ieltsTip: "Đối lập với \"the frantic pace of city life\" — cặp này rất hữu ích cho câu trả lời so sánh.",
+    summary: "a slow pace of life = nhịp sống chậm rãi, thong thả.",
+  },
+  {
+    term: "open spaces",
+    ipa: "/ˈəʊpən ˈspeɪsɪz/",
+    pos: "phrase",
+    usageNote: "chỉ những khoảng đất trống, thoáng đãng, không bị nhà cửa che kín",
+    en: "large areas of land without buildings",
+    vi: "không gian thoáng đãng, đất trống",
+    synonyms: ["green space"],
+    antonyms: ["built-up areas"],
+    examples: [
+      { en: "Rural communities have open spaces and fresh air.", vi: "Các cộng đồng nông thôn có không gian thoáng đãng và không khí trong lành." },
+      { en: "Children need open spaces where they can play safely.", vi: "Trẻ em cần không gian thoáng đãng để chơi đùa an toàn." },
+    ],
+    ieltsTip: "\"Open/green spaces\" là từ vựng cần thiết cho các đề Writing Task 2 về quy hoạch đô thị.",
+    summary: "open spaces = không gian thoáng đãng, khu đất trống.",
+  },
+  {
+    term: "urbanite",
+    ipa: "/ˈɜːbənaɪt/",
+    pos: "noun",
+    usageNote: "chỉ người sống ở thành phố và quen với lối sống đô thị",
+    en: "a person who lives in a city",
+    vi: "dân thành thị, người sống ở đô thị",
+    synonyms: ["city dweller"],
+    antonyms: ["country dweller"],
+    examples: [
+      { en: "I really had no choice but to become an urbanite.", vi: "Tôi thực sự không còn lựa chọn nào khác ngoài việc trở thành dân thành thị." },
+      { en: "Many urbanites dream of retiring to the countryside.", vi: "Nhiều người thành thị mơ về việc nghỉ hưu ở nông thôn." },
+    ],
+    ieltsTip: "\"Urbanite\" và \"city dweller\" là cách paraphrase cho \"people who live in cities\" trong Reading.",
+    summary: "urbanite = dân thành thị, người sống ở đô thị.",
+  },
+  {
+    term: "megacity",
+    ipa: "/ˈmeɡəsɪti/",
+    pos: "noun",
+    usageNote: "thuật ngữ chỉ đô thị có dân số trên 10 triệu người",
+    en: "a very large city, usually with a population of more than ten million people",
+    vi: "siêu đô thị (trên 10 triệu dân)",
+    synonyms: ["metropolis"],
+    antonyms: ["hamlet"],
+    examples: [
+      { en: "A megacity is usually defined as a metropolitan area with a population in excess of ten million.", vi: "Siêu đô thị thường được định nghĩa là khu vực đô thị có dân số vượt quá mười triệu người." },
+      { en: "The Greater Tokyo Area was the largest megacity in the 2000s.", vi: "Vùng đại đô thị Tokyo là siêu đô thị lớn nhất trong những năm 2000." },
+    ],
+    ieltsTip: "Trong Listening Section 4 về đô thị hoá, \"megacity\" và \"metropolis\" thường được dùng thay thế cho nhau.",
+    summary: "megacity = siêu đô thị, thành phố trên 10 triệu dân.",
+  },
+  {
+    term: "frantic",
+    ipa: "/ˈfræntɪk/",
+    pos: "adjective",
+    usageNote: "mô tả trạng thái hối hả, vội vã đến mức căng thẳng",
+    en: "done in a hurried and anxious way; extremely busy",
+    vi: "hối hả, cuống cuồng",
+    synonyms: ["hectic", "frenzied"],
+    antonyms: ["tranquil", "leisurely"],
+    examples: [
+      { en: "City life can be frantic compared with the countryside.", vi: "Cuộc sống thành thị có thể hối hả hơn nhiều so với nông thôn." },
+      { en: "There is a frantic rush to get to work every morning.", vi: "Sáng nào cũng có cảnh hối hả chen chúc để kịp đi làm." },
+    ],
+    ieltsTip: "\"The frantic pace of city life\" là collocation rất mạnh cho Speaking Part 3.",
+    summary: "frantic = hối hả, cuống cuồng (nhịp sống căng thẳng).",
+  },
+  {
+    term: "overpopulated",
+    ipa: "/ˌəʊvəˈpɒpjuleɪtɪd/",
+    pos: "adjective",
+    usageNote: "mô tả nơi có quá nhiều người sinh sống so với nguồn lực sẵn có",
+    en: "having too many people living in one place for the available resources",
+    vi: "quá đông dân",
+    synonyms: ["overcrowded"],
+    antonyms: ["sparsely populated"],
+    examples: [
+      { en: "In many poor countries, overpopulated slums have high rates of disease.", vi: "Ở nhiều nước nghèo, các khu ổ chuột quá đông dân có tỷ lệ bệnh tật cao." },
+      { en: "The city centre is becoming seriously overpopulated.", vi: "Trung tâm thành phố đang trở nên quá đông dân một cách nghiêm trọng." },
+    ],
+    ieltsTip: "Phân biệt \"overpopulated\" (quá đông so với nguồn lực) với \"densely populated\" (mật độ dân cư cao, trung tính).",
+    summary: "overpopulated = quá đông dân so với nguồn lực.",
+  },
+  {
+    term: "traffic congestion",
+    ipa: "/ˈtræfɪk kənˈdʒestʃən/",
+    pos: "phrase",
+    usageNote: "cách nói trang trọng cho tình trạng tắc đường trong đô thị",
+    en: "a situation in which roads are so full of vehicles that traffic moves very slowly",
+    vi: "ùn tắc giao thông",
+    synonyms: ["gridlock"],
+    antonyms: ["free-flowing traffic"],
+    examples: [
+      { en: "Traffic congestion creates enormous problems for people travelling at peak times.", vi: "Ùn tắc giao thông gây ra vô số vấn đề cho người di chuyển vào giờ cao điểm." },
+      { en: "Congestion charges were introduced to reduce traffic in the centre.", vi: "Phí ùn tắc được áp dụng để giảm lượng xe trong trung tâm." },
+    ],
+    ieltsTip: "Dùng \"traffic congestion\" thay cho \"too many cars\" để nâng band từ vựng trong Writing Task 2.",
+    summary: "traffic congestion = tình trạng ùn tắc giao thông.",
+  },
+  {
+    term: "urban sprawl",
+    ipa: "/ˈɜːbən sprɔːl/",
+    pos: "phrase",
+    usageNote: "chỉ sự lan rộng thiếu kiểm soát của thành phố ra vùng nông thôn xung quanh",
+    en: "the uncontrolled spread of a city into the countryside around it",
+    vi: "sự bành trướng đô thị (lan ra vùng ven)",
+    synonyms: ["overdevelopment"],
+    antonyms: ["compact development"],
+    examples: [
+      { en: "It is difficult to determine where the city ends because of the urban sprawl.", vi: "Rất khó xác định thành phố kết thúc ở đâu vì sự bành trướng đô thị." },
+      { en: "Urban sprawl has swallowed up several nearby villages.", vi: "Sự bành trướng đô thị đã nuốt chửng vài ngôi làng lân cận." },
+    ],
+    ieltsTip: "\"Urban sprawl\" là từ khoá thường gặp trong Reading về quy hoạch và môi trường đô thị.",
+    summary: "urban sprawl = sự lan rộng mất kiểm soát của đô thị.",
+  },
+  {
+    term: "concrete jungle",
+    ipa: "/ˈkɒŋkriːt ˈdʒʌŋɡl/",
+    pos: "phrase",
+    usageNote: "cách nói ẩn dụ, tiêu cực, về một thành phố toàn nhà bê tông, thiếu cây xanh",
+    en: "a city area full of large, unattractive buildings and with very little greenery",
+    vi: "rừng bê tông (đô thị ngột ngạt, thiếu cây xanh)",
+    synonyms: ["built-up area"],
+    antonyms: ["green belt"],
+    examples: [
+      { en: "Without parks, the city becomes a concrete jungle.", vi: "Không có công viên, thành phố trở thành một rừng bê tông." },
+      { en: "He escapes the concrete jungle every weekend.", vi: "Cuối tuần nào anh ấy cũng trốn khỏi rừng bê tông." },
+    ],
+    ieltsTip: "Đây là idiom mang sắc thái tiêu cực — hợp Speaking hơn là Writing học thuật trang trọng.",
+    summary: "concrete jungle = rừng bê tông, đô thị ngột ngạt thiếu cây xanh.",
+  },
+  {
+    term: "shanty town",
+    ipa: "/ˈʃænti taʊn/",
+    pos: "phrase",
+    usageNote: "chỉ khu nhà tạm bợ do người nghèo dựng lên, thường ở rìa các thành phố lớn",
+    en: "an area on the edge of a city where poor people live in rough shelters they build themselves",
+    vi: "khu nhà ổ chuột tạm bợ (ở rìa thành phố)",
+    synonyms: ["slum settlement"],
+    antonyms: ["affluent suburb"],
+    examples: [
+      { en: "One-sixth of the world's population now live in shanty towns.", vi: "Một phần sáu dân số thế giới hiện đang sống trong các khu nhà ổ chuột tạm bợ." },
+      { en: "Shanty towns often lack clean water and sanitation.", vi: "Các khu nhà tạm bợ thường thiếu nước sạch và hệ thống vệ sinh." },
+    ],
+    ieltsTip: "Trong Listening, \"slums\" và \"shanty towns\" thường được chấp nhận thay thế cho nhau.",
+    summary: "shanty town = khu nhà ổ chuột tạm bợ ở rìa thành phố.",
+  },
+  {
+    term: "inner-city slums",
+    ipa: "/ˌɪnə ˈsɪti slʌmz/",
+    pos: "phrase",
+    usageNote: "chỉ những khu nhà nghèo nàn, xuống cấp nằm ngay trong khu vực trung tâm cũ của thành phố",
+    en: "poor, overcrowded areas of housing near the centre of a city",
+    vi: "khu ổ chuột trong nội đô",
+    synonyms: ["deprived neighbourhoods"],
+    antonyms: ["affluent districts"],
+    examples: [
+      { en: "Many people who move to the city end up living in inner-city slums.", vi: "Nhiều người chuyển đến thành phố cuối cùng phải sống trong các khu ổ chuột nội đô." },
+      { en: "The council plans to redevelop the inner-city slums.", vi: "Hội đồng thành phố dự định cải tạo lại các khu ổ chuột nội đô." },
+    ],
+    ieltsTip: "Phân biệt: \"inner-city slums\" nằm trong trung tâm, còn \"shanty towns\" mọc lên ở vùng rìa.",
+    summary: "inner-city slums = khu ổ chuột nghèo nàn ở nội đô.",
+  },
+  {
+    term: "high-rise buildings",
+    ipa: "/ˌhaɪ raɪz ˈbɪldɪŋz/",
+    pos: "phrase",
+    usageNote: "chỉ các toà nhà rất nhiều tầng, đặc trưng của đô thị đông đúc",
+    en: "very tall buildings with many floors",
+    vi: "nhà cao tầng, cao ốc",
+    synonyms: ["tower blocks"],
+    antonyms: ["low-rise housing"],
+    examples: [
+      { en: "High-rise buildings allow more people to live in a small area.", vi: "Nhà cao tầng cho phép nhiều người hơn sống trong một diện tích nhỏ." },
+      { en: "Rural areas rarely have high-rise buildings.", vi: "Vùng nông thôn hiếm khi có nhà cao tầng." },
+    ],
+    ieltsTip: "\"High rises\" (danh từ số nhiều) là dạng rút gọn thường gặp trong bài nghe.",
+    summary: "high-rise buildings = các toà nhà cao tầng.",
+  },
+  {
+    term: "recreational facilities",
+    ipa: "/ˌrekriˈeɪʃənl fəˈsɪlətiz/",
+    pos: "phrase",
+    usageNote: "chỉ các cơ sở phục vụ giải trí, thể thao như rạp phim, bể bơi, sân vận động",
+    en: "places such as sports centres, cinemas and parks where people spend their free time",
+    vi: "cơ sở vật chất/tiện ích giải trí",
+    synonyms: ["leisure facilities"],
+    antonyms: [],
+    examples: [
+      { en: "The city has far more recreational facilities than rural areas.", vi: "Thành phố có nhiều tiện ích giải trí hơn hẳn vùng nông thôn." },
+      { en: "Young people complain about the lack of recreational facilities in the village.", vi: "Giới trẻ phàn nàn về việc thiếu tiện ích giải trí trong làng." },
+    ],
+    ieltsTip: "\"Facilities\" luôn ở dạng số nhiều khi nói về cơ sở vật chất — lỗi số ít rất hay bị trừ điểm.",
+    summary: "recreational facilities = các tiện ích, cơ sở giải trí.",
+  },
+];
+
+const track25Script = `Speaker 1: I moved here about two years ago. Although I love the peace and tranquillity of the area where I grew up, I wanted to be an interior designer and there are very limited opportunities for that type of work there. So I really had no choice but to become an urbanite! I have to say I do miss the fresh air, though. But living in the country can have its disadvantages, too. I only have to walk down the street now to my local supermarket, which is really convenient, but where my parents live you have to travel for several hours to get to the nearest shops.
+Speaker 2: I came here after I graduated from university. I've always wanted to be a vet, but city vets really only deal with pets and I wanted to work with larger farm animals. It's really interesting work but, because all the properties are so spread out, it's easy to feel isolated at times. That's why it can be tough for children out here. They don't have a lot of choice when it comes to education. They either have to go to boarding school or be schooled at home. Having said that, they have a lot more freedom here because it's a really safe environment for them. I love my life here now, and I don't miss the city at all.`;
+
+const track26Script = `A megacity is usually defined as a metropolitan area with a total population in excess of ten million people. Some definitions also set a minimum level for population density with a figure of at least two thousand inhabitants per square kilometre. A megacity can be a single metropolitan area or two or more areas that converge or join together. This is sometimes referred to as a metropolis.
+Looking right back through history, for almost a thousand years Rome was the largest, wealthiest and most politically important city in Europe. Rome's population passed a million by the end of the first century BC. However, during the Early Middle Ages, its population declined to a mere 20 thousand. By this time, what had been a sprawling city was reduced to groups of inhabited buildings spread out among large areas of ruins.
+In 1800, only three per cent of the world's population lived in cities. But this figure had risen to 47 per cent by the end of the twentieth century. In 1950, New York City was the only urban area with a population of over ten million. And there were 83 cities with populations exceeding one million. However, by 2007, this number had risen to 468. If the trend continues, the world's urban population will double every 38 years. The UN has predicted that today's urban population of 3.2 billion will rise to nearly five billion by 2030, when three out of five people will live in cities.
+In the 2000s, the largest megacity was the Greater Tokyo Area. The population of this metropolis includes areas such as Yokohama and Kawasaki, and is estimated to be between 35 and 36 million. This variation in estimates can be accounted for by different definitions of what the area encompasses. A characteristic issue of megacities is the difficulty in defining their outer limits. At present, one billion people, or one-sixth of the world's population, now live in shanty towns. In many poor countries, overpopulated slums have high rates of disease due to unsanitary conditions. The UN estimates that by 2030, over two billion people in the world will be living in slums.`;
+
+const track27Script = `Woman: Hello, I wonder if you could help me. I'm moving to Liverpool next month and I've got a job at the children's hospital, so I need to find accommodation near there.
+Man: Yes, of course. Now, the hospital you're talking about has some very nice suburbs nearby. The first one I'd recommend you look at is called Broadgreen.
+Woman: Right, can you tell me a bit about the area itself? I have a car but I'm not a confident driver and I'd rather use other forms of transport as much as I can.
+Man: Well, this area has a very good bus service and a train service as well, so it's really convenient as far as that's concerned.
+Woman: Good. I'd like to use public transport when I can. Now, I come from London and parking can be a real problem there. Is that the same here?
+Man: Yeah, my sister lives in London and she has to pay for parking in her own street! You'll be glad to hear we don't have that problem here.
+Woman: That's great. I'm hoping the cost of living here will be a lot less than in London. What are the rents like? We pay over £200 a week on average, and that's in a cheaper area of London.
+Man: Wow, well, you'll be glad to know the average weekly rent here is around £120. So you'll be saving around half what you have been paying.
+Woman: That's great! There has to be some downside to it, it's sounding too good to be true. I'll bet there's a lot of crime in the area or something.
+Man: Not at all. Though some people do find they have to travel a bit to get their groceries. The area could do with a few more shops.
+Woman: Well, that doesn't sound so bad. So, is there any other area I should look at as well?
+Man: Yes, I'd recommend West Derby. It will be closer to work for you.
+Woman: That sounds good.
+Man: Yes, and if you have children, it also has very good schools.
+Woman: That's not an issue for me. I live on my own so I'm only looking for cheap, single accommodation. Something like a flat.
+Man: Hmm, that may be a problem here then because this area has mostly larger houses. You'd probably be able to share one with other people who want to rent, though.
+Woman: No, I'm only interested in flats at the moment, so I may be disappointed there.
+Man: Yes. It's a lovely quiet area but the accommodation can be on the expensive side.
+Woman: Well, I think I'd still like to have a look at both areas.
+Man: We actually have an office in West Derby, and the guy who works there is a really good friend of mine. He'll be a great help.
+Woman: Can you give me his contact details?
+Man: Yes. His name is John Godfrey. That's G.O.D.F.R.E.Y.
+Woman: Right, I've got that, and what's the best telephone number to reach him on?
+Man: Well, I'll give you his mobile number. It's 0742, triple 6, 3951.
+Woman: Great, is there a good time to call him? I'm here for a whole week until next Wednesday.
+Man: I'm sure he'll be able to see you on Saturday. He's away from tomorrow until Friday, though.
+Woman: That should be fine. I'll give him a call. Thanks for all your help!`;
+
+const UNIT_13_URBAN_JUNGLE: CambridgeUnit = {
+  unit: 13,
+  slug: "urban-jungle",
+  title: "Urban jungle",
+  topics: "Rural life, city life",
+  testPractice: "Listening Section 1",
+  steps: [
+    {
+      kind: "vocab",
+      title: "Key vocabulary",
+      words: unit13Vocab,
+    },
+    {
+      kind: "listening_cloze",
+      title: "Two people, two lifestyles",
+      instructions: "Listen to two people talking about where they live. Complete the notes with the missing words.",
+      audioUrl: "https://a8wdavlbr1kcxckb.public.blob.vercel-storage.com/cambridge-vocabulary-ielts/track-25.mp3",
+      template:
+        "Speaker 1 has become an {{urbanite}}. She loves the peace and {{tranquillity}} of the area where she grew up, but there were very limited {{opportunities}} for the work she wanted to do. She misses the {{fresh air}}, though she admits the country has disadvantages too: where her parents live you have to travel for several hours to reach the nearest {{shops}}.\n\n" +
+        "Speaker 2 moved to the country after graduating because he wanted to work with larger {{farm animals}}. Because all the properties are so spread out, it is easy to feel {{isolated}} at times, and children don't have a lot of choice when it comes to {{education}}. On the other hand, they have far more {{freedom}} because it is such a safe {{environment}} for them.",
+      script: track25Script,
+      tip: "Nghe kỹ các cặp lợi – hại: bài nghe IELTS thường sắp xếp thông tin theo advantages rồi disadvantages.",
+    },
+    {
+      kind: "sort",
+      title: "Rural life or city life?",
+      instructions: "Tap a word, then tap the category it belongs to.",
+      buckets: ["Rural life", "City life"],
+      items: [
+        { term: "tranquillity", bucket: 0 },
+        { term: "serenity", bucket: 0 },
+        { term: "tranquil", bucket: 0 },
+        { term: "remote", bucket: 0 },
+        { term: "isolated", bucket: 0 },
+        { term: "cherished", bucket: 0 },
+        { term: "a sense of community", bucket: 0 },
+        { term: "a slow pace of life", bucket: 0 },
+        { term: "open spaces", bucket: 0 },
+        { term: "urbanite", bucket: 1 },
+        { term: "megacity", bucket: 1 },
+        { term: "frantic", bucket: 1 },
+        { term: "overpopulated", bucket: 1 },
+        { term: "traffic congestion", bucket: 1 },
+        { term: "urban sprawl", bucket: 1 },
+        { term: "concrete jungle", bucket: 1 },
+        { term: "shanty town", bucket: 1 },
+        { term: "inner-city slums", bucket: 1 },
+        { term: "high-rise buildings", bucket: 1 },
+        { term: "recreational facilities", bucket: 1 },
+      ],
+    },
+    {
+      kind: "fill_mc",
+      title: "Describing where people live",
+      instructions: "Choose the word that best completes each sentence.",
+      items: [
+        { before: "Living so far from town, she often complains about a sense of", after: "in the winter months.", options: ["isolation", "congestion", "sprawl"], answer: "isolation" },
+        { before: "Villages like this have no", after: ", so everyone has to drive.", options: ["public transport system", "concrete jungle", "shanty town"], answer: "public transport system" },
+        { before: "What I miss most is the", after: "pace of country life.", options: ["slower", "frantic", "overpopulated"], answer: "slower" },
+        { before: "Rush hour in the capital is absolutely", after: ".", options: ["frantic", "tranquil", "cherished"], answer: "frantic" },
+        { before: "People in the village lead", after: ", traditional lives.", options: ["simpler", "denser", "taller"], answer: "simpler" },
+        { before: "The town centre is so", after: "that the roads can no longer cope.", options: ["overpopulated", "remote", "tranquil"], answer: "overpopulated" },
+      ],
+    },
+    {
+      kind: "type_fill",
+      title: "City collocations",
+      instructions: "Complete each sentence with a compound noun from this unit.",
+      items: [
+        { prompt: "We need a stronger ___ to help keep crime levels in our major cities down.", answer: "police force" },
+        { prompt: "The city has far more ___ than rural areas, so young people don't get bored so easily.", answer: "recreational facilities" },
+        { prompt: "___ creates enormous problems for people travelling around the city at peak times.", answer: "traffic congestion" },
+        { prompt: "Many people who move to the city from rural areas end up living in ___ because of a shortage of housing.", answer: "inner-city slums" },
+        { prompt: "It is difficult to determine where the city ends because of the ___.", answer: "urban sprawl" },
+        { prompt: "An efficient ___ is essential to maintaining sanitation in densely populated areas.", answer: "sewage system" },
+      ],
+    },
+    {
+      kind: "listening_cloze",
+      title: "Urbanisation — a talk",
+      instructions: "Listen to a talk about urbanisation and complete the notes with the missing words.",
+      audioUrl: "https://a8wdavlbr1kcxckb.public.blob.vercel-storage.com/cambridge-vocabulary-ielts/track-26.mp3",
+      template:
+        "Definition\n" +
+        "• A {{megacity}} = a metropolitan area with a population in excess of ten million people\n" +
+        "• Some definitions also set a minimum level for population {{density}}\n" +
+        "• Two or more areas that {{converge}} or join together are sometimes called a {{metropolis}}\n\n" +
+        "History\n" +
+        "• Rome's population passed a million by the end of the first century BC, then declined during the Early Middle Ages\n" +
+        "• What had been a {{sprawling}} city was reduced to groups of inhabited buildings among ruins\n\n" +
+        "Growth\n" +
+        "• In 1800 only three per cent of the world's population lived in cities\n" +
+        "• If the trend continues, the world's {{urban population}} will double every 38 years\n\n" +
+        "Problems\n" +
+        "• A characteristic issue of megacities is the difficulty of defining their {{outer limits}}\n" +
+        "• One-sixth of the world's population now live in {{shanty towns}}\n" +
+        "• Overpopulated {{slums}} in poor countries have high rates of disease due to {{unsanitary}} conditions",
+      script: track26Script,
+      tip: "Trong Listening Section 4, hãy dự đoán loại từ cần điền (danh từ số nhiều? tính từ?) trước khi audio bắt đầu.",
+    },
+    {
+      kind: "reveal_pairs",
+      title: "Paraphrase practice",
+      instructions: "Tap each phrase to reveal a more academic way of saying it.",
+      pairs: [
+        { prompt: "developed over time", reveal: "evolved" },
+        { prompt: "very big", reveal: "massive" },
+        { prompt: "the opposite", reveal: "the reverse" },
+        { prompt: "loved and protected", reveal: "cherished" },
+        { prompt: "a slight suggestion of a feeling", reveal: "an undertone" },
+        { prompt: "showed / made clear", reveal: "revealed" },
+        { prompt: "peace and calm", reveal: "serenity" },
+        { prompt: "made to feel they don't belong", reveal: "alienated" },
+        { prompt: "noticeably / clearly", reveal: "markedly" },
+        { prompt: "people who live in cities", reveal: "urbanites / city dwellers" },
+      ],
+    },
+    {
+      kind: "speaking",
+      title: "Speaking — the place where you live",
+      prompt: "Describe the city, town or village where you live.",
+      bullets: ["how you would describe it", "whether you prefer city life or country life", "how it has changed in the last 20 years", "what changes you would like to see in the future"],
+      prepSeconds: 60,
+      talkSeconds: 120,
+      tip:
+        "Đây là dạng câu hỏi Speaking Part 1 về nơi bạn sống — hãy trả lời đầy đủ chứ đừng chỉ nói một câu. Cố gắng dùng từ vựng của unit này (a slow pace of life, urban sprawl, recreational facilities...). Khi nói xong, tự kiểm tra: có ngập ngừng giữa câu không, phát âm có rõ không, vốn từ có đa dạng không, và có lặp từ quá nhiều không.",
+    },
+    {
+      kind: "listening_cloze",
+      title: "Test practice — Listening Section 1",
+      instructions: "Listen to a conversation between an estate agent and a woman looking for accommodation. Complete the notes with NO MORE THAN ONE WORD for each answer.",
+      audioUrl: "https://a8wdavlbr1kcxckb.public.blob.vercel-storage.com/cambridge-vocabulary-ielts/track-27.mp3",
+      template:
+        "New accommodation\n" +
+        "Need to find accommodation close to the children's hospital.\n\n" +
+        "Area 1 — Broadgreen\n" +
+        "Advantages:\n" +
+        "• has several types of {{transport}}\n" +
+        "• no need to pay for {{parking}}\n" +
+        "• average rent £120 a week\n" +
+        "Disadvantages:\n" +
+        "• not many local {{shops}}\n\n" +
+        "Area 2 — West Derby\n" +
+        "Advantages:\n" +
+        "• good {{schools}}\n" +
+        "Disadvantages:\n" +
+        "• unlikely to find a {{flat}} in the area\n" +
+        "• may be too {{expensive}}\n\n" +
+        "Contact\n" +
+        "• John {{Godfrey}}\n" +
+        "• arrange appointment for: {{Saturday}}",
+      script: track27Script,
+      tip: "Section 1 luôn có một ví dụ mẫu được làm sẵn. Hãy nghe kỹ xem đáp án có cần dạng số nhiều hay không — kiểm tra lại chữ 's' ở cuối từ khi soát bài.",
+    },
+  ],
+};
+
+const unit14Vocab: VocabWord[] = [
+  {
+    term: "setback",
+    ipa: "/ˈsetbæk/",
+    pos: "noun",
+    usageNote: "chỉ sự cố làm chậm hoặc cản trở một tiến trình đang diễn ra",
+    en: "something that happens which delays or prevents a process from advancing",
+    vi: "trở ngại, bước lùi (làm chậm tiến độ)",
+    synonyms: ["hold-up", "reversal"],
+    antonyms: ["breakthrough"],
+    examples: [
+      { en: "We experienced a minor setback when we lost several plants, but the rest are thriving.", vi: "Chúng tôi gặp một trở ngại nhỏ khi mất vài cây, nhưng số còn lại vẫn phát triển tốt." },
+      { en: "The project suffered a major setback after the funding was withdrawn.", vi: "Dự án gặp trở ngại lớn sau khi nguồn tài trợ bị rút." },
+    ],
+    ieltsTip: "Collocation hay gặp: \"a minor / major / serious setback\" và động từ \"suffer a setback\".",
+    summary: "setback = trở ngại làm chậm hoặc lùi tiến độ.",
+  },
+  {
+    term: "dilemma",
+    ipa: "/dɪˈlemə/",
+    pos: "noun",
+    usageNote: "chỉ tình huống buộc phải chọn giữa hai phương án đều khó khăn",
+    en: "a situation where a difficult choice has to be made between two things",
+    vi: "tình thế tiến thoái lưỡng nan",
+    synonyms: ["quandary"],
+    antonyms: ["clear choice"],
+    examples: [
+      { en: "Genetic modification presents a moral dilemma for many scientists.", vi: "Biến đổi gen đặt ra một tình thế lưỡng nan về đạo đức cho nhiều nhà khoa học." },
+      { en: "Working parents often face the dilemma of career versus family.", vi: "Cha mẹ đi làm thường đối mặt với tình thế lưỡng nan giữa sự nghiệp và gia đình." },
+    ],
+    ieltsTip: "\"Dilemma\" luôn hàm ý có ĐÚNG HAI lựa chọn khó — đừng dùng thay cho \"problem\" chung chung.",
+    summary: "dilemma = tình thế lưỡng nan giữa hai lựa chọn khó.",
+  },
+  {
+    term: "predicament",
+    ipa: "/prɪˈdɪkəmənt/",
+    pos: "noun",
+    usageNote: "chỉ hoàn cảnh khó chịu, khó thoát ra được",
+    en: "an unpleasant situation which is difficult to get out of",
+    vi: "cảnh khó xử, tình cảnh khó khăn",
+    synonyms: ["plight", "predicament"],
+    antonyms: ["comfortable position"],
+    examples: [
+      { en: "I doubt that recycling alone can get us out of our current predicament.", vi: "Tôi nghi ngờ rằng chỉ riêng tái chế có thể đưa chúng ta thoát khỏi tình cảnh hiện tại." },
+      { en: "The government must explain how it plans to resolve this predicament.", vi: "Chính phủ phải giải thích họ dự định giải quyết tình cảnh này ra sao." },
+    ],
+    ieltsTip: "Collocation chuẩn: \"our current predicament\", \"get out of a predicament\".",
+    summary: "predicament = hoàn cảnh khó khăn, khó thoát ra.",
+  },
+  {
+    term: "obstacle",
+    ipa: "/ˈɒbstəkl/",
+    pos: "noun",
+    usageNote: "chỉ thứ chặn đường, khiến tiến trình không thể tiếp tục",
+    en: "something that blocks you so that forward movement is prevented",
+    vi: "chướng ngại vật, vật cản",
+    synonyms: ["hurdle", "barrier"],
+    antonyms: ["aid"],
+    examples: [
+      { en: "The cost of equipment is the biggest obstacle to expanding the programme.", vi: "Chi phí thiết bị là chướng ngại lớn nhất cho việc mở rộng chương trình." },
+      { en: "She overcame numerous obstacles to complete her degree.", vi: "Cô ấy đã vượt qua vô số chướng ngại để hoàn thành tấm bằng." },
+    ],
+    ieltsTip: "Động từ đi kèm mạnh nhất là \"overcome an obstacle\" — rất hợp cho Writing Task 2 dạng problem–solution.",
+    summary: "obstacle = chướng ngại chặn đường tiến lên.",
+  },
+  {
+    term: "hurdle",
+    ipa: "/ˈhɜːdl/",
+    pos: "noun",
+    usageNote: "gần nghĩa obstacle nhưng gợi hình ảnh rào cần vượt qua trong một chặng đường",
+    en: "a difficulty that must be dealt with before you can make progress",
+    vi: "rào cản cần vượt qua",
+    synonyms: ["obstacle", "barrier"],
+    antonyms: ["shortcut"],
+    examples: [
+      { en: "The enormous cost of this programme is a major hurdle that we need to overcome.", vi: "Chi phí khổng lồ của chương trình này là một rào cản lớn mà chúng ta cần vượt qua." },
+      { en: "Getting a visa was the first hurdle.", vi: "Xin visa là rào cản đầu tiên." },
+    ],
+    ieltsTip: "\"A major hurdle\" + \"overcome\" là cặp collocation gần như cố định.",
+    summary: "hurdle = rào cản phải vượt qua để tiến tới.",
+  },
+  {
+    term: "controversy",
+    ipa: "/ˈkɒntrəvɜːsi/",
+    pos: "noun",
+    usageNote: "chỉ sự tranh cãi kéo dài, thường liên quan đến nhiều người trong xã hội",
+    en: "a lot of disagreement or argument about something, usually affecting many people",
+    vi: "sự tranh cãi, tranh luận gay gắt",
+    synonyms: ["dispute", "debate"],
+    antonyms: ["consensus"],
+    examples: [
+      { en: "The use of drugs by athletes has caused considerable controversy in the world of sport.", vi: "Việc vận động viên dùng chất kích thích đã gây tranh cãi đáng kể trong giới thể thao." },
+      { en: "The new law provoked controversy across the country.", vi: "Đạo luật mới đã gây tranh cãi trên khắp cả nước." },
+    ],
+    ieltsTip: "Tính từ tương ứng là \"controversial\" — \"a controversial issue\" là cách mở bài rất tự nhiên cho Task 2.",
+    summary: "controversy = sự tranh cãi rộng rãi trong xã hội.",
+  },
+  {
+    term: "catastrophe",
+    ipa: "/kəˈtæstrəfi/",
+    pos: "noun",
+    usageNote: "chỉ thảm hoạ có hậu quả cực kỳ nghiêm trọng, mạnh hơn disaster",
+    en: "an event causing great and usually sudden damage or suffering",
+    vi: "thảm hoạ (mức độ nghiêm trọng)",
+    synonyms: ["disaster", "calamity"],
+    antonyms: ["blessing"],
+    examples: [
+      { en: "To prevent a catastrophe of global proportions, we need to reach a compromise.", vi: "Để ngăn chặn một thảm hoạ mang tầm toàn cầu, chúng ta cần đạt được một sự thoả hiệp." },
+      { en: "Rising sea levels could be a catastrophe for low-lying nations.", vi: "Mực nước biển dâng có thể là thảm hoạ với các quốc gia thấp trũng." },
+    ],
+    ieltsTip: "Tính từ là \"catastrophic\" — dùng cho hậu quả, ví dụ \"catastrophic consequences\".",
+    summary: "catastrophe = thảm hoạ lớn, hậu quả nghiêm trọng.",
+  },
+  {
+    term: "crisis",
+    ipa: "/ˈkraɪsɪs/",
+    pos: "noun",
+    usageNote: "số nhiều bất quy tắc là \"crises\" /ˈkraɪsiːz/, chỉ giai đoạn nguy cấp cần hành động ngay",
+    en: "a time of great danger or difficulty when decisions must be made quickly",
+    vi: "khủng hoảng",
+    synonyms: ["emergency"],
+    antonyms: ["stability"],
+    examples: [
+      { en: "The global financial crisis affected employment around the world.", vi: "Cuộc khủng hoảng tài chính toàn cầu đã ảnh hưởng đến việc làm trên khắp thế giới." },
+      { en: "Many countries are facing an energy crisis.", vi: "Nhiều quốc gia đang đối mặt với khủng hoảng năng lượng." },
+    ],
+    ieltsTip: "Nhớ dạng số nhiều \"crises\" — viết \"crisises\" là lỗi bị trừ điểm ngữ pháp.",
+    summary: "crisis = khủng hoảng (số nhiều: crises).",
+  },
+  {
+    term: "alleviate",
+    ipa: "/əˈliːvieɪt/",
+    pos: "verb",
+    usageNote: "làm dịu bớt mức độ nghiêm trọng của một vấn đề hoặc nỗi đau",
+    en: "to make something bad less severe",
+    vi: "làm giảm nhẹ, xoa dịu",
+    synonyms: ["ease", "mitigate"],
+    antonyms: ["exacerbate"],
+    examples: [
+      { en: "Better public transport would alleviate traffic congestion.", vi: "Giao thông công cộng tốt hơn sẽ làm giảm nhẹ tình trạng ùn tắc." },
+      { en: "The charity works to alleviate poverty in rural areas.", vi: "Tổ chức từ thiện này hoạt động nhằm giảm nhẹ đói nghèo ở vùng nông thôn." },
+    ],
+    ieltsTip: "\"Alleviate the problem / poverty / pressure\" là các collocation ăn điểm trong Writing Task 2.",
+    summary: "alleviate = làm giảm nhẹ mức độ nghiêm trọng.",
+  },
+  {
+    term: "mitigate",
+    ipa: "/ˈmɪtɪɡeɪt/",
+    pos: "verb",
+    usageNote: "trang trọng, thường dùng khi nói về giảm thiểu tác động tiêu cực hoặc rủi ro",
+    en: "to reduce the harmful effects of something",
+    vi: "giảm thiểu (tác động xấu)",
+    synonyms: ["alleviate", "lessen"],
+    antonyms: ["aggravate"],
+    examples: [
+      { en: "Planting trees can help mitigate the effects of climate change.", vi: "Trồng cây có thể giúp giảm thiểu tác động của biến đổi khí hậu." },
+      { en: "Governments must act now to mitigate the risks.", vi: "Các chính phủ phải hành động ngay để giảm thiểu rủi ro." },
+    ],
+    ieltsTip: "\"Mitigate the effects/impact of...\" là cụm gần như cố định trong các bài về môi trường.",
+    summary: "mitigate = giảm thiểu tác động tiêu cực.",
+  },
+  {
+    term: "rectify",
+    ipa: "/ˈrektɪfaɪ/",
+    pos: "verb",
+    usageNote: "sửa chữa một điều sai hoặc một tình huống không đúng",
+    en: "to correct something that is wrong",
+    vi: "sửa chữa, chấn chỉnh",
+    synonyms: ["put right", "remedy"],
+    antonyms: ["worsen"],
+    examples: [
+      { en: "The council promised to rectify the situation within a month.", vi: "Hội đồng đã hứa sẽ chấn chỉnh tình hình trong vòng một tháng." },
+      { en: "These errors must be rectified before the report is published.", vi: "Những lỗi này phải được sửa chữa trước khi báo cáo được công bố." },
+    ],
+    ieltsTip: "\"Rectify\" đi với lỗi/tình huống sai, không dùng cho \"a problem\" chung chung — với problem hãy dùng \"tackle/address\".",
+    summary: "rectify = sửa chữa điều sai, chấn chỉnh tình hình.",
+  },
+  {
+    term: "exacerbate",
+    ipa: "/ɪɡˈzæsəbeɪt/",
+    pos: "verb",
+    usageNote: "làm một vấn đề vốn đã xấu trở nên tồi tệ hơn",
+    en: "to make a bad situation worse",
+    vi: "làm trầm trọng thêm",
+    synonyms: ["aggravate", "worsen"],
+    antonyms: ["alleviate"],
+    examples: [
+      { en: "Building more roads may actually exacerbate congestion.", vi: "Xây thêm đường thực ra có thể làm trầm trọng thêm tình trạng ùn tắc." },
+      { en: "The drought was exacerbated by poor irrigation.", vi: "Hạn hán trở nên trầm trọng hơn do tưới tiêu kém." },
+    ],
+    ieltsTip: "Cặp \"alleviate ↔ exacerbate\" là một trong những cặp trái nghĩa đáng giá nhất cho band 7+.",
+    summary: "exacerbate = làm cho tình hình xấu càng xấu hơn.",
+  },
+  {
+    term: "aggravate",
+    ipa: "/ˈæɡrəveɪt/",
+    pos: "verb",
+    usageNote: "gần nghĩa exacerbate, hay dùng với bệnh tật, chấn thương hoặc căng thẳng",
+    en: "to make an illness or a bad situation worse",
+    vi: "làm nặng thêm, làm trầm trọng hơn",
+    synonyms: ["exacerbate", "worsen"],
+    antonyms: ["relieve"],
+    examples: [
+      { en: "Emissions from these factories can aggravate respiratory disease.", vi: "Khí thải từ những nhà máy này có thể làm nặng thêm bệnh hô hấp." },
+      { en: "Lifting the box aggravated his back injury.", vi: "Việc nhấc chiếc hộp đã làm chấn thương lưng của anh ấy nặng thêm." },
+    ],
+    ieltsTip: "Trong văn học thuật, \"aggravate\" thường đi với bệnh tật; với vấn đề xã hội hãy ưu tiên \"exacerbate\".",
+    summary: "aggravate = làm bệnh/tình hình nặng thêm.",
+  },
+  {
+    term: "compound",
+    ipa: "/kəmˈpaʊnd/",
+    pos: "verb",
+    usageNote: "là động từ, nghĩa làm một vấn đề khó khăn hơn bằng cách thêm khó khăn mới",
+    en: "to make a difficulty worse by adding to it",
+    vi: "làm phức tạp/khó khăn thêm",
+    synonyms: ["compound", "worsen"],
+    antonyms: ["ease"],
+    examples: [
+      { en: "What happens after clothes are bought compounds the problem.", vi: "Điều xảy ra sau khi quần áo được mua càng làm vấn đề thêm trầm trọng." },
+      { en: "Poor planning compounded the difficulties faced by the city.", vi: "Việc quy hoạch kém đã làm khó khăn của thành phố thêm chồng chất." },
+    ],
+    ieltsTip: "Chú ý trọng âm: động từ \"compound\" /kəmˈpaʊnd/ khác danh từ \"compound\" /ˈkɒmpaʊnd/.",
+    summary: "compound (v) = làm vấn đề thêm khó khăn.",
+  },
+  {
+    term: "hinder",
+    ipa: "/ˈhɪndə(r)/",
+    pos: "verb",
+    usageNote: "cản trở khiến việc gì đó diễn ra chậm hoặc khó khăn hơn",
+    en: "to make it more difficult for something to happen or develop",
+    vi: "cản trở, gây khó khăn",
+    synonyms: ["impede", "hamper"],
+    antonyms: ["facilitate"],
+    examples: [
+      { en: "A lack of funding continues to hinder research in this area.", vi: "Việc thiếu kinh phí tiếp tục cản trở nghiên cứu trong lĩnh vực này." },
+      { en: "Bad weather hindered the rescue operation.", vi: "Thời tiết xấu đã cản trở chiến dịch cứu hộ." },
+    ],
+    ieltsTip: "Cặp \"hinder ↔ facilitate\" rất hữu ích khi bàn về chính sách trong Writing Task 2.",
+    summary: "hinder = cản trở, làm chậm tiến trình.",
+  },
+  {
+    term: "tackle",
+    ipa: "/ˈtækl/",
+    pos: "verb",
+    usageNote: "bắt tay xử lý một vấn đề khó một cách quyết liệt",
+    en: "to make a determined effort to deal with a difficult problem",
+    vi: "giải quyết, xử lý (vấn đề khó)",
+    synonyms: ["address", "deal with"],
+    antonyms: ["ignore"],
+    examples: [
+      { en: "One way of tackling this problem is to educate children about healthy eating habits.", vi: "Một cách giải quyết vấn đề này là giáo dục trẻ em về thói quen ăn uống lành mạnh." },
+      { en: "The government has promised to tackle unemployment.", vi: "Chính phủ đã hứa sẽ giải quyết tình trạng thất nghiệp." },
+    ],
+    ieltsTip: "\"Tackle the problem/issue\" là cách mở đoạn giải pháp chuẩn cho Writing Task 2 dạng problem–solution.",
+    summary: "tackle = bắt tay giải quyết vấn đề khó.",
+  },
+  {
+    term: "overcome",
+    ipa: "/ˌəʊvəˈkʌm/",
+    pos: "verb",
+    usageNote: "động từ bất quy tắc (overcome – overcame – overcome), nghĩa vượt qua khó khăn",
+    en: "to successfully deal with or control a difficulty",
+    vi: "vượt qua, khắc phục",
+    synonyms: ["surmount", "conquer"],
+    antonyms: ["succumb to"],
+    examples: [
+      { en: "We could overcome the difficulties raised by this issue if all governments agreed.", vi: "Chúng ta có thể vượt qua những khó khăn do vấn đề này gây ra nếu tất cả các chính phủ đồng thuận." },
+      { en: "She overcame considerable obstacles to reach the final.", vi: "Cô ấy đã vượt qua nhiều chướng ngại đáng kể để vào tới trận chung kết." },
+    ],
+    ieltsTip: "Nhớ dạng quá khứ phân từ giống nguyên thể: \"has overcome\" (không phải \"overcomed\").",
+    summary: "overcome = vượt qua, khắc phục khó khăn.",
+  },
+  {
+    term: "unemployment",
+    ipa: "/ˌʌnɪmˈplɔɪmənt/",
+    pos: "noun",
+    usageNote: "danh từ không đếm được, chỉ tình trạng thiếu việc làm trong xã hội",
+    en: "the situation in which people who want to work cannot find jobs",
+    vi: "tình trạng thất nghiệp",
+    synonyms: ["joblessness"],
+    antonyms: ["full employment"],
+    examples: [
+      { en: "Rising unemployment is one of the most serious issues facing the region.", vi: "Thất nghiệp gia tăng là một trong những vấn đề nghiêm trọng nhất của khu vực." },
+      { en: "The factory closure led to widespread unemployment.", vi: "Việc đóng cửa nhà máy đã dẫn đến thất nghiệp trên diện rộng." },
+    ],
+    ieltsTip: "Không đếm được: viết \"high unemployment\", KHÔNG viết \"unemployments\".",
+    summary: "unemployment = tình trạng thất nghiệp (không đếm được).",
+  },
+  {
+    term: "homelessness",
+    ipa: "/ˈhəʊmləsnəs/",
+    pos: "noun",
+    usageNote: "danh từ không đếm được, chỉ tình trạng không có nhà ở",
+    en: "the situation of having nowhere to live",
+    vi: "tình trạng vô gia cư",
+    synonyms: ["rooflessness"],
+    antonyms: ["secure housing"],
+    examples: [
+      { en: "If we wish to remedy this situation, we must ensure there is sufficient affordable accommodation.", vi: "Nếu muốn khắc phục tình trạng này, trước hết phải đảm bảo có đủ chỗ ở giá phải chăng." },
+      { en: "Homelessness has risen sharply in major cities.", vi: "Tình trạng vô gia cư đã tăng mạnh ở các thành phố lớn." },
+    ],
+    ieltsTip: "Đây là \"a lack of accommodation\" nói theo cách học thuật — rất hợp cho Task 2 về đô thị.",
+    summary: "homelessness = tình trạng vô gia cư.",
+  },
+  {
+    term: "obesity",
+    ipa: "/əʊˈbiːsəti/",
+    pos: "noun",
+    usageNote: "thuật ngữ y khoa chỉ tình trạng béo phì, dùng trung tính trong văn viết học thuật",
+    en: "the condition of being extremely overweight",
+    vi: "bệnh béo phì",
+    synonyms: ["excess weight"],
+    antonyms: ["healthy weight"],
+    examples: [
+      { en: "Obesity is now one of the main causes of preventable death.", vi: "Béo phì hiện là một trong những nguyên nhân chính gây tử vong có thể phòng ngừa." },
+      { en: "Childhood obesity has doubled in the last twenty years.", vi: "Tỷ lệ béo phì ở trẻ em đã tăng gấp đôi trong hai mươi năm qua." },
+    ],
+    ieltsTip: "Tính từ là \"obese\" (mức độ nặng), khác \"overweight\" (thừa cân nhẹ hơn).",
+    summary: "obesity = tình trạng béo phì.",
+  },
+];
+
+const track28Script = `1 One way of tackling this problem is to make sure that children are educated about healthy eating habits.
+2 We could overcome the difficulties raised by this issue if all governments agree to limit emissions of harmful gases.
+3 If we wish to remedy this situation, we must first ensure that there is sufficient affordable accommodation.
+4 To prevent a catastrophe of global proportions, we need to find a way to reach a compromise between meeting our energy needs and living in an environmentally sustainable way.
+5 We could resolve this issue by making sure that farmers follow very strict guidelines and that food grown this way is carefully monitored.`;
+
+const UNIT_14_TACKLING_ISSUES: CambridgeUnit = {
+  unit: 14,
+  slug: "tackling-issues",
+  title: "Tackling issues",
+  topics: "Problems, solutions",
+  testPractice: "Writing Task 2",
+  steps: [
+    {
+      kind: "vocab",
+      title: "Key vocabulary",
+      words: unit14Vocab,
+    },
+    {
+      kind: "type_fill",
+      title: "Naming the issue",
+      instructions: "Read each definition and type the global issue it refers to.",
+      items: [
+        { prompt: "a lack of jobs", answer: "unemployment" },
+        { prompt: "a lack of accommodation", answer: "homelessness" },
+        { prompt: "being extremely overweight", answer: "obesity" },
+        { prompt: "the increase of trade around the world", answer: "globalisation" },
+        { prompt: "the way the world's weather is changing", answer: "climate change" },
+        { prompt: "a lack of oil", answer: "energy crisis" },
+      ],
+    },
+    {
+      kind: "fill_mc",
+      title: "Which kind of problem?",
+      instructions: "Choose the noun that matches the meaning of each sentence.",
+      items: [
+        { before: "Losing the funding was a serious", after: "that delayed the whole project.", options: ["setback", "dilemma", "controversy"], answer: "setback" },
+        { before: "Choosing between her career and her family was a real", after: ".", options: ["dilemma", "hurdle", "setback"], answer: "dilemma" },
+        { before: "Once he was in debt, he could see no way out of his", after: ".", options: ["predicament", "controversy", "hurdle"], answer: "predicament" },
+        { before: "The cost of the equipment is the main", after: "to expanding the scheme.", options: ["obstacle", "dilemma", "crisis"], answer: "obstacle" },
+        { before: "Drug use in sport has caused considerable", after: "in recent years.", options: ["controversy", "predicament", "setback"], answer: "controversy" },
+        { before: "Rising sea levels could become a", after: "for low-lying countries.", options: ["catastrophe", "hurdle", "dilemma"], answer: "catastrophe" },
+      ],
+    },
+    {
+      kind: "type_fill",
+      title: "Adjective + noun collocations",
+      instructions: "Complete each sentence with an adjective + noun phrase from this unit.",
+      items: [
+        { prompt: "We experienced a few ___ at the airport, but nothing very serious.", answer: "minor difficulties" },
+        { prompt: "The enormous cost of this programme is a ___ that we need to overcome.", answer: "major hurdle" },
+        { prompt: "Adopting children from poor countries is a ___.", answer: "sensitive issue" },
+        { prompt: "I doubt that recycling alone can get us out of our ___.", answer: "current predicament" },
+        { prompt: "The building of this dam will lead to a ___ for the local wildlife.", answer: "total disaster" },
+        { prompt: "Global warming presents a ___ for every government.", answer: "significant challenge" },
+      ],
+    },
+    {
+      kind: "sort",
+      title: "Make it better or make it worse?",
+      instructions: "Tap a verb, then tap the meaning it belongs to.",
+      buckets: ["Make better", "Make worse"],
+      items: [
+        { term: "alleviate", bucket: 0 },
+        { term: "mitigate", bucket: 0 },
+        { term: "rectify", bucket: 0 },
+        { term: "improve", bucket: 0 },
+        { term: "tackle", bucket: 0 },
+        { term: "overcome", bucket: 0 },
+        { term: "remedy", bucket: 0 },
+        { term: "exacerbate", bucket: 1 },
+        { term: "hinder", bucket: 1 },
+        { term: "compound", bucket: 1 },
+        { term: "complicate", bucket: 1 },
+        { term: "aggravate", bucket: 1 },
+      ],
+    },
+    {
+      kind: "listening_cloze",
+      title: "Talking about solutions",
+      instructions: "Listen to five people talking about global issues. Complete the expressions they use for dealing with problems.",
+      audioUrl: "https://a8wdavlbr1kcxckb.public.blob.vercel-storage.com/cambridge-vocabulary-ielts/track-28.mp3",
+      template:
+        "1  One way of {{tackling}} this problem is to make sure that children are educated about healthy eating habits. (obesity)\n" +
+        "2  We could {{overcome}} the difficulties raised by this issue if all governments agree to limit emissions of harmful gases. (climate change)\n" +
+        "3  If we wish to {{remedy}} this situation, we must first ensure that there is sufficient affordable accommodation. (homelessness)\n" +
+        "4  To {{prevent}} a catastrophe of global proportions, we need to find a way to reach a compromise between meeting our energy needs and living sustainably. (environmental disasters)\n" +
+        "5  We could {{resolve}} this issue by making sure that farmers follow very strict guidelines. (genetically modified foods)",
+      script: track28Script,
+      tip: "Học thuộc bộ động từ này (tackle / overcome / remedy / prevent / resolve) — chúng là bộ khung mở đoạn giải pháp cho Writing Task 2.",
+    },
+    {
+      kind: "fill_mc",
+      title: "do, make or take?",
+      instructions: "Choose the verb that collocates correctly.",
+      items: [
+        { before: "We need to", after: "measures to prevent this from happening again.", options: ["take", "make", "do"], answer: "take" },
+        { before: "First, we have to", after: "a real effort to deal with the underlying causes.", options: ["make", "take", "do"], answer: "make" },
+        { before: "Governments should", after: "notice of what the research shows.", options: ["take", "make", "do"], answer: "take" },
+        { before: "Punishing people too harshly may", after: "more harm than good.", options: ["do", "make", "take"], answer: "do" },
+        { before: "If we act now, we can still", after: "a change.", options: ["make", "take", "do"], answer: "make" },
+        { before: "Before deciding, the committee should", after: "stock of the situation.", options: ["take", "do", "make"], answer: "take" },
+      ],
+    },
+    {
+      kind: "fill_mc",
+      title: "Essay language — choose the right word",
+      instructions: "Choose the correct alternative to complete this extract from an essay on obesity.",
+      items: [
+        { before: "Clearly, obesity", after: "a real problem today.", options: ["represents", "presents"], answer: "represents" },
+        { before: "What can be done to", after: "a solution to it?", options: ["find", "resolve"], answer: "find" },
+        { before: "We have to make a real effort to deal", after: "the underlying causes.", options: ["with", "in"], answer: "with" },
+        { before: "If this isn't done, we will never completely", after: "this issue.", options: ["resolve", "raise"], answer: "resolve" },
+        { before: "All our efforts will be wasted if we don't", after: "the difficult situations children face.", options: ["tackle", "meet"], answer: "tackle" },
+        { before: "We also need to take measures to", after: "this from happening in the future.", options: ["prevent", "protect"], answer: "prevent" },
+      ],
+    },
+    {
+      kind: "reading_tfng",
+      title: "Reading — the paradox of depression",
+      passageTitle: "Is depression an adaptation?",
+      passage:
+        "Depression is an ongoing and pervasive problem in our society, and it poses something of an evolutionary paradox: the brain plays a crucial role in our survival, so evolution should have left our brains resistant to such high rates of malfunction. The paradox could be resolved if depression was linked to growing old. After all, the functioning of all body systems and organs tends to deteriorate with age. This is not a satisfactory explanation for depression, however, as people are most likely to experience their first bout in adolescence. Perhaps depression is like obesity — a recent problem that has arisen because modern conditions are so different from those in which we evolved. Yet this is not a satisfactory explanation either, as depression exists in every culture, including small-scale societies where people are thought to live in environments similar to those that prevailed in our evolutionary past.\n\n" +
+        "There is another possibility: depression is, in fact, an adaptation, a state of mind which can bring real benefits. This is not to say that depression is not a serious problem. Depressed people often have trouble performing everyday activities and tend to isolate themselves socially. So what could be so useful about depression? Depressed people often think intensely about their problems. Numerous studies have shown that this thinking style is often highly analytical and can be very productive. Depressed people dwell on personal problems, breaking them down into smaller components. Each individual component is less problematic, so what begins as an insurmountable problem is far less difficult. This type of thinking allows people to gain insight into their problems. Indeed, when you are faced with a daunting problem, feeling depressed is often a useful response that may help you analyse and solve it.",
+      questions: [
+        {
+          text: "The writer suggests that depression may bring genuine benefits.",
+          answer: "True",
+          justification: "Depression is described as 'an adaptation, a state of mind which can bring real benefits'.",
+        },
+        {
+          text: "People usually experience depression for the first time in old age.",
+          answer: "False",
+          justification: "People are most likely to experience their first bout in adolescence.",
+        },
+        {
+          text: "Depression is found only in modern industrialised societies.",
+          answer: "False",
+          justification: "Depression exists in every culture, including small-scale societies.",
+        },
+        {
+          text: "Depression is more common among women than among men.",
+          answer: "Not given",
+          justification: "The passage makes no comparison between men and women.",
+        },
+        {
+          text: "The writer accepts that depression is a serious problem.",
+          answer: "True",
+          justification: "'This is not to say that depression is not a serious problem.'",
+        },
+        {
+          text: "Depressed people tend to think about their problems in a superficial way.",
+          answer: "False",
+          justification: "Their thinking style is often highly analytical and productive, breaking problems into smaller components.",
+        },
+        {
+          text: "Doctors now recommend that mild depression should be left untreated.",
+          answer: "Not given",
+          justification: "The passage says nothing about medical treatment or recommendations.",
+        },
+      ],
+    },
+    {
+      kind: "reveal_pairs",
+      title: "Collocations with 'problem'",
+      instructions: "Tap each phrase to reveal the adjective or verb that goes with 'problem'.",
+      pairs: [
+        { prompt: "a problem that never goes away", reveal: "an ongoing problem" },
+        { prompt: "a problem found everywhere in society", reveal: "a pervasive problem" },
+        { prompt: "a problem that seems impossible to solve", reveal: "an insurmountable problem" },
+        { prompt: "a problem that frightens you because it is so big", reveal: "a daunting problem" },
+        { prompt: "when a problem appears", reveal: "a problem arises" },
+        { prompt: "to keep thinking about a problem", reveal: "to dwell on a problem" },
+        { prompt: "to start to understand a problem", reveal: "to gain insight into a problem" },
+        { prompt: "to have to deal with a problem", reveal: "to be faced with a problem" },
+      ],
+    },
+    {
+      kind: "writing_task",
+      title: "Test practice — Writing Task 2",
+      taskLabel: "Writing Task 2",
+      prompt:
+        "Obesity is now a major global epidemic. What can be done to tackle this increasingly common problem? Give reasons for your answer and include any relevant examples from your own knowledge or experience.",
+      minWords: 250,
+      tip:
+        "Với dạng đề problem–solution, hãy lập dàn ý theo bốn phần: Problem – Causes – Effects – Possible solutions. Giải thích chính xác vấn đề là gì (nguyên nhân và hậu quả) rồi mới cân nhắc ưu và nhược điểm của từng giải pháp. Dành khoảng 40 phút và viết ít nhất 250 từ.",
+      modelAnswer:
+        "Obesity is now one of the main causes of preventable death, especially in industrialised countries. To tackle this problem, governments can reduce the impact of their overweight citizens by the careful use of taxation to fund alternatives to a sedentary lifestyle. However, individuals should also take responsibility for their own health by avoiding a bad diet and taking the initiative to participate in sport.\n\n" +
+        "It is important for governments to act quickly to curb obesity because of the rising death rate. There will also be rising costs in healthcare and the benefits system if it is left unchecked. To combat this problem, governments should, first of all, heavily tax junk food and use the revenue generated to subsidise healthy fruit and vegetables. This would make healthy food cheaper and more widely available than unhealthier options. Also, the government can act by funding leisure centres, sports clubs and gyms. This money could be used to help people gain motivation to exercise and become more active.\n\n" +
+        "On the other hand, there are those who claim that obesity is due to lifestyle choice and therefore an individual problem, not one for the government. They claim that people should find their own motivation to prevent obesity by being aware of the potentially fatal consequences of their lifestyles. Individuals could also change their diets by switching from a carbohydrate-heavy diet to one which includes a balance of vitamins and minerals. Joining a sports club need not always be the only way to lose weight. Even vigorous housework or heavy gardening can help avert heart disease.\n\n" +
+        "In conclusion, although individuals may be able to help themselves by changing their diets and activities, it may require government intervention to tackle obesity quickly and on a large scale.",
+    },
+  ],
+};
+
+const unit15Vocab: VocabWord[] = [
+  {
+    term: "erupt",
+    ipa: "/ɪˈrʌpt/",
+    pos: "verb",
+    usageNote: "dùng cho núi lửa phun trào; cũng dùng nghĩa bóng cho bạo lực hoặc cảm xúc bùng nổ",
+    en: "(of a volcano) to throw out lava, ash and gases suddenly",
+    vi: "phun trào (núi lửa)",
+    synonyms: ["explode"],
+    antonyms: ["lie dormant"],
+    examples: [
+      { en: "They wondered if the volcano might erupt and cause even more damage.", vi: "Họ tự hỏi liệu ngọn núi lửa có phun trào và gây thêm thiệt hại không." },
+      { en: "The volcano last erupted more than a century ago.", vi: "Ngọn núi lửa lần cuối phun trào cách đây hơn một thế kỷ." },
+    ],
+    ieltsTip: "Danh từ là \"eruption\" — \"a volcanic eruption\" là cụm chuẩn trong bài đọc về thiên tai.",
+    summary: "erupt = phun trào (núi lửa).",
+  },
+  {
+    term: "tremor",
+    ipa: "/ˈtremə(r)/",
+    pos: "noun",
+    usageNote: "chỉ rung chấn nhẹ của mặt đất, yếu hơn một trận động đất lớn",
+    en: "a small earthquake in which the ground shakes slightly",
+    vi: "rung chấn, dư chấn nhẹ",
+    synonyms: ["quake"],
+    antonyms: [],
+    examples: [
+      { en: "A tremor was felt across the region but no buildings collapsed.", vi: "Rung chấn được cảm nhận trên khắp khu vực nhưng không có toà nhà nào đổ sập." },
+      { en: "Minor tremors are common in this part of the country.", vi: "Những rung chấn nhẹ khá phổ biến ở vùng này của đất nước." },
+    ],
+    ieltsTip: "Nhóm từ cùng chủ đề: earthquake – tremor – aftershock, hay xuất hiện cùng nhau trong Listening.",
+    summary: "tremor = rung chấn nhẹ của mặt đất.",
+  },
+  {
+    term: "aftershock",
+    ipa: "/ˈɑːftəʃɒk/",
+    pos: "noun",
+    usageNote: "chỉ cơn rung chấn xảy ra SAU một trận động đất chính",
+    en: "a smaller earthquake that happens after a larger one",
+    vi: "dư chấn (sau động đất)",
+    synonyms: ["secondary tremor"],
+    antonyms: [],
+    examples: [
+      { en: "A series of aftershocks hampered the rescue operation.", vi: "Một loạt dư chấn đã cản trở công tác cứu hộ." },
+      { en: "Residents were warned to expect aftershocks for several days.", vi: "Cư dân được cảnh báo hãy đề phòng dư chấn trong vài ngày." },
+    ],
+    ieltsTip: "Đừng nhầm \"aftershock\" (sau động đất) với \"tremor\" (có thể xảy ra độc lập).",
+    summary: "aftershock = dư chấn xảy ra sau trận động đất chính.",
+  },
+  {
+    term: "torrential",
+    ipa: "/təˈrenʃl/",
+    pos: "adjective",
+    usageNote: "chỉ đi với \"rain\" — mưa rất to và xối xả",
+    en: "(of rain) falling very heavily",
+    vi: "xối xả, như trút nước (mưa)",
+    synonyms: ["heavy"],
+    antonyms: ["light"],
+    examples: [
+      { en: "There was a night of torrential rain, as well as severe winds.", vi: "Đã có một đêm mưa xối xả kèm theo gió mạnh." },
+      { en: "Torrential rain caused flooding across the valley.", vi: "Mưa xối xả đã gây lũ lụt khắp thung lũng." },
+    ],
+    ieltsTip: "\"Torrential\" gần như chỉ đi với \"rain/downpour\" — không nói \"torrential wind\".",
+    summary: "torrential = (mưa) xối xả, như trút nước.",
+  },
+  {
+    term: "severe",
+    ipa: "/sɪˈvɪə(r)/",
+    pos: "adjective",
+    usageNote: "mô tả mức độ nghiêm trọng của thời tiết, thiệt hại hoặc vấn đề",
+    en: "very bad or serious",
+    vi: "khắc nghiệt, nghiêm trọng",
+    synonyms: ["extreme", "harsh"],
+    antonyms: ["mild"],
+    examples: [
+      { en: "Severe winds blew down several outbuildings.", vi: "Gió mạnh đã thổi đổ vài công trình phụ." },
+      { en: "The region suffers from severe winters.", vi: "Khu vực này phải chịu những mùa đông khắc nghiệt." },
+    ],
+    ieltsTip: "Collocation: severe weather / severe drought / severe damage — dùng nhiều trong Writing Task 2 về môi trường.",
+    summary: "severe = khắc nghiệt, nghiêm trọng.",
+  },
+  {
+    term: "drought",
+    ipa: "/draʊt/",
+    pos: "noun",
+    usageNote: "chỉ giai đoạn dài không có mưa, gây thiếu nước nghiêm trọng",
+    en: "a long period of time when there is little or no rain",
+    vi: "hạn hán",
+    synonyms: ["dry spell"],
+    antonyms: ["flood"],
+    examples: [
+      { en: "Extreme weather can range from long stretches of drought to extremely heavy rain.", vi: "Thời tiết cực đoan có thể từ những đợt hạn hán kéo dài đến mưa cực lớn." },
+      { en: "The drought destroyed most of this year's harvest.", vi: "Hạn hán đã phá huỷ phần lớn vụ mùa năm nay." },
+    ],
+    ieltsTip: "Phát âm /draʊt/ (vần với \"out\") — đây là lỗi phát âm rất phổ biến.",
+    summary: "drought = hạn hán, giai đoạn dài thiếu mưa.",
+  },
+  {
+    term: "soil erosion",
+    ipa: "/sɔɪl ɪˈrəʊʒn/",
+    pos: "phrase",
+    usageNote: "chỉ hiện tượng lớp đất mặt bị nước hoặc gió cuốn trôi",
+    en: "the process by which soil is gradually washed or blown away",
+    vi: "xói mòn đất",
+    synonyms: ["land degradation"],
+    antonyms: [],
+    examples: [
+      { en: "Rainwater runs off compacted soil, carrying the soil with it and leading to an increase in erosion.", vi: "Nước mưa chảy tràn trên nền đất bị nén chặt, cuốn theo đất và làm gia tăng xói mòn." },
+      { en: "Soil erosion can be prevented if there is enough vegetation.", vi: "Xói mòn đất có thể được ngăn chặn nếu có đủ thảm thực vật." },
+    ],
+    ieltsTip: "\"Soil erosion\" và \"soil degradation\" là cặp từ khoá quen thuộc trong Reading về nông nghiệp.",
+    summary: "soil erosion = sự xói mòn lớp đất mặt.",
+  },
+  {
+    term: "crop yields",
+    ipa: "/krɒp jiːldz/",
+    pos: "phrase",
+    usageNote: "chỉ sản lượng thu hoạch được trên một diện tích đất nhất định",
+    en: "the amount of a crop that is produced from an area of land",
+    vi: "năng suất/sản lượng cây trồng",
+    synonyms: ["harvests"],
+    antonyms: [],
+    examples: [
+      { en: "The earth dries out and our crop yields decline.", vi: "Đất khô kiệt và năng suất cây trồng của chúng ta giảm sút." },
+      { en: "Fertilisers can increase crop yields dramatically.", vi: "Phân bón có thể làm tăng năng suất cây trồng đáng kể." },
+    ],
+    ieltsTip: "Động từ đi kèm: yields rise / decline / double — rất hữu ích cho Writing Task 1 mô tả biểu đồ.",
+    summary: "crop yields = năng suất cây trồng.",
+  },
+  {
+    term: "irrigation",
+    ipa: "/ˌɪrɪˈɡeɪʃn/",
+    pos: "noun",
+    usageNote: "chỉ việc dẫn nước tới đồng ruộng để trồng trọt",
+    en: "the practice of supplying land with water so that crops will grow",
+    vi: "sự tưới tiêu, thuỷ lợi",
+    synonyms: ["watering"],
+    antonyms: [],
+    examples: [
+      { en: "People are likely to seek new sources of irrigation water.", vi: "Con người có khả năng sẽ tìm kiếm nguồn nước tưới tiêu mới." },
+      { en: "Modern irrigation systems waste far less water.", vi: "Các hệ thống tưới tiêu hiện đại lãng phí ít nước hơn nhiều." },
+    ],
+    ieltsTip: "Động từ là \"irrigate\" — \"irrigated land\" (đất được tưới tiêu) hay gặp trong Reading.",
+    summary: "irrigation = việc tưới tiêu cho đất canh tác.",
+  },
+  {
+    term: "desalination",
+    ipa: "/ˌdiːˌsælɪˈneɪʃn/",
+    pos: "noun",
+    usageNote: "chỉ quá trình loại bỏ muối khỏi nước biển để tạo nước ngọt",
+    en: "the process of removing salt from seawater",
+    vi: "sự khử muối (nước biển)",
+    synonyms: [],
+    antonyms: [],
+    examples: [
+      { en: "If we choose desalination of seawater as a possible solution, large amounts of energy will be required.", vi: "Nếu chọn khử muối nước biển làm giải pháp, sẽ cần một lượng năng lượng rất lớn." },
+      { en: "Several desalination plants have been built along the coast.", vi: "Vài nhà máy khử muối đã được xây dọc bờ biển." },
+    ],
+    ieltsTip: "Đây là từ khoá thường xuất hiện trong Reading về khủng hoảng nước sạch.",
+    summary: "desalination = quá trình khử muối khỏi nước biển.",
+  },
+  {
+    term: "cultivate",
+    ipa: "/ˈkʌltɪveɪt/",
+    pos: "verb",
+    usageNote: "nghĩa đen là canh tác đất, trồng trọt; nghĩa bóng là vun đắp một mối quan hệ, thói quen",
+    en: "to prepare and use land for growing crops",
+    vi: "canh tác, trồng trọt",
+    synonyms: ["farm", "till"],
+    antonyms: ["neglect"],
+    examples: [
+      { en: "Only a small part of this land can be cultivated.", vi: "Chỉ một phần nhỏ vùng đất này có thể canh tác được." },
+      { en: "Farmers here cultivate rice twice a year.", vi: "Nông dân ở đây canh tác lúa hai vụ mỗi năm." },
+    ],
+    ieltsTip: "Nghĩa bóng \"cultivate a habit / relationship\" cũng rất hữu ích cho Speaking Part 3.",
+    summary: "cultivate = canh tác, trồng trọt trên đất.",
+  },
+  {
+    term: "sow",
+    ipa: "/səʊ/",
+    pos: "verb",
+    usageNote: "động từ bất quy tắc (sow – sowed – sown), nghĩa gieo hạt xuống đất",
+    en: "to plant seeds in the ground",
+    vi: "gieo (hạt)",
+    synonyms: ["plant", "seed"],
+    antonyms: ["harvest", "reap"],
+    examples: [
+      { en: "The seeds are sown in early spring.", vi: "Hạt giống được gieo vào đầu mùa xuân." },
+      { en: "Farmers sow the fields as soon as the rains arrive.", vi: "Nông dân gieo hạt trên cánh đồng ngay khi mùa mưa đến." },
+    ],
+    ieltsTip: "Cặp \"sow ↔ reap/harvest\" (gieo ↔ gặt) là cặp từ vựng nông nghiệp cơ bản cần nhớ.",
+    summary: "sow = gieo hạt giống xuống đất.",
+  },
+  {
+    term: "pasture",
+    ipa: "/ˈpɑːstʃə(r)/",
+    pos: "noun",
+    usageNote: "chỉ vùng đồng cỏ dùng để chăn thả gia súc",
+    en: "an area of grassland used for feeding animals",
+    vi: "đồng cỏ chăn thả",
+    synonyms: ["grazing land", "meadow"],
+    antonyms: ["arable land"],
+    examples: [
+      { en: "The cattle were moved to fresh pasture.", vi: "Đàn gia súc được chuyển đến đồng cỏ mới." },
+      { en: "Much of the forest has been cleared to create pasture.", vi: "Phần lớn khu rừng đã bị phát quang để làm đồng cỏ chăn thả." },
+    ],
+    ieltsTip: "Phân biệt: \"pasture\" là đất chăn thả, còn \"arable land\" là đất trồng trọt.",
+    summary: "pasture = đồng cỏ dùng để chăn thả gia súc.",
+  },
+  {
+    term: "pest",
+    ipa: "/pest/",
+    pos: "noun",
+    usageNote: "chỉ côn trùng hoặc động vật nhỏ phá hoại mùa màng",
+    en: "an insect or animal that destroys plants and crops",
+    vi: "sâu bệnh, loài gây hại",
+    synonyms: ["vermin"],
+    antonyms: [],
+    examples: [
+      { en: "Harsh conditions allow pests to proliferate.", vi: "Điều kiện khắc nghiệt khiến các loài gây hại sinh sôi." },
+      { en: "GM crops can be made resistant to disease or pests.", vi: "Cây trồng biến đổi gen có thể được tạo ra để kháng bệnh hoặc sâu hại." },
+    ],
+    ieltsTip: "\"Pesticide\" (thuốc trừ sâu) bắt nguồn từ \"pest\" — hai từ này thường đi cùng nhau trong bài đọc.",
+    summary: "pest = loài côn trùng/động vật phá hoại mùa màng.",
+  },
+  {
+    term: "deforestation",
+    ipa: "/ˌdiːˌfɒrɪˈsteɪʃn/",
+    pos: "noun",
+    usageNote: "chỉ việc chặt phá rừng trên diện rộng, thường để lấy đất",
+    en: "the cutting down of trees over a large area",
+    vi: "nạn phá rừng",
+    synonyms: ["clearance"],
+    antonyms: ["reforestation"],
+    examples: [
+      { en: "Deforestation is one of the main causes of soil degradation in the world today.", vi: "Nạn phá rừng là một trong những nguyên nhân chính gây suy thoái đất hiện nay." },
+      { en: "Trees are cleared to make way for houses.", vi: "Cây cối bị chặt bỏ để nhường chỗ cho nhà cửa." },
+    ],
+    ieltsTip: "Trái nghĩa \"reforestation\" (trồng lại rừng) — nêu được cặp này giúp ăn điểm ở phần giải pháp.",
+    summary: "deforestation = nạn chặt phá rừng trên diện rộng.",
+  },
+  {
+    term: "a vicious circle",
+    ipa: "/ə ˈvɪʃəs ˈsɜːkl/",
+    pos: "phrase",
+    usageNote: "chỉ vòng lặp trong đó vấn đề này gây ra vấn đề kia rồi quay lại làm vấn đề đầu tệ hơn",
+    en: "a situation in which one problem causes another, which then makes the first problem worse",
+    vi: "vòng luẩn quẩn",
+    synonyms: ["vicious cycle"],
+    antonyms: ["virtuous circle"],
+    examples: [
+      { en: "We are caught in a vicious circle as more fossil fuels are consumed.", vi: "Chúng ta mắc kẹt trong một vòng luẩn quẩn khi ngày càng nhiều nhiên liệu hoá thạch bị tiêu thụ." },
+      { en: "Debt and poverty form a vicious circle.", vi: "Nợ nần và đói nghèo tạo thành một vòng luẩn quẩn." },
+    ],
+    ieltsTip: "Dùng cụm này để mô tả quan hệ nhân quả vòng tròn — rất ấn tượng trong Writing Task 2.",
+    summary: "a vicious circle = vòng luẩn quẩn, vấn đề nọ nuôi vấn đề kia.",
+  },
+  {
+    term: "a viable solution",
+    ipa: "/ə ˈvaɪəbl səˈluːʃn/",
+    pos: "phrase",
+    usageNote: "chỉ giải pháp thực tế, có thể thực hiện được và duy trì lâu dài",
+    en: "a solution that can realistically work and be maintained",
+    vi: "giải pháp khả thi",
+    synonyms: ["a workable solution"],
+    antonyms: ["an impractical solution"],
+    examples: [
+      { en: "Clearly, a long-term viable solution that does not produce acid rain is needed.", vi: "Rõ ràng cần một giải pháp khả thi lâu dài mà không tạo ra mưa axit." },
+      { en: "Wind power is now a viable solution for remote communities.", vi: "Điện gió hiện là một giải pháp khả thi cho các cộng đồng vùng sâu vùng xa." },
+    ],
+    ieltsTip: "\"Viable\" mạnh hơn \"possible\" vì nhấn mạnh tính thực tế — dùng thay \"good solution\" để nâng band.",
+    summary: "a viable solution = giải pháp khả thi, thực hiện được.",
+  },
+  {
+    term: "greenhouse gases",
+    ipa: "/ˈɡriːnhaʊs ˈɡæsɪz/",
+    pos: "phrase",
+    usageNote: "chỉ các khí giữ nhiệt trong khí quyển như CO₂ và mê-tan",
+    en: "gases such as carbon dioxide that trap heat in the atmosphere",
+    vi: "khí nhà kính",
+    synonyms: ["emissions"],
+    antonyms: [],
+    examples: [
+      { en: "Climate change is associated with increasing levels of greenhouse gases.", vi: "Biến đổi khí hậu gắn liền với mức khí nhà kính ngày càng tăng." },
+      { en: "Burning fossil fuels results in an increase in greenhouse gas emissions.", vi: "Việc đốt nhiên liệu hoá thạch dẫn đến gia tăng phát thải khí nhà kính." },
+    ],
+    ieltsTip: "Luôn ở dạng số nhiều khi nói chung: \"greenhouse gases\" hoặc \"greenhouse gas emissions\".",
+    summary: "greenhouse gases = các khí nhà kính giữ nhiệt trong khí quyển.",
+  },
+  {
+    term: "acid rain",
+    ipa: "/ˈæsɪd reɪn/",
+    pos: "phrase",
+    usageNote: "chỉ mưa bị nhiễm axit do ô nhiễm không khí, gây hại cho cây cối và công trình",
+    en: "rain containing harmful chemicals caused by air pollution",
+    vi: "mưa axit",
+    synonyms: [],
+    antonyms: [],
+    examples: [
+      { en: "A long-term solution that does not produce acid rain is needed.", vi: "Cần một giải pháp lâu dài không tạo ra mưa axit." },
+      { en: "Acid rain has damaged forests across the continent.", vi: "Mưa axit đã tàn phá rừng trên khắp lục địa." },
+    ],
+    ieltsTip: "Đây là danh từ không đếm được — không viết \"acid rains\".",
+    summary: "acid rain = mưa axit do ô nhiễm không khí.",
+  },
+  {
+    term: "weather the storm",
+    ipa: "/ˈweðə ðə stɔːm/",
+    pos: "phrase",
+    usageNote: "thành ngữ, nghĩa vượt qua được một giai đoạn khó khăn",
+    en: "to survive a difficult period",
+    vi: "vượt qua giai đoạn khó khăn",
+    synonyms: ["ride out"],
+    antonyms: ["give in"],
+    examples: [
+      { en: "The government should be prepared to weather the storm rather than please the public.", vi: "Chính phủ nên sẵn sàng vượt qua giai đoạn khó khăn thay vì chiều lòng dư luận." },
+      { en: "Small businesses struggled to weather the storm of the recession.", vi: "Các doanh nghiệp nhỏ chật vật vượt qua cơn bão suy thoái." },
+    ],
+    ieltsTip: "Nhiều từ về thời tiết được dùng theo nghĩa bóng — nhóm thành ngữ này rất hợp cho Speaking Part 3.",
+    summary: "weather the storm = trụ vững, vượt qua giai đoạn khó khăn.",
+  },
+];
+
+const track29Script = `Agriculture is extremely vulnerable to climate change. Changes in our climate bring about higher temperatures, which in turn inevitably result in reduced yields of desirable crops. Of course, not everything is depleted, and these harsh conditions encourage the growth of weeds and also allow pests to proliferate. This inevitably leads to a greater use of chemical pesticides by farmers. The poor quality of our soil stems from this.
+Climate change also produces more extreme weather patterns. These can range from long stretches of drought, and also, conversely, extremely heavy rain, which can cause floods. The destruction of food crops can result from both a lack or a surfeit of water.
+Certain human activities also have a negative impact on agriculture. Firstly, farming practices themselves can be damaging. The use of heavy machinery like tractors can compact the soil. This means that, rather than soaking into the ground, rainwater runs off it, carrying the soil with it, and so leads to an increase in erosion. Soil erosion can be prevented if there is enough vegetation. So clearly, overgrazing by cattle, which removes the vegetation, leads to a loss of soil.
+Urban development due to an increased population also takes its toll as trees are cleared to make way for houses. Deforestation is one of the main causes of soil degradation in the world today. It seems that housing our growing population comes at the cost of providing much needed food. So it is not surprising that farmers are turning to genetically modified crops to try to boost productivity and grow crops in more ecologically healthy fields, while allowing more efficient use of resources. This technology means that farmers can grow crops that are resistant to disease or pests, so fewer chemicals are used.`;
+
+const track30Script = `John: Hi, Sarah.
+Sarah: Hi, John. Did you see that article in Nature magazine about genetically modified crops?
+John: Yeah, I've just read it. Some of the research results were pretty incredible.
+Sarah: They've made some amazing advances, haven't they?
+John: What I was impressed with was the fact that the emphasis has gone from increased profits to more environmental issues.
+Sarah: That's right — take the research on the maize crop they mentioned. It was described as being wildlife-friendly, wasn't it?
+John: Yeah, it's good to see GM crops that won't have a detrimental effect on nearby livestock.
+Sarah: The research on the GM soya bean crop was promising as well. Apparently, it's designed to be resistant to weeds, so farmers don't need to spray any nasty chemicals to remove them.
+John: Which is great because for something like wheat, this can drive down the cost of food and improve the quality of the water supply as well.
+Sarah: And it's not just weeds these new GM crops can guard against. I was interested to read what they're doing with potato crops.
+John: Mmm. It said they're aiming to introduce an antifreeze that's found naturally in fish into the potato crops so that they can withstand extreme temperatures. That'd be a huge advantage for remote areas that struggle through harsh winter conditions.
+Sarah: I agree. Another GM crop that could help poorer areas is the rice crop they're developing. It's such a staple food in many areas and the plan is to create a crop that contains a richer supply of nutrients.
+John: Yes, in particular they're trying to produce a rice crop that'll supply high levels of vitamin A.
+Sarah: But these crops can have other uses beyond basic nutrition. Did you read about their planned use for tomatoes?
+John: Yes, that was amazing. They plan to use tomatoes to transport medicines, don't they?
+Sarah: Yeah, that's right. Transporting vaccines isn't easy because they're so fragile. So they're hoping to make an edible vaccine using tomatoes, that'll be easier to ship, store and even administer to patients. It's a really good example of the uses other than food that GM crops can have. Like the poplar trees.
+John: Oh, yes, the GM poplar trees they're working on should really do a lot to persuade people just how good this type of biotechnology can be.
+Sarah: That's right. I mean, imagine, they're creating a tree that can soak up contaminants like heavy metals right out of the soil. A tree like that could totally eradicate our environmental problems.
+John: I think articles like this can be very useful to show the general public that biotechnology shouldn't be feared.
+Sarah: Yes, this article certainly covered just about every new crop under development. It's good to have the very latest information. Things have changed a great deal over the last few years.
+John: That's right. It could have been a little more balanced in its approach though, don't you think?
+Sarah: I suppose there was only one side presented. People do need to have all of the facts and this article didn't really provide them, did it?
+John: No, but it did provide a very convincing argument for GM crops. It mentioned all of the main benefits, such as increased crop yields.
+Sarah: Yes, but there was a particular emphasis on pesticide use and the impact this will have on farmers. In many countries, pesticides are sprayed manually, and over time can be very harmful to the users.
+John: That's right, and it's a far more important impact to focus on than increased profits.
+Sarah: But I do think the public has a right to know about the potential problems of GM crops as well. Many scientists still have concerns.
+John: Well, there is the concern that these crops will spread uncontrollably and affect natural crops.
+Sarah: Mmm, but I'm more concerned about the studies showing children may develop a severe allergic reaction to these foods.
+John: That's something that definitely needs to be researched thoroughly. Tests they've done so far on rats have shown that we can't really predict what impact these foods will have in the long term.
+Sarah: I think there's a long way to go yet.`;
+
+const UNIT_15_THIS_EARTH: CambridgeUnit = {
+  unit: 15,
+  slug: "this-earth",
+  title: "This Earth",
+  topics: "Natural phenomena, agriculture",
+  testPractice: "Listening Section 3",
+  steps: [
+    {
+      kind: "vocab",
+      title: "Key vocabulary",
+      words: unit15Vocab,
+    },
+    {
+      kind: "fill_mc",
+      title: "Describing a storm",
+      instructions: "Choose the word that best completes each sentence about the storms.",
+      items: [
+        { before: "There was a night of", after: "rain that flooded the low-lying fields.", options: ["torrential", "dense", "freezing"], answer: "torrential" },
+        { before: "There were also", after: "winds, which blew down several outbuildings.", options: ["severe", "tropical", "heavy"], answer: "severe" },
+        { before: "It seemed inevitable that the high-rise buildings would be", after: "by lightning.", options: ["struck", "erupted", "fallen"], answer: "struck" },
+        { before: "There was a twenty-minute period of deafening", after: ", which terrified the islanders.", options: ["thunder", "ash", "fog"], answer: "thunder" },
+        { before: "They looked towards the volcano and wondered if it might", after: "and cause more damage.", options: ["erupt", "strike", "melt"], answer: "erupt" },
+      ],
+    },
+    {
+      kind: "reveal_pairs",
+      title: "Weather idioms",
+      instructions: "Tap each idiom to reveal what it means.",
+      pairs: [
+        { prompt: "every cloud has a silver lining", reveal: "difficult situations can also have positive effects" },
+        { prompt: "in the cold light of day", reveal: "see something for what it really is" },
+        { prompt: "weather the storm", reveal: "endure a difficult period" },
+        { prompt: "know which way the wind is blowing", reveal: "be aware of current opinions" },
+        { prompt: "the calm before the storm", reveal: "a period of peace followed by a period of chaos" },
+        { prompt: "a storm in a teacup", reveal: "a small problem that has been exaggerated" },
+        { prompt: "not have the foggiest idea", reveal: "be totally unaware of or ignorant of something" },
+        { prompt: "be snowed under", reveal: "feel overwhelmed, have too much work" },
+      ],
+    },
+    {
+      kind: "type_fill",
+      title: "Idioms in context",
+      instructions: "Complete each sentence with an idiom from this unit. You may need to change the form.",
+      items: [
+        { prompt: "We need to ignore all of the media hype and examine this problem ___.", answer: "in the cold light of day" },
+        { prompt: "If the government introduces necessary but unpopular measures, they should be prepared to ___ rather than please the public.", answer: "weather the storm" },
+        { prompt: "Although the unemployment figures dropped today, experts believe this may be ___, with hundreds of job losses predicted.", answer: "the calm before the storm" },
+        { prompt: "Climate sceptics believe that scientists are exaggerating the situation and this is simply ___.", answer: "a storm in a teacup" },
+        { prompt: "To be honest, I don't think the present government ___ what to do about obesity.", answer: "has the foggiest idea" },
+      ],
+    },
+    {
+      kind: "sort",
+      title: "Natural world or farming?",
+      instructions: "Tap a word, then tap the category it belongs to.",
+      buckets: ["Natural phenomena", "Agriculture"],
+      items: [
+        { term: "erupt", bucket: 0 },
+        { term: "tremor", bucket: 0 },
+        { term: "aftershock", bucket: 0 },
+        { term: "torrential", bucket: 0 },
+        { term: "drought", bucket: 0 },
+        { term: "acid rain", bucket: 0 },
+        { term: "greenhouse gases", bucket: 0 },
+        { term: "cultivate", bucket: 1 },
+        { term: "sow", bucket: 1 },
+        { term: "pasture", bucket: 1 },
+        { term: "pest", bucket: 1 },
+        { term: "crop yields", bucket: 1 },
+        { term: "irrigation", bucket: 1 },
+        { term: "soil erosion", bucket: 1 },
+      ],
+    },
+    {
+      kind: "reading_tfng",
+      title: "Reading — water, energy and the soil",
+      passageTitle: "A vicious circle",
+      passage:
+        "Current research models indicate that climate change associated with increasing levels of greenhouse gases is likely to lead to the soils in the interiors of the major continents drying out. In response to a drying of cropland, people are likely to seek either new sources of irrigation water or new, wetter areas to farm. If we choose desalination of seawater as a possible solution, large amounts of energy will be required. This means we are caught in a vicious circle as more fossil fuels are consumed. This results in an increase in carbon dioxide or greenhouse gas emissions. This in turn contributes to climate change, which warms up the planet. As a result, the earth dries out, causing soil erosion, and our crop yields decline, meaning that new sources of water need to be sought. Clearly, a long-term viable solution that does not produce acid rain and is not damaging to the environment is needed.",
+      questions: [
+        {
+          text: "Climate change is expected to dry out soils in the middle of large continents.",
+          answer: "True",
+          justification: "Climate change is likely to lead to the soils in the interiors of the major continents drying out.",
+        },
+        {
+          text: "Desalination of seawater requires a great deal of energy.",
+          answer: "True",
+          justification: "If we choose desalination of seawater, large amounts of energy will be required.",
+        },
+        {
+          text: "Desalination plants are cheaper to build than irrigation systems.",
+          answer: "Not given",
+          justification: "The passage makes no comparison of costs between the two.",
+        },
+        {
+          text: "Burning more fossil fuels reduces greenhouse gas emissions.",
+          answer: "False",
+          justification: "Consuming more fossil fuels results in an increase in carbon dioxide or greenhouse gas emissions.",
+        },
+        {
+          text: "Falling crop yields create a need to find new sources of water.",
+          answer: "True",
+          justification: "Crop yields decline, meaning that new sources of water need to be sought.",
+        },
+        {
+          text: "The writer believes an acceptable long-term solution has already been found.",
+          answer: "False",
+          justification: "The writer says a long-term viable solution is still needed.",
+        },
+      ],
+    },
+    {
+      kind: "listening_cloze",
+      title: "Threats to agriculture",
+      instructions: "Listen to a talk about agriculture and complete the table with the missing words.",
+      audioUrl: "https://a8wdavlbr1kcxckb.public.blob.vercel-storage.com/cambridge-vocabulary-ielts/track-29.mp3",
+      template:
+        "Climate change\n" +
+        "• leads to: higher {{temperatures}}\n" +
+        "• effects: decrease in yield from {{crops}}; increase in {{weeds}} and {{pests}}; poor soil quality\n\n" +
+        "Extreme weather\n" +
+        "• leads to: periods of {{drought}}; increased risk of {{floods}}\n" +
+        "• effects: loss of crops\n\n" +
+        "Farming practices\n" +
+        "• leads to: use of {{tractors}}; using land to feed {{cattle}}\n" +
+        "• effects: soil {{erosion}}\n\n" +
+        "Urban development\n" +
+        "• leads to: {{deforestation}} to provide space for homes\n" +
+        "• effects: soil degradation\n\n" +
+        "Genetically modified crops\n" +
+        "• leads to: increased {{productivity}}\n" +
+        "• effects: crops that are {{resistant}} to diseases or pests; reduction in the use of {{chemicals}}",
+      script: track29Script,
+      tip: "Chú ý các cụm chỉ nhân – quả: bring about, result in, lead to, stem from, take its toll, comes at the cost of. Đây chính là ngôn ngữ ghi điểm cho Writing Task 2.",
+    },
+    {
+      kind: "listening_cloze",
+      title: "Test practice — Listening Section 3",
+      instructions: "Listen to two university lecturers discussing an article about genetically modified crops. Complete the notes with the missing words.",
+      audioUrl: "https://a8wdavlbr1kcxckb.public.blob.vercel-storage.com/cambridge-vocabulary-ielts/track-30.mp3",
+      template:
+        "Benefits mentioned for each GM crop\n" +
+        "• maize — wildlife-friendly; no {{detrimental}} effect on nearby livestock\n" +
+        "• soya beans — designed to be resistant to {{weeds}}, so no need to spray nasty chemicals\n" +
+        "• wheat — can drive down the {{cost}} of food\n" +
+        "• potatoes — an {{antifreeze}} found naturally in fish lets the crop withstand extreme temperatures\n" +
+        "• rice — a crop containing a richer supply of {{nutrients}}, with high levels of vitamin A\n" +
+        "• tomatoes — used to transport {{medicines}} as an edible vaccine\n" +
+        "• poplar trees — soak up {{contaminants}} such as heavy metals from the soil\n\n" +
+        "Opinions about the article\n" +
+        "• the speakers agree the article was not {{balanced}} — only one side was presented\n" +
+        "• it placed a particular emphasis on {{pesticide}} use rather than on increased profits\n" +
+        "• Sarah's main concern is that children may develop a severe {{allergic}} reaction to these foods",
+      script: track30Script,
+      tip: "Section 3 thường là hội thoại giữa hai người: hãy chú ý ai nói gì và các cụm thể hiện đồng tình/không đồng tình (That's right / I suppose / but I do think...).",
+    },
+  ],
+};
+
+const unit16Vocab: VocabWord[] = [
+  {
+    term: "renewable",
+    ipa: "/rɪˈnjuːəbl/",
+    pos: "adjective",
+    usageNote: "mô tả nguồn năng lượng có thể tái tạo, không bao giờ cạn kiệt",
+    en: "(of energy sources) able to be replaced naturally and therefore never running out",
+    vi: "có thể tái tạo (năng lượng)",
+    synonyms: ["sustainable"],
+    antonyms: ["finite", "non-renewable"],
+    examples: [
+      { en: "Fuel sources that won't run out are renewable.", vi: "Những nguồn nhiên liệu không cạn kiệt được gọi là năng lượng tái tạo." },
+      { en: "The country aims to generate half its electricity from renewable sources.", vi: "Quốc gia này đặt mục tiêu sản xuất một nửa lượng điện từ các nguồn tái tạo." },
+    ],
+    ieltsTip: "\"Renewable energy sources\" là cụm chuẩn — nhớ dùng \"sources\" số nhiều.",
+    summary: "renewable = có thể tái tạo, không cạn kiệt.",
+  },
+  {
+    term: "sustainable",
+    ipa: "/səˈsteɪnəbl/",
+    pos: "adjective",
+    usageNote: "mô tả cách làm có thể duy trì lâu dài mà không gây hại cho môi trường",
+    en: "able to continue for a long time without damaging the environment",
+    vi: "bền vững",
+    synonyms: ["viable", "renewable"],
+    antonyms: ["unsustainable"],
+    examples: [
+      { en: "Alternative energy is a sustainable means of providing electrical power.", vi: "Năng lượng thay thế là phương thức cung cấp điện năng bền vững." },
+      { en: "We need to live in an environmentally sustainable way.", vi: "Chúng ta cần sống theo cách bền vững với môi trường." },
+    ],
+    ieltsTip: "\"Sustainable development / growth / solution\" — collocation xuất hiện rất nhiều trong Writing Task 2.",
+    summary: "sustainable = bền vững, duy trì được lâu dài.",
+  },
+  {
+    term: "alternative energy",
+    ipa: "/ɔːlˈtɜːnətɪv ˈenədʒi/",
+    pos: "phrase",
+    usageNote: "chỉ các nguồn năng lượng thay cho nhiên liệu hoá thạch",
+    en: "energy from sources other than coal, oil and gas",
+    vi: "năng lượng thay thế",
+    synonyms: ["green energy"],
+    antonyms: ["fossil fuel energy"],
+    examples: [
+      { en: "Alternative energy sources are low emitters of CO₂.", vi: "Các nguồn năng lượng thay thế phát thải CO₂ rất thấp." },
+      { en: "Domestic alternative energy systems can only power small appliances.", vi: "Hệ thống năng lượng thay thế trong gia đình chỉ đủ chạy các thiết bị nhỏ." },
+    ],
+    ieltsTip: "\"Alternative energy\" và \"green energy\" có thể dùng thay nhau — rất tiện để tránh lặp từ.",
+    summary: "alternative energy = năng lượng thay thế nhiên liệu hoá thạch.",
+  },
+  {
+    term: "fossil fuels",
+    ipa: "/ˈfɒsl fjuːəlz/",
+    pos: "phrase",
+    usageNote: "chỉ than đá, dầu mỏ và khí đốt — hình thành từ xác sinh vật cổ đại",
+    en: "fuels such as coal, oil and gas formed from the remains of ancient plants and animals",
+    vi: "nhiên liệu hoá thạch",
+    synonyms: [],
+    antonyms: ["renewables"],
+    examples: [
+      { en: "We need to curb our use of fossil fuels.", vi: "Chúng ta cần hạn chế việc sử dụng nhiên liệu hoá thạch." },
+      { en: "We will soon need to wean ourselves off fossil fuels.", vi: "Chẳng bao lâu nữa chúng ta sẽ phải cai dần nhiên liệu hoá thạch." },
+    ],
+    ieltsTip: "Luôn dùng số nhiều \"fossil fuels\" khi nói chung về than, dầu, khí.",
+    summary: "fossil fuels = nhiên liệu hoá thạch (than, dầu, khí).",
+  },
+  {
+    term: "emissions",
+    ipa: "/ɪˈmɪʃnz/",
+    pos: "noun",
+    usageNote: "danh từ số nhiều, chỉ lượng khí thải ra môi trường",
+    en: "gases sent out into the air, especially harmful ones",
+    vi: "khí thải, lượng phát thải",
+    synonyms: ["discharge"],
+    antonyms: [],
+    examples: [
+      { en: "These sources of energy have a major benefit in the shape of their low emissions.", vi: "Các nguồn năng lượng này có lợi thế lớn là mức phát thải thấp." },
+      { en: "Governments must agree to limit emissions of harmful gases.", vi: "Các chính phủ phải đồng thuận hạn chế phát thải khí độc hại." },
+    ],
+    ieltsTip: "Phân biệt: \"emissions\" (danh từ) — \"emit\" (động từ) — \"emitter\" (nguồn phát thải).",
+    summary: "emissions = khí thải phát ra môi trường.",
+  },
+  {
+    term: "carbon footprint",
+    ipa: "/ˈkɑːbən ˈfʊtprɪnt/",
+    pos: "phrase",
+    usageNote: "chỉ tổng lượng khí nhà kính mà một người hoặc tổ chức thải ra",
+    en: "the amount of greenhouse gases a person or organisation produces",
+    vi: "dấu chân carbon (lượng phát thải cá nhân)",
+    synonyms: ["carbon impact"],
+    antonyms: [],
+    examples: [
+      { en: "People talk about reducing their carbon footprint.", vi: "Mọi người nói về việc giảm dấu chân carbon của mình." },
+      { en: "Flying less is the quickest way to cut your carbon footprint.", vi: "Bay ít đi là cách nhanh nhất để cắt giảm dấu chân carbon của bạn." },
+    ],
+    ieltsTip: "Collocation: \"reduce / cut / offset your carbon footprint\".",
+    summary: "carbon footprint = tổng lượng khí nhà kính do một cá nhân/tổ chức tạo ra.",
+  },
+  {
+    term: "generate",
+    ipa: "/ˈdʒenəreɪt/",
+    pos: "verb",
+    usageNote: "dùng cho việc tạo ra điện, năng lượng, thu nhập hoặc việc làm",
+    en: "to produce energy, especially electricity",
+    vi: "sản xuất, tạo ra (điện, năng lượng)",
+    synonyms: ["produce"],
+    antonyms: ["consume"],
+    examples: [
+      { en: "At present, we burn fossil fuels to generate electricity.", vi: "Hiện tại, chúng ta đốt nhiên liệu hoá thạch để sản xuất điện." },
+      { en: "The wind farm generates enough power for 40,000 homes.", vi: "Trang trại gió tạo ra đủ điện cho 40.000 hộ gia đình." },
+    ],
+    ieltsTip: "Với điện, \"generate\" tự nhiên hơn \"make\"; cặp \"generate ↔ consume\" rất hữu ích cho Task 1.",
+    summary: "generate = sản xuất, tạo ra điện/năng lượng.",
+  },
+  {
+    term: "consume",
+    ipa: "/kənˈsjuːm/",
+    pos: "verb",
+    usageNote: "dùng cho việc tiêu thụ năng lượng, nhiên liệu, thời gian hoặc hàng hoá",
+    en: "to use fuel, energy or time, especially in large amounts",
+    vi: "tiêu thụ, tiêu hao",
+    synonyms: ["use up"],
+    antonyms: ["conserve"],
+    examples: [
+      { en: "Large screen TVs consume far more energy than older models.", vi: "TV màn hình lớn tiêu thụ nhiều năng lượng hơn hẳn các mẫu cũ." },
+      { en: "We are caught in a vicious circle as more fossil fuels are consumed.", vi: "Chúng ta mắc kẹt trong vòng luẩn quẩn khi ngày càng nhiều nhiên liệu hoá thạch bị tiêu thụ." },
+    ],
+    ieltsTip: "Danh từ là \"consumption\" — \"energy/petrol consumption\" là cụm cực kỳ thông dụng.",
+    summary: "consume = tiêu thụ nhiên liệu/năng lượng với lượng lớn.",
+  },
+  {
+    term: "conserve",
+    ipa: "/kənˈsɜːv/",
+    pos: "verb",
+    usageNote: "nghĩa giữ gìn, dùng tiết kiệm để không lãng phí nguồn lực",
+    en: "to use something carefully so that it is not wasted",
+    vi: "bảo tồn, tiết kiệm (nguồn lực)",
+    synonyms: ["save", "preserve"],
+    antonyms: ["waste"],
+    examples: [
+      { en: "Simple changes at home can help conserve energy.", vi: "Những thay đổi đơn giản tại nhà có thể giúp tiết kiệm năng lượng." },
+      { en: "It is vital that we conserve these natural resources.", vi: "Việc bảo tồn những nguồn tài nguyên thiên nhiên này là vô cùng quan trọng." },
+    ],
+    ieltsTip: "\"Conserve energy\" (tiết kiệm năng lượng) khác \"preserve\" (giữ nguyên trạng, bảo quản).",
+    summary: "conserve = dùng tiết kiệm, bảo tồn nguồn lực.",
+  },
+  {
+    term: "harness",
+    ipa: "/ˈhɑːnɪs/",
+    pos: "verb",
+    usageNote: "nghĩa khai thác và kiểm soát một nguồn lực tự nhiên để sử dụng",
+    en: "to control and use the natural force or power of something",
+    vi: "khai thác, tận dụng (sức mạnh tự nhiên)",
+    synonyms: ["capture", "exploit"],
+    antonyms: ["waste"],
+    examples: [
+      { en: "Turbines are used to harness the energy from the wind.", vi: "Tua-bin được dùng để khai thác năng lượng từ gió." },
+      { en: "Coastal waters could be harnessed to provide electricity.", vi: "Vùng biển ven bờ có thể được khai thác để cung cấp điện." },
+    ],
+    ieltsTip: "\"Harness solar/wind/wave energy\" là cách diễn đạt học thuật thay cho \"use\".",
+    summary: "harness = khai thác, tận dụng sức mạnh tự nhiên.",
+  },
+  {
+    term: "energy-efficient",
+    ipa: "/ˈenədʒi ɪˈfɪʃnt/",
+    pos: "adjective",
+    usageNote: "mô tả thiết bị hoặc quy trình dùng ít năng lượng để đạt cùng kết quả",
+    en: "using little energy to do the same job",
+    vi: "tiết kiệm năng lượng, hiệu suất năng lượng cao",
+    synonyms: ["low-consumption"],
+    antonyms: ["wasteful"],
+    examples: [
+      { en: "Researchers have found an energy-efficient way to make hydrogen.", vi: "Các nhà nghiên cứu đã tìm ra cách sản xuất hydro tiết kiệm năng lượng." },
+      { en: "Diesel cars are more efficient than petrol ones because they use less fuel per kilometre.", vi: "Xe chạy dầu hiệu quả hơn xe chạy xăng vì tiêu hao ít nhiên liệu hơn trên mỗi ki-lô-mét." },
+    ],
+    ieltsTip: "Phân biệt \"efficient\" (ít lãng phí) với \"effective\" (đạt được kết quả mong muốn).",
+    summary: "energy-efficient = tiết kiệm năng lượng, ít lãng phí.",
+  },
+  {
+    term: "exhaust",
+    ipa: "/ɪɡˈzɔːst/",
+    pos: "verb",
+    usageNote: "là động từ nghĩa dùng cạn kiệt; là danh từ nghĩa khí thải từ động cơ",
+    en: "to use something completely so that none is left",
+    vi: "dùng cạn kiệt; (danh từ) khí xả",
+    synonyms: ["use up", "deplete"],
+    antonyms: ["replenish"],
+    examples: [
+      { en: "If we continue to use petrol at the current rate, we will exhaust our natural reserves.", vi: "Nếu tiếp tục dùng xăng với tốc độ hiện tại, chúng ta sẽ làm cạn kiệt nguồn dự trữ tự nhiên." },
+      { en: "Exhaust fumes from cars contribute to greenhouse gases.", vi: "Khí xả từ ô tô góp phần tạo ra khí nhà kính." },
+    ],
+    ieltsTip: "\"Exhaust our resources/reserves\" — đừng dùng \"wear out\" cho tài nguyên.",
+    summary: "exhaust = dùng cạn kiệt; exhaust fumes = khí xả.",
+  },
+  {
+    term: "fumes",
+    ipa: "/fjuːmz/",
+    pos: "noun",
+    usageNote: "danh từ số nhiều, chỉ khí hoặc khói độc hại khó thở",
+    en: "strong-smelling and often harmful gas or smoke",
+    vi: "khói/khí độc hại",
+    synonyms: ["exhaust", "emissions"],
+    antonyms: ["fresh air"],
+    examples: [
+      { en: "It's the fumes cars produce that cause greenhouse gases.", vi: "Chính khí thải do ô tô sinh ra gây ra khí nhà kính." },
+      { en: "Traffic fumes make the air in the city centre unpleasant.", vi: "Khói xe làm không khí trong trung tâm thành phố khó chịu." },
+    ],
+    ieltsTip: "\"Fumes\" luôn ở dạng số nhiều — không viết \"a fume\".",
+    summary: "fumes = khói/khí độc hại (luôn số nhiều).",
+  },
+  {
+    term: "curb",
+    ipa: "/kɜːb/",
+    pos: "verb",
+    usageNote: "nghĩa kiềm chế, hạn chế điều gì đó đang tăng quá nhanh",
+    en: "to control or limit something harmful",
+    vi: "kiềm chế, hạn chế",
+    synonyms: ["restrict", "restrain"],
+    antonyms: ["encourage"],
+    examples: [
+      { en: "We need to curb our use of fossil fuels.", vi: "Chúng ta cần hạn chế việc sử dụng nhiên liệu hoá thạch." },
+      { en: "It is important for governments to act quickly to curb obesity.", vi: "Điều quan trọng là các chính phủ phải hành động nhanh để kiềm chế béo phì." },
+    ],
+    ieltsTip: "\"Curb\" mạnh và học thuật hơn \"reduce\" — dùng cho những thứ tiêu cực đang gia tăng.",
+    summary: "curb = kiềm chế, hạn chế điều tiêu cực.",
+  },
+  {
+    term: "natural resources",
+    ipa: "/ˈnætʃrəl rɪˈsɔːsɪz/",
+    pos: "phrase",
+    usageNote: "luôn dùng số nhiều; chỉ tài nguyên sẵn có trong tự nhiên như than, dầu, gỗ, nước",
+    en: "materials such as coal, oil, wood and water that exist naturally and can be used",
+    vi: "tài nguyên thiên nhiên",
+    synonyms: ["reserves"],
+    antonyms: [],
+    examples: [
+      { en: "Oil, gas and coal are natural resources used to produce energy.", vi: "Dầu, khí và than là tài nguyên thiên nhiên dùng để sản xuất năng lượng." },
+      { en: "Making hydrogen must not use up scarce natural resources.", vi: "Việc sản xuất hydro không được làm cạn kiệt các tài nguyên thiên nhiên khan hiếm." },
+    ],
+    ieltsTip: "Error warning: dùng \"resources\" (số nhiều) cho tài nguyên; dùng \"source\" khi nói nơi xuất phát (\"a good source of information\").",
+    summary: "natural resources = tài nguyên thiên nhiên (luôn số nhiều).",
+  },
+  {
+    term: "hydroelectric",
+    ipa: "/ˌhaɪdrəʊɪˈlektrɪk/",
+    pos: "adjective",
+    usageNote: "tiền tố hydro- liên quan đến nước; chỉ điện sản xuất từ sức nước",
+    en: "producing electricity using the power of falling water",
+    vi: "thuỷ điện",
+    synonyms: [],
+    antonyms: [],
+    examples: [
+      { en: "Hydroelectric dams have been around for a long time but produce only 19% of the world's energy.", vi: "Các đập thuỷ điện đã tồn tại từ lâu nhưng chỉ tạo ra 19% năng lượng thế giới." },
+      { en: "There are emissions costs in building hydroelectric power stations.", vi: "Việc xây dựng nhà máy thuỷ điện cũng phát sinh chi phí phát thải." },
+    ],
+    ieltsTip: "Nhóm collocation cần nhớ: hydroelectric dam / power station, wind turbine / farm, solar panel / farm.",
+    summary: "hydroelectric = thuộc về thuỷ điện (điện từ sức nước).",
+  },
+  {
+    term: "nuclear power",
+    ipa: "/ˈnjuːkliə ˈpaʊə(r)/",
+    pos: "phrase",
+    usageNote: "chỉ năng lượng sinh ra từ hạt nhân nguyên tử",
+    en: "the power produced from the nucleus of an atom",
+    vi: "điện hạt nhân, năng lượng hạt nhân",
+    synonyms: ["atomic power"],
+    antonyms: [],
+    examples: [
+      { en: "One last obstacle to the adoption of green energy is nuclear power.", vi: "Một trở ngại cuối cùng cho việc áp dụng năng lượng xanh là điện hạt nhân." },
+      { en: "It should appeal to the public more than having a nuclear power plant on their doorstep.", vi: "Nó sẽ hấp dẫn công chúng hơn là có một nhà máy điện hạt nhân ngay cạnh nhà." },
+    ],
+    ieltsTip: "Chú ý phát âm /ˈnjuːkliə/ — nhiều thí sinh đọc sai thành \"nucular\".",
+    summary: "nuclear power = năng lượng/điện hạt nhân.",
+  },
+  {
+    term: "ore",
+    ipa: "/ɔː(r)/",
+    pos: "noun",
+    usageNote: "chỉ loại đá chứa kim loại có thể khai thác được",
+    en: "rock from which metal can be obtained",
+    vi: "quặng (đá chứa kim loại)",
+    synonyms: ["mineral deposit"],
+    antonyms: [],
+    examples: [
+      { en: "Lead is usually found in ore, which is the name given to rock that we can extract metal from.", vi: "Chì thường được tìm thấy trong quặng — loại đá mà từ đó ta có thể chiết xuất kim loại." },
+      { en: "Iron ore is one of the country's main exports.", vi: "Quặng sắt là một trong những mặt hàng xuất khẩu chính của nước này." },
+    ],
+    ieltsTip: "Bộ từ vựng khai khoáng: ore – smelt – quarry – mine, hay gặp trong Listening Section 4.",
+    summary: "ore = quặng, đá chứa kim loại khai thác được.",
+  },
+  {
+    term: "smelt",
+    ipa: "/smelt/",
+    pos: "verb",
+    usageNote: "chỉ quá trình nung chảy quặng ở nhiệt độ rất cao để lấy kim loại",
+    en: "to obtain metal from rock by heating it to a very high temperature",
+    vi: "nấu chảy quặng, luyện kim",
+    synonyms: ["refine"],
+    antonyms: [],
+    examples: [
+      { en: "Metal is extracted by a process known as smelting.", vi: "Kim loại được chiết xuất bằng quy trình gọi là luyện quặng." },
+      { en: "The ore is smelted before it can be used.", vi: "Quặng được nấu chảy trước khi có thể sử dụng." },
+    ],
+    ieltsTip: "Danh từ là \"smelting\"; đừng nhầm với \"smell\".",
+    summary: "smelt = nung chảy quặng để lấy kim loại.",
+  },
+  {
+    term: "malleable",
+    ipa: "/ˈmæliəbl/",
+    pos: "adjective",
+    usageNote: "mô tả kim loại dễ dát mỏng, dễ tạo hình; nghĩa bóng chỉ người dễ bị tác động",
+    en: "easily changed into a new shape",
+    vi: "dễ dát mỏng, dễ tạo hình",
+    synonyms: ["pliable"],
+    antonyms: ["brittle"],
+    examples: [
+      { en: "Lead is extremely malleable, so it's easy to shape or flatten into sheets.", vi: "Chì rất dễ dát mỏng nên dễ tạo hình hoặc cán thành tấm." },
+      { en: "Young children's opinions are highly malleable.", vi: "Quan điểm của trẻ nhỏ rất dễ bị uốn nắn." },
+    ],
+    ieltsTip: "Nghĩa bóng (\"malleable opinions/minds\") rất hữu ích cho các đề về giáo dục và quảng cáo.",
+    summary: "malleable = dễ dát mỏng, dễ uốn nắn.",
+  },
+];
+
+const track31Script = `Anne: Hi, Pete, have you read this article about the solar farm they're planning to build?
+Pete: No, where's that?
+Anne: It says they're planning to build large-scale solar farms in Africa.
+Pete: Oh. That sounds like a good idea. The only problem with alternative energy sources is that they don't seem to be able to produce enough to meet all our energy needs. I mean, hydroelectric dams have been around for a long time now but they only produce 19% of the world's energy.
+Anne: Well, I suppose it all helps, and this plant will supposedly provide up to 15% of Europe's energy needs by 2050.
+Pete: Europe? How will they get the electricity there?
+Anne: They're going to use undersea cables to carry it there.
+Pete: Well, that's a good idea, I suppose. I mean, one of the main criticisms of things like wind farms is how visible the wind turbines are.
+Anne: Yeah, I know. People often complain about the noise they make, too, but that isn't an issue with solar power.
+Pete: No, but that reminds me. I saw a documentary at the weekend about renewable energy in Scotland.
+Anne: Really? Not exactly the perfect spot for a solar farm.
+Pete: No, not solar energy, wave energy. They reckon coastal waters could provide up to ten times Scotland's annual electricity usage.
+Anne: Wow, that would make them self-sufficient. It's certainly an interesting proposal, and if they generate that much electricity, it would be a remarkable achievement. And it should appeal to the public more than having a nuclear power plant on their doorstep.`;
+
+const track32Script = `Mining in Australia probably started with the arrival of Aborigines around 40,000 years ago. Aborigines mined for ochre, a naturally occurring coloured clay which they used for decoration.
+'Modern' Australian mining followed the arrival of European settlers in 1788. At first, this mining was limited to the quarrying and shaping of local sandstone, which they used for the first buildings at Sydney Cove.
+Coal wasn't found until 1791, when some convicts managed to escape and got as far as Newcastle. The coal industry began in 1798, when ship owners gathered surface coal at Newcastle and brought it to Sydney for sale. Export of Newcastle coal began in the following year with a shipment to India.
+Lead was the first metal mined in Australia, on the outskirts of Adelaide in 1841. Lead is one of the oldest metals known to humans. It's relatively simple to extract and it's extremely malleable, so it's easy to shape or flatten into sheets. Lead is usually found in ore, which is the name given to rock that we can extract metal from. It's extracted by a process known as smelting, where the rock, or ore, is heated to extremely high temperatures.
+Of course, precious metals and precious stones are the natural resources that most people go in search of in the hope of striking it rich. In 1849, many Australians migrated to the United States during the gold rush. In a bid to stop this, the New South Wales Government decided to offer incentives for Australians to find gold in their own country.
+But it is opals rather than gold or diamonds that Australia became famous for. The largest site was discovered in 1915 by a 14-year-old boy. He was with a group of gold diggers. The boy had been sent to look for water when he made the discovery of what was to become the world's largest and most productive opal field at Coober Pedy.`;
+
+const UNIT_16_ENERGY_EFFICIENT: CambridgeUnit = {
+  unit: 16,
+  slug: "energy-efficient",
+  title: "Energy efficient",
+  topics: "Energy, natural resources",
+  testPractice: "Writing Task 2",
+  steps: [
+    {
+      kind: "vocab",
+      title: "Key vocabulary",
+      words: unit16Vocab,
+    },
+    {
+      kind: "type_fill",
+      title: "Kinds of power",
+      instructions: "Complete each phrase with the kind of power being described.",
+      items: [
+        { prompt: "Power produced by panels that capture sunlight is ___ power.", answer: "solar" },
+        { prompt: "Power produced by dams using falling water is ___ power.", answer: "hydroelectric" },
+        { prompt: "Power produced by turbines placed in the sea is ___ power.", answer: "wave" },
+        { prompt: "Power produced by turbines on tall towers on land is ___ power.", answer: "wind" },
+        { prompt: "Power produced from the nucleus of an atom is ___ power.", answer: "nuclear" },
+      ],
+    },
+    {
+      kind: "listening_cloze",
+      title: "Two students discuss green energy",
+      instructions: "Listen to two students talking about alternative energy and complete the notes.",
+      audioUrl: "https://a8wdavlbr1kcxckb.public.blob.vercel-storage.com/cambridge-vocabulary-ielts/track-31.mp3",
+      template:
+        "• The article is about large-scale {{solar farms}} planned in Africa.\n" +
+        "• Pete's main criticism of alternative energy is that it cannot {{meet}} all our energy needs — {{hydroelectric}} dams still produce only 19% of the world's energy.\n" +
+        "• The new plant should provide up to 15% of Europe's energy needs by 2050, carried there by {{undersea cables}}.\n" +
+        "• A common complaint about {{wind farms}} is how visible the turbines are, and people also complain about the {{noise}}.\n" +
+        "• Pete saw a documentary about {{wave}} energy in Scotland: coastal waters could provide up to ten times the country's annual electricity usage, making it {{self-sufficient}}.\n" +
+        "• Anne thinks this would appeal to the public more than a {{nuclear power plant}} on their doorstep.",
+      script: track31Script,
+      tip: "Chú ý cách hai người thể hiện sự dè dặt (\"I suppose\", \"supposedly\") — Section 3 hay hỏi về thái độ của người nói.",
+    },
+    {
+      kind: "fill_mc",
+      title: "Verbs that go with 'energy'",
+      instructions: "Choose the verb that fits each sentence.",
+      items: [
+        { before: "Many domestic solar energy systems don't", after: "enough energy to meet all our needs.", options: ["generate", "conserve", "harness"], answer: "generate" },
+        { before: "Statistics show that the majority of energy", after: "in UK households is for heating.", options: ["consumed", "generated", "harnessed"], answer: "consumed" },
+        { before: "Large screen TVs", after: "far more energy than older models.", options: ["consume", "supply", "conserve"], answer: "consume" },
+        { before: "A solar plant on the moon would be capable of", after: "all our energy needs.", options: ["supplying", "consuming", "requiring"], answer: "supplying" },
+        { before: "Turbines are used to", after: "the energy from the wind.", options: ["harness", "consume", "exhaust"], answer: "harness" },
+        { before: "Switching off appliances at the wall helps to", after: "energy.", options: ["conserve", "generate", "require"], answer: "conserve" },
+      ],
+    },
+    {
+      kind: "type_fill",
+      title: "Energy word puzzle",
+      instructions: "Read each definition and type the word from this unit.",
+      items: [
+        { prompt: "What most UK household electricity is used for.", answer: "heating" },
+        { prompt: "Toxic gases from cars which aren't good to breathe in.", answer: "fumes" },
+        { prompt: "A country's deposits of coal, gas and oil are its natural ___.", answer: "resources" },
+        { prompt: "Fuel sources that won't run out are ___.", answer: "renewable" },
+        { prompt: "To totally use up.", answer: "exhaust" },
+        { prompt: "People talk about reducing their carbon ___.", answer: "footprint" },
+        { prompt: "Able to be recycled.", answer: "recyclable" },
+        { prompt: "To use fuel, energy or time in large amounts.", answer: "consume" },
+      ],
+    },
+    {
+      kind: "fill_mc",
+      title: "Natural resources — choose the right word",
+      instructions: "Choose the correct alternative to complete each sentence.",
+      items: [
+        { before: "We need to", after: "our use of fossil fuels.", options: ["curb", "maximise"], answer: "curb" },
+        { before: "Our levels of petrol", after: "are not sustainable.", options: ["consumption", "burning"], answer: "consumption" },
+        { before: "At present, we burn fossil fuels to", after: "electricity.", options: ["generate", "power"], answer: "generate" },
+        { before: "Domestic alternative energy sources can only produce enough energy to", after: "small appliances.", options: ["run", "provide"], answer: "run" },
+        { before: "Diesel cars are more", after: "than petrol ones because they use less fuel per kilometre.", options: ["efficient", "effective"], answer: "efficient" },
+        { before: "If we continue to use petrol at the current rate, we will", after: "our natural reserves within 50 years.", options: ["exhaust", "wear out"], answer: "exhaust" },
+      ],
+    },
+    {
+      kind: "listening_cloze",
+      title: "The history of mining in Australia",
+      instructions: "Listen to a talk about mining in Australia and complete the notes.",
+      audioUrl: "https://a8wdavlbr1kcxckb.public.blob.vercel-storage.com/cambridge-vocabulary-ielts/track-32.mp3",
+      template:
+        "• Mining began with the Aborigines around 40,000 years ago, who mined {{ochre}} — a naturally occurring coloured clay used for decoration.\n" +
+        "• After European settlers arrived in 1788, mining was limited to the {{quarrying}} and shaping of local sandstone.\n" +
+        "• The coal industry began in 1798; export of Newcastle coal began the following year with a shipment to {{India}}.\n" +
+        "• {{Lead}} was the first metal mined in Australia, near Adelaide in 1841. It is extremely {{malleable}}, so it is easy to flatten into sheets.\n" +
+        "• Metal is found in {{ore}} and extracted by a process known as {{smelting}}, in which the rock is heated to extremely high temperatures.\n" +
+        "• Australia became famous not for gold or diamonds but for {{opals}}; the largest field, at Coober Pedy, was discovered in 1915.",
+      script: track32Script,
+      tip: "Với bài nghe theo dòng thời gian, hãy dùng các mốc năm làm \"mỏ neo\" để không bị lạc khi nghe.",
+    },
+    {
+      kind: "reveal_pairs",
+      title: "Mining vocabulary",
+      instructions: "Tap each word to reveal its meaning.",
+      pairs: [
+        { prompt: "ochre", reveal: "a naturally coloured type of rock or earth" },
+        { prompt: "a quarry", reveal: "a large artificial hole in the ground where stone is dug for use as building material" },
+        { prompt: "malleable", reveal: "easily changed into a new shape" },
+        { prompt: "ore", reveal: "rock from which metal can be obtained" },
+        { prompt: "smelt", reveal: "to obtain metal from rock by exposing it to very high temperature" },
+        { prompt: "an opal", reveal: "a precious stone or gem" },
+      ],
+    },
+    {
+      kind: "writing_task",
+      title: "Test practice — Writing Task 2",
+      taskLabel: "Writing Task 2",
+      prompt:
+        "Alternative energy sources that use the natural power of the wind, waves and sun are too expensive and complicated to replace the coal, oil and gas that we use to power our cities and transport. To what extent do you agree or disagree with this opinion? Give reasons for your answer and include any relevant examples from your own knowledge or experience.",
+      minWords: 250,
+      tip:
+        "Với dạng đề \"to what extent do you agree or disagree\", hãy lập dàn ý hai cột Agree – Disagree trước khi viết, rồi nêu rõ quan điểm của bạn ngay ở phần mở bài và giữ nhất quán đến kết bài. Dành khoảng 40 phút và viết ít nhất 250 từ.",
+      modelAnswer:
+        "Alternative energy is thought by some to be the answer to our reliance on fossil fuels, as sources of alternative energy are low emitters of CO₂ and are a sustainable means of providing electrical power. Critics of 'green energy' contend that current technologies are either too costly or impractical to realistically replace our current energy needs.\n\n" +
+        "The advantages of 'green energy' are obvious. There is no need to worry about dwindling supplies of progressively more expensive resources. Solar power will never run out and, once initial costs are paid off, the electricity is basically free. These sources of energy have another major benefit in the shape of their low emissions. Although there are emissions costs in the building of wind turbines or hydroelectric power stations, there is no further air pollution or the risk of environmental contamination.\n\n" +
+        "This notion of a perfect world of free and non-polluting energy does draw criticism, however. It is obvious that solar power won't work at night or that not every country has a coastline, rivers or windy hills. It is also a problem that replacing our current energy supply will entail expensive research and development, which, in turn, involves government cooperation. One last obstacle to the adoption of 'green energy' is nuclear power. Many countries see the huge energy production from this power source as a more practical solution than messing around with the wind and waves.\n\n" +
+        "In conclusion, there is little doubt that we will soon need to wean ourselves off fossil fuels and on to an alternative fuel source. The only real question is whether we risk the costs and delays of green energy or choose the productive, but potentially dangerous, nuclear option.",
+    },
+  ],
+};
+
+const unit17Vocab: VocabWord[] = [
+  {
+    term: "promote",
+    ipa: "/prəˈməʊt/",
+    pos: "verb",
+    usageNote: "trong ngữ cảnh công việc nghĩa là thăng chức cho ai đó; cũng có nghĩa quảng bá sản phẩm",
+    en: "to raise someone to a higher or more important position",
+    vi: "thăng chức cho ai đó",
+    synonyms: ["upgrade", "elevate"],
+    antonyms: ["demote"],
+    examples: [
+      { en: "I was promoted last year to head of department.", vi: "Tôi được thăng chức lên trưởng phòng vào năm ngoái." },
+      { en: "Long-term employees are more likely to be promoted to a managerial position.", vi: "Nhân viên gắn bó lâu dài có nhiều khả năng được thăng lên vị trí quản lý hơn." },
+    ],
+    ieltsTip: "Thường dùng bị động: \"be promoted to + chức danh\". Danh từ là \"promotion\".",
+    summary: "promote = thăng chức cho ai lên vị trí cao hơn.",
+  },
+  {
+    term: "capital",
+    ipa: "/ˈkæpɪtl/",
+    pos: "noun",
+    usageNote: "trong kinh doanh chỉ số vốn lớn để khởi nghiệp hoặc đầu tư",
+    en: "a large amount of money used to start or expand a business",
+    vi: "vốn (kinh doanh)",
+    synonyms: ["funds", "investment"],
+    antonyms: ["debt"],
+    examples: [
+      { en: "It's a big investment in terms of time and capital.", vi: "Đó là một khoản đầu tư lớn cả về thời gian lẫn vốn." },
+      { en: "They raised enough capital to open two new branches.", vi: "Họ huy động đủ vốn để mở hai chi nhánh mới." },
+    ],
+    ieltsTip: "Trong bài đọc kinh tế, \"capital\" hầu như luôn mang nghĩa vốn, không phải thủ đô.",
+    summary: "capital = vốn lớn để khởi nghiệp hoặc mở rộng kinh doanh.",
+  },
+  {
+    term: "a calculated risk",
+    ipa: "/ə ˈkælkjuleɪtɪd rɪsk/",
+    pos: "phrase",
+    usageNote: "chỉ rủi ro đã được cân nhắc kỹ và chấp nhận vì đáng để thử",
+    en: "a chance that you consider to be worth taking",
+    vi: "rủi ro đã được tính toán, cân nhắc kỹ",
+    synonyms: ["a considered gamble"],
+    antonyms: ["a reckless gamble"],
+    examples: [
+      { en: "It's a calculated risk and it should pay off over time.", vi: "Đó là một rủi ro đã được tính toán và về lâu dài sẽ mang lại kết quả." },
+      { en: "Expanding overseas was a calculated risk for the company.", vi: "Mở rộng ra nước ngoài là một rủi ro có tính toán của công ty." },
+    ],
+    ieltsTip: "Đi với \"take a calculated risk\" — cách nói rất tự nhiên trong Speaking Part 3 về kinh doanh.",
+    summary: "a calculated risk = rủi ro đã cân nhắc kỹ, đáng để chấp nhận.",
+  },
+  {
+    term: "amalgamate",
+    ipa: "/əˈmælɡəmeɪt/",
+    pos: "verb",
+    usageNote: "chỉ việc hai tổ chức hợp nhất thành một tổ chức lớn hơn",
+    en: "to join or unite to form a larger organisation",
+    vi: "sáp nhập, hợp nhất",
+    synonyms: ["merge", "combine"],
+    antonyms: ["split up"],
+    examples: [
+      { en: "We decided to amalgamate with a Chinese company.", vi: "Chúng tôi quyết định sáp nhập với một công ty Trung Quốc." },
+      { en: "The two banks amalgamated last year.", vi: "Hai ngân hàng đã hợp nhất vào năm ngoái." },
+    ],
+    ieltsTip: "\"Merge\" thông dụng hơn, còn \"amalgamate\" trang trọng hơn — dùng trong Writing để nâng band.",
+    summary: "amalgamate = sáp nhập, hợp nhất thành tổ chức lớn hơn.",
+  },
+  {
+    term: "domestic",
+    ipa: "/dəˈmestɪk/",
+    pos: "adjective",
+    usageNote: "trong kinh doanh nghĩa là thuộc thị trường trong nước, đối lập với overseas",
+    en: "relating to your own country rather than other countries",
+    vi: "trong nước, nội địa",
+    synonyms: ["home", "internal"],
+    antonyms: ["overseas", "foreign"],
+    examples: [
+      { en: "Things aren't running very smoothly in our domestic sales at the moment.", vi: "Mảng bán hàng nội địa của chúng tôi hiện đang không suôn sẻ lắm." },
+      { en: "The company focuses on the domestic market.", vi: "Công ty tập trung vào thị trường trong nước." },
+    ],
+    ieltsTip: "\"Domestic\" còn có nghĩa \"thuộc về gia đình\" (domestic chores) — chú ý ngữ cảnh khi làm Reading.",
+    summary: "domestic = thuộc thị trường trong nước (hoặc gia đình).",
+  },
+  {
+    term: "cutback",
+    ipa: "/ˈkʌtbæk/",
+    pos: "noun",
+    usageNote: "chỉ việc cắt giảm chi phí, nhân sự hoặc dịch vụ để tiết kiệm tiền",
+    en: "a reduction in something made in order to save money",
+    vi: "sự cắt giảm (chi phí, nhân sự)",
+    synonyms: ["reduction"],
+    antonyms: ["expansion"],
+    examples: [
+      { en: "If things don't improve soon, I'll be forced to make cutbacks in that department.", vi: "Nếu tình hình không sớm cải thiện, tôi buộc phải cắt giảm ở phòng ban đó." },
+      { en: "Government cutbacks have affected local services.", vi: "Việc cắt giảm ngân sách của chính phủ đã ảnh hưởng tới các dịch vụ địa phương." },
+    ],
+    ieltsTip: "Collocation: \"make cutbacks\" — dùng như danh từ, còn động từ là \"cut back on something\".",
+    summary: "cutback = sự cắt giảm để tiết kiệm chi phí.",
+  },
+  {
+    term: "a golden opportunity",
+    ipa: "/ə ˈɡəʊldən ˌɒpəˈtjuːnəti/",
+    pos: "phrase",
+    usageNote: "thành ngữ chỉ cơ hội quá tốt, hiếm có, không nên bỏ lỡ",
+    en: "an excellent chance that should not be missed",
+    vi: "cơ hội vàng",
+    synonyms: ["a perfect chance"],
+    antonyms: ["a missed chance"],
+    examples: [
+      { en: "It's a golden opportunity for me.", vi: "Đây là một cơ hội vàng cho tôi." },
+      { en: "The internship was a golden opportunity to gain experience.", vi: "Kỳ thực tập là cơ hội vàng để tích luỹ kinh nghiệm." },
+    ],
+    ieltsTip: "Idiom này dùng rất tự nhiên trong Speaking Part 2 khi kể về một bước ngoặt trong sự nghiệp.",
+    summary: "a golden opportunity = cơ hội vàng, hiếm có.",
+  },
+  {
+    term: "make a name for yourself",
+    ipa: "/meɪk ə neɪm fə jɔːˈself/",
+    pos: "phrase",
+    usageNote: "nghĩa gây dựng danh tiếng, được nhiều người biết đến nhờ năng lực",
+    en: "to become well known and respected for what you do",
+    vi: "gây dựng tên tuổi, tạo danh tiếng",
+    synonyms: ["build a reputation"],
+    antonyms: [],
+    examples: [
+      { en: "I'm hoping it'll give me a chance to make a name for myself in the industry.", vi: "Tôi hy vọng điều đó sẽ cho tôi cơ hội gây dựng tên tuổi trong ngành." },
+      { en: "She made a name for herself as a designer while still at university.", vi: "Cô ấy đã tạo được tên tuổi trong vai trò nhà thiết kế ngay khi còn học đại học." },
+    ],
+    ieltsTip: "Nhớ đổi đại từ phản thân cho đúng: myself / yourself / himself / herself.",
+    summary: "make a name for yourself = tạo dựng danh tiếng trong lĩnh vực của mình.",
+  },
+  {
+    term: "a win-win situation",
+    ipa: "/ə wɪn wɪn ˌsɪtʃuˈeɪʃn/",
+    pos: "phrase",
+    usageNote: "chỉ tình huống mà cả hai bên đều được lợi",
+    en: "a situation in which everyone involved benefits",
+    vi: "tình huống đôi bên cùng có lợi",
+    synonyms: ["mutually beneficial arrangement"],
+    antonyms: ["a zero-sum game"],
+    examples: [
+      { en: "They were looking for an exporter and we were looking for a local manufacturer, so it's a win-win situation.", vi: "Họ cần nhà xuất khẩu còn chúng tôi cần nhà sản xuất địa phương, nên đôi bên đều có lợi." },
+      { en: "Flexible working can be a win-win situation for staff and employers.", vi: "Làm việc linh hoạt có thể là tình huống đôi bên cùng có lợi cho nhân viên và người sử dụng lao động." },
+    ],
+    ieltsTip: "Rất hữu ích khi nêu giải pháp trong Writing Task 2 — \"this would be a win-win situation\".",
+    summary: "a win-win situation = tình huống cả hai bên đều được lợi.",
+  },
+  {
+    term: "a household name",
+    ipa: "/ə ˈhaʊshəʊld neɪm/",
+    pos: "phrase",
+    usageNote: "chỉ thương hiệu hoặc người nổi tiếng đến mức ai cũng biết",
+    en: "a person or brand that everybody knows",
+    vi: "cái tên quen thuộc với mọi nhà",
+    synonyms: ["a famous brand"],
+    antonyms: ["an unknown"],
+    examples: [
+      { en: "It's only through sheer hard work that we've become the household name we are today.", vi: "Chỉ nhờ nỗ lực bền bỉ mà chúng tôi mới trở thành cái tên quen thuộc như hôm nay." },
+      { en: "The company became a household name in less than a decade.", vi: "Công ty trở thành thương hiệu ai cũng biết trong chưa đầy một thập kỷ." },
+    ],
+    ieltsTip: "Hay dùng trong các đề Speaking/Writing về quảng cáo và thương hiệu.",
+    summary: "a household name = thương hiệu/tên tuổi ai cũng biết.",
+  },
+  {
+    term: "a hands-on approach",
+    ipa: "/ə ˌhændz ˈɒn əˈprəʊtʃ/",
+    pos: "phrase",
+    usageNote: "chỉ phong cách quản lý trực tiếp tham gia vào công việc thay vì chỉ ra lệnh",
+    en: "a way of managing in which you get directly involved in the work",
+    vi: "phong cách trực tiếp bắt tay vào việc",
+    synonyms: ["an involved approach"],
+    antonyms: ["a hands-off approach"],
+    examples: [
+      { en: "I take a hands-on approach to management and keep track of every department.", vi: "Tôi theo phong cách trực tiếp tham gia vào việc quản lý và theo dõi mọi phòng ban." },
+      { en: "The best teachers take a hands-on approach in the classroom.", vi: "Những giáo viên giỏi nhất áp dụng cách dạy trực tiếp thực hành trong lớp." },
+    ],
+    ieltsTip: "Trái nghĩa \"a hands-off approach\" — nêu được cả cặp sẽ rất ấn tượng trong Speaking Part 3.",
+    summary: "a hands-on approach = cách làm trực tiếp tham gia vào công việc.",
+  },
+  {
+    term: "the tricks of the trade",
+    ipa: "/ðə trɪks əv ðə treɪd/",
+    pos: "phrase",
+    usageNote: "chỉ những mẹo, kinh nghiệm mà người trong nghề biết",
+    en: "the clever methods known by experienced people in a particular job",
+    vi: "bí quyết nghề nghiệp",
+    synonyms: ["know-how"],
+    antonyms: [],
+    examples: [
+      { en: "He certainly knows all the tricks of the trade.", vi: "Anh ấy chắc chắn nắm rõ mọi bí quyết nghề nghiệp." },
+      { en: "A good mentor will teach you the tricks of the trade.", vi: "Một người cố vấn giỏi sẽ dạy bạn những bí quyết trong nghề." },
+    ],
+    ieltsTip: "Luôn dùng đủ mạo từ: \"the tricks of the trade\", không nói \"tricks of trade\".",
+    summary: "the tricks of the trade = bí quyết, mẹo nghề của người có kinh nghiệm.",
+  },
+  {
+    term: "the bottom line",
+    ipa: "/ðə ˈbɒtəm laɪn/",
+    pos: "phrase",
+    usageNote: "chỉ điều quan trọng nhất, kết luận cuối cùng; trong kế toán là lợi nhuận ròng",
+    en: "the most important fact in a situation; a company's final profit or loss",
+    vi: "điều cốt lõi; lợi nhuận cuối cùng",
+    synonyms: ["the key point"],
+    antonyms: [],
+    examples: [
+      { en: "The bottom line is, we're running a business here and we need to be profitable.", vi: "Điều cốt lõi là chúng ta đang kinh doanh và cần phải có lãi." },
+      { en: "Rising fuel costs are hurting the company's bottom line.", vi: "Chi phí nhiên liệu tăng đang ảnh hưởng tới lợi nhuận của công ty." },
+    ],
+    ieltsTip: "\"The bottom line is (that)...\" là cách mở câu kết luận rất tự nhiên trong Speaking.",
+    summary: "the bottom line = điều cốt lõi nhất / lợi nhuận sau cùng.",
+  },
+  {
+    term: "break into",
+    ipa: "/breɪk ˈɪntə/",
+    pos: "verb",
+    usageNote: "trong kinh doanh nghĩa là thâm nhập thành công vào một thị trường mới",
+    en: "to become involved in a new market or area of business",
+    vi: "thâm nhập (thị trường mới)",
+    synonyms: ["enter", "penetrate"],
+    antonyms: ["withdraw from"],
+    examples: [
+      { en: "We set up a new office in China so we can break into that market.", vi: "Chúng tôi lập văn phòng mới ở Trung Quốc để thâm nhập thị trường đó." },
+      { en: "Setting up our own website allowed us to break into the overseas market.", vi: "Việc lập trang web riêng đã giúp chúng tôi thâm nhập thị trường nước ngoài." },
+    ],
+    ieltsTip: "Đừng nhầm với \"break through\" (đột phá) — với thị trường, đúng là \"break into\".",
+    summary: "break into (a market) = thâm nhập vào thị trường mới.",
+  },
+  {
+    term: "keep track of",
+    ipa: "/kiːp træk əv/",
+    pos: "phrase",
+    usageNote: "nghĩa theo dõi sát sao tình hình hoặc con số nào đó",
+    en: "to make sure you know what is happening to something",
+    vi: "theo dõi sát, nắm được diễn biến",
+    synonyms: ["monitor"],
+    antonyms: ["lose track of"],
+    examples: [
+      { en: "It's important to keep track of how much money your department is spending.", vi: "Việc theo dõi sát mức chi tiêu của phòng ban là rất quan trọng." },
+      { en: "I keep track of how things are going in just about every department.", vi: "Tôi theo dõi tình hình ở hầu như mọi phòng ban." },
+    ],
+    ieltsTip: "Luôn có giới từ \"of\": keep track OF something (không phải \"keep track for\").",
+    summary: "keep track of = theo dõi sát sao điều gì đó.",
+  },
+  {
+    term: "pay off",
+    ipa: "/peɪ ˈɒf/",
+    pos: "verb",
+    usageNote: "có hai nghĩa: trả hết nợ, và (một việc mạo hiểm) mang lại kết quả tốt",
+    en: "to pay back money you owe; or (of a risk) to bring good results",
+    vi: "trả hết (nợ); mang lại kết quả tốt",
+    synonyms: ["settle", "succeed"],
+    antonyms: ["fail"],
+    examples: [
+      { en: "Mid-level lottery winners did not in fact pay off their debt.", vi: "Những người trúng số mức trung thực ra đã không trả hết nợ." },
+      { en: "Starting up our own company was a risk, but it has really paid off for us.", vi: "Khởi nghiệp là một rủi ro, nhưng nó thực sự đã mang lại kết quả tốt cho chúng tôi." },
+    ],
+    ieltsTip: "Chú ý ngữ cảnh để chọn đúng nghĩa — đây là bẫy quen thuộc trong Reading.",
+    summary: "pay off = trả hết nợ; hoặc (rủi ro) đem lại kết quả tốt.",
+  },
+  {
+    term: "bankruptcy",
+    ipa: "/ˈbæŋkrʌptsi/",
+    pos: "noun",
+    usageNote: "chỉ tình trạng pháp lý khi một người/công ty không thể trả được nợ",
+    en: "the state of being unable to pay your debts",
+    vi: "tình trạng phá sản",
+    synonyms: ["insolvency"],
+    antonyms: ["solvency"],
+    examples: [
+      { en: "People who won between $50,000 and $150,000 only postponed bankruptcy.", vi: "Những người trúng từ 50.000 đến 150.000 đô la chỉ trì hoãn được việc phá sản." },
+      { en: "Filing for bankruptcy seriously harms your credit rating.", vi: "Việc nộp đơn phá sản gây tổn hại nghiêm trọng đến điểm tín dụng của bạn." },
+    ],
+    ieltsTip: "Tính từ là \"bankrupt\": \"go/become bankrupt\" — không nói \"become bankruptcy\".",
+    summary: "bankruptcy = tình trạng phá sản, mất khả năng trả nợ.",
+  },
+  {
+    term: "financial distress",
+    ipa: "/faɪˈnænʃl dɪˈstres/",
+    pos: "phrase",
+    usageNote: "cách nói trang trọng chỉ tình trạng khó khăn nghiêm trọng về tiền bạc",
+    en: "serious difficulty in paying what you owe",
+    vi: "khốn đốn về tài chính",
+    synonyms: ["financial difficulty"],
+    antonyms: ["financial security"],
+    examples: [
+      { en: "Filing for bankruptcy is arguably the most extreme signal of financial distress.", vi: "Nộp đơn phá sản có lẽ là dấu hiệu cực đoan nhất của tình trạng khốn đốn tài chính." },
+      { en: "Many households were in financial distress after the crisis.", vi: "Nhiều hộ gia đình rơi vào cảnh khốn đốn tài chính sau khủng hoảng." },
+    ],
+    ieltsTip: "Nhóm từ cùng chủ đề: financial problems – debt – creditors – bankruptcy – financial distress.",
+    summary: "financial distress = tình trạng khốn đốn nghiêm trọng về tài chính.",
+  },
+  {
+    term: "budget",
+    ipa: "/ˈbʌdʒɪt/",
+    pos: "noun",
+    usageNote: "chỉ số tiền dự kiến dành cho một mục đích trong một khoảng thời gian",
+    en: "the amount of money available to spend on something",
+    vi: "ngân sách, khoản tiền dự chi",
+    synonyms: ["allowance"],
+    antonyms: [],
+    examples: [
+      { en: "Our department has an annual budget of $100,000 to cover travel expenses.", vi: "Phòng chúng tôi có ngân sách hằng năm 100.000 đô la cho chi phí đi lại." },
+      { en: "I try to stay within my budget, but then I see something I really want to buy!", vi: "Tôi cố gắng chi tiêu trong ngân sách, nhưng rồi lại thấy thứ mình rất muốn mua!" },
+    ],
+    ieltsTip: "Collocation: an annual budget / stay within your budget / a tight budget.",
+    summary: "budget = ngân sách, số tiền dành cho một mục đích.",
+  },
+  {
+    term: "income",
+    ipa: "/ˈɪnkʌm/",
+    pos: "noun",
+    usageNote: "chỉ tổng số tiền nhận được từ công việc hoặc đầu tư",
+    en: "the money a person or organisation receives, especially from work",
+    vi: "thu nhập",
+    synonyms: ["earnings"],
+    antonyms: ["expenditure"],
+    examples: [
+      { en: "You may need an extra job to supplement your income and help pay off your debts.", vi: "Bạn có thể cần một công việc thêm để bổ sung thu nhập và trả nợ." },
+      { en: "Low-income families find it difficult to manage when prices rise rapidly.", vi: "Các gia đình thu nhập thấp gặp khó khăn khi giá cả tăng nhanh." },
+    ],
+    ieltsTip: "Phân biệt income (thu nhập nói chung) – salary (lương tháng) – wage (lương theo giờ/tuần).",
+    summary: "income = thu nhập nhận được từ công việc hoặc đầu tư.",
+  },
+];
+
+const track34Script = `Speaker 1: I was promoted last year to head of department. I'm in charge of all of our overseas operations now. It's a golden opportunity for me. It means a lot more responsibility, but I'm hoping it'll also give me a chance to make a name for myself in the industry. One of the projects I took on recently involved setting up a new office in China so we can break into that market. It's a big investment in terms of time and capital, but I think it's a calculated risk and it should pay off over time. Because it is a risk, we decided to amalgamate with a Chinese company. I was involved in the negotiations and drawing up the contracts for it. The other company was looking for an exporter and we were looking for a local manufacturer, so it's a win-win situation, really.
+Speaker 2: Running a company this size is never an easy task, and it's only through sheer hard work and determination we've become the household name we are today. I employ over 2,000 staff, but I take a hands-on approach to management and so I keep track of how things are going in just about every department. Things aren't running very smoothly in our domestic sales at the moment. The main problem seems to be the supervisor, who I appointed myself. It was a promotion for him and he seemed ready to take on the extra responsibility. He certainly knows all the tricks of the trade, but his department is barely breaking even. In terms of his own management style, he certainly seems to communicate well with his team, and holds regular meetings. But just this month they missed an important deadline and cost us an important client. He just doesn't seem to be able to get the best out of his staff and the bottom line is, we're running a business here and we need to be profitable. If things don't improve soon, I'll be forced to make cutbacks in that department.`;
+
+const UNIT_17_GETTING_DOWN_TO_BUSINESS: CambridgeUnit = {
+  unit: 17,
+  slug: "getting-down-to-business",
+  title: "Getting down to business",
+  topics: "Management, personal finance",
+  testPractice: "Reading",
+  steps: [
+    {
+      kind: "vocab",
+      title: "Key vocabulary",
+      words: unit17Vocab,
+    },
+    {
+      kind: "listening_cloze",
+      title: "Two managers talking",
+      instructions: "Listen to two speakers talking about management. Complete the notes with the missing words and phrases.",
+      audioUrl: "https://a8wdavlbr1kcxckb.public.blob.vercel-storage.com/cambridge-vocabulary-ielts/track-34.mp3",
+      template:
+        "Speaker 1\n" +
+        "• Was {{promoted}} last year to head of department and is now in charge of all overseas operations — he calls it a {{golden opportunity}}.\n" +
+        "• Hopes it will give him a chance to {{make a name}} for himself in the industry.\n" +
+        "• Setting up a new office in China will let the firm {{break into}} that market; it is a big investment in time and {{capital}}, but a {{calculated risk}}.\n" +
+        "• They decided to {{amalgamate}} with a Chinese company — for both sides it is a {{win-win}} situation.\n\n" +
+        "Speaker 2\n" +
+        "• Her company has become a {{household name}} through sheer hard work and determination.\n" +
+        "• She takes a {{hands-on}} approach to management and likes to {{keep track}} of every department.\n" +
+        "• The problem is in {{domestic}} sales: the supervisor knows all the {{tricks of the trade}} but his department is barely breaking even.\n" +
+        "• The {{bottom line}} is that the business needs to be profitable — otherwise she will have to make {{cutbacks}}.",
+      script: track34Script,
+      tip: "Idiom trong bài nghe thường được diễn giải lại ở câu hỏi — hãy nghe ý chứ đừng chỉ bám vào từ.",
+    },
+    {
+      kind: "reveal_pairs",
+      title: "Business idioms",
+      instructions: "Tap each idiom to reveal what it means.",
+      pairs: [
+        { prompt: "a golden opportunity", reveal: "an excellent chance that should not be missed" },
+        { prompt: "make a name for yourself", reveal: "become well known and respected for what you do" },
+        { prompt: "a win-win situation", reveal: "a situation in which both sides benefit" },
+        { prompt: "a household name", reveal: "a brand or person everybody knows" },
+        { prompt: "a hands-on approach", reveal: "getting directly involved in the work yourself" },
+        { prompt: "the tricks of the trade", reveal: "the clever methods known by experienced people in a job" },
+        { prompt: "the bottom line", reveal: "the most important fact; the final profit or loss" },
+        { prompt: "a spanner in the works", reveal: "something that spoils a plan" },
+        { prompt: "in the red", reveal: "owing money to the bank" },
+        { prompt: "sell like hotcakes", reveal: "sell very quickly and in large numbers" },
+      ],
+    },
+    {
+      kind: "fill_mc",
+      title: "Business collocations",
+      instructions: "Choose the correct alternative. The words in bold will help you.",
+      items: [
+        { before: "We need guidelines for anyone wishing to", after: "an employment contract.", options: ["draw up", "draw over"], answer: "draw up" },
+        { before: "When times are tough, employers do not", after: "as many new staff.", options: ["take on", "take up"], answer: "take on" },
+        { before: "We decided to", after: "an office near the airport.", options: ["set up", "set down"], answer: "set up" },
+        { before: "New employees may be tempted to", after: "too much responsibility at first.", options: ["take on", "take in"], answer: "take on" },
+        { before: "Each of our managers is", after: "around 20 staff.", options: ["in charge of", "in charge for"], answer: "in charge of" },
+        { before: "Starting up our own company was a risk, but it has really", after: "for us.", options: ["paid off", "paid up"], answer: "paid off" },
+        { before: "It's important to", after: "how much money your department is spending.", options: ["keep track of", "keep track for"], answer: "keep track of" },
+        { before: "Setting up our own website allowed us to", after: "the overseas market.", options: ["break into", "break through"], answer: "break into" },
+      ],
+    },
+    {
+      kind: "type_fill",
+      title: "Verb + noun in the office",
+      instructions: "Type the verb that goes with the noun in each sentence.",
+      items: [
+        { prompt: "Lawyers will ___ the contract before both parties sign it. (agree the terms of)", answer: "negotiate" },
+        { prompt: "The board will ___ a meeting on Friday morning. (organise and have)", answer: "hold" },
+        { prompt: "Both sides finally managed to ___ an agreement. (arrive at)", answer: "reach" },
+        { prompt: "The company plans to ___ 50 new staff this year. (employ)", answer: "recruit" },
+        { prompt: "If you ___ the deadline, the client will not be happy. (fail to meet)", answer: "miss" },
+        { prompt: "The deputy director will ___ the meeting in her absence. (lead)", answer: "chair" },
+      ],
+    },
+    {
+      kind: "fill_mc",
+      title: "Employment vocabulary — accuracy",
+      instructions: "Choose the correct alternative to improve the accuracy of this Writing Task 2 extract.",
+      items: [
+        { before: "A common belief is that", after: "alone is not sufficient to make staff happy.", options: ["money", "a pay"], answer: "money" },
+        { before: "Companies need to offer them good", after: "conditions and benefits.", options: ["working", "job"], answer: "working" },
+        { before: "It helps if people choose an", after: "that they enjoy and find fulfilling.", options: ["occupation", "employment"], answer: "occupation" },
+        { before: "Retaining", after: "means companies can save money on recruiting and training.", options: ["an employee", "a staff"], answer: "an employee" },
+        { before: "A worker who feels well looked after by their", after: "is more likely to stay.", options: ["employer", "employee"], answer: "employer" },
+        { before: "Long-term employees are more likely to be promoted to a", after: "position within the company.", options: ["managerial", "managing"], answer: "managerial" },
+      ],
+    },
+    {
+      kind: "type_fill",
+      title: "cost, income or budget?",
+      instructions: "Complete each sentence with cost, income or budget. The words in bold collocate with only one of them.",
+      items: [
+        { prompt: "We increased our profits through a combination of ___-cutting and price increases.", answer: "cost" },
+        { prompt: "I try to stay within my ___, but then I see something I really want to buy!", answer: "budget" },
+        { prompt: "Low-___ families must find it difficult to manage when prices rise rapidly.", answer: "income" },
+        { prompt: "You may need to take on an extra job to supplement your ___ and help pay off your debts.", answer: "income" },
+        { prompt: "Our department has an annual ___ of $100,000 to cover travel expenses.", answer: "budget" },
+        { prompt: "The recent rise in interest rates will increase the ___ of living.", answer: "cost" },
+      ],
+    },
+    {
+      kind: "reading_tfng",
+      title: "Reading — lottery winners and bankruptcy",
+      passageTitle: "Winning big, losing big",
+      passage:
+        "In this tough economy, the allure of purchasing lottery tickets seems like a pretty enticing way to erase financial problems. But new research from Vanderbilt Law School found that people who won between $50,000 and $150,000 only postponed bankruptcy. The researchers found that mid-level lottery winners did not in fact pay off their debt or increase equity in new or existing assets. And, though these mid-level lottery winners were less likely than small winners (those who won less than $10,000) to become bankrupt immediately after winning, they were 50 per cent more likely to do so three to five years after winning their prize. 'Our results are consistent with some winners using their prize to take additional risks or buy luxury goods,' said a researcher. 'Others simply lack the knowledge to handle large amounts of money wisely.'\n\n" +
+        "The researchers used data from Florida's Fantasy 5 lottery game from April 1993 through November 2002. They examined all winners who won more than $600. This added up to almost 35,000 individuals. In all, almost 2,000 Fantasy 5 winners were linked to a bankruptcy in the five years after winning. The fact that they filed for bankruptcy is significant for several reasons. 'Filing for bankruptcy is arguably the most extreme signal of financial distress,' said the researcher. 'Not only is it bad for creditors, but it also seriously harms a filer's credit rating, affecting the availability and cost of future loans.'",
+      questions: [
+        {
+          text: "Mid-level lottery winners used their prize money to clear their debts.",
+          answer: "False",
+          justification: "The researchers found that mid-level winners did not in fact pay off their debt.",
+        },
+        {
+          text: "Mid-level winners were more likely than small winners to go bankrupt immediately after winning.",
+          answer: "False",
+          justification: "They were less likely than small winners to become bankrupt immediately after winning.",
+        },
+        {
+          text: "Some winners spent their prize money on luxury goods.",
+          answer: "True",
+          justification: "Results are consistent with some winners using their prize to take additional risks or buy luxury goods.",
+        },
+        {
+          text: "The researchers studied lottery data covering a period of about ten years.",
+          answer: "True",
+          justification: "They used data from April 1993 through November 2002.",
+        },
+        {
+          text: "Most of the winners studied had never been in debt before winning.",
+          answer: "Not given",
+          justification: "The passage gives no information about the winners' financial history before winning.",
+        },
+        {
+          text: "Filing for bankruptcy makes future loans harder and more expensive to obtain.",
+          answer: "True",
+          justification: "It seriously harms a filer's credit rating, affecting the availability and cost of future loans.",
+        },
+      ],
+    },
+    {
+      kind: "reading_tfng",
+      title: "Test practice — Reading",
+      passageTitle: "Companies and the customers who hate them",
+      passage:
+        "One of the most influential propositions in marketing is that customer satisfaction means loyalty and loyalty means profits. Why, then, do so many companies infuriate their customers with contracts, fees and fine print, penalising them for their business? Because, unfortunately, companies have found that confused and ill-informed customers, who often end up making poor purchasing decisions, can be highly profitable indeed.\n\n" +
+        "Some companies consciously and cynically exploit their customers' confusion in this way. However, in conversations with dozens of executives in various industries we found that many firms have unwittingly fallen into this trap. Most of the companies in these industries started out with product and pricing strategies designed to provide value to a variety of customer segments. Yet today, many find that their transparent, customer-centred strategies for delivering value have evolved into confusing company-centred strategies for extracting it. Although this approach may work for a while, businesses that prey on customers are always vulnerable to possible hostility: at any time, customers may retaliate with anger, lawsuits and defection.\n\n" +
+        "Companies profit from customers' confusion by several means. The first stems from a legitimate attempt to create value by giving customers a broad set of options. All else being equal, a hotel that has three types of room at three different prices can serve a wider customer base than a hotel with just one type of room at one price. However, customers benefit from such diversity only when they are guided towards the option that best suits their needs, and a company is less likely to help customers make good choices if it knows that it can generate more profits when they make poor ones. A wide range of offers can confuse customers with a lack of transparency: hotels, for example, often don't reveal information about discounts and, along with car hire companies, fail to inform customers about possible upgrades.\n\n" +
+        "Companies can also profit from customers' bad decisions by over-relying on penalties and fees. Such charges may have been conceived as a way to deter undesirable customer behaviour and offset the costs that businesses incur as a result of that behaviour. Penalties for problems such as bouncing a cheque, for example, were originally designed to discourage banking customers from spending more money than they had. But many firms have discovered just how profitable penalties can be; as a result, they have an incentive to encourage their customers to incur them. Many credit card issuers, for example, choose not to deny a transaction that would put the cardholder over his or her credit limit; it is more profitable to let the customer overspend and then impose penalties.\n\n" +
+        "These strategies are common across industries from hotels to video stores and car rentals. Health club companies also have a long history of luring customers with attractive short-term offers, assaulting them with aggressive sales pitches, and then binding them with long-term contracts. That is because some of their most profitable customers have been those who were enticed to sign up for a long-term membership but then rarely visited the club. Indeed, many companies, knowing the typical health club customer will underuse the facility, intentionally sell many more memberships than they have floor space to accommodate.\n\n" +
+        "Some companies are challenging the industry's bad behaviour. In fact one company, Life Time Fitness, has become one of the largest fitness chains in the US by eschewing contracts altogether: membership can be cancelled at any time with no penalty. Other smaller companies are experimenting with less antagonistic ways to retain customers, such as reward points for customers who work out regularly.",
+      questions: [
+        {
+          text: "Companies have discovered that badly informed customers can be very profitable.",
+          answer: "True",
+          justification: "Confused and ill-informed customers who make poor purchasing decisions can be highly profitable indeed.",
+        },
+        {
+          text: "All of the companies interviewed deliberately set out to confuse their customers.",
+          answer: "False",
+          justification: "Many firms have unwittingly fallen into this trap.",
+        },
+        {
+          text: "Offering a range of prices and products can genuinely benefit customers.",
+          answer: "True",
+          justification: "A hotel with three types of room at three prices can serve a wider customer base — but only when customers are guided to the right option.",
+        },
+        {
+          text: "Penalty charges such as fees for bouncing a cheque were originally intended to make a profit.",
+          answer: "False",
+          justification: "They were conceived to deter undesirable behaviour and offset costs; only later did firms discover how profitable they could be.",
+        },
+        {
+          text: "Some credit card companies allow customers to exceed their credit limit so that penalties can be charged.",
+          answer: "True",
+          justification: "Many issuers choose not to deny a transaction that would put the cardholder over the limit because it is more profitable to impose penalties.",
+        },
+        {
+          text: "Health clubs sell more memberships than they have space for because they know many members will rarely attend.",
+          answer: "True",
+          justification: "Knowing the typical customer will underuse the facility, they intentionally sell more memberships than they have floor space for.",
+        },
+        {
+          text: "Life Time Fitness charges a small fee to members who cancel their membership early.",
+          answer: "False",
+          justification: "Membership can be cancelled at any time with no penalty.",
+        },
+        {
+          text: "Reward points have been shown to increase health club profits by 20 per cent.",
+          answer: "Not given",
+          justification: "The passage mentions reward points but gives no figures for their effect on profits.",
+        },
+      ],
+    },
+  ],
+};
+
+const unit18Vocab: VocabWord[] = [
+  {
+    term: "petty crime",
+    ipa: "/ˈpeti kraɪm/",
+    pos: "phrase",
+    usageNote: "chỉ tội vặt, mức độ nhẹ như ăn cắp vặt, phá hoại nhỏ",
+    en: "crime that is not very serious, such as small thefts",
+    vi: "tội vặt, tội nhẹ",
+    synonyms: ["minor offence"],
+    antonyms: ["serious crime"],
+    examples: [
+      { en: "Children might start with petty crimes but this can escalate to more serious crimes.", vi: "Trẻ em có thể bắt đầu từ tội vặt nhưng điều này có thể leo thang thành tội nghiêm trọng hơn." },
+      { en: "Vandals are generally seen as petty criminals.", vi: "Những kẻ phá hoại thường bị xem là tội phạm vặt." },
+    ],
+    ieltsTip: "Error warning: nói \"petty crime\" (hành vi) và \"petty criminal\" (người) — đừng dùng lẫn lộn.",
+    summary: "petty crime = tội vặt, không nghiêm trọng.",
+  },
+  {
+    term: "juvenile crime",
+    ipa: "/ˈdʒuːvənaɪl kraɪm/",
+    pos: "phrase",
+    usageNote: "thuật ngữ pháp lý chỉ tội phạm do người chưa thành niên gây ra",
+    en: "crime committed by young people below the legal adult age",
+    vi: "tội phạm vị thành niên",
+    synonyms: ["youth crime"],
+    antonyms: [],
+    examples: [
+      { en: "I think that there's also been an increase in juvenile crime.", vi: "Tôi cho rằng tội phạm vị thành niên cũng đã gia tăng." },
+      { en: "If young people become involved in juvenile crime, they are more likely to have a criminal record later.", vi: "Nếu người trẻ dính vào tội phạm vị thành niên, sau này họ dễ có tiền án hơn." },
+    ],
+    ieltsTip: "Error warning: dùng \"juvenile crime\", KHÔNG nói \"young crime\".",
+    summary: "juvenile crime = tội phạm do người chưa thành niên gây ra.",
+  },
+  {
+    term: "the crime rate",
+    ipa: "/ðə ˈkraɪm reɪt/",
+    pos: "phrase",
+    usageNote: "chỉ tỷ lệ tội phạm trong một khu vực hoặc thời kỳ",
+    en: "the number of crimes committed in a place over a period of time",
+    vi: "tỷ lệ tội phạm",
+    synonyms: ["crime levels"],
+    antonyms: [],
+    examples: [
+      { en: "The crime rate has actually decreased in some parts of New York in recent years.", vi: "Tỷ lệ tội phạm thực ra đã giảm ở một số khu vực của New York trong những năm gần đây." },
+      { en: "In the area where I live, the crime rate has increased significantly.", vi: "Ở khu vực tôi sống, tỷ lệ tội phạm đã tăng đáng kể." },
+    ],
+    ieltsTip: "Error warning: nói \"the crime rate\", KHÔNG nói \"the criminal rate\".",
+    summary: "the crime rate = tỷ lệ tội phạm.",
+  },
+  {
+    term: "a criminal record",
+    ipa: "/ə ˈkrɪmɪnl ˈrekɔːd/",
+    pos: "phrase",
+    usageNote: "chỉ hồ sơ ghi lại các tội đã bị kết án của một người",
+    en: "an official record of the crimes a person has been convicted of",
+    vi: "tiền án, lý lịch tư pháp có tội",
+    synonyms: ["a police record"],
+    antonyms: ["a clean record"],
+    examples: [
+      { en: "If you get a criminal record as a child, it can affect your whole life.", vi: "Nếu có tiền án từ nhỏ, điều đó có thể ảnh hưởng cả cuộc đời bạn." },
+      { en: "Employers often ask whether applicants have a criminal record.", vi: "Nhà tuyển dụng thường hỏi ứng viên có tiền án hay không." },
+    ],
+    ieltsTip: "Nhóm collocation với \"criminal\": criminal record / act / offence / investigation / activity.",
+    summary: "a criminal record = hồ sơ tiền án của một người.",
+  },
+  {
+    term: "a hardened criminal",
+    ipa: "/ə ˈhɑːdnd ˈkrɪmɪnl/",
+    pos: "phrase",
+    usageNote: "chỉ tội phạm chuyên nghiệp, phạm tội nhiều lần và không hối cải",
+    en: "someone who has committed many crimes and shows no regret",
+    vi: "tội phạm chai lì, phạm tội nhiều lần",
+    synonyms: ["a career criminal"],
+    antonyms: ["a first-time offender"],
+    examples: [
+      { en: "He was a hardened criminal with a long list of previous convictions.", vi: "Hắn là một tội phạm chai lì với danh sách dài các tiền án." },
+      { en: "Young offenders should not be locked up with hardened criminals.", vi: "Người phạm tội vị thành niên không nên bị giam cùng những tội phạm chai lì." },
+    ],
+    ieltsTip: "Các tính từ đi với \"criminal\": convicted / petty / hardened / armed criminal.",
+    summary: "a hardened criminal = tội phạm chai lì, tái phạm nhiều lần.",
+  },
+  {
+    term: "organised crime",
+    ipa: "/ˈɔːɡənaɪzd kraɪm/",
+    pos: "phrase",
+    usageNote: "chỉ hoạt động tội phạm có tổ chức, do băng nhóm điều hành",
+    en: "criminal activity that is planned and controlled by powerful groups",
+    vi: "tội phạm có tổ chức",
+    synonyms: ["gang crime"],
+    antonyms: ["opportunistic crime"],
+    examples: [
+      { en: "The sale of drugs is organised by armed criminal gangs.", vi: "Việc buôn bán ma tuý do các băng nhóm tội phạm có vũ trang tổ chức." },
+      { en: "Police have set up a special unit to tackle organised crime.", vi: "Cảnh sát đã lập một đơn vị đặc biệt để đối phó với tội phạm có tổ chức." },
+    ],
+    ieltsTip: "Nhóm collocation với \"crime\": petty / juvenile / organised / gun / unsolved crime.",
+    summary: "organised crime = tội phạm có tổ chức do băng nhóm điều hành.",
+  },
+  {
+    term: "commit a crime",
+    ipa: "/kəˈmɪt ə kraɪm/",
+    pos: "phrase",
+    usageNote: "động từ chuẩn đi với \"a crime\" là commit, không phải \"do\" hay \"make\"",
+    en: "to do something illegal",
+    vi: "phạm tội, gây án",
+    synonyms: ["break the law"],
+    antonyms: ["obey the law"],
+    examples: [
+      { en: "If you commit a crime, you should be punished.", vi: "Nếu bạn phạm tội, bạn phải bị trừng phạt." },
+      { en: "The reasons why people commit crime are countless.", vi: "Có vô số lý do khiến người ta phạm tội." },
+    ],
+    ieltsTip: "Sai lầm phổ biến: \"do a crime\". Luôn dùng \"commit a crime / an offence\".",
+    summary: "commit a crime = phạm tội, thực hiện hành vi phạm pháp.",
+  },
+  {
+    term: "arrest",
+    ipa: "/əˈrest/",
+    pos: "verb",
+    usageNote: "đi với giới từ \"for\" khi nêu lý do: be arrested for something",
+    en: "(of the police) to take someone away because they may have committed a crime",
+    vi: "bắt giữ",
+    synonyms: ["detain"],
+    antonyms: ["release"],
+    examples: [
+      { en: "Today, three times as many people are likely to be arrested for shoplifting than in 1970.", vi: "Ngày nay, số người bị bắt vì trộm đồ trong siêu thị nhiều gấp ba lần so với năm 1970." },
+      { en: "Police arrested a suspect for the robbery.", vi: "Cảnh sát đã bắt giữ một nghi phạm vì vụ cướp." },
+    ],
+    ieltsTip: "Cấu trúc: arrest somebody FOR something — nhớ kỹ giới từ.",
+    summary: "arrest = bắt giữ (thường dùng: be arrested for + tội danh).",
+  },
+  {
+    term: "charge",
+    ipa: "/tʃɑːdʒ/",
+    pos: "verb",
+    usageNote: "trong luật pháp nghĩa là buộc tội chính thức; đi với giới từ \"with\"",
+    en: "to officially accuse someone of a crime",
+    vi: "buộc tội, truy tố",
+    synonyms: ["accuse"],
+    antonyms: ["acquit"],
+    examples: [
+      { en: "If a person is charged with a crime they did not commit, it's my job to defend them.", vi: "Nếu một người bị buộc tội mà họ không gây ra, việc của tôi là bào chữa cho họ." },
+      { en: "The researchers found 406 pairs of offenders who had been charged with assault.", vi: "Các nhà nghiên cứu tìm được 406 cặp tội phạm bị buộc tội hành hung." },
+    ],
+    ieltsTip: "So sánh giới từ: charge somebody WITH / accuse somebody OF / arrest somebody FOR.",
+    summary: "charge (somebody) with = buộc tội ai đó về một tội danh.",
+  },
+  {
+    term: "convict",
+    ipa: "/kənˈvɪkt/",
+    pos: "verb",
+    usageNote: "nghĩa toà tuyên ai đó có tội; đi với giới từ \"of\" hoặc \"for\"",
+    en: "to decide officially in a court that someone is guilty of a crime",
+    vi: "kết án, tuyên có tội",
+    synonyms: ["find guilty"],
+    antonyms: ["acquit"],
+    examples: [
+      { en: "The researchers found 96 pairs of convicted burglars.", vi: "Các nhà nghiên cứu tìm được 96 cặp trộm đã bị kết án." },
+      { en: "He was convicted of fraud last year.", vi: "Anh ta bị kết tội gian lận vào năm ngoái." },
+    ],
+    ieltsTip: "Chú ý trọng âm: động từ /kənˈvɪkt/, danh từ (tù nhân) /ˈkɒnvɪkt/.",
+    summary: "convict = toà tuyên ai đó có tội.",
+  },
+  {
+    term: "a prison sentence",
+    ipa: "/ə ˈprɪzn ˈsentəns/",
+    pos: "phrase",
+    usageNote: "chỉ án tù mà toà tuyên cho người phạm tội",
+    en: "a punishment of a period of time spent in prison",
+    vi: "án tù",
+    synonyms: ["a custodial sentence"],
+    antonyms: ["a non-custodial penalty"],
+    examples: [
+      { en: "A recent study looked into the effect of prison sentences on criminals.", vi: "Một nghiên cứu gần đây xem xét tác động của các án tù đối với tội phạm." },
+      { en: "He received a life sentence for the murder.", vi: "Anh ta nhận án chung thân vì tội giết người." },
+    ],
+    ieltsTip: "Nhóm collocation về hình phạt: a prison sentence / a life sentence / a heavy fine / community service.",
+    summary: "a prison sentence = án tù do toà tuyên.",
+  },
+  {
+    term: "community service",
+    ipa: "/kəˈmjuːnəti ˈsɜːvɪs/",
+    pos: "phrase",
+    usageNote: "chỉ hình phạt lao động công ích thay cho việc ngồi tù",
+    en: "unpaid work that an offender does to help the community instead of going to prison",
+    vi: "lao động công ích (thay án tù)",
+    synonyms: ["a non-custodial penalty"],
+    antonyms: ["imprisonment"],
+    examples: [
+      { en: "The study suggests that community service may be just as suitable a form of punishment for minor offences.", vi: "Nghiên cứu cho thấy lao động công ích có thể là hình phạt phù hợp không kém cho các tội nhẹ." },
+      { en: "He was sentenced to 200 hours of community service.", vi: "Anh ta bị tuyên phạt 200 giờ lao động công ích." },
+    ],
+    ieltsTip: "Rất hữu ích cho các đề Writing Task 2 về việc nên phạt tù hay phạt cải tạo.",
+    summary: "community service = lao động công ích thay cho án tù.",
+  },
+  {
+    term: "capital punishment",
+    ipa: "/ˈkæpɪtl ˈpʌnɪʃmənt/",
+    pos: "phrase",
+    usageNote: "cách nói trang trọng cho án tử hình",
+    en: "punishment by death, ordered by a court",
+    vi: "án tử hình",
+    synonyms: ["the death penalty"],
+    antonyms: [],
+    examples: [
+      { en: "I'm totally opposed to capital punishment.", vi: "Tôi hoàn toàn phản đối án tử hình." },
+      { en: "Capital punishment has been abolished in most European countries.", vi: "Án tử hình đã bị bãi bỏ ở hầu hết các nước châu Âu." },
+    ],
+    ieltsTip: "Đây là chủ đề Task 2 kinh điển — hãy chuẩn bị sẵn cả lập luận ủng hộ lẫn phản đối.",
+    summary: "capital punishment = án tử hình.",
+  },
+  {
+    term: "deter",
+    ipa: "/dɪˈtɜː(r)/",
+    pos: "verb",
+    usageNote: "nghĩa khiến ai đó sợ mà không dám làm điều gì",
+    en: "to make someone decide not to do something, especially by threat of punishment",
+    vi: "ngăn chặn, răn đe",
+    synonyms: ["discourage"],
+    antonyms: ["encourage"],
+    examples: [
+      { en: "Prison either fails to deter criminals or actually increases criminal activity.", vi: "Nhà tù hoặc không răn đe được tội phạm, hoặc thực ra còn làm gia tăng hoạt động phạm tội." },
+      { en: "Penalties were designed to deter undesirable behaviour.", vi: "Các hình phạt được thiết kế để răn đe những hành vi không mong muốn." },
+    ],
+    ieltsTip: "Danh từ là \"a deterrent\" — \"a deterrent to crime\" là cụm rất mạnh cho Writing Task 2.",
+    summary: "deter = răn đe, khiến ai không dám làm điều gì.",
+  },
+  {
+    term: "re-offend",
+    ipa: "/ˌriː əˈfend/",
+    pos: "verb",
+    usageNote: "chỉ việc tái phạm sau khi đã bị kết án hoặc mãn hạn tù",
+    en: "to commit another crime after being punished for a previous one",
+    vi: "tái phạm",
+    synonyms: ["relapse into crime"],
+    antonyms: ["reform"],
+    examples: [
+      { en: "Offenders given a prison sentence were slightly more likely to re-offend.", vi: "Những người bị tuyên án tù có xu hướng tái phạm cao hơn một chút." },
+      { en: "Rehabilitation programmes aim to stop prisoners re-offending.", vi: "Các chương trình cải huấn nhằm ngăn tù nhân tái phạm." },
+    ],
+    ieltsTip: "Danh từ \"re-offending rates\" xuất hiện rất nhiều trong Reading về hệ thống tư pháp.",
+    summary: "re-offend = tái phạm sau khi đã bị trừng phạt.",
+  },
+  {
+    term: "a heavy fine",
+    ipa: "/ə ˈhevi faɪn/",
+    pos: "phrase",
+    usageNote: "chỉ khoản tiền phạt lớn; tính từ đi kèm thường là heavy hoặc hefty",
+    en: "a large amount of money someone must pay as a punishment",
+    vi: "khoản tiền phạt nặng",
+    synonyms: ["a hefty fine"],
+    antonyms: ["a token fine"],
+    examples: [
+      { en: "Drivers caught using a phone face a heavy fine.", vi: "Tài xế bị bắt gặp dùng điện thoại sẽ đối mặt với khoản phạt nặng." },
+      { en: "The company was given a heavy fine for polluting the river.", vi: "Công ty bị phạt nặng vì làm ô nhiễm dòng sông." },
+    ],
+    ieltsTip: "Đừng nói \"a big fine\" trong văn viết học thuật — \"a heavy/hefty fine\" tự nhiên hơn.",
+    summary: "a heavy fine = khoản tiền phạt lớn.",
+  },
+  {
+    term: "lenient",
+    ipa: "/ˈliːniənt/",
+    pos: "adjective",
+    usageNote: "mô tả hình phạt hoặc cách xử lý nhẹ nhàng hơn mức đáng lẽ phải có",
+    en: "not as severe as expected in punishing someone",
+    vi: "khoan dung, nhẹ tay",
+    synonyms: ["merciful"],
+    antonyms: ["severe", "harsh"],
+    examples: [
+      { en: "Many people felt the sentence was far too lenient.", vi: "Nhiều người cho rằng bản án quá nhẹ." },
+      { en: "Some argue that lenient punishments fail to deter offenders.", vi: "Một số người cho rằng hình phạt nhẹ không răn đe được tội phạm." },
+    ],
+    ieltsTip: "Cặp \"lenient ↔ harsh/severe\" rất hữu ích cho các đề về hình phạt.",
+    summary: "lenient = khoan dung, xử phạt nhẹ.",
+  },
+  {
+    term: "atrocious",
+    ipa: "/əˈtrəʊʃəs/",
+    pos: "adjective",
+    usageNote: "mức độ rất mạnh, mô tả điều gây sốc và tàn nhẫn",
+    en: "extremely bad, cruel or shocking",
+    vi: "tàn bạo, kinh khủng",
+    synonyms: ["appalling", "horrifying"],
+    antonyms: ["admirable"],
+    examples: [
+      { en: "The conditions in some prisons are atrocious.", vi: "Điều kiện trong một số nhà tù thật kinh khủng." },
+      { en: "It was an atrocious act of violence.", vi: "Đó là một hành động bạo lực tàn bạo." },
+    ],
+    ieltsTip: "Nhóm đồng nghĩa mạnh: shocking – appalling – atrocious – horrifying. Dùng đúng mức độ để ghi điểm.",
+    summary: "atrocious = tàn bạo, cực kỳ tồi tệ.",
+  },
+  {
+    term: "alienated",
+    ipa: "/ˈeɪliəneɪtɪd/",
+    pos: "adjective",
+    usageNote: "mô tả cảm giác bị tách rời, không thuộc về xã hội hay cộng đồng",
+    en: "feeling that you do not belong to a group or society",
+    vi: "cảm thấy bị xa lánh, lạc lõng",
+    synonyms: ["isolated", "excluded"],
+    antonyms: ["included"],
+    examples: [
+      { en: "Children from these broken families often become criminals because they feel alienated from society.", vi: "Trẻ em từ những gia đình đổ vỡ thường trở thành tội phạm vì cảm thấy bị xã hội xa lánh." },
+      { en: "Young people who feel alienated are more vulnerable to gangs.", vi: "Người trẻ cảm thấy lạc lõng dễ bị các băng nhóm lôi kéo hơn." },
+    ],
+    ieltsTip: "Đây là từ \"vàng\" khi phân tích nguyên nhân xã hội của tội phạm trong Writing Task 2.",
+    summary: "alienated = cảm thấy bị xa lánh, không thuộc về xã hội.",
+  },
+  {
+    term: "peer pressure",
+    ipa: "/ˈpɪə ˌpreʃə(r)/",
+    pos: "phrase",
+    usageNote: "chỉ áp lực phải làm theo bạn bè cùng lứa để được chấp nhận",
+    en: "the influence your friends of the same age have on your behaviour",
+    vi: "áp lực từ bạn bè đồng trang lứa",
+    synonyms: ["social pressure"],
+    antonyms: [],
+    examples: [
+      { en: "Partly I think this is through peer pressure — young people are very much influenced by what their friends think of them.", vi: "Tôi cho rằng một phần là do áp lực bạn bè — người trẻ bị ảnh hưởng rất nhiều bởi cách bạn bè nhìn nhận họ." },
+      { en: "Peer pressure can lead teenagers into petty crime.", vi: "Áp lực bạn bè có thể đẩy thanh thiếu niên vào những tội vặt." },
+    ],
+    ieltsTip: "Là nguyên nhân được nhắc đến nhiều nhất khi bàn về hành vi của giới trẻ — nhớ dùng trong Speaking Part 3.",
+    summary: "peer pressure = áp lực làm theo bạn bè đồng trang lứa.",
+  },
+];
+
+const track35Script = `Speaker A: That's a very good question. I think every country has a different idea of how old a child is when they can be held responsible for their actions. If they're really young, in their pre-teens, then I would say the parents are responsible. Very young children only get involved in crime if they are left alone without any supervision. Nowadays, a lot of families are too busy to worry about these things and I think family values are lost in the process. The children might only start with petty crimes but, if they fall in with the wrong crowd and become a delinquent, then this can escalate to more serious crimes like robbery or car theft. If you get a criminal record as a child, it can affect your whole life.
+Speaker B: I think each older generation looks at the younger generation and criticises it for being badly behaved. But I do think it's true that, nowadays, people generally have less and less respect for the rules of society. You only need to look around the streets to see all the graffiti and vandalism. I think that there's also been an increase in juvenile crime. Partly I think this is through peer pressure – young people are very much influenced by what their friends think of them, and it's become cool to act like a gangster. I think the main problem, though, is the media. It cultivates that image and it becomes normal for children to see violent behaviour.
+Speaker C: I go out on my own in the day quite often but I would very rarely do it at night. In the area where I live, the crime rate has increased significantly in the past few years. There seems to be a lot more criminal activity these days so I think it's a lot safer to go out in a group. There's no knife crime or anything like that. I'm not afraid of getting stabbed, it's more muggings, you know, when people grab your bag, stuff like that. I think it's because of the rising unemployment. People just don't have enough money. I suppose that's why some of them turn to theft.`;
+
+const track36Script = `I was recently in charge of a government-funded study looking into the impact that prison sentences have on criminals. For our study, we found 96 pairs of convicted burglars and 406 pairs of offenders who had been charged with assault. One member of each pair had been given a prison sentence for their crimes, while the other had received some form of non-custodial penalty. The offenders involved were exactly matched according to the type of offence they had committed, their prior prison experience and the number of prior appearances in court they had had.
+The findings of our study were interesting. Our research team found that offenders who were given a prison sentence were slightly more likely to re-offend than those who did not go to jail. In fact, these results are consistent with a growing body of evidence suggesting that prison either does nothing to deter offenders or actually increases the risk of re-offending. In other words, prisons may help to increase criminal activity.
+So, what should we conclude from this? Well, it doesn't mean we should abandon our prisons altogether and set all the prisoners free. Far from it. A prison sentence can be justified on other grounds. For example, the majority of us would agree that criminals, especially dangerous ones, should be punished. But what this study does seem to indicate is that sending people convicted of relatively minor offences to prison is no more effective in changing their behaviour than sentencing them to some form of community service.`;
+
+const UNIT_18_LAW_ENFORCEMENT: CambridgeUnit = {
+  unit: 18,
+  slug: "law-enforcement",
+  title: "Law enforcement",
+  topics: "Crime, punishment",
+  testPractice: "Writing Task 2",
+  steps: [
+    {
+      kind: "vocab",
+      title: "Key vocabulary",
+      words: unit18Vocab,
+    },
+    {
+      kind: "listening_cloze",
+      title: "Three speakers on crime",
+      instructions: "Listen to three speakers talking about crime and complete the notes on the causes they mention.",
+      audioUrl: "https://a8wdavlbr1kcxckb.public.blob.vercel-storage.com/cambridge-vocabulary-ielts/track-35.mp3",
+      template:
+        "Speaker A — who is responsible when young people commit crime?\n" +
+        "• crimes mentioned: {{petty crimes}}, robbery, car theft\n" +
+        "• causes: children left alone without supervision; loss of {{family values}}; falling in with the wrong crowd\n\n" +
+        "Speaker B — are young people today well behaved?\n" +
+        "• crimes mentioned: graffiti, vandalism, {{juvenile crime}}\n" +
+        "• causes: loss of {{respect}} for the rules of society; {{peer}} pressure; too much violence in {{the media}}\n\n" +
+        "Speaker C — going out alone or with friends?\n" +
+        "• crimes mentioned: {{muggings}}, theft\n" +
+        "• causes: increasing {{unemployment}} levels; economic reasons",
+      script: track35Script,
+      tip: "Trong Listening, nguyên nhân thường được nêu bằng \"I think it's because of...\", \"partly this is through...\" — hãy chú ý các tín hiệu này.",
+    },
+    {
+      kind: "sort",
+      title: "crime or criminal?",
+      instructions: "Tap a word, then choose whether it goes with 'crime' (the act) or 'criminal' (the person).",
+      buckets: ["+ crime", "+ criminal"],
+      items: [
+        { term: "petty", bucket: 0 },
+        { term: "juvenile", bucket: 0 },
+        { term: "organised", bucket: 0 },
+        { term: "gun", bucket: 0 },
+        { term: "unsolved", bucket: 0 },
+        { term: "statistics", bucket: 0 },
+        { term: "prevention", bucket: 0 },
+        { term: "rate", bucket: 0 },
+        { term: "convicted", bucket: 1 },
+        { term: "hardened", bucket: 1 },
+        { term: "armed", bucket: 1 },
+        { term: "record", bucket: 1 },
+        { term: "investigation", bucket: 1 },
+        { term: "offence", bucket: 1 },
+      ],
+    },
+    {
+      kind: "type_fill",
+      title: "crime or criminal?",
+      instructions: "Complete each sentence with crime or criminal(s). The words in bold will help you.",
+      items: [
+        { prompt: "Vandals are generally seen as petty ___.", answer: "criminals" },
+        { prompt: "The ___ rate has actually decreased in some parts of New York in recent years.", answer: "crime" },
+        { prompt: "He was a hardened ___ with a long list of previous convictions.", answer: "criminal" },
+        { prompt: "Prosecutors have launched a ___ investigation into the firm's accounting practices.", answer: "criminal" },
+        { prompt: "Police and federal officials are working together to target gun ___.", answer: "crime" },
+      ],
+    },
+    {
+      kind: "reveal_pairs",
+      title: "Punishment collocations",
+      instructions: "Tap each word to reveal the noun it collocates with.",
+      pairs: [
+        { prompt: "capital", reveal: "capital punishment" },
+        { prompt: "community", reveal: "community service" },
+        { prompt: "a heavy", reveal: "a heavy fine" },
+        { prompt: "a prison", reveal: "a prison sentence / term" },
+        { prompt: "a life", reveal: "a life sentence" },
+        { prompt: "a treatment", reveal: "a treatment programme" },
+      ],
+    },
+    {
+      kind: "fill_mc",
+      title: "Prepositions in the courtroom",
+      instructions: "Choose the correct preposition or phrase to complete each sentence.",
+      items: [
+        { before: "Children should be taught to accept the consequences", after: "their actions.", options: ["of", "for", "with"], answer: "of" },
+        { before: "Three times as many people are likely to be arrested", after: "shoplifting than in 1970.", options: ["for", "of", "with"], answer: "for" },
+        { before: "If you are a victim", after: "a violent crime, it can take years to get over it.", options: ["of", "for", "to"], answer: "of" },
+        { before: "If a person is charged", after: "a crime they did not commit, a lawyer will defend them.", options: ["with", "of", "for"], answer: "with" },
+        { before: "The court convicted the defendant", after: "fraud.", options: ["of", "with", "to"], answer: "of" },
+        { before: "A local drifter was sentenced", after: "life without parole for the murder.", options: ["to", "with", "for"], answer: "to" },
+      ],
+    },
+    {
+      kind: "listening_cloze",
+      title: "Do prison sentences work?",
+      instructions: "Listen to someone talking about a study on prisons and complete the summary.",
+      audioUrl: "https://a8wdavlbr1kcxckb.public.blob.vercel-storage.com/cambridge-vocabulary-ielts/track-36.mp3",
+      template:
+        "A recent study looked into the effect of {{prison sentences}} on criminals. The researchers found 96 pairs of convicted {{burglars}}, and 406 pairs who had been {{charged with}} assault. One member of each pair had been sent to prison while the other had been given some type of non-custodial {{penalty}}. All of the criminals had committed the same kind of {{offence}} and had had similar previous experiences of prison and had appeared {{in court}} the same number of times.\n\n" +
+        "Criminals who were sent to prison were slightly more likely to {{re-offend}} than those who didn't go to {{jail}}. The results support other studies that have shown that prison either fails to {{deter}} criminals or actually increases criminal activity.\n\n" +
+        "There is still a place for prisons, and most people think dangerous criminals need to be {{punished}} in some way. But the study suggests that {{community service}} may be just as suitable a form of punishment for minor offences.",
+      script: track36Script,
+      tip: "Hãy thử đoán trước đáp án bằng ngữ pháp và kiến thức nền trước khi nghe — đây là kỹ năng cốt lõi để làm tốt phần điền từ.",
+    },
+    {
+      kind: "reveal_pairs",
+      title: "Agreeing and disagreeing",
+      instructions: "Tap each opinion phrase to see whether it shows support or opposition.",
+      pairs: [
+        { prompt: "I'm all for...", reveal: "support — strongly in favour" },
+        { prompt: "I approve of...", reveal: "support" },
+        { prompt: "I can see a need for...", reveal: "support — cautious agreement" },
+        { prompt: "I'm totally opposed to...", reveal: "opposition — very strong" },
+        { prompt: "I can't condone...", reveal: "opposition — you cannot accept it" },
+        { prompt: "I object to...", reveal: "opposition" },
+        { prompt: "I don't approve of...", reveal: "opposition — milder" },
+        { prompt: "I don't agree with...", reveal: "opposition — milder" },
+      ],
+    },
+    {
+      kind: "writing_task",
+      title: "Test practice — Writing Task 2",
+      taskLabel: "Writing Task 2",
+      prompt:
+        "Each year, the crime rate increases. What are the causes of crime and what could be done to prevent this rise in criminal activity? Give reasons for your answer and include any relevant examples from your own knowledge or experience.",
+      minWords: 250,
+      tip:
+        "Lập dàn ý thành hai cột — Causes of crime và Possible solutions — trước khi viết, để lập luận mạch lạc và dễ theo dõi. Ghi lại vài từ vựng của unit này mà bạn muốn dùng (petty crime, deter, re-offend, alienated, community service...). Dành khoảng 40 phút và viết ít nhất 250 từ.",
+      modelAnswer:
+        "Crime is an issue of increasing concern around the world, and more money than ever before is being spent on the detection and punishment of criminal activity. The reasons why people commit crime are countless, but drugs and alcohol, social problems and poverty play a major role. To solve these problems, governments can either focus on draconian punishments, or improve employment opportunities, invest in good housing projects and tackle drug and alcohol abuse.\n\n" +
+        "One of the main causes of criminality is the use, sale and trafficking of narcotics. For example, the sale of drugs is organised by armed criminal gangs who illegally traffick drugs and control their business with extreme violence. Drug-related crime does not end there; drug users often steal to fund their habit, resulting in further acts of petty crime. The social problems connected with crime are said to be the result of single-parent families, absent role models and bad living conditions. The children from these broken families often become criminals because they feel alienated from society. Poverty is also a reason behind crime. When unskilled jobs pay so little and prices are so high, it's easy to see why some turn to crime for an income.\n\n" +
+        "Crime can, of course, be dealt with by toughening criminal laws and introducing longer custodial sentences for persistent criminals, but some of the best ways to deal with crime may be to deal with the social causes. Increasing employment opportunities in poorer areas would improve living standards, which would mean access to affordable housing and education. Government funding for drug and alcohol rehabilitation programmes would help reduce dependency on stimulants and the need for the criminal activity that surrounds them.\n\n" +
+        "In conclusion, crime is a major issue, but cracking down on offenders with a harsh penal system is not the only way. These problems can be solved through the government providing jobs and funding which should raise living standards and dramatically reduce crime levels.",
+    },
+  ],
+};
+
+const unit19Vocab: VocabWord[] = [
+  {
+    term: "shoot to fame",
+    ipa: "/ʃuːt tə feɪm/",
+    pos: "phrase",
+    usageNote: "chỉ việc nổi tiếng rất nhanh và bất ngờ",
+    en: "to become famous very suddenly",
+    vi: "nổi tiếng chớp nhoáng",
+    synonyms: ["become famous overnight"],
+    antonyms: ["fade into obscurity"],
+    examples: [
+      { en: "She shot to fame after appearing on a talent show.", vi: "Cô ấy nổi tiếng chớp nhoáng sau khi xuất hiện trong một chương trình tìm kiếm tài năng." },
+      { en: "The band shot to fame with their first single.", vi: "Ban nhạc nổi tiếng ngay lập tức với đĩa đơn đầu tay." },
+    ],
+    ieltsTip: "Cùng nhóm với \"become famous overnight\" — rất hợp khi kể chuyện trong Speaking Part 2.",
+    summary: "shoot to fame = trở nên nổi tiếng rất nhanh.",
+  },
+  {
+    term: "media attention",
+    ipa: "/ˈmiːdiə əˈtenʃn/",
+    pos: "phrase",
+    usageNote: "chỉ sự quan tâm, đưa tin của báo chí và truyền hình về một người hay sự kiện",
+    en: "interest shown in someone or something by newspapers and television",
+    vi: "sự chú ý của truyền thông",
+    synonyms: ["press coverage"],
+    antonyms: ["privacy"],
+    examples: [
+      { en: "Those shows just feed this insatiable appetite everyone seems to have for media attention.", vi: "Những chương trình đó chỉ nuôi dưỡng cơn thèm khát sự chú ý của truyền thông mà ai cũng có." },
+      { en: "The trial received enormous media attention.", vi: "Phiên toà nhận được sự chú ý rất lớn của truyền thông." },
+    ],
+    ieltsTip: "Collocation: attract / receive / seek media attention.",
+    summary: "media attention = sự chú ý, đưa tin của truyền thông.",
+  },
+  {
+    term: "in the public eye",
+    ipa: "/ɪn ðə ˈpʌblɪk aɪ/",
+    pos: "phrase",
+    usageNote: "chỉ trạng thái được công chúng biết đến và theo dõi thường xuyên",
+    en: "well known to many people and often reported on",
+    vi: "được công chúng chú ý",
+    synonyms: ["in the spotlight"],
+    antonyms: ["out of the limelight"],
+    examples: [
+      { en: "You wouldn't sign up for those shows if you didn't want to be in the public eye.", vi: "Bạn sẽ không đăng ký những chương trình đó nếu không muốn được công chúng chú ý." },
+      { en: "Politicians must accept life in the public eye.", vi: "Chính trị gia phải chấp nhận cuộc sống dưới sự chú ý của công chúng." },
+    ],
+    ieltsTip: "Idiom này rất tự nhiên khi bàn về đời tư của người nổi tiếng trong Speaking Part 3.",
+    summary: "in the public eye = được công chúng biết đến và theo dõi.",
+  },
+  {
+    term: "high-profile",
+    ipa: "/ˌhaɪ ˈprəʊfaɪl/",
+    pos: "adjective",
+    usageNote: "mô tả người hoặc sự kiện được nhiều người biết và báo chí quan tâm",
+    en: "receiving a lot of attention from the public and the media",
+    vi: "nổi bật, được chú ý nhiều",
+    synonyms: ["prominent"],
+    antonyms: ["low-profile"],
+    examples: [
+      { en: "It was a high-profile case that dominated the news for weeks.", vi: "Đó là một vụ việc nổi bật chiếm sóng tin tức suốt nhiều tuần." },
+      { en: "She took a high-profile role in the campaign.", vi: "Cô ấy đảm nhận một vai trò nổi bật trong chiến dịch." },
+    ],
+    ieltsTip: "Trái nghĩa \"low-profile\" (kín tiếng) — cặp này rất hữu ích khi so sánh.",
+    summary: "high-profile = nổi bật, được truyền thông chú ý nhiều.",
+  },
+  {
+    term: "become famous overnight",
+    ipa: "/bɪˈkʌm ˈfeɪməs ˌəʊvəˈnaɪt/",
+    pos: "phrase",
+    usageNote: "nhấn mạnh việc nổi tiếng chỉ sau một đêm, thường nhờ truyền thông",
+    en: "to become well known extremely quickly",
+    vi: "nổi tiếng sau một đêm",
+    synonyms: ["shoot to fame"],
+    antonyms: [],
+    examples: [
+      { en: "Reality shows turn these ordinary people into instant celebrities — they become famous overnight.", vi: "Các chương trình truyền hình thực tế biến những người bình thường thành người nổi tiếng tức thì — họ nổi tiếng chỉ sau một đêm." },
+      { en: "The video went viral and he became famous overnight.", vi: "Đoạn video lan truyền chóng mặt và anh ấy nổi tiếng chỉ sau một đêm." },
+    ],
+    ieltsTip: "\"Overnight\" ở đây là trạng từ chỉ tốc độ, không phải nghĩa đen là qua đêm.",
+    summary: "become famous overnight = nổi tiếng cực nhanh, chỉ sau một đêm.",
+  },
+  {
+    term: "the tabloid press",
+    ipa: "/ðə ˈtæblɔɪd pres/",
+    pos: "phrase",
+    usageNote: "chỉ dòng báo lá cải, khổ nhỏ, thiên về tin giật gân và đời tư người nổi tiếng",
+    en: "newspapers with small pages that focus on sensational stories and celebrity gossip",
+    vi: "báo lá cải",
+    synonyms: ["the popular press"],
+    antonyms: ["the broadsheets"],
+    examples: [
+      { en: "There's a lot of demand for gossip about celebrities these days, especially in the tabloid press.", vi: "Ngày nay nhu cầu về tin đồn người nổi tiếng rất lớn, nhất là trên báo lá cải." },
+      { en: "The story was splashed across the tabloid press.", vi: "Câu chuyện được đăng rầm rộ trên các báo lá cải." },
+    ],
+    ieltsTip: "Đối lập với \"broadsheets\" (báo khổ lớn, nghiêm túc) — nêu cặp này sẽ rất ấn tượng.",
+    summary: "the tabloid press = báo lá cải, chuyên tin giật gân.",
+  },
+  {
+    term: "paparazzi",
+    ipa: "/ˌpæpəˈrætsi/",
+    pos: "noun",
+    usageNote: "danh từ số nhiều gốc Ý, chỉ các tay săn ảnh bám theo người nổi tiếng",
+    en: "photographers who follow celebrities in order to take pictures of them",
+    vi: "thợ săn ảnh (bám theo người nổi tiếng)",
+    synonyms: ["press photographers"],
+    antonyms: [],
+    examples: [
+      { en: "The paparazzi can create really dangerous situations just trying to get a photograph.", vi: "Cánh săn ảnh có thể tạo ra những tình huống rất nguy hiểm chỉ để chụp được một tấm hình." },
+      { en: "She was chased through the streets by the paparazzi.", vi: "Cô ấy bị cánh săn ảnh rượt theo trên phố." },
+    ],
+    ieltsTip: "Phân biệt \"paparazzi\" (săn ảnh) với \"serious journalists\" (nhà báo nghiêm túc) — đúng như hội thoại trong bài nghe.",
+    summary: "paparazzi = cánh thợ săn ảnh bám theo người nổi tiếng.",
+  },
+  {
+    term: "prominent",
+    ipa: "/ˈprɒmɪnənt/",
+    pos: "adjective",
+    usageNote: "mô tả người quan trọng, có tiếng nói; hoặc điều gì nổi bật, dễ thấy",
+    en: "important and well known",
+    vi: "nổi bật, có tiếng tăm",
+    synonyms: ["leading", "eminent"],
+    antonyms: ["obscure"],
+    examples: [
+      { en: "Sometimes as much prominence is given to a gossip column as to serious news stories.", vi: "Đôi khi mục tin đồn được đặt ở vị trí nổi bật ngang với tin tức nghiêm túc." },
+      { en: "She is a prominent figure in local politics.", vi: "Bà ấy là một nhân vật nổi bật trong chính trường địa phương." },
+    ],
+    ieltsTip: "Danh từ \"prominence\" — \"give prominence to something\" là cụm rất học thuật.",
+    summary: "prominent = nổi bật, quan trọng và được biết đến.",
+  },
+  {
+    term: "eminent",
+    ipa: "/ˈemɪnənt/",
+    pos: "adjective",
+    usageNote: "chỉ người rất được kính trọng trong lĩnh vực chuyên môn của họ",
+    en: "famous and respected within a particular profession",
+    vi: "lỗi lạc, được kính trọng",
+    synonyms: ["distinguished"],
+    antonyms: ["unknown"],
+    examples: [
+      { en: "An eminent scientist was invited to open the conference.", vi: "Một nhà khoa học lỗi lạc được mời khai mạc hội nghị." },
+      { en: "He is eminent in the field of medical research.", vi: "Ông ấy nổi danh trong lĩnh vực nghiên cứu y học." },
+    ],
+    ieltsTip: "\"Eminent\" gắn với chuyên môn, còn \"famous\" là nổi tiếng nói chung — đừng dùng lẫn.",
+    summary: "eminent = lỗi lạc, được kính trọng trong nghề.",
+  },
+  {
+    term: "infamous",
+    ipa: "/ˈɪnfəməs/",
+    pos: "adjective",
+    usageNote: "nổi tiếng vì điều xấu, mang sắc thái tiêu cực",
+    en: "well known for something bad",
+    vi: "khét tiếng, tai tiếng",
+    synonyms: ["notorious"],
+    antonyms: ["renowned"],
+    examples: [
+      { en: "Ronnie Biggs, the infamous train robber, died in 2001.", vi: "Ronnie Biggs, tên cướp tàu khét tiếng, qua đời năm 2001." },
+      { en: "The city is infamous for its traffic.", vi: "Thành phố này khét tiếng vì nạn kẹt xe." },
+    ],
+    ieltsTip: "\"Infamous\" KHÔNG phải phủ định của \"famous\" — nó nghĩa là nổi tiếng vì điều xấu.",
+    summary: "infamous = nổi tiếng vì điều tồi tệ, khét tiếng.",
+  },
+  {
+    term: "a gossip column",
+    ipa: "/ə ˈɡɒsɪp ˈkɒləm/",
+    pos: "phrase",
+    usageNote: "chỉ chuyên mục đưa tin đời tư người nổi tiếng trên báo",
+    en: "a regular newspaper article about the private lives of famous people",
+    vi: "chuyên mục tin đồn (về người nổi tiếng)",
+    synonyms: ["celebrity news"],
+    antonyms: ["hard news"],
+    examples: [
+      { en: "They're only doing it to fill the gossip columns.", vi: "Họ làm vậy chỉ để lấp đầy các chuyên mục tin đồn." },
+      { en: "Her wedding was reported in every gossip column.", vi: "Đám cưới của cô ấy được đăng trên mọi chuyên mục tin đồn." },
+    ],
+    ieltsTip: "Nhóm từ về báo in: article – column – headline – publication – online edition.",
+    summary: "a gossip column = chuyên mục tin đồn về người nổi tiếng.",
+  },
+  {
+    term: "rolling news",
+    ipa: "/ˈrəʊlɪŋ njuːz/",
+    pos: "phrase",
+    usageNote: "chỉ kênh/dịch vụ phát tin tức liên tục 24 giờ",
+    en: "news that is broadcast continuously, 24 hours a day",
+    vi: "tin tức phát liên tục 24/7",
+    synonyms: ["24-hour news"],
+    antonyms: ["scheduled bulletins"],
+    examples: [
+      { en: "Then there's the rolling news we have on the TV day and night.", vi: "Rồi còn có tin tức phát liên tục trên TV cả ngày lẫn đêm." },
+      { en: "Rolling news channels repeat the same stories for hours.", vi: "Các kênh tin tức liên tục lặp lại cùng những tin đó hàng giờ liền." },
+    ],
+    ieltsTip: "Hữu ích cho câu hỏi Speaking Part 3 \"Is there too much news these days?\".",
+    summary: "rolling news = tin tức phát liên tục suốt ngày đêm.",
+  },
+  {
+    term: "a live stream",
+    ipa: "/ə laɪv striːm/",
+    pos: "phrase",
+    usageNote: "chỉ nội dung phát trực tiếp qua internet",
+    en: "a broadcast sent over the internet at the same time as it happens",
+    vi: "buổi phát trực tiếp (trên internet)",
+    synonyms: ["live broadcast"],
+    antonyms: ["a recording"],
+    examples: [
+      { en: "Many TV companies offer a live stream so you can watch the news on your computer or phone.", vi: "Nhiều đài truyền hình cung cấp bản phát trực tiếp để bạn xem tin tức trên máy tính hoặc điện thoại." },
+      { en: "The concert was available as a live stream.", vi: "Buổi hoà nhạc được phát trực tiếp trên mạng." },
+    ],
+    ieltsTip: "Từ vựng hiện đại — dùng khi trả lời câu hỏi về tương lai của truyền thông.",
+    summary: "a live stream = nội dung phát trực tiếp qua internet.",
+  },
+  {
+    term: "an online edition",
+    ipa: "/ən ˌɒnˈlaɪn ɪˈdɪʃn/",
+    pos: "phrase",
+    usageNote: "chỉ phiên bản điện tử của một tờ báo hoặc tạp chí",
+    en: "the internet version of a newspaper or magazine",
+    vi: "phiên bản điện tử (của báo)",
+    synonyms: ["digital edition"],
+    antonyms: ["print edition"],
+    examples: [
+      { en: "We are moving from print articles to the online editions of newspapers.", vi: "Chúng ta đang chuyển từ báo in sang phiên bản điện tử của các tờ báo." },
+      { en: "The online edition is updated every hour.", vi: "Phiên bản điện tử được cập nhật mỗi giờ." },
+    ],
+    ieltsTip: "Cặp \"print edition ↔ online edition\" rất tiện để nói về xu hướng truyền thông.",
+    summary: "an online edition = bản điện tử của báo/tạp chí.",
+  },
+  {
+    term: "the media",
+    ipa: "/ðə ˈmiːdiə/",
+    pos: "noun",
+    usageNote: "luôn có mạo từ \"the\"; là dạng số nhiều của \"medium\"",
+    en: "newspapers, magazines, radio and television considered as a group",
+    vi: "giới truyền thông, các phương tiện truyền thông",
+    synonyms: ["the press"],
+    antonyms: [],
+    examples: [
+      { en: "And the media encourage that, in a way.", vi: "Và ở một khía cạnh nào đó, giới truyền thông khuyến khích điều đó." },
+      { en: "I believe television is the most effective medium for advertising.", vi: "Tôi tin truyền hình là phương tiện quảng cáo hiệu quả nhất." },
+    ],
+    ieltsTip: "Error warning: \"medium\" là số ít, \"media\" là số nhiều — nói \"the most effective medium\", KHÔNG nói \"the most effective media\".",
+    summary: "the media = giới truyền thông (số ít: medium).",
+  },
+  {
+    term: "biased",
+    ipa: "/ˈbaɪəst/",
+    pos: "adjective",
+    usageNote: "mô tả việc thiên vị một bên, không công bằng khi đưa tin hoặc đánh giá",
+    en: "unfairly supporting or opposing one person or side",
+    vi: "thiên vị, có định kiến",
+    synonyms: ["partial", "one-sided"],
+    antonyms: ["impartial", "objective"],
+    examples: [
+      { en: "Media coverage has failed to keep pace and remains biased against them.", vi: "Việc đưa tin của truyền thông đã không theo kịp và vẫn thiên vị chống lại họ." },
+      { en: "I think they're the best team here, but then I am biased as I'm their teacher.", vi: "Tôi nghĩ họ là đội tốt nhất ở đây, nhưng tôi cũng thiên vị vì tôi là giáo viên của họ." },
+    ],
+    ieltsTip: "Danh từ là \"bias\" — \"media bias\", \"political bias\" là các cụm quen thuộc trong Reading.",
+    summary: "biased = thiên vị, không công bằng.",
+  },
+  {
+    term: "prejudiced",
+    ipa: "/ˈpredʒudɪst/",
+    pos: "adjective",
+    usageNote: "mô tả định kiến không có căn cứ với một nhóm người",
+    en: "having an unfair opinion about someone before you know them",
+    vi: "có thành kiến, định kiến",
+    synonyms: ["biased"],
+    antonyms: ["open-minded"],
+    examples: [
+      { en: "Some companies are prejudiced against taking on employees over 40.", vi: "Một số công ty có thành kiến với việc tuyển nhân viên trên 40 tuổi." },
+      { en: "He was prejudiced against the idea from the start.", vi: "Anh ta đã có thành kiến với ý tưởng đó ngay từ đầu." },
+    ],
+    ieltsTip: "Cấu trúc: prejudiced/biased AGAINST somebody — nhớ giới từ \"against\".",
+    summary: "prejudiced = có thành kiến với ai/điều gì.",
+  },
+  {
+    term: "impartial",
+    ipa: "/ɪmˈpɑːʃl/",
+    pos: "adjective",
+    usageNote: "mô tả thái độ khách quan, không nghiêng về bên nào",
+    en: "not supporting one side more than another",
+    vi: "khách quan, không thiên vị",
+    synonyms: ["neutral", "objective"],
+    antonyms: ["biased"],
+    examples: [
+      { en: "A good sports journalist tries to remain impartial and doesn't show support for any one team.", vi: "Một phóng viên thể thao giỏi cố gắng giữ khách quan và không ủng hộ riêng đội nào." },
+      { en: "The report was praised for its impartial analysis.", vi: "Bản báo cáo được khen ngợi vì phân tích khách quan." },
+    ],
+    ieltsTip: "\"Remain impartial\" là collocation cố định — rất hợp khi bàn về vai trò của báo chí.",
+    summary: "impartial = khách quan, không nghiêng về bên nào.",
+  },
+  {
+    term: "subjective",
+    ipa: "/səbˈdʒektɪv/",
+    pos: "adjective",
+    usageNote: "dựa trên cảm nhận và ý kiến cá nhân thay vì bằng chứng khách quan",
+    en: "based on personal feelings and opinions rather than facts",
+    vi: "chủ quan, theo cảm nhận cá nhân",
+    synonyms: ["personal"],
+    antonyms: ["objective"],
+    examples: [
+      { en: "The judging of artistic works can be very subjective.", vi: "Việc chấm các tác phẩm nghệ thuật có thể rất chủ quan." },
+      { en: "Beauty is a subjective matter.", vi: "Cái đẹp là chuyện chủ quan." },
+    ],
+    ieltsTip: "Cặp \"subjective ↔ objective\" rất hữu ích trong Writing Task 2 khi bàn về đánh giá nghệ thuật hoặc báo chí.",
+    summary: "subjective = chủ quan, dựa trên cảm nhận cá nhân.",
+  },
+  {
+    term: "influential",
+    ipa: "/ˌɪnfluˈenʃl/",
+    pos: "adjective",
+    usageNote: "mô tả người hoặc thứ có sức tác động lớn tới suy nghĩ, hành vi của người khác",
+    en: "having a lot of effect on the way people think or behave",
+    vi: "có ảnh hưởng lớn",
+    synonyms: ["powerful"],
+    antonyms: ["insignificant"],
+    examples: [
+      { en: "The mass media is very influential in our society and has a big impact on young people.", vi: "Truyền thông đại chúng rất có ảnh hưởng trong xã hội và tác động lớn đến giới trẻ." },
+      { en: "One of the most influential propositions in marketing is that satisfaction means loyalty.", vi: "Một trong những luận điểm có ảnh hưởng nhất trong marketing là sự hài lòng tạo nên lòng trung thành." },
+    ],
+    ieltsTip: "Đừng nhầm với \"influenced\" (bị ảnh hưởng) — \"influential\" nghĩa là gây ảnh hưởng.",
+    summary: "influential = có sức ảnh hưởng lớn tới người khác.",
+  },
+];
+
+const track37Script = `Vickie: Hi, Paul. How are you?
+Paul: Hi, Vickie, I'm fine, just a bit tired. I stayed up late last night watching that new reality TV show. It's a bit like Big Brother.
+Vickie: Oh, you didn't watch that rubbish, did you? It's just a bunch of people, stuck in a house, doing nothing!
+Paul: No, it isn't. I love it.
+Vickie: I have to admit that I did use to like that kind of thing when it was new. It's strange to think people are still watching the same shows a decade on.
+Paul: Well, actually, it's still pretty much a worldwide phenomenon.
+Vickie: Well, I can't say it's a phenomenon that I like very much. It seems to me that those shows just feed this insatiable appetite everyone seems to have for media attention.
+Paul: You're probably right there. I mean, you wouldn't sign up for those shows if you didn't want to be in the public eye.
+Vickie: That's right. Everyone seems to want to be a celebrity these days.
+Paul: And the media encourage that, in a way, because once those shows start, the people in them are always in the headlines.
+Vickie: I know, and it just increases the hype around the show and turns these ordinary people into instant celebrities. They become famous overnight.
+Paul: You're right. But I suppose there's a lot of demand for gossip about celebrities these days, especially in the tabloid press. I guess all the media is doing is supplying that demand.
+Vickie: But some journalists go to ridiculous lengths to get their story.
+Paul: I agree with you there, but I think you're talking more about the paparazzi than serious journalists.
+Vickie: Yeah, they can create really dangerous situations just trying to get a photograph of whoever's making headlines at the moment.
+Paul: I know, it's all a bit silly when you realise they're only doing it to fill the gossip columns.
+Vickie: But I don't want to read about these nobodies whose chief claim to fame is that they were on a reality TV show. I want to read about people with real talent who've actually earned their fame because they are different from the rest of us.
+Paul: Hmm, that doesn't bother me so much. Maybe we need to rethink what fame is!`;
+
+const UNIT_19_THE_MEDIA: CambridgeUnit = {
+  unit: 19,
+  slug: "the-media",
+  title: "The media",
+  topics: "Fame and the media, media bias",
+  testPractice: "Speaking",
+  steps: [
+    {
+      kind: "vocab",
+      title: "Key vocabulary",
+      words: unit19Vocab,
+    },
+    {
+      kind: "listening_cloze",
+      title: "Talking about reality TV",
+      instructions: "Listen to a conversation between Paul and Vickie and complete the notes with the fame expressions they use.",
+      audioUrl: "https://a8wdavlbr1kcxckb.public.blob.vercel-storage.com/cambridge-vocabulary-ielts/track-37.mp3",
+      template:
+        "• Paul says reality TV is still pretty much a {{worldwide phenomenon}}.\n" +
+        "• Vickie thinks these shows feed the insatiable appetite everyone has for {{media attention}}.\n" +
+        "• Paul says you wouldn't sign up for those shows if you didn't want to be {{in the public eye}}.\n" +
+        "• Once the shows start, the people in them are always {{in the headlines}}.\n" +
+        "• The hype turns ordinary people into {{instant celebrities}} — they {{become famous overnight}}.\n" +
+        "• There is a lot of demand for celebrity gossip, especially in the {{tabloid press}}.\n" +
+        "• Paul says Vickie is really talking about the {{paparazzi}} rather than serious journalists, who go to ridiculous lengths to photograph whoever is {{making headlines}}.\n" +
+        "• Vickie doesn't want to read about people whose {{chief claim to fame}} is a reality TV show; she prefers people who have actually {{earned}} their fame.",
+      script: track37Script,
+      tip: "Trong Speaking, thay \"famous people\" bằng các cụm như \"instant celebrities\", \"high-profile figures\" sẽ nâng điểm từ vựng ngay lập tức.",
+    },
+    {
+      kind: "sort",
+      title: "Which part of the media?",
+      instructions: "Tap a word, then tap the part of the media it belongs to.",
+      buckets: ["Television and radio", "Newspapers and magazines"],
+      items: [
+        { term: "broadcaster", bucket: 0 },
+        { term: "viewer", bucket: 0 },
+        { term: "listener", bucket: 0 },
+        { term: "episode", bucket: 0 },
+        { term: "series", bucket: 0 },
+        { term: "screen", bucket: 0 },
+        { term: "rolling news", bucket: 0 },
+        { term: "live stream", bucket: 0 },
+        { term: "programme", bucket: 0 },
+        { term: "article", bucket: 1 },
+        { term: "reader", bucket: 1 },
+        { term: "print", bucket: 1 },
+        { term: "publication", bucket: 1 },
+        { term: "tabloid", bucket: 1 },
+        { term: "publisher", bucket: 1 },
+        { term: "the press", bucket: 1 },
+        { term: "online edition", bucket: 1 },
+        { term: "gossip column", bucket: 1 },
+      ],
+    },
+    {
+      kind: "type_fill",
+      title: "Speaking test answers",
+      instructions: "Complete these Speaking test answers with a media word. You may need to change the form.",
+      items: [
+        { prompt: "We are already moving from getting our news from ___ articles and moving to digital.", answer: "print" },
+        { prompt: "People increasingly read the ___ of newspapers instead of buying a paper copy.", answer: "online editions" },
+        { prompt: "Then there's the ___ we have on the TV day and night.", answer: "rolling news" },
+        { prompt: "Many TV companies now offer a ___ so you can watch the news on your computer or phone.", answer: "live stream" },
+        { prompt: "We will soon blur the distinction between a ___, a listener and a viewer.", answer: "reader" },
+        { prompt: "There are lots of sensational ___ to try to persuade us to buy a newspaper.", answer: "headlines" },
+        { prompt: "Sometimes as much prominence is given to a ___ column as to the serious news stories.", answer: "gossip" },
+        { prompt: "I think ___ have a duty to warn parents about unsuitable content.", answer: "broadcasters" },
+      ],
+    },
+    {
+      kind: "reading_tfng",
+      title: "Reading — media bias",
+      passageTitle: "Media Bias and Politics",
+      passage:
+        "Regardless of their suitability, the moment a female candidate announces their intention of entering the political arena, the press immediately begin to speculate about the possibility of a female president of the United States. The media debate doesn't stop even if the candidate fails to get nominated as a candidate.\n\n" +
+        "In her recent book, Media Bias and Politics, Susanna Baxter explores the press treatment of female presidential candidates from the 1800s to the present day. Baxter contends that, while the public's attitude towards women in politics has evolved considerably, media coverage both on TV and in the press has failed to keep pace and remains biased against them. We generally use the press as our primary source of information about political candidates. According to Baxter, it could therefore be argued that, by treating women unfairly, media reports not only impede the progress of female candidates but also inevitably deter women from taking part in the political process.\n\n" +
+        "The book begins by examining the stereotypes that the media ascribes to female candidates, and asserts that, as well as portraying women as incompetent leaders, reporters also tend to describe them according to their fashion choices. Baxter also concludes that reporting on male candidates is far more likely to concentrate on political issues, and questions whether we are in fact ready for a woman president. She claims that this blatant media prejudice against women contradicts opinion polls that indicate voters would actually support a female candidate.\n\n" +
+        "Baxter's study involved a detailed analysis of national broadsheets and one tabloid from each candidate's local area. In my view, the inevitable home-town bias of local newspapers could give a distorted view in terms of the number and length of articles they contain. Furthermore, when it comes to elections, the coverage in the majority of newspapers is generally tainted with political bias. Consequently, selecting only one newspaper from each town seems too small a sample to reach any decisive conclusion.",
+      questions: [
+        {
+          text: "Baxter believes biased media reports reflect the attitude of the general public with regard to women in politics.",
+          answer: "False",
+          justification: "The public's attitude has evolved considerably, but media coverage has failed to keep pace and remains biased.",
+        },
+        {
+          text: "Baxter maintains that female politicians are treated more fairly on TV than in newspapers.",
+          answer: "Not given",
+          justification: "No comparison is made between newspaper and TV reporting.",
+        },
+        {
+          text: "Baxter warns that the attitude of the media may lead to fewer women in politics.",
+          answer: "True",
+          justification: "Media reports inevitably deter women from taking part in the political process.",
+        },
+        {
+          text: "Baxter suggests that the press try to show that female politicians make poor leaders.",
+          answer: "True",
+          justification: "The media portray women as incompetent leaders.",
+        },
+        {
+          text: "According to Baxter, the general public is biased against the idea of female leaders.",
+          answer: "False",
+          justification: "Opinion polls indicate voters would actually support a female candidate.",
+        },
+        {
+          text: "In the tabloids, Baxter found fewer articles than anticipated about local politicians.",
+          answer: "Not given",
+          justification: "We are not told what Baxter expected to find in local tabloids.",
+        },
+        {
+          text: "Most print media provide political reporting that is impartial.",
+          answer: "False",
+          justification: "The coverage in the majority of newspapers is generally tainted with political bias.",
+        },
+        {
+          text: "Baxter should have included a wider range of newspapers in her study.",
+          answer: "True",
+          justification: "Selecting only one newspaper from each town seems too small a sample to reach any decisive conclusion.",
+        },
+      ],
+    },
+    {
+      kind: "reveal_pairs",
+      title: "Reporting verbs",
+      instructions: "Tap each verb to reveal what it means.",
+      pairs: [
+        { prompt: "announce", reveal: "state publicly" },
+        { prompt: "speculate", reveal: "guess possible answers to a question" },
+        { prompt: "explore / examine", reveal: "discuss an idea carefully to discover more about it" },
+        { prompt: "contend / argue / assert", reveal: "state something is true or a fact" },
+        { prompt: "conclude", reveal: "judge or decide something after some consideration" },
+        { prompt: "indicate", reveal: "show or make clear" },
+      ],
+    },
+    {
+      kind: "sort",
+      title: "Certain or in doubt?",
+      instructions: "Tap a verb, then decide whether the writer is presenting something as a fact or as something in doubt.",
+      buckets: ["Not certain / in doubt", "True / a fact"],
+      items: [
+        { term: "disagree", bucket: 0 },
+        { term: "question", bucket: 0 },
+        { term: "debate", bucket: 0 },
+        { term: "contest", bucket: 0 },
+        { term: "challenge", bucket: 0 },
+        { term: "dispute", bucket: 0 },
+        { term: "state", bucket: 1 },
+        { term: "cite", bucket: 1 },
+        { term: "declare", bucket: 1 },
+      ],
+    },
+    {
+      kind: "fill_mc",
+      title: "Fair or unfair?",
+      instructions: "Choose the word that best completes each sentence.",
+      items: [
+        { before: "Some companies are", after: "against taking on employees over 40.", options: ["prejudiced", "impartial", "subjective"], answer: "prejudiced" },
+        { before: "The mass media is very", after: "in our society and has a big impact on young people.", options: ["influential", "biased", "impartial"], answer: "influential" },
+        { before: "I think they're the best team here, but then I am", after: "as I'm their teacher.", options: ["biased", "impartial", "influential"], answer: "biased" },
+        { before: "The judging of artistic works can be very", after: "; we need to make it more specific.", options: ["subjective", "impartial", "prejudiced"], answer: "subjective" },
+        { before: "A good sports journalist tries to remain", after: "and doesn't show support for any one team.", options: ["impartial", "biased", "subjective"], answer: "impartial" },
+      ],
+    },
+    {
+      kind: "speaking",
+      title: "Test practice — Speaking Part 2",
+      prompt: "Describe a television show you have seen recently.",
+      bullets: ["what it was about", "where and when you saw it", "what type of programme it was", "why you enjoy this kind of show"],
+      prepSeconds: 60,
+      talkSeconds: 120,
+      tip:
+        "Đây là Speaking Part 2: bạn có 1 phút chuẩn bị và nói 1–2 phút. Hãy bám sát thời gian và nếu được thì ghi âm lại để nghe lại sau. Dùng càng nhiều từ vựng mới của unit này càng tốt (a worldwide phenomenon, instant celebrities, rolling news, a live stream...). Sau đó thử tự trả lời vài câu Part 3: \"Is there too much news these days?\", \"How easy is it for the media to manipulate public opinion?\".",
+    },
+  ],
+};
+
+const unit20Vocab: VocabWord[] = [
+  {
+    term: "exhibit",
+    ipa: "/ɪɡˈzɪbɪt/",
+    pos: "verb",
+    usageNote: "nghĩa trưng bày tác phẩm nghệ thuật ở nơi công cộng",
+    en: "to show works of art to the public",
+    vi: "trưng bày, triển lãm",
+    synonyms: ["display", "show"],
+    antonyms: ["conceal"],
+    examples: [
+      { en: "Museums should exhibit indigenous art to help preserve traditional art forms.", vi: "Các bảo tàng nên trưng bày nghệ thuật bản địa để giúp bảo tồn các loại hình nghệ thuật truyền thống." },
+      { en: "Her paintings were exhibited in Paris last year.", vi: "Tranh của cô ấy đã được triển lãm ở Paris năm ngoái." },
+    ],
+    ieltsTip: "Danh từ \"an exhibition\" (buổi triển lãm) và \"an exhibitor\" (người tham gia trưng bày).",
+    summary: "exhibit = trưng bày tác phẩm cho công chúng xem.",
+  },
+  {
+    term: "compose",
+    ipa: "/kəmˈpəʊz/",
+    pos: "verb",
+    usageNote: "dùng cho việc sáng tác nhạc hoặc viết một tác phẩm có cấu trúc",
+    en: "to write a piece of music or a poem",
+    vi: "sáng tác (nhạc, thơ)",
+    synonyms: ["write", "create"],
+    antonyms: [],
+    examples: [
+      { en: "It's so hard to compose songs without any inspiration.", vi: "Thật khó sáng tác bài hát khi không có cảm hứng." },
+      { en: "He composed the score for the film.", vi: "Ông ấy đã soạn phần nhạc cho bộ phim." },
+    ],
+    ieltsTip: "Nhóm động từ đi với \"a song\": compose / record / play a song.",
+    summary: "compose = sáng tác nhạc hoặc thơ.",
+  },
+  {
+    term: "stage",
+    ipa: "/steɪdʒ/",
+    pos: "verb",
+    usageNote: "là động từ nghĩa dàn dựng và trình diễn một vở kịch hoặc sự kiện",
+    en: "to organise and present a play or public event",
+    vi: "dàn dựng, tổ chức biểu diễn",
+    synonyms: ["put on", "perform"],
+    antonyms: ["cancel"],
+    examples: [
+      { en: "This is a theatre that prefers to stage plays based on original writing.", vi: "Đây là nhà hát thích dàn dựng những vở kịch dựa trên kịch bản gốc." },
+      { en: "The company staged a new production of Hamlet.", vi: "Đoàn kịch đã dàn dựng một phiên bản mới của Hamlet." },
+    ],
+    ieltsTip: "Nhóm động từ đi với \"a play\": perform / rehearse / stage a play.",
+    summary: "stage (v) = dàn dựng và trình diễn một vở kịch.",
+  },
+  {
+    term: "nurture",
+    ipa: "/ˈnɜːtʃə(r)/",
+    pos: "verb",
+    usageNote: "nghĩa nuôi dưỡng, bồi đắp tài năng hoặc ý tưởng cho phát triển",
+    en: "to help something or someone to develop and be successful",
+    vi: "nuôi dưỡng, bồi đắp (tài năng)",
+    synonyms: ["cultivate", "foster"],
+    antonyms: ["neglect", "stifle"],
+    examples: [
+      { en: "Young people are very creative and we should do our best to nurture their talents.", vi: "Người trẻ rất sáng tạo và chúng ta nên hết sức nuôi dưỡng tài năng của họ." },
+      { en: "The school nurtures a love of music from an early age.", vi: "Trường học bồi đắp tình yêu âm nhạc từ khi các em còn nhỏ." },
+    ],
+    ieltsTip: "Nhóm động từ đi với \"a talent\": have / cultivate / nurture a talent.",
+    summary: "nurture = nuôi dưỡng, bồi đắp cho phát triển.",
+  },
+  {
+    term: "indigenous",
+    ipa: "/ɪnˈdɪdʒənəs/",
+    pos: "adjective",
+    usageNote: "chỉ những gì thuộc về người dân bản địa hoặc có nguồn gốc tự nhiên tại một nơi",
+    en: "belonging to the original people of a place",
+    vi: "bản địa, bản xứ",
+    synonyms: ["native"],
+    antonyms: ["imported", "foreign"],
+    examples: [
+      { en: "Museums should exhibit indigenous art to help preserve traditional art forms.", vi: "Bảo tàng nên trưng bày nghệ thuật bản địa để bảo tồn các loại hình nghệ thuật truyền thống." },
+      { en: "The festival celebrates indigenous music and dance.", vi: "Lễ hội tôn vinh âm nhạc và điệu múa bản địa." },
+    ],
+    ieltsTip: "Từ khoá quen thuộc trong Reading về văn hoá và bảo tồn — thường paraphrase cho \"native\".",
+    summary: "indigenous = bản địa, thuộc về cư dân gốc của một vùng.",
+  },
+  {
+    term: "originality",
+    ipa: "/əˌrɪdʒəˈnæləti/",
+    pos: "noun",
+    usageNote: "chỉ phẩm chất mới mẻ, độc đáo, không sao chép của một tác phẩm",
+    en: "the quality of being new and different from anything else",
+    vi: "tính độc đáo, sự mới mẻ",
+    synonyms: ["inventiveness"],
+    antonyms: ["imitation"],
+    examples: [
+      { en: "This theatre prefers to stage plays based on original writing rather than re-work the classics.", vi: "Nhà hát này thích dàn dựng những vở kịch từ kịch bản gốc hơn là làm lại các tác phẩm kinh điển." },
+      { en: "The judges praised the originality of her design.", vi: "Ban giám khảo khen ngợi tính độc đáo trong thiết kế của cô ấy." },
+    ],
+    ieltsTip: "Tính từ là \"original\" — chú ý phân biệt với \"origin\" (nguồn gốc).",
+    summary: "originality = tính độc đáo, mới mẻ của tác phẩm.",
+  },
+  {
+    term: "inspiration",
+    ipa: "/ˌɪnspəˈreɪʃn/",
+    pos: "noun",
+    usageNote: "chỉ nguồn cảm hứng thôi thúc người ta sáng tạo",
+    en: "something that gives you new ideas and the desire to create",
+    vi: "nguồn cảm hứng",
+    synonyms: ["stimulus"],
+    antonyms: [],
+    examples: [
+      { en: "It's so hard to compose songs without any inspiration.", vi: "Thật khó sáng tác bài hát khi không có nguồn cảm hứng nào." },
+      { en: "She draws inspiration from the landscape around her.", vi: "Cô ấy lấy cảm hứng từ khung cảnh quanh mình." },
+    ],
+    ieltsTip: "Tính từ là \"inspirational\" (truyền cảm hứng) và \"inspired\" (được truyền cảm hứng).",
+    summary: "inspiration = nguồn cảm hứng sáng tạo.",
+  },
+  {
+    term: "imaginative",
+    ipa: "/ɪˈmædʒɪnətɪv/",
+    pos: "adjective",
+    usageNote: "mô tả người hoặc tác phẩm giàu trí tưởng tượng, nhiều ý tưởng mới",
+    en: "having or showing new and interesting ideas",
+    vi: "giàu trí tưởng tượng, sáng tạo",
+    synonyms: ["creative", "inventive"],
+    antonyms: ["unimaginative"],
+    examples: [
+      { en: "It was an imaginative production that surprised the audience.", vi: "Đó là một vở diễn giàu trí tưởng tượng khiến khán giả bất ngờ." },
+      { en: "Children need imaginative play as much as formal lessons.", vi: "Trẻ em cần các trò chơi kích thích trí tưởng tượng không kém gì những bài học chính khoá." },
+    ],
+    ieltsTip: "Phân biệt: \"imaginative\" (giàu tưởng tượng) và \"imaginary\" (không có thật).",
+    summary: "imaginative = giàu trí tưởng tượng, nhiều ý tưởng mới.",
+  },
+  {
+    term: "a matter of taste",
+    ipa: "/ə ˈmætər əv teɪst/",
+    pos: "phrase",
+    usageNote: "dùng khi điều gì đó phụ thuộc vào sở thích riêng của mỗi người",
+    en: "something that depends on personal preference rather than fact",
+    vi: "chuyện tuỳ khẩu vị/sở thích mỗi người",
+    synonyms: ["a personal preference"],
+    antonyms: ["an objective fact"],
+    examples: [
+      { en: "Humour can be quite personal and subjective — it really is a matter of taste.", vi: "Sự hài hước khá cá nhân và chủ quan — đúng là chuyện tuỳ sở thích mỗi người." },
+      { en: "Whether the ending works is a matter of taste.", vi: "Cái kết có hợp lý hay không là chuyện tuỳ cảm nhận mỗi người." },
+    ],
+    ieltsTip: "Cụm cực kỳ hữu ích để mở đầu câu trả lời Speaking Part 3 về nghệ thuật.",
+    summary: "a matter of taste = chuyện phụ thuộc vào sở thích cá nhân.",
+  },
+  {
+    term: "acquire a taste for",
+    ipa: "/əˈkwaɪər ə teɪst fɔː(r)/",
+    pos: "phrase",
+    usageNote: "nghĩa dần dần thích một thứ mà lúc đầu mình không thích",
+    en: "to gradually begin to like something you did not like at first",
+    vi: "dần dần thích, tập quen với",
+    synonyms: ["grow to like"],
+    antonyms: ["go off"],
+    examples: [
+      { en: "I've tried them often but I've never managed to acquire a taste for oysters.", vi: "Tôi đã thử nhiều lần nhưng chưa bao giờ tập quen được với hàu." },
+      { en: "He acquired a taste for classical music at university.", vi: "Anh ấy dần thích nhạc cổ điển từ hồi đại học." },
+    ],
+    ieltsTip: "Nhớ giới từ \"for\": acquire a taste FOR something.",
+    summary: "acquire a taste for = dần dần thích một thứ gì đó.",
+  },
+  {
+    term: "in bad taste",
+    ipa: "/ɪn bæd teɪst/",
+    pos: "phrase",
+    usageNote: "mô tả lời nói hoặc hành động không phù hợp, dễ gây xúc phạm",
+    en: "likely to offend people because it is inappropriate",
+    vi: "thiếu tế nhị, khiếm nhã",
+    synonyms: ["offensive", "tasteless"],
+    antonyms: ["tactful"],
+    examples: [
+      { en: "The jokes he made about the earthquake were in bad taste and quite offensive.", vi: "Những câu đùa của anh ta về trận động đất thật khiếm nhã và khá xúc phạm." },
+      { en: "Some viewers felt the advertisement was in bad taste.", vi: "Một số khán giả cho rằng quảng cáo đó thiếu tế nhị." },
+    ],
+    ieltsTip: "Chú ý phân biệt \"in bad taste\" (khiếm nhã) với \"have bad/poor taste in\" (gu thẩm mỹ kém).",
+    summary: "in bad taste = khiếm nhã, không phù hợp và dễ gây xúc phạm.",
+  },
+  {
+    term: "have good taste in",
+    ipa: "/hæv ɡʊd teɪst ɪn/",
+    pos: "phrase",
+    usageNote: "nghĩa có gu thẩm mỹ tốt trong một lĩnh vực nào đó",
+    en: "to be good at choosing attractive or high-quality things",
+    vi: "có gu thẩm mỹ tốt về",
+    synonyms: ["have a good eye for"],
+    antonyms: ["have poor taste in"],
+    examples: [
+      { en: "I'm not a good judge of art but I believe I have good taste in clothes.", vi: "Tôi không giỏi thẩm định nghệ thuật nhưng tôi tin mình có gu thẩm mỹ tốt về quần áo." },
+      { en: "She has very good taste in furniture.", vi: "Cô ấy có gu rất tốt về đồ nội thất." },
+    ],
+    ieltsTip: "Nhớ giới từ \"in\": have good taste IN clothes/music/art.",
+    summary: "have good taste in = có gu thẩm mỹ tốt về lĩnh vực nào đó.",
+  },
+  {
+    term: "diverse tastes",
+    ipa: "/daɪˈvɜːs teɪsts/",
+    pos: "phrase",
+    usageNote: "chỉ việc thích nhiều thứ rất khác nhau trong cùng một lĩnh vực",
+    en: "very varied preferences",
+    vi: "gu đa dạng, thích nhiều thể loại",
+    synonyms: ["varied tastes"],
+    antonyms: ["narrow tastes"],
+    examples: [
+      { en: "I have quite diverse tastes in music — I enjoy opera and rap.", vi: "Gu âm nhạc của tôi khá đa dạng — tôi thích cả opera lẫn rap." },
+      { en: "The festival has music to suit all tastes.", vi: "Lễ hội có âm nhạc hợp với mọi gu thưởng thức." },
+    ],
+    ieltsTip: "\"Suit all tastes\" (hợp mọi gu) là cụm rất hay dùng khi mô tả sự kiện, dịch vụ.",
+    summary: "diverse tastes = gu thưởng thức đa dạng, nhiều thể loại.",
+  },
+  {
+    term: "hilarious",
+    ipa: "/hɪˈleəriəs/",
+    pos: "adjective",
+    usageNote: "mức độ rất mạnh của \"funny\" — cực kỳ buồn cười",
+    en: "extremely funny",
+    vi: "cực kỳ hài hước, buồn cười",
+    synonyms: ["humorous", "side-splitting"],
+    antonyms: ["dull"],
+    examples: [
+      { en: "The last movie I saw was supposed to be hilarious, but I didn't laugh at all.", vi: "Bộ phim gần nhất tôi xem lẽ ra phải rất hài hước, nhưng tôi chẳng cười nổi." },
+      { en: "His impression of the teacher was hilarious.", vi: "Màn nhại giọng thầy giáo của cậu ấy cực kỳ buồn cười." },
+    ],
+    ieltsTip: "Error warning: \"fun\" là điều bạn thích làm, \"funny\" là điều khiến bạn cười — đừng dùng lẫn.",
+    summary: "hilarious = cực kỳ buồn cười.",
+  },
+  {
+    term: "thrilling",
+    ipa: "/ˈθrɪlɪŋ/",
+    pos: "adjective",
+    usageNote: "mô tả điều gây hào hứng, hồi hộp mạnh mẽ",
+    en: "extremely exciting",
+    vi: "hồi hộp, phấn khích tột độ",
+    synonyms: ["spectacular", "exhilarating"],
+    antonyms: ["tedious"],
+    examples: [
+      { en: "I was expecting the circus acts to be thrilling to watch, but it was all a bit disappointing.", vi: "Tôi tưởng các tiết mục xiếc sẽ rất hồi hộp, nhưng hoá ra khá đáng thất vọng." },
+      { en: "The final ten minutes of the match were thrilling.", vi: "Mười phút cuối trận đấu thật hồi hộp." },
+    ],
+    ieltsTip: "Thay \"very exciting\" bằng \"thrilling/spectacular\" để nâng band từ vựng.",
+    summary: "thrilling = cực kỳ hồi hộp, phấn khích.",
+  },
+  {
+    term: "petrified",
+    ipa: "/ˈpetrɪfaɪd/",
+    pos: "adjective",
+    usageNote: "mức độ rất mạnh của \"scared\" — sợ cứng người",
+    en: "extremely frightened",
+    vi: "sợ chết khiếp, sợ cứng người",
+    synonyms: ["terrified"],
+    antonyms: ["fearless"],
+    examples: [
+      { en: "I like the feeling of being petrified when I watch horror movies.", vi: "Tôi thích cảm giác sợ chết khiếp khi xem phim kinh dị." },
+      { en: "She was petrified of speaking in public.", vi: "Cô ấy sợ chết khiếp việc nói trước đám đông." },
+    ],
+    ieltsTip: "Nhóm tính từ tuyệt đối (petrified, terrified) không đi với \"very\" — dùng \"absolutely\" thay thế.",
+    summary: "petrified = sợ hãi tột độ, sợ cứng người.",
+  },
+  {
+    term: "tedious",
+    ipa: "/ˈtiːdiəs/",
+    pos: "adjective",
+    usageNote: "mô tả điều nhàm chán vì kéo dài và lặp đi lặp lại",
+    en: "boring because it lasts too long or is repetitive",
+    vi: "tẻ nhạt, chán ngán",
+    synonyms: ["monotonous"],
+    antonyms: ["thrilling"],
+    examples: [
+      { en: "I've enjoyed his plays before, but this one was so tedious that I was asleep by the third act!", vi: "Tôi từng thích các vở kịch của ông ấy, nhưng vở này tẻ nhạt đến mức tôi ngủ gật từ màn ba!" },
+      { en: "Filling in the forms was a tedious task.", vi: "Việc điền các mẫu đơn thật chán ngán." },
+    ],
+    ieltsTip: "Error warning: \"I was bored\" (tôi thấy chán) khác \"it was boring\" (nó nhàm chán) — đừng nhầm.",
+    summary: "tedious = tẻ nhạt, chán vì lặp lại và kéo dài.",
+  },
+  {
+    term: "spine-chilling",
+    ipa: "/ˈspaɪn tʃɪlɪŋ/",
+    pos: "adjective",
+    usageNote: "mô tả phim, truyện gây cảm giác rùng rợn, lạnh sống lưng",
+    en: "very frightening in an exciting way",
+    vi: "rùng rợn, lạnh sống lưng",
+    synonyms: ["terrifying"],
+    antonyms: ["reassuring"],
+    examples: [
+      { en: "The special effects were so realistic it was spine-chilling to watch.", vi: "Kỹ xảo chân thực đến mức xem mà lạnh sống lưng." },
+      { en: "She told us a spine-chilling ghost story.", vi: "Cô ấy kể cho chúng tôi một câu chuyện ma rùng rợn." },
+    ],
+    ieltsTip: "Rất hợp khi mô tả phim trong Speaking Part 2 — nhớ nói kèm lý do tại sao bạn thích cảm giác đó.",
+    summary: "spine-chilling = rùng rợn, khiến lạnh sống lưng.",
+  },
+  {
+    term: "abysmal",
+    ipa: "/əˈbɪzməl/",
+    pos: "adjective",
+    usageNote: "mức độ cực mạnh của \"bad\" — cực kỳ tệ",
+    en: "extremely bad",
+    vi: "tệ hại, kém cỏi hết mức",
+    synonyms: ["dismal", "appalling"],
+    antonyms: ["superb"],
+    examples: [
+      { en: "The play was supposed to be a tragedy, but the acting was abysmal.", vi: "Vở kịch lẽ ra là bi kịch, nhưng diễn xuất thì tệ hại." },
+      { en: "The team's performance this season has been abysmal.", vi: "Phong độ của đội mùa này thật tệ hại." },
+    ],
+    ieltsTip: "Dùng \"abysmal/dismal\" thay \"very bad\" trong Speaking để thể hiện vốn từ phong phú.",
+    summary: "abysmal = cực kỳ tệ, kém cỏi hết mức.",
+  },
+  {
+    term: "gloomy",
+    ipa: "/ˈɡluːmi/",
+    pos: "adjective",
+    usageNote: "mô tả không khí u ám, buồn bã, thiếu hy vọng",
+    en: "sad and without hope; dark and depressing",
+    vi: "u ám, ảm đạm",
+    synonyms: ["joyless", "dismal"],
+    antonyms: ["uplifting", "cheerful"],
+    examples: [
+      { en: "I got so sick of the relentlessly gloomy plot, I decided to read something more uplifting instead.", vi: "Tôi quá chán cốt truyện u ám triền miên nên quyết định đọc thứ gì đó tươi sáng hơn." },
+      { en: "The report paints a gloomy picture of the economy.", vi: "Bản báo cáo vẽ nên một bức tranh ảm đạm về nền kinh tế." },
+    ],
+    ieltsTip: "Trái nghĩa hữu ích: \"uplifting\" (nâng đỡ tinh thần) — rất hợp khi nói về sách và phim.",
+    summary: "gloomy = u ám, ảm đạm, thiếu hy vọng.",
+  },
+];
+
+const track38Script = `Welcome to the Ipswich Arts Festival. This recording will help you find your way around this year's festival, the twentieth we've held here in Trafalgar Park. If you look at your map, you will see the entrance to the festival is on Trafalgar Road. Directly opposite the entrance, you'll see our beautiful fountain, and to the left of this you'll find this year's sculpture garden in among the bushes and trees. It's a lovely setting to stroll around and admire the skill of the sculptors who have carved their artwork out of both wood and stone. If you follow the path through the middle of the park, you'll reach the catering village, where you can buy food and drinks. Just past there is an area between the catering village and the toilets where you'll find a display of paintings all done by local artists. There's a wide range of wonderful paintings from portraits to local landscapes. This year, we have a special exhibition of work by amateur artists from our town. If you then go back past the catering village, on the left is this year's craft market. This is always a popular area of the festival, where you can admire the craftwork of our talented exhibitors.
+As always, we have live bands playing throughout the festival. There will be a range of music to suit all tastes from classical to jazz and rock, so please consult your programme to find out when your favourite musicians will be performing on stage. The stage is just to the right of the entrance. As well as live music, we also have a special section for literature lovers this year. You'll be able to listen to a variety of authors reading from their latest works, and it's wonderful to hear the writers bring their own words to life. From the stage, go along the path towards the toilets at the bottom left of the map. Carry on round, keeping the toilets on your left and you will see the author area on your right. In the very top left hand corner of your map, you'll see another set of toilets, and the information booth nearby. Right next to the information booth, you'll be able to enjoy our 'theatre in the park' performances. Our very talented and professional group of actors will be performing extracts from classical and modern plays. These will take place each evening from five till eight, so don't miss out.`;
+
+const UNIT_20_A_MATTER_OF_TASTE: CambridgeUnit = {
+  unit: 20,
+  slug: "a-matter-of-taste",
+  title: "A matter of taste",
+  topics: "The arts, personal taste",
+  testPractice: "Reading",
+  steps: [
+    {
+      kind: "vocab",
+      title: "Key vocabulary",
+      words: unit20Vocab,
+    },
+    {
+      kind: "listening_cloze",
+      title: "The Ipswich Arts Festival",
+      instructions: "Listen to a recording about an arts festival and complete the notes with the missing words.",
+      audioUrl: "https://a8wdavlbr1kcxckb.public.blob.vercel-storage.com/cambridge-vocabulary-ielts/track-38.mp3",
+      template:
+        "• The sculpture garden is a lovely setting to stroll around and admire the skill of the {{sculptors}}, who have carved their artwork out of both {{wood}} and stone.\n" +
+        "• Follow the path through the middle of the park to reach the {{catering village}}, where you can buy food and drinks.\n" +
+        "• The display of {{paintings}} is all done by local artists, ranging from {{portraits}} to local landscapes; this year there is a special exhibition of work by {{amateur}} artists.\n" +
+        "• The {{craft market}} is always a popular area, where you can admire the craftwork of talented exhibitors.\n" +
+        "• There will be a range of music to suit all {{tastes}}, from classical to jazz and rock; consult your {{programme}} to find out when your favourite musicians are performing.\n" +
+        "• In the special section for literature lovers, {{authors}} will read from their latest works.\n" +
+        "• The 'theatre in the park' performances feature extracts from classical and modern {{plays}}, each evening from five till eight.",
+      script: track38Script,
+      tip: "Với bài nghe dạng bản đồ, hãy để mắt tới các từ chỉ vị trí: opposite, to the left of, just past, next to, in the corner of.",
+    },
+    {
+      kind: "type_fill",
+      title: "Noun and adjective forms",
+      instructions: "Type the adjective formed from each noun.",
+      items: [
+        { prompt: "imagination →", answer: "imaginative" },
+        { prompt: "inspiration →", answer: "inspirational" },
+        { prompt: "originality →", answer: "original" },
+        { prompt: "poetry →", answer: "poetic" },
+        { prompt: "fiction →", answer: "fictional" },
+        { prompt: "drama →", answer: "dramatic" },
+        { prompt: "tradition →", answer: "traditional" },
+        { prompt: "culture →", answer: "cultural" },
+      ],
+    },
+    {
+      kind: "reveal_pairs",
+      title: "Verbs in the arts",
+      instructions: "Tap each group of verbs to reveal the noun they collocate with.",
+      pairs: [
+        { prompt: "compose / record / play", reveal: "a song" },
+        { prompt: "perform / rehearse / stage", reveal: "a play" },
+        { prompt: "take / pose for / publish", reveal: "a photograph" },
+        { prompt: "make / shoot / screen", reveal: "a film" },
+        { prompt: "create / exhibit / collect", reveal: "art" },
+        { prompt: "have / cultivate / nurture", reveal: "a talent" },
+      ],
+    },
+    {
+      kind: "type_fill",
+      title: "Talking about the arts",
+      instructions: "Complete each sentence with the correct form of a word from this unit.",
+      items: [
+        { prompt: "Museums should ___ indigenous art to help preserve traditional art forms.", answer: "exhibit" },
+        { prompt: "It's so hard to ___ songs without any inspiration. That's why I write about my experiences.", answer: "compose" },
+        { prompt: "The original film was ___ in black and white to make it more dramatic.", answer: "shot" },
+        { prompt: "Young people are very creative and we should do our best to ___ their talents.", answer: "nurture" },
+        { prompt: "This is a theatre that prefers to ___ plays based on original writing rather than re-work the classics.", answer: "stage" },
+      ],
+    },
+    {
+      kind: "reading_tfng",
+      title: "Reading — prehistoric cinema",
+      passageTitle: "The world's first movies?",
+      passage:
+        "Rock engravings from the Copper Age found all over Europe in remote, hidden locations, indicate the artwork of the period was more than mere visual images, researchers believe. In fact, prehistoric humans enjoyed a primitive version of cinema, according to researchers. 'The cliff engravings ... in our opinion are not just images but formed part of an audiovisual performance,' said Frederick Baker of the Museum of Archaeology and Anthropology at the University of Cambridge. 'There was still no moving image but the pictures created sequences like in animation ... this was not just a treat for the eyes but also for the ears, as these rock engravings are especially found in locations with particular echoes.'\n\n" +
+        "The scientists have now launched a joint project with Weimar's Bauhaus University in Germany to recreate these 'films', using computer technology to establish the sequence of images and animate them like in a cartoon. The 'movies', dating back to 4000–1000 BC, often depict dances or hunts, but interestingly never show death and rarely portray women, the project's coordinators said. The project is being conducted in Valcamonica, in Italy's northern Lombardy region, where the highest concentration of such engravings – some 100,000 pictures – can be found.",
+      questions: [
+        {
+          text: "Researchers believe the rock engravings were part of an audiovisual performance.",
+          answer: "True",
+          justification: "Baker says the cliff engravings 'formed part of an audiovisual performance'.",
+        },
+        {
+          text: "The engravings contained moving images.",
+          answer: "False",
+          justification: "There was still no moving image, although the pictures created sequences like in animation.",
+        },
+        {
+          text: "The locations of the engravings often have unusual echoes.",
+          answer: "True",
+          justification: "These rock engravings are especially found in locations with particular echoes.",
+        },
+        {
+          text: "Computer technology is being used to animate the sequences of images.",
+          answer: "True",
+          justification: "The joint project uses computer technology to establish the sequence of images and animate them like in a cartoon.",
+        },
+        {
+          text: "Scenes showing death appear frequently in the engravings.",
+          answer: "False",
+          justification: "The 'movies' never show death.",
+        },
+        {
+          text: "The engravings in Valcamonica are the oldest in Europe.",
+          answer: "Not given",
+          justification: "The passage says Valcamonica has the highest concentration, not that they are the oldest.",
+        },
+      ],
+    },
+    {
+      kind: "type_fill",
+      title: "Phrases with 'taste'",
+      instructions: "Complete each sentence with a phrase containing the word taste.",
+      items: [
+        { prompt: "The jokes he made about the earthquake were ___ and quite offensive.", answer: "in bad taste" },
+        { prompt: "I'm not a good judge of art but I believe I ___ clothes.", answer: "have good taste in" },
+        { prompt: "My sister and I wanted to decorate our bedroom but we don't ___, so we could never agree on a colour!", answer: "share the same tastes" },
+        { prompt: "Humour can be quite personal and subjective — it really is ___.", answer: "a matter of taste" },
+        { prompt: "I have quite ___ in music — I enjoy opera and rap.", answer: "diverse tastes" },
+        { prompt: "I've tried them often but I've never managed to ___ oysters.", answer: "acquire a taste for" },
+      ],
+    },
+    {
+      kind: "fill_mc",
+      title: "Stronger adjectives",
+      instructions: "Choose the stronger adjective that has a similar meaning to the underlined word.",
+      items: [
+        { before: "The comedy was supposed to be really funny, in fact", after: ", but I didn't laugh at all.", options: ["hilarious", "tedious", "gloomy"], answer: "hilarious" },
+        { before: "I expected the circus acts to be daring and exciting —", after: ", even.", options: ["thrilling", "dismal", "monotonous"], answer: "thrilling" },
+        { before: "I like the feeling of being really scared, even", after: ", when I watch horror films.", options: ["petrified", "humorous", "joyless"], answer: "petrified" },
+        { before: "This play was so boring —", after: ", really — that I was asleep by the third act.", options: ["tedious", "spectacular", "terrifying"], answer: "tedious" },
+        { before: "The effects were so realistic that the film was genuinely scary —", after: ", in fact.", options: ["spine-chilling", "hilarious", "abysmal"], answer: "spine-chilling" },
+        { before: "The acting was so bad — truly", after: "— that I wanted to laugh instead of cry.", options: ["abysmal", "thrilling", "imaginative"], answer: "abysmal" },
+        { before: "I got sick of the relentlessly depressing —", after: "— plot and read something more uplifting.", options: ["gloomy", "humorous", "spectacular"], answer: "gloomy" },
+      ],
+    },
+    {
+      kind: "reading_tfng",
+      title: "Test practice — Reading",
+      passageTitle: "Modern art shows its age",
+      passage:
+        "In the Oscar Wilde novel The Picture of Dorian Gray, a man remains forever young while his painted portrait acquires the blemishes of his increasingly sinful life. The story exactly reverses our expectations – that while life is a process of constant change and decay, the masterpieces of art will endure. Any conservator will tell you, however, that things are not so simple. All material objects age; paper and silk discolor and turn brittle; painted surfaces crack and pigments darken or fade; even materials as durable as marble and bronze will change color and texture after prolonged contact with the elements.\n\n" +
+        "When it comes to works of modern art, the experimental embrace of new materials that gave the period much of its dynamism in the late 1800s and early 1900s poses a whole new set of challenges. These are not only technical but conceptual, since the use of the new materials – many of them never meant to last – often went hand in hand with a disdain for the traditional notion of the artwork as a precious artifact and embodiment of eternal values. A case in point was when the Busch-Reisinger Museum at Harvard recently acquired a sculpture made of dirt by the German artist Dieter Roth. Conservators had to face the fact that their mission to preserve the culture of the moment would have to yield to accommodate materials chosen precisely because of their propensity to decay. 'Our natural inclination is to preserve objects,' explains Henry Lie, head of the Straus Center for Conservation at Harvard, 'but also to honor the artist's feelings of how they should change over time.'\n\n" +
+        "The recently established Center for the Technical Study of Modern Art at Harvard has been set up to grapple with the distinctive challenges posed by the art of the last century. Under the directorship of Carol Mancusi-Ungaro, the center will provide a road map to future conservators and a resource for scholars seeking to understand how works of modern art were made. In establishing guidelines for the conservation of modern art, Ms Mancusi-Ungaro said that there is no substitute for the artist's voice. Hence a goal of the center is to create an archive of videotaped interviews with artists. 'With modern art there are no boundaries,' she said. 'Anything could be used, from industrial materials to edible materials. It's time to come to terms not only with what these materials are, but why the artist used them.'\n\n" +
+        "The problems for the conservator of modern art differ fundamentally from those that concern conservators of old master works, where the goal is to preserve as faithfully as possible the integrity of the original. A hands-off approach is dictated where change is essential to the artist's meaning. Joseph Beuys, for instance, used organic materials like fat or honey precisely because of their tendency to change over time; to halt that process would be to falsify the work in critical ways.\n\n" +
+        "Ms Mancusi-Ungaro believes that artworks, like people, have a natural life cycle. 'It's impossible, if not misdirected, to try and make a work of art look the way it did when it was new,' she insisted. 'We have to accept aging, and in accepting, we have to understand what the artist was intending.' She recalled seeing a work by Robert Rauschenberg that had been damaged and then meticulously restored. 'This was an example where a conservator came in and, with the best of intentions and the best of skills, restored something in a way that made it stand out as being not by Rauschenberg.'\n\n" +
+        "The establishment of the Center signals the transformation of modernism from the art of the now to an art for the ages. That x-rays, ultraviolet and infrared photography, and chemical analysis – tools used to probe works centuries old – are now being employed on more recent art confirms that modernism has entered history. High-tech tools can not only help conservators understand how a work was made but, when sensitively deployed, can help them recover the living artist from the evidence of the mute painting. Such an approach is much in evidence in the exhibition Mondrian: The Trans-Atlantic Paintings. The paintings there, begun by Piet Mondrian in Europe and completed in New York, were scrutinized using the latest scientific techniques. In this case, technical analysis revealed something unexpected in the character of the notably reserved Mondrian. 'What really surprised me,' curator Ron Spronk recalled, 'was the vigor and the incredible energy, how laborious these re-workings were and to what length Mondrian went to attain these paintings' serenely abstract works.'",
+      questions: [
+        {
+          text: "The story of Dorian Gray reverses the usual expectation that works of art last while people age.",
+          answer: "True",
+          justification: "The story exactly reverses our expectations – that while life is a process of constant change and decay, the masterpieces of art will endure.",
+        },
+        {
+          text: "Durable materials such as marble and bronze are unaffected by exposure to the elements.",
+          answer: "False",
+          justification: "Even materials as durable as marble and bronze will change colour and texture after prolonged contact with the elements.",
+        },
+        {
+          text: "Many modern artists deliberately chose materials that were not intended to last.",
+          answer: "True",
+          justification: "Many of the new materials were never meant to last, reflecting a disdain for the artwork as a precious artifact.",
+        },
+        {
+          text: "The Center for the Technical Study of Modern Art plans to record interviews with artists on video.",
+          answer: "True",
+          justification: "A goal of the center is to create an archive of videotaped interviews with artists.",
+        },
+        {
+          text: "Conservators of modern art follow exactly the same principles as conservators of old master works.",
+          answer: "False",
+          justification: "The problems for the conservator of modern art differ fundamentally from those of conservators of old master works.",
+        },
+        {
+          text: "Joseph Beuys used organic materials because he wanted his works to remain unchanged.",
+          answer: "False",
+          justification: "He used fat and honey precisely because of their tendency to change over time.",
+        },
+        {
+          text: "The restoration of the Rauschenberg work made it look noticeably unlike his own work.",
+          answer: "True",
+          justification: "The restoration made it stand out as being not by Rauschenberg.",
+        },
+        {
+          text: "Technical analysis of the Mondrian paintings revealed how much effort went into re-working them.",
+          answer: "True",
+          justification: "The curator was surprised by the vigour and incredible energy, and how laborious these re-workings were.",
+        },
+        {
+          text: "The Mondrian exhibition attracted more visitors than any previous show at the museum.",
+          answer: "Not given",
+          justification: "Visitor numbers are never mentioned in the passage.",
+        },
+      ],
+    },
+  ],
+};
+
+const unit21Vocab: VocabWord[] = [
+  {
+    term: "assume",
+    ipa: "/əˈsjuːm/",
+    pos: "verb",
+    usageNote: "nghĩa cho rằng điều gì đó đúng mà chưa có bằng chứng; danh từ là assumption",
+    en: "to accept that something is true without proof",
+    vi: "cho rằng, giả định",
+    synonyms: ["presume", "suppose"],
+    antonyms: ["verify"],
+    examples: [
+      { en: "It is reasonable to assume that dermatologists are similar to doctors.", vi: "Có thể hợp lý khi cho rằng bác sĩ da liễu cũng tương tự như bác sĩ." },
+      { en: "The popular assumption is that women don't succeed in areas requiring spatial thinking.", vi: "Giả định phổ biến là phụ nữ không thành công trong những lĩnh vực đòi hỏi tư duy không gian." },
+    ],
+    ieltsTip: "Nhớ dạng danh từ \"assumption\" — rất hay xuất hiện trong Reading học thuật.",
+    summary: "assume = giả định điều gì đó đúng (danh từ: assumption).",
+  },
+  {
+    term: "derive",
+    ipa: "/dɪˈraɪv/",
+    pos: "verb",
+    usageNote: "thường ở dạng bị động \"be derived from\" nghĩa là có nguồn gốc từ",
+    en: "to get something from a particular source",
+    vi: "bắt nguồn từ, chiết xuất từ",
+    synonyms: ["obtain", "originate"],
+    antonyms: [],
+    examples: [
+      { en: "Botox is a protein which is derived from a live bacteria.", vi: "Botox là một loại protein được chiết xuất từ vi khuẩn sống." },
+      { en: "Many English words are derived from Latin.", vi: "Nhiều từ tiếng Anh bắt nguồn từ tiếng Latin." },
+    ],
+    ieltsTip: "Cấu trúc chuẩn: be derived FROM something.",
+    summary: "derive = bắt nguồn/chiết xuất từ một nguồn nào đó.",
+  },
+  {
+    term: "correlation",
+    ipa: "/ˌkɒrəˈleɪʃn/",
+    pos: "noun",
+    usageNote: "chỉ mối liên hệ giữa hai yếu tố, khi cái này thay đổi thì cái kia cũng thay đổi",
+    en: "a connection between two things in which one changes as the other does",
+    vi: "mối tương quan",
+    synonyms: ["link", "relationship"],
+    antonyms: [],
+    examples: [
+      { en: "Researchers found a positive correlation between computer access at home and student academic performance.", vi: "Các nhà nghiên cứu tìm thấy mối tương quan thuận giữa việc có máy tính ở nhà và kết quả học tập của học sinh." },
+      { en: "There is a strong correlation between income and life expectancy.", vi: "Có mối tương quan chặt chẽ giữa thu nhập và tuổi thọ." },
+    ],
+    ieltsTip: "\"A positive/strong/direct correlation between A and B\" — cụm rất hữu ích cho Writing Task 1.",
+    summary: "correlation = mối tương quan giữa hai yếu tố.",
+  },
+  {
+    term: "legislation",
+    ipa: "/ˌledʒɪsˈleɪʃn/",
+    pos: "noun",
+    usageNote: "danh từ không đếm được, chỉ luật pháp do nhà nước ban hành",
+    en: "a law or set of laws made by a government",
+    vi: "đạo luật, pháp chế",
+    synonyms: ["laws", "statutes"],
+    antonyms: [],
+    examples: [
+      { en: "The government are planning to introduce new legislation that will set a minimum wage for all.", vi: "Chính phủ dự định ban hành đạo luật mới quy định mức lương tối thiểu cho tất cả mọi người." },
+      { en: "Legislation alone will not change people's behaviour.", vi: "Chỉ riêng luật pháp sẽ không thay đổi được hành vi của con người." },
+    ],
+    ieltsTip: "Không đếm được — viết \"introduce legislation\", KHÔNG viết \"a legislation\" hay \"legislations\".",
+    summary: "legislation = luật pháp do chính phủ ban hành (không đếm được).",
+  },
+  {
+    term: "pursuit",
+    ipa: "/pəˈsjuːt/",
+    pos: "noun",
+    usageNote: "chỉ việc theo đuổi một mục tiêu; dạng động từ là pursue",
+    en: "the act of trying to achieve something",
+    vi: "sự theo đuổi (mục tiêu)",
+    synonyms: ["quest"],
+    antonyms: ["abandonment"],
+    examples: [
+      { en: "Many people spend a great deal of money in the pursuit of happiness without ever finding it.", vi: "Nhiều người tiêu rất nhiều tiền để theo đuổi hạnh phúc mà không bao giờ tìm thấy nó." },
+      { en: "She left her job in pursuit of a career in music.", vi: "Cô ấy nghỉ việc để theo đuổi sự nghiệp âm nhạc." },
+    ],
+    ieltsTip: "Cụm cố định: \"in pursuit of something\" — rất hợp cho Writing Task 2.",
+    summary: "pursuit = sự theo đuổi một mục tiêu (động từ: pursue).",
+  },
+  {
+    term: "ultimatum",
+    ipa: "/ˌʌltɪˈmeɪtəm/",
+    pos: "noun",
+    usageNote: "chỉ tối hậu thư — lời cảnh báo cuối cùng kèm hậu quả nếu không tuân thủ",
+    en: "a final warning that action will be taken unless something changes",
+    vi: "tối hậu thư",
+    synonyms: ["final demand"],
+    antonyms: [],
+    examples: [
+      { en: "The school gave me an ultimatum because I had been absent for 40 days that year.", vi: "Nhà trường đưa ra tối hậu thư cho tôi vì tôi đã nghỉ 40 ngày trong năm đó." },
+      { en: "The union issued an ultimatum to the management.", vi: "Công đoàn đã ra tối hậu thư cho ban quản lý." },
+    ],
+    ieltsTip: "Cùng gốc với \"ultimate\" (cuối cùng) — nhận ra họ từ giúp đoán nghĩa nhanh trong Reading.",
+    summary: "ultimatum = tối hậu thư, lời cảnh báo cuối cùng.",
+  },
+  {
+    term: "disproportionate",
+    ipa: "/ˌdɪsprəˈpɔːʃənət/",
+    pos: "adjective",
+    usageNote: "mô tả tỷ lệ quá lớn hoặc quá nhỏ so với mức đáng lẽ phải có",
+    en: "too large or too small in comparison with something else",
+    vi: "không cân xứng, chiếm tỷ lệ bất thường",
+    synonyms: ["excessive"],
+    antonyms: ["proportionate"],
+    examples: [
+      { en: "The survey found that a disproportionate number of politicians send their children to private schools.", vi: "Khảo sát cho thấy một tỷ lệ bất thường các chính trị gia gửi con vào trường tư." },
+      { en: "Housing takes up a disproportionate share of their income.", vi: "Chi phí nhà ở chiếm một phần thu nhập không cân xứng của họ." },
+    ],
+    ieltsTip: "Tiền tố \"dis-\" tạo nghĩa phủ định — nắm quy tắc tiền tố giúp đoán nghĩa từ mới rất nhanh.",
+    summary: "disproportionate = không cân xứng, chiếm tỷ lệ bất thường.",
+  },
+  {
+    term: "maintenance",
+    ipa: "/ˈmeɪntənəns/",
+    pos: "noun",
+    usageNote: "chỉ việc bảo trì, giữ cho một thứ hoạt động tốt; động từ là maintain",
+    en: "the work needed to keep something in good condition",
+    vi: "việc bảo trì, bảo dưỡng",
+    synonyms: ["upkeep"],
+    antonyms: ["neglect"],
+    examples: [
+      { en: "Older houses generally require more maintenance than more modern houses.", vi: "Nhà cũ thường cần bảo trì nhiều hơn nhà hiện đại." },
+      { en: "The maintenance of these machines is expensive.", vi: "Việc bảo dưỡng những cỗ máy này rất tốn kém." },
+    ],
+    ieltsTip: "Chú ý chính tả: mainTENance (không phải \"maintainance\") — lỗi viết sai rất phổ biến.",
+    summary: "maintenance = công việc bảo trì, giữ cho vận hành tốt.",
+  },
+  {
+    term: "authoritative",
+    ipa: "/ɔːˈθɒrətətɪv/",
+    pos: "adjective",
+    usageNote: "mô tả giọng nói hoặc nguồn tin có uy quyền, khiến người khác tin và nghe theo",
+    en: "showing that you are in control and expect to be obeyed; able to be trusted as accurate",
+    vi: "đầy uy quyền; đáng tin cậy",
+    synonyms: ["commanding", "reliable"],
+    antonyms: ["hesitant"],
+    examples: [
+      { en: "The students immediately fell quiet when they heard the authoritative voice of their principal.", vi: "Học sinh lập tức im lặng khi nghe thấy giọng nói đầy uy quyền của thầy hiệu trưởng." },
+      { en: "This is the most authoritative study on the subject.", vi: "Đây là nghiên cứu đáng tin cậy nhất về chủ đề này." },
+    ],
+    ieltsTip: "Đừng nhầm \"authoritative\" (uy tín, đáng tin) với \"authoritarian\" (độc đoán).",
+    summary: "authoritative = uy quyền; hoặc đáng tin cậy về chuyên môn.",
+  },
+  {
+    term: "methodology",
+    ipa: "/ˌmeθəˈdɒlədʒi/",
+    pos: "noun",
+    usageNote: "chỉ hệ thống phương pháp được dùng trong nghiên cứu hoặc giảng dạy",
+    en: "the set of methods used in a particular area of study",
+    vi: "phương pháp luận, hệ phương pháp",
+    synonyms: ["approach"],
+    antonyms: [],
+    examples: [
+      { en: "The researchers explained their methodology in detail.", vi: "Các nhà nghiên cứu đã giải thích chi tiết phương pháp luận của họ." },
+      { en: "Teaching methodology has changed a great deal in recent years.", vi: "Phương pháp giảng dạy đã thay đổi rất nhiều trong những năm gần đây." },
+    ],
+    ieltsTip: "\"Method\" là một cách làm cụ thể; \"methodology\" là cả hệ thống phương pháp.",
+    summary: "methodology = hệ thống phương pháp trong nghiên cứu/giảng dạy.",
+  },
+  {
+    term: "a labour of love",
+    ipa: "/ə ˈleɪbər əv lʌv/",
+    pos: "phrase",
+    usageNote: "thành ngữ chỉ công việc vất vả nhưng làm vì yêu thích chứ không vì tiền",
+    en: "hard work that you do because you enjoy it, not for money",
+    vi: "việc làm vì đam mê (không vì tiền)",
+    synonyms: [],
+    antonyms: ["drudgery"],
+    examples: [
+      { en: "Restoring the old theatre was a labour of love for the volunteers.", vi: "Việc phục dựng nhà hát cũ là công việc vì đam mê của những tình nguyện viên." },
+      { en: "Writing the book took ten years — it was a labour of love.", vi: "Viết cuốn sách mất mười năm — đó là công việc làm vì đam mê." },
+    ],
+    ieltsTip: "Thành ngữ này rất hợp khi kể về một dự án cá nhân trong Speaking Part 2.",
+    summary: "a labour of love = việc vất vả làm vì yêu thích, không vì tiền.",
+  },
+  {
+    term: "hindrance",
+    ipa: "/ˈhɪndrəns/",
+    pos: "noun",
+    usageNote: "chỉ thứ gây cản trở; dạng động từ là hinder",
+    en: "something that makes it more difficult to do something",
+    vi: "trở ngại, vật cản trở",
+    synonyms: ["obstacle", "impediment"],
+    antonyms: ["help", "aid"],
+    examples: [
+      { en: "These new rules are more help than hindrance.", vi: "Những quy định mới này giúp ích nhiều hơn là gây cản trở." },
+      { en: "The heavy equipment proved a hindrance on the narrow path.", vi: "Thiết bị nặng nề hoá ra lại là trở ngại trên con đường hẹp." },
+    ],
+    ieltsTip: "Mẹo đoán nghĩa: khi thấy \"more help than hindrance\", cấu trúc so sánh cho biết hindrance là trái nghĩa của help.",
+    summary: "hindrance = thứ gây cản trở (động từ: hinder).",
+  },
+];
+
+const UNIT_21_LEARNING_VOCABULARY: CambridgeUnit = {
+  unit: 21,
+  slug: "learning-vocabulary",
+  title: "Learning vocabulary",
+  topics: "Dictionaries, wordlists",
+  testPractice: "Reference",
+  steps: [
+    {
+      kind: "vocab",
+      title: "Academic words in this unit",
+      instructions: "These words come from the Academic Word List — exactly the kind of vocabulary you meet in IELTS Reading and Listening.",
+      words: unit21Vocab,
+    },
+    {
+      kind: "type_fill",
+      title: "Choosing a dictionary",
+      instructions: "Complete these notes about choosing and using a dictionary.",
+      items: [
+        { prompt: "Beginners often prefer to use a ___ dictionary (one that uses two languages).", answer: "bilingual" },
+        { prompt: "Advanced students should use a dictionary that does not rely on ___.", answer: "translation" },
+        { prompt: "You can ___ up the meaning of a word or phrase.", answer: "look" },
+        { prompt: "You can check the ___ of a word and whether it has double letters.", answer: "spelling" },
+        { prompt: "You can learn the correct ___ of words, ideally from a recording.", answer: "pronunciation" },
+        { prompt: "You can also learn pronunciation from the ___ script (the symbols in slashes).", answer: "phonemic" },
+        { prompt: "A good dictionary's ___ explain the meaning of a word in a simple way.", answer: "definitions" },
+        { prompt: "It tells you how ___ a word is and whether it is mainly used for speaking or writing.", answer: "frequent" },
+      ],
+    },
+    {
+      kind: "type_fill",
+      title: "Using a dictionary to find forms",
+      instructions: "Use what a dictionary tells you to answer each question.",
+      items: [
+        { prompt: "The noun form of 'assume' is ___.", answer: "assumption" },
+        { prompt: "The opposite of 'import' is ___.", answer: "export" },
+        { prompt: "The correct spelling of the past tense of 'occur' is ___.", answer: "occurred" },
+        { prompt: "Another noun form of the word 'method' is ___.", answer: "methodology" },
+        { prompt: "The phrasal verb with 'factor' meaning 'to include something in a calculation' is to ___.", answer: "factor in" },
+        { prompt: "The idiom with 'labour' meaning 'to work hard because you enjoy it' is a ___.", answer: "labour of love" },
+      ],
+    },
+    {
+      kind: "type_fill",
+      title: "Changing the form of academic words",
+      instructions: "Complete each sentence with the correct form of the word in brackets.",
+      items: [
+        { prompt: "The government are planning to introduce new ___ that will set a minimum wage for all. (legislate)", answer: "legislation" },
+        { prompt: "Researchers found a positive ___ between computer access at home and academic performance. (correlate)", answer: "correlation" },
+        { prompt: "Many people spend a great deal of money in the ___ of happiness without ever finding it. (pursue)", answer: "pursuit" },
+        { prompt: "The school gave me an ___ because I had been absent for 40 days that year. (ultimate)", answer: "ultimatum" },
+        { prompt: "The survey found that a ___ number of politicians send their children to private schools. (proportion)", answer: "disproportionate" },
+        { prompt: "Older houses generally require more ___ than more modern houses. (maintain)", answer: "maintenance" },
+        { prompt: "The students immediately fell quiet when they heard the ___ voice of their principal. (authority)", answer: "authoritative" },
+        { prompt: "Botox is a protein which is ___ from a live bacteria. (derive)", answer: "derived" },
+      ],
+    },
+    {
+      kind: "sort",
+      title: "Which words should you learn?",
+      instructions: "In a typical academic text, about 80% of words are high frequency, 10% are academic and 10% are low frequency or technical. Sort these words from a reading passage about pigeons.",
+      buckets: ["Learn these (high frequency / academic)", "Guess or ignore these (low frequency / technical)"],
+      items: [
+        { term: "identify", bucket: 0 },
+        { term: "environment", bucket: 0 },
+        { term: "complex", bucket: 0 },
+        { term: "process", bucket: 0 },
+        { term: "categories", bucket: 0 },
+        { term: "constraints", bucket: 0 },
+        { term: "version", bucket: 0 },
+        { term: "whereas", bucket: 0 },
+        { term: "utterly", bucket: 1 },
+        { term: "stimuli", bucket: 1 },
+        { term: "chaotic", bucket: 1 },
+        { term: "neural", bucket: 1 },
+        { term: "leafy", bucket: 1 },
+        { term: "operant conditioning chamber", bucket: 1 },
+        { term: "Skinner box", bucket: 1 },
+      ],
+    },
+    {
+      kind: "reveal_pairs",
+      title: "Guessing meaning from context",
+      instructions: "Tap each unfamiliar word to reveal what it means. In the IELTS test you are not expected to know technical words — you work them out.",
+      pairs: [
+        { prompt: "making pseudoscientific claims which are unsupported by scientific evidence", reveal: "pseudoscientific = not done in a scientific way" },
+        { prompt: "these products give skin a healthy glow", reveal: "glow = to produce a continuous light" },
+        { prompt: "these rules are more help than hindrance", reveal: "hindrance = something which makes it more difficult to do something" },
+        { prompt: "pharmacists, doctors and dermatologists", reveal: "dermatologist = a doctor who treats skin diseases" },
+        { prompt: "white lead caused hallucinations and convulsions", reveal: "hallucination = seeing something that does not exist; convulsion = uncontrollable muscle movement" },
+      ],
+    },
+    {
+      kind: "reveal_pairs",
+      title: "How to work out an unknown word",
+      instructions: "Tap each clue type to reveal how it helps you guess a word's meaning.",
+      pairs: [
+        { prompt: "The word is defined by a relative clause", reveal: "e.g. '...claims which are unsupported by scientific evidence' — the clause tells you the meaning" },
+        { prompt: "The word is defined by an adjective", reveal: "e.g. 'a healthy glow' — the adjective shows what kind of thing it is" },
+        { prompt: "The word is compared with another word", reveal: "e.g. 'more help than hindrance' — the contrast gives you the opposite meaning" },
+        { prompt: "The word appears in a list", reveal: "e.g. 'pharmacists, doctors and dermatologists' — items in a list are usually similar" },
+        { prompt: "The word is part of a cause and effect sentence", reveal: "e.g. 'lead resulted in hallucinations' — the cause tells you these must be symptoms" },
+      ],
+    },
+    {
+      kind: "reveal_pairs",
+      title: "Ways to learn new vocabulary",
+      instructions: "Tap each method to see why it works. Tick the ones you already use — and try two new ones this week.",
+      pairs: [
+        { prompt: "Choose words from a list of frequent words", reveal: "You meet high frequency and academic words again and again, so they repay the effort" },
+        { prompt: "Repeat words aloud", reveal: "You remember the oral as well as the visual aspect of the word" },
+        { prompt: "Use a mind map", reveal: "Links words together into a topic, so one word helps you recall the others" },
+        { prompt: "Use index cards with a synonym, antonym and translation on the back", reveal: "Forces active recall instead of passive recognition" },
+        { prompt: "Record whether a word is formal, informal, positive or negative", reveal: "Stops you using the right meaning in the wrong situation" },
+        { prompt: "Learn in sets of 18 or 36 words and revise before the next set", reveal: "Spaced revision moves words into long-term memory" },
+        { prompt: "Use new words as often as possible", reveal: "Production, not just recognition, is what the Speaking and Writing tests reward" },
+      ],
+    },
+  ],
+};
+
+const UNIT_22_IELTS_READING: CambridgeUnit = {
+  unit: 22,
+  slug: "ielts-reading",
+  title: "IELTS Reading",
+  topics: "Reading skills, question types",
+  testPractice: "Reference",
+  steps: [
+    {
+      kind: "reveal_pairs",
+      title: "Timing in the Reading test",
+      instructions: "You have 20 minutes for each passage and its 13–14 questions. Tap each stage to see how long it should take.",
+      pairs: [
+        { prompt: "Stage 1 — skim the passage and the items", reveal: "3–4 minutes: this gives you the gist of the passage and the types of question you need to answer" },
+        { prompt: "Stage 2 — answer the questions", reveal: "13–14 minutes: if a question takes longer than a minute, move on and come back to it later" },
+        { prompt: "Stage 3 — check and transfer your answers", reveal: "3–4 minutes: no extra time is given to transfer answers in the Reading test" },
+        { prompt: "Reading speed", reveal: "A native speaker reads about 100 words in 20 seconds — practise reading a 100-word section in 30 seconds" },
+      ],
+    },
+    {
+      kind: "fill_mc",
+      title: "One word, several meanings",
+      instructions: "Choose the meaning each word has in this context: 'pecking at the good pictures would yield a grain reward, whereas... All of the pigeons learned to respond to good artwork... memorisation is probably not the main avenue by which they accomplished this.'",
+      items: [
+        { before: "In this context, 'yield' means", after: ".", options: ["produce", "agree", "give up"], answer: "produce" },
+        { before: "In this context, 'respond' means", after: ".", options: ["react", "reply", "answer"], answer: "react" },
+        { before: "In this context, 'avenue' means", after: ".", options: ["method", "road", "possibility"], answer: "method" },
+      ],
+    },
+    {
+      kind: "reveal_pairs",
+      title: "Referencing clues",
+      instructions: "Pronouns and phrases like 'this strategy' link ideas together. Tap each one to see what it refers to.",
+      pairs: [
+        { prompt: "'they' (in 'the pigeons in this experiment... they')", reveal: "refers back to: pigeons" },
+        { prompt: "'ones', 'those'", reveal: "refer back to: pictures" },
+        { prompt: "'it'", reveal: "refers back to: the experiment" },
+        { prompt: "'this strategy' — forwards or backwards?", reveal: "forwards — we learn what the strategy is in the words that follow" },
+        { prompt: "'this possibility' — forwards or backwards?", reveal: "backwards — it points to the strategy that has just been explained" },
+      ],
+    },
+    {
+      kind: "reading_tfng",
+      title: "Identifying information and the writer's claims",
+      passageTitle: "Deliberate practice",
+      passage:
+        "A  Thirty years ago, two Hungarian educators, Laslo and Klara Polgar, decided to challenge the popular assumption that women don't succeed in areas requiring spatial thinking, such as chess. They wanted to make a point about the power of education. The Polgars home-schooled their three daughters, and as part of their education, the girls started playing chess with their parents at a very young age. Their systematic training and daily practice paid off. By 2000, all three daughters had been ranked in the top ten female players in the world. The youngest, Judit, had become a grandmaster at the age of 15, breaking the previous record by one month.\n\n" +
+        "B  To people who have never reached a high level of competition in sport, it may appear that excellence is simply the result of playing daily for many years. However, simply living in a cave doesn't make you a geologist. Not all practice makes perfect. You need a particular kind of practice – deliberate practice – to develop expertise. Deliberate practice entails considerable, specific, and sustained effort. To illustrate this point, let's imagine you are learning to play golf. In the early phases, you try to learn the basic strokes and focus on avoiding embarrassing mistakes such as hitting another player with a ball. You practise with novices like yourself and, in a surprisingly short time, your game improves. You work on your skills and practise until your strokes become automatic. Your golf game is now a social outing, in which you occasionally concentrate on your shots.\n\n" +
+        "C  However, from this point on, additional time on the golf course will not substantially improve your performance, which may remain at the same level for decades. Why does this happen? You don't improve, because when you are playing a game, you get only a single chance to make a shot from any given location. You don't get to figure out how you can correct mistakes. If you were allowed to take five to ten shots from the exact same location on the course, you would get more feedback on your technique and start to improve your control.\n\n" +
+        "D  This kind of deliberate practice can be adapted to developing any kind of skill. Deliberate practice involves two kinds of learning: improving the skills you already have and extending the reach and range of your skills. The enormous concentration required to undertake these twin tasks limits the amount of time you can spend doing them. The famous violinist Nathan Milstein wrote: 'Practise as much as you feel you can accomplish with concentration. Once I asked my mentor, Leopold Auer, how many hours I should practise, and he said, \"It really doesn't matter how long. If you practise with your fingers, no amount is enough. If you practise with your head, two hours is plenty.\"'",
+      questions: [
+        {
+          text: "Laslo Polgar gave up work in order to teach his children.",
+          answer: "Not given",
+          justification: "We know he helped home-school the children, but we are given no information about whether or not he worked as well.",
+        },
+        {
+          text: "Judit Polgar was one month younger than the previous holder of the title of youngest chess grandmaster.",
+          answer: "True",
+          justification: "Judit had become a grandmaster at the age of 15, breaking the previous record by one month.",
+        },
+        {
+          text: "Many people believe that women perform well in tasks requiring spatial thinking.",
+          answer: "False",
+          justification: "The passage refers to the popular assumption that women don't succeed in areas requiring spatial thinking.",
+        },
+        {
+          text: "The Polgars might have produced the same results with a less punishing training schedule.",
+          answer: "Not given",
+          justification: "The writer expresses no personal opinion about the training schedule; we are only told it was successful.",
+        },
+        {
+          text: "Playing a sport every day for years is enough on its own to produce excellence.",
+          answer: "False",
+          justification: "Not all practice makes perfect — you need deliberate practice to develop expertise.",
+        },
+        {
+          text: "Taking several shots from the same position would give a golfer more feedback on their technique.",
+          answer: "True",
+          justification: "If you were allowed to take five to ten shots from the exact same location, you would get more feedback on your technique.",
+        },
+      ],
+    },
+    {
+      kind: "fill_mc",
+      title: "Question type 1 — objective items",
+      instructions: "Answer these questions about the passage 'Deliberate practice'.",
+      items: [
+        { before: "MATCHING HEADINGS — the best heading for section A is", after: ".", options: ["Disproving a commonly held belief about gender", "High intelligence does not guarantee success", "Establishing a link between success and age"], answer: "Disproving a commonly held belief about gender" },
+        { before: "MATCHING INFORMATION — 'an explanation of the type of preparation required to succeed' is found in section", after: ".", options: ["B", "A", "C"], answer: "B" },
+        { before: "MATCHING INFORMATION — 'the specific aim of one particular experiment' is found in section", after: ".", options: ["A", "B", "D"], answer: "A" },
+        { before: "MULTIPLE CHOICE — the writer mentions geologists in section B", after: ".", options: ["to illustrate the need for deliberate practice", "to represent a broad range of scientific study", "to provide an example of a field requiring special expertise"], answer: "to illustrate the need for deliberate practice" },
+        { before: "MATCHING FEATURES — 'It is the quality rather than the quantity of practice that matters most' matches", after: ".", options: ["Milstein", "Polgar"], answer: "Milstein" },
+        { before: "MATCHING FEATURES — 'Males and females have equal chances of achieving success' matches", after: ".", options: ["Polgar", "Milstein"], answer: "Polgar" },
+        { before: "SENTENCE ENDINGS — When people begin to learn a new skill they may", after: ".", options: ["practise with people of a similar level", "practise as often and for as long as possible", "change the type of practice they do"], answer: "practise with people of a similar level" },
+        { before: "SENTENCE ENDINGS — If people find it difficult to make any progress they should", after: ".", options: ["change the type of practice they do", "practise as often and for as long as possible", "practise with people of a similar level"], answer: "change the type of practice they do" },
+      ],
+    },
+    {
+      kind: "type_fill",
+      title: "Question type 2 — productive items",
+      instructions: "Complete each answer with words taken from the passage 'Deliberate practice'.",
+      items: [
+        { prompt: "SENTENCE COMPLETION — When people are learning a new skill, they often practise with other ___. (ONE WORD)", answer: "novices" },
+        { prompt: "SENTENCE COMPLETION — Deliberate practice cannot be done for a long period of time because it requires a great deal of ___. (ONE WORD)", answer: "concentration" },
+        { prompt: "SHORT ANSWER — Where were Laslo and Klara's children educated? (NO MORE THAN TWO WORDS)", answer: "at home" },
+        { prompt: "NOTE COMPLETION — Deliberate practice requires a great deal of focused ___ over a long period of time. (ONE WORD)", answer: "effort" },
+        { prompt: "NOTE COMPLETION — According to Milstein, practising for ___ hours each day may be enough to become an expert. (ONE WORD AND/OR A NUMBER)", answer: "two" },
+      ],
+    },
+    {
+      kind: "reveal_pairs",
+      title: "Diagram labels — a Doric column",
+      instructions: "Diagram-label questions test whether you can match a description in the passage to a picture. Tap each part to reveal how the passage describes it.",
+      pairs: [
+        { prompt: "the capital", reveal: "the top of the column, which in the Doric order has two pieces" },
+        { prompt: "the shaft", reveal: "the tall, vertical part of the column, with 20 sides, standing directly on the flat pavement" },
+        { prompt: "the frieze", reveal: "the area above the column, consisting of the metopes and triglyphs" },
+        { prompt: "a metope", reveal: "a plain rectangular element filling the space between two decorated triglyphs" },
+        { prompt: "a triglyph", reveal: "a decorated element thought to represent wooden beam ends" },
+        { prompt: "the pediment", reveal: "the large triangular section of the roof supported by the frieze" },
+      ],
+    },
+    {
+      kind: "reveal_pairs",
+      title: "Question-type strategies",
+      instructions: "Tap each question type to reveal the key thing to remember about it.",
+      pairs: [
+        { prompt: "Matching headings vs matching information", reveal: "Headings cover the MAIN POINT of a section; matching information items focus on SPECIFIC DETAILS within it" },
+        { prompt: "True / False / Not given", reveal: "Focuses on concrete FACTS in the passage" },
+        { prompt: "Yes / No / Not given", reveal: "Focuses on the writer's CLAIMS or OPINIONS" },
+        { prompt: "False/No vs Not given", reveal: "False/No items say the OPPOSITE of the passage; Not given items are neither true nor false because the information isn't there" },
+        { prompt: "Matching features", reveal: "The questions are NOT in the same order as the passage — scan for the names first" },
+        { prompt: "Matching sentence endings", reveal: "The sentence beginnings follow the order of the passage, but the endings are out of order" },
+        { prompt: "All productive items", reveal: "Check what type of word is needed (noun? number? date?) — you score nothing if you write too many words or copy them incorrectly" },
+      ],
+    },
+  ],
+};
+
+const UNIT_23_IELTS_WRITING: CambridgeUnit = {
+  unit: 23,
+  slug: "ielts-writing",
+  title: "IELTS Writing",
+  topics: "Writing Task 1, Writing Task 2",
+  testPractice: "Reference",
+  steps: [
+    {
+      kind: "writing_task",
+      title: "Writing Task 1 — describing a bar chart",
+      taskLabel: "Writing Task 1",
+      prompt:
+        "The charts below show the results of a weight assessment of the inhabitants of Newtown in 1950 and in 2010. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+      chartCaption: "Weight assessment of inhabitants of Newtown (percentage of each age group)",
+      chartRows: [
+        "2010 — 20–29: underweight 20%, ideal 72%, overweight 4%, obese 4%",
+        "2010 — 30–39: underweight 2%, ideal 52%, overweight 36%, obese 10%",
+        "2010 — 40–49: underweight 2%, ideal 40%, overweight 33%, obese 25%",
+        "2010 — 50–59: underweight 2%, ideal 42%, overweight 5%, obese 51%",
+        "2010 — 60–69: underweight 0%, ideal 15%, overweight 25%, obese 60%",
+        "1950 — 20–29: underweight 21%, ideal 71%, overweight 8%, obese 0%",
+        "1950 — 30–39: underweight 25%, ideal 60%, overweight 15%, obese 0%",
+        "1950 — 40–49: underweight 22%, ideal 60%, overweight 15%, obese 3%",
+        "1950 — 50–59: underweight 30%, ideal 55%, overweight 12%, obese 3%",
+        "1950 — 60–69: underweight 40%, ideal 48%, overweight 10%, obese 2%",
+      ],
+      minWords: 150,
+      tip:
+        "Bài Task 1 phải có: introduction (viết lại đề bằng từ của bạn), overview (xu hướng chính) và tất cả các số liệu nổi bật — đủ mọi nhóm tuổi, mọi hạng cân và các xu hướng chính. Error warning: dùng \"amount\" với danh từ không đếm được và \"number\" với danh từ đếm được; \"per cent\" luôn đi kèm con số, còn \"percentage\" đứng một mình. Dành khoảng 20 phút và viết ít nhất 150 từ.",
+      modelAnswer:
+        "The chart summarises the weight measurements of people living in Newtown in 2010.\n\n" +
+        "When it comes to weight, the healthiest age group is the 20-to-29 year-olds. More than 70% of the people in this age group are classified as maintaining a healthy weight. Less than five per cent of this age group is considered to be obese or overweight. In fact, a fifth are considered to actually weigh less than is considered healthy.\n\n" +
+        "Just over half of those in their 30s are considered to have an ideal weight. This figure remains fairly constant up to the age of 59. But only 5% of residents in their 60s are considered to be at a healthy weight.\n\n" +
+        "The proportion of Newtown inhabitants who are overweight or obese increases steadily with age and more than half of the fifty-somethings are categorised as obese. By the age of 60, more than 80% of the population is considered to be overweight to some degree. Being underweight as a problem is mainly restricted to the youngest age group and those most advanced in age.\n\n" +
+        "Overall, it's clear from the chart that in Newtown there seems to be a direct link between age and weight gain.",
+    },
+    {
+      kind: "fill_mc",
+      title: "Language for describing figures",
+      instructions: "Choose the correct alternative in this model answer comparing the two charts.",
+      items: [
+        { before: "In 1950, the youngest age group had the fewest", after: "of weight issues.", options: ["number", "amount"], answer: "number" },
+        { before: "Being underweight affected more than twenty", after: "of each age group.", options: ["per cent", "percentage"], answer: "per cent" },
+        { before: "In stark contrast to this,", after: "2010, being underweight was only a problem among 20–29-year-olds.", options: ["in", "for"], answer: "in" },
+        { before: "The number of underweight elderly people had fallen", after: "10%.", options: ["to", "by"], answer: "to" },
+        { before: "There was a", after: "increase in this problem in almost every age group over 29.", options: ["steady", "steadily"], answer: "steady" },
+        { before: "By the age of 60, less than 50%", after: "each age group was considered to have a perfect weight.", options: ["of", "in"], answer: "of" },
+        { before: "This is a fall of 10% compared", after: "the same age group in 1950.", options: ["to", "of"], answer: "to" },
+        { before: "When", after: "the two years, it is clear that there has been a significant increase.", options: ["comparing", "compared"], answer: "comparing" },
+        { before: "There has been a significant increase", after: "the number of obese people in Newtown.", options: ["in", "of"], answer: "in" },
+        { before: "There was a general drop", after: "the number of underweight people between 1950 and 2010.", options: ["in", "of"], answer: "in" },
+      ],
+    },
+    {
+      kind: "sort",
+      title: "Describing plans — now or after?",
+      instructions: "In Task 1 you may have to describe two plans of the same place. Sort these words into the ones that describe the situation now and the ones that describe the proposed situation.",
+      buckets: ["Now", "After the changes"],
+      items: [
+        { term: "current", bucket: 0 },
+        { term: "existing", bucket: 0 },
+        { term: "at present", bucket: 0 },
+        { term: "proposed", bucket: 1 },
+        { term: "future", bucket: 1 },
+        { term: "planned", bucket: 1 },
+        { term: "expected", bucket: 1 },
+        { term: "anticipated", bucket: 1 },
+        { term: "prospective", bucket: 1 },
+      ],
+    },
+    {
+      kind: "writing_task",
+      title: "Writing Task 1 — describing plans",
+      taskLabel: "Writing Task 1",
+      prompt:
+        "The plans show proposed changes to a university art gallery. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+      chartCaption: "University art gallery, Mill Road — now and after the proposed changes",
+      chartRows: [
+        "NOW — entrance on the right-hand side, leading into a lobby",
+        "NOW — exhibition space divided into three separate areas",
+        "NOW — an office made up of small rooms on the far left of the building",
+        "AFTER — entrance widened and moved so that visitors enter the main exhibition area directly",
+        "AFTER — dividing walls removed to create one large exhibition space with a large central wall",
+        "AFTER — the office area opened up to create a further large exhibition space",
+        "AFTER — the existing lobby replaced and enlarged to become an education centre with a large table and seating",
+      ],
+      minWords: 150,
+      tip:
+        "Hãy dùng các động từ mô tả thay đổi: enlarge, widen, divide, replace, move, convert, relocate, demolish, renovate, extend, develop, modify. Nhớ dùng thì hiện tại cho hiện trạng và \"will be + V3\" cho phần dự kiến.",
+      modelAnswer:
+        "The plans show the modifications that a university would like to make to its art gallery. The image on the top shows the art gallery as it is at present and the image below that shows the art gallery once the renovations have been completed.\n\n" +
+        "As can be seen from the first image, the current entrance to the gallery is on the right hand side of the building and visitors pass through a large lobby before entering the gallery itself. One of the proposed changes is to allow entrance on to the main exhibition area, where an existing entrance will be widened. At present, the exhibition rooms are divided into three separate areas. According to the plans, the dividing walls will be removed and one large exhibition space will be created. Art can then be displayed on the walls around the room as well as on a large central wall.\n\n" +
+        "A further major change is to an area on the far left of the building that is used as an office at present. This area is currently divided into small rooms, but will be opened up to create one large exhibition space. In addition, the gallery will gain an education centre. This area will replace the existing lobby, which will also be enlarged to create a more functional space with a large table and seating.\n\n" +
+        "If these plans are carried out, then not only will the art gallery increase the exhibition areas but will also gain an educational facility. Relocating the entrance to the gallery will give visitors an immediate view of the main exhibition areas.",
+    },
+    {
+      kind: "sort",
+      title: "Planning a Task 2 essay",
+      instructions: "Question: 'Tourism has increased so much over the last 50 years that it is having a mainly negative impact on local inhabitants and the environment. However, others claim that it is good for the economy.' Sort these ideas. (Note: 'climate change', 'expenses associated with travel' and 'places I would like to visit' are irrelevant to this question — leave them out of your essay.)",
+      buckets: ["Advantage", "Disadvantage"],
+      items: [
+        { term: "local people have more money to spend", bucket: 0 },
+        { term: "infrastructure improves", bucket: 0 },
+        { term: "boost to the economy", bucket: 0 },
+        { term: "increased jobs", bucket: 0 },
+        { term: "local government may have more money to spend on environment", bucket: 0 },
+        { term: "environmental damage", bucket: 1 },
+        { term: "graffiti or littering", bucket: 1 },
+        { term: "erosion from water sports", bucket: 1 },
+        { term: "erosion of local culture and customs", bucket: 1 },
+        { term: "damage to historical monuments", bucket: 1 },
+      ],
+    },
+    {
+      kind: "fill_mc",
+      title: "Linking your ideas",
+      instructions: "Choose the correct alternative to link these ideas accurately.",
+      items: [
+        { before: "", after: "there are clear benefits of tourism, there are also several drawbacks.", options: ["Although", "Despite", "However"], answer: "Although" },
+        { before: "", after: "the fact that tourism has clear benefits, there are also several drawbacks.", options: ["Despite", "Although", "However"], answer: "Despite" },
+        { before: "Tourism clearly has many benefits.", after: ", it also has considerable drawbacks.", options: ["However", "Although", "Despite"], answer: "However" },
+        { before: "Several historical monuments are showing signs of damage", after: "the thoughtless acts of tourists.", options: ["because of", "because"], answer: "because of" },
+        { before: "Several historical monuments are showing damage", after: "tourists have behaved irresponsibly.", options: ["because", "because of"], answer: "because" },
+        { before: "The government could try to introduce", after: "system which limits the number of tourists allowed into an area.", options: ["a", "the"], answer: "a" },
+        { before: "Additional facilities such as", after: "extra buses could be provided during the tourist season.", options: ["—  (no article)", "the"], answer: "—  (no article)" },
+      ],
+    },
+    {
+      kind: "reveal_pairs",
+      title: "What the examiner is looking for (lexical resource)",
+      instructions: "Tap each band score to reveal what it means for vocabulary. Note the words in bold in the official descriptors.",
+      pairs: [
+        { prompt: "Band 9", reveal: "uses a WIDE range of vocabulary with very NATURAL and SOPHISTICATED control; rare minor errors occur only as 'slips'" },
+        { prompt: "Band 8", reveal: "uses a WIDE range fluently and flexibly to convey PRECISE meanings; skilfully uses UNCOMMON lexical items; rare errors in spelling or word formation" },
+        { prompt: "Band 7", reveal: "uses a SUFFICIENT range for some flexibility and precision; uses LESS COMMON items with some awareness of STYLE and COLLOCATION; occasional errors" },
+        { prompt: "Band 6", reveal: "uses an ADEQUATE range; ATTEMPTS less common vocabulary but with some inaccuracy; some errors that do not IMPEDE COMMUNICATION" },
+        { prompt: "Band 5", reveal: "uses a LIMITED range, minimally adequate; NOTICEABLE errors that may CAUSE SOME DIFFICULTY for the reader" },
+        { prompt: "Which introduction sounds natural?", reveal: "Script C — it does not copy from the question and reads fluently" },
+        { prompt: "Which introduction copies words from the question?", reveal: "Script A — copied words score you nothing" },
+        { prompt: "Which introduction has careless spelling mistakes?", reveal: "Script C" },
+        { prompt: "Which introduction has errors in word formation?", reveal: "Script B (e.g. 'dramaticaly', 'developping', 'definitly')" },
+        { prompt: "What band would each introduction get for lexical resource?", reveal: "Script A = band 5 (too much copied from the question); Script B = band 7 (attempts at higher-level language, errors don't obscure the message); Script C = band 8 (fluent, natural, little copied — only rare spelling slips)" },
+      ],
+    },
+    {
+      kind: "type_fill",
+      title: "The eleven words candidates misspell most",
+      instructions: "These are the most common spelling mistakes made by candidates at Band 6 and above. Type each word correctly.",
+      items: [
+        { prompt: "goverment →", answer: "government" },
+        { prompt: "enviroment →", answer: "environment" },
+        { prompt: "thier →", answer: "their" },
+        { prompt: "diffrent →", answer: "different" },
+        { prompt: "belive →", answer: "believe" },
+        { prompt: "percentege →", answer: "percentage" },
+        { prompt: "socity →", answer: "society" },
+        { prompt: "untill →", answer: "until" },
+        { prompt: "wich →", answer: "which" },
+        { prompt: "nowdays →", answer: "nowadays" },
+        { prompt: "definitly →", answer: "definitely" },
+      ],
+    },
+    {
+      kind: "writing_task",
+      title: "Writing Task 2 — practice",
+      taskLabel: "Writing Task 2",
+      prompt:
+        "Tourism has increased so much over the last 50 years that it is having a mainly negative impact on local inhabitants and the environment. However, others claim that it is good for the economy. Discuss the advantages and disadvantages of tourism and give your own opinion.",
+      minWords: 250,
+      tip:
+        "Task 2 chiếm nhiều điểm hơn Task 1, nên hãy dành trọn 40 phút cho nó. Trước khi viết: chọn ý (bỏ những ý không liên quan), sắp xếp thành các đoạn, rồi liên kết bằng although/despite/however và because/because of cho chính xác. Đừng chép lại nguyên văn đề bài trong phần mở bài.",
+      modelAnswer:
+        "Whether or not tourist destinations benefit from international tourism is a debatable issue. To some governments, the local economic benefits are worth the overcrowding and hiked prices of the tourist season. However, there are environmental and social costs and other risks of relying on tourism as a major source of annual income.\n\n" +
+        "Sleepy coastal communities can be changed beyond recognition by mass-market tourism. Package holiday companies operate huge numbers of low-cost flights to high-rise hotels in developing countries every summer. This means, of course, that easy money can be had servicing this seasonal influx and the government sees increased tax revenue and local employment. However, when the tourist season comes to an end, employment ceases and the area becomes a ghost town. The social cohesion of a small community can also be blighted by the seasonal migration of people to the cities to look for work out of season, leaving only the elderly behind. This is perhaps made worse by second home owners, who drive up house prices beyond the means of local inhabitants. On the other hand, the local community do gain language skills and other fringe benefits of cultural exchange.\n\n" +
+        "Such a large volume of travellers every year can cause environmental problems to fragile habitats and historical sites. Age-old stone remains can be worn away and traditional buildings demolished in favour of bland international hotels. Local infrastructure can also fail to cope with large numbers of visitors, leading to pollution and litter. However, over time this can change as the economy improves and tourism becomes more of an established industry. Local government investment in infrastructure should ensure repeat trade and further benefits for the economy.\n\n" +
+        "Overall, tourism can be a good source of income for countries blessed with natural beauty or sites of historical interest. However, governments must ensure that the wishes of local businesses are not put before the needs of the local community and that any revenue generated by tourism is reinvested in the area to protect the local environment.",
+    },
+  ],
+};
+
+const track39Script = `a  We have a larger group today and we are expecting about 15 people altogether.
+b  It's room number 42.
+c  My husband will be 55 next year.
+d  It costs 50 dollars but I've only got 30.
+e  There are a hundred people coming and we've only got 80 chairs so we need to order 20 more.
+f  Your flight is on July the 23rd.
+g  That won't do, I have a meeting on the 22nd.
+h  I'm afraid she won't be back in the office until the 31st.
+i  I ran in our local half marathon at the weekend and came 26th!
+j  I need to organise a celebration for my sister's 40th birthday.`;
+
+const track40Script = `1  Peter: Oh, I suppose you'll be needing my address? It's seven Eaton Gardens, Hamilton.
+   Woman: Is that E.A.T.E.N?
+   Peter: No, it's O.N.
+2  Salesman: And I'll need a contact telephone number for you Mrs Smith. I've got your mobile number here, it's zero, four, five, five, triple six, nine, seven, five, two.
+   Mrs Smith: That's correct, but I'm having a few problems with my mobile at the moment so I'll give you my home phone number. It's nine, five, six, two, double seven, oh, five.
+3  Hotel receptionist: Now, breakfast is included in the cost of your stay and you have a choice of a full buffet breakfast or, for those who prefer a lighter option, we also offer a continental breakfast. So, if you wake up with a large appetite then you need to go our Ecco restaurant. That's E, double C, O. And if you want a smaller meal with a lovely view, then please join us at our Koffee Club, and that's Koffee with a K!`;
+
+const track41Script = `1  It's very picturesque.
+2  It has good rail links.
+3  It's pretty strenuous work.
+4  The hours are pretty flexible.
+5  The area is barely adequate.`;
+
+const track42Script = `1  We couldn't decide what approach to take so we searched for a precedent in the archive.
+2  The field was unusual in its rich assemblage of archaeological finds.
+3  The album's binding was fashioned from the finest Italian leather.
+4  A jury should not interpret the silence of a defendant as a sign of guilt.
+5  The book was heavily illustrated with stylised motifs.
+6  Flammable toys like these are extremely dangerous, posing a significant risk to child safety.
+7  In the fiercely competitive sphere of professional football, rules are frequently broken.`;
+
+const track43Script = `John: Hi Anne, have you found a topic for your dissertation yet?
+Anne: Oh. Hi John. Not really, but I just saw this amazing article about animal intelligence.
+John: Oh, is it the one in the Animal Psychology journal with the monkeys? I read it too, it's a fascinating area.
+Anne: Isn't it? It looks like there's a lot of new research coming out. I mean, we're always told 'it's commonly known that animals show intelligence when they use tools', but did you see the findings on the elephants at Bronx Zoo?
+John: Yes I did, they put a mirror in their enclosure and the elephants, not only looked at themselves, but the research team were able to establish that the animals knew when they were looking at their own image and clearly showed recognition.
+Anne: I know. It says here that no other animal apart from humans has demonstrated that kind of consciousness. Not even monkeys.
+John: Well it sounds to me like this could be just the dissertation topic you wanted.
+Anne: It does sound good doesn't it. I'd particularly like to look into the study on capuchin monkeys. They sound like real characters.
+John: I know, but I'm not sure I'd like to have them on campus. Did you see they even managed to escape from their cage?
+Anne: Yes, wasn't it great? And to think, a lot of people are still sceptical about animal intelligence. The standard criticism is that animals only really perform tricks because they've been taught to receive food rewards.
+John: Well, the monkey case study certainly disproves that theory! Anyway, these are far more than tricks, in some cases it's about natural instincts and survival for these animals.
+Anne: Yes, they said that in the bit about the scrub jay in North America. They prey on small animals and store them away. And they can also gauge how long they can keep the food until it's not safe to eat any more.
+John: So, it basically has a planning capability. It's amazing to think an animal can determine its potential food supply like that, isn't it? Hey, your dissertation topic sounds more interesting than mine!`;
+
+const track44Script = `Good morning everyone. In this opening part of the presentation I'll cover the recent work that the Biology department has been involved in based on animal intelligence. First I'll give you a bit of basic background. In 2001, we focused on monkeys and their capability to either fashion crude tools or take advantage of naturally occurring ones. Then in 2007, we turned our thoughts to higher-level thinking and, in particular, numeracy. We conducted a significant piece of research to find out whether birds are in fact able to count. The findings amazed everyone and caused quite a stir around the world. This helped to spur us on and allowed us to expand the department, making it the world-class facility it is today.
+However, it's not without its drawbacks and there are several difficulties that are peculiar to this type of study. Firstly, this type of research is generally prolonged as we have to spend extensive periods gaining the animals' trust. In terms of resources, it can also be very costly to run as we need to employ a large number of supplementary staff to assist us for the length of the study. And finally, there is the question of the physical facilities themselves. We often have to try to find more space just to simply house the animals, which can be quite an arduous chore!
+Which leads me to our present study, and the one we are going to look at today. Our subject this time, is elephants! We knew there was simply no way of accommodating them on campus so I have been carrying out fieldwork at the Bronx Zoo ...`;
+
+const UNIT_24_IELTS_LISTENING: CambridgeUnit = {
+  unit: 24,
+  slug: "ielts-listening",
+  title: "IELTS Listening",
+  topics: "Section 1 and 2, Section 3 and 4",
+  testPractice: "Reference",
+  steps: [
+    {
+      kind: "listening_cloze",
+      title: "Section 1 and 2 — hearing numbers",
+      instructions: "Numbers like 15 and 50 sound very similar. Listen and type the number you hear (use figures).",
+      audioUrl: "https://a8wdavlbr1kcxckb.public.blob.vercel-storage.com/cambridge-vocabulary-ielts/track-39.mp3",
+      template:
+        "a  We have a larger group today and we are expecting about {{fifteen}} people altogether.\n" +
+        "b  It's room number {{forty-two}}.\n" +
+        "c  My husband will be {{fifty-five}} next year.\n" +
+        "d  It costs 50 dollars but I've only got {{thirty}}.\n" +
+        "e  There are a hundred people coming and we've only got {{eighty}} chairs.\n" +
+        "f  Your flight is on July the {{twenty-third}}.\n" +
+        "g  That won't do, I have a meeting on the {{twenty-second}}.\n" +
+        "h  I'm afraid she won't be back in the office until the {{thirty-first}}.\n" +
+        "i  I ran in our local half marathon at the weekend and came {{twenty-sixth}}!\n" +
+        "j  I need to organise a celebration for my sister's {{fortieth}} birthday.",
+      script: track39Script,
+      tip: "Luyện nói to các cặp dễ nhầm: 15/50, 13/30, 18/80, và các số thứ tự 21st/23rd, 22nd/27th. Trong bài thi, trọng âm là dấu hiệu phân biệt: FIFteen ↔ fifTY.",
+    },
+    {
+      kind: "listening_cloze",
+      title: "Section 1 and 2 — names, numbers and spelling",
+      instructions: "Listen and complete each sentence with NO MORE THAN THREE WORDS AND/OR A NUMBER.",
+      audioUrl: "https://a8wdavlbr1kcxckb.public.blob.vercel-storage.com/cambridge-vocabulary-ielts/track-40.mp3",
+      template:
+        "1  Peter lives at seven {{Eaton}} Gardens, Hamilton.\n" +
+        "2  Mrs Smith says the best number to call her on is her {{home}} phone.\n" +
+        "3  The guests should go to the {{Ecco}} restaurant for a full breakfast.",
+      script: track40Script,
+      tip: "Người nói thường tự sửa lại ('That's correct, but...') — đáp án đúng luôn là thông tin CUỐI CÙNG họ xác nhận.",
+    },
+    {
+      kind: "listening_cloze",
+      title: "Section 1 and 2 — paraphrasing",
+      instructions: "The recording rarely uses the same words as the question. Listen and complete what the speakers actually say.",
+      audioUrl: "https://a8wdavlbr1kcxckb.public.blob.vercel-storage.com/cambridge-vocabulary-ielts/track-41.mp3",
+      template:
+        "1  It's very {{picturesque}}. (= The views are lovely.)\n" +
+        "2  It has good {{rail links}}. (= The train services are good.)\n" +
+        "3  It's pretty {{strenuous}} work. (= You need to be physically fit.)\n" +
+        "4  The hours are pretty {{flexible}}. (= You can work any time.)\n" +
+        "5  The area is barely {{adequate}}. (= It's not a very suitable location.)",
+      script: track41Script,
+      tip: "Đáp án gần như không bao giờ dùng đúng từ trong đề — hãy nghe Ý, đừng chờ nghe đúng từ.",
+    },
+    {
+      kind: "type_fill",
+      title: "Predicting from the headings",
+      instructions: "Notes and table completion items have headings that tell you what kind of word to listen for. Type the word from the list (saves money, ferry, plumber, library, caravan, disease, sewing) that could appear under each heading.",
+      items: [
+        { prompt: "Accommodation →", answer: "caravan" },
+        { prompt: "Occupation →", answer: "plumber" },
+        { prompt: "Problems →", answer: "disease" },
+        { prompt: "Facilities →", answer: "library" },
+        { prompt: "Hobbies →", answer: "sewing" },
+        { prompt: "Transportation →", answer: "ferry" },
+        { prompt: "Advantages →", answer: "saves money" },
+      ],
+    },
+    {
+      kind: "type_fill",
+      title: "Section 3 and 4 — academic synonyms",
+      instructions: "Sections 3 and 4 use academic language. Type a simpler synonym for each word.",
+      items: [
+        { prompt: "analyse →", answer: "study" },
+        { prompt: "approach →", answer: "method" },
+        { prompt: "evidence →", answer: "proof" },
+        { prompt: "percentage →", answer: "proportion" },
+        { prompt: "interpret →", answer: "translate" },
+        { prompt: "vary →", answer: "change" },
+        { prompt: "response →", answer: "answer" },
+        { prompt: "theory →", answer: "idea" },
+        { prompt: "significance →", answer: "importance" },
+        { prompt: "estimate →", answer: "guess" },
+      ],
+    },
+    {
+      kind: "listening_cloze",
+      title: "Section 3 and 4 — words in academic contexts",
+      instructions: "Listen and complete each sentence with the academic word you hear.",
+      audioUrl: "https://a8wdavlbr1kcxckb.public.blob.vercel-storage.com/cambridge-vocabulary-ielts/track-42.mp3",
+      template:
+        "1  We couldn't decide what {{approach}} to take so we searched for a precedent in the archive.\n" +
+        "2  The {{field}} was unusual in its rich assemblage of archaeological finds.\n" +
+        "3  The album's binding was {{fashioned}} from the finest Italian leather.\n" +
+        "4  A jury should not {{interpret}} the silence of a defendant as a sign of guilt.\n" +
+        "5  The book was heavily {{illustrated}} with stylised motifs.\n" +
+        "6  Flammable toys like these are extremely dangerous, {{posing}} a significant risk to child safety.\n" +
+        "7  In the fiercely competitive {{sphere}} of professional football, rules are frequently broken.",
+      script: track42Script,
+      tip: "Nghe xong hãy làm tiếp bài tập sau để kiểm tra xem bạn có hiểu đúng NGHĨA của từ trong ngữ cảnh đó không.",
+    },
+    {
+      kind: "fill_mc",
+      title: "Same word, different context",
+      instructions: "Many words have more than one meaning. Choose the meaning that fits the context you heard.",
+      items: [
+        { before: "'We couldn't decide what approach to take.' Here APPROACH means", after: ".", options: ["method", "come near"], answer: "method" },
+        { before: "'The field was unusual in its rich assemblage of archaeological finds.' Here FIELD means", after: ".", options: ["land", "discipline"], answer: "land" },
+        { before: "'The binding was fashioned from the finest Italian leather.' Here FASHION means", after: ".", options: ["manufacture", "clothes"], answer: "manufacture" },
+        { before: "'A jury should not interpret the silence of a defendant as guilt.' Here INTERPRET means", after: ".", options: ["explain", "translate"], answer: "explain" },
+        { before: "'The book was heavily illustrated with stylised motifs.' Here ILLUSTRATE means", after: ".", options: ["draw", "show"], answer: "draw" },
+        { before: "'Flammable toys pose a significant risk to child safety.' Here POSE means", after: ".", options: ["cause", "pretend"], answer: "cause" },
+        { before: "'In the fiercely competitive sphere of professional football...' Here SPHERE means", after: ".", options: ["area", "ball"], answer: "area" },
+      ],
+    },
+    {
+      kind: "listening_cloze",
+      title: "Section 3 — two students discuss animal intelligence",
+      instructions: "Listen to two students discussing animal psychology and complete the notes.",
+      audioUrl: "https://a8wdavlbr1kcxckb.public.blob.vercel-storage.com/cambridge-vocabulary-ielts/track-43.mp3",
+      template:
+        "• Elephants at Bronx Zoo: a mirror was put in their enclosure and the research team established that the animals knew they were looking at their own image — they {{show self-awareness}}.\n" +
+        "• Capuchin monkeys: John was surprised that they even managed to {{escape}} from their cage.\n" +
+        "• Scrub jays in North America: they store food away and can gauge how long they can keep it, so they {{plan ahead}}.\n" +
+        "• The standard criticism of animal intelligence research is that animals only perform {{tricks}} because they have been taught to receive food rewards.\n" +
+        "• Anne read the article in the {{Animal Psychology}} journal and is looking for a topic for her {{dissertation}}.",
+      script: track43Script,
+      tip: "Trong dạng matching, hãy gạch chân từ khoá trong câu hỏi TRƯỚC khi nghe — bạn chỉ được nghe một lần duy nhất.",
+    },
+    {
+      kind: "type_fill",
+      title: "Academic paraphrase in Section 3",
+      instructions: "Match each word from the conversation with a simpler synonym.",
+      items: [
+        { prompt: "findings →", answer: "results" },
+        { prompt: "establish →", answer: "prove" },
+        { prompt: "demonstrated →", answer: "shown" },
+        { prompt: "consciousness →", answer: "awareness" },
+        { prompt: "sceptical →", answer: "doubtful" },
+        { prompt: "disproves →", answer: "contradicts" },
+        { prompt: "gauge →", answer: "measure" },
+        { prompt: "capability →", answer: "ability" },
+        { prompt: "determine →", answer: "decide" },
+      ],
+    },
+    {
+      kind: "type_fill",
+      title: "University vocabulary",
+      instructions: "Complete each sentence with a word about university life: assignment, journal, presentation, dissertation, tutorial, study, fieldwork, campus, case study, tutor.",
+      items: [
+        { prompt: "The ___ is only to write a brief summary but it's taking forever and it's due in on Friday!", answer: "assignment" },
+        { prompt: "This is the main university ___, which boasts superb facilities.", answer: "campus" },
+        { prompt: "By the end of this week you should have booked a half-hour ___ to discuss your progress.", answer: "tutorial" },
+        { prompt: "I usually dread having to give any kind of ___ but I'm pretty well-prepared for this one.", answer: "presentation" },
+        { prompt: "If you refer to an extract from a particular ___ or periodical, you'll need to put that in the bibliography.", answer: "journal" },
+        { prompt: "It's a Swedish ___ published in the Scandinavian Science Quarterly.", answer: "study" },
+        { prompt: "Professor Atkins is the course ___ and lecturer in physical chemistry.", answer: "tutor" },
+        { prompt: "We conducted extensive, topographical ___ in the region.", answer: "fieldwork" },
+      ],
+    },
+    {
+      kind: "listening_cloze",
+      title: "Section 4 — notes completion",
+      instructions: "Listen to the opening of a presentation about animal intelligence and complete the notes with NO MORE THAN ONE WORD for each answer.",
+      audioUrl: "https://a8wdavlbr1kcxckb.public.blob.vercel-storage.com/cambridge-vocabulary-ielts/track-44.mp3",
+      template:
+        "Animal Intelligence\n\n" +
+        "Previous studies\n" +
+        "• 2001 — Monkeys and their use of {{tools}}\n" +
+        "• 2007 — Birds and their ability to {{count}}\n\n" +
+        "Challenges\n" +
+        "• i) Need to have the animals' {{trust}}\n" +
+        "• ii) Expense: need for extra staff\n" +
+        "• iii) Facilities: need for extra {{space}}\n\n" +
+        "Current study\n" +
+        "• Elephants at the Bronx Zoo — the speaker is carrying out {{fieldwork}} there because there was no way of accommodating them on campus",
+      script: track44Script,
+      tip: "Dùng chính các tiêu đề trên đề (Previous studies / Challenges / Current study) làm bản đồ để bám theo bài nói — người nói sẽ đi đúng thứ tự đó.",
+    },
+    {
+      kind: "type_fill",
+      title: "Vocabulary from the Section 4 talk",
+      instructions: "Type a simpler word or phrase with the same meaning.",
+      items: [
+        { prompt: "conduct (research) →", answer: "carry out" },
+        { prompt: "a stir →", answer: "excitement" },
+        { prompt: "spur →", answer: "encourage" },
+        { prompt: "expand →", answer: "increase in size" },
+        { prompt: "peculiar (to) →", answer: "specific" },
+        { prompt: "prolonged →", answer: "time-consuming" },
+        { prompt: "supplementary →", answer: "additional" },
+        { prompt: "assist →", answer: "help" },
+        { prompt: "arduous →", answer: "difficult" },
+        { prompt: "a chore →", answer: "a task" },
+      ],
+    },
+    {
+      kind: "reveal_pairs",
+      title: "Listening test strategy",
+      instructions: "Tap each tip to reveal what to do.",
+      pairs: [
+        { prompt: "You hear each section only once", reveal: "Don't lose careless marks in Sections 1 and 2 — listen for whether there is an 's' at the end of a word" },
+        { prompt: "Take the word from the recording", reveal: "You won't need to change the words — copy exactly what you hear" },
+        { prompt: "Question order", reveal: "The questions are always in the same order as the information in the recording" },
+        { prompt: "Use the question paper", reveal: "The information on the paper helps you follow the talk or conversation" },
+        { prompt: "Use the pauses", reveal: "Use the time you are given between sections to prepare for the next one" },
+        { prompt: "Predict before you listen", reveal: "Read the questions and predict the topic and the type of word you need (noun? number? plural?)" },
+      ],
+    },
+  ],
+};
+
+const UNIT_25_IELTS_SPEAKING: CambridgeUnit = {
+  unit: 25,
+  slug: "ielts-speaking",
+  title: "IELTS Speaking",
+  topics: "Part 1, Part 2, Part 3",
+  testPractice: "Reference",
+  steps: [
+    {
+      kind: "reveal_pairs",
+      title: "What the examiner is listening for",
+      instructions: "The Speaking score is based on four areas. Tap each band to reveal what it means for fluency, cohesion and vocabulary.",
+      pairs: [
+        { prompt: "The four criteria", reveal: "fluency and cohesion (how well ideas are linked) · lexical resource (vocabulary and phrases) · grammar · pronunciation" },
+        { prompt: "Band 6", reveal: "willing to speak at length but may lose coherence through OCCASIONAL REPETITION, self-correction or hesitation; uses connectives but NOT ALWAYS APPROPRIATELY; generally paraphrases successfully" },
+        { prompt: "Band 7", reveal: "hesitation is language-related at times; uses connectives and discourse markers WITH SOME FLEXIBILITY; uses SOME LESS COMMON and IDIOMATIC vocabulary; PARAPHRASES EFFECTIVELY" },
+        { prompt: "Band 8", reveal: "speaks fluently with ONLY OCCASIONAL repetition; hesitation is CONTENT-related, only rarely to search for language; uses a WIDE vocabulary to convey PRECISE MEANING; uses idiomatic vocabulary SKILFULLY" },
+        { prompt: "First impressions", reveal: "Smile and act confidently when you enter the room. The test starts when the examiner says: 'Now in this first part, I'd like to ask you some questions about yourself.'" },
+      ],
+    },
+    {
+      kind: "reveal_pairs",
+      title: "Judging three Part 1 answers",
+      instructions: "Tap each candidate answer to reveal the band it would get, and why.",
+      pairs: [
+        {
+          prompt: "'I usually go to shopping and I see my family and I see my friends and I go to work.'",
+          reveal: "Below band 6 — the language is too simple and repetitive, there is no range of connectives, and the vocabulary is not wide enough to discuss the topic at length. (Corrected: 'I usually go shopping, see my family and friends, and go to work.' — even corrected, it is still too short.)",
+        },
+        {
+          prompt: "'Erm, let me see, yes, actually, I'm planning on visiting my uncle and his family in Canada...'",
+          reveal: "Band 8 — only occasional repetition, less common and idiomatic vocabulary, and the candidate paraphrases effectively ('a type of accountant... he's quite high up').",
+        },
+        {
+          prompt: "'Well, on Saturdays I would normally get up quite early and doing some exercise...'",
+          reveal: "Band 7 — there is some repetition (the word 'relax'), but also positive features of band 8 such as uncommon vocabulary ('a bit of a fitness fanatic').",
+        },
+      ],
+    },
+    {
+      kind: "type_fill",
+      title: "Pronunciation — vowel sounds",
+      instructions: "Which key word has the same vowel sound as the underlined letters? Choose from: READ, SIT, BOOK, TOO, DAY, MEN, AMERICA, WORD, SORT, GO, CAT, BUT, PART, NOT, MY, HOW.",
+      items: [
+        { prompt: "h(ea)l →", answer: "read" },
+        { prompt: "w(o)men →", answer: "sit" },
+        { prompt: "b(u)tcher →", answer: "book" },
+        { prompt: "sh(oe) →", answer: "too" },
+        { prompt: "p(ai)nt →", answer: "day" },
+        { prompt: "h(ea)lth →", answer: "men" },
+        { prompt: "s(u)cceed →", answer: "america" },
+        { prompt: "th(ir)d →", answer: "word" },
+        { prompt: "t(a)lk →", answer: "sort" },
+        { prompt: "expl(o)de →", answer: "go" },
+        { prompt: "h(a)nd →", answer: "cat" },
+        { prompt: "l(o)ve →", answer: "but" },
+        { prompt: "c(a)n't →", answer: "part" },
+        { prompt: "st(o)p →", answer: "not" },
+        { prompt: "d(e)ny →", answer: "my" },
+        { prompt: "f(ou)nd →", answer: "how" },
+      ],
+    },
+    {
+      kind: "type_fill",
+      title: "Part 2 — linking your ideas",
+      instructions: "Complete this Part 2 answer about a grandfather with a linking phrase: That's because · On top of that · But in spite of all of that · that's · When it comes to · What I mean is · Because of that · that's the reason · So, I would say",
+      items: [
+        { prompt: "The first person who comes to mind is my grandfather. ___, when he was young, he had a really hard life.", answer: "That's because" },
+        { prompt: "When he was only 14, he had to go to work in the family business. ___, his own father became very ill.", answer: "On top of that" },
+        { prompt: "___, whenever I think of my grandfather, I think of a man who is always happy and smiling.", answer: "But in spite of all of that" },
+        { prompt: "I think ___ what makes him special — his outlook on life is always so positive.", answer: "that's" },
+        { prompt: "___ the way that he's influenced me, I think he's made me a calmer person.", answer: "When it comes to" },
+        { prompt: "___, he helped me to see that you can achieve a lot just by persevering.", answer: "What I mean is" },
+        { prompt: "My grandfather taught me to relax and enjoy the work. ___, I learned to slow down.", answer: "Because of that" },
+        { prompt: "And I'm sure ___ why I enjoy my work and my studies now.", answer: "that's the reason" },
+        { prompt: "___ he has been a very big influence in my life so far.", answer: "So, I would say" },
+      ],
+    },
+    {
+      kind: "speaking",
+      title: "Part 2 — practice",
+      prompt: "Describe a person who has greatly influenced you in your life.",
+      bullets: ["how you know them", "where or how you first met them", "what is special about them", "and explain how this person has influenced you so much"],
+      prepSeconds: 60,
+      talkSeconds: 120,
+      tip:
+        "Bạn có 1 phút để ghi chú. Hãy vẽ nhanh một mind map với các nhánh: how we know each other / where and how we met / why they are special / special qualities / how they have influenced me. Khi nói, dùng các cụm nối (That's because, On top of that, When it comes to...) và nếu bí ý thì dùng các câu câu giờ tự nhiên: \"Hmm, I'm not really sure about..., but I think...\", \"Well, I haven't really thought about this very much, but...\", \"Well, I suppose if I had to choose one thing, it would be...\". Nếu có thể, hãy ghi âm lại và nghe lại.",
+    },
+    {
+      kind: "fill_mc",
+      title: "Part 3 — matching answers to questions",
+      instructions: "Part 3 asks less personal questions. Choose the question that each answer opening is responding to.",
+      items: [
+        { before: "'Hmm, that's an interesting question. I think many of the things we've achieved are positive, for example, the medical advances we've made. But on the other hand...' — This answers:", after: "", options: ["In what way will advances in scientific knowledge change our lives?", "Is progress always a good thing?", "What makes a good neighbour?"], answer: "In what way will advances in scientific knowledge change our lives?" },
+        { before: "'I don't think they exist any more, do they? Actually, no, that's not true, my last neighbour was extremely friendly and helpful.' — This answers:", after: "", options: ["In your opinion, what makes a good neighbour?", "Are newspapers the best source of news?", "Is progress always a good thing?"], answer: "In your opinion, what makes a good neighbour?" },
+        { before: "'That's true, I suppose. I mean, just look at how popular gossip columns are.' — This answers:", after: "", options: ["Are we too influenced by celebrities these days?", "What makes a good neighbour?", "Do workers want a lower retirement age?"], answer: "Are we too influenced by celebrities these days?" },
+        { before: "'Well, I think they used to be, but nowadays there are so many other sources that are more immediate that it's difficult to say.' — This answers:", after: "", options: ["Are newspapers the best source of news?", "Is progress always a good thing?", "What negative effects does consumer society have?"], answer: "Are newspapers the best source of news?" },
+        { before: "'I'm not so sure about that, maybe the reverse will be true... maybe people will start to move out of the cities instead of into them.' — This answers:", after: "", options: ["Will everyone live in cities in the future?", "Are newspapers the best source of news?", "Is progress always a good thing?"], answer: "Will everyone live in cities in the future?" },
+        { before: "'Well, I think you only have to look at the mountains of rubbish we throw away each day and each year to see the biggest problem.' — This answers:", after: "", options: ["What negative effects does our consumer society have on our life?", "What makes a good neighbour?", "Do workers want a lower retirement age?"], answer: "What negative effects does our consumer society have on our life?" },
+        { before: "'Well, I think it depends on what you mean by progress. Do you mean technological progress or progress in terms of the way we live?' — This answers:", after: "", options: ["Is progress always a good thing?", "Will everyone live in cities in the future?", "Are newspapers the best source of news?"], answer: "Is progress always a good thing?" },
+        { before: "'That may be true to a certain extent, but I don't think it's true for everybody.' — This answers:", after: "", options: ["Do you agree that workers would like the retirement age to be lowered?", "What makes a good neighbour?", "Is progress always a good thing?"], answer: "Do you agree that workers would like the retirement age to be lowered?" },
+      ],
+    },
+    {
+      kind: "reveal_pairs",
+      title: "Part 3 — useful ways to start an answer",
+      instructions: "Tap each opening to see what it does for you.",
+      pairs: [
+        { prompt: "'Hmm, that's an interesting question...'", reveal: "Buys you thinking time without an awkward silence" },
+        { prompt: "'Well, I think it depends on what you mean by...'", reveal: "Lets you define the topic and control the direction of your answer" },
+        { prompt: "'That may be true to a certain extent, but...'", reveal: "Partly agrees, then adds your own view — shows a flexible use of language" },
+        { prompt: "'I'm not so sure about that, maybe the reverse will be true.'", reveal: "Disagrees politely and opens up a longer answer" },
+        { prompt: "'What I mean is...'", reveal: "Lets you rephrase and extend an idea — examiners reward effective paraphrase" },
+        { prompt: "'I mean, just look at...'", reveal: "Introduces an example, which makes an answer longer and far more convincing" },
+        { prompt: "Golden rule for Part 3", reveal: "Avoid talking about yourself — use examples from the news, or compare your country with others. Structure the answer with causes, results, reasons, examples and opinions." },
+      ],
+    },
+    {
+      kind: "speaking",
+      title: "Part 3 — practice",
+      prompt: "Answer these Part 3 discussion questions, giving as long and full an answer as you can.",
+      bullets: [
+        "Is progress always a good thing?",
+        "Some people believe that in the future, everyone will live in cities. Do you agree?",
+        "What negative effects does our consumer society have on our life?",
+        "Are newspapers the best source of news?",
+      ],
+      prepSeconds: 30,
+      talkSeconds: 180,
+      tip:
+        "Part 3 không có thời gian chuẩn bị trong bài thi thật — hãy tập trả lời ngay. Mỗi câu nên có: quan điểm → lý do → ví dụ → (mặt còn lại). Nếu có thể, hãy ghi âm rồi nghe lại: bạn có lặp từ không, có ngập ngừng để tìm từ không, và bạn có thể cải thiện câu trả lời như thế nào?",
+    },
+  ],
+};
+
 export const CAMBRIDGE_UNITS: CambridgeUnit[] = [
   UNIT_1_HUMAN_NATURE,
   UNIT_2_TIME_FOR_A_CHANGE,
@@ -5999,6 +11083,19 @@ export const CAMBRIDGE_UNITS: CambridgeUnit[] = [
   UNIT_10_ROCKET_SCIENCE,
   UNIT_11_PROGRESS,
   UNIT_12_THE_LATEST_THING,
+  UNIT_13_URBAN_JUNGLE,
+  UNIT_14_TACKLING_ISSUES,
+  UNIT_15_THIS_EARTH,
+  UNIT_16_ENERGY_EFFICIENT,
+  UNIT_17_GETTING_DOWN_TO_BUSINESS,
+  UNIT_18_LAW_ENFORCEMENT,
+  UNIT_19_THE_MEDIA,
+  UNIT_20_A_MATTER_OF_TASTE,
+  UNIT_21_LEARNING_VOCABULARY,
+  UNIT_22_IELTS_READING,
+  UNIT_23_IELTS_WRITING,
+  UNIT_24_IELTS_LISTENING,
+  UNIT_25_IELTS_SPEAKING,
 ];
 
 export function getCambridgeUnit(slug: string): CambridgeUnit | undefined {

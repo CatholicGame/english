@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
+import { NotesList } from "@/components/NotesList";
 import { GROUP_LABELS, VERBS } from "@/data/basic-verbs";
 import { useProgress } from "@/lib/progress-context";
 import { lvlOf } from "@/lib/stats";
@@ -133,6 +134,7 @@ export function VerbDetailClient({ slug }: { slug: string }) {
               <div className="mt-2 border-l-2 border-[color:var(--color-divider)] pl-3 text-[12px] leading-relaxed text-neutral-700">
                 {it.ex}
               </div>
+              <NotesList moduleKey="collocations-phrasal-verbs" itemKey={`${verb.verb}::${it.term}`} />
             </div>
           );
         })}

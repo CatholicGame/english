@@ -1,7 +1,7 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { getValidAccessToken, writeSession } from "@/lib/google-oauth";
 import { readDriveNotes, writeDriveNotes } from "@/lib/google-drive";
-import type { ExtensionNotesData } from "@/lib/extension-notes";
+import type { NotesData } from "@/lib/notes-store";
 
 function filesChanged(a: Record<string, string> | undefined, b: Record<string, string>): boolean {
   const aKeys = Object.keys(a ?? {});
@@ -28,7 +28,7 @@ export async function PUT(request: NextRequest) {
   const storageKey = request.nextUrl.searchParams.get("key");
   if (!storageKey) return NextResponse.json({ error: "missing key" }, { status: 400 });
 
-  const body: ExtensionNotesData = await request.json();
+  const body: NotesData = await request.json();
 
   const auth = await getValidAccessToken();
   if (!auth) return NextResponse.json({ reason: "reauth_required" }, { status: 401 });

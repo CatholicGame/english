@@ -1,4 +1,4 @@
-import type { ExtensionNotesData } from "./extension-notes";
+import type { NotesData } from "./notes-store";
 import type { SessionPayload } from "./session-cookie";
 
 const FILES_URL = "https://www.googleapis.com/drive/v3/files";
@@ -121,14 +121,9 @@ export function writeDriveProgress(
 }
 
 export function readDriveNotes(accessToken: string, session: SessionPayload, storageKey: string) {
-  return readDriveJson<ExtensionNotesData>(accessToken, session, `notes-${storageKey}`);
+  return readDriveJson<NotesData>(accessToken, session, `notes-${storageKey}`);
 }
 
-export function writeDriveNotes(
-  accessToken: string,
-  session: SessionPayload,
-  storageKey: string,
-  data: ExtensionNotesData,
-) {
+export function writeDriveNotes(accessToken: string, session: SessionPayload, storageKey: string, data: NotesData) {
   return writeDriveJson(accessToken, session, `notes-${storageKey}`, data);
 }

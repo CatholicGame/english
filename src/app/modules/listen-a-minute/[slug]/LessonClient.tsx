@@ -9,11 +9,10 @@ import {
   LISTEN_LESSONS,
   type ListenLesson,
 } from "@/data/listen-a-minute";
+import { NotesList } from "@/components/NotesList";
 import { parseCloze, renderClozePlain } from "@/lib/cloze";
-import { newNoteId, type ExtensionNote } from "@/lib/extension-notes";
 import { clearCurrentLesson, getCurrentLesson, setCurrentLesson } from "@/lib/listen-progress";
 import { useProgress } from "@/lib/progress-context";
-import { useExtensionNotes } from "@/lib/use-extension-notes";
 import { norm, shuffle } from "@/lib/utils";
 import { lookupVocabWord, type VocabEntry } from "@/lib/vocab-lookup";
 
@@ -200,40 +199,6 @@ export function LessonClient({ slug }: { slug: string }) {
   const tasks = useMemo(() => (lesson ? extensionTasks(lesson.title) : []), [lesson]);
   const [checked, setChecked] = useState<Record<string, boolean>>({});
   const [sampleKey, setSampleKey] = useState<string | null>(null);
-  const { getNotes, saveNote: persistNote, deleteNote: removeNote } = useExtensionNotes();
-  const [editingNote, setEditingNote] = useState<{ taskKey: string; note: ExtensionNote | null } | null>(null);
-  const [draftTitle, setDraftTitle] = useState("");
-  const [draftContent, setDraftContent] = useState("");
-
-  function openNewNote(taskKey: string) {
-    setEditingNote({ taskKey, note: null });
-    setDraftTitle("");
-    setDraftContent("");
-  }
-
-  function openExistingNote(taskKey: string, note: ExtensionNote) {
-    setEditingNote({ taskKey, note });
-    setDraftTitle(note.title);
-    setDraftContent(note.content);
-  }
-
-  function saveNote() {
-    if (!editingNote || !lesson) return;
-    const { taskKey, note } = editingNote;
-    persistNote(lesson.slug, taskKey, {
-      id: note?.id ?? newNoteId(),
-      title: draftTitle,
-      content: draftContent,
-      updatedAt: Date.now(),
-    });
-    setEditingNote(null);
-  }
-
-  function deleteNote() {
-    if (!editingNote?.note || !lesson) return;
-    removeNote(lesson.slug, editingNote.taskKey, editingNote.note.id);
-    setEditingNote(null);
-  }
 
   useEffect(
     () => () => {
@@ -573,52 +538,29 @@ export function LessonClient({ slug }: { slug: string }) {
             Extend what you have learned with these follow-up tasks.
           </div>
           <div className="lg:grid lg:grid-cols-2 lg:gap-x-6">
-            {tasks.map((t) => {
-              const taskNotes = getNotes(lesson.slug, t.key);
-              return (
-                <div key={t.key} className="divider-b py-3">
-                  <div className="flex items-start gap-3">
-                    <label className="flex flex-1 items-start gap-3">
-                      <input
-                        type="checkbox"
-                        className="mt-1 h-4 w-4 flex-none accent-[var(--color-accent)]"
-                        checked={!!checked[t.key]}
-                        onChange={(e) => setChecked((c) => ({ ...c, [t.key]: e.target.checked }))}
-                      />
-                      <span className="text-[13px] leading-relaxed">{t.label}</span>
-                    </label>
-                    <button
-                      type="button"
-                      className="btn btn-ghost flex-none self-start px-3 py-1 text-[12px]"
-                      onClick={() => setSampleKey(t.key)}
-                    >
-                      Show
-                    </button>
-                  </div>
-                  {taskNotes.length > 0 && (
-                    <div className="mt-2 flex flex-col gap-1">
-                      {taskNotes.map((n) => (
-                        <button
-                          key={n.id}
-                          type="button"
-                          className="truncate text-left text-[12px] text-accent-700 underline decoration-[color:var(--color-accent-100)] underline-offset-2"
-                          onClick={() => openExistingNote(t.key, n)}
-                        >
-                          {n.title || "Untitled note"}
-                        </button>
-                      ))}
-                    </div>
-                  )}
+            {tasks.map((t) => (
+              <div key={t.key} className="divider-b py-3">
+                <div className="flex items-start gap-3">
+                  <label className="flex flex-1 items-start gap-3">
+                    <input
+                      type="checkbox"
+                      className="mt-1 h-4 w-4 flex-none accent-[var(--color-accent)]"
+                      checked={!!checked[t.key]}
+                      onChange={(e) => setChecked((c) => ({ ...c, [t.key]: e.target.checked }))}
+                    />
+                    <span className="text-[13px] leading-relaxed">{t.label}</span>
+                  </label>
                   <button
                     type="button"
-                    className="label-xs mt-2 block text-accent"
-                    onClick={() => openNewNote(t.key)}
+                    className="btn btn-ghost flex-none self-start px-3 py-1 text-[12px]"
+                    onClick={() => setSampleKey(t.key)}
                   >
-                    + Add note
+                    Show
                   </button>
                 </div>
-              );
-            })}
+                <NotesList moduleKey="listen-a-minute" itemKey={`${lesson.slug}:${t.key}`} />
+              </div>
+            ))}
           </div>
           <button className="btn btn-primary btn-block mt-auto px-4 py-3" onClick={finish}>
             Finish lesson
@@ -664,46 +606,6 @@ export function LessonClient({ slug }: { slug: string }) {
         </div>
       )}
 
-      {editingNote && (
-        <div className="fixed inset-0 z-[60] bg-bg">
-          <div className="mx-auto flex h-full max-w-[480px] flex-col lg:max-w-[720px]">
-            <div className="divider-b flex items-center justify-between px-4 py-3">
-              <span className="text-[16px] font-extrabold">{editingNote.note ? "Edit note" : "New note"}</span>
-              <button className="btn btn-ghost" onClick={() => setEditingNote(null)}>
-                Close
-              </button>
-            </div>
-            <div className="flex flex-1 flex-col gap-3 overflow-y-auto p-4">
-              <input
-                className="input"
-                placeholder="Title"
-                value={draftTitle}
-                onChange={(e) => setDraftTitle(e.target.value)}
-              />
-              <textarea
-                className="input min-h-[240px] flex-1 resize-y"
-                placeholder="Write your note…"
-                value={draftContent}
-                onChange={(e) => setDraftContent(e.target.value)}
-              />
-            </div>
-            <div className="divider-t flex gap-3 p-4">
-              {editingNote.note && (
-                <button className="btn btn-secondary flex-1 px-4 py-3" onClick={deleteNote}>
-                  Delete
-                </button>
-              )}
-              <button
-                className="btn btn-primary flex-1 px-4 py-3 disabled:opacity-40"
-                disabled={draftTitle.trim() === ""}
-                onClick={saveNote}
-              >
-                Save
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 }

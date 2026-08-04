@@ -3,19 +3,18 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useAuth } from "./auth-context";
 import {
-  NOTES_STORAGE_KEY,
-  getExtensionNotes,
+  getNotesFor,
   loadAllNotes,
-  mergeExtensionNotes,
+  mergeNotes,
   persistAllNotes,
   withNoteDeleted,
   withNoteSaved,
-  type ExtensionNote,
-  type ExtensionNotesData,
-} from "./extension-notes";
+  type Note,
+  type NotesData,
+} from "./notes-store";
 
-function pushToCloud(data: ExtensionNotesData) {
-  fetch(`/api/drive/notes?key=${encodeURIComponent(NOTES_STORAGE_KEY)}`, {
+function pushToCloud(moduleKey: string, data: NotesData) {
+  fetch(`/api/drive/notes?key=${encodeURIComponent(moduleKey)}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
@@ -24,27 +23,29 @@ function pushToCloud(data: ExtensionNotesData) {
   });
 }
 
-/** Loads extension notes from localStorage immediately, then — once signed
+/** Loads a module's notes from localStorage immediately, then — once signed
  * in — reconciles with whatever was last synced to Drive, mirroring how
  * ProgressProvider handles progress. Every save/delete persists locally right
- * away and pushes to Drive on a short debounce. */
-export function useExtensionNotes() {
+ * away and pushes to Drive on a short debounce. One store per moduleKey (e.g.
+ * "listen-a-minute", "collocations-phrasal-verbs") — items within it are
+ * addressed by whatever itemKey the caller chooses. */
+export function useNotesStore(moduleKey: string) {
   const { loading: authLoading, authenticated } = useAuth();
-  const [all, setAll] = useState<ExtensionNotesData>(() => loadAllNotes());
+  const [all, setAll] = useState<NotesData>(() => loadAllNotes(moduleKey));
   const pushTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     if (authLoading || !authenticated) return;
     let cancelled = false;
 
-    fetch(`/api/drive/notes?key=${encodeURIComponent(NOTES_STORAGE_KEY)}`)
+    fetch(`/api/drive/notes?key=${encodeURIComponent(moduleKey)}`)
       .then((r) => (r.ok ? r.json() : Promise.reject(r)))
       .then(({ data }) => {
         if (cancelled || !data) return;
         setAll((prev) => {
-          const merged = mergeExtensionNotes(prev, data);
-          persistAllNotes(merged);
-          pushToCloud(merged);
+          const merged = mergeNotes(prev, data);
+          persistAllNotes(moduleKey, merged);
+          pushToCloud(moduleKey, merged);
           return merged;
         });
       })
@@ -55,41 +56,41 @@ export function useExtensionNotes() {
     return () => {
       cancelled = true;
     };
-  }, [authLoading, authenticated]);
+  }, [authLoading, authenticated, moduleKey]);
 
   const schedulePush = useCallback(
-    (data: ExtensionNotesData) => {
+    (data: NotesData) => {
       if (!authenticated) return;
       if (pushTimer.current) clearTimeout(pushTimer.current);
-      pushTimer.current = setTimeout(() => pushToCloud(data), 1500);
+      pushTimer.current = setTimeout(() => pushToCloud(moduleKey, data), 1500);
     },
-    [authenticated],
+    [authenticated, moduleKey],
   );
 
-  const getNotes = useCallback((slug: string, taskKey: string) => getExtensionNotes(all, slug, taskKey), [all]);
+  const getNotes = useCallback((itemKey: string) => getNotesFor(all, itemKey), [all]);
 
   const saveNote = useCallback(
-    (slug: string, taskKey: string, note: ExtensionNote) => {
+    (itemKey: string, note: Note) => {
       setAll((prev) => {
-        const next = withNoteSaved(prev, slug, taskKey, note);
-        persistAllNotes(next);
+        const next = withNoteSaved(prev, itemKey, note);
+        persistAllNotes(moduleKey, next);
         schedulePush(next);
         return next;
       });
     },
-    [schedulePush],
+    [moduleKey, schedulePush],
   );
 
   const deleteNote = useCallback(
-    (slug: string, taskKey: string, noteId: string) => {
+    (itemKey: string, noteId: string) => {
       setAll((prev) => {
-        const next = withNoteDeleted(prev, slug, taskKey, noteId);
-        persistAllNotes(next);
+        const next = withNoteDeleted(prev, itemKey, noteId);
+        persistAllNotes(moduleKey, next);
         schedulePush(next);
         return next;
       });
     },
-    [schedulePush],
+    [moduleKey, schedulePush],
   );
 
   return { getNotes, saveNote, deleteNote };

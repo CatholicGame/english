@@ -18,10 +18,19 @@ function authHeaders(accessToken: string) {
 
 async function findFileId(accessToken: string, docKey: string): Promise<string | null> {
   const q = `name='${fileName(docKey)}' and trashed=false`;
-  const params = new URLSearchParams({ spaces: "appDataFolder", q, fields: "files(id,name)" });
+  const params = new URLSearchParams({
+    spaces: "appDataFolder",
+    q,
+    fields: "files(id,name,modifiedTime)",
+    orderBy: "modifiedTime desc",
+  });
   const res = await fetch(`${FILES_URL}?${params.toString()}`, { headers: authHeaders(accessToken) });
   if (!res.ok) throw new Error(`Drive find failed: ${res.status}`);
   const data = await res.json();
+  // Concurrent find-or-create calls for the same docKey (e.g. many NotesList
+  // instances mounting at once) can race and create more than one file with
+  // this name — ordering by modifiedTime desc means the one with real,
+  // most-recently-written content wins over an empty stray duplicate.
   return data.files?.[0]?.id ?? null;
 }
 

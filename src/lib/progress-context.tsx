@@ -73,14 +73,18 @@ function mergeDays(local: DaysMap, cloud: DaysMap): DaysMap {
   return out;
 }
 
-function pushToCloud(storageKey: string, state: ProgressState) {
+function pushToCloud(storageKey: string, state: ProgressState, onReauthRequired: () => void) {
   fetch(`/api/drive/progress?key=${encodeURIComponent(storageKey)}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(state),
-  }).catch(() => {
-    // best-effort — localStorage remains the source of truth
-  });
+  })
+    .then((r) => {
+      if (r.status === 401) onReauthRequired();
+    })
+    .catch(() => {
+      // best-effort — localStorage remains the source of truth
+    });
 }
 
 export function ProgressProvider({
@@ -90,7 +94,7 @@ export function ProgressProvider({
   storageKey: string;
   children: React.ReactNode;
 }) {
-  const { loading: authLoading, authenticated } = useAuth();
+  const { loading: authLoading, authenticated, refresh } = useAuth();
   const [loaded, setLoaded] = useState(false);
   const [state, setState] = useState<ProgressState>({ progress: {}, days: {} });
   const pushTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -105,7 +109,10 @@ export function ProgressProvider({
     let cancelled = false;
 
     fetch(`/api/drive/progress?key=${encodeURIComponent(storageKey)}`)
-      .then((r) => (r.ok ? r.json() : Promise.reject(r)))
+      .then((r) => {
+        if (r.status === 401) refresh();
+        return r.ok ? r.json() : Promise.reject(r);
+      })
       .then(({ data }) => {
         if (cancelled || !data) return;
         setState((prev) => {
@@ -114,7 +121,7 @@ export function ProgressProvider({
             days: mergeDays(prev.days, data.days ?? {}),
           };
           persistState(storageKey, merged);
-          pushToCloud(storageKey, merged);
+          pushToCloud(storageKey, merged, refresh);
           return merged;
         });
       })
@@ -125,7 +132,7 @@ export function ProgressProvider({
     return () => {
       cancelled = true;
     };
-  }, [authLoading, authenticated, storageKey]);
+  }, [authLoading, authenticated, storageKey, refresh]);
 
   const lvl = useCallback((key: string) => state.progress[key]?.l ?? 0, [state.progress]);
 
@@ -144,13 +151,13 @@ export function ProgressProvider({
 
         if (authenticated) {
           if (pushTimer.current) clearTimeout(pushTimer.current);
-          pushTimer.current = setTimeout(() => pushToCloud(storageKey, next), 3000);
+          pushTimer.current = setTimeout(() => pushToCloud(storageKey, next, refresh), 3000);
         }
 
         return next;
       });
     },
-    [storageKey, authenticated],
+    [storageKey, authenticated, refresh],
   );
 
   let streak = 0;

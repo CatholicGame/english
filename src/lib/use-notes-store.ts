@@ -13,14 +13,18 @@ import {
   type NotesData,
 } from "./notes-store";
 
-function pushToCloud(moduleKey: string, data: NotesData) {
+function pushToCloud(moduleKey: string, data: NotesData, onReauthRequired: () => void) {
   fetch(`/api/drive/notes?key=${encodeURIComponent(moduleKey)}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
-  }).catch(() => {
-    // best-effort — localStorage remains the source of truth
-  });
+  })
+    .then((r) => {
+      if (r.status === 401) onReauthRequired();
+    })
+    .catch(() => {
+      // best-effort — localStorage remains the source of truth
+    });
 }
 
 /** Loads a module's notes from localStorage immediately, then — once signed
@@ -30,7 +34,7 @@ function pushToCloud(moduleKey: string, data: NotesData) {
  * "listen-a-minute", "collocations-phrasal-verbs") — items within it are
  * addressed by whatever itemKey the caller chooses. */
 export function useNotesStore(moduleKey: string) {
-  const { loading: authLoading, authenticated } = useAuth();
+  const { loading: authLoading, authenticated, refresh } = useAuth();
   const [all, setAll] = useState<NotesData>(() => loadAllNotes(moduleKey));
   const pushTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -39,13 +43,16 @@ export function useNotesStore(moduleKey: string) {
     let cancelled = false;
 
     fetch(`/api/drive/notes?key=${encodeURIComponent(moduleKey)}`)
-      .then((r) => (r.ok ? r.json() : Promise.reject(r)))
+      .then((r) => {
+        if (r.status === 401) refresh();
+        return r.ok ? r.json() : Promise.reject(r);
+      })
       .then(({ data }) => {
         if (cancelled || !data) return;
         setAll((prev) => {
           const merged = mergeNotes(prev, data);
           persistAllNotes(moduleKey, merged);
-          pushToCloud(moduleKey, merged);
+          pushToCloud(moduleKey, merged, refresh);
           return merged;
         });
       })
@@ -56,15 +63,15 @@ export function useNotesStore(moduleKey: string) {
     return () => {
       cancelled = true;
     };
-  }, [authLoading, authenticated, moduleKey]);
+  }, [authLoading, authenticated, moduleKey, refresh]);
 
   const schedulePush = useCallback(
     (data: NotesData) => {
       if (!authenticated) return;
       if (pushTimer.current) clearTimeout(pushTimer.current);
-      pushTimer.current = setTimeout(() => pushToCloud(moduleKey, data), 1500);
+      pushTimer.current = setTimeout(() => pushToCloud(moduleKey, data, refresh), 1500);
     },
-    [authenticated, moduleKey],
+    [authenticated, moduleKey, refresh],
   );
 
   const getNotes = useCallback((itemKey: string) => getNotesFor(all, itemKey), [all]);

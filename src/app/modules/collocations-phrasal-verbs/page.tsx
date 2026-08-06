@@ -12,7 +12,6 @@ const DAILY_GOAL = 20;
 const PRACTICE_MODES = [
   { mode: "flash", title: "Flashcards", sub: "Flip and recall" },
   { mode: "mc", title: "Multiple choice", sub: "Pick the meaning" },
-  { mode: "fill", title: "Fill in", sub: "Complete the sentence" },
   { mode: "type", title: "Typing", sub: "Write it out" },
   { mode: "match", title: "Matching", sub: "Pair four" },
   { mode: "listen", title: "Listen", sub: "Hear and choose" },

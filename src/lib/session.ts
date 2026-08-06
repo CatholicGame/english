@@ -1,8 +1,8 @@
 import { shuffle } from "./utils";
 import type { AllItem } from "./flatten";
 
-export type Mode = "flash" | "mc" | "fill" | "type" | "match" | "listen" | "mix";
-export type SingleMode = "mc" | "fill" | "type" | "listen" | "flash";
+export type Mode = "flash" | "mc" | "type" | "match" | "listen" | "mix";
+export type SingleMode = "mc" | "type" | "listen" | "flash";
 
 export interface FlashQuestion {
   kind: "flash";
@@ -12,13 +12,6 @@ export interface ChoiceQuestion {
   kind: "mc" | "listen";
   item: AllItem;
   options: string[];
-  answer: string;
-}
-export interface FillQuestion {
-  kind: "fill";
-  item: AllItem;
-  before: string;
-  after: string;
   answer: string;
 }
 export interface TypeQuestion {
@@ -31,7 +24,7 @@ export interface MatchQuestion {
   items: AllItem[];
   right: string[];
 }
-export type Question = FlashQuestion | ChoiceQuestion | FillQuestion | TypeQuestion | MatchQuestion;
+export type Question = FlashQuestion | ChoiceQuestion | TypeQuestion | MatchQuestion;
 
 export interface Session {
   mode: Mode;
@@ -43,36 +36,19 @@ export interface Session {
 export const MODE_LABELS: Record<Mode, string> = {
   flash: "Flashcards",
   mc: "Multiple choice",
-  fill: "Fill in the blank",
   type: "Typing",
   match: "Matching",
   listen: "Listen & choose",
   mix: "Mixed review",
 };
 
-const MIX_POOL: SingleMode[] = ["mc", "fill", "type", "listen"];
-
-export function blank(item: AllItem): [string, string, string] | null {
-  const ex = item.ex;
-  const words = item.term.split(" ");
-  const tail = words.slice(1).join(" ");
-  if (!tail) return null;
-  const re = new RegExp("(\\S+\\s+)?" + tail.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "\\b", "i");
-  const m = ex.match(re);
-  if (!m || m.index == null) return null;
-  return [ex.slice(0, m.index), ex.slice(m.index + m[0].length), ex.slice(m.index, m.index + m[0].length)];
-}
+const MIX_POOL: SingleMode[] = ["mc", "type", "listen"];
 
 export function mkQuestion(mode: SingleMode, item: AllItem, pool: AllItem[]): Question {
   if (mode === "flash") return { kind: "flash", item };
   if (mode === "mc" || mode === "listen") {
     const others = shuffle(pool.filter((x) => x.key !== item.key && x.en !== item.en)).slice(0, 3);
     return { kind: mode, item, options: shuffle([item.en, ...others.map((o) => o.en)]), answer: item.en };
-  }
-  if (mode === "fill") {
-    const b = blank(item);
-    if (b) return { kind: "fill", item, before: b[0], after: b[1], answer: b[2] };
-    return { kind: "type", item, answer: item.term };
   }
   return { kind: "type", item, answer: item.term };
 }

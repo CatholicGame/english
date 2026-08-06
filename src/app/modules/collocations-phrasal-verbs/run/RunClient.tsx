@@ -11,7 +11,6 @@ import {
   MODE_LABELS,
   buildSession,
   type ChoiceQuestion,
-  type FillQuestion,
   type MatchQuestion,
   type Mode,
   type Session,
@@ -169,7 +168,7 @@ export function RunClient() {
   }
 
   function submitWrite() {
-    if (!q || (q.kind !== "fill" && q.kind !== "type")) return;
+    if (!q || q.kind !== "type") return;
     if (ans) {
       next();
       return;
@@ -183,7 +182,7 @@ export function RunClient() {
   }
 
   function skipWrite() {
-    if (!q || (q.kind !== "fill" && q.kind !== "type")) return;
+    if (!q || q.kind !== "type") return;
     if (!ans) handleGrade(q.item, false);
     next();
   }
@@ -402,35 +401,18 @@ export function RunClient() {
           );
         })()}
 
-      {(q?.kind === "fill" || q?.kind === "type") &&
+      {q?.kind === "type" &&
         (() => {
-          const wq = q as FillQuestion | TypeQuestion;
-          const hint = ans
-            ? ans.ok
-              ? "Correct"
-              : "See the answer below"
-            : wq.kind === "fill"
-              ? "Complete the sentence"
-              : "Write the phrase";
-          const slotText = ans ? wq.answer : input || " ";
+          const wq = q as TypeQuestion;
+          const hint = ans ? (ans.ok ? "Correct" : "See the answer below") : "Write the phrase";
           return (
             <div className="flex flex-1 flex-col p-4">
               <div className="lg:flex lg:flex-row lg:items-start lg:gap-8">
                 <div className="mb-4 bg-surface p-4 lg:mb-0 lg:w-[300px] lg:flex-none lg:sticky lg:top-6">
-                  {wq.kind === "fill" ? (
-                    <div className="text-[19px] leading-relaxed text-pretty">
-                      <span>{wq.before}</span>
-                      <span className="inline-block min-w-[84px] border-b-2 border-accent font-extrabold text-accent-700">
-                        {slotText}
-                      </span>
-                      <span>{wq.after}</span>
-                    </div>
-                  ) : (
-                    <div>
-                      <div className="text-[19px] leading-snug font-extrabold text-pretty">{wq.item.en}</div>
-                      <div className="mt-1.5 text-[14px] leading-relaxed text-neutral-600">{wq.item.vi}</div>
-                    </div>
-                  )}
+                  <div>
+                    <div className="text-[19px] leading-snug font-extrabold text-pretty">{wq.item.en}</div>
+                    <div className="mt-1.5 text-[14px] leading-relaxed text-neutral-600">{wq.item.vi}</div>
+                  </div>
                   <div className="label-xs mt-3">{hint}</div>
                 </div>
                 <div className="lg:flex-1">

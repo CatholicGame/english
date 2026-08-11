@@ -21,7 +21,7 @@ export default function ModuleLayout({ children }: { children: React.ReactNode }
           </div>
         )}
         <div
-          className={`mx-auto flex min-h-screen w-full max-w-[480px] flex-col bg-bg lg:mx-0 lg:max-w-none lg:flex-1 ${
+          className={`mx-auto flex min-h-screen w-full max-w-[480px] flex-col bg-bg pt-12 lg:mx-0 lg:max-w-none lg:flex-1 lg:pt-0 ${
             hideNav ? "" : "pb-[74px] lg:pb-0"
           }`}
         >

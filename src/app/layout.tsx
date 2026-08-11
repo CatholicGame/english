@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Archivo } from "next/font/google";
 import { AuthStatus } from "@/components/AuthStatus";
 import { AuthProvider } from "@/lib/auth-context";
+import { GlobalScoreProvider } from "@/lib/global-score-context";
 import "./globals.css";
 
 const archivo = Archivo({
@@ -23,10 +24,12 @@ export default function RootLayout({
   return (
     <html lang="vi" className={`${archivo.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col bg-bg text-ink">
-        <AuthProvider>
-          <AuthStatus />
-          {children}
-        </AuthProvider>
+        <GlobalScoreProvider>
+          <AuthProvider>
+            <AuthStatus />
+            {children}
+          </AuthProvider>
+        </GlobalScoreProvider>
       </body>
     </html>
   );

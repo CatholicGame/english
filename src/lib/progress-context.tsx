@@ -3,10 +3,12 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
 import { useAuth } from "./auth-context";
 import { dayKey } from "./utils";
+import { addGlobalXP } from "./global-score";
 
 export interface ProgressEntry {
   l: number;
   t: number;
+  nextReview?: number; // timestamp — when this item should be reviewed next (SRS)
 }
 export type ProgressMap = Record<string, ProgressEntry>;
 export type DaysMap = Record<string, number>;
@@ -87,6 +89,19 @@ function pushToCloud(storageKey: string, state: ProgressState, onReauthRequired:
     });
 }
 
+// SRS intervals in milliseconds
+function srsInterval(level: number): number {
+  const intervals: Record<number, number> = {
+    0: 0,                   // due now
+    1: 4 * 60 * 60 * 1000,  // 4 hours
+    2: 24 * 60 * 60 * 1000, // 1 day
+    3: 3 * 24 * 60 * 60 * 1000, // 3 days
+    4: 7 * 24 * 60 * 60 * 1000, // 7 days
+    5: 30 * 24 * 60 * 60 * 1000, // 30 days
+  };
+  return intervals[Math.max(0, Math.min(5, level))] ?? 0;
+}
+
 export function ProgressProvider({
   storageKey,
   children,
@@ -140,14 +155,22 @@ export function ProgressProvider({
     (key: string, ok: boolean) => {
       setState((prev) => {
         const cur = prev.progress[key]?.l ?? 0;
+        const newLvl = Math.max(0, Math.min(5, ok ? cur + 1 : cur - 1));
         const nextProgress: ProgressMap = {
           ...prev.progress,
-          [key]: { l: Math.max(0, Math.min(5, ok ? cur + 1 : cur - 1)), t: Date.now() },
+          [key]: {
+            l: newLvl,
+            t: Date.now(),
+            nextReview: Date.now() + srsInterval(ok ? newLvl : 0),
+          },
         };
         const k = dayKey(new Date());
         const nextDays: DaysMap = { ...prev.days, [k]: (prev.days[k] || 0) + 1 };
         const next = { progress: nextProgress, days: nextDays };
         persistState(storageKey, next);
+
+        // Global XP
+        addGlobalXP(ok ? 10 : 2);
 
         if (authenticated) {
           if (pushTimer.current) clearTimeout(pushTimer.current);

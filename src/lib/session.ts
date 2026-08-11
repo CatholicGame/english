@@ -1,8 +1,8 @@
 import { shuffle } from "./utils";
 import type { AllItem } from "./flatten";
 
-export type Mode = "flash" | "mc" | "type" | "match" | "listen" | "mix";
-export type SingleMode = "mc" | "type" | "listen" | "flash";
+export type Mode = "flash" | "mc" | "type" | "match" | "listen" | "mix" | "reverseMc" | "reverseType";
+export type SingleMode = "mc" | "type" | "listen" | "flash" | "reverseMc" | "reverseType";
 
 export interface FlashQuestion {
   kind: "flash";
@@ -40,6 +40,8 @@ export const MODE_LABELS: Record<Mode, string> = {
   match: "Matching",
   listen: "Listen & choose",
   mix: "Mixed review",
+  reverseMc: "Reverse MC",
+  reverseType: "Reverse typing",
 };
 
 const MIX_POOL: SingleMode[] = ["mc", "type", "listen"];
@@ -49,6 +51,20 @@ export function mkQuestion(mode: SingleMode, item: AllItem, pool: AllItem[]): Qu
   if (mode === "mc" || mode === "listen") {
     const others = shuffle(pool.filter((x) => x.key !== item.key && x.en !== item.en)).slice(0, 3);
     return { kind: mode, item, options: shuffle([item.en, ...others.map((o) => o.en)]), answer: item.en };
+  }
+  if (mode === "reverseMc") {
+    // Show VI meaning, pick the correct term
+    const others = shuffle(pool.filter((x) => x.key !== item.key && x.term !== item.term)).slice(0, 3);
+    return {
+      kind: "mc", // reuse MC rendering
+      item,
+      options: shuffle([item.term, ...others.map((o) => o.term)]),
+      answer: item.term,
+    };
+  }
+  if (mode === "reverseType") {
+    // Show VI meaning, type the term
+    return { kind: "type", item, answer: item.term };
   }
   return { kind: "type", item, answer: item.term };
 }

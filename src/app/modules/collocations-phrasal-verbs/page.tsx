@@ -1,11 +1,13 @@
 "use client";
 
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { VERBS } from "@/data/basic-verbs";
 import { buildAllItems } from "@/lib/flatten";
 import { useProgress } from "@/lib/progress-context";
 import { dueCount, learnedCount, dayBars } from "@/lib/stats";
+import { loadMistakes, clearMistakes } from "@/lib/mistakes-store";
+import type { AllItem } from "@/lib/flatten";
 
 const DAILY_GOAL = 20;
 
@@ -13,6 +15,8 @@ const PRACTICE_MODES = [
   { mode: "flash", title: "Flashcards", sub: "Flip and recall" },
   { mode: "mc", title: "Multiple choice", sub: "Pick the meaning" },
   { mode: "type", title: "Typing", sub: "Write it out" },
+  { mode: "reverseMc", title: "Reverse MC", sub: "Meaning → term" },
+  { mode: "reverseType", title: "Reverse type", sub: "Recall the phrase" },
   { mode: "match", title: "Matching", sub: "Pair four" },
   { mode: "listen", title: "Listen", sub: "Hear and choose" },
 ];
@@ -21,12 +25,20 @@ export default function TodayPage() {
   const router = useRouter();
   const { loaded, progress, days, streak, todayDone } = useProgress();
   const all = useMemo(() => buildAllItems(VERBS), []);
+  const [mistakes, setMistakes] = useState<AllItem[]>([]);
 
   const learned = learnedCount(all, progress);
   const due = dueCount(all, progress);
   const goalPct = Math.min(100, Math.round((todayDone / DAILY_GOAL) * 100));
   const week = dayBars(days, 7, 56, "var(--color-accent)", "var(--color-neutral-300)");
   const todayLabel = new Date().toLocaleDateString("en-US", { month: "short", day: "numeric" });
+
+  const hasMistakes = mistakes.length > 0;
+
+  useEffect(() => {
+    const m = loadMistakes("collocations-phrasal-verbs");
+    if (m.length > 0) setMistakes(m);
+  }, []);
 
   if (!loaded) return null;
 
@@ -92,6 +104,23 @@ export default function TodayPage() {
           </svg>
         </button>
         <div className="mt-2 text-[11px] text-neutral-600">{due} phrases still to master</div>
+
+        {hasMistakes && (
+          <div className="mt-3">
+            <button
+              className="btn btn-accent btn-block px-4 py-2.5 text-[13px]"
+              onClick={() => {
+                router.push(`/modules/collocations-phrasal-verbs/run?mode=mix&mistakes=1`);
+              }}
+            >
+              <span className="flex-1">Review {mistakes.length} mistakes</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="h-[16px] w-[16px] flex-none">
+                <polyline points="23 4 23 10 17 10" />
+                <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10" />
+              </svg>
+            </button>
+          </div>
+        )}
       </div>
 
       <div className="label-xs px-4 pt-4 pb-2">Practice</div>

@@ -7,12 +7,25 @@ export function lvlOf(progress: ProgressMap, key: string): number {
 }
 
 export function dueItems(all: AllItem[], progress: ProgressMap): AllItem[] {
-  const due = all.filter((i) => lvlOf(progress, i.key) < 3);
+  const now = Date.now();
+  const due = all.filter((i) => {
+    const entry = progress[i.key];
+    if (!entry) return true; // never seen → due
+    if (entry.nextReview != null) return entry.nextReview <= now;
+    // backward compat: items without nextReview — due if level < 3
+    return entry.l < 3;
+  });
   return due.length ? due : all;
 }
 
 export function dueCount(all: AllItem[], progress: ProgressMap): number {
-  return all.filter((i) => lvlOf(progress, i.key) < 3).length;
+  const now = Date.now();
+  return all.filter((i) => {
+    const entry = progress[i.key];
+    if (!entry) return true;
+    if (entry.nextReview != null) return entry.nextReview <= now;
+    return entry.l < 3;
+  }).length;
 }
 
 export function learnedCount(all: AllItem[], progress: ProgressMap): number {

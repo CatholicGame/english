@@ -2,16 +2,26 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { GROUP_LABELS, VERBS } from "@/data/basic-verbs";
 import { useProgress } from "@/lib/progress-context";
 import { lvlOf } from "@/lib/stats";
 
 const GROUP_KEYS = ["all", ...Object.keys(GROUP_LABELS)];
 
+const CheckIcon = ({ className = "h-4 w-4" }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round" className={`block ${className}`}>
+    <polyline points="20 6 9 17 4 12" />
+  </svg>
+);
+
 export default function VerbsPage() {
+  const router = useRouter();
   const { progress } = useProgress();
   const [query, setQuery] = useState("");
   const [group, setGroup] = useState("all");
+  const [selecting, setSelecting] = useState(false);
+  const [selected, setSelected] = useState<Set<string>>(new Set());
 
   const ql = query.trim().toLowerCase();
 
@@ -31,11 +41,40 @@ export default function VerbsPage() {
     [group, ql],
   );
 
+  function toggleVerb(verb: string) {
+    setSelected((prev) => {
+      const next = new Set(prev);
+      if (next.has(verb)) next.delete(verb);
+      else next.add(verb);
+      return next;
+    });
+  }
+
+  function startPractice(mode: string) {
+    const verbs = [...selected].join(",");
+    router.push(`/modules/collocations-phrasal-verbs/run?mode=${mode}&verbs=${encodeURIComponent(verbs)}`);
+  }
+
+  function exitSelecting() {
+    setSelecting(false);
+    setSelected(new Set());
+  }
+
   return (
     <div className="lg:flex lg:flex-row lg:items-stretch lg:gap-8 lg:px-4 lg:py-6">
       <div className="lg:w-[280px] lg:flex-none lg:sticky lg:top-6 lg:self-stretch lg:border-r-2 lg:border-[color:var(--color-divider)] lg:pr-6">
         <div className="divider-b px-4 py-4 lg:border-b-0 lg:px-0 lg:py-0">
-          <h1 className="mb-3 text-[30px]">Verbs</h1>
+          <div className="mb-3 flex items-center justify-between">
+            <h1 className="text-[30px]">Verbs</h1>
+            <button
+              onClick={() => (selecting ? exitSelecting() : setSelecting(true))}
+              className={`btn text-[11px] font-extrabold tracking-wider uppercase ${
+                selecting ? "btn-primary px-3 py-1.5" : "btn-ghost px-2 py-1"
+              }`}
+            >
+              {selecting ? "Done" : "Select"}
+            </button>
+          </div>
           <input
             className="input"
             value={query}
@@ -64,6 +103,41 @@ export default function VerbsPage() {
           {listVerbs.map((v) => {
             const done = v.items.filter((it) => lvlOf(progress, `${v.verb}::${it.term}`) >= 3).length;
             const pct = v.items.length ? Math.round((done / v.items.length) * 100) : 0;
+            const isSel = selected.has(v.verb);
+
+            if (selecting) {
+              return (
+                <button
+                  key={v.verb}
+                  onClick={() => toggleVerb(v.verb)}
+                  className="divider-b flex items-center gap-3 px-4 py-3 hover:bg-surface text-left"
+                >
+                  <span className={`flex h-5 w-5 flex-none items-center justify-center border-2 ${
+                    isSel ? "border-accent bg-accent text-bg" : "border-neutral-400"
+                  }`}>
+                    {isSel && <CheckIcon className="h-3 w-3" />}
+                  </span>
+                  <span className="min-w-0 flex-1">
+                    <span className="flex items-baseline gap-2">
+                      <span className="text-[18px] font-extrabold tracking-tight uppercase">{v.verb}</span>
+                      <span className="text-[10px] tracking-wider text-accent">{v.group}</span>
+                    </span>
+                    <span className="mt-0.5 block truncate text-[11px] text-neutral-600">
+                      {v.items.slice(0, 3).map((it) => it.term).join(" · ")}
+                    </span>
+                  </span>
+                  <span className="w-11 flex-none">
+                    <span className="mb-1 block text-right text-[11px] tabular-nums text-neutral-600">
+                      {v.items.length}
+                    </span>
+                    <span className="block h-1 bg-neutral-300">
+                      <span className="block h-full bg-accent" style={{ width: `${pct}%` }} />
+                    </span>
+                  </span>
+                </button>
+              );
+            }
+
             return (
               <Link
                 key={v.verb}
@@ -98,6 +172,35 @@ export default function VerbsPage() {
           <div className="px-4 py-8 text-[13px] text-neutral-600">No match.</div>
         )}
       </div>
+
+      {/* Practice bar */}
+      {selecting && selected.size > 0 && (
+        <div className="fixed bottom-0 left-0 right-0 z-30 border-t-2 border-[color:var(--color-divider)] bg-bg px-3 py-2.5 lg:static lg:bottom-auto lg:left-auto lg:right-auto lg:border-t-0 lg:border-l-2 lg:px-6 lg:py-0">
+          <div className="lg:sticky lg:top-6 lg:flex lg:flex-col lg:gap-3">
+            <span className="mb-2 block text-[11px] font-extrabold lg:text-center">
+              {selected.size} verb{selected.size > 1 ? "s" : ""}
+            </span>
+            <div className="flex gap-1.5 overflow-x-auto lg:flex-col lg:overflow-visible">
+              {[
+                { mode: "mix", label: "Mix" },
+                { mode: "mc", label: "MC" },
+                { mode: "type", label: "Type" },
+                { mode: "reverseMc", label: "Rev MC" },
+                { mode: "reverseType", label: "Rev type" },
+                { mode: "flash", label: "Flash" },
+              ].map((m) => (
+                <button
+                  key={m.mode}
+                  className="btn btn-primary flex-none px-3 py-2 text-[12px] font-extrabold tracking-wide uppercase"
+                  onClick={() => startPractice(m.mode)}
+                >
+                  {m.label}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

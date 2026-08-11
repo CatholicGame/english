@@ -7,6 +7,7 @@ import type { AllItem } from "@/lib/flatten";
 import { buildAllItems } from "@/lib/flatten";
 import { useProgress } from "@/lib/progress-context";
 import { dueItems } from "@/lib/stats";
+import { addMistakes, clearMistakes, loadMistakes } from "@/lib/mistakes-store";
 import {
   MODE_LABELS,
   buildSession,
@@ -96,8 +97,30 @@ export function RunClient() {
     if (!loaded) return;
     const mode = (searchParams.get("mode") as Mode) || "mix";
     const verbParam = searchParams.get("verb");
-    const pool = verbParam ? all.filter((i) => i.verb === verbParam) : dueItems(all, progress);
-    startSession(mode, pool, verbParam || MODE_LABELS[mode]);
+    const verbsParam = searchParams.get("verbs");
+    const mistakesParam = searchParams.get("mistakes");
+
+    let pool: AllItem[];
+    if (mistakesParam) {
+      pool = loadMistakes("collocations-phrasal-verbs");
+      if (pool.length === 0) pool = dueItems(all, progress); // fallback
+      else clearMistakes("collocations-phrasal-verbs");
+    } else if (verbsParam) {
+      const verbList = verbsParam.split(",").map((s) => s.trim().toUpperCase());
+      pool = all.filter((i) => verbList.includes(i.verb));
+    } else if (verbParam) {
+      pool = all.filter((i) => i.verb === verbParam);
+    } else {
+      pool = dueItems(all, progress);
+    }
+
+    const label = mistakesParam
+      ? "Review mistakes"
+      : verbsParam
+        ? verbsParam.split(",").map((s) => s.trim().toUpperCase()).join(", ")
+        : verbParam || MODE_LABELS[mode];
+
+    startSession(mode, pool, label);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loaded, spKey]);
 
@@ -207,6 +230,12 @@ export function RunClient() {
     const seen = new Set<string>();
     const missedUnique = missed.filter((m) => (seen.has(m.key) ? false : (seen.add(m.key), true))).slice(0, 6);
 
+    // Save missed items for later review
+    const allMissed = missed.filter((m, i, arr) => arr.findIndex((x) => x.key === m.key) === i);
+    if (allMissed.length > 0) {
+      addMistakes("collocations-phrasal-verbs", allMissed);
+    }
+
     return (
       <div className="flex min-h-screen flex-col">
         <div className="divider-b px-4 pt-8 pb-6">
@@ -241,6 +270,17 @@ export function RunClient() {
           <button className="btn btn-secondary flex-1 justify-start px-4 py-3" onClick={goHome}>
             Done
           </button>
+          {allMissed.length > 0 && (
+            <button
+              className="btn btn-accent flex-1 justify-start px-4 py-3"
+              onClick={() => {
+                startSession("mix", allMissed, "Retry missed");
+                clearMistakes("collocations-phrasal-verbs");
+              }}
+            >
+              Retry {allMissed.length} missed
+            </button>
+          )}
           <button
             className="btn btn-primary flex-1 justify-start px-4 py-3"
             onClick={() => startSession(session.mode, session.pool, session.label)}
@@ -331,13 +371,17 @@ export function RunClient() {
       {(q?.kind === "mc" || q?.kind === "listen") &&
         (() => {
           const cq = q as ChoiceQuestion;
+          const isReverse = session.mode === "reverseMc";
+          const promptText = isReverse ? cq.item.vi : cq.item.term;
           const hint = ans
             ? ans.ok
               ? "Correct"
               : "Not quite"
             : cq.kind === "listen"
               ? "Tap to hear again"
-              : "What does it mean?";
+              : isReverse
+                ? "Which phrase?"
+                : "What does it mean?";
           return (
             <div className="flex flex-1 flex-col p-4">
               <div className="lg:flex lg:flex-row lg:items-start lg:gap-8">
@@ -350,8 +394,8 @@ export function RunClient() {
                       <SpeakerIcon className="h-[34px] w-[34px]" />
                     </button>
                   ) : (
-                    <div className="text-[28px] leading-tight font-extrabold tracking-tight text-balance">
-                      {cq.item.term}
+                    <div className={`leading-tight font-extrabold tracking-tight text-balance ${isReverse ? "text-[17px]" : "text-[28px]"}`}>
+                      {promptText}
                     </div>
                   )}
                   <div className="label-xs mt-3">{hint}</div>
@@ -404,14 +448,24 @@ export function RunClient() {
       {q?.kind === "type" &&
         (() => {
           const wq = q as TypeQuestion;
+          const isReverse = session.mode === "reverseType";
           const hint = ans ? (ans.ok ? "Correct" : "See the answer below") : "Write the phrase";
           return (
             <div className="flex flex-1 flex-col p-4">
               <div className="lg:flex lg:flex-row lg:items-start lg:gap-8">
                 <div className="mb-4 bg-surface p-4 lg:mb-0 lg:w-[300px] lg:flex-none lg:sticky lg:top-6">
                   <div>
-                    <div className="text-[19px] leading-snug font-extrabold text-pretty">{wq.item.en}</div>
-                    <div className="mt-1.5 text-[14px] leading-relaxed text-neutral-600">{wq.item.vi}</div>
+                    {isReverse ? (
+                      <>
+                        <div className="text-[19px] leading-snug font-extrabold text-pretty">{wq.item.vi}</div>
+                        <div className="mt-1.5 text-[13px] leading-relaxed text-neutral-600">{wq.item.en}</div>
+                      </>
+                    ) : (
+                      <>
+                        <div className="text-[19px] leading-snug font-extrabold text-pretty">{wq.item.en}</div>
+                        <div className="mt-1.5 text-[14px] leading-relaxed text-neutral-600">{wq.item.vi}</div>
+                      </>
+                    )}
                   </div>
                   <div className="label-xs mt-3">{hint}</div>
                 </div>

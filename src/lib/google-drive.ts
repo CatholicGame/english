@@ -1,4 +1,5 @@
 import type { NotesData } from "./notes-store";
+import type { AiConvoData } from "./ai-convo-store";
 import type { SessionPayload } from "./session-cookie";
 
 const FILES_URL = "https://www.googleapis.com/drive/v3/files";
@@ -135,4 +136,14 @@ export function readDriveNotes(accessToken: string, session: SessionPayload, sto
 
 export function writeDriveNotes(accessToken: string, session: SessionPayload, storageKey: string, data: NotesData) {
   return writeDriveJson(accessToken, session, `notes-${storageKey}`, data);
+}
+
+// ─── AI Conversations ──────────────────────────────────────────────
+
+export function readDriveAiConvos(accessToken: string, session: SessionPayload, storageKey: string) {
+  return readDriveJson<AiConvoData>(accessToken, session, `ai-convos-${storageKey}`);
+}
+
+export function writeDriveAiConvos(accessToken: string, session: SessionPayload, storageKey: string, data: AiConvoData) {
+  return writeDriveJson(accessToken, session, `ai-convos-${storageKey}`, data);
 }

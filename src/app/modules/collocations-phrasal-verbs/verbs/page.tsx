@@ -66,14 +66,22 @@ export default function VerbsPage() {
         <div className="divider-b px-4 py-4 lg:border-b-0 lg:px-0 lg:py-0">
           <div className="mb-3 flex items-center justify-between">
             <h1 className="text-[30px]">Verbs</h1>
-            <button
-              onClick={() => (selecting ? exitSelecting() : setSelecting(true))}
-              className={`btn text-[11px] font-extrabold tracking-wider uppercase ${
-                selecting ? "btn-primary px-3 py-1.5" : "btn-ghost px-2 py-1"
-              }`}
-            >
-              {selecting ? "Done" : "Select"}
-            </button>
+            <div className="flex items-center gap-2">
+              <Link
+                href="/modules/collocations-phrasal-verbs/write"
+                className="btn btn-ghost px-2 py-1 text-[11px] font-extrabold tracking-wider uppercase"
+              >
+                ✍️ Write
+              </Link>
+              <button
+                onClick={() => (selecting ? exitSelecting() : setSelecting(true))}
+                className={`btn text-[11px] font-extrabold tracking-wider uppercase ${
+                  selecting ? "btn-primary px-3 py-1.5" : "btn-ghost px-2 py-1"
+                }`}
+              >
+                {selecting ? "Done" : "Select"}
+              </button>
+            </div>
           </div>
           <input
             className="input"

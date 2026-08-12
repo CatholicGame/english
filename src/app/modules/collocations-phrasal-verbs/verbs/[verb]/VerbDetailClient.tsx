@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { NotesList } from "@/components/NotesList";
+import { AiSentencePractice } from "@/components/AiSentencePractice";
 import { GROUP_LABELS, VERBS } from "@/data/basic-verbs";
 import { useProgress } from "@/lib/progress-context";
 import { lvlOf } from "@/lib/stats";
@@ -23,6 +24,44 @@ const SpeakerIcon = ({ className = "h-4 w-4" }: { className?: string }) => (
     <path d="M19.07 4.93a7 7 0 0 1 0 14.14" />
   </svg>
 );
+
+
+function AiSection({ item }: { item: { term: string; type: string; en: string; vi: string; ex: string } }) {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div className="mt-2 border-t pt-2" style={{ borderColor: "var(--color-divider)" }}>
+      <button
+        className="text-[11px] font-extrabold text-accent hover:underline"
+        onClick={() => setOpen(true)}
+      >
+        🤖 Practice with AI
+      </button>
+
+      {open && (
+        <div className="fixed inset-0 z-[60] bg-bg">
+          <div className="mx-auto flex h-full max-w-[480px] flex-col lg:max-w-[720px]">
+            {/* Header */}
+            <div className="flex items-center justify-between px-4 py-3" style={{ borderBottom: "1px solid var(--color-divider)" }}>
+              <div>
+                <span className="text-[16px] font-extrabold">🤖 AI Practice</span>
+                <span className="ml-2 text-[13px] text-neutral-600">{item.term}</span>
+              </div>
+              <button className="btn btn-ghost text-[13px]" onClick={() => setOpen(false)}>
+                ✕ Close
+              </button>
+            </div>
+
+            {/* Scrollable content */}
+            <div className="flex-1 overflow-y-auto px-4 py-4">
+              <AiSentencePractice item={item} moduleKey="collocations-phrasal-verbs" />
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
 
 export function VerbDetailClient({ slug }: { slug: string }) {
   const router = useRouter();
@@ -135,6 +174,7 @@ export function VerbDetailClient({ slug }: { slug: string }) {
                 {it.ex}
               </div>
               <NotesList moduleKey="collocations-phrasal-verbs" itemKey={`${verb.verb}::${it.term}`} />
+              <AiSection item={it} />
             </div>
           );
         })}

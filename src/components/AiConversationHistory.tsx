@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useAiConvoStore } from "@/lib/use-ai-convo-store";
 import type { AiConversation, IntentType } from "@/lib/ai-convo-store";
+import { AiBandFeedback } from "./AiBandFeedback";
 
 const INTENT_LABELS: Record<string, string> = {
   cpv_sentence_check: "✍️ Write",
@@ -17,6 +18,9 @@ const INTENT_LABELS: Record<string, string> = {
   cpv_example_gen: "📖 Examples",
   cpv_writing_passage: "✍️ Writing",
   cpv_writing_review: "✍️ Writing",
+  cielts_vocab_sentence: "🎓 Vocab",
+  cielts_writing_feedback: "📝 Writing",
+  cielts_speaking_feedback: "🎤 Speaking",
 };
 
 function fmtDate(ts: number): string {
@@ -128,6 +132,7 @@ function AiHistoryMessage({ content }: { content: string }) {
   }
   const obj = data as Record<string, unknown>;
   if (Array.isArray(obj.results)) return <BatchReviewContent data={obj} />;
+  if (obj.overallBand !== undefined) return <AiBandFeedback loading={false} result={obj} error={null} />;
   if (obj.feedback !== undefined || obj.correction !== undefined || obj.correct !== undefined) {
     return <SentenceCheckContent data={obj} />;
   }

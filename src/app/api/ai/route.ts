@@ -1,34 +1,14 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { buildPrompt, type PromptResult } from "@/lib/ai-prompts";
 import type { IntentType } from "@/lib/ai-convo-store";
-import { readFileSync } from "fs";
-import { resolve } from "path";
 
 const DEEPSEEK_BASE = "https://api.deepseek.com/v1";
 const MODEL = "deepseek-v4-flash";
 
-// Cached key — read once from .env.local, never from process.env
-let _apiKey: string | null = null;
-
 function apiKey(): string {
-  if (_apiKey) return _apiKey;
-  // Try multiple approaches to find .env.local
-  const tries: string[] = [];
-  
-  // Approach 1: process.cwd()
-  const p1 = resolve(process.cwd(), ".env.local");
-  tries.push(p1);
-  try {
-    const content = readFileSync(p1, "utf-8");
-    const match = content.match(/^DEEPSEEK_API_KEY=(.+)$/m);
-    if (match?.[1]) { _apiKey = match[1].trim(); console.log("Key loaded from:", p1); return _apiKey; }
-  } catch (e: any) { tries.push("FAIL: " + e.message); }
-
-  // Approach 2: fallback to process.env
   const v = process.env.DEEPSEEK_API_KEY;
-  if (v) { _apiKey = v.trim(); console.log("Key loaded from process.env"); return _apiKey; }
-
-  throw new Error("DEEPSEEK_API_KEY not found. CWD: " + process.cwd() + " Tried: " + tries.join(" | "));
+  if (!v) throw new Error("DEEPSEEK_API_KEY not found in environment variables");
+  return v.trim();
 }
 
 async function callDeepSeek(prompt: PromptResult) {

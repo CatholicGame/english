@@ -33,6 +33,40 @@ interface Score {
   total: number;
 }
 
+function autoGrow(e: React.FormEvent<HTMLTextAreaElement>) {
+  const el = e.currentTarget;
+  el.style.height = "auto";
+  el.style.height = `${el.scrollHeight}px`;
+}
+
+// Debounced localStorage draft persistence, same pattern as the Collocations write page
+// (cpv-writing-draft) — keeps in-progress AI-practice text if the student navigates away
+// before submitting, so it isn't lost.
+function loadDraft<T>(key: string): T | null {
+  try {
+    const raw = localStorage.getItem(key);
+    return raw ? (JSON.parse(raw) as T) : null;
+  } catch {
+    return null;
+  }
+}
+
+function saveDraft(key: string, draft: unknown) {
+  try {
+    localStorage.setItem(key, JSON.stringify(draft));
+  } catch {
+    // localStorage unavailable
+  }
+}
+
+function clearDraft(key: string) {
+  try {
+    localStorage.removeItem(key);
+  } catch {
+    // localStorage unavailable
+  }
+}
+
 async function callAi(intent: string, payload: Record<string, unknown>) {
   const r = await fetch("/api/ai", {
     method: "POST",
@@ -192,6 +226,8 @@ const VOCAB_INTENT_FOR_MODE: Record<VocabPMode, string> = {
 function VocabAiPractice({ word }: { word: VocabWord }) {
   const ik = word.term;
   const il = `${word.term} (${word.pos})`;
+  const writeDraftKey = `${MODULE_KEY}:draft:vocab-write:${word.term}`;
+  const translateDraftKey = `${MODULE_KEY}:draft:vocab-translate:${word.term}`;
   const { appendMessages } = useAiConvoStore(MODULE_KEY);
   const [mode, setMode] = useState<VocabPMode>("write");
   const [cid, setCid] = useState<string | null>(null);
@@ -201,6 +237,21 @@ function VocabAiPractice({ word }: { word: VocabWord }) {
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<unknown>(null);
   const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const draft = loadDraft<{ sentence: string }>(writeDraftKey);
+    if (draft?.sentence) setSentence(draft.sentence);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    const t = setTimeout(() => {
+      if (sentence.trim()) saveDraft(writeDraftKey, { sentence });
+      else clearDraft(writeDraftKey);
+    }, 800);
+    return () => clearTimeout(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sentence]);
 
   async function check() {
     if (!sentence.trim()) return;
@@ -221,6 +272,7 @@ function VocabAiPractice({ word }: { word: VocabWord }) {
         { role: "assistant", content: JSON.stringify(data), timestamp: Date.now() },
       ]);
       if (!cid) setCid(id);
+      clearDraft(writeDraftKey);
     } catch (e) {
       setError(e instanceof Error ? e.message : "AI failed");
     } finally {
@@ -234,6 +286,24 @@ function VocabAiPractice({ word }: { word: VocabWord }) {
   const [batchResult, setBatchResult] = useState<Record<string, unknown> | null>(null);
   const [batchLoading, setBatchLoading] = useState(false);
   const [batchError, setBatchError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const draft = loadDraft<{ viSentences: string[]; translations: string[] }>(translateDraftKey);
+    if (draft?.viSentences?.length) {
+      setViSentences(draft.viSentences);
+      setTranslations(draft.translations ?? new Array(draft.viSentences.length).fill(""));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    const t = setTimeout(() => {
+      if (viSentences.length && !batchResult) saveDraft(translateDraftKey, { viSentences, translations });
+      else clearDraft(translateDraftKey);
+    }, 800);
+    return () => clearTimeout(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [viSentences, translations, batchResult]);
 
   async function loadTranslate() {
     setViSentences([]);
@@ -265,6 +335,7 @@ function VocabAiPractice({ word }: { word: VocabWord }) {
       const enriched = { ...d, items, xpEarned };
       setBatchResult(enriched);
       addGlobalXP(xpEarned);
+      clearDraft(translateDraftKey);
       appendMessages(ik, il, cid, "cpv_translate", [
         { role: "user", content: "Submitted 5 translations", timestamp: Date.now() },
         { role: "assistant", content: JSON.stringify(enriched), timestamp: Date.now() },
@@ -388,10 +459,11 @@ function VocabAiPractice({ word }: { word: VocabWord }) {
       {mode === "write" && (
         <div className="flex flex-col gap-3">
           <textarea
-            className="input min-h-[70px] resize-y"
+            className="input min-h-[70px] resize-none overflow-hidden"
             placeholder={`Write a sentence using "${word.term}" in an IELTS-style context...`}
             value={sentence}
             onChange={(e) => setSentence(e.target.value)}
+            onInput={autoGrow}
           />
           <button
             className="btn btn-primary px-4 py-2 text-[13px] font-extrabold disabled:opacity-40"
@@ -423,8 +495,9 @@ function VocabAiPractice({ word }: { word: VocabWord }) {
                     <span className="label-xs mr-2 text-accent-700">{i + 1}.</span>
                     {s}
                   </div>
-                  <input
-                    className="input text-[13px]"
+                  <textarea
+                    className="input min-h-[40px] resize-none overflow-hidden text-[13px]"
+                    rows={1}
                     placeholder="Your English translation..."
                     value={translations[i] || ""}
                     onChange={(e) => {
@@ -432,6 +505,7 @@ function VocabAiPractice({ word }: { word: VocabWord }) {
                       next[i] = e.target.value;
                       setTranslations(next);
                     }}
+                    onInput={autoGrow}
                   />
                 </div>
               ))}
@@ -1205,15 +1279,39 @@ function SpeakingStepView({
   const [voiceSupported, setVoiceSupported] = useState(false);
   const [micError, setMicError] = useState<string | null>(null);
   const recognitionRef = useRef<SpeechRecognitionLike | null>(null);
+  const transcriptRef = useRef<HTMLTextAreaElement>(null);
   const phaseRef = useRef(phase);
   const [aiLoading, setAiLoading] = useState(false);
   const [aiResult, setAiResult] = useState<unknown>(null);
   const [aiError, setAiError] = useState<string | null>(null);
   const [cid, setCid] = useState<string | null>(null);
+  const draftKey = `${MODULE_KEY}:draft:speaking:${itemKey}`;
+
+  useEffect(() => {
+    const draft = loadDraft<{ transcript: string }>(draftKey);
+    if (draft?.transcript) setTranscript(draft.transcript);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    const t = setTimeout(() => {
+      if (transcript.trim()) saveDraft(draftKey, { transcript });
+      else clearDraft(draftKey);
+    }, 800);
+    return () => clearTimeout(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [transcript]);
 
   useEffect(() => {
     phaseRef.current = phase;
   }, [phase]);
+
+  useEffect(() => {
+    const el = transcriptRef.current;
+    if (!el) return;
+    el.style.height = "auto";
+    el.style.height = `${el.scrollHeight}px`;
+  }, [transcript]);
 
   useEffect(() => {
     setVoiceSupported(!!getSpeechRecognitionCtor());
@@ -1291,6 +1389,7 @@ function SpeakingStepView({
         { role: "assistant", content: JSON.stringify(data), timestamp: Date.now() },
       ]);
       if (!cid) setCid(id);
+      clearDraft(draftKey);
     } catch (e) {
       setAiError(e instanceof Error ? e.message : "AI failed");
     } finally {
@@ -1396,7 +1495,8 @@ function SpeakingStepView({
                 : "Type what you said and an AI examiner will score it."}
             </p>
             <textarea
-              className="input mb-2 min-h-[100px] resize-y"
+              ref={transcriptRef}
+              className="input mb-2 min-h-[100px] resize-none overflow-hidden"
               placeholder="Type what you said..."
               value={transcript}
               onChange={(e) => setTranscript(e.target.value)}
@@ -1413,7 +1513,12 @@ function SpeakingStepView({
             </div>
             <AiConversationHistory moduleKey={MODULE_KEY} itemKey={itemKey} filterIntent="cielts_speaking_feedback" />
           </div>
-          <ContinueButton onClick={() => onNext()} />
+          <ContinueButton
+            onClick={() => {
+              clearDraft(draftKey);
+              onNext();
+            }}
+          />
         </>
       )}
     </div>
@@ -1442,6 +1547,22 @@ function WritingTaskStepView({
   const [aiError, setAiError] = useState<string | null>(null);
   const [cid, setCid] = useState<string | null>(null);
   const taskNumber = /2/.test(step.taskLabel) ? 2 : 1;
+  const draftKey = `${MODULE_KEY}:draft:writing:${itemKey}`;
+
+  useEffect(() => {
+    const d = loadDraft<{ draft: string }>(draftKey);
+    if (d?.draft) setDraft(d.draft);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    const t = setTimeout(() => {
+      if (draft.trim()) saveDraft(draftKey, { draft });
+      else clearDraft(draftKey);
+    }, 800);
+    return () => clearTimeout(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [draft]);
 
   async function getFeedback() {
     if (!draft.trim()) return;
@@ -1487,10 +1608,11 @@ function WritingTaskStepView({
       </div>
 
       <textarea
-        className="input mb-2 min-h-[180px] resize-y"
+        className="input mb-2 min-h-[180px] resize-none overflow-hidden"
         placeholder={`Write at least ${step.minWords} words...`}
         value={draft}
         onChange={(e) => setDraft(e.target.value)}
+        onInput={autoGrow}
       />
       <div className="label-xs mb-4 text-right">{wordCount} words</div>
 
@@ -1516,7 +1638,12 @@ function WritingTaskStepView({
             {step.modelAnswer}
           </div>
           <Tip>{step.tip}</Tip>
-          <ContinueButton onClick={() => onNext()} />
+          <ContinueButton
+            onClick={() => {
+              clearDraft(draftKey);
+              onNext();
+            }}
+          />
         </>
       ) : (
         <button className="btn btn-primary btn-block mt-auto px-4 py-3" onClick={() => setShowModel(true)}>

@@ -6,7 +6,10 @@ import type { AiConversation, AiMessage, IntentType } from "@/lib/ai-convo-store
 import { AiFeedback } from "./AiFeedback";
 import { AiConversationHistory } from "./AiConversationHistory";
 import { ChatInput } from "./ChatInput";
+import { ConversationFeedback } from "./ConversationFeedback";
 import { addGlobalXP } from "@/lib/global-score";
+import { createShareLink } from "@/lib/share-client";
+import type { SharedConvoPayload } from "@/lib/share-payload";
 
 type PMode = "write" | "translate" | "quiz" | "examples" | "converse";
 
@@ -273,19 +276,25 @@ export function AiSentencePractice({ item, moduleKey }: { item: ItemInfo; module
 
         {/* Phase: Feedback */}
         {phase === "feedback" && feedback && (
-          <div className="rounded bg-surface p-4 text-[13px] leading-relaxed border" style={{ borderColor: "var(--color-divider)" }}>
-            <span className="label-xs mb-2 block text-accent">Feedback</span>
-            {feedback.phrasesOk !== undefined && (
-              <p className="mb-2 font-extrabold">{feedback.phrasesOk ? "✅ Correct phrase usage!" : "⚠️ Phrase usage needs work"}</p>
-            )}
-            {Array.isArray(feedback.grammarIssues) && feedback.grammarIssues.length > 0 && (
-              <div className="mb-2"><span className="font-extrabold">Grammar:</span><ul className="list-disc pl-4 text-[12px]">{(feedback.grammarIssues as string[]).map((g: string, i: number) => <li key={i}>{g}</li>)}</ul></div>
-            )}
-            {feedback.naturalness != null && <p className="mb-1 text-[12px]">🗣 {String(feedback.naturalness)}</p>}
-            {feedback.tip != null && <p className="mb-1 text-[12px]">💡 {String(feedback.tip)}</p>}
-            {feedback.encouragement != null && <p className="text-[12px] italic">{String(feedback.encouragement)}</p>}
-            <button className="btn btn-ghost mt-3 text-[12px]" onClick={() => { setPhase("idle"); setPreview(null); setFeedback(null); setChat([]); }}>Try Again</button>
-          </div>
+          <ConversationFeedback
+            feedback={feedback}
+            onReset={() => { setPhase("idle"); setPreview(null); setFeedback(null); setChat([]); }}
+            share={{
+              title: item.term,
+              text: `💬 Converse · ${item.term}`,
+              getUrl: () => {
+                const payload: SharedConvoPayload = {
+                  kind: "conversation",
+                  itemLabel: item.term,
+                  intent: "cpv_conversation",
+                  messages: chat,
+                  feedback,
+                  sharedAt: Date.now(),
+                };
+                return createShareLink(payload);
+              },
+            }}
+          />
         )}
       </div>}
 

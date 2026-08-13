@@ -3,7 +3,7 @@ import type { NextRequest } from "next/server";
 
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
-  if (pathname === "/login" || pathname.startsWith("/api") || pathname.startsWith("/share")) {
+  if (pathname === "/login" || pathname.startsWith("/api") || pathname.startsWith("/s/")) {
     return NextResponse.next();
   }
 

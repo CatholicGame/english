@@ -5,9 +5,8 @@ import { useAiConvoStore } from "@/lib/use-ai-convo-store";
 import type { AiConversation, IntentType } from "@/lib/ai-convo-store";
 import { AiBandFeedback } from "./AiBandFeedback";
 import { ShareButton } from "./ShareButton";
-import { encodeShareData } from "@/lib/share-encode";
+import { createShareLink } from "@/lib/share-client";
 import type { SharedConvoPayload } from "@/lib/share-payload";
-import { appOrigin } from "@/lib/app-url";
 
 export const INTENT_LABELS: Record<string, string> = {
   cpv_sentence_check: "✍️ Write",
@@ -36,9 +35,10 @@ function KeyVocab({ vocab }: { vocab: { word: string; vi: string }[] }) {
   return (
     <div className="mt-2 flex flex-wrap gap-1.5">
       {vocab.map((v, i) => (
-        <span key={i} className="rounded-full border px-2 py-0.5 text-[11px] font-bold"
+        <span key={i} className="rounded border px-2 py-1 text-[11px] font-bold leading-tight"
           style={{ borderColor: "var(--color-accent-800)", color: "var(--color-accent-800)" }}>
-          📖 {v.word}
+          <span className="block">📖 {v.word}</span>
+          {v.vi && <span className="block text-[10px] font-normal opacity-80">{v.vi}</span>}
         </span>
       ))}
     </div>
@@ -158,8 +158,7 @@ async function buildShareUrl(c: AiConversation): Promise<string> {
     messages: c.messages,
     sharedAt: Date.now(),
   };
-  const encoded = await encodeShareData(payload);
-  return `${appOrigin()}/share#d=${encoded}`;
+  return createShareLink(payload);
 }
 
 export function AiConversationHistory({ moduleKey, itemKey, filterIntent, onContinue }: Props) {
@@ -212,11 +211,12 @@ export function AiConversationHistory({ moduleKey, itemKey, filterIntent, onCont
               </button>
               <span className="flex items-center gap-2">
                 <ShareButton
-                  className="text-[10px] text-neutral-400 hover:text-accent-800"
+                  className="rounded-full border px-2 py-0.5 text-[11px] font-bold"
+                  style={{ borderColor: "var(--color-accent)", color: "var(--color-accent)" }}
                   title={c.itemLabel}
                   text={`${INTENT_LABELS[c.intent] || c.intent} · ${c.itemLabel}`}
                   getUrl={() => buildShareUrl(c)}
-                  label=""
+                  label="Share"
                 />
                 <button
                   className="text-[10px] text-neutral-400 hover:text-accent-800"
@@ -252,7 +252,7 @@ export function AiConversationHistory({ moduleKey, itemKey, filterIntent, onCont
                 {c.intent === "cpv_conversation" && onContinue && (
                   <button
                     className="btn btn-primary mt-1 px-3 py-1.5 text-[12px] font-extrabold"
-                    onClick={() => onContinue(c)}
+                    onClick={() => { setExpanded(null); onContinue(c); }}
                   >
                     💬 Continue this conversation
                   </button>

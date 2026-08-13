@@ -1,43 +1,45 @@
-"use client";
-
-import { useEffect, useState } from "react";
-import { decodeShareData } from "@/lib/share-encode";
+import type { Metadata } from "next";
+import { getShare } from "@/lib/share-store";
 import type { SharedConvoPayload } from "@/lib/share-payload";
 import { AiHistoryMessage, INTENT_LABELS } from "@/components/AiConversationHistory";
-
-type LoadState =
-  | { status: "loading" }
-  | { status: "error" }
-  | { status: "ok"; data: SharedConvoPayload };
+import { ConversationFeedback } from "@/components/ConversationFeedback";
 
 function fmtDate(ts: number): string {
   return new Date(ts).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
 }
 
-export default function SharePage() {
-  const [state, setState] = useState<LoadState>({ status: "loading" });
+function excerpt(data: SharedConvoPayload): string {
+  const encouragement = data.feedback?.encouragement;
+  if (typeof encouragement === "string" && encouragement.trim()) return encouragement.trim();
+  const firstUser = data.messages.find((m) => m.role === "user");
+  const text = (firstUser ?? data.messages[0])?.content ?? "";
+  return text.length > 150 ? text.slice(0, 150) + "…" : text;
+}
 
-  useEffect(() => {
-    const match = window.location.hash.match(/#d=(.+)$/);
-    const encoded = match?.[1];
-    Promise.resolve()
-      .then(() => {
-        if (!encoded) throw new Error("missing share data");
-        return decodeShareData<SharedConvoPayload>(encoded);
-      })
-      .then((data) => setState({ status: "ok", data }))
-      .catch(() => setState({ status: "error" }));
-  }, []);
+interface Props {
+  params: Promise<{ id: string }>;
+}
 
-  if (state.status === "loading") {
-    return (
-      <main className="flex flex-1 items-center justify-center p-6 text-[13px] text-neutral-500">
-        Loading shared content…
-      </main>
-    );
-  }
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { id } = await params;
+  const data = await getShare<SharedConvoPayload>(id);
+  if (!data) return { title: "PhrasalUp" };
 
-  if (state.status === "error") {
+  const title = `${data.itemLabel} — PhrasalUp`;
+  const description = excerpt(data) || "Luyện tiếng Anh cùng PhrasalUp";
+  return {
+    title,
+    description,
+    openGraph: { title, description, type: "article", siteName: "PhrasalUp" },
+    twitter: { card: "summary", title, description },
+  };
+}
+
+export default async function SharedConversationPage({ params }: Props) {
+  const { id } = await params;
+  const data = await getShare<SharedConvoPayload>(id);
+
+  if (!data) {
     return (
       <main className="flex flex-1 flex-col items-center justify-center gap-2 p-6 text-center">
         <p className="text-[14px] font-extrabold">Link không hợp lệ hoặc đã hỏng</p>
@@ -45,8 +47,6 @@ export default function SharePage() {
       </main>
     );
   }
-
-  const { data } = state;
 
   return (
     <main className="mx-auto flex w-full max-w-lg flex-1 flex-col gap-3 p-3">
@@ -73,6 +73,7 @@ export default function SharePage() {
           </div>
         ))}
       </div>
+      {data.feedback && <ConversationFeedback feedback={data.feedback} />}
       <p className="mt-2 border-t pt-2 text-center text-[11px] text-neutral-400" style={{ borderColor: "var(--color-divider)" }}>
         Shared from PhrasalUp
       </p>

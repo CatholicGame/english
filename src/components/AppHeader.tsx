@@ -75,7 +75,7 @@ export function AppHeader() {
     });
   }
 
-  if (pathname === "/login" || pathname.startsWith("/share")) return null;
+  if (pathname === "/login" || pathname.startsWith("/s/")) return null;
   const showBack = pathname !== "/";
 
   return (

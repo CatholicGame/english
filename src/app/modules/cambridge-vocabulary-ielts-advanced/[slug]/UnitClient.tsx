@@ -26,6 +26,9 @@ import { AiFeedback } from "@/components/AiFeedback";
 import { AiBandFeedback } from "@/components/AiBandFeedback";
 import { AiConversationHistory } from "@/components/AiConversationHistory";
 import { ChatInput } from "@/components/ChatInput";
+import { ConversationFeedback } from "@/components/ConversationFeedback";
+import { createShareLink } from "@/lib/share-client";
+import type { SharedConvoPayload } from "@/lib/share-payload";
 
 const MODULE_KEY = "cambridge-vocabulary-ielts-advanced";
 
@@ -642,36 +645,30 @@ function VocabAiPractice({ word }: { word: VocabWord }) {
           )}
 
           {phase === "feedback" && feedback && (
-            <div className="rounded border bg-surface p-4 text-[13px] leading-relaxed" style={{ borderColor: "var(--color-divider)" }}>
-              <span className="label-xs mb-2 block text-accent">Feedback</span>
-              {feedback.phrasesOk !== undefined && (
-                <p className="mb-2 font-extrabold">{feedback.phrasesOk ? "✅ Correct usage!" : "⚠️ Usage needs work"}</p>
-              )}
-              {Array.isArray(feedback.grammarIssues) && feedback.grammarIssues.length > 0 && (
-                <div className="mb-2">
-                  <span className="font-extrabold">Grammar:</span>
-                  <ul className="list-disc pl-4 text-[12px]">
-                    {(feedback.grammarIssues as string[]).map((g, i) => (
-                      <li key={i}>{g}</li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-              {feedback.naturalness != null && <p className="mb-1 text-[12px]">🗣 {String(feedback.naturalness)}</p>}
-              {feedback.tip != null && <p className="mb-1 text-[12px]">💡 {String(feedback.tip)}</p>}
-              {feedback.encouragement != null && <p className="text-[12px] italic">{String(feedback.encouragement)}</p>}
-              <button
-                className="btn btn-ghost mt-3 text-[12px]"
-                onClick={() => {
-                  setPhase("idle");
-                  setPreview(null);
-                  setFeedback(null);
-                  setChat([]);
-                }}
-              >
-                Try Again
-              </button>
-            </div>
+            <ConversationFeedback
+              feedback={feedback}
+              onReset={() => {
+                setPhase("idle");
+                setPreview(null);
+                setFeedback(null);
+                setChat([]);
+              }}
+              share={{
+                title: word.term,
+                text: `💬 Converse · ${word.term}`,
+                getUrl: () => {
+                  const payload: SharedConvoPayload = {
+                    kind: "conversation",
+                    itemLabel: word.term,
+                    intent: "cpv_conversation",
+                    messages: chat,
+                    feedback,
+                    sharedAt: Date.now(),
+                  };
+                  return createShareLink(payload);
+                },
+              }}
+            />
           )}
           {convError && <AiFeedback loading={false} result={null} error={convError} variant="general" />}
         </div>

@@ -7,11 +7,12 @@ interface Props {
   text?: string;
   getUrl: () => Promise<string> | string;
   className?: string;
+  style?: React.CSSProperties;
   label?: string;
 }
 
 /** Shares via the native Web Share sheet when available, otherwise copies the link. */
-export function ShareButton({ title, text, getUrl, className, label = "Share" }: Props) {
+export function ShareButton({ title, text, getUrl, className, style, label = "Share" }: Props) {
   const [status, setStatus] = useState<"idle" | "busy" | "copied" | "error">("idle");
 
   async function handleShare() {
@@ -37,7 +38,7 @@ export function ShareButton({ title, text, getUrl, className, label = "Share" }:
   }
 
   return (
-    <button className={className} onClick={handleShare} disabled={status === "busy"} title="Share">
+    <button className={className} style={style} onClick={handleShare} disabled={status === "busy"} title="Share">
       {status === "copied" ? "✅ Copied" : status === "error" ? "⚠️ Failed" : status === "busy" ? "…" : `📤 ${label}`}
     </button>
   );

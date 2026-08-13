@@ -55,8 +55,8 @@ function cpvConversationStart(payload: Record<string, unknown>): PromptResult {
   // End of conversation: give feedback
   if (endRequested && history) {
     return {
-      systemPrompt: "You are an English teacher evaluating a student's conversation practice.",
-      userMessage: "The student practiced using: " + phraseList + ". Here is the conversation:\n" + history + "\n\nEvaluate the student's responses. Give feedback on: 1) Correct usage of target phrases 2) Grammar errors 3) Naturalness 4) One tip for improvement. Respond in JSON only: { \"phrasesOk\": boolean, \"grammarIssues\": [\"issue1\",...], \"naturalness\": \"comment\", \"tip\": \"one tip\", \"encouragement\": \"one sentence\" }",
+      systemPrompt: "You are an English teacher evaluating a Vietnamese student's conversation practice. You always answer in both English and Vietnamese so the student can check their understanding.",
+      userMessage: "The student practiced using: " + phraseList + ". Here is the conversation:\n" + history + "\n\nEvaluate the student's responses. Give feedback on: 1) Correct usage of target phrases 2) Grammar errors 3) Naturalness 4) One tip for improvement. Provide the feedback in English, AND a Vietnamese translation/explanation of that same feedback (natural Vietnamese, not machine-literal) so a learner who doesn't read English well can still understand it. Respond in JSON only: { \"phrasesOk\": boolean, \"grammarIssues\": [\"issue1\",...], \"naturalness\": \"comment\", \"tip\": \"one tip\", \"encouragement\": \"one sentence\", \"vi\": { \"grammarIssues\": [\"same issues explained in Vietnamese, same order\"], \"naturalness\": \"Vietnamese\", \"tip\": \"Vietnamese\", \"encouragement\": \"Vietnamese\" } }",
       temperature: 0.3,
       jsonMode: true,
     };

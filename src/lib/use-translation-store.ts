@@ -19,6 +19,11 @@ interface Store {
   pushTimer: ReturnType<typeof setTimeout> | null;
 }
 
+// See the matching comment in use-dictionary-store.ts: a stable empty
+// snapshot avoids both the "getServerSnapshot should be cached" warning and
+// a hydration mismatch against the server's always-empty render.
+const EMPTY_DATA: TranslationData = {};
+
 let store: Store | null = null;
 
 function getStore(): Store {
@@ -53,7 +58,7 @@ function pushToCloud(data: TranslationData, onReauthRequired: () => void) {
 
 export function useTranslationStore() {
   const { loading: authLoading, authenticated, refresh } = useAuth();
-  const all = useSyncExternalStore(subscribe, () => getStore().data, () => loadTranslations());
+  const all = useSyncExternalStore(subscribe, () => getStore().data, () => EMPTY_DATA);
 
   // Fetch from Drive on mount (when authenticated)
   useEffect(() => {

@@ -19,6 +19,14 @@ interface Store {
   pushTimer: ReturnType<typeof setTimeout> | null;
 }
 
+// A stable empty snapshot for SSR: the server never has access to
+// localStorage, so it always renders the "no data yet" state. Returning a
+// fresh object here (e.g. by calling loadDictionary() again) would both warn
+// ("getServerSnapshot should be cached") and cause a hydration mismatch,
+// since React re-invokes this during client hydration and would get the
+// user's *real* saved data instead of the empty state the server rendered.
+const EMPTY_DATA: DictionaryData = {};
+
 let store: Store | null = null;
 
 function getStore(): Store {
@@ -53,7 +61,7 @@ function pushToCloud(data: DictionaryData, onReauthRequired: () => void) {
 
 export function useDictionaryStore() {
   const { loading: authLoading, authenticated, refresh } = useAuth();
-  const all = useSyncExternalStore(subscribe, () => getStore().data, () => loadDictionary());
+  const all = useSyncExternalStore(subscribe, () => getStore().data, () => EMPTY_DATA);
 
   // Fetch from Drive on mount (when authenticated)
   useEffect(() => {

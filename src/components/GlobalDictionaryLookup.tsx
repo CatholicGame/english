@@ -27,6 +27,7 @@ const MAX_LEN = 400;
 const CONTEXT_MAX_LEN = 400;
 const IGNORED_TAGS = new Set(["INPUT", "TEXTAREA", "SELECT"]);
 const RESCAN_DEBOUNCE_MS = 400;
+const SELECTION_SETTLE_MS = 300;
 
 interface Pill {
   word: string;
@@ -95,6 +96,24 @@ export function GlobalDictionaryLookup() {
       document.removeEventListener("touchend", onSelectEnd);
       document.removeEventListener("mousedown", onPointerDown);
       document.removeEventListener("touchstart", onPointerDown);
+    };
+  }, [handleSelection]);
+
+  // Mobile text selection (long-press + drag handles) doesn't reliably finish
+  // by the time touchend fires — the native selection UI keeps adjusting the
+  // range well after that event. `selectionchange` is the one event that
+  // fires through every stage of that gesture, so debounce on it as the
+  // primary trigger; touchend/mouseup above just make desktop feel snappier.
+  useEffect(() => {
+    let timer: ReturnType<typeof setTimeout> | null = null;
+    function onSelectionChange() {
+      if (timer) clearTimeout(timer);
+      timer = setTimeout(handleSelection, SELECTION_SETTLE_MS);
+    }
+    document.addEventListener("selectionchange", onSelectionChange);
+    return () => {
+      document.removeEventListener("selectionchange", onSelectionChange);
+      if (timer) clearTimeout(timer);
     };
   }, [handleSelection]);
 

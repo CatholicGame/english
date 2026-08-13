@@ -22,6 +22,15 @@ function BackIcon() {
   );
 }
 
+function BookIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="block h-4 w-4">
+      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+      <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+    </svg>
+  );
+}
+
 function GearIcon() {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="block h-4 w-4">
@@ -78,6 +87,9 @@ export function AppHeader() {
         English App
       </Link>
       <GlobalScoreBadge className="text-[12px]" />
+      <Link href="/dictionary" className="btn btn-ghost btn-icon" aria-label="Từ điển của tôi">
+        <BookIcon />
+      </Link>
       <div ref={settingsRef} className="relative">
         <button className="btn btn-ghost btn-icon" onClick={() => setSettingsOpen((o) => !o)} aria-label="Cài đặt">
           <GearIcon />

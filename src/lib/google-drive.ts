@@ -1,5 +1,7 @@
 import type { NotesData } from "./notes-store";
 import type { AiConvoData } from "./ai-convo-store";
+import type { DictionaryData } from "./dictionary-store";
+import type { TranslationData } from "./translation-store";
 import type { SessionPayload } from "./session-cookie";
 
 const FILES_URL = "https://www.googleapis.com/drive/v3/files";
@@ -146,4 +148,29 @@ export function readDriveAiConvos(accessToken: string, session: SessionPayload, 
 
 export function writeDriveAiConvos(accessToken: string, session: SessionPayload, storageKey: string, data: AiConvoData) {
   return writeDriveJson(accessToken, session, `ai-convos-${storageKey}`, data);
+}
+
+// ─── Personal Dictionary ───────────────────────────────────────────
+// Unlike the stores above, this is a single global list per user (not split
+// per module), so it uses a fixed docKey instead of one qualified by storageKey.
+
+export function readDriveDictionary(accessToken: string, session: SessionPayload) {
+  return readDriveJson<DictionaryData>(accessToken, session, "dictionary");
+}
+
+export function writeDriveDictionary(accessToken: string, session: SessionPayload, data: DictionaryData) {
+  return writeDriveJson(accessToken, session, "dictionary", data);
+}
+
+// ─── Saved Translations ────────────────────────────────────────────
+// Also a single global list per user, kept in its own Drive file — separate
+// from the personal dictionary since translations are opt-in saved, not
+// auto-collected vocabulary.
+
+export function readDriveTranslations(accessToken: string, session: SessionPayload) {
+  return readDriveJson<TranslationData>(accessToken, session, "translations");
+}
+
+export function writeDriveTranslations(accessToken: string, session: SessionPayload, data: TranslationData) {
+  return writeDriveJson(accessToken, session, "translations", data);
 }

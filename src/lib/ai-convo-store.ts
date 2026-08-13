@@ -14,7 +14,7 @@ export type IntentType =
   | "cpv_translate_batch_review"
   | "cpv_context_quiz"
   | "cpv_example_gen"
-  | "cpv_vocab_lookup"
+  | "text_lookup"
   | "cpv_writing_passage"
   | "cpv_writing_review"
   | "lam_opinion_feedback"

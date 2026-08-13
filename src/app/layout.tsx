@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Archivo, Nunito, Lora } from "next/font/google";
 import { AppHeader } from "@/components/AppHeader";
+import { GlobalDictionaryLookup } from "@/components/GlobalDictionaryLookup";
 import { AuthProvider } from "@/lib/auth-context";
 import { GlobalScoreProvider } from "@/lib/global-score-context";
 import "./globals.css";
@@ -40,6 +41,7 @@ export default function RootLayout({
           <AuthProvider>
             <AppHeader />
             {children}
+            <GlobalDictionaryLookup />
           </AuthProvider>
         </GlobalScoreProvider>
       </body>

@@ -261,16 +261,36 @@ function cpvWritingReview(payload: Record<string, unknown>): PromptResult {
   };
 }
 
-// ─── Vocab Lookup (long-press on word) ──────────────────────────
+// ─── Text Lookup (select any text anywhere in the app) ──────────
+// Classifies the selection itself: a word/collocation/phrasal verb/idiom is
+// treated as vocabulary worth memorizing (Longman-style dictionary entry); an
+// ordinary sentence or passage is treated as plain text needing translation.
 
-function cpvVocabLookup(payload: Record<string, unknown>): PromptResult {
+function textLookup(payload: Record<string, unknown>): PromptResult {
   const word = payload.word as string;
   const context = payload.context as string;
 
   return {
-    systemPrompt: "You are a comprehensive English dictionary for Vietnamese learners. Provide detailed, accurate information.",
-    userMessage: "Analyze this word/phrase: \"" + word + "\"\nContext: \"" + context + "\"\n\nProvide in JSON:\n{\n  \"word\": \"the word/phrase\",\n  \"ipa\": \"IPA pronunciation\",\n  \"pos\": \"part of speech (noun/verb/adjective/phrasal verb/idiom)\",\n  \"definitionEn\": \"clear English definition\",\n  \"definitionVi\": \"Vietnamese meaning\",\n  \"synonyms\": [\"synonym1\", \"synonym2\"],\n  \"examples\": [\n    { \"en\": \"example sentence\", \"vi\": \"bản dịch tiếng Việt\" },\n    { \"en\": \"another example\", \"vi\": \"bản dịch tiếng Việt\" }\n  ],\n  \"note\": \"usage note, collocation partners, or common mistakes (in Vietnamese)\"\n}",
-    temperature: 0.3,
+    systemPrompt:
+      "You classify a piece of selected English text for Vietnamese learners, then respond accordingly. " +
+      "If it is a single word, collocation, phrasal verb, or idiom (a reusable lexical chunk worth memorizing), treat it as VOCABULARY: write dictionary entries in the concise style of the Longman Dictionary of Contemporary English — each sense is ONE short, precise idea, never a long academic paragraph covering several meanings at once — plus a short, vivid, memorable hook (word origin, a striking mental image, a frequent collocation, or a real-life association) that helps it stick in memory instead of being learned by rote. " +
+      "If it is an ordinary sentence, clause, or passage (not a fixed expression), treat it as TEXT: just translate it naturally into Vietnamese — do not force a dictionary breakdown onto full sentences.",
+    userMessage:
+      `Selected text: "${word}"\nSurrounding context: "${context}"\n\n` +
+      "First decide the type:\n" +
+      "- \"vocab\": a single word, collocation, phrasal verb, or idiom\n" +
+      "- \"translation\": an ordinary sentence, clause, or passage\n\n" +
+      "If type is \"vocab\", also classify its category:\n" +
+      "- \"word\": a single lexical item (any part of speech)\n" +
+      "- \"collocation\": 2+ words that habitually co-occur with a fairly literal, transparent combined meaning (e.g. \"make a decision\", \"heavy rain\")\n" +
+      "- \"phrasal_verb\": verb + particle(s) (up/down/away/out/on/off/in/into...), e.g. \"give up\", \"turn away\"\n" +
+      "- \"idiom\": a fixed expression whose meaning can't be guessed from the individual words (e.g. \"kick the bucket\", \"under the weather\")\n\n" +
+      "If type is \"vocab\", respond in JSON only:\n" +
+      "{\n  \"type\": \"vocab\",\n  \"word\": \"the word/phrase\",\n  \"category\": \"word\" | \"collocation\" | \"phrasal_verb\" | \"idiom\",\n  \"ipa\": \"IPA pronunciation\",\n  \"senses\": [\n    { \"pos\": \"noun/verb/adjective/phrasal verb/idiom\", \"vi\": \"short Vietnamese meaning (max ~12 words)\", \"en\": \"short English definition (max ~15 words)\", \"example\": { \"en\": \"example sentence\", \"vi\": \"bản dịch tiếng Việt\" } }\n  ],\n  \"synonyms\": [\"up to 5 synonyms\"],\n  \"memoryTip\": \"1-2 short, vivid Vietnamese sentences with a memorable hook — not a dry grammar note\"\n}\n" +
+      "List at most the 3 most common/useful senses, ordered by frequency. Only give an \"example\" for the single sense that best fits the context above; omit it for the others.\n\n" +
+      "If type is \"translation\", respond in JSON only:\n" +
+      "{\n  \"type\": \"translation\",\n  \"text\": \"the exact selected text\",\n  \"translation\": \"natural, fluent Vietnamese translation\"\n}",
+    temperature: 0.4,
   };
 }
 
@@ -299,8 +319,8 @@ export function buildPrompt(
       return cpvContextQuiz(payload);
     case "cpv_example_gen":
       return cpvExampleGen(payload);
-    case "cpv_vocab_lookup":
-      return cpvVocabLookup(payload);
+    case "text_lookup":
+      return textLookup(payload);
     case "cpv_writing_passage":
       return cpvWritingPassageGenerate(payload);
     case "cpv_writing_review":

@@ -4,7 +4,6 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { useAiConvoStore } from "@/lib/use-ai-convo-store";
 import type { AiConversation, AiMessage, IntentType } from "@/lib/ai-convo-store";
 import { AiFeedback } from "./AiFeedback";
-import { VocabPopup } from "./VocabPopup";
 import { AiConversationHistory } from "./AiConversationHistory";
 import { addGlobalXP } from "@/lib/global-score";
 
@@ -37,7 +36,6 @@ export function AiSentencePractice({ item, moduleKey }: { item: ItemInfo; module
   const [exs, setExs] = useState<any>(null);
   const [chatIn, setChatIn] = useState("");
   const [chat, setChat] = useState<AiMessage[]>([]);
-  const [vocabWord, setVocabWord] = useState<{ word: string; vi?: string; context?: string; x?: number; y?: number; pending?: boolean } | null>(null);
   const chatEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => { chatEndRef.current?.scrollIntoView({ behavior: "smooth" }); }, [chat]);
@@ -257,46 +255,7 @@ export function AiSentencePractice({ item, moduleKey }: { item: ItemInfo; module
                 <div key={i} className="rounded p-2.5 text-[13px] leading-relaxed group relative"
                   style={{ background: m.role === "user" ? "var(--color-accent-100)" : "var(--color-surface)", alignSelf: m.role === "user" ? "flex-end" : "flex-start", maxWidth: "85%" }}>
                   <span className="label-xs mb-0.5 block">{m.role === "user" ? "You" : "Partner"}</span>
-                  <p
-                    className="whitespace-pre-wrap select-text"
-                    onDoubleClick={(e) => {
-                      const sel = window.getSelection()?.toString().trim();
-                      if (sel && sel.length > 1) {
-                        const range = window.getSelection()?.getRangeAt(0);
-                        const rect = range?.getBoundingClientRect();
-                        setVocabWord({ word: sel, context: m.content, x: rect ? rect.left + rect.width / 2 : undefined, y: rect ? rect.bottom + 8 : undefined, pending: true });
-                      }
-                    }}
-                    onTouchEnd={(e) => {
-                      // Only trigger on long-press after selection
-                      const sel = window.getSelection()?.toString().trim();
-                      if (sel && sel.length > 1 && !vocabWord) {
-                        const rect = window.getSelection()?.getRangeAt(0)?.getBoundingClientRect();
-                        setVocabWord({ word: sel, context: m.content, x: rect ? rect.left + rect.width / 2 : undefined, y: rect ? rect.bottom + 8 : undefined, pending: true });
-                      }
-                    }}
-                  >{m.content}</p>
-                  {/* Floating lookup button */}
-                  {vocabWord?.pending && (
-                    <div
-                      className="fixed z-[65] flex items-center gap-1 rounded-full bg-white px-3 py-1.5 shadow-lg border"
-                      style={{
-                        left: vocabWord.x ? Math.min(vocabWord.x, window.innerWidth - 120) : '50%',
-                        top: vocabWord.y ? Math.min(vocabWord.y, window.innerHeight - 60) : '50%',
-                        borderColor: 'var(--color-divider)',
-                      }}
-                    >
-                      <span className="text-[12px] font-extrabold truncate max-w-[140px]">{vocabWord.word}</span>
-                      <button
-                        className="rounded-full bg-accent px-2.5 py-0.5 text-[11px] font-extrabold text-white"
-                        onClick={() => setVocabWord({ ...vocabWord, pending: false })}
-                      >📖 Look up</button>
-                      <button
-                        className="text-[14px] text-neutral-400 hover:text-neutral-600"
-                        onClick={() => setVocabWord(null)}
-                      >✕</button>
-                    </div>
-                  )}
+                  <p className="whitespace-pre-wrap select-text">{m.content}</p>
                 </div>
               ))}
               <div ref={chatEndRef} />
@@ -331,7 +290,6 @@ export function AiSentencePractice({ item, moduleKey }: { item: ItemInfo; module
       </div>}
 
       <AiFeedback loading={loading} result={result} error={error} onRetry={() => { mode === "write" ? sw() : mode === "translate" ? submitTranslateBatch() : mode === "quiz" ? lq() : le(); }} variant={mode === "quiz" || mode === "examples" ? "general" : "sentence"} />
-      {vocabWord && !vocabWord.pending && <VocabPopup word={vocabWord.word} context={vocabWord.context} onClose={() => setVocabWord(null)} />}
       <AiConversationHistory moduleKey={moduleKey} itemKey={item.term} filterIntent={intentForMode[mode]} onContinue={handleContinue} />
     </div>
   );

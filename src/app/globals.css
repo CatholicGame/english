@@ -96,6 +96,11 @@
   height: 0;
 }
 
+/* Styling for ::highlight(vocab-lookup) / ::highlight(translation-lookup) is
+   injected at runtime (see text-highlight.ts) instead of living here — the
+   build's CSS parser (Lightning CSS) doesn't yet recognize the ::highlight()
+   pseudo-element and fails to parse it ahead-of-time. */
+
 @keyframes pop {
   from { opacity: 0; transform: translateY(4px); }
   to { opacity: 1; transform: none; }

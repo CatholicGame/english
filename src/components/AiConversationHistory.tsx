@@ -161,7 +161,7 @@ interface Props {
 function parseFeedbackContent(content: string): Record<string, unknown> | null {
   try {
     const d = JSON.parse(content);
-    if (d && typeof d === "object" && (d.phrasesOk !== undefined || d.grammarIssues !== undefined)) {
+    if (d && typeof d === "object" && (d.phrasesOk !== undefined || d.turns !== undefined || d.style !== undefined)) {
       return d as Record<string, unknown>;
     }
   } catch {
@@ -200,7 +200,7 @@ export function AiConversationHistory({ moduleKey, itemKey, filterIntent, onCont
   const convos = filterIntent ? allConvos.filter(c => c.intent === filterIntent) : allConvos;
   const [expanded, setExpanded] = useState<string | null>(null);
   const [confirmClear, setConfirmClear] = useState(false);
-  const [viewingFeedback, setViewingFeedback] = useState<{ itemLabel: string; feedback: Record<string, unknown> } | null>(null);
+  const [viewingFeedback, setViewingFeedback] = useState<AiConversation | null>(null);
 
   if (convos.length === 0) return null;
 
@@ -251,7 +251,7 @@ export function AiConversationHistory({ moduleKey, itemKey, filterIntent, onCont
                   <button
                     className="rounded-full border px-2 py-0.5 text-[11px] font-bold"
                     style={{ borderColor: "var(--color-accent-800)", color: "var(--color-accent-800)" }}
-                    onClick={() => setViewingFeedback({ itemLabel: c.itemLabel, feedback })}
+                    onClick={() => setViewingFeedback(c)}
                   >
                     🎯 Feedback
                   </button>
@@ -310,15 +310,29 @@ export function AiConversationHistory({ moduleKey, itemKey, filterIntent, onCont
           );
         })}
       </div>
-      {viewingFeedback && (
-        <Modal onClose={() => setViewingFeedback(null)}>
-          <div className="mb-3">
-            <span className="label-xs text-neutral-500">Feedback</span>
-            <h3 className="text-[14px] font-extrabold">{viewingFeedback.itemLabel}</h3>
-          </div>
-          <ConversationFeedback feedback={viewingFeedback.feedback} />
-        </Modal>
-      )}
+      {viewingFeedback && (() => {
+        const feedback = findFeedback(viewingFeedback);
+        if (!feedback) return null;
+        const displayMessages = viewingFeedback.messages.filter((m) => !parseFeedbackContent(m.content));
+        return (
+          <Modal onClose={() => setViewingFeedback(null)}>
+            <div className="mb-3">
+              <span className="label-xs text-neutral-500">{INTENT_LABELS[viewingFeedback.intent] || viewingFeedback.intent}</span>
+              <h3 className="text-[14px] font-extrabold">{viewingFeedback.itemLabel}</h3>
+            </div>
+            <ConversationFeedback
+              messages={displayMessages}
+              feedback={feedback}
+              share={{
+                title: viewingFeedback.itemLabel,
+                text: `${INTENT_LABELS[viewingFeedback.intent] || viewingFeedback.intent} · ${viewingFeedback.itemLabel}`,
+                getUrl: () => buildShareUrl(viewingFeedback),
+                getImageUrl: (url) => `${url}/card`,
+              }}
+            />
+          </Modal>
+        );
+      })()}
     </div>
   );
 }

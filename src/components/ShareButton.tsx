@@ -65,7 +65,18 @@ export function ShareButton({ title, text, getUrl, getImageUrl, className, style
 
   return (
     <button className={className} style={style} onClick={handleShare} disabled={status === "busy"} title="Share">
-      {status === "copied" ? "✅ Copied" : status === "error" ? "⚠️ Failed" : status === "busy" ? "…" : `📤 ${label}`}
+      {status === "copied" ? (
+        "✅ Copied"
+      ) : status === "error" ? (
+        "⚠️ Failed"
+      ) : status === "busy" ? (
+        <span className="inline-flex items-center gap-1.5">
+          <span className="inline-block h-3 w-3 animate-spin rounded-full border-2 border-current border-t-transparent" />
+          Preparing…
+        </span>
+      ) : (
+        `📤 ${label}`
+      )}
     </button>
   );
 }

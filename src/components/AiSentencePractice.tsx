@@ -256,7 +256,7 @@ export function AiSentencePractice({ item, moduleKey }: { item: ItemInfo; module
         )}
 
         {/* Phase: Practicing */}
-        {(phase === "practicing" || phase === "feedback") && (
+        {phase === "practicing" && (
           <div className="flex flex-col gap-3">
             <div className="flex max-h-[300px] flex-col gap-3 overflow-y-auto rounded border p-3" style={{ borderColor: "var(--color-divider)" }}>
               {chat.map((m, i) => (
@@ -268,19 +268,18 @@ export function AiSentencePractice({ item, moduleKey }: { item: ItemInfo; module
               ))}
               <div ref={chatEndRef} />
             </div>
-            {phase === "practicing" && (
-              <div className="flex items-end gap-2">
-                <ChatInput value={chatIn} onChange={setChatIn} onSend={sendMessage} disabled={loading || !chatIn.trim()} />
-                <button className="btn btn-primary px-3 py-2.5 text-[13px] font-extrabold" disabled={loading || !chatIn.trim()} onClick={sendMessage}>Send</button>
-                <button className="btn btn-ghost px-3 py-2.5 text-[12px]" disabled={loading || !chat.some(m => m.role === "user")} onClick={endAndFeedback}>End</button>
-              </div>
-            )}
+            <div className="flex items-end gap-2">
+              <ChatInput value={chatIn} onChange={setChatIn} onSend={sendMessage} disabled={loading || !chatIn.trim()} />
+              <button className="btn btn-primary px-3 py-2.5 text-[13px] font-extrabold" disabled={loading || !chatIn.trim()} onClick={sendMessage}>Send</button>
+              <button className="btn btn-ghost px-3 py-2.5 text-[12px]" disabled={loading || !chat.some(m => m.role === "user")} onClick={endAndFeedback}>End</button>
+            </div>
           </div>
         )}
 
         {/* Phase: Feedback */}
         {phase === "feedback" && feedback && (
           <ConversationFeedback
+            messages={chat}
             feedback={feedback}
             onReset={() => { setPhase("idle"); setPreview(null); setFeedback(null); setChat([]); }}
             share={{

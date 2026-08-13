@@ -4,17 +4,28 @@ import { join } from "node:path";
 import { getShare } from "@/lib/share-store";
 import type { SharedConvoPayload } from "@/lib/share-payload";
 import { INTENT_LABELS } from "@/components/AiConversationHistory";
+import { appOrigin } from "@/lib/app-url";
 
 // A full-transcript "screenshot" card, meant to be attached as an actual image
 // file when sharing (native share sheets) — as opposed to the small fixed-size
 // opengraph-image.tsx used for link-preview crawlers. Height is estimated from
-// content length since ImageResponse needs concrete pixel dimensions up front.
+// content length since ImageResponse needs concrete pixel dimensions up front;
+// rendered at 1.5x normal UI scale for a sharper (retina-ish) output image.
 
-const WIDTH = 1080;
-const PADDING = 56;
-const BUBBLE_MAX_WIDTH = 860;
-const CHARS_PER_LINE = 52; // ~28px font in an 860px-wide bubble
-const LINE_HEIGHT = 40;
+const WIDTH = 1560;
+const OUTER_PADDING = 48;
+const CARD_PADDING = 64;
+const BUBBLE_MAX_WIDTH = 1180;
+const CHARS_PER_LINE = 56; // message bubbles, fontSize 34
+const LINE_HEIGHT = 48;
+const SMALL_CHARS_PER_LINE = 68; // feedback/conclusion text, fontSize 30
+const SMALL_LINE_HEIGHT = 42;
+
+const ACCENT = "#ec3013";
+const ACCENT_DARK = "#7c1405";
+const ACCENT_TINT = "#fff2ef";
+const SURFACE = "#eae9e9";
+const INK = "#201e1d";
 const MAX_MESSAGES = 14;
 
 function fmtDate(ts: number): string {
@@ -25,20 +36,68 @@ function estimateLines(text: string): number {
   return Math.max(1, Math.ceil(text.length / CHARS_PER_LINE));
 }
 
-function messageHeight(content: string): number {
-  return 28 /* role label */ + estimateLines(content) * LINE_HEIGHT + 24 /* bubble padding */ + 16 /* gap */;
+function estimateSmallLines(text: string): number {
+  return Math.max(1, Math.ceil(text.length / SMALL_CHARS_PER_LINE));
 }
 
-function feedbackHeight(feedback: Record<string, unknown> | undefined): number {
+interface Correction {
+  wrong: string;
+  correct: string;
+}
+
+interface Turn {
+  comment?: string;
+  corrections?: Correction[];
+}
+
+interface SuggestionGroup {
+  category: string;
+  phrases: string[];
+}
+
+function messageHeight(content: string): number {
+  return 40 /* role label */ + estimateLines(content) * LINE_HEIGHT + 48 /* bubble padding */ + 24 /* gap */;
+}
+
+function turnHeight(turn: Turn | undefined): number {
+  if (!turn) return 0;
+  const hasCorrections = turn.corrections && turn.corrections.length > 0;
+  if (!hasCorrections && !turn.comment) return 0;
+  let h = 44 /* "AI Feedback" label */ + 40 /* padding */ + 20 /* gap above */;
+  for (const c of turn.corrections ?? []) {
+    // wrong/correct render as two stacked lines, either of which can wrap
+    h += estimateSmallLines(`❌ "${c.wrong}"`) * SMALL_LINE_HEIGHT + estimateSmallLines(`✅ "${c.correct}"`) * SMALL_LINE_HEIGHT + 16;
+  }
+  if (turn.comment) h += estimateSmallLines(turn.comment) * SMALL_LINE_HEIGHT + (hasCorrections ? 8 : 0);
+  return h;
+}
+
+function conclusionHeight(feedback: Record<string, unknown> | undefined): number {
   if (!feedback) return 0;
-  let h = 90; // heading + phrasesOk line + card padding
-  const grammarIssues = feedback.grammarIssues;
-  if (Array.isArray(grammarIssues)) h += 32 + grammarIssues.length * 30;
-  if (feedback.naturalness) h += estimateLines(String(feedback.naturalness)) * 30;
-  if (feedback.tip) h += estimateLines(String(feedback.tip)) * 30;
-  if (feedback.encouragement) h += estimateLines(String(feedback.encouragement)) * 30;
-  if (typeof feedback.xpEarned === "number") h += 30;
-  return h + 24;
+  let h = 60; // heading + card padding
+  if (feedback.phrasesOk !== undefined) h += 56;
+  const style = feedback.style;
+  if (Array.isArray(style) && style.length > 0) {
+    h += 48;
+    for (const s of style as string[]) h += estimateSmallLines(`• ${s}`) * SMALL_LINE_HEIGHT;
+  }
+  if (typeof feedback.styleHighlight === "string" && feedback.styleHighlight) {
+    h += 8 + estimateSmallLines(`✅ ${feedback.styleHighlight}`) * SMALL_LINE_HEIGHT;
+  }
+  const suggestions = feedback.suggestions;
+  if (Array.isArray(suggestions) && suggestions.length > 0) {
+    h += 20;
+    for (const sug of suggestions as SuggestionGroup[]) {
+      h += estimateSmallLines(`💡 ${sug.category}: ${sug.phrases?.join(", ") ?? ""}`) * SMALL_LINE_HEIGHT;
+    }
+  }
+  const progress = feedback.progress;
+  if (Array.isArray(progress) && progress.length > 0) {
+    h += 48;
+    for (const p of progress as string[]) h += estimateSmallLines(p) * SMALL_LINE_HEIGHT;
+  }
+  if (typeof feedback.xpEarned === "number") h += 44;
+  return h + 48;
 }
 
 export async function GET(_request: Request, { params }: { params: Promise<{ id: string }> }) {
@@ -52,16 +111,28 @@ export async function GET(_request: Request, { params }: { params: Promise<{ id:
   const shown = data.messages.slice(-MAX_MESSAGES);
   const hiddenCount = data.messages.length - shown.length;
 
-  const headerHeight = 170;
-  const footerHeight = 130;
-  const bodyHeight = shown.reduce((sum, m) => sum + messageHeight(m.content), 0) + feedbackHeight(data.feedback) + (hiddenCount > 0 ? 40 : 0);
-  const height = Math.min(8000, headerHeight + bodyHeight + footerHeight + PADDING * 2);
+  const feedback = data.feedback;
+  const turns = Array.isArray(feedback?.turns) ? (feedback!.turns as Turn[]) : [];
+  const style = Array.isArray(feedback?.style) ? (feedback!.style as string[]) : [];
+  const suggestions = Array.isArray(feedback?.suggestions) ? (feedback!.suggestions as SuggestionGroup[]) : [];
+  const progress = Array.isArray(feedback?.progress) ? (feedback!.progress as string[]) : [];
+
+  let userTurnIndex = -1;
+  const bodyHeight = shown.reduce((sum, m) => {
+    const isUser = m.role === "user";
+    const turn = isUser ? turns[++userTurnIndex] : undefined;
+    return sum + messageHeight(m.content) + turnHeight(turn);
+  }, 0);
+
+  const headerHeight = 190;
+  const footerHeight = 190;
+  const height = Math.min(10000, headerHeight + bodyHeight + conclusionHeight(feedback) + footerHeight + OUTER_PADDING * 2 + CARD_PADDING * 2 + (hiddenCount > 0 ? 60 : 0));
 
   const logoData = await readFile(join(process.cwd(), "src/assets/logo/logo.png"), "base64");
   const logoSrc = `data:image/png;base64,${logoData}`;
+  const shareUrl = `${appOrigin()}/s/${id}`;
 
-  const feedback = data.feedback;
-  const grammarIssues = Array.isArray(feedback?.grammarIssues) ? (feedback!.grammarIssues as unknown[]).map(String) : [];
+  userTurnIndex = -1;
 
   return new ImageResponse(
     (
@@ -71,85 +142,151 @@ export async function GET(_request: Request, { params }: { params: Promise<{ id:
           height: "100%",
           display: "flex",
           flexDirection: "column",
-          background: "#f3f2f2",
-          padding: `${PADDING}px`,
+          background: ACCENT_TINT,
+          padding: `${OUTER_PADDING}px`,
           fontFamily: "sans-serif",
         }}
       >
-        <div style={{ display: "flex", flexDirection: "column", gap: 10, marginBottom: 24 }}>
-          <div style={{ display: "flex", fontSize: 26, color: "#7c1405", letterSpacing: 3, textTransform: "uppercase" }}>
-            {INTENT_LABELS[data.intent] || data.intent} · {fmtDate(data.sharedAt)}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            flex: 1,
+            background: "#ffffff",
+            borderRadius: 24,
+            padding: `${CARD_PADDING}px`,
+            boxShadow: "0 8px 40px rgba(32, 30, 29, 0.12)",
+          }}
+        >
+          <div style={{ display: "flex", flexDirection: "column", gap: 14, marginBottom: 32 }}>
+            <div style={{ display: "flex", fontSize: 32, color: ACCENT_DARK, letterSpacing: 3, textTransform: "uppercase", fontWeight: 700 }}>
+              {`${INTENT_LABELS[data.intent] || data.intent} · ${fmtDate(data.sharedAt)}`}
+            </div>
+            <div style={{ display: "flex", fontSize: 68, fontWeight: 800, color: INK }}>{data.itemLabel}</div>
           </div>
-          <div style={{ display: "flex", fontSize: 48, fontWeight: 800, color: "#201e1d" }}>{data.itemLabel}</div>
-        </div>
 
-        {hiddenCount > 0 && (
-          <div style={{ display: "flex", fontSize: 22, color: "#7c1405", marginBottom: 12 }}>
-            (đã lược {hiddenCount} tin nhắn đầu)
+          {hiddenCount > 0 && (
+            <div style={{ display: "flex", fontSize: 26, color: ACCENT_DARK, marginBottom: 16 }}>
+              {`(đã lược ${hiddenCount} tin nhắn đầu)`}
+            </div>
+          )}
+
+          <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
+            {shown.map((m, i) => {
+              const isUser = m.role === "user";
+              const turn = isUser ? turns[++userTurnIndex] : undefined;
+              const hasTurnContent = turn && ((turn.corrections && turn.corrections.length > 0) || turn.comment);
+              return (
+                <div key={i} style={{ display: "flex", flexDirection: "column", alignItems: isUser ? "flex-end" : "flex-start" }}>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      maxWidth: BUBBLE_MAX_WIDTH,
+                      background: isUser ? ACCENT_TINT : SURFACE,
+                      borderRadius: 14,
+                      padding: "20px 26px",
+                    }}
+                  >
+                    <div style={{ display: "flex", fontSize: 24, color: ACCENT_DARK, textTransform: "uppercase", letterSpacing: 2, marginBottom: 8, fontWeight: 700 }}>
+                      {isUser ? "You" : "AI"}
+                    </div>
+                    <div style={{ display: "flex", fontSize: 34, color: INK, lineHeight: 1.4 }}>{m.content}</div>
+                  </div>
+                  {hasTurnContent && (
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        maxWidth: BUBBLE_MAX_WIDTH,
+                        marginTop: 12,
+                        borderLeft: `6px solid ${ACCENT}`,
+                        background: ACCENT_TINT,
+                        borderRadius: 10,
+                        padding: "18px 24px",
+                        color: ACCENT_DARK,
+                      }}
+                    >
+                      <div style={{ display: "flex", fontSize: 22, textTransform: "uppercase", letterSpacing: 2, marginBottom: 8, fontWeight: 700 }}>
+                        AI Feedback
+                      </div>
+                      {turn!.corrections?.map((c, j) => (
+                        <div key={j} style={{ display: "flex", flexDirection: "column", fontSize: 30, marginBottom: 12, gap: 4 }}>
+                          <div style={{ display: "flex" }}>{`❌ "${c.wrong}"`}</div>
+                          <div style={{ display: "flex", fontWeight: 700 }}>{`✅ "${c.correct}"`}</div>
+                        </div>
+                      ))}
+                      {turn!.comment && (
+                        <div style={{ display: "flex", fontSize: 30, marginTop: turn!.corrections?.length ? 4 : 0 }}>
+                          {turn!.comment}
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
           </div>
-        )}
 
-        <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-          {shown.map((m, i) => (
+          {feedback && (
             <div
-              key={i}
               style={{
                 display: "flex",
                 flexDirection: "column",
-                maxWidth: BUBBLE_MAX_WIDTH,
-                alignSelf: m.role === "user" ? "flex-end" : "flex-start",
-                background: m.role === "user" ? "#fff2ef" : "#eae9e9",
-                borderRadius: 10,
-                padding: "14px 18px",
+                gap: 14,
+                marginTop: 40,
+                background: ACCENT_TINT,
+                borderRadius: 16,
+                padding: "40px",
+                color: ACCENT_DARK,
               }}
             >
-              <div style={{ display: "flex", fontSize: 20, color: "#7c1405", textTransform: "uppercase", letterSpacing: 2, marginBottom: 6 }}>
-                {m.role === "user" ? "You" : "AI"}
-              </div>
-              <div style={{ display: "flex", fontSize: 28, color: "#201e1d", lineHeight: 1.4 }}>{m.content}</div>
+              <div style={{ display: "flex", fontSize: 28, letterSpacing: 2, textTransform: "uppercase", fontWeight: 700 }}>Feedback</div>
+              {feedback.phrasesOk !== undefined && (
+                <div style={{ display: "flex", fontSize: 36, fontWeight: 800, color: INK }}>
+                  {feedback.phrasesOk ? "✅ Correct phrase usage!" : "⚠️ Phrase usage needs work"}
+                </div>
+              )}
+              {style.length > 0 && (
+                <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+                  {style.map((s, i) => (
+                    <div key={i} style={{ display: "flex", fontSize: 30 }}>{`• ${s}`}</div>
+                  ))}
+                </div>
+              )}
+              {typeof feedback.styleHighlight === "string" && feedback.styleHighlight && (
+                <div style={{ display: "flex", fontSize: 30, fontWeight: 800 }}>{`✅ ${feedback.styleHighlight}`}</div>
+              )}
+              {suggestions.length > 0 && (
+                <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+                  {suggestions.map((sug, i) => (
+                    <div key={i} style={{ display: "flex", fontSize: 30 }}>
+                      {`💡 ${sug.category}: ${sug.phrases?.join(", ") ?? ""}`}
+                    </div>
+                  ))}
+                </div>
+              )}
+              {progress.length > 0 && (
+                <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+                  {progress.map((p, i) => (
+                    <div key={i} style={{ display: "flex", fontSize: 30, fontStyle: "italic" }}>{p}</div>
+                  ))}
+                </div>
+              )}
+              {typeof feedback.xpEarned === "number" && (
+                <div style={{ display: "flex", fontSize: 32, fontWeight: 800 }}>{`+${feedback.xpEarned} XP`}</div>
+              )}
             </div>
-          ))}
-        </div>
+          )}
 
-        {feedback && (
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: 10,
-              marginTop: 24,
-              background: "#fff2ef",
-              borderRadius: 10,
-              padding: "24px",
-              color: "#7c1405",
-            }}
-          >
-            <div style={{ display: "flex", fontSize: 24, letterSpacing: 2, textTransform: "uppercase" }}>Feedback</div>
-            {feedback.phrasesOk !== undefined && (
-              <div style={{ display: "flex", fontSize: 30, fontWeight: 800, color: "#201e1d" }}>
-                {feedback.phrasesOk ? "✅ Correct phrase usage!" : "⚠️ Phrase usage needs work"}
-              </div>
-            )}
-            {grammarIssues.length > 0 && (
-              <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
-                {grammarIssues.map((g, i) => (
-                  <div key={i} style={{ display: "flex", fontSize: 24 }}>• {g}</div>
-                ))}
-              </div>
-            )}
-            {typeof feedback.naturalness === "string" && <div style={{ display: "flex", fontSize: 24 }}>🗣 {feedback.naturalness}</div>}
-            {typeof feedback.tip === "string" && <div style={{ display: "flex", fontSize: 24 }}>💡 {feedback.tip}</div>}
-            {typeof feedback.encouragement === "string" && <div style={{ display: "flex", fontSize: 24, fontStyle: "italic" }}>{feedback.encouragement}</div>}
-            {typeof feedback.xpEarned === "number" && (
-              <div style={{ display: "flex", fontSize: 26, fontWeight: 800 }}>+{feedback.xpEarned} XP</div>
-            )}
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: "auto", paddingTop: 40 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
+              {/* eslint-disable-next-line @next/next/no-img-element -- next/og renders via satori, not the DOM */}
+              <img src={logoSrc} width={72} height={72} style={{ borderRadius: 36 }} alt="" />
+              <div style={{ display: "flex", fontSize: 38, fontWeight: 800, color: INK }}>PhrasalUp</div>
+            </div>
+            <div style={{ display: "flex", fontSize: 26, color: ACCENT_DARK }}>{shareUrl.replace(/^https?:\/\//, "")}</div>
           </div>
-        )}
-
-        <div style={{ display: "flex", alignItems: "center", gap: 16, marginTop: "auto", paddingTop: 24 }}>
-          {/* eslint-disable-next-line @next/next/no-img-element -- next/og renders via satori, not the DOM */}
-          <img src={logoSrc} width={56} height={56} style={{ borderRadius: 28 }} alt="" />
-          <div style={{ display: "flex", fontSize: 30, fontWeight: 800, color: "#201e1d" }}>PhrasalUp</div>
         </div>
       </div>
     ),

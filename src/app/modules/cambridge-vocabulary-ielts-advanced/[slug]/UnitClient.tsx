@@ -608,7 +608,7 @@ function VocabAiPractice({ word }: { word: VocabWord }) {
             </div>
           )}
 
-          {(phase === "practicing" || phase === "feedback") && (
+          {phase === "practicing" && (
             <div className="flex flex-col gap-3">
               <div
                 className="flex max-h-[300px] flex-col gap-3 overflow-y-auto rounded border p-3"
@@ -630,26 +630,25 @@ function VocabAiPractice({ word }: { word: VocabWord }) {
                 ))}
                 <div ref={chatEndRef} />
               </div>
-              {phase === "practicing" && (
-                <div className="flex items-end gap-2">
-                  <ChatInput value={chatIn} onChange={setChatIn} onSend={sendMessage} disabled={convLoading || !chatIn.trim()} />
-                  <button
-                    className="btn btn-primary px-3 py-2.5 text-[13px] font-extrabold disabled:opacity-40"
-                    disabled={convLoading || !chatIn.trim()}
-                    onClick={sendMessage}
-                  >
-                    Send
-                  </button>
-                  <button className="btn btn-ghost px-3 py-2.5 text-[12px]" disabled={convLoading || !chat.some((m) => m.role === "user")} onClick={endAndFeedback}>
-                    End
-                  </button>
-                </div>
-              )}
+              <div className="flex items-end gap-2">
+                <ChatInput value={chatIn} onChange={setChatIn} onSend={sendMessage} disabled={convLoading || !chatIn.trim()} />
+                <button
+                  className="btn btn-primary px-3 py-2.5 text-[13px] font-extrabold disabled:opacity-40"
+                  disabled={convLoading || !chatIn.trim()}
+                  onClick={sendMessage}
+                >
+                  Send
+                </button>
+                <button className="btn btn-ghost px-3 py-2.5 text-[12px]" disabled={convLoading || !chat.some((m) => m.role === "user")} onClick={endAndFeedback}>
+                  End
+                </button>
+              </div>
             </div>
           )}
 
           {phase === "feedback" && feedback && (
             <ConversationFeedback
+              messages={chat}
               feedback={feedback}
               onReset={() => {
                 setPhase("idle");

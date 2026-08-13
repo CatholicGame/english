@@ -49,24 +49,27 @@ export default async function SharedConversationPage({ params }: Props) {
         </span>
         <h1 className="text-[16px] font-extrabold">{data.itemLabel}</h1>
       </div>
-      <div className="flex flex-col gap-2">
-        {data.messages.map((m, i) => (
-          <div
-            key={i}
-            className="max-w-[92%] rounded p-2.5 text-[13px] leading-relaxed"
-            style={{
-              background: m.role === "user" ? "var(--color-accent-100)" : "var(--color-surface)",
-              alignSelf: m.role === "user" ? "flex-end" : "flex-start",
-            }}
-          >
-            <span className="label-xs mb-0.5 block">
-              {m.role === "user" ? "You" : m.role === "assistant" ? "AI" : "System"}
-            </span>
-            {m.role === "assistant" ? <AiHistoryMessage content={m.content} /> : <p className="whitespace-pre-wrap">{m.content}</p>}
-          </div>
-        ))}
-      </div>
-      {data.feedback && <ConversationFeedback feedback={data.feedback} />}
+      {data.feedback ? (
+        <ConversationFeedback messages={data.messages} feedback={data.feedback} />
+      ) : (
+        <div className="flex flex-col gap-2">
+          {data.messages.map((m, i) => (
+            <div
+              key={i}
+              className="max-w-[92%] rounded p-2.5 text-[13px] leading-relaxed"
+              style={{
+                background: m.role === "user" ? "var(--color-accent-100)" : "var(--color-surface)",
+                alignSelf: m.role === "user" ? "flex-end" : "flex-start",
+              }}
+            >
+              <span className="label-xs mb-0.5 block">
+                {m.role === "user" ? "You" : m.role === "assistant" ? "AI" : "System"}
+              </span>
+              {m.role === "assistant" ? <AiHistoryMessage content={m.content} /> : <p className="whitespace-pre-wrap">{m.content}</p>}
+            </div>
+          ))}
+        </div>
+      )}
       <p className="mt-2 border-t pt-2 text-center text-[11px] text-neutral-400" style={{ borderColor: "var(--color-divider)" }}>
         Shared from PhrasalUp
       </p>

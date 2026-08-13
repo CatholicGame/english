@@ -55,8 +55,30 @@ function cpvConversationStart(payload: Record<string, unknown>): PromptResult {
   // End of conversation: give feedback
   if (endRequested && history) {
     return {
-      systemPrompt: "You are an English teacher evaluating a Vietnamese student's conversation practice. You always answer in both English and Vietnamese so the student can check their understanding.",
-      userMessage: "The student practiced using: " + phraseList + ". Here is the conversation:\n" + history + "\n\nEvaluate the student's responses. Give feedback on: 1) Correct usage of target phrases 2) Grammar errors 3) Naturalness 4) One tip for improvement. Provide the feedback in English, AND a Vietnamese translation/explanation of that same feedback (natural Vietnamese, not machine-literal) so a learner who doesn't read English well can still understand it. Respond in JSON only: { \"phrasesOk\": boolean, \"grammarIssues\": [\"issue1\",...], \"naturalness\": \"comment\", \"tip\": \"one tip\", \"encouragement\": \"one sentence\", \"vi\": { \"grammarIssues\": [\"same issues explained in Vietnamese, same order\"], \"naturalness\": \"Vietnamese\", \"tip\": \"Vietnamese\", \"encouragement\": \"Vietnamese\" } }",
+      systemPrompt: "You are an English teacher evaluating a Vietnamese student's conversation practice. You always answer in both English and Vietnamese so the student can check their understanding. You write concise, scannable feedback — short bullets and labeled before/after corrections, never dense paragraphs.",
+      userMessage: "The student practiced using: " + phraseList + ". Here is the conversation:\n" + history + "\n\n" +
+        "Evaluate the student's responses and break your evaluation into these parts:\n" +
+        "1. Per-turn feedback — go through the conversation and, for EVERY \"Student:\" line above, return exactly one entry in \"turns\", in the same order they appear (do not skip any, even if a turn was perfect). For that turn give: a very short comment on that specific reply, and a list of 0+ wrong→correct fixes taken verbatim from that reply's own text (empty list if nothing to fix).\n" +
+        "2. Style — 2-4 short, separate bullet observations about overall naturalness, tone, and how well the student used the target phrases (" + phraseList + ") across the whole conversation. Never merge these into one paragraph. If there's a genuinely good moment, put ONE positive callout in \"styleHighlight\" (leave it empty string if nothing stands out).\n" +
+        "3. Suggestions — 2-3 categories of useful phrases the student should practice next time, each with 1-3 example phrases.\n" +
+        "4. Progress — 1-3 short, encouraging bullet points about how the student did overall, as a closing summary.\n\n" +
+        "Also provide a natural (not literal) Vietnamese translation/explanation for every turn comment, and for the Style, Suggestions, and Progress sections (the wrong/correct phrases themselves stay in English — only explain them in Vietnamese).\n\n" +
+        "Respond in JSON only:\n" +
+        "{\n" +
+        "  \"phrasesOk\": boolean,\n" +
+        "  \"turns\": [{ \"comment\": \"short feedback on this one reply, or empty string\", \"corrections\": [{ \"wrong\": \"exact phrase from this reply\", \"correct\": \"corrected phrase\" }] }],\n" +
+        "  \"style\": [\"short bullet\", ...],\n" +
+        "  \"styleHighlight\": \"one positive bullet, or empty string\",\n" +
+        "  \"suggestions\": [{ \"category\": \"short category name\", \"phrases\": [\"phrase 1\", \"phrase 2\"] }],\n" +
+        "  \"progress\": [\"short bullet\", ...],\n" +
+        "  \"vi\": {\n" +
+        "    \"turns\": [\"Vietnamese version of turns[0].comment, same order/count as turns\"],\n" +
+        "    \"style\": [\"Vietnamese bullets, same order/count as style\"],\n" +
+        "    \"styleHighlight\": \"Vietnamese version of styleHighlight\",\n" +
+        "    \"suggestions\": [{ \"category\": \"Vietnamese category name\", \"phrases\": [\"Vietnamese explanation\"] }],\n" +
+        "    \"progress\": [\"Vietnamese bullets, same order/count as progress\"]\n" +
+        "  }\n" +
+        "}",
       temperature: 0.3,
       jsonMode: true,
     };

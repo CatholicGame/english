@@ -12,6 +12,7 @@ interface Correction {
 interface Turn {
   comment?: string;
   corrections?: Correction[];
+  betterExample?: string;
 }
 
 interface SuggestionGroup {
@@ -33,6 +34,7 @@ const TEXT = {
     phrasesOk: "✅ Correct phrase usage!",
     phrasesNeedsWork: "⚠️ Phrase usage needs work",
     aiFeedback: "AI Feedback",
+    betterExample: "📖 Try instead",
     styleTitle: "🗣 Delivery & Style",
     suggestionsTitle: "💡 Suggestions to practice",
     progressTitle: "🌟 Progress",
@@ -43,6 +45,7 @@ const TEXT = {
     phrasesOk: "✅ Dùng đúng cụm từ!",
     phrasesNeedsWork: "⚠️ Cách dùng cụm từ cần cải thiện",
     aiFeedback: "Nhận xét của AI",
+    betterExample: "📖 Thử câu này",
     styleTitle: "🗣 Cách diễn đạt",
     suggestionsTitle: "💡 Gợi ý luyện tập",
     progressTitle: "🌟 Tiến bộ",
@@ -120,7 +123,7 @@ export function ConversationFeedback({ messages, feedback, onReset, share }: Pro
                 <span className="label-xs mb-0.5 block">{isUser ? "You" : m.role === "assistant" ? "AI" : "System"}</span>
                 <p className="whitespace-pre-wrap">{m.content}</p>
               </div>
-              {turn && ((turn.corrections && turn.corrections.length > 0) || comment) && (
+              {turn && ((turn.corrections && turn.corrections.length > 0) || comment || turn.betterExample) && (
                 <div
                   className="mt-1 max-w-[92%] rounded border-l-2 p-2 text-[12px] leading-relaxed"
                   style={{ borderColor: "var(--color-accent)", background: "var(--color-accent-100)", color: "var(--color-accent-800)" }}
@@ -130,6 +133,11 @@ export function ConversationFeedback({ messages, feedback, onReset, share }: Pro
                     <p key={j}>❌ &quot;{c.wrong}&quot; → <span className="font-bold">✅ &quot;{c.correct}&quot;</span></p>
                   ))}
                   {comment && <p className={turn.corrections && turn.corrections.length > 0 ? "mt-1" : ""}>{comment}</p>}
+                  {turn.betterExample && (
+                    <p className="mt-1">
+                      <span className="font-bold">{t.betterExample}:</span> &quot;{turn.betterExample}&quot;
+                    </p>
+                  )}
                 </div>
               )}
             </div>

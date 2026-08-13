@@ -30,6 +30,22 @@ async function fetchImageFile(url: string, filename: string): Promise<File | nul
   }
 }
 
+// navigator.share() only works within a short window after the user's click
+// ("transient activation") — some browsers reject it outright once that window
+// has passed. A dynamically-rendered card image can take a couple of seconds to
+// generate, which was blowing past that window and making every share fail. This
+// caps how long we wait for it: if it's not ready in time, share proceeds without
+// the image rather than risk the whole share failing.
+function withDeadline<T>(promise: Promise<T>, ms: number, fallback: T): Promise<T> {
+  return new Promise((resolve) => {
+    const timer = setTimeout(() => resolve(fallback), ms);
+    promise.then(
+      (v) => { clearTimeout(timer); resolve(v); },
+      () => { clearTimeout(timer); resolve(fallback); },
+    );
+  });
+}
+
 /** Shares via the native Web Share sheet when available, otherwise copies the link.
  * Attaches the app logo when the target share sheet supports file attachments
  * (e.g. Messages, WhatsApp) so the invite looks like more than a bare link. */
@@ -38,26 +54,44 @@ export function ShareButton({ title, text, getUrl, getImageUrl, className, style
 
   async function handleShare() {
     setStatus("busy");
+
+    let url: string;
     try {
-      const url = await getUrl();
-      if (typeof navigator !== "undefined" && navigator.share) {
+      url = await getUrl();
+    } catch (err) {
+      console.error("ShareButton: failed to create share link", err);
+      setStatus("error");
+      setTimeout(() => setStatus("idle"), 1500);
+      return;
+    }
+
+    if (typeof navigator !== "undefined" && navigator.share) {
+      try {
         const base: ShareData = { title, text, url };
         const file = getImageUrl
-          ? await fetchImageFile(getImageUrl(url), "phrasalup-share.png")
-          : await fetchImageFile(logo.src, "phrasalup.png");
+          ? await withDeadline(fetchImageFile(getImageUrl(url), "phrasalup-share.png"), 1000, null)
+          : await withDeadline(fetchImageFile(logo.src, "phrasalup.png"), 1000, null);
         const withFile: ShareData | null = file ? { ...base, files: [file] } : null;
         await navigator.share(withFile && navigator.canShare?.(withFile) ? withFile : base);
         setStatus("idle");
         return;
+      } catch (err) {
+        if ((err as Error)?.name === "AbortError") {
+          setStatus("idle");
+          return;
+        }
+        // Native share can reject for reasons unrelated to the user (lost the
+        // gesture window, platform quirk) — clipboard is the safety net.
+        console.error("ShareButton: navigator.share failed, falling back to clipboard", err);
       }
+    }
+
+    try {
       await navigator.clipboard.writeText(url);
       setStatus("copied");
       setTimeout(() => setStatus("idle"), 1500);
     } catch (err) {
-      if ((err as Error)?.name === "AbortError") {
-        setStatus("idle");
-        return;
-      }
+      console.error("ShareButton: clipboard fallback failed", err);
       setStatus("error");
       setTimeout(() => setStatus("idle"), 1500);
     }

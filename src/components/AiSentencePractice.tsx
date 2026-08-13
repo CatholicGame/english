@@ -97,44 +97,60 @@ export function AiSentencePractice({ item, moduleKey }: { item: ItemInfo; module
     if (d) { setPreview(d); setPhase("preview"); }
   }, [item]);
 
+  const [chatBusy, setChatBusy] = useState<"send" | "end" | null>(null);
+
   const startPractice = useCallback(async () => {
-    setChat([]); setPhase("practicing"); setFeedback(null);
-    const r = await fetch("/api/ai", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ intent: "cpv_conversation", payload: { terms: [{ term: item.term, en: item.en }] } }) });
-    const j = await r.json();
-    if (!j.ok) { setError(j.error); return; }
-    const aiText = j.data?.content ?? JSON.stringify(j.data);
-    const am: AiMessage = { role: "assistant", content: aiText, timestamp: Date.now() };
-    setChat([am]);
-    // Save the first AI message and get a conversation ID for grouping
-    const newCid = appendMessages(ik, il, null, "cpv_conversation", [am]);
-    setCid(newCid);
+    setChat([]); setPhase("practicing"); setFeedback(null); setError(null);
+    setLoading(true);
+    try {
+      const r = await fetch("/api/ai", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ intent: "cpv_conversation", payload: { terms: [{ term: item.term, en: item.en }] } }) });
+      const j = await r.json();
+      if (!j.ok) { setError(j.error); return; }
+      const aiText = j.data?.content ?? JSON.stringify(j.data);
+      const am: AiMessage = { role: "assistant", content: aiText, timestamp: Date.now() };
+      setChat([am]);
+      // Save the first AI message and get a conversation ID for grouping
+      const newCid = appendMessages(ik, il, null, "cpv_conversation", [am]);
+      setCid(newCid);
+    } finally {
+      setLoading(false);
+    }
   }, [item, ik, il, appendMessages]);
 
   const sendMessage = useCallback(async () => {
     if (!chatIn.trim()) return;
     const um: AiMessage = { role: "user", content: chatIn.trim(), timestamp: Date.now() };
-    const nm = [...chat, um]; setChat(nm); setChatIn("");
-    const ct = nm.map(m => `${m.role === "user" ? "Student" : "Partner"}: ${m.content}`).join("\n");
-    const r = await fetch("/api/ai", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ intent: "cpv_conversation", payload: { terms: [{ term: item.term, en: item.en }], history: ct } }) });
-    const j = await r.json();
-    if (!j.ok) { setError(j.error); return; }
-    const aiText = (j.data?.content ?? "").replace(/\n*```json[\s\S]*?```\n*/g, "").replace(/\n*\{[\s\S]*"summary"[\s\S]*\}\n*$/g, "").trim();
-    const am: AiMessage = { role: "assistant", content: aiText, timestamp: Date.now() };
-    setChat([...nm, am]);
-    appendMessages(ik, il, cid, "cpv_conversation", [um, am]);
+    const nm = [...chat, um]; setChat(nm); setChatIn(""); setError(null);
+    setChatBusy("send"); setLoading(true);
+    try {
+      const ct = nm.map(m => `${m.role === "user" ? "Student" : "Partner"}: ${m.content}`).join("\n");
+      const r = await fetch("/api/ai", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ intent: "cpv_conversation", payload: { terms: [{ term: item.term, en: item.en }], history: ct } }) });
+      const j = await r.json();
+      if (!j.ok) { setError(j.error); return; }
+      const aiText = (j.data?.content ?? "").replace(/\n*```json[\s\S]*?```\n*/g, "").replace(/\n*\{[\s\S]*"summary"[\s\S]*\}\n*$/g, "").trim();
+      const am: AiMessage = { role: "assistant", content: aiText, timestamp: Date.now() };
+      setChat([...nm, am]);
+      appendMessages(ik, il, cid, "cpv_conversation", [um, am]);
+    } finally {
+      setChatBusy(null); setLoading(false);
+    }
   }, [chatIn, chat, item, ik, il, cid, appendMessages]);
 
   const endAndFeedback = useCallback(async () => {
-    setLoading(true);
-    const ct = chat.map(m => `${m.role === "user" ? "Student" : "Partner"}: ${m.content}`).join("\n");
-    const r = await fetch("/api/ai", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ intent: "cpv_conversation", payload: { terms: [{ term: item.term, en: item.en }], history: ct, end: true } }) });
-    const j = await r.json();
-    if (!j.ok) { setError(j.error); setLoading(false); return; }
-    const xpEarned = j.data?.phrasesOk ? 20 : 8;
-    const enriched = { ...j.data, xpEarned };
-    setFeedback(enriched); setPhase("feedback"); setLoading(false);
-    addGlobalXP(xpEarned);
-    appendMessages(ik, il, cid, "cpv_conversation", [{ role: "assistant", content: JSON.stringify(enriched), timestamp: Date.now() }]);
+    setChatBusy("end"); setLoading(true); setError(null);
+    try {
+      const ct = chat.map(m => `${m.role === "user" ? "Student" : "Partner"}: ${m.content}`).join("\n");
+      const r = await fetch("/api/ai", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ intent: "cpv_conversation", payload: { terms: [{ term: item.term, en: item.en }], history: ct, end: true } }) });
+      const j = await r.json();
+      if (!j.ok) { setError(j.error); return; }
+      const xpEarned = j.data?.phrasesOk ? 20 : 8;
+      const enriched = { ...j.data, xpEarned };
+      setFeedback(enriched); setPhase("feedback");
+      addGlobalXP(xpEarned);
+      appendMessages(ik, il, cid, "cpv_conversation", [{ role: "assistant", content: JSON.stringify(enriched), timestamp: Date.now() }]);
+    } finally {
+      setChatBusy(null); setLoading(false);
+    }
   }, [chat, item, ik, il, cid, appendMessages]);
 
 
@@ -266,13 +282,30 @@ export function AiSentencePractice({ item, moduleKey }: { item: ItemInfo; module
                   <p className="whitespace-pre-wrap select-text">{m.content}</p>
                 </div>
               ))}
+              {chatBusy === "send" && (
+                <div className="rounded p-2.5" style={{ background: "var(--color-surface)", alignSelf: "flex-start" }}>
+                  <span className="label-xs mb-1 block">Partner</span>
+                  <span className="inline-flex items-center gap-1">
+                    {[0, 1, 2].map(i => (
+                      <span key={i} className="inline-block h-1.5 w-1.5 animate-bounce rounded-full bg-current opacity-60" style={{ animationDelay: `${i * 150}ms` }} />
+                    ))}
+                  </span>
+                </div>
+              )}
               <div ref={chatEndRef} />
             </div>
-            <div className="flex items-end gap-2">
-              <ChatInput value={chatIn} onChange={setChatIn} onSend={sendMessage} disabled={loading || !chatIn.trim()} />
-              <button className="btn btn-primary px-3 py-2.5 text-[13px] font-extrabold" disabled={loading || !chatIn.trim()} onClick={sendMessage}>Send</button>
-              <button className="btn btn-ghost px-3 py-2.5 text-[12px]" disabled={loading || !chat.some(m => m.role === "user")} onClick={endAndFeedback}>End</button>
-            </div>
+            {chatBusy === "end" ? (
+              <div className="flex items-center justify-center gap-2 rounded border p-3 text-[12px] text-neutral-600" style={{ borderColor: "var(--color-divider)" }}>
+                <span className="inline-block h-3.5 w-3.5 animate-spin rounded-full border-2 border-current border-t-transparent" />
+                Analyzing your conversation...
+              </div>
+            ) : (
+              <div className="flex items-end gap-2">
+                <ChatInput value={chatIn} onChange={setChatIn} onSend={sendMessage} disabled={loading || !chatIn.trim()} />
+                <button className="btn btn-primary px-3 py-2.5 text-[13px] font-extrabold" disabled={loading || !chatIn.trim()} onClick={sendMessage}>Send</button>
+                <button className="btn btn-ghost px-3 py-2.5 text-[12px]" disabled={loading || !chat.some(m => m.role === "user")} onClick={endAndFeedback}>End</button>
+              </div>
+            )}
           </div>
         )}
 

@@ -58,7 +58,7 @@ function cpvConversationStart(payload: Record<string, unknown>): PromptResult {
       systemPrompt: "You are an English teacher evaluating a Vietnamese student's conversation practice. You always answer in both English and Vietnamese so the student can check their understanding. You write concise, scannable feedback — short bullets and labeled before/after corrections, never dense paragraphs.",
       userMessage: "The student practiced using: " + phraseList + ". Here is the conversation:\n" + history + "\n\n" +
         "Evaluate the student's responses and break your evaluation into these parts:\n" +
-        "1. Per-turn feedback — go through the conversation and, for EVERY \"Student:\" line above, return exactly one entry in \"turns\", in the same order they appear (do not skip any, even if a turn was perfect). For that turn give: a very short comment on that specific reply, and a list of 0+ wrong→correct fixes taken verbatim from that reply's own text (empty list if nothing to fix).\n" +
+        "1. Per-turn feedback — go through the conversation and, for EVERY \"Student:\" line above, return exactly one entry in \"turns\", in the same order they appear (do not skip any, even if a turn was perfect). For that turn give: a very short comment on that specific reply; a list of 0+ wrong→correct fixes taken verbatim from that reply's own text (empty list if nothing to fix); and a \"betterExample\" — ALWAYS include this, even for a perfect reply — a more natural, richer, or more advanced way a fluent speaker could express that same idea in that moment of the conversation, so the student always has something to level up toward, not just error fixes.\n" +
         "2. Style — 2-4 short, separate bullet observations about overall naturalness, tone, and how well the student used the target phrases (" + phraseList + ") across the whole conversation. Never merge these into one paragraph. If there's a genuinely good moment, put ONE positive callout in \"styleHighlight\" (leave it empty string if nothing stands out).\n" +
         "3. Suggestions — 2-3 categories of useful phrases the student should practice next time, each with 1-3 example phrases.\n" +
         "4. Progress — 1-3 short, encouraging bullet points about how the student did overall, as a closing summary.\n\n" +
@@ -66,7 +66,7 @@ function cpvConversationStart(payload: Record<string, unknown>): PromptResult {
         "Respond in JSON only:\n" +
         "{\n" +
         "  \"phrasesOk\": boolean,\n" +
-        "  \"turns\": [{ \"comment\": \"short feedback on this one reply, or empty string\", \"corrections\": [{ \"wrong\": \"exact phrase from this reply\", \"correct\": \"corrected phrase\" }] }],\n" +
+        "  \"turns\": [{ \"comment\": \"short feedback on this one reply, or empty string\", \"corrections\": [{ \"wrong\": \"exact phrase from this reply\", \"correct\": \"corrected phrase\" }], \"betterExample\": \"a stronger way to express the same idea — required on every turn\" }],\n" +
         "  \"style\": [\"short bullet\", ...],\n" +
         "  \"styleHighlight\": \"one positive bullet, or empty string\",\n" +
         "  \"suggestions\": [{ \"category\": \"short category name\", \"phrases\": [\"phrase 1\", \"phrase 2\"] }],\n" +

@@ -358,6 +358,7 @@ function VocabAiPractice({ word }: { word: VocabWord }) {
   const [chatIn, setChatIn] = useState("");
   const [feedback, setFeedback] = useState<Record<string, unknown> | null>(null);
   const [convLoading, setConvLoading] = useState(false);
+  const [chatBusy, setChatBusy] = useState<"send" | "end" | null>(null);
   const [convError, setConvError] = useState<string | null>(null);
   const chatEndRef = useRef<HTMLDivElement>(null);
 
@@ -406,6 +407,9 @@ function VocabAiPractice({ word }: { word: VocabWord }) {
     const nm = [...chat, um];
     setChat(nm);
     setChatIn("");
+    setChatBusy("send");
+    setConvLoading(true);
+    setConvError(null);
     const ct = nm.map((m) => `${m.role === "user" ? "Student" : "Partner"}: ${m.content}`).join("\n");
     try {
       const d = await callAi("cpv_conversation", { terms: [{ term: word.term, en: word.en }], history: ct });
@@ -418,10 +422,14 @@ function VocabAiPractice({ word }: { word: VocabWord }) {
       appendMessages(ik, il, cid, "cpv_conversation", [um, am]);
     } catch (e) {
       setConvError(e instanceof Error ? e.message : "AI failed");
+    } finally {
+      setChatBusy(null);
+      setConvLoading(false);
     }
   }
 
   async function endAndFeedback() {
+    setChatBusy("end");
     setConvLoading(true);
     setConvError(null);
     try {
@@ -436,6 +444,7 @@ function VocabAiPractice({ word }: { word: VocabWord }) {
     } catch (e) {
       setConvError(e instanceof Error ? e.message : "AI failed");
     } finally {
+      setChatBusy(null);
       setConvLoading(false);
     }
   }
@@ -628,21 +637,38 @@ function VocabAiPractice({ word }: { word: VocabWord }) {
                     <p className="whitespace-pre-wrap">{m.content}</p>
                   </div>
                 ))}
+                {chatBusy === "send" && (
+                  <div className="rounded p-2.5" style={{ background: "var(--color-surface)", alignSelf: "flex-start" }}>
+                    <span className="label-xs mb-1 block">Partner</span>
+                    <span className="inline-flex items-center gap-1">
+                      {[0, 1, 2].map((i) => (
+                        <span key={i} className="inline-block h-1.5 w-1.5 animate-bounce rounded-full bg-current opacity-60" style={{ animationDelay: `${i * 150}ms` }} />
+                      ))}
+                    </span>
+                  </div>
+                )}
                 <div ref={chatEndRef} />
               </div>
-              <div className="flex items-end gap-2">
-                <ChatInput value={chatIn} onChange={setChatIn} onSend={sendMessage} disabled={convLoading || !chatIn.trim()} />
-                <button
-                  className="btn btn-primary px-3 py-2.5 text-[13px] font-extrabold disabled:opacity-40"
-                  disabled={convLoading || !chatIn.trim()}
-                  onClick={sendMessage}
-                >
-                  Send
-                </button>
-                <button className="btn btn-ghost px-3 py-2.5 text-[12px]" disabled={convLoading || !chat.some((m) => m.role === "user")} onClick={endAndFeedback}>
-                  End
-                </button>
-              </div>
+              {chatBusy === "end" ? (
+                <div className="flex items-center justify-center gap-2 rounded border p-3 text-[12px] text-neutral-600" style={{ borderColor: "var(--color-divider)" }}>
+                  <span className="inline-block h-3.5 w-3.5 animate-spin rounded-full border-2 border-current border-t-transparent" />
+                  Analyzing your conversation...
+                </div>
+              ) : (
+                <div className="flex items-end gap-2">
+                  <ChatInput value={chatIn} onChange={setChatIn} onSend={sendMessage} disabled={convLoading || !chatIn.trim()} />
+                  <button
+                    className="btn btn-primary px-3 py-2.5 text-[13px] font-extrabold disabled:opacity-40"
+                    disabled={convLoading || !chatIn.trim()}
+                    onClick={sendMessage}
+                  >
+                    Send
+                  </button>
+                  <button className="btn btn-ghost px-3 py-2.5 text-[12px]" disabled={convLoading || !chat.some((m) => m.role === "user")} onClick={endAndFeedback}>
+                    End
+                  </button>
+                </div>
+              )}
             </div>
           )}
 

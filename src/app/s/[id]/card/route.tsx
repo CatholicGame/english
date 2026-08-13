@@ -48,6 +48,7 @@ interface Correction {
 interface Turn {
   comment?: string;
   corrections?: Correction[];
+  betterExample?: string;
 }
 
 interface SuggestionGroup {
@@ -62,13 +63,14 @@ function messageHeight(content: string): number {
 function turnHeight(turn: Turn | undefined): number {
   if (!turn) return 0;
   const hasCorrections = turn.corrections && turn.corrections.length > 0;
-  if (!hasCorrections && !turn.comment) return 0;
+  if (!hasCorrections && !turn.comment && !turn.betterExample) return 0;
   let h = 44 /* "AI Feedback" label */ + 40 /* padding */ + 20 /* gap above */;
   for (const c of turn.corrections ?? []) {
     // wrong/correct render as two stacked lines, either of which can wrap
     h += estimateSmallLines(`❌ "${c.wrong}"`) * SMALL_LINE_HEIGHT + estimateSmallLines(`✅ "${c.correct}"`) * SMALL_LINE_HEIGHT + 16;
   }
   if (turn.comment) h += estimateSmallLines(turn.comment) * SMALL_LINE_HEIGHT + (hasCorrections ? 8 : 0);
+  if (turn.betterExample) h += estimateSmallLines(`📖 ${turn.betterExample}`) * SMALL_LINE_HEIGHT + 8;
   return h;
 }
 
@@ -175,7 +177,7 @@ export async function GET(_request: Request, { params }: { params: Promise<{ id:
             {shown.map((m, i) => {
               const isUser = m.role === "user";
               const turn = isUser ? turns[++userTurnIndex] : undefined;
-              const hasTurnContent = turn && ((turn.corrections && turn.corrections.length > 0) || turn.comment);
+              const hasTurnContent = turn && ((turn.corrections && turn.corrections.length > 0) || turn.comment || turn.betterExample);
               return (
                 <div key={i} style={{ display: "flex", flexDirection: "column", alignItems: isUser ? "flex-end" : "flex-start" }}>
                   <div
@@ -219,6 +221,11 @@ export async function GET(_request: Request, { params }: { params: Promise<{ id:
                       {turn!.comment && (
                         <div style={{ display: "flex", fontSize: 30, marginTop: turn!.corrections?.length ? 4 : 0 }}>
                           {turn!.comment}
+                        </div>
+                      )}
+                      {turn!.betterExample && (
+                        <div style={{ display: "flex", fontSize: 30, fontWeight: 700, marginTop: 8 }}>
+                          {`📖 "${turn!.betterExample}"`}
                         </div>
                       )}
                     </div>

@@ -280,31 +280,33 @@ export function AiConversationHistory({ moduleKey, itemKey, filterIntent, onCont
               </p>
             )}
             {expanded === c.id && (
-              <div className="mt-3 flex max-h-[300px] flex-col gap-2 overflow-y-auto border-t pt-2">
-                {displayMessages.map((m, i) => (
-                  <div
-                    key={i}
-                    className="rounded p-2 text-[12px] leading-relaxed"
-                    style={{
-                      background: m.role === "user" ? "var(--color-accent-100)" : "var(--color-surface)",
-                      alignSelf: m.role === "user" ? "flex-end" : "flex-start",
-                    }}
-                  >
-                    <span className="label-xs mb-0.5 block">
-                      {m.role === "user" ? "You" : m.role === "assistant" ? "AI" : "System"}
-                    </span>
-                    {m.role === "assistant" ? <AiHistoryMessage content={m.content} /> : <p className="whitespace-pre-wrap">{m.content}</p>}
-                  </div>
-                ))}
+              <>
+                <div className="mt-3 flex max-h-[300px] flex-col gap-2 overflow-y-auto border-t pt-2">
+                  {displayMessages.map((m, i) => (
+                    <div
+                      key={i}
+                      className="rounded p-2 text-[12px] leading-relaxed"
+                      style={{
+                        background: m.role === "user" ? "var(--color-accent-100)" : "var(--color-surface)",
+                        alignSelf: m.role === "user" ? "flex-end" : "flex-start",
+                      }}
+                    >
+                      <span className="label-xs mb-0.5 block">
+                        {m.role === "user" ? "You" : m.role === "assistant" ? "AI" : "System"}
+                      </span>
+                      {m.role === "assistant" ? <AiHistoryMessage content={m.content} /> : <p className="whitespace-pre-wrap">{m.content}</p>}
+                    </div>
+                  ))}
+                </div>
                 {c.intent === "cpv_conversation" && onContinue && c.id !== activeConvoId && (
                   <button
-                    className="btn btn-primary mt-1 px-3 py-1.5 text-[12px] font-extrabold"
+                    className="btn btn-primary mt-2 w-full px-3 py-1.5 text-[12px] font-extrabold"
                     onClick={() => { setExpanded(null); onContinue(c); }}
                   >
                     💬 Continue this conversation
                   </button>
                 )}
-              </div>
+              </>
             )}
           </div>
           );

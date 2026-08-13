@@ -25,6 +25,7 @@ import { addGlobalXP } from "@/lib/global-score";
 import { AiFeedback } from "@/components/AiFeedback";
 import { AiBandFeedback } from "@/components/AiBandFeedback";
 import { AiConversationHistory } from "@/components/AiConversationHistory";
+import { ChatInput } from "@/components/ChatInput";
 
 const MODULE_KEY = "cambridge-vocabulary-ielts-advanced";
 
@@ -623,14 +624,8 @@ function VocabAiPractice({ word }: { word: VocabWord }) {
                 <div ref={chatEndRef} />
               </div>
               {phase === "practicing" && (
-                <div className="flex gap-2">
-                  <input
-                    className="input flex-1"
-                    placeholder="Your response..."
-                    value={chatIn}
-                    onChange={(e) => setChatIn(e.target.value)}
-                    onKeyDown={(e) => e.key === "Enter" && sendMessage()}
-                  />
+                <div className="flex items-end gap-2">
+                  <ChatInput value={chatIn} onChange={setChatIn} onSend={sendMessage} disabled={convLoading || !chatIn.trim()} />
                   <button
                     className="btn btn-primary px-3 py-2.5 text-[13px] font-extrabold disabled:opacity-40"
                     disabled={convLoading || !chatIn.trim()}

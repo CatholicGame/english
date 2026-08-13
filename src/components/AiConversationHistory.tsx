@@ -4,8 +4,12 @@ import { useState } from "react";
 import { useAiConvoStore } from "@/lib/use-ai-convo-store";
 import type { AiConversation, IntentType } from "@/lib/ai-convo-store";
 import { AiBandFeedback } from "./AiBandFeedback";
+import { ShareButton } from "./ShareButton";
+import { encodeShareData } from "@/lib/share-encode";
+import type { SharedConvoPayload } from "@/lib/share-payload";
+import { appOrigin } from "@/lib/app-url";
 
-const INTENT_LABELS: Record<string, string> = {
+export const INTENT_LABELS: Record<string, string> = {
   cpv_sentence_check: "✍️ Write",
   cpv_paraphrase: "📝 Paraphrase",
   cpv_conversation: "💬 Converse",
@@ -120,7 +124,7 @@ function SentenceCheckContent({ data }: { data: Record<string, unknown> }) {
 /** Renders an assistant message's saved content. Assistant messages are stored as
  * JSON.stringify(data) — plain-text conversation replies fail to JSON.parse and
  * fall through to raw text. */
-function AiHistoryMessage({ content }: { content: string }) {
+export function AiHistoryMessage({ content }: { content: string }) {
   let data: unknown;
   try {
     data = JSON.parse(content);
@@ -144,6 +148,18 @@ interface Props {
   itemKey: string;
   filterIntent?: string;
   onContinue?: (convo: AiConversation) => void;
+}
+
+async function buildShareUrl(c: AiConversation): Promise<string> {
+  const payload: SharedConvoPayload = {
+    kind: "conversation",
+    itemLabel: c.itemLabel,
+    intent: c.intent,
+    messages: c.messages,
+    sharedAt: Date.now(),
+  };
+  const encoded = await encodeShareData(payload);
+  return `${appOrigin()}/share#d=${encoded}`;
 }
 
 export function AiConversationHistory({ moduleKey, itemKey, filterIntent, onContinue }: Props) {
@@ -194,13 +210,22 @@ export function AiConversationHistory({ moduleKey, itemKey, filterIntent, onCont
               >
                 {INTENT_LABELS[c.intent] || c.intent} · {fmtDate(c.createdAt)}
               </button>
-              <button
-                className="text-[10px] text-neutral-400 hover:text-accent-800"
-                onClick={() => deleteConversation(itemKey, c.id)}
-                title="Delete"
-              >
-                🗑
-              </button>
+              <span className="flex items-center gap-2">
+                <ShareButton
+                  className="text-[10px] text-neutral-400 hover:text-accent-800"
+                  title={c.itemLabel}
+                  text={`${INTENT_LABELS[c.intent] || c.intent} · ${c.itemLabel}`}
+                  getUrl={() => buildShareUrl(c)}
+                  label=""
+                />
+                <button
+                  className="text-[10px] text-neutral-400 hover:text-accent-800"
+                  onClick={() => deleteConversation(itemKey, c.id)}
+                  title="Delete"
+                >
+                  🗑
+                </button>
+              </span>
             </div>
             {c.messages.length > 0 && (
               <p className="mt-1 truncate text-[11px] text-neutral-500">

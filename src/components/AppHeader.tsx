@@ -9,6 +9,8 @@ import { AuthStatus } from "./AuthStatus";
 import { GlobalScoreBadge } from "./GlobalScoreBadge";
 import { VoiceSettings } from "./VoiceSettings";
 import { loadUiPrefs, saveUiPrefs, applyUiPrefs, type UiPrefs, type FontId } from "@/lib/ui-prefs";
+import { ShareButton } from "./ShareButton";
+import { appOrigin } from "@/lib/app-url";
 
 const FONT_OPTIONS: { id: FontId; label: string }[] = [
   { id: "archivo", label: "Archivo" },
@@ -73,7 +75,7 @@ export function AppHeader() {
     });
   }
 
-  if (pathname === "/login") return null;
+  if (pathname === "/login" || pathname.startsWith("/share")) return null;
   const showBack = pathname !== "/";
 
   return (
@@ -99,6 +101,15 @@ export function AppHeader() {
         </button>
         {settingsOpen && (
           <div className="absolute top-full right-0 mt-2 w-64 border border-[color:var(--color-divider)] bg-bg shadow-lg">
+            <div className="divider-b px-3 py-2">
+              <ShareButton
+                className="w-full text-left text-[12px] font-bold text-neutral-700 hover:text-accent-800"
+                title="PhrasalUp"
+                text="Học tiếng Anh cụm động từ & collocations mỗi ngày cùng PhrasalUp"
+                getUrl={() => appOrigin()}
+                label="Chia sẻ PhrasalUp"
+              />
+            </div>
             <VoiceSettings />
             <div className="divider-t px-3 py-2">
               <div className="label-xs mb-1.5">Font</div>

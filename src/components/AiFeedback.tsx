@@ -47,6 +47,7 @@ export function AiFeedback({ loading, result, error, onRetry, variant }: Props) 
     const correct = data.correct as boolean | undefined;
     const grammarOk = data.grammarOk as boolean | undefined;
     const naturalOk = data.naturalOk as boolean | undefined;
+    const ieltsReady = data.ieltsReady as boolean | undefined;
 
     return (
       <div className="rounded p-4 text-[13px] leading-relaxed"
@@ -63,6 +64,9 @@ export function AiFeedback({ loading, result, error, onRetry, variant }: Props) 
         {registerTip && <p className="text-[12px]">🎓 Register: {registerTip}</p>}
         {grammarOk !== undefined && (
           <p className="mt-1 text-[12px]">Grammar: {grammarOk ? "✅" : "⚠️"} | Natural: {naturalOk ? "✅" : "⚠️"}</p>
+        )}
+        {ieltsReady !== undefined && (
+          <p className="mt-1 text-[12px]">{ieltsReady ? "🎯 IELTS-ready register" : "🎯 Not quite academic register yet"}</p>
         )}
 
         {/* Key Vocabulary */}

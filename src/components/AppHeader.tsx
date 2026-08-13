@@ -2,7 +2,9 @@
 
 import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import logo from "@/assets/logo/logo.png";
 import { AuthStatus } from "./AuthStatus";
 import { GlobalScoreBadge } from "./GlobalScoreBadge";
 import { VoiceSettings } from "./VoiceSettings";
@@ -83,8 +85,9 @@ export function AppHeader() {
       ) : (
         <span className="w-9 flex-none" />
       )}
-      <Link href="/" className="min-w-0 flex-1 truncate text-[13px] font-extrabold">
-        English App
+      <Link href="/" className="flex min-w-0 flex-1 items-center gap-1.5 truncate text-[13px] font-extrabold">
+        <Image src={logo} alt="PhrasalUp" width={22} height={22} className="h-[22px] w-[22px] flex-none rounded-full" priority />
+        <span className="truncate">PhrasalUp</span>
       </Link>
       <GlobalScoreBadge className="text-[12px]" />
       <Link href="/dictionary" className="btn btn-ghost btn-icon" aria-label="Từ điển của tôi">
@@ -122,7 +125,7 @@ export function AppHeader() {
                 type="range"
                 min={0.875}
                 max={1.25}
-                step={0.125}
+                step={0.025}
                 value={prefs.zoom}
                 onChange={(e) => updatePrefs({ zoom: Number(e.target.value) })}
                 className="h-1 w-full accent-[var(--color-accent)]"

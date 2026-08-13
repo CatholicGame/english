@@ -118,6 +118,16 @@ function lamDiscussionStart(payload: Record<string, unknown>): PromptResult {
 
 // ─── Topic 3: Cambridge IELTS Advanced ───────────────────────────
 
+function vocabPoolBlock(payload: Record<string, unknown>, fitClause: string): string {
+  const vocabPool = (payload.vocabPool as { term: string; en: string }[] | undefined) ?? [];
+  if (!vocabPool.length) return "";
+  const list = vocabPool.map((v) => `"${v.term}" (${v.en})`).join(", ");
+  return `\n\nThis unit's target vocabulary: ${list}.\nAlso check which of these words the student used (accept natural inflected forms) and suggest 2-3 unused ones with a concrete note on ${fitClause}.`;
+}
+
+const VOCAB_JSON_FIELDS =
+  ',\n  "usedVocab": ["unit vocabulary word the student actually used, if any — [] if none given or none used"],\n  "vocabSuggestions": [{ "word": "unit vocabulary word not used", "note": "concrete suggestion, or [] if no vocabulary list was given" }]';
+
 function cieltsWritingFeedback(payload: Record<string, unknown>): PromptResult {
   const taskNumber = payload.taskNumber as number;
   const prompt = payload.prompt as string;
@@ -129,10 +139,11 @@ function cieltsWritingFeedback(payload: Record<string, unknown>): PromptResult {
     : "";
   const criteriaKey = taskNumber === 1 ? "taskAchievement" : "taskResponse";
   const criteriaLabel = taskNumber === 1 ? "Task Achievement" : "Task Response";
+  const vocabBlock = vocabPoolBlock(payload, "where in the essay it could naturally replace a simpler word or phrase");
 
   return {
     systemPrompt: `You are an IELTS examiner evaluating Writing Task ${taskNumber}. Use official band descriptors (0-9, 0.5 increments). Be fair and constructive.`,
-    userMessage: `Task ${taskNumber} prompt: "${prompt}"${chartInfo}\n\nStudent's response:\n"${draft}"\n\nEvaluate using official IELTS criteria. Respond in JSON only:\n{\n  "${criteriaKey}": { "band": number, "comment": "feedback on ${criteriaLabel}" },\n  "coherence": { "band": number, "comment": "organization and linking" },\n  "lexicalResource": { "band": number, "comment": "vocabulary range and accuracy" },\n  "grammaticalRange": { "band": number, "comment": "sentence structure and grammar" },\n  "overallBand": number,\n  "corrections": [{ "original": "...", "corrected": "...", "explanation": "..." }],\n  "suggestions": ["tip1", "tip2", "tip3"],\n  "rewrittenParagraph": "improved version of weakest paragraph"\n}`,
+    userMessage: `Task ${taskNumber} prompt: "${prompt}"${chartInfo}\n\nStudent's response:\n"${draft}"${vocabBlock}\n\nEvaluate using official IELTS criteria. Respond in JSON only:\n{\n  "${criteriaKey}": { "band": number, "comment": "feedback on ${criteriaLabel}" },\n  "coherence": { "band": number, "comment": "organization and linking" },\n  "lexicalResource": { "band": number, "comment": "vocabulary range and accuracy" },\n  "grammaticalRange": { "band": number, "comment": "sentence structure and grammar" },\n  "overallBand": number,\n  "corrections": [{ "original": "...", "corrected": "...", "explanation": "..." }],\n  "suggestions": ["tip1", "tip2", "tip3"],\n  "rewrittenParagraph": "improved version of weakest paragraph"${VOCAB_JSON_FIELDS}\n}`,
     temperature: 0.2,
   };
 }
@@ -141,10 +152,11 @@ function cieltsSpeakingFeedback(payload: Record<string, unknown>): PromptResult 
   const prompt = payload.prompt as string;
   const bullets = payload.bullets as string[];
   const transcript = payload.transcript as string;
+  const vocabBlock = vocabPoolBlock(payload, "how it would fit naturally into this specific answer");
 
   return {
     systemPrompt: "You are an IELTS Speaking examiner evaluating a Part 2 long turn response. Evaluate using IELTS criteria (ignore pronunciation — text only).",
-    userMessage: `Cue card: "${prompt}"\nBullet points: ${bullets.join(" | ")}\n\nStudent's response:\n"${transcript}"\n\nEvaluate in JSON only:\n{\n  "fluency": { "band": number, "comment": "flow, coherence, discourse markers" },\n  "lexicalResource": { "band": number, "comment": "vocabulary range and precision" },\n  "grammaticalRange": { "band": number, "comment": "sentence variety and accuracy" },\n  "overallBand": number,\n  "strengths": ["...", "..."],\n  "improvements": ["...", "..."],\n  "suggestedPhrases": ["phrase from unit vocab", "..."],\n  "modelResponse": "a 1-minute model response using unit vocabulary"\n}`,
+    userMessage: `Cue card: "${prompt}"\nBullet points: ${bullets.join(" | ")}\n\nStudent's response:\n"${transcript}"${vocabBlock}\n\nEvaluate in JSON only:\n{\n  "fluency": { "band": number, "comment": "flow, coherence, discourse markers" },\n  "lexicalResource": { "band": number, "comment": "vocabulary range and precision" },\n  "grammaticalRange": { "band": number, "comment": "sentence variety and accuracy" },\n  "overallBand": number,\n  "strengths": ["...", "..."],\n  "improvements": ["...", "..."],\n  "modelResponse": "a 1-minute model response using this unit's vocabulary"${VOCAB_JSON_FIELDS}\n}`,
     temperature: 0.3,
   };
 }

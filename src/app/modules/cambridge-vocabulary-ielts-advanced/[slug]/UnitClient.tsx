@@ -13,15 +13,106 @@ import {
   type TypeFillStep,
   type UnitStep,
   type VocabStep,
+  type VocabWord,
   type WritingTaskStep,
 } from "@/data/cambridge-vocabulary-ielts";
 import { parseCloze } from "@/lib/cloze";
 import { useProgress } from "@/lib/progress-context";
 import { norm, speak } from "@/lib/utils";
+import { useAiConvoStore } from "@/lib/use-ai-convo-store";
+import type { AiMessage } from "@/lib/ai-convo-store";
+import { addGlobalXP } from "@/lib/global-score";
+import { AiFeedback } from "@/components/AiFeedback";
+import { AiBandFeedback } from "@/components/AiBandFeedback";
+import { AiConversationHistory } from "@/components/AiConversationHistory";
+
+const MODULE_KEY = "cambridge-vocabulary-ielts-advanced";
 
 interface Score {
   correct: number;
   total: number;
+}
+
+function autoGrow(e: React.FormEvent<HTMLTextAreaElement>) {
+  const el = e.currentTarget;
+  el.style.height = "auto";
+  el.style.height = `${el.scrollHeight}px`;
+}
+
+// Debounced localStorage draft persistence, same pattern as the Collocations write page
+// (cpv-writing-draft) — keeps in-progress AI-practice text if the student navigates away
+// before submitting, so it isn't lost.
+function loadDraft<T>(key: string): T | null {
+  try {
+    const raw = localStorage.getItem(key);
+    return raw ? (JSON.parse(raw) as T) : null;
+  } catch {
+    return null;
+  }
+}
+
+function saveDraft(key: string, draft: unknown) {
+  try {
+    localStorage.setItem(key, JSON.stringify(draft));
+  } catch {
+    // localStorage unavailable
+  }
+}
+
+function clearDraft(key: string) {
+  try {
+    localStorage.removeItem(key);
+  } catch {
+    // localStorage unavailable
+  }
+}
+
+async function callAi(intent: string, payload: Record<string, unknown>) {
+  const r = await fetch("/api/ai", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ intent, payload }),
+  });
+  const j = await r.json();
+  if (!j.ok) throw new Error(j.error || "AI failed");
+  return j.data;
+}
+
+// ---------- Web Speech API (not in the standard TS DOM lib) ----------
+
+interface SpeechRecognitionResultLike {
+  isFinal: boolean;
+  [index: number]: { transcript: string };
+}
+
+interface SpeechRecognitionEventLike {
+  resultIndex: number;
+  results: SpeechRecognitionResultLike[];
+}
+
+interface SpeechRecognitionErrorEventLike {
+  error: string;
+}
+
+interface SpeechRecognitionLike {
+  lang: string;
+  continuous: boolean;
+  interimResults: boolean;
+  onresult: ((e: SpeechRecognitionEventLike) => void) | null;
+  onerror: ((e: SpeechRecognitionErrorEventLike) => void) | null;
+  onend: (() => void) | null;
+  start: () => void;
+  stop: () => void;
+}
+
+type SpeechRecognitionConstructor = new () => SpeechRecognitionLike;
+
+function getSpeechRecognitionCtor(): SpeechRecognitionConstructor | undefined {
+  const w = window as unknown as {
+    SpeechRecognition?: SpeechRecognitionConstructor;
+    webkitSpeechRecognition?: SpeechRecognitionConstructor;
+  };
+  return w.SpeechRecognition || w.webkitSpeechRecognition;
 }
 
 function BackIcon() {
@@ -118,6 +209,474 @@ function ChipRow({ label, items, tone }: { label: string; items: string[]; tone:
   );
 }
 
+type VocabPMode = "write" | "translate" | "converse";
+
+const VOCAB_MODE_LABELS: Record<VocabPMode, string> = {
+  write: "Write",
+  translate: "Translate",
+  converse: "Converse",
+};
+
+const VOCAB_INTENT_FOR_MODE: Record<VocabPMode, string> = {
+  write: "cielts_vocab_sentence",
+  translate: "cpv_translate",
+  converse: "cpv_conversation",
+};
+
+function VocabAiPractice({ word }: { word: VocabWord }) {
+  const ik = word.term;
+  const il = `${word.term} (${word.pos})`;
+  const writeDraftKey = `${MODULE_KEY}:draft:vocab-write:${word.term}`;
+  const translateDraftKey = `${MODULE_KEY}:draft:vocab-translate:${word.term}`;
+  const { appendMessages } = useAiConvoStore(MODULE_KEY);
+  const [mode, setMode] = useState<VocabPMode>("write");
+  const [cid, setCid] = useState<string | null>(null);
+
+  // Write mode
+  const [sentence, setSentence] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [result, setResult] = useState<unknown>(null);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const draft = loadDraft<{ sentence: string }>(writeDraftKey);
+    if (draft?.sentence) setSentence(draft.sentence);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    const t = setTimeout(() => {
+      if (sentence.trim()) saveDraft(writeDraftKey, { sentence });
+      else clearDraft(writeDraftKey);
+    }, 800);
+    return () => clearTimeout(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sentence]);
+
+  async function check() {
+    if (!sentence.trim()) return;
+    setLoading(true);
+    setError(null);
+    setResult(null);
+    try {
+      const data = await callAi("cielts_vocab_sentence", {
+        term: word.term,
+        pos: word.pos,
+        en: word.en,
+        usageNote: word.usageNote,
+        sentence: sentence.trim(),
+      });
+      setResult(data);
+      const id = appendMessages(ik, il, cid, "cielts_vocab_sentence", [
+        { role: "user", content: sentence.trim(), timestamp: Date.now() },
+        { role: "assistant", content: JSON.stringify(data), timestamp: Date.now() },
+      ]);
+      if (!cid) setCid(id);
+      clearDraft(writeDraftKey);
+    } catch (e) {
+      setError(e instanceof Error ? e.message : "AI failed");
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  // Translate mode
+  const [viSentences, setViSentences] = useState<string[]>([]);
+  const [translations, setTranslations] = useState<string[]>([]);
+  const [batchResult, setBatchResult] = useState<Record<string, unknown> | null>(null);
+  const [batchLoading, setBatchLoading] = useState(false);
+  const [batchError, setBatchError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const draft = loadDraft<{ viSentences: string[]; translations: string[] }>(translateDraftKey);
+    if (draft?.viSentences?.length) {
+      setViSentences(draft.viSentences);
+      setTranslations(draft.translations ?? new Array(draft.viSentences.length).fill(""));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    const t = setTimeout(() => {
+      if (viSentences.length && !batchResult) saveDraft(translateDraftKey, { viSentences, translations });
+      else clearDraft(translateDraftKey);
+    }, 800);
+    return () => clearTimeout(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [viSentences, translations, batchResult]);
+
+  async function loadTranslate() {
+    setViSentences([]);
+    setTranslations([]);
+    setBatchResult(null);
+    setBatchError(null);
+    setBatchLoading(true);
+    try {
+      const d = await callAi("cpv_translate_batch", { term: word.term, vi: word.vi });
+      if (d?.sentences) {
+        setViSentences(d.sentences);
+        setTranslations(new Array(d.sentences.length).fill(""));
+      }
+    } catch (e) {
+      setBatchError(e instanceof Error ? e.message : "AI failed");
+    } finally {
+      setBatchLoading(false);
+    }
+  }
+
+  async function submitTranslateBatch() {
+    setBatchLoading(true);
+    setBatchError(null);
+    try {
+      const items = viSentences.map((vi, i) => ({ vi, user: translations[i] || "" }));
+      const d = await callAi("cpv_translate_batch_review", { term: word.term, en: word.en, items });
+      const results = Array.isArray(d.results) ? (d.results as { ok: boolean }[]) : [];
+      const xpEarned = results.reduce((sum, r) => sum + (r.ok ? 10 : 2), 0);
+      const enriched = { ...d, items, xpEarned };
+      setBatchResult(enriched);
+      addGlobalXP(xpEarned);
+      clearDraft(translateDraftKey);
+      appendMessages(ik, il, cid, "cpv_translate", [
+        { role: "user", content: "Submitted 5 translations", timestamp: Date.now() },
+        { role: "assistant", content: JSON.stringify(enriched), timestamp: Date.now() },
+      ]);
+    } catch (e) {
+      setBatchError(e instanceof Error ? e.message : "AI failed");
+    } finally {
+      setBatchLoading(false);
+    }
+  }
+
+  // Converse mode
+  const [preview, setPreview] = useState<{ conversation: { speaker: string; text: string }[] } | null>(null);
+  const [phase, setPhase] = useState<"idle" | "preview" | "practicing" | "feedback">("idle");
+  const [chat, setChat] = useState<AiMessage[]>([]);
+  const [chatIn, setChatIn] = useState("");
+  const [feedback, setFeedback] = useState<Record<string, unknown> | null>(null);
+  const [convLoading, setConvLoading] = useState(false);
+  const [convError, setConvError] = useState<string | null>(null);
+  const chatEndRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [chat]);
+
+  async function loadPreview() {
+    setConvLoading(true);
+    setConvError(null);
+    setPhase("idle");
+    try {
+      const d = await callAi("cpv_conversation_preview", { terms: [{ term: word.term, en: word.en }] });
+      setPreview(d);
+      setPhase("preview");
+    } catch (e) {
+      setConvError(e instanceof Error ? e.message : "AI failed");
+    } finally {
+      setConvLoading(false);
+    }
+  }
+
+  async function startPractice() {
+    setChat([]);
+    setPhase("practicing");
+    setFeedback(null);
+    setConvLoading(true);
+    setConvError(null);
+    try {
+      const d = await callAi("cpv_conversation", { terms: [{ term: word.term, en: word.en }] });
+      const aiText = (d?.content as string | undefined) ?? JSON.stringify(d);
+      const am: AiMessage = { role: "assistant", content: aiText, timestamp: Date.now() };
+      setChat([am]);
+      const newCid = appendMessages(ik, il, null, "cpv_conversation", [am]);
+      setCid(newCid);
+    } catch (e) {
+      setConvError(e instanceof Error ? e.message : "AI failed");
+    } finally {
+      setConvLoading(false);
+    }
+  }
+
+  async function sendMessage() {
+    if (!chatIn.trim()) return;
+    const um: AiMessage = { role: "user", content: chatIn.trim(), timestamp: Date.now() };
+    const nm = [...chat, um];
+    setChat(nm);
+    setChatIn("");
+    const ct = nm.map((m) => `${m.role === "user" ? "Student" : "Partner"}: ${m.content}`).join("\n");
+    try {
+      const d = await callAi("cpv_conversation", { terms: [{ term: word.term, en: word.en }], history: ct });
+      const aiText = ((d?.content as string | undefined) ?? "")
+        .replace(/\n*```json[\s\S]*?```\n*/g, "")
+        .replace(/\n*\{[\s\S]*"summary"[\s\S]*\}\n*$/g, "")
+        .trim();
+      const am: AiMessage = { role: "assistant", content: aiText, timestamp: Date.now() };
+      setChat([...nm, am]);
+      appendMessages(ik, il, cid, "cpv_conversation", [um, am]);
+    } catch (e) {
+      setConvError(e instanceof Error ? e.message : "AI failed");
+    }
+  }
+
+  async function endAndFeedback() {
+    setConvLoading(true);
+    setConvError(null);
+    try {
+      const ct = chat.map((m) => `${m.role === "user" ? "Student" : "Partner"}: ${m.content}`).join("\n");
+      const d = await callAi("cpv_conversation", { terms: [{ term: word.term, en: word.en }], history: ct, end: true });
+      setFeedback(d as Record<string, unknown>);
+      setPhase("feedback");
+    } catch (e) {
+      setConvError(e instanceof Error ? e.message : "AI failed");
+    } finally {
+      setConvLoading(false);
+    }
+  }
+
+  function ts(m: VocabPMode) {
+    return {
+      background: mode === m ? "var(--color-accent)" : "var(--color-surface)",
+      color: mode === m ? "#fff" : "var(--color-text)",
+      border: mode === m ? "none" : "1px solid var(--color-divider)",
+    };
+  }
+
+  return (
+    <div className="mt-4 border-t pt-4" style={{ borderColor: "var(--color-divider)" }}>
+      <div className="label-xs mb-2 text-accent">🎓 Practice with AI</div>
+      <div className="mb-3 flex flex-wrap gap-1">
+        {(Object.keys(VOCAB_MODE_LABELS) as VocabPMode[]).map((m) => (
+          <button
+            key={m}
+            onClick={() => setMode(m)}
+            className="rounded-full px-3 py-1 text-[12px] font-bold"
+            style={ts(m)}
+          >
+            {VOCAB_MODE_LABELS[m]}
+          </button>
+        ))}
+      </div>
+
+      {mode === "write" && (
+        <div className="flex flex-col gap-3">
+          <textarea
+            className="input min-h-[70px] resize-none overflow-hidden"
+            placeholder={`Write a sentence using "${word.term}" in an IELTS-style context...`}
+            value={sentence}
+            onChange={(e) => setSentence(e.target.value)}
+            onInput={autoGrow}
+          />
+          <button
+            className="btn btn-primary px-4 py-2 text-[13px] font-extrabold disabled:opacity-40"
+            disabled={loading || !sentence.trim()}
+            onClick={check}
+          >
+            {loading ? "Checking..." : "Check with AI"}
+          </button>
+          <AiFeedback loading={loading} result={result} error={error} onRetry={check} variant="sentence" />
+        </div>
+      )}
+
+      {mode === "translate" && (
+        <div className="flex flex-col gap-3">
+          {viSentences.length === 0 ? (
+            <button
+              className="btn btn-primary px-4 py-2.5 text-[13px] font-extrabold disabled:opacity-40"
+              disabled={batchLoading}
+              onClick={loadTranslate}
+            >
+              {batchLoading ? "Generating..." : "Generate 5 Sentences"}
+            </button>
+          ) : !batchResult ? (
+            <div className="flex flex-col gap-3">
+              <p className="text-[12px] text-neutral-600">Translate each sentence using &quot;{word.term}&quot;.</p>
+              {viSentences.map((s, i) => (
+                <div key={i} className="flex flex-col gap-1.5">
+                  <div className="rounded bg-accent-100 px-3 py-2 text-[13px] leading-relaxed font-medium text-accent-800">
+                    <span className="label-xs mr-2 text-accent-700">{i + 1}.</span>
+                    {s}
+                  </div>
+                  <textarea
+                    className="input min-h-[40px] resize-none overflow-hidden text-[13px]"
+                    rows={1}
+                    placeholder="Your English translation..."
+                    value={translations[i] || ""}
+                    onChange={(e) => {
+                      const next = [...translations];
+                      next[i] = e.target.value;
+                      setTranslations(next);
+                    }}
+                    onInput={autoGrow}
+                  />
+                </div>
+              ))}
+              <button
+                className="btn btn-primary px-4 py-2.5 text-[13px] font-extrabold disabled:opacity-40"
+                disabled={batchLoading || translations.every((t) => !t.trim())}
+                onClick={submitTranslateBatch}
+              >
+                {batchLoading ? "Reviewing..." : "Submit All & Get Feedback"}
+              </button>
+            </div>
+          ) : (
+            <div className="flex flex-col gap-3">
+              <div className="flex items-center justify-between">
+                <p className="text-[13px] font-extrabold">📝 Results</p>
+                {typeof batchResult.xpEarned === "number" && (
+                  <span className="text-[12px] font-extrabold text-accent">+{batchResult.xpEarned} XP</span>
+                )}
+              </div>
+              {viSentences.map((s, i) => {
+                const results = batchResult.results as { ok: boolean; feedback?: string; corrected?: string }[] | undefined;
+                const r = results?.[i];
+                return (
+                  <div
+                    key={i}
+                    className="rounded border p-3"
+                    style={{ borderColor: r?.ok ? "var(--color-accent)" : "var(--color-accent-800)" }}
+                  >
+                    <div className="flex items-start justify-between gap-2">
+                      <span className="text-[12px] font-extrabold">
+                        {i + 1}. {s}
+                      </span>
+                      <span className="text-[12px]">{r?.ok ? "✅" : "❌"}</span>
+                    </div>
+                    <p className="mt-1 text-[12px] italic text-neutral-500">Your: {translations[i]}</p>
+                    {r?.feedback && <p className="mt-1 text-[12px]">{r.feedback}</p>}
+                    {r?.corrected && <p className="mt-0.5 text-[12px] text-accent-800">→ {r.corrected}</p>}
+                  </div>
+                );
+              })}
+              {typeof batchResult.overall === "string" && (
+                <div className="rounded bg-accent-100 p-3 text-[13px] leading-relaxed text-accent-800">{batchResult.overall}</div>
+              )}
+              <button className="btn btn-ghost text-[12px]" onClick={loadTranslate} disabled={batchLoading}>
+                New set
+              </button>
+            </div>
+          )}
+          <AiFeedback loading={batchLoading} result={null} error={batchError} onRetry={loadTranslate} variant="general" />
+        </div>
+      )}
+
+      {mode === "converse" && (
+        <div className="flex flex-col gap-3">
+          {phase === "idle" && (
+            <button
+              className="btn btn-primary px-4 py-2.5 text-[13px] font-extrabold disabled:opacity-40"
+              disabled={convLoading}
+              onClick={loadPreview}
+            >
+              {convLoading ? "Generating..." : "Generate Sample Conversation"}
+            </button>
+          )}
+
+          {phase === "preview" && preview && (
+            <div className="flex flex-col gap-3">
+              <div className="rounded bg-accent-100 p-3 text-[13px] leading-relaxed">
+                <span className="label-xs mb-2 block text-accent-700">Sample conversation</span>
+                {preview.conversation.map((line, i) => (
+                  <p key={i} className="mb-1">
+                    <span className="font-extrabold">{line.speaker}:</span> {line.text}
+                  </p>
+                ))}
+              </div>
+              <button
+                className="btn btn-primary px-4 py-2.5 text-[13px] font-extrabold disabled:opacity-40"
+                disabled={convLoading}
+                onClick={startPractice}
+              >
+                {convLoading ? "Starting..." : "Start Practice"}
+              </button>
+            </div>
+          )}
+
+          {(phase === "practicing" || phase === "feedback") && (
+            <div className="flex flex-col gap-3">
+              <div
+                className="flex max-h-[300px] flex-col gap-3 overflow-y-auto rounded border p-3"
+                style={{ borderColor: "var(--color-divider)" }}
+              >
+                {chat.map((m, i) => (
+                  <div
+                    key={i}
+                    className="rounded p-2.5 text-[13px] leading-relaxed"
+                    style={{
+                      background: m.role === "user" ? "var(--color-accent-100)" : "var(--color-surface)",
+                      alignSelf: m.role === "user" ? "flex-end" : "flex-start",
+                      maxWidth: "85%",
+                    }}
+                  >
+                    <span className="label-xs mb-0.5 block">{m.role === "user" ? "You" : "Partner"}</span>
+                    <p className="whitespace-pre-wrap">{m.content}</p>
+                  </div>
+                ))}
+                <div ref={chatEndRef} />
+              </div>
+              {phase === "practicing" && (
+                <div className="flex gap-2">
+                  <input
+                    className="input flex-1"
+                    placeholder="Your response..."
+                    value={chatIn}
+                    onChange={(e) => setChatIn(e.target.value)}
+                    onKeyDown={(e) => e.key === "Enter" && sendMessage()}
+                  />
+                  <button
+                    className="btn btn-primary px-3 py-2.5 text-[13px] font-extrabold disabled:opacity-40"
+                    disabled={convLoading || !chatIn.trim()}
+                    onClick={sendMessage}
+                  >
+                    Send
+                  </button>
+                  <button className="btn btn-ghost px-3 py-2.5 text-[12px]" disabled={convLoading} onClick={endAndFeedback}>
+                    End
+                  </button>
+                </div>
+              )}
+            </div>
+          )}
+
+          {phase === "feedback" && feedback && (
+            <div className="rounded border bg-surface p-4 text-[13px] leading-relaxed" style={{ borderColor: "var(--color-divider)" }}>
+              <span className="label-xs mb-2 block text-accent">Feedback</span>
+              {feedback.phrasesOk !== undefined && (
+                <p className="mb-2 font-extrabold">{feedback.phrasesOk ? "✅ Correct usage!" : "⚠️ Usage needs work"}</p>
+              )}
+              {Array.isArray(feedback.grammarIssues) && feedback.grammarIssues.length > 0 && (
+                <div className="mb-2">
+                  <span className="font-extrabold">Grammar:</span>
+                  <ul className="list-disc pl-4 text-[12px]">
+                    {(feedback.grammarIssues as string[]).map((g, i) => (
+                      <li key={i}>{g}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              {feedback.naturalness != null && <p className="mb-1 text-[12px]">🗣 {String(feedback.naturalness)}</p>}
+              {feedback.tip != null && <p className="mb-1 text-[12px]">💡 {String(feedback.tip)}</p>}
+              {feedback.encouragement != null && <p className="text-[12px] italic">{String(feedback.encouragement)}</p>}
+              <button
+                className="btn btn-ghost mt-3 text-[12px]"
+                onClick={() => {
+                  setPhase("idle");
+                  setPreview(null);
+                  setFeedback(null);
+                  setChat([]);
+                }}
+              >
+                Try Again
+              </button>
+            </div>
+          )}
+          {convError && <AiFeedback loading={false} result={null} error={convError} variant="general" />}
+        </div>
+      )}
+
+      <AiConversationHistory moduleKey={MODULE_KEY} itemKey={word.term} filterIntent={VOCAB_INTENT_FOR_MODE[mode]} />
+    </div>
+  );
+}
+
 function VocabStepView({ step, onNext }: { step: VocabStep; onNext: (score?: Score) => void }) {
   const [i, setI] = useState(0);
   const [revealed, setRevealed] = useState(true);
@@ -184,6 +743,8 @@ function VocabStepView({ step, onNext }: { step: VocabStep; onNext: (score?: Sco
             </div>
 
             <div className="mt-3 text-[13px] leading-relaxed font-bold">👉 {w.summary}</div>
+
+            <VocabAiPractice key={w.term} word={w} />
           </div>
         )}
       </div>
@@ -694,9 +1255,147 @@ function RevealPairsStepView({ step, onNext }: { step: RevealPairsStep; onNext: 
 
 // ---------- Speaking practice timer ----------
 
-function SpeakingStepView({ step, onNext }: { step: SpeakingStep; onNext: (score?: Score) => void }) {
+interface VocabPoolItem {
+  term: string;
+  en: string;
+}
+
+function SpeakingStepView({
+  step,
+  onNext,
+  itemKey,
+  unitVocab,
+}: {
+  step: SpeakingStep;
+  onNext: (score?: Score) => void;
+  itemKey: string;
+  unitVocab: VocabPoolItem[];
+}) {
   const [phase, setPhase] = useState<"idle" | "prep" | "speak" | "done">("idle");
   const [secondsLeft, setSecondsLeft] = useState(step.prepSeconds);
+  const { appendMessages } = useAiConvoStore(MODULE_KEY);
+  const [transcript, setTranscript] = useState("");
+  const [interim, setInterim] = useState("");
+  const [voiceSupported, setVoiceSupported] = useState(false);
+  const [micError, setMicError] = useState<string | null>(null);
+  const recognitionRef = useRef<SpeechRecognitionLike | null>(null);
+  const transcriptRef = useRef<HTMLTextAreaElement>(null);
+  const phaseRef = useRef(phase);
+  const [aiLoading, setAiLoading] = useState(false);
+  const [aiResult, setAiResult] = useState<unknown>(null);
+  const [aiError, setAiError] = useState<string | null>(null);
+  const [cid, setCid] = useState<string | null>(null);
+  const draftKey = `${MODULE_KEY}:draft:speaking:${itemKey}`;
+
+  useEffect(() => {
+    const draft = loadDraft<{ transcript: string }>(draftKey);
+    if (draft?.transcript) setTranscript(draft.transcript);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    const t = setTimeout(() => {
+      if (transcript.trim()) saveDraft(draftKey, { transcript });
+      else clearDraft(draftKey);
+    }, 800);
+    return () => clearTimeout(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [transcript]);
+
+  useEffect(() => {
+    phaseRef.current = phase;
+  }, [phase]);
+
+  useEffect(() => {
+    const el = transcriptRef.current;
+    if (!el) return;
+    el.style.height = "auto";
+    el.style.height = `${el.scrollHeight}px`;
+  }, [transcript]);
+
+  useEffect(() => {
+    setVoiceSupported(!!getSpeechRecognitionCtor());
+  }, []);
+
+  function startRecognition() {
+    const SR = getSpeechRecognitionCtor();
+    if (!SR) return;
+    const rec = new SR();
+    rec.lang = "en-US";
+    rec.continuous = true;
+    rec.interimResults = true;
+    let finalText = "";
+    rec.onresult = (e) => {
+      let interimText = "";
+      for (let i = e.resultIndex; i < e.results.length; i++) {
+        const res = e.results[i];
+        if (res.isFinal) finalText += res[0].transcript + " ";
+        else interimText += res[0].transcript;
+      }
+      setTranscript(finalText.trim());
+      setInterim(interimText);
+    };
+    rec.onerror = (e) => {
+      if (e.error === "not-allowed" || e.error === "service-not-allowed") {
+        setMicError("Microphone access denied — type your answer instead.");
+      }
+    };
+    rec.onend = () => {
+      if (phaseRef.current === "speak") {
+        try {
+          rec.start();
+        } catch {
+          // already running or mic unavailable — leave it stopped
+        }
+      }
+    };
+    try {
+      rec.start();
+      recognitionRef.current = rec;
+    } catch {
+      setMicError("Couldn't start the microphone — type your answer instead.");
+    }
+  }
+
+  function stopRecognition() {
+    if (recognitionRef.current) {
+      recognitionRef.current.onend = null;
+      recognitionRef.current.stop();
+      recognitionRef.current = null;
+    }
+  }
+
+  useEffect(() => {
+    if (phase === "speak") startRecognition();
+    else stopRecognition();
+    return () => stopRecognition();
+  }, [phase]);
+
+  async function getFeedback() {
+    if (!transcript.trim()) return;
+    setAiLoading(true);
+    setAiError(null);
+    setAiResult(null);
+    try {
+      const data = await callAi("cielts_speaking_feedback", {
+        prompt: step.prompt,
+        bullets: step.bullets,
+        transcript: transcript.trim(),
+        vocabPool: unitVocab,
+      });
+      setAiResult(data);
+      const id = appendMessages(itemKey, step.title, cid, "cielts_speaking_feedback", [
+        { role: "user", content: transcript.trim(), timestamp: Date.now() },
+        { role: "assistant", content: JSON.stringify(data), timestamp: Date.now() },
+      ]);
+      if (!cid) setCid(id);
+      clearDraft(draftKey);
+    } catch (e) {
+      setAiError(e instanceof Error ? e.message : "AI failed");
+    } finally {
+      setAiLoading(false);
+    }
+  }
 
   useEffect(() => {
     if (phase !== "prep" && phase !== "speak") return;
@@ -734,6 +1433,9 @@ function SpeakingStepView({ step, onNext }: { step: SpeakingStep; onNext: (score
           className="btn btn-primary btn-block px-4 py-3"
           onClick={() => {
             setSecondsLeft(step.prepSeconds);
+            setTranscript("");
+            setInterim("");
+            setMicError(null);
             setPhase("prep");
           }}
         >
@@ -745,6 +1447,25 @@ function SpeakingStepView({ step, onNext }: { step: SpeakingStep; onNext: (score
         <div className="flex flex-1 flex-col items-center justify-center gap-3 bg-bg py-8">
           <div className="label-xs text-accent">{phase === "prep" ? "Preparation time" : "Speak now"}</div>
           <div className="text-[56px] leading-none font-extrabold tabular-nums">{fmt(secondsLeft)}</div>
+          {phase === "speak" && voiceSupported && !micError && (
+            <div className="flex items-center gap-1.5 text-[12px] text-neutral-600">
+              <span className="inline-block h-2 w-2 animate-pulse rounded-full bg-accent" />
+              Listening — speak into your microphone
+            </div>
+          )}
+          {phase === "speak" && !voiceSupported && (
+            <p className="max-w-[280px] text-center text-[12px] text-neutral-600">
+              Voice recognition isn&apos;t supported in this browser — you&apos;ll be able to type what you said afterwards.
+            </p>
+          )}
+          {phase === "speak" && micError && (
+            <p className="max-w-[280px] text-center text-[12px] text-accent-700">{micError}</p>
+          )}
+          {phase === "speak" && (transcript || interim) && (
+            <p className="max-h-[100px] max-w-[320px] overflow-y-auto text-center text-[13px] leading-relaxed text-neutral-700">
+              {transcript} <span className="text-neutral-400">{interim}</span>
+            </p>
+          )}
           {phase === "prep" ? (
             <button
               className="btn btn-secondary"
@@ -766,7 +1487,38 @@ function SpeakingStepView({ step, onNext }: { step: SpeakingStep; onNext: (score
       {phase === "done" && (
         <>
           <Tip>{step.tip}</Tip>
-          <ContinueButton onClick={() => onNext()} />
+          <div className="mb-4 border-t pt-4" style={{ borderColor: "var(--color-divider)" }}>
+            <div className="label-xs mb-2 text-accent">🎓 Get AI feedback on your answer</div>
+            <p className="mb-2 text-[12px] text-neutral-600">
+              {transcript
+                ? "Here's what we picked up while you were speaking — fix anything that was mis-heard, then get feedback."
+                : "Type what you said and an AI examiner will score it."}
+            </p>
+            <textarea
+              ref={transcriptRef}
+              className="input mb-2 min-h-[100px] resize-none overflow-hidden"
+              placeholder="Type what you said..."
+              value={transcript}
+              onChange={(e) => setTranscript(e.target.value)}
+            />
+            <button
+              className="btn btn-primary px-4 py-2 text-[13px] font-extrabold disabled:opacity-40"
+              disabled={aiLoading || !transcript.trim()}
+              onClick={getFeedback}
+            >
+              {aiLoading ? "Scoring..." : "Get AI Feedback"}
+            </button>
+            <div className="mt-3">
+              <AiBandFeedback loading={aiLoading} result={aiResult} error={aiError} onRetry={getFeedback} />
+            </div>
+            <AiConversationHistory moduleKey={MODULE_KEY} itemKey={itemKey} filterIntent="cielts_speaking_feedback" />
+          </div>
+          <ContinueButton
+            onClick={() => {
+              clearDraft(draftKey);
+              onNext();
+            }}
+          />
         </>
       )}
     </div>
@@ -775,10 +1527,68 @@ function SpeakingStepView({ step, onNext }: { step: SpeakingStep; onNext: (score
 
 // ---------- Writing task (Task 1 chart / Task 2 essay) ----------
 
-function WritingTaskStepView({ step, onNext }: { step: WritingTaskStep; onNext: (score?: Score) => void }) {
+function WritingTaskStepView({
+  step,
+  onNext,
+  itemKey,
+  unitVocab,
+}: {
+  step: WritingTaskStep;
+  onNext: (score?: Score) => void;
+  itemKey: string;
+  unitVocab: VocabPoolItem[];
+}) {
   const [draft, setDraft] = useState("");
   const [showModel, setShowModel] = useState(false);
   const wordCount = draft.trim() === "" ? 0 : draft.trim().split(/\s+/).length;
+  const { appendMessages } = useAiConvoStore(MODULE_KEY);
+  const [aiLoading, setAiLoading] = useState(false);
+  const [aiResult, setAiResult] = useState<unknown>(null);
+  const [aiError, setAiError] = useState<string | null>(null);
+  const [cid, setCid] = useState<string | null>(null);
+  const taskNumber = /2/.test(step.taskLabel) ? 2 : 1;
+  const draftKey = `${MODULE_KEY}:draft:writing:${itemKey}`;
+
+  useEffect(() => {
+    const d = loadDraft<{ draft: string }>(draftKey);
+    if (d?.draft) setDraft(d.draft);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    const t = setTimeout(() => {
+      if (draft.trim()) saveDraft(draftKey, { draft });
+      else clearDraft(draftKey);
+    }, 800);
+    return () => clearTimeout(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [draft]);
+
+  async function getFeedback() {
+    if (!draft.trim()) return;
+    setAiLoading(true);
+    setAiError(null);
+    setAiResult(null);
+    try {
+      const data = await callAi("cielts_writing_feedback", {
+        taskNumber,
+        prompt: step.prompt,
+        chartRows: step.chartRows,
+        draft: draft.trim(),
+        vocabPool: unitVocab,
+      });
+      setAiResult(data);
+      const id = appendMessages(itemKey, step.title, cid, "cielts_writing_feedback", [
+        { role: "user", content: draft.trim(), timestamp: Date.now() },
+        { role: "assistant", content: JSON.stringify(data), timestamp: Date.now() },
+      ]);
+      if (!cid) setCid(id);
+    } catch (e) {
+      setAiError(e instanceof Error ? e.message : "AI failed");
+    } finally {
+      setAiLoading(false);
+    }
+  }
 
   return (
     <div className="flex flex-1 flex-col p-4 lg:mx-auto lg:w-full lg:max-w-[720px]">
@@ -798,12 +1608,28 @@ function WritingTaskStepView({ step, onNext }: { step: WritingTaskStep; onNext: 
       </div>
 
       <textarea
-        className="input mb-2 min-h-[180px] resize-y"
+        className="input mb-2 min-h-[180px] resize-none overflow-hidden"
         placeholder={`Write at least ${step.minWords} words...`}
         value={draft}
         onChange={(e) => setDraft(e.target.value)}
+        onInput={autoGrow}
       />
       <div className="label-xs mb-4 text-right">{wordCount} words</div>
+
+      <div className="mb-4 border-t pt-4" style={{ borderColor: "var(--color-divider)" }}>
+        <div className="label-xs mb-2 text-accent">🎓 Get AI feedback on your draft</div>
+        <button
+          className="btn btn-primary px-4 py-2 text-[13px] font-extrabold disabled:opacity-40"
+          disabled={aiLoading || !draft.trim()}
+          onClick={getFeedback}
+        >
+          {aiLoading ? "Scoring..." : "Get AI Feedback"}
+        </button>
+        <div className="mt-3">
+          <AiBandFeedback loading={aiLoading} result={aiResult} error={aiError} onRetry={getFeedback} />
+        </div>
+        <AiConversationHistory moduleKey={MODULE_KEY} itemKey={itemKey} filterIntent="cielts_writing_feedback" />
+      </div>
 
       {showModel ? (
         <>
@@ -812,7 +1638,12 @@ function WritingTaskStepView({ step, onNext }: { step: WritingTaskStep; onNext: 
             {step.modelAnswer}
           </div>
           <Tip>{step.tip}</Tip>
-          <ContinueButton onClick={() => onNext()} />
+          <ContinueButton
+            onClick={() => {
+              clearDraft(draftKey);
+              onNext();
+            }}
+          />
         </>
       ) : (
         <button className="btn btn-primary btn-block mt-auto px-4 py-3" onClick={() => setShowModel(true)}>
@@ -876,6 +1707,9 @@ export function UnitClient({ slug }: { slug: string }) {
 
   const steps: UnitStep[] = unit.steps;
   const step = steps[stepIndex];
+  const unitVocab: VocabPoolItem[] = steps
+    .filter((s): s is VocabStep => s.kind === "vocab")
+    .flatMap((s) => s.words.map((w) => ({ term: w.term, en: w.en })));
 
   function goBack() {
     if (stepIndex === 0) {
@@ -1009,8 +1843,24 @@ export function UnitClient({ slug }: { slug: string }) {
       {step.kind === "fill_mc" && <FillMcStepView key={stepIndex} step={step} onNext={handleNext} />}
       {step.kind === "reading_tfng" && <ReadingTfNgStepView key={stepIndex} step={step} onNext={handleNext} />}
       {step.kind === "reveal_pairs" && <RevealPairsStepView key={stepIndex} step={step} onNext={handleNext} />}
-      {step.kind === "speaking" && <SpeakingStepView key={stepIndex} step={step} onNext={handleNext} />}
-      {step.kind === "writing_task" && <WritingTaskStepView key={stepIndex} step={step} onNext={handleNext} />}
+      {step.kind === "speaking" && (
+        <SpeakingStepView
+          key={stepIndex}
+          step={step}
+          onNext={handleNext}
+          itemKey={`${unit.slug}:${step.title}`}
+          unitVocab={unitVocab}
+        />
+      )}
+      {step.kind === "writing_task" && (
+        <WritingTaskStepView
+          key={stepIndex}
+          step={step}
+          onNext={handleNext}
+          itemKey={`${unit.slug}:${step.title}`}
+          unitVocab={unitVocab}
+        />
+      )}
     </div>
   );
 }

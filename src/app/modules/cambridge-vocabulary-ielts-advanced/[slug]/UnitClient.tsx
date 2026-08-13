@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import {
   getCambridgeUnit,
@@ -20,7 +20,7 @@ import { parseCloze } from "@/lib/cloze";
 import { useProgress } from "@/lib/progress-context";
 import { norm, speak } from "@/lib/utils";
 import { useAiConvoStore } from "@/lib/use-ai-convo-store";
-import type { AiMessage } from "@/lib/ai-convo-store";
+import type { AiConversation, AiMessage } from "@/lib/ai-convo-store";
 import { addGlobalXP } from "@/lib/global-score";
 import { AiFeedback } from "@/components/AiFeedback";
 import { AiBandFeedback } from "@/components/AiBandFeedback";
@@ -432,6 +432,16 @@ function VocabAiPractice({ word }: { word: VocabWord }) {
     }
   }
 
+  const handleContinue = useCallback((convo: AiConversation) => {
+    setCid(convo.id);
+    setMode("converse");
+    setPhase("practicing");
+    setFeedback(null);
+    // Filter to only user + assistant messages (skip system)
+    const msgs = convo.messages.filter((m) => m.role === "user" || m.role === "assistant");
+    setChat(msgs);
+  }, []);
+
   function ts(m: VocabPMode) {
     return {
       background: mode === m ? "var(--color-accent)" : "var(--color-surface)",
@@ -672,7 +682,7 @@ function VocabAiPractice({ word }: { word: VocabWord }) {
         </div>
       )}
 
-      <AiConversationHistory moduleKey={MODULE_KEY} itemKey={word.term} filterIntent={VOCAB_INTENT_FOR_MODE[mode]} />
+      <AiConversationHistory moduleKey={MODULE_KEY} itemKey={word.term} filterIntent={VOCAB_INTENT_FOR_MODE[mode]} onContinue={handleContinue} />
     </div>
   );
 }

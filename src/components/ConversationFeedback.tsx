@@ -7,7 +7,7 @@ interface Props {
   feedback: Record<string, unknown>;
   onReset?: () => void;
   /** Shows a Share button (chat + this feedback) when provided — omit for read-only views like the public share page. */
-  share?: { title: string; text?: string; getUrl: () => Promise<string> | string };
+  share?: { title: string; text?: string; getUrl: () => Promise<string> | string; getImageUrl?: (url: string) => string };
 }
 
 const TEXT = {
@@ -70,6 +70,7 @@ export function ConversationFeedback({ feedback, onReset, share }: Props) {
               title={share.title}
               text={share.text}
               getUrl={share.getUrl}
+              getImageUrl={share.getImageUrl}
               label="Share"
             />
           )}

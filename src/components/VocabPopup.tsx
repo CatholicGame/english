@@ -7,6 +7,7 @@ import { normalizeText, type TranslationEntry } from "@/lib/translation-store";
 import { useTranslationStore } from "@/lib/use-translation-store";
 import { VocabEntryDetail } from "./VocabEntryDetail";
 import { TranslationDetail } from "./TranslationDetail";
+import { Modal } from "./Modal";
 
 interface Props {
   word: string;
@@ -96,28 +97,20 @@ export function VocabPopup({ word, context, onClose }: Props) {
   const savedTranslation = result?.type === "translation" ? getTranslationEntry(translationKey) : null;
 
   return (
-    <div data-lookup-ignore className="fixed inset-0 z-[70] flex items-end justify-center" onClick={onClose}>
-      <div className="absolute inset-0 bg-black/40" />
-      <div
-        className="divider-t relative mx-auto w-full max-w-[480px] max-h-[75vh] overflow-y-auto bg-bg p-5 lg:max-w-[560px]"
-        onClick={e => e.stopPropagation()}
-      >
-        <button className="absolute right-3 top-3 text-[18px] text-neutral-500 hover:text-neutral-700" onClick={onClose}>✕</button>
-
-        {loading || !result ? (
-          <p className="text-[13px] text-neutral-600 animate-pulse">Đang tra &quot;{word}&quot;...</p>
-        ) : result.type === "translation" ? (
-          <TranslationDetail
-            text={result.data.text}
-            translation={result.data.translation}
-            saved={Boolean(savedTranslation)}
-            onSave={() => saveTranslationEntry(translationKey, { text: result.data.text, translation: result.data.translation })}
-            onDelete={() => deleteTranslationEntry(translationKey)}
-          />
-        ) : (
-          <VocabEntryDetail data={result.data} fallbackWord={word} />
-        )}
-      </div>
-    </div>
+    <Modal onClose={onClose}>
+      {loading || !result ? (
+        <p className="text-[13px] text-neutral-600 animate-pulse">Đang tra &quot;{word}&quot;...</p>
+      ) : result.type === "translation" ? (
+        <TranslationDetail
+          text={result.data.text}
+          translation={result.data.translation}
+          saved={Boolean(savedTranslation)}
+          onSave={() => saveTranslationEntry(translationKey, { text: result.data.text, translation: result.data.translation })}
+          onDelete={() => deleteTranslationEntry(translationKey)}
+        />
+      ) : (
+        <VocabEntryDetail data={result.data} fallbackWord={word} />
+      )}
+    </Modal>
   );
 }

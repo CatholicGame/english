@@ -7,19 +7,24 @@ interface Props {
   title: string;
   text?: string;
   getUrl: () => Promise<string> | string;
+  /** Derives a full-content "card" image URL from the resolved share URL (e.g. `${url}/card`).
+   * When set, this image is attached to the share instead of the bare app logo — so a native
+   * share sheet (Messages, WhatsApp, Zalo) shows the actual content, not just a link. */
+  getImageUrl?: (url: string) => string;
   className?: string;
   style?: React.CSSProperties;
   label?: string;
 }
 
 /** Fetched lazily on share (not on render) so a page with many ShareButtons
- * never pays for the logo unless someone actually shares. Failure is fine —
- * the logo is a nice-to-have, not required for a successful share. */
-async function fetchLogoFile(): Promise<File | null> {
+ * never pays for the image unless someone actually shares. Failure is fine —
+ * the image is a nice-to-have, not required for a successful share. */
+async function fetchImageFile(url: string, filename: string): Promise<File | null> {
   try {
-    const res = await fetch(logo.src);
+    const res = await fetch(url);
+    if (!res.ok) return null;
     const blob = await res.blob();
-    return new File([blob], "phrasalup.png", { type: blob.type || "image/png" });
+    return new File([blob], filename, { type: blob.type || "image/png" });
   } catch {
     return null;
   }
@@ -28,7 +33,7 @@ async function fetchLogoFile(): Promise<File | null> {
 /** Shares via the native Web Share sheet when available, otherwise copies the link.
  * Attaches the app logo when the target share sheet supports file attachments
  * (e.g. Messages, WhatsApp) so the invite looks like more than a bare link. */
-export function ShareButton({ title, text, getUrl, className, style, label = "Share" }: Props) {
+export function ShareButton({ title, text, getUrl, getImageUrl, className, style, label = "Share" }: Props) {
   const [status, setStatus] = useState<"idle" | "busy" | "copied" | "error">("idle");
 
   async function handleShare() {
@@ -37,9 +42,11 @@ export function ShareButton({ title, text, getUrl, className, style, label = "Sh
       const url = await getUrl();
       if (typeof navigator !== "undefined" && navigator.share) {
         const base: ShareData = { title, text, url };
-        const file = await fetchLogoFile();
-        const withLogo: ShareData | null = file ? { ...base, files: [file] } : null;
-        await navigator.share(withLogo && navigator.canShare?.(withLogo) ? withLogo : base);
+        const file = getImageUrl
+          ? await fetchImageFile(getImageUrl(url), "phrasalup-share.png")
+          : await fetchImageFile(logo.src, "phrasalup.png");
+        const withFile: ShareData | null = file ? { ...base, files: [file] } : null;
+        await navigator.share(withFile && navigator.canShare?.(withFile) ? withFile : base);
         setStatus("idle");
         return;
       }

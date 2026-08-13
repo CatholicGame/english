@@ -272,7 +272,7 @@ export function AiSentencePractice({ item, moduleKey }: { item: ItemInfo; module
               <div className="flex items-end gap-2">
                 <ChatInput value={chatIn} onChange={setChatIn} onSend={sendMessage} disabled={loading || !chatIn.trim()} />
                 <button className="btn btn-primary px-3 py-2.5 text-[13px] font-extrabold" disabled={loading || !chatIn.trim()} onClick={sendMessage}>Send</button>
-                <button className="btn btn-ghost px-3 py-2.5 text-[12px]" disabled={loading} onClick={endAndFeedback}>End</button>
+                <button className="btn btn-ghost px-3 py-2.5 text-[12px]" disabled={loading || !chat.some(m => m.role === "user")} onClick={endAndFeedback}>End</button>
               </div>
             )}
           </div>
@@ -297,13 +297,14 @@ export function AiSentencePractice({ item, moduleKey }: { item: ItemInfo; module
                 };
                 return createShareLink(payload);
               },
+              getImageUrl: (url) => `${url}/card`,
             }}
           />
         )}
       </div>}
 
       <AiFeedback loading={loading} result={result} error={error} onRetry={() => { mode === "write" ? sw() : mode === "translate" ? submitTranslateBatch() : mode === "quiz" ? lq() : le(); }} variant={mode === "quiz" || mode === "examples" ? "general" : "sentence"} />
-      <AiConversationHistory moduleKey={moduleKey} itemKey={item.term} filterIntent={intentForMode[mode]} onContinue={handleContinue} />
+      <AiConversationHistory moduleKey={moduleKey} itemKey={item.term} filterIntent={intentForMode[mode]} onContinue={handleContinue} activeConvoId={phase === "practicing" ? cid : null} />
     </div>
   );
 }

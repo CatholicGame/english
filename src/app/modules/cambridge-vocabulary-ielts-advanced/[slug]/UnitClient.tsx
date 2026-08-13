@@ -640,7 +640,7 @@ function VocabAiPractice({ word }: { word: VocabWord }) {
                   >
                     Send
                   </button>
-                  <button className="btn btn-ghost px-3 py-2.5 text-[12px]" disabled={convLoading} onClick={endAndFeedback}>
+                  <button className="btn btn-ghost px-3 py-2.5 text-[12px]" disabled={convLoading || !chat.some((m) => m.role === "user")} onClick={endAndFeedback}>
                     End
                   </button>
                 </div>
@@ -671,6 +671,7 @@ function VocabAiPractice({ word }: { word: VocabWord }) {
                   };
                   return createShareLink(payload);
                 },
+                getImageUrl: (url) => `${url}/card`,
               }}
             />
           )}
@@ -678,7 +679,13 @@ function VocabAiPractice({ word }: { word: VocabWord }) {
         </div>
       )}
 
-      <AiConversationHistory moduleKey={MODULE_KEY} itemKey={word.term} filterIntent={VOCAB_INTENT_FOR_MODE[mode]} onContinue={handleContinue} />
+      <AiConversationHistory
+        moduleKey={MODULE_KEY}
+        itemKey={word.term}
+        filterIntent={VOCAB_INTENT_FOR_MODE[mode]}
+        onContinue={handleContinue}
+        activeConvoId={phase === "practicing" ? cid : null}
+      />
     </div>
   );
 }

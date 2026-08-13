@@ -5,6 +5,7 @@ import { useAiConvoStore } from "@/lib/use-ai-convo-store";
 import type { AiConversation, IntentType } from "@/lib/ai-convo-store";
 import { AiBandFeedback } from "./AiBandFeedback";
 import { ConversationFeedback } from "./ConversationFeedback";
+import { Modal } from "./Modal";
 import { ShareButton } from "./ShareButton";
 import { createShareLink } from "@/lib/share-client";
 import type { SharedConvoPayload } from "@/lib/share-payload";
@@ -136,7 +137,6 @@ export function AiHistoryMessage({ content }: { content: string }) {
     return <p className="whitespace-pre-wrap">{content}</p>;
   }
   const obj = data as Record<string, unknown>;
-  if (obj.phrasesOk !== undefined || obj.grammarIssues !== undefined) return <ConversationFeedback feedback={obj} />;
   if (Array.isArray(obj.results)) return <BatchReviewContent data={obj} />;
   if (obj.overallBand !== undefined) return <AiBandFeedback loading={false} result={obj} error={null} />;
   if (obj.feedback !== undefined || obj.correction !== undefined || obj.correct !== undefined) {
@@ -150,25 +150,57 @@ interface Props {
   itemKey: string;
   filterIntent?: string;
   onContinue?: (convo: AiConversation) => void;
+  /** id of the conversation currently open for live practicing, if any — hides
+   * "Continue this conversation" for that record so it can't be reopened on itself. */
+  activeConvoId?: string | null;
+}
+
+/** End-of-conversation evaluations are appended as a regular assistant message
+ * (see `endAndFeedback`) so they persist across refresh, but they aren't a chat
+ * turn — this shape check lets history separate "what was said" from "how it went". */
+function parseFeedbackContent(content: string): Record<string, unknown> | null {
+  try {
+    const d = JSON.parse(content);
+    if (d && typeof d === "object" && (d.phrasesOk !== undefined || d.grammarIssues !== undefined)) {
+      return d as Record<string, unknown>;
+    }
+  } catch {
+    // not JSON — an ordinary chat reply
+  }
+  return null;
+}
+
+/** Most recent feedback for a conversation (a re-continued conversation can be
+ * ended more than once). */
+function findFeedback(c: AiConversation): Record<string, unknown> | null {
+  for (let i = c.messages.length - 1; i >= 0; i--) {
+    const f = c.messages[i].role === "assistant" ? parseFeedbackContent(c.messages[i].content) : null;
+    if (f) return f;
+  }
+  return null;
 }
 
 async function buildShareUrl(c: AiConversation): Promise<string> {
+  const feedback = findFeedback(c) ?? undefined;
+  const messages = feedback ? c.messages.filter((m) => !parseFeedbackContent(m.content)) : c.messages;
   const payload: SharedConvoPayload = {
     kind: "conversation",
     itemLabel: c.itemLabel,
     intent: c.intent,
-    messages: c.messages,
+    messages,
+    feedback,
     sharedAt: Date.now(),
   };
   return createShareLink(payload);
 }
 
-export function AiConversationHistory({ moduleKey, itemKey, filterIntent, onContinue }: Props) {
+export function AiConversationHistory({ moduleKey, itemKey, filterIntent, onContinue, activeConvoId }: Props) {
   const { getConvos, deleteConversation, clearAllForItem } = useAiConvoStore(moduleKey);
   const allConvos = getConvos(itemKey);
   const convos = filterIntent ? allConvos.filter(c => c.intent === filterIntent) : allConvos;
   const [expanded, setExpanded] = useState<string | null>(null);
   const [confirmClear, setConfirmClear] = useState(false);
+  const [viewingFeedback, setViewingFeedback] = useState<{ itemLabel: string; feedback: Record<string, unknown> } | null>(null);
 
   if (convos.length === 0) return null;
 
@@ -202,7 +234,10 @@ export function AiConversationHistory({ moduleKey, itemKey, filterIntent, onCont
         )}
       </div>
       <div className="flex flex-col gap-2">
-        {convos.map((c) => (
+        {convos.map((c) => {
+          const feedback = findFeedback(c);
+          const displayMessages = feedback ? c.messages.filter((m) => !parseFeedbackContent(m.content)) : c.messages;
+          return (
           <div key={c.id} className="rounded border p-2.5" style={{ borderColor: "var(--color-divider)" }}>
             <div className="flex items-center justify-between">
               <button
@@ -212,12 +247,22 @@ export function AiConversationHistory({ moduleKey, itemKey, filterIntent, onCont
                 {INTENT_LABELS[c.intent] || c.intent} · {fmtDate(c.createdAt)}
               </button>
               <span className="flex items-center gap-2">
+                {feedback && (
+                  <button
+                    className="rounded-full border px-2 py-0.5 text-[11px] font-bold"
+                    style={{ borderColor: "var(--color-accent-800)", color: "var(--color-accent-800)" }}
+                    onClick={() => setViewingFeedback({ itemLabel: c.itemLabel, feedback })}
+                  >
+                    🎯 Feedback
+                  </button>
+                )}
                 <ShareButton
                   className="rounded-full border px-2 py-0.5 text-[11px] font-bold"
                   style={{ borderColor: "var(--color-accent)", color: "var(--color-accent)" }}
                   title={c.itemLabel}
                   text={`${INTENT_LABELS[c.intent] || c.intent} · ${c.itemLabel}`}
                   getUrl={() => buildShareUrl(c)}
+                  getImageUrl={(url) => `${url}/card`}
                   label="Share"
                 />
                 <button
@@ -236,7 +281,7 @@ export function AiConversationHistory({ moduleKey, itemKey, filterIntent, onCont
             )}
             {expanded === c.id && (
               <div className="mt-3 flex max-h-[300px] flex-col gap-2 overflow-y-auto border-t pt-2">
-                {c.messages.map((m, i) => (
+                {displayMessages.map((m, i) => (
                   <div
                     key={i}
                     className="rounded p-2 text-[12px] leading-relaxed"
@@ -251,7 +296,7 @@ export function AiConversationHistory({ moduleKey, itemKey, filterIntent, onCont
                     {m.role === "assistant" ? <AiHistoryMessage content={m.content} /> : <p className="whitespace-pre-wrap">{m.content}</p>}
                   </div>
                 ))}
-                {c.intent === "cpv_conversation" && onContinue && (
+                {c.intent === "cpv_conversation" && onContinue && c.id !== activeConvoId && (
                   <button
                     className="btn btn-primary mt-1 px-3 py-1.5 text-[12px] font-extrabold"
                     onClick={() => { setExpanded(null); onContinue(c); }}
@@ -262,8 +307,18 @@ export function AiConversationHistory({ moduleKey, itemKey, filterIntent, onCont
               </div>
             )}
           </div>
-        ))}
+          );
+        })}
       </div>
+      {viewingFeedback && (
+        <Modal onClose={() => setViewingFeedback(null)}>
+          <div className="mb-3">
+            <span className="label-xs text-neutral-500">Feedback</span>
+            <h3 className="text-[14px] font-extrabold">{viewingFeedback.itemLabel}</h3>
+          </div>
+          <ConversationFeedback feedback={viewingFeedback.feedback} />
+        </Modal>
+      )}
     </div>
   );
 }

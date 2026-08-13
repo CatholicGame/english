@@ -426,9 +426,13 @@ function VocabAiPractice({ word }: { word: VocabWord }) {
     setConvError(null);
     try {
       const ct = chat.map((m) => `${m.role === "user" ? "Student" : "Partner"}: ${m.content}`).join("\n");
-      const d = await callAi("cpv_conversation", { terms: [{ term: word.term, en: word.en }], history: ct, end: true });
-      setFeedback(d as Record<string, unknown>);
+      const d = (await callAi("cpv_conversation", { terms: [{ term: word.term, en: word.en }], history: ct, end: true })) as Record<string, unknown>;
+      const xpEarned = d?.phrasesOk ? 20 : 8;
+      const enriched = { ...d, xpEarned };
+      setFeedback(enriched);
       setPhase("feedback");
+      addGlobalXP(xpEarned);
+      appendMessages(ik, il, cid, "cpv_conversation", [{ role: "assistant", content: JSON.stringify(enriched), timestamp: Date.now() }]);
     } catch (e) {
       setConvError(e instanceof Error ? e.message : "AI failed");
     } finally {

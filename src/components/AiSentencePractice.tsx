@@ -130,8 +130,12 @@ export function AiSentencePractice({ item, moduleKey }: { item: ItemInfo; module
     const r = await fetch("/api/ai", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ intent: "cpv_conversation", payload: { terms: [{ term: item.term, en: item.en }], history: ct, end: true } }) });
     const j = await r.json();
     if (!j.ok) { setError(j.error); setLoading(false); return; }
-    setFeedback(j.data); setPhase("feedback"); setLoading(false);
-  }, [chat, item]);
+    const xpEarned = j.data?.phrasesOk ? 20 : 8;
+    const enriched = { ...j.data, xpEarned };
+    setFeedback(enriched); setPhase("feedback"); setLoading(false);
+    addGlobalXP(xpEarned);
+    appendMessages(ik, il, cid, "cpv_conversation", [{ role: "assistant", content: JSON.stringify(enriched), timestamp: Date.now() }]);
+  }, [chat, item, ik, il, cid, appendMessages]);
 
 
   function ts(m: PMode) { return { background: mode === m ? "var(--color-accent)" : "var(--color-surface)", color: mode === m ? "#fff" : "var(--color-text)", border: mode === m ? "none" : "1px solid var(--color-divider)" }; }

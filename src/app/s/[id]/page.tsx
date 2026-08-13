@@ -1,19 +1,12 @@
 import type { Metadata } from "next";
 import { getShare } from "@/lib/share-store";
 import type { SharedConvoPayload } from "@/lib/share-payload";
+import { shareExcerpt } from "@/lib/share-excerpt";
 import { AiHistoryMessage, INTENT_LABELS } from "@/components/AiConversationHistory";
 import { ConversationFeedback } from "@/components/ConversationFeedback";
 
 function fmtDate(ts: number): string {
   return new Date(ts).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
-}
-
-function excerpt(data: SharedConvoPayload): string {
-  const encouragement = data.feedback?.encouragement;
-  if (typeof encouragement === "string" && encouragement.trim()) return encouragement.trim();
-  const firstUser = data.messages.find((m) => m.role === "user");
-  const text = (firstUser ?? data.messages[0])?.content ?? "";
-  return text.length > 150 ? text.slice(0, 150) + "…" : text;
 }
 
 interface Props {
@@ -26,12 +19,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!data) return { title: "PhrasalUp" };
 
   const title = `${data.itemLabel} — PhrasalUp`;
-  const description = excerpt(data) || "Luyện tiếng Anh cùng PhrasalUp";
+  const description = shareExcerpt(data) || "Luyện tiếng Anh cùng PhrasalUp";
   return {
     title,
     description,
     openGraph: { title, description, type: "article", siteName: "PhrasalUp" },
-    twitter: { card: "summary", title, description },
+    twitter: { card: "summary_large_image", title, description },
   };
 }
 

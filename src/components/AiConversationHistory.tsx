@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useAiConvoStore } from "@/lib/use-ai-convo-store";
 import type { AiConversation, IntentType } from "@/lib/ai-convo-store";
 import { AiBandFeedback } from "./AiBandFeedback";
+import { ConversationFeedback } from "./ConversationFeedback";
 import { ShareButton } from "./ShareButton";
 import { createShareLink } from "@/lib/share-client";
 import type { SharedConvoPayload } from "@/lib/share-payload";
@@ -135,6 +136,7 @@ export function AiHistoryMessage({ content }: { content: string }) {
     return <p className="whitespace-pre-wrap">{content}</p>;
   }
   const obj = data as Record<string, unknown>;
+  if (obj.phrasesOk !== undefined || obj.grammarIssues !== undefined) return <ConversationFeedback feedback={obj} />;
   if (Array.isArray(obj.results)) return <BatchReviewContent data={obj} />;
   if (obj.overallBand !== undefined) return <AiBandFeedback loading={false} result={obj} error={null} />;
   if (obj.feedback !== undefined || obj.correction !== undefined || obj.correct !== undefined) {

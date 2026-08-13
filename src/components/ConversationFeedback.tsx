@@ -89,6 +89,9 @@ export function ConversationFeedback({ feedback, onReset, share }: Props) {
       {naturalness != null && <p className="mb-1 text-[12px]">🗣 {String(naturalness)}</p>}
       {tip != null && <p className="mb-1 text-[12px]">💡 {String(tip)}</p>}
       {encouragement != null && <p className="text-[12px] italic">{String(encouragement)}</p>}
+      {typeof feedback.xpEarned === "number" && (
+        <p className="mt-2 text-[11px] font-extrabold text-accent">+{feedback.xpEarned} XP</p>
+      )}
       {onReset && <button className="btn btn-ghost mt-3 text-[12px]" onClick={onReset}>{t.tryAgain}</button>}
     </div>
   );

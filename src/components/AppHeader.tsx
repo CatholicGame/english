@@ -9,6 +9,7 @@ import { AuthStatus } from "./AuthStatus";
 import { GlobalScoreBadge } from "./GlobalScoreBadge";
 import { VoiceSettings } from "./VoiceSettings";
 import { loadUiPrefs, saveUiPrefs, applyUiPrefs, type UiPrefs, type FontId } from "@/lib/ui-prefs";
+import { loadAiLangPrefs, saveAiLangPrefs, type AiLang } from "@/lib/ai-lang-prefs";
 import { ShareButton } from "./ShareButton";
 import { appOrigin } from "@/lib/app-url";
 
@@ -16,6 +17,11 @@ const FONT_OPTIONS: { id: FontId; label: string }[] = [
   { id: "archivo", label: "Archivo" },
   { id: "nunito", label: "Nunito" },
   { id: "lora", label: "Lora" },
+];
+
+const AI_LANG_OPTIONS: { id: AiLang; label: string }[] = [
+  { id: "vi", label: "Tiếng Việt" },
+  { id: "en", label: "English" },
 ];
 
 function BackIcon() {
@@ -48,6 +54,7 @@ export function AppHeader() {
   const pathname = usePathname();
   const router = useRouter();
   const [prefs, setPrefs] = useState<UiPrefs>({ fontId: "archivo", zoom: 1 });
+  const [aiLang, setAiLang] = useState<AiLang>("vi");
   const [settingsOpen, setSettingsOpen] = useState(false);
   const settingsRef = useRef<HTMLDivElement>(null);
 
@@ -55,6 +62,7 @@ export function AppHeader() {
     const p = loadUiPrefs();
     setPrefs(p);
     applyUiPrefs(p);
+    setAiLang(loadAiLangPrefs().lang);
   }, []);
 
   useEffect(() => {
@@ -111,6 +119,28 @@ export function AppHeader() {
               />
             </div>
             <VoiceSettings />
+            <div className="divider-t px-3 py-2">
+              <div className="label-xs mb-1.5">Ngôn ngữ phản hồi AI</div>
+              <div className="flex flex-wrap gap-1.5">
+                {AI_LANG_OPTIONS.map((l) => (
+                  <button
+                    key={l.id}
+                    onClick={() => {
+                      setAiLang(l.id);
+                      saveAiLangPrefs({ lang: l.id });
+                    }}
+                    className="rounded-full px-2.5 py-1 text-[12px] font-bold"
+                    style={{
+                      background: aiLang === l.id ? "var(--color-accent)" : "var(--color-surface)",
+                      color: aiLang === l.id ? "#fff" : "var(--color-text)",
+                      border: aiLang === l.id ? "none" : "1px solid var(--color-divider)",
+                    }}
+                  >
+                    {l.label}
+                  </button>
+                ))}
+              </div>
+            </div>
             <div className="divider-t px-3 py-2">
               <div className="label-xs mb-1.5">Font</div>
               <div className="flex flex-wrap gap-1.5">

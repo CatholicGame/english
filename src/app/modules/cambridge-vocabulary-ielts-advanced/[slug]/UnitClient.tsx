@@ -29,6 +29,8 @@ import { ChatInput } from "@/components/ChatInput";
 import { ConversationFeedback } from "@/components/ConversationFeedback";
 import { createShareLink } from "@/lib/share-client";
 import type { SharedConvoPayload } from "@/lib/share-payload";
+import { currentAiLang } from "@/lib/ai-lang-prefs";
+import { CopyButton } from "@/components/CopyButton";
 
 const MODULE_KEY = "cambridge-vocabulary-ielts-advanced";
 
@@ -75,7 +77,7 @@ async function callAi(intent: string, payload: Record<string, unknown>) {
   const r = await fetch("/api/ai", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ intent, payload }),
+    body: JSON.stringify({ intent, payload: { ...payload, aiLang: currentAiLang() } }),
   });
   const j = await r.json();
   if (!j.ok) throw new Error(j.error || "AI failed");
@@ -213,18 +215,20 @@ function ChipRow({ label, items, tone }: { label: string; items: string[]; tone:
   );
 }
 
-type VocabPMode = "write" | "translate" | "converse";
+type VocabPMode = "write" | "translate" | "converse" | "discussion";
 
 const VOCAB_MODE_LABELS: Record<VocabPMode, string> = {
   write: "Write",
   translate: "Translate",
   converse: "Converse",
+  discussion: "Discussion",
 };
 
 const VOCAB_INTENT_FOR_MODE: Record<VocabPMode, string> = {
   write: "cielts_vocab_sentence",
   translate: "cpv_translate",
   converse: "cpv_conversation",
+  discussion: "discussion",
 };
 
 function VocabAiPractice({ word }: { word: VocabWord }) {
@@ -459,6 +463,97 @@ function VocabAiPractice({ word }: { word: VocabWord }) {
     setChat(msgs);
   }, []);
 
+  // Discussion mode — open-ended chat about the word (no target-phrase requirement).
+  const discTopic = `the word "${word.term}" (meaning: ${word.en})`;
+  const [discChat, setDiscChat] = useState<AiMessage[]>([]);
+  const [discPhase, setDiscPhase] = useState<"idle" | "practicing" | "feedback">("idle");
+  const [discFeedback, setDiscFeedback] = useState<Record<string, unknown> | null>(null);
+  const [discCid, setDiscCid] = useState<string | null>(null);
+  const [discChatIn, setDiscChatIn] = useState("");
+  const [discBusy, setDiscBusy] = useState<"send" | "end" | null>(null);
+  const [discError, setDiscError] = useState<string | null>(null);
+  const discEndRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    discEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [discChat]);
+
+  async function startDiscussion() {
+    setDiscChat([]);
+    setDiscPhase("practicing");
+    setDiscFeedback(null);
+    setDiscError(null);
+    setConvLoading(true);
+    try {
+      const d = await callAi("discussion", { topic: discTopic });
+      const aiText = (d?.content as string | undefined) ?? JSON.stringify(d);
+      const am: AiMessage = { role: "assistant", content: aiText, timestamp: Date.now() };
+      setDiscChat([am]);
+      const newCid = appendMessages(ik, il, null, "discussion", [am]);
+      setDiscCid(newCid);
+    } catch (e) {
+      setDiscError(e instanceof Error ? e.message : "AI failed");
+    } finally {
+      setConvLoading(false);
+    }
+  }
+
+  async function sendDiscMessage() {
+    if (!discChatIn.trim()) return;
+    const um: AiMessage = { role: "user", content: discChatIn.trim(), timestamp: Date.now() };
+    const nm = [...discChat, um];
+    setDiscChat(nm);
+    setDiscChatIn("");
+    setDiscBusy("send");
+    setConvLoading(true);
+    setDiscError(null);
+    const ct = nm.map((m) => `${m.role === "user" ? "Student" : "Partner"}: ${m.content}`).join("\n");
+    try {
+      const d = await callAi("discussion", { topic: discTopic, history: ct });
+      const aiText = ((d?.content as string | undefined) ?? "")
+        .replace(/\n*```json[\s\S]*?```\n*/g, "")
+        .replace(/\n*\{[\s\S]*"summary"[\s\S]*\}\n*$/g, "")
+        .trim();
+      const am: AiMessage = { role: "assistant", content: aiText, timestamp: Date.now() };
+      setDiscChat([...nm, am]);
+      appendMessages(ik, il, discCid, "discussion", [um, am]);
+    } catch (e) {
+      setDiscError(e instanceof Error ? e.message : "AI failed");
+    } finally {
+      setDiscBusy(null);
+      setConvLoading(false);
+    }
+  }
+
+  async function endDiscussion() {
+    setDiscBusy("end");
+    setConvLoading(true);
+    setDiscError(null);
+    try {
+      const ct = discChat.map((m) => `${m.role === "user" ? "Student" : "Partner"}: ${m.content}`).join("\n");
+      const d = (await callAi("discussion", { topic: discTopic, history: ct, end: true })) as Record<string, unknown>;
+      const xpEarned = d?.wellDone ? 20 : 8;
+      const enriched = { ...d, xpEarned };
+      setDiscFeedback(enriched);
+      setDiscPhase("feedback");
+      addGlobalXP(xpEarned);
+      appendMessages(ik, il, discCid, "discussion", [{ role: "assistant", content: JSON.stringify(enriched), timestamp: Date.now() }]);
+    } catch (e) {
+      setDiscError(e instanceof Error ? e.message : "AI failed");
+    } finally {
+      setDiscBusy(null);
+      setConvLoading(false);
+    }
+  }
+
+  const handleContinueDiscussion = useCallback((convo: AiConversation) => {
+    setDiscCid(convo.id);
+    setMode("discussion");
+    setDiscPhase("practicing");
+    setDiscFeedback(null);
+    setDiscChat(convo.messages.filter((m) => m.role === "user" || m.role === "assistant"));
+  }, []);
+
   function ts(m: VocabPMode) {
     return {
       background: mode === m ? "var(--color-accent)" : "var(--color-surface)",
@@ -569,7 +664,12 @@ function VocabAiPractice({ word }: { word: VocabWord }) {
                     </div>
                     <p className="mt-1 text-[12px] italic text-neutral-500">Your: {translations[i]}</p>
                     {r?.feedback && <p className="mt-1 text-[12px]">{r.feedback}</p>}
-                    {r?.corrected && <p className="mt-0.5 text-[12px] text-accent-800">→ {r.corrected}</p>}
+                    {r?.corrected && (
+                      <p className="mt-0.5 flex flex-wrap items-center gap-1.5 text-[12px] text-accent-800">
+                        <span>→ {r.corrected}</span>
+                        <CopyButton text={r.corrected} className="rounded-full border px-2 py-0.5 text-[11px] font-bold" style={{ borderColor: "var(--color-accent-800)", color: "var(--color-accent-800)" }} />
+                      </p>
+                    )}
                   </div>
                 );
               })}
@@ -704,12 +804,110 @@ function VocabAiPractice({ word }: { word: VocabWord }) {
         </div>
       )}
 
+      {mode === "discussion" && (
+        <div className="flex flex-col gap-3">
+          {discPhase === "idle" && (
+            <button
+              className="btn btn-primary px-4 py-2.5 text-[13px] font-extrabold disabled:opacity-40"
+              disabled={convLoading}
+              onClick={startDiscussion}
+            >
+              {convLoading ? "Starting..." : "Start Discussion"}
+            </button>
+          )}
+
+          {discPhase === "practicing" && (
+            <div className="flex flex-col gap-3">
+              <div
+                className="flex max-h-[300px] flex-col gap-3 overflow-y-auto rounded border p-3"
+                style={{ borderColor: "var(--color-divider)" }}
+              >
+                {discChat.map((m, i) => (
+                  <div
+                    key={i}
+                    className="rounded p-2.5 text-[13px] leading-relaxed"
+                    style={{
+                      background: m.role === "user" ? "var(--color-accent-100)" : "var(--color-surface)",
+                      alignSelf: m.role === "user" ? "flex-end" : "flex-start",
+                      maxWidth: "85%",
+                    }}
+                  >
+                    <span className="label-xs mb-0.5 block">{m.role === "user" ? "You" : "Partner"}</span>
+                    <p className="whitespace-pre-wrap">{m.content}</p>
+                  </div>
+                ))}
+                {discBusy === "send" && (
+                  <div className="rounded p-2.5" style={{ background: "var(--color-surface)", alignSelf: "flex-start" }}>
+                    <span className="label-xs mb-1 block">Partner</span>
+                    <span className="inline-flex items-center gap-1">
+                      {[0, 1, 2].map((i) => (
+                        <span key={i} className="inline-block h-1.5 w-1.5 animate-bounce rounded-full bg-current opacity-60" style={{ animationDelay: `${i * 150}ms` }} />
+                      ))}
+                    </span>
+                  </div>
+                )}
+                <div ref={discEndRef} />
+              </div>
+              {discBusy === "end" ? (
+                <div className="flex items-center justify-center gap-2 rounded border p-3 text-[12px] text-neutral-600" style={{ borderColor: "var(--color-divider)" }}>
+                  <span className="inline-block h-3.5 w-3.5 animate-spin rounded-full border-2 border-current border-t-transparent" />
+                  Analyzing your discussion...
+                </div>
+              ) : (
+                <div className="flex items-end gap-2">
+                  <ChatInput value={discChatIn} onChange={setDiscChatIn} onSend={sendDiscMessage} disabled={convLoading || !discChatIn.trim()} />
+                  <button
+                    className="btn btn-primary px-3 py-2.5 text-[13px] font-extrabold disabled:opacity-40"
+                    disabled={convLoading || !discChatIn.trim()}
+                    onClick={sendDiscMessage}
+                  >
+                    Send
+                  </button>
+                  <button className="btn btn-ghost px-3 py-2.5 text-[12px]" disabled={convLoading || !discChat.some((m) => m.role === "user")} onClick={endDiscussion}>
+                    End
+                  </button>
+                </div>
+              )}
+            </div>
+          )}
+
+          {discPhase === "feedback" && discFeedback && (
+            <ConversationFeedback
+              messages={discChat}
+              feedback={discFeedback}
+              onReset={() => {
+                setDiscPhase("idle");
+                setDiscFeedback(null);
+                setDiscChat([]);
+              }}
+              share={{
+                title: word.term,
+                text: `🗣️ Discussion · ${word.term}`,
+                getUrl: () => {
+                  const payload: SharedConvoPayload = {
+                    kind: "conversation",
+                    itemLabel: word.term,
+                    intent: "discussion",
+                    messages: discChat,
+                    feedback: discFeedback,
+                    sharedAt: Date.now(),
+                  };
+                  return createShareLink(payload);
+                },
+                getImageUrl: (url) => `${url}/card`,
+              }}
+            />
+          )}
+          {discError && <AiFeedback loading={false} result={null} error={discError} variant="general" />}
+        </div>
+      )}
+
       <AiConversationHistory
         moduleKey={MODULE_KEY}
         itemKey={word.term}
         filterIntent={VOCAB_INTENT_FOR_MODE[mode]}
-        onContinue={handleContinue}
-        activeConvoId={phase === "practicing" ? cid : null}
+        onContinue={mode === "discussion" ? handleContinueDiscussion : handleContinue}
+        activeConvoId={mode === "discussion" ? (discPhase === "practicing" ? discCid : null) : (phase === "practicing" ? cid : null)}
       />
     </div>
   );
@@ -1672,7 +1870,10 @@ function WritingTaskStepView({
       {showModel ? (
         <>
           <div className="mb-3 bg-accent-100 p-4 text-[13px] leading-relaxed whitespace-pre-wrap text-accent-800">
-            <span className="label-xs mb-1 block text-accent-700">Model answer</span>
+            <div className="mb-1 flex items-center justify-between gap-2">
+              <span className="label-xs block text-accent-700">Model answer</span>
+              <CopyButton text={step.modelAnswer} className="rounded-full border px-2 py-0.5 text-[11px] font-bold" style={{ borderColor: "var(--color-accent-800)", color: "var(--color-accent-800)" }} />
+            </div>
             {step.modelAnswer}
           </div>
           <Tip>{step.tip}</Tip>

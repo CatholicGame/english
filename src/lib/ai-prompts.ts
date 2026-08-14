@@ -7,6 +7,23 @@ export interface PromptResult {
   jsonMode?: boolean; // default true, set false for conversation
 }
 
+// ─── AI response language ────────────────────────────────────────
+// The client stamps every payload with `aiLang` (from the user's Settings
+// toggle, default "vi"). Feedback/evaluation prose follows that single
+// language instead of generating both EN+VI every time — practice dialogue
+// (the conversation/discussion partner's own lines) always stays in English
+// regardless of this setting, since that's the point of the exercise.
+
+function aiLangOf(payload: Record<string, unknown>): "vi" | "en" {
+  return payload.aiLang === "en" ? "en" : "vi";
+}
+
+function feedbackLangNote(payload: Record<string, unknown>): string {
+  return aiLangOf(payload) === "en"
+    ? " Write all feedback and explanations in English."
+    : " Write all feedback and explanations in natural (not literal) Vietnamese — but keep corrected sentences, example sentences, and the target English phrases themselves in English.";
+}
+
 // ─── Topic 1: Collocations & Phrasal Verbs ───────────────────────
 
 function cpvSentenceCheck(payload: Record<string, unknown>): PromptResult {
@@ -17,7 +34,7 @@ function cpvSentenceCheck(payload: Record<string, unknown>): PromptResult {
   const sentence = payload.sentence as string;
 
   return {
-    systemPrompt: "You are an English teacher helping a Vietnamese student. Be encouraging. Also identify 2-3 useful words or phrases from your correction/feedback that the student should learn (collocations, phrasal verbs, idioms, or advanced words).",
+    systemPrompt: "You are an English teacher helping a Vietnamese student. Be encouraging. Also identify 2-3 useful words or phrases from your correction/feedback that the student should learn (collocations, phrasal verbs, idioms, or advanced words)." + feedbackLangNote(payload),
     userMessage: "Target phrase: \"" + term + "\"\nMeaning: \"" + en + "\" / \"" + vi + "\"\nExample: \"" + ex + "\"\n\nStudent's sentence: \"" + sentence + "\"\n\nEvaluate: correct usage? grammar? naturalness?\n\nRespond in JSON:\n{\n  \"correct\": boolean,\n  \"grammarOk\": boolean,\n  \"naturalOk\": boolean,\n  \"feedback\": \"brief encouraging feedback\",\n  \"correction\": \"corrected sentence or null\",\n  \"tip\": \"quick tip or null\",\n  \"alternative\": \"alternative phrasing or null\",\n  \"keyVocabulary\": [{\"word\": \"useful word or phrase\", \"vi\": \"Vietnamese meaning\"}, ...]\n}",
     temperature: 0.3,
   };
@@ -55,14 +72,13 @@ function cpvConversationStart(payload: Record<string, unknown>): PromptResult {
   // End of conversation: give feedback
   if (endRequested && history) {
     return {
-      systemPrompt: "You are an English teacher evaluating a Vietnamese student's conversation practice. You always answer in both English and Vietnamese so the student can check their understanding. You write concise, scannable feedback — short bullets and labeled before/after corrections, never dense paragraphs.",
+      systemPrompt: "You are an English teacher evaluating a Vietnamese student's conversation practice." + feedbackLangNote(payload) + " You write concise, scannable feedback — short bullets and labeled before/after corrections, never dense paragraphs.",
       userMessage: "The student practiced using: " + phraseList + ". Here is the conversation:\n" + history + "\n\n" +
         "Evaluate the student's responses and break your evaluation into these parts:\n" +
         "1. Per-turn feedback — go through the conversation and, for EVERY \"Student:\" line above, return exactly one entry in \"turns\", in the same order they appear (do not skip any, even if a turn was perfect). For that turn give: a very short comment on that specific reply; a list of 0+ wrong→correct fixes taken verbatim from that reply's own text (empty list if nothing to fix); and a \"betterExample\" — ALWAYS include this, even for a perfect reply — a more natural, richer, or more advanced way a fluent speaker could express that same idea in that moment of the conversation, so the student always has something to level up toward, not just error fixes.\n" +
         "2. Style — 2-4 short, separate bullet observations about overall naturalness, tone, and how well the student used the target phrases (" + phraseList + ") across the whole conversation. Never merge these into one paragraph. If there's a genuinely good moment, put ONE positive callout in \"styleHighlight\" (leave it empty string if nothing stands out).\n" +
         "3. Suggestions — 2-3 categories of useful phrases the student should practice next time, each with 1-3 example phrases.\n" +
         "4. Progress — 1-3 short, encouraging bullet points about how the student did overall, as a closing summary.\n\n" +
-        "Also provide a natural (not literal) Vietnamese translation/explanation for every turn comment, and for the Style, Suggestions, and Progress sections (the wrong/correct phrases themselves stay in English — only explain them in Vietnamese).\n\n" +
         "Respond in JSON only:\n" +
         "{\n" +
         "  \"phrasesOk\": boolean,\n" +
@@ -70,14 +86,7 @@ function cpvConversationStart(payload: Record<string, unknown>): PromptResult {
         "  \"style\": [\"short bullet\", ...],\n" +
         "  \"styleHighlight\": \"one positive bullet, or empty string\",\n" +
         "  \"suggestions\": [{ \"category\": \"short category name\", \"phrases\": [\"phrase 1\", \"phrase 2\"] }],\n" +
-        "  \"progress\": [\"short bullet\", ...],\n" +
-        "  \"vi\": {\n" +
-        "    \"turns\": [\"Vietnamese version of turns[0].comment, same order/count as turns\"],\n" +
-        "    \"style\": [\"Vietnamese bullets, same order/count as style\"],\n" +
-        "    \"styleHighlight\": \"Vietnamese version of styleHighlight\",\n" +
-        "    \"suggestions\": [{ \"category\": \"Vietnamese category name\", \"phrases\": [\"Vietnamese explanation\"] }],\n" +
-        "    \"progress\": [\"Vietnamese bullets, same order/count as progress\"]\n" +
-        "  }\n" +
+        "  \"progress\": [\"short bullet\", ...]\n" +
         "}",
       temperature: 0.3,
       jsonMode: true,
@@ -111,27 +120,59 @@ function lamOpinionFeedback(payload: Record<string, unknown>): PromptResult {
   const answer = payload.answer as string;
 
   return {
-    systemPrompt: "You are an English teacher giving feedback on a student's written response to a discussion question.",
+    systemPrompt: "You are an English teacher giving feedback on a student's written response to a discussion question." + feedbackLangNote(payload),
     userMessage: `Topic: "${topic}"\nQuestion: "${question}"\nStudent's answer: "${answer}"\n\nEvaluate the student's written English. Respond in JSON only:\n{\n  "grammarScore": number (1-5),\n  "grammarNotes": "brief grammar feedback",\n  "vocabScore": number (1-5),\n  "vocabNotes": "vocabulary suggestions",\n  "contentNotes": "feedback on ideas",\n  "corrected": "fully corrected version",\n  "encouragement": "one encouraging sentence"\n}`,
     temperature: 0.3,
   };
 }
 
-function lamDiscussionStart(payload: Record<string, unknown>): PromptResult {
+// Open-ended discussion partner, shared by every AI-practice module (collocations
+// /phrasal verbs, Cambridge IELTS advanced, Listen A Minute) — unlike "Converse",
+// there's no target phrase to work in; the AI just asks open questions and pushes
+// back on the student's opinions about `topic`, then evaluates the whole session.
+function discussionChat(payload: Record<string, unknown>): PromptResult {
   const topic = payload.topic as string;
   const history = payload.history as string | undefined;
+  const endRequested = payload.end as boolean | undefined;
 
+  // End of discussion: give feedback
+  if (endRequested && history) {
+    return {
+      systemPrompt: "You are an English teacher evaluating a Vietnamese student's open discussion practice." + feedbackLangNote(payload) + " You write concise, scannable feedback — short bullets, never dense paragraphs.",
+      userMessage: "The student discussed this topic: " + topic + ". Here is the discussion:\n" + history + "\n\n" +
+        "Evaluate the student's responses and break your evaluation into these parts:\n" +
+        "1. Per-turn feedback — go through the discussion and, for EVERY \"Student:\" line above, return exactly one entry in \"turns\", in the same order they appear (do not skip any, even if a turn was perfect). For that turn give: a very short comment on that specific reply; a list of 0+ wrong→correct fixes taken verbatim from that reply's own text (empty list if nothing to fix); and a \"betterExample\" — ALWAYS include this, even for a perfect reply — a more natural, richer, or more advanced way a fluent speaker could express that same idea, so the student always has something to level up toward.\n" +
+        "2. Style — 2-4 short, separate bullet observations about how well the student expressed and supported their ideas, and their range of language, across the whole discussion. If there's a genuinely good moment, put ONE positive callout in \"styleHighlight\" (leave it empty string if nothing stands out).\n" +
+        "3. Suggestions — 2-3 categories of useful phrases for discussing this kind of topic, each with 1-3 example phrases.\n" +
+        "4. Progress — 1-3 short, encouraging bullet points about how the student did overall, as a closing summary.\n\n" +
+        "Also set \"wellDone\": true if the student engaged well overall (reasonable length, on-topic, mostly correct), false otherwise.\n\n" +
+        "Respond in JSON only:\n" +
+        "{\n" +
+        "  \"wellDone\": boolean,\n" +
+        "  \"turns\": [{ \"comment\": \"short feedback on this one reply, or empty string\", \"corrections\": [{ \"wrong\": \"exact phrase from this reply\", \"correct\": \"corrected phrase\" }], \"betterExample\": \"a stronger way to express the same idea — required on every turn\" }],\n" +
+        "  \"style\": [\"short bullet\", ...],\n" +
+        "  \"styleHighlight\": \"one positive bullet, or empty string\",\n" +
+        "  \"suggestions\": [{ \"category\": \"short category name\", \"phrases\": [\"phrase 1\", \"phrase 2\"] }],\n" +
+        "  \"progress\": [\"short bullet\", ...]\n" +
+        "}",
+      temperature: 0.3,
+      jsonMode: true,
+    };
+  }
+
+  // Continuing discussion
   if (history && history.length > 50) {
     return {
-      systemPrompt: "You are a friendly English discussion partner. Keep responses to 1-2 sentences.",
+      systemPrompt: "You are a friendly, curious English discussion partner. Keep responses to 1-2 sentences, always in English. Ask thoughtful follow-up questions and gently challenge the student's opinions to keep the discussion going.",
       userMessage: "Topic: " + topic + ". Continue the discussion naturally. History:\n" + history,
       temperature: 0.8,
       jsonMode: false,
     };
   }
 
+  // First message: start the discussion
   return {
-    systemPrompt: "You are a friendly English discussion partner. Start a conversation by asking one question. Keep it simple.",
+    systemPrompt: "You are a friendly, curious English discussion partner. Start an open discussion by asking one open-ended opinion question about the topic, in English. Keep it short and inviting.",
     userMessage: "Topic: " + topic + ". Ask one open-ended question to start a discussion. Keep it short and friendly.",
     temperature: 0.8,
     jsonMode: false,
@@ -164,7 +205,7 @@ function cieltsWritingFeedback(payload: Record<string, unknown>): PromptResult {
   const vocabBlock = vocabPoolBlock(payload, "where in the essay it could naturally replace a simpler word or phrase");
 
   return {
-    systemPrompt: `You are an IELTS examiner evaluating Writing Task ${taskNumber}. Use official band descriptors (0-9, 0.5 increments). Be fair and constructive.`,
+    systemPrompt: `You are an IELTS examiner evaluating Writing Task ${taskNumber}. Use official band descriptors (0-9, 0.5 increments). Be fair and constructive.` + feedbackLangNote(payload),
     userMessage: `Task ${taskNumber} prompt: "${prompt}"${chartInfo}\n\nStudent's response:\n"${draft}"${vocabBlock}\n\nEvaluate using official IELTS criteria. Respond in JSON only:\n{\n  "${criteriaKey}": { "band": number, "comment": "feedback on ${criteriaLabel}" },\n  "coherence": { "band": number, "comment": "organization and linking" },\n  "lexicalResource": { "band": number, "comment": "vocabulary range and accuracy" },\n  "grammaticalRange": { "band": number, "comment": "sentence structure and grammar" },\n  "overallBand": number,\n  "corrections": [{ "original": "...", "corrected": "...", "explanation": "..." }],\n  "suggestions": ["tip1", "tip2", "tip3"],\n  "rewrittenParagraph": "improved version of weakest paragraph"${VOCAB_JSON_FIELDS}\n}`,
     temperature: 0.2,
   };
@@ -177,7 +218,7 @@ function cieltsSpeakingFeedback(payload: Record<string, unknown>): PromptResult 
   const vocabBlock = vocabPoolBlock(payload, "how it would fit naturally into this specific answer");
 
   return {
-    systemPrompt: "You are an IELTS Speaking examiner evaluating a Part 2 long turn response. Evaluate using IELTS criteria (ignore pronunciation — text only).",
+    systemPrompt: "You are an IELTS Speaking examiner evaluating a Part 2 long turn response. Evaluate using IELTS criteria (ignore pronunciation — text only)." + feedbackLangNote(payload),
     userMessage: `Cue card: "${prompt}"\nBullet points: ${bullets.join(" | ")}\n\nStudent's response:\n"${transcript}"${vocabBlock}\n\nEvaluate in JSON only:\n{\n  "fluency": { "band": number, "comment": "flow, coherence, discourse markers" },\n  "lexicalResource": { "band": number, "comment": "vocabulary range and precision" },\n  "grammaticalRange": { "band": number, "comment": "sentence variety and accuracy" },\n  "overallBand": number,\n  "strengths": ["...", "..."],\n  "improvements": ["...", "..."],\n  "modelResponse": "a 1-minute model response using this unit's vocabulary"${VOCAB_JSON_FIELDS}\n}`,
     temperature: 0.3,
   };
@@ -191,7 +232,7 @@ function cieltsVocabSentence(payload: Record<string, unknown>): PromptResult {
   const sentence = payload.sentence as string;
 
   return {
-    systemPrompt: "You are an English teacher evaluating whether a student used an advanced vocabulary word correctly in an academic/IELTS context.",
+    systemPrompt: "You are an English teacher evaluating whether a student used an advanced vocabulary word correctly in an academic/IELTS context." + feedbackLangNote(payload),
     userMessage: `Target word: "${term}" (${pos})\nMeaning: "${en}"\nIELTS usage note: "${usageNote}"\n\nStudent's sentence: "${sentence}"\n\nEvaluate:\n1. Is the word used correctly?\n2. Would this work in an IELTS essay?\n3. Is the register appropriate for academic writing?\n\nRespond in JSON only:\n{\n  "correct": boolean,\n  "ieltsReady": boolean,\n  "feedback": "brief feedback",\n  "correction": "corrected sentence or null",\n  "registerTip": "tip about formality/academic tone or null"\n}`,
     temperature: 0.3,
   };
@@ -221,7 +262,7 @@ function cpvTranslateBatchReview(payload: Record<string, unknown>): PromptResult
   });
 
   return {
-    systemPrompt: "You are an English teacher reviewing a student's translation exercise. Grade each of the 5 translations. Be encouraging. Point out the best one and the one needing most improvement.",
+    systemPrompt: "You are an English teacher reviewing a student's translation exercise. Grade each of the 5 translations. Be encouraging. Point out the best one and the one needing most improvement." + feedbackLangNote(payload),
     userMessage: "Target phrase: \"" + term + "\" = \"" + en + "\"\n\nTranslations:\n" + reviewText + "\nReview each translation. Respond in JSON:\n{\n  \"results\": [\n    { \"ok\": boolean, \"feedback\": \"one sentence feedback\", \"corrected\": \"corrected version or null\" },\n    ...\n  ],\n  \"overall\": \"brief overall comment\",\n  \"best\": number (1-5 index of best),\n  \"needsWork\": number (1-5 index needing most work),\n  \"keyVocabulary\": [{\"word\": \"...\", \"vi\": \"...\"}]\n}",
     temperature: 0.3,
   };
@@ -236,7 +277,7 @@ function cpvTranslate(payload: Record<string, unknown>): PromptResult {
   const userTranslation = payload.translation as string;
 
   return {
-    systemPrompt: "You are an English teacher evaluating a Vietnamese→English translation.",
+    systemPrompt: "You are an English teacher evaluating a Vietnamese→English translation." + feedbackLangNote(payload),
     userMessage: "Target phrase: \"" + term + "\" = \"" + en + "\"\nVietnamese: \"" + vietnamese + "\"\nStudent: \"" + userTranslation + "\"\n\nJSON: { \"translationOk\": boolean, \"feedback\": \"brief\", \"corrected\": \"corrected or null\", \"keyVocabulary\": [{\"word\": \"...\", \"vi\": \"...\"}] }",
     temperature: 0.3,
   };
@@ -246,10 +287,17 @@ function cpvContextQuiz(payload: Record<string, unknown>): PromptResult {
   const term = payload.term as string;
   const en = payload.en as string;
   const vi = payload.vi as string;
+  const requested = Number(payload.count);
+  const count = Number.isFinite(requested) ? Math.min(10, Math.max(2, Math.round(requested))) : 5;
+  const wrongCount = count - 1;
+  const exampleItems = [
+    '{ "text": "...", "correct": true }',
+    ...Array.from({ length: wrongCount }, () => '{ "text": "...", "correct": false }'),
+  ].join(",\n    ");
 
   return {
-    systemPrompt: "You create vocabulary quiz questions for English learners at B1-B2 level.",
-    userMessage: `Target phrase: "${term}"\nMeaning: "${en}" (${vi})\n\nGenerate 3 sentences:\n- ONE sentence where the phrase is used CORRECTLY and naturally\n- TWO sentences where the phrase is used INCORRECTLY (wrong meaning, wrong grammar, or wrong context)\n\nRespond in JSON only:\n{\n  "sentences": [\n    { "text": "...", "correct": true },\n    { "text": "...", "correct": false },\n    { "text": "...", "correct": false }\n  ],\n  "explanation": "after user picks, explain why the wrong ones are wrong"\n}`,
+    systemPrompt: "You create vocabulary quiz questions for English learners at B1-B2 level." + feedbackLangNote(payload),
+    userMessage: `Target phrase: "${term}"\nMeaning: "${en}" (${vi})\n\nGenerate ${count} sentences:\n- ONE sentence where the phrase is used CORRECTLY and naturally\n- ${wrongCount} sentence(s) where the phrase is used INCORRECTLY (wrong meaning, wrong grammar, or wrong context) — make each wrong sentence's mistake different from the others\n\nRespond in JSON only:\n{\n  "sentences": [\n    ${exampleItems}\n  ],\n  "explanation": "after user picks, explain why each wrong sentence is wrong"\n}`,
     temperature: 0.7,
   };
 }
@@ -289,7 +337,7 @@ function cpvWritingReview(payload: Record<string, unknown>): PromptResult {
   const phraseList = terms.map((t) => `"${t.term}" (${t.en})`).join(", ");
 
   return {
-    systemPrompt: "You are an English teacher grading a Vietnamese-to-English passage translation. Be encouraging but precise.",
+    systemPrompt: "You are an English teacher grading a Vietnamese-to-English passage translation. Be encouraging but precise." + feedbackLangNote(payload),
     userMessage: `Target expressions the student was asked to apply: ${phraseList}\n\nOriginal Vietnamese passage:\n"${passage}"\n\nStudent's English translation:\n"${translation}"\n\nSplit the passage and the student's translation into aligned sentence pairs, then grade each pair. Also determine which target expressions the student actually used (accept natural variants, not just exact wording) and which were missed.\n\nRespond in JSON only:\n{\n  "results": [\n    { "vi": "Vietnamese sentence", "user": "student's matching English sentence", "ok": boolean, "feedback": "brief feedback", "corrected": "corrected sentence or null" },\n    ...\n  ],\n  "usedPhrases": ["expressions the student used correctly"],\n  "missedPhrases": ["expressions the student did not use"],\n  "overall": "brief overall comment",\n  "tip": "one tip for improvement"\n}`,
     temperature: 0.3,
   };
@@ -361,8 +409,8 @@ export function buildPrompt(
       return cpvWritingReview(payload);
     case "lam_opinion_feedback":
       return lamOpinionFeedback(payload);
-    case "lam_discussion":
-      return lamDiscussionStart(payload);
+    case "discussion":
+      return discussionChat(payload);
     case "cielts_writing_feedback":
       return cieltsWritingFeedback(payload);
     case "cielts_speaking_feedback":

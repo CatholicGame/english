@@ -3,6 +3,7 @@
 import { useState } from "react";
 import type { AiMessage } from "@/lib/ai-convo-store";
 import { ShareButton } from "./ShareButton";
+import { CopyButton } from "./CopyButton";
 
 interface Correction {
   wrong: string;
@@ -130,12 +131,16 @@ export function ConversationFeedback({ messages, feedback, onReset, share }: Pro
                 >
                   <span className="label-xs mb-0.5 block text-accent-700">{t.aiFeedback}</span>
                   {turn.corrections?.map((c, j) => (
-                    <p key={j}>❌ &quot;{c.wrong}&quot; → <span className="font-bold">✅ &quot;{c.correct}&quot;</span></p>
+                    <p key={j} className="flex flex-wrap items-center gap-1.5">
+                      <span>❌ &quot;{c.wrong}&quot; → <span className="font-bold">✅ &quot;{c.correct}&quot;</span></span>
+                      <CopyButton text={c.correct} className="rounded-full border px-2 py-0.5 text-[11px] font-bold" style={{ borderColor: "var(--color-accent-800)", color: "var(--color-accent-800)" }} />
+                    </p>
                   ))}
                   {comment && <p className={turn.corrections && turn.corrections.length > 0 ? "mt-1" : ""}>{comment}</p>}
                   {turn.betterExample && (
-                    <p className="mt-1">
-                      <span className="font-bold">{t.betterExample}:</span> &quot;{turn.betterExample}&quot;
+                    <p className="mt-1 flex flex-wrap items-center gap-1.5">
+                      <span><span className="font-bold">{t.betterExample}:</span> &quot;{turn.betterExample}&quot;</span>
+                      <CopyButton text={turn.betterExample} className="rounded-full border px-2 py-0.5 text-[11px] font-bold" style={{ borderColor: "var(--color-accent-800)", color: "var(--color-accent-800)" }} />
                     </p>
                   )}
                 </div>

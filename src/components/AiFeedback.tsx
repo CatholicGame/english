@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { VocabPopup } from "./VocabPopup";
+import { CopyButton } from "./CopyButton";
 
 interface Props {
   loading: boolean;
@@ -58,9 +59,19 @@ export function AiFeedback({ loading, result, error, onRetry, variant }: Props) 
           </p>
         )}
         {feedback && <p className="mb-2">{feedback}</p>}
-        {correction && <p className="mb-2"><span className="font-extrabold">Correction: </span><span className="italic">{correction}</span></p>}
+        {correction && (
+          <p className="mb-2 flex flex-wrap items-center gap-1.5">
+            <span><span className="font-extrabold">Correction: </span><span className="italic">{correction}</span></span>
+            <CopyButton text={correction} className="rounded-full border px-2 py-0.5 text-[11px] font-bold" style={{ borderColor: "var(--color-accent-800)", color: "var(--color-accent-800)" }} />
+          </p>
+        )}
         {tip && <p className="mb-1 text-[12px]">💡 {tip}</p>}
-        {alternative && <p className="text-[12px]">📝 Alternative: {alternative}</p>}
+        {alternative && (
+          <p className="flex flex-wrap items-center gap-1.5 text-[12px]">
+            <span>📝 Alternative: {alternative}</span>
+            <CopyButton text={alternative} className="rounded-full border px-2 py-0.5 text-[11px] font-bold" style={{ borderColor: "var(--color-accent-800)", color: "var(--color-accent-800)" }} />
+          </p>
+        )}
         {registerTip && <p className="text-[12px]">🎓 Register: {registerTip}</p>}
         {grammarOk !== undefined && (
           <p className="mt-1 text-[12px]">Grammar: {grammarOk ? "✅" : "⚠️"} | Natural: {naturalOk ? "✅" : "⚠️"}</p>

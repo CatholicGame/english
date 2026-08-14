@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import {
   extensionLanguageNotes,
@@ -15,7 +15,18 @@ import { clearCurrentLesson, getCurrentLesson, setCurrentLesson } from "@/lib/li
 import { useProgress } from "@/lib/progress-context";
 import { norm, shuffle } from "@/lib/utils";
 import { lookupVocabWord, type VocabEntry } from "@/lib/vocab-lookup";
+import { useAiConvoStore } from "@/lib/use-ai-convo-store";
+import type { AiConversation, AiMessage } from "@/lib/ai-convo-store";
+import { addGlobalXP } from "@/lib/global-score";
+import { currentAiLang } from "@/lib/ai-lang-prefs";
+import { AiFeedback } from "@/components/AiFeedback";
+import { AiConversationHistory } from "@/components/AiConversationHistory";
+import { ChatInput } from "@/components/ChatInput";
+import { ConversationFeedback } from "@/components/ConversationFeedback";
+import { createShareLink } from "@/lib/share-client";
+import type { SharedConvoPayload } from "@/lib/share-payload";
 
+const MODULE_KEY = "listen-a-minute";
 const TOTAL_STEPS = 4;
 const STEP_LABELS = ["Listening", "Gap fill", "Spelling", "Extension"];
 
@@ -145,6 +156,184 @@ function VocabList({ lesson }: { lesson: ListenLesson }) {
         </div>
         ),
       )}
+    </div>
+  );
+}
+
+// AI discussion partner for the lesson's topic — same shared "discussion" intent
+// used by the other AI-practice modules (collocations/phrasal verbs, Cambridge
+// IELTS advanced), reusing ConversationFeedback/AiConversationHistory so history
+// rendering never drifts from the live view.
+function LessonDiscussion({ lesson }: { lesson: ListenLesson }) {
+  const { appendMessages } = useAiConvoStore(MODULE_KEY);
+  const [chat, setChat] = useState<AiMessage[]>([]);
+  const [phase, setPhase] = useState<"idle" | "practicing" | "feedback">("idle");
+  const [feedback, setFeedback] = useState<Record<string, unknown> | null>(null);
+  const [cid, setCid] = useState<string | null>(null);
+  const [chatIn, setChatIn] = useState("");
+  const [busy, setBusy] = useState<"send" | "end" | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const chatEndRef = useRef<HTMLDivElement>(null);
+  const topic = lesson.title;
+  const ik = lesson.slug;
+  const il = lesson.title;
+
+  useEffect(() => { chatEndRef.current?.scrollIntoView({ behavior: "smooth" }); }, [chat]);
+
+  async function callAi(payload: Record<string, unknown>) {
+    const r = await fetch("/api/ai", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ intent: "discussion", payload: { ...payload, aiLang: currentAiLang() } }),
+    });
+    const j = await r.json();
+    if (!j.ok) throw new Error(j.error || "AI failed");
+    return j.data;
+  }
+
+  async function startDiscussion() {
+    setChat([]); setPhase("practicing"); setFeedback(null); setError(null);
+    setLoading(true);
+    try {
+      const d = await callAi({ topic });
+      const aiText = (d?.content as string | undefined) ?? JSON.stringify(d);
+      const am: AiMessage = { role: "assistant", content: aiText, timestamp: Date.now() };
+      setChat([am]);
+      const newCid = appendMessages(ik, il, null, "discussion", [am]);
+      setCid(newCid);
+    } catch (e) {
+      setError(e instanceof Error ? e.message : "AI failed");
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  async function sendMessage() {
+    if (!chatIn.trim()) return;
+    const um: AiMessage = { role: "user", content: chatIn.trim(), timestamp: Date.now() };
+    const nm = [...chat, um]; setChat(nm); setChatIn(""); setError(null);
+    setBusy("send"); setLoading(true);
+    try {
+      const ct = nm.map((m) => `${m.role === "user" ? "Student" : "Partner"}: ${m.content}`).join("\n");
+      const d = await callAi({ topic, history: ct });
+      const aiText = ((d?.content as string | undefined) ?? "")
+        .replace(/\n*```json[\s\S]*?```\n*/g, "")
+        .replace(/\n*\{[\s\S]*"summary"[\s\S]*\}\n*$/g, "")
+        .trim();
+      const am: AiMessage = { role: "assistant", content: aiText, timestamp: Date.now() };
+      setChat([...nm, am]);
+      appendMessages(ik, il, cid, "discussion", [um, am]);
+    } catch (e) {
+      setError(e instanceof Error ? e.message : "AI failed");
+    } finally {
+      setBusy(null); setLoading(false);
+    }
+  }
+
+  async function endDiscussion() {
+    setBusy("end"); setLoading(true); setError(null);
+    try {
+      const ct = chat.map((m) => `${m.role === "user" ? "Student" : "Partner"}: ${m.content}`).join("\n");
+      const d = (await callAi({ topic, history: ct, end: true })) as Record<string, unknown>;
+      const xpEarned = d?.wellDone ? 20 : 8;
+      const enriched = { ...d, xpEarned };
+      setFeedback(enriched); setPhase("feedback");
+      addGlobalXP(xpEarned);
+      appendMessages(ik, il, cid, "discussion", [{ role: "assistant", content: JSON.stringify(enriched), timestamp: Date.now() }]);
+    } catch (e) {
+      setError(e instanceof Error ? e.message : "AI failed");
+    } finally {
+      setBusy(null); setLoading(false);
+    }
+  }
+
+  const handleContinue = useCallback((convo: AiConversation) => {
+    setCid(convo.id);
+    setPhase("practicing");
+    setFeedback(null);
+    setChat(convo.messages.filter((m) => m.role === "user" || m.role === "assistant"));
+  }, []);
+
+  return (
+    <div className="mt-2 border-t pt-4" style={{ borderColor: "var(--color-divider)" }}>
+      <div className="label-xs mb-2 text-accent">🗣️ Discuss with AI</div>
+
+      {phase === "idle" && (
+        <button className="btn btn-primary px-4 py-2.5 text-[13px] font-extrabold disabled:opacity-40" disabled={loading} onClick={startDiscussion}>
+          {loading ? "Starting..." : "Start Discussion"}
+        </button>
+      )}
+
+      {phase === "practicing" && (
+        <div className="flex flex-col gap-3">
+          <div className="flex max-h-[300px] flex-col gap-3 overflow-y-auto rounded border p-3" style={{ borderColor: "var(--color-divider)" }}>
+            {chat.map((m, i) => (
+              <div key={i} className="rounded p-2.5 text-[13px] leading-relaxed"
+                style={{ background: m.role === "user" ? "var(--color-accent-100)" : "var(--color-surface)", alignSelf: m.role === "user" ? "flex-end" : "flex-start", maxWidth: "85%" }}>
+                <span className="label-xs mb-0.5 block">{m.role === "user" ? "You" : "Partner"}</span>
+                <p className="whitespace-pre-wrap">{m.content}</p>
+              </div>
+            ))}
+            {busy === "send" && (
+              <div className="rounded p-2.5" style={{ background: "var(--color-surface)", alignSelf: "flex-start" }}>
+                <span className="label-xs mb-1 block">Partner</span>
+                <span className="inline-flex items-center gap-1">
+                  {[0, 1, 2].map((i) => (
+                    <span key={i} className="inline-block h-1.5 w-1.5 animate-bounce rounded-full bg-current opacity-60" style={{ animationDelay: `${i * 150}ms` }} />
+                  ))}
+                </span>
+              </div>
+            )}
+            <div ref={chatEndRef} />
+          </div>
+          {busy === "end" ? (
+            <div className="flex items-center justify-center gap-2 rounded border p-3 text-[12px] text-neutral-600" style={{ borderColor: "var(--color-divider)" }}>
+              <span className="inline-block h-3.5 w-3.5 animate-spin rounded-full border-2 border-current border-t-transparent" />
+              Analyzing your discussion...
+            </div>
+          ) : (
+            <div className="flex items-end gap-2">
+              <ChatInput value={chatIn} onChange={setChatIn} onSend={sendMessage} disabled={loading || !chatIn.trim()} />
+              <button className="btn btn-primary px-3 py-2.5 text-[13px] font-extrabold disabled:opacity-40" disabled={loading || !chatIn.trim()} onClick={sendMessage}>Send</button>
+              <button className="btn btn-ghost px-3 py-2.5 text-[12px]" disabled={loading || !chat.some((m) => m.role === "user")} onClick={endDiscussion}>End</button>
+            </div>
+          )}
+        </div>
+      )}
+
+      {phase === "feedback" && feedback && (
+        <ConversationFeedback
+          messages={chat}
+          feedback={feedback}
+          onReset={() => { setPhase("idle"); setFeedback(null); setChat([]); }}
+          share={{
+            title: lesson.title,
+            text: `🗣️ Discussion · ${lesson.title}`,
+            getUrl: () => {
+              const payload: SharedConvoPayload = {
+                kind: "conversation",
+                itemLabel: lesson.title,
+                intent: "discussion",
+                messages: chat,
+                feedback,
+                sharedAt: Date.now(),
+              };
+              return createShareLink(payload);
+            },
+            getImageUrl: (url) => `${url}/card`,
+          }}
+        />
+      )}
+      {error && <AiFeedback loading={false} result={null} error={error} variant="general" />}
+
+      <AiConversationHistory
+        moduleKey={MODULE_KEY}
+        itemKey={lesson.slug}
+        filterIntent="discussion"
+        onContinue={handleContinue}
+        activeConvoId={phase === "practicing" ? cid : null}
+      />
     </div>
   );
 }
@@ -562,6 +751,7 @@ export function LessonClient({ slug }: { slug: string }) {
               </div>
             ))}
           </div>
+          <LessonDiscussion lesson={lesson} />
           <button className="btn btn-primary btn-block mt-auto px-4 py-3" onClick={finish}>
             Finish lesson
           </button>

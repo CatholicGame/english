@@ -1,5 +1,7 @@
 "use client";
 
+import { CopyButton } from "./CopyButton";
+
 interface BandItem {
   label: string;
   band: number;
@@ -100,9 +102,12 @@ export function AiBandFeedback({ loading, result, error, onRetry }: Props) {
         <div className="border-t pt-2" style={border}>
           <span className="label-xs mb-1 block text-accent-700">🔧 Corrections</span>
           {corrections.map((c, i) => (
-            <p key={i} className="mb-1 text-[12px]">
-              <span className="line-through opacity-70">{c.original}</span> → <span className="font-extrabold">{c.corrected}</span>
-              {c.explanation && <span className="block opacity-80">{c.explanation}</span>}
+            <p key={i} className="mb-1 flex flex-wrap items-center gap-1.5 text-[12px]">
+              <span>
+                <span className="line-through opacity-70">{c.original}</span> → <span className="font-extrabold">{c.corrected}</span>
+              </span>
+              <CopyButton text={c.corrected} className="rounded-full border px-2 py-0.5 text-[11px] font-bold" style={border} />
+              {c.explanation && <span className="block w-full opacity-80">{c.explanation}</span>}
             </p>
           ))}
         </div>
@@ -178,14 +183,20 @@ export function AiBandFeedback({ loading, result, error, onRetry }: Props) {
 
       {rewrittenParagraph && (
         <div className="border-t pt-2" style={border}>
-          <span className="label-xs mb-1 block text-accent-700">✍️ Improved version</span>
+          <div className="mb-1 flex items-center justify-between gap-2">
+            <span className="label-xs block text-accent-700">✍️ Improved version</span>
+            <CopyButton text={rewrittenParagraph} className="rounded-full border px-2 py-0.5 text-[11px] font-bold" style={border} />
+          </div>
           <p className="whitespace-pre-wrap text-[12px]">{rewrittenParagraph}</p>
         </div>
       )}
 
       {modelResponse && (
         <div className="border-t pt-2" style={border}>
-          <span className="label-xs mb-1 block text-accent-700">🎤 Model response</span>
+          <div className="mb-1 flex items-center justify-between gap-2">
+            <span className="label-xs block text-accent-700">🎤 Model response</span>
+            <CopyButton text={modelResponse} className="rounded-full border px-2 py-0.5 text-[11px] font-bold" style={border} />
+          </div>
           <p className="whitespace-pre-wrap text-[12px]">{modelResponse}</p>
         </div>
       )}

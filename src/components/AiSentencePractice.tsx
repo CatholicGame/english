@@ -10,12 +10,16 @@ import { ConversationFeedback } from "./ConversationFeedback";
 import { addGlobalXP } from "@/lib/global-score";
 import { createShareLink } from "@/lib/share-client";
 import type { SharedConvoPayload } from "@/lib/share-payload";
+import { currentAiLang } from "@/lib/ai-lang-prefs";
+import { CopyButton } from "./CopyButton";
 
-type PMode = "write" | "translate" | "quiz" | "examples" | "converse";
+type PMode = "write" | "translate" | "quiz" | "examples" | "converse" | "discussion";
+
+const QUIZ_LETTERS = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
 
 const LABELS: Record<PMode, string> = {
   write: "Write", translate: "Translate", quiz: "Quiz",
-  examples: "Examples", converse: "Converse",
+  examples: "Examples", converse: "Converse", discussion: "Discussion",
 };
 
 export interface ItemInfo {
@@ -37,6 +41,7 @@ export function AiSentencePractice({ item, moduleKey }: { item: ItemInfo; module
   const [batchResult, setBatchResult] = useState<any>(null);
   const [qz, setQz] = useState<any>(null);
   const [qp, setQp] = useState<number | null>(null);
+  const [quizCount, setQuizCount] = useState(5);
   const [exs, setExs] = useState<any>(null);
   const [chatIn, setChatIn] = useState("");
   const [chat, setChat] = useState<AiMessage[]>([]);
@@ -47,7 +52,7 @@ export function AiSentencePractice({ item, moduleKey }: { item: ItemInfo; module
   async function callAi(intent: IntentType, payload: Record<string, unknown>) {
     setLoading(true); setError(null); setResult(null);
     try {
-      const r = await fetch("/api/ai", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ intent, payload }) });
+      const r = await fetch("/api/ai", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ intent, payload: { ...payload, aiLang: currentAiLang() } }) });
       const j = await r.json();
       if (!j.ok) throw new Error(j.error || "AI failed");
       return j.data;
@@ -84,7 +89,7 @@ export function AiSentencePractice({ item, moduleKey }: { item: ItemInfo; module
     }
   }, [viSentences, translations, item, ik, il, cid, appendMessages]);
 
-  const lq = useCallback(async () => { setQp(null); const d = await callAi("cpv_context_quiz", { term: item.term, en: item.en, vi: item.vi }); if (d) setQz(d); }, [item]);
+  const lq = useCallback(async () => { setQp(null); const d = await callAi("cpv_context_quiz", { term: item.term, en: item.en, vi: item.vi, count: quizCount }); if (d) setQz(d); }, [item, quizCount]);
   const le = useCallback(async () => { const d = await callAi("cpv_example_gen", { term: item.term, en: item.en, vi: item.vi, count: 4 }); if (d) setExs(d); }, [item]);
 
   const [preview, setPreview] = useState<{ conversation: { speaker: string; text: string }[] } | null>(null);
@@ -103,7 +108,7 @@ export function AiSentencePractice({ item, moduleKey }: { item: ItemInfo; module
     setChat([]); setPhase("practicing"); setFeedback(null); setError(null);
     setLoading(true);
     try {
-      const r = await fetch("/api/ai", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ intent: "cpv_conversation", payload: { terms: [{ term: item.term, en: item.en }] } }) });
+      const r = await fetch("/api/ai", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ intent: "cpv_conversation", payload: { terms: [{ term: item.term, en: item.en }], aiLang: currentAiLang() } }) });
       const j = await r.json();
       if (!j.ok) { setError(j.error); return; }
       const aiText = j.data?.content ?? JSON.stringify(j.data);
@@ -124,7 +129,7 @@ export function AiSentencePractice({ item, moduleKey }: { item: ItemInfo; module
     setChatBusy("send"); setLoading(true);
     try {
       const ct = nm.map(m => `${m.role === "user" ? "Student" : "Partner"}: ${m.content}`).join("\n");
-      const r = await fetch("/api/ai", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ intent: "cpv_conversation", payload: { terms: [{ term: item.term, en: item.en }], history: ct } }) });
+      const r = await fetch("/api/ai", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ intent: "cpv_conversation", payload: { terms: [{ term: item.term, en: item.en }], history: ct, aiLang: currentAiLang() } }) });
       const j = await r.json();
       if (!j.ok) { setError(j.error); return; }
       const aiText = (j.data?.content ?? "").replace(/\n*```json[\s\S]*?```\n*/g, "").replace(/\n*\{[\s\S]*"summary"[\s\S]*\}\n*$/g, "").trim();
@@ -140,7 +145,7 @@ export function AiSentencePractice({ item, moduleKey }: { item: ItemInfo; module
     setChatBusy("end"); setLoading(true); setError(null);
     try {
       const ct = chat.map(m => `${m.role === "user" ? "Student" : "Partner"}: ${m.content}`).join("\n");
-      const r = await fetch("/api/ai", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ intent: "cpv_conversation", payload: { terms: [{ term: item.term, en: item.en }], history: ct, end: true } }) });
+      const r = await fetch("/api/ai", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ intent: "cpv_conversation", payload: { terms: [{ term: item.term, en: item.en }], history: ct, end: true, aiLang: currentAiLang() } }) });
       const j = await r.json();
       if (!j.ok) { setError(j.error); return; }
       const xpEarned = j.data?.phrasesOk ? 20 : 8;
@@ -154,11 +159,86 @@ export function AiSentencePractice({ item, moduleKey }: { item: ItemInfo; module
   }, [chat, item, ik, il, cid, appendMessages]);
 
 
+  // Discussion — open-ended chat about the term/topic (no target-phrase requirement,
+  // unlike Converse), same shape as Converse so it can reuse ConversationFeedback/history.
+  const [discChat, setDiscChat] = useState<AiMessage[]>([]);
+  const [discPhase, setDiscPhase] = useState<"idle" | "practicing" | "feedback">("idle");
+  const [discFeedback, setDiscFeedback] = useState<Record<string, unknown> | null>(null);
+  const [discCid, setDiscCid] = useState<string | null>(null);
+  const [discChatIn, setDiscChatIn] = useState("");
+  const [discBusy, setDiscBusy] = useState<"send" | "end" | null>(null);
+  const [discError, setDiscError] = useState<string | null>(null);
+  const discEndRef = useRef<HTMLDivElement>(null);
+  const discTopic = `the phrase "${item.term}" (meaning: ${item.en})`;
+
+  useEffect(() => { discEndRef.current?.scrollIntoView({ behavior: "smooth" }); }, [discChat]);
+
+  const startDiscussion = useCallback(async () => {
+    setDiscChat([]); setDiscPhase("practicing"); setDiscFeedback(null); setDiscError(null);
+    setLoading(true);
+    try {
+      const r = await fetch("/api/ai", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ intent: "discussion", payload: { topic: discTopic, aiLang: currentAiLang() } }) });
+      const j = await r.json();
+      if (!j.ok) { setDiscError(j.error); return; }
+      const aiText = j.data?.content ?? JSON.stringify(j.data);
+      const am: AiMessage = { role: "assistant", content: aiText, timestamp: Date.now() };
+      setDiscChat([am]);
+      const newCid = appendMessages(ik, il, null, "discussion", [am]);
+      setDiscCid(newCid);
+    } finally {
+      setLoading(false);
+    }
+  }, [discTopic, ik, il, appendMessages]);
+
+  const sendDiscMessage = useCallback(async () => {
+    if (!discChatIn.trim()) return;
+    const um: AiMessage = { role: "user", content: discChatIn.trim(), timestamp: Date.now() };
+    const nm = [...discChat, um]; setDiscChat(nm); setDiscChatIn(""); setDiscError(null);
+    setDiscBusy("send"); setLoading(true);
+    try {
+      const ct = nm.map(m => `${m.role === "user" ? "Student" : "Partner"}: ${m.content}`).join("\n");
+      const r = await fetch("/api/ai", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ intent: "discussion", payload: { topic: discTopic, history: ct, aiLang: currentAiLang() } }) });
+      const j = await r.json();
+      if (!j.ok) { setDiscError(j.error); return; }
+      const aiText = (j.data?.content ?? "").replace(/\n*```json[\s\S]*?```\n*/g, "").replace(/\n*\{[\s\S]*"summary"[\s\S]*\}\n*$/g, "").trim();
+      const am: AiMessage = { role: "assistant", content: aiText, timestamp: Date.now() };
+      setDiscChat([...nm, am]);
+      appendMessages(ik, il, discCid, "discussion", [um, am]);
+    } finally {
+      setDiscBusy(null); setLoading(false);
+    }
+  }, [discChatIn, discChat, discTopic, ik, il, discCid, appendMessages]);
+
+  const endDiscussion = useCallback(async () => {
+    setDiscBusy("end"); setLoading(true); setDiscError(null);
+    try {
+      const ct = discChat.map(m => `${m.role === "user" ? "Student" : "Partner"}: ${m.content}`).join("\n");
+      const r = await fetch("/api/ai", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ intent: "discussion", payload: { topic: discTopic, history: ct, end: true, aiLang: currentAiLang() } }) });
+      const j = await r.json();
+      if (!j.ok) { setDiscError(j.error); return; }
+      const xpEarned = j.data?.wellDone ? 20 : 8;
+      const enriched = { ...j.data, xpEarned };
+      setDiscFeedback(enriched); setDiscPhase("feedback");
+      addGlobalXP(xpEarned);
+      appendMessages(ik, il, discCid, "discussion", [{ role: "assistant", content: JSON.stringify(enriched), timestamp: Date.now() }]);
+    } finally {
+      setDiscBusy(null); setLoading(false);
+    }
+  }, [discChat, discTopic, ik, il, discCid, appendMessages]);
+
+  const handleContinueDiscussion = useCallback((convo: AiConversation) => {
+    setDiscCid(convo.id);
+    setMode("discussion");
+    setDiscPhase("practicing");
+    setDiscFeedback(null);
+    setDiscChat(convo.messages.filter(m => m.role === "user" || m.role === "assistant"));
+  }, []);
+
   function ts(m: PMode) { return { background: mode === m ? "var(--color-accent)" : "var(--color-surface)", color: mode === m ? "#fff" : "var(--color-text)", border: mode === m ? "none" : "1px solid var(--color-divider)" }; }
 
   const intentForMode: Record<PMode, string> = {
     write: "cpv_sentence_check", translate: "cpv_translate", quiz: "cpv_context_quiz",
-    examples: "cpv_example_gen", converse: "cpv_conversation",
+    examples: "cpv_example_gen", converse: "cpv_conversation", discussion: "discussion",
   };
 
   const handleContinue = useCallback((convo: AiConversation) => {
@@ -228,7 +308,12 @@ export function AiSentencePractice({ item, moduleKey }: { item: ItemInfo; module
                   </div>
                   <p className="mt-1 text-[12px] text-neutral-500 italic">Your: {translations[i]}</p>
                   {r?.feedback && <p className="mt-1 text-[12px]">{r.feedback}</p>}
-                  {r?.corrected && <p className="mt-0.5 text-[12px] text-accent-800">→ {r.corrected}</p>}
+                  {r?.corrected && (
+                    <p className="mt-0.5 flex flex-wrap items-center gap-1.5 text-[12px] text-accent-800">
+                      <span>→ {r.corrected}</span>
+                      <CopyButton text={r.corrected} className="rounded-full border px-2 py-0.5 text-[11px] font-bold" style={{ borderColor: "var(--color-accent-800)", color: "var(--color-accent-800)" }} />
+                    </p>
+                  )}
                 </div>
               );
             })}
@@ -243,10 +328,35 @@ export function AiSentencePractice({ item, moduleKey }: { item: ItemInfo; module
         )}
       </div>}
 
-      {mode === "quiz" && <div className="flex flex-col gap-3">{!qz ? <button className="btn btn-primary px-4 py-2.5 text-[13px] font-extrabold" disabled={loading} onClick={lq}>{loading ? "Generating..." : "Generate Quiz"}</button> : <div className="flex flex-col gap-2">{qz.sentences.map((s: any, i: number) => <button key={i} disabled={qp !== null} onClick={() => setQp(i)} className="rounded border p-3 text-left text-[13px] leading-relaxed" style={{ borderColor: qp !== null ? (s.correct ? "var(--color-accent)" : qp === i ? "var(--color-accent-800)" : "var(--color-divider)") : "var(--color-divider)", background: qp !== null ? (s.correct ? "var(--color-accent-100)" : qp === i ? "var(--color-accent-100)" : "transparent") : "transparent" }}><span className="label-xs mr-2">{["A","B","C"][i]}.</span>{s.text}{qp !== null && <span className="ml-2">{s.correct ? "✅" : qp === i ? "❌" : ""}</span>}</button>)}{qp !== null && <div className="rounded bg-accent-100 p-3 text-[12px] text-accent-800">{qz.explanation}</div>}<button className="btn btn-ghost mt-1 text-[12px]" onClick={lq} disabled={loading}>New Quiz</button></div>}</div>}
+      {mode === "quiz" && <div className="flex flex-col gap-3">{!qz ? (
+        <div className="flex flex-col gap-3">
+          <div className="flex items-center gap-2">
+            <label className="text-[12px] font-bold text-neutral-600" htmlFor="quiz-count">Number of sentences</label>
+            <input
+              id="quiz-count"
+              type="number"
+              min={2}
+              max={10}
+              value={quizCount}
+              onChange={e => setQuizCount(Math.min(10, Math.max(2, Number(e.target.value) || 5)))}
+              className="input w-16 text-center text-[13px]"
+            />
+          </div>
+          <button className="btn btn-primary px-4 py-2.5 text-[13px] font-extrabold" disabled={loading} onClick={lq}>{loading ? "Generating..." : "Generate Quiz"}</button>
+        </div>
+      ) : <div className="flex flex-col gap-2">{qz.sentences.map((s: any, i: number) => <button key={i} disabled={qp !== null} onClick={() => setQp(i)} className="rounded border p-3 text-left text-[13px] leading-relaxed" style={{ borderColor: qp !== null ? (s.correct ? "var(--color-accent)" : qp === i ? "var(--color-accent-800)" : "var(--color-divider)") : "var(--color-divider)", background: qp !== null ? (s.correct ? "var(--color-accent-100)" : qp === i ? "var(--color-accent-100)" : "transparent") : "transparent" }}><span className="label-xs mr-2">{QUIZ_LETTERS[i]}.</span>{s.text}{qp !== null && <span className="ml-2">{s.correct ? "✅" : qp === i ? "❌" : ""}</span>}</button>)}{qp !== null && <div className="rounded bg-accent-100 p-3 text-[12px] text-accent-800">{qz.explanation}</div>}<button className="btn btn-ghost mt-1 text-[12px]" onClick={lq} disabled={loading}>New Quiz</button></div>}</div>}
 
 
-      {mode === "examples" && <div className="flex flex-col gap-3">{!exs ? <button className="btn btn-primary px-4 py-2.5 text-[13px] font-extrabold" disabled={loading} onClick={le}>{loading ? "Generating..." : "Generate Examples"}</button> : <div className="flex flex-col gap-3">{exs.examples.map((ex: any, i: number) => <div key={i} className="rounded border p-3" style={{ borderColor: "var(--color-divider)" }}><span className="label-xs mb-1 block text-accent">{ex.context}</span><p className="text-[13px] leading-relaxed font-extrabold">{ex.sentence}</p><p className="mt-1 text-[11px] italic text-neutral-500">{ex.note}</p></div>)}<button className="btn btn-ghost text-[12px]" onClick={le} disabled={loading}>Refresh</button></div>}</div>}
+      {mode === "examples" && <div className="flex flex-col gap-3">{!exs ? <button className="btn btn-primary px-4 py-2.5 text-[13px] font-extrabold" disabled={loading} onClick={le}>{loading ? "Generating..." : "Generate Examples"}</button> : <div className="flex flex-col gap-3">{exs.examples.map((ex: any, i: number) => (
+        <div key={i} className="rounded border p-3" style={{ borderColor: "var(--color-divider)" }}>
+          <div className="mb-1 flex items-center justify-between gap-2">
+            <span className="label-xs block text-accent">{ex.context}</span>
+            <CopyButton text={ex.sentence} className="rounded-full border px-2 py-0.5 text-[11px] font-bold" style={{ borderColor: "var(--color-accent)", color: "var(--color-accent)" }} />
+          </div>
+          <p className="text-[13px] leading-relaxed font-extrabold">{ex.sentence}</p>
+          <p className="mt-1 text-[11px] italic text-neutral-500">{ex.note}</p>
+        </div>
+      ))}<button className="btn btn-ghost text-[12px]" onClick={le} disabled={loading}>Refresh</button></div>}</div>}
 
       {mode === "converse" && <div className="flex flex-col gap-3">
         {/* Phase: Idle — show Generate Sample button */}
@@ -335,8 +445,84 @@ export function AiSentencePractice({ item, moduleKey }: { item: ItemInfo; module
         )}
       </div>}
 
+      {mode === "discussion" && <div className="flex flex-col gap-3">
+        {discPhase === "idle" && (
+          <button className="btn btn-primary px-4 py-2.5 text-[13px] font-extrabold" disabled={loading} onClick={startDiscussion}>
+            {loading ? "Starting..." : "Start Discussion"}
+          </button>
+        )}
+
+        {discPhase === "practicing" && (
+          <div className="flex flex-col gap-3">
+            <div className="flex max-h-[300px] flex-col gap-3 overflow-y-auto rounded border p-3" style={{ borderColor: "var(--color-divider)" }}>
+              {discChat.map((m, i) => (
+                <div key={i} className="rounded p-2.5 text-[13px] leading-relaxed group relative"
+                  style={{ background: m.role === "user" ? "var(--color-accent-100)" : "var(--color-surface)", alignSelf: m.role === "user" ? "flex-end" : "flex-start", maxWidth: "85%" }}>
+                  <span className="label-xs mb-0.5 block">{m.role === "user" ? "You" : "Partner"}</span>
+                  <p className="whitespace-pre-wrap select-text">{m.content}</p>
+                </div>
+              ))}
+              {discBusy === "send" && (
+                <div className="rounded p-2.5" style={{ background: "var(--color-surface)", alignSelf: "flex-start" }}>
+                  <span className="label-xs mb-1 block">Partner</span>
+                  <span className="inline-flex items-center gap-1">
+                    {[0, 1, 2].map(i => (
+                      <span key={i} className="inline-block h-1.5 w-1.5 animate-bounce rounded-full bg-current opacity-60" style={{ animationDelay: `${i * 150}ms` }} />
+                    ))}
+                  </span>
+                </div>
+              )}
+              <div ref={discEndRef} />
+            </div>
+            {discBusy === "end" ? (
+              <div className="flex items-center justify-center gap-2 rounded border p-3 text-[12px] text-neutral-600" style={{ borderColor: "var(--color-divider)" }}>
+                <span className="inline-block h-3.5 w-3.5 animate-spin rounded-full border-2 border-current border-t-transparent" />
+                Analyzing your discussion...
+              </div>
+            ) : (
+              <div className="flex items-end gap-2">
+                <ChatInput value={discChatIn} onChange={setDiscChatIn} onSend={sendDiscMessage} disabled={loading || !discChatIn.trim()} />
+                <button className="btn btn-primary px-3 py-2.5 text-[13px] font-extrabold" disabled={loading || !discChatIn.trim()} onClick={sendDiscMessage}>Send</button>
+                <button className="btn btn-ghost px-3 py-2.5 text-[12px]" disabled={loading || !discChat.some(m => m.role === "user")} onClick={endDiscussion}>End</button>
+              </div>
+            )}
+          </div>
+        )}
+
+        {discPhase === "feedback" && discFeedback && (
+          <ConversationFeedback
+            messages={discChat}
+            feedback={discFeedback}
+            onReset={() => { setDiscPhase("idle"); setDiscFeedback(null); setDiscChat([]); }}
+            share={{
+              title: item.term,
+              text: `🗣️ Discussion · ${item.term}`,
+              getUrl: () => {
+                const payload: SharedConvoPayload = {
+                  kind: "conversation",
+                  itemLabel: item.term,
+                  intent: "discussion",
+                  messages: discChat,
+                  feedback: discFeedback,
+                  sharedAt: Date.now(),
+                };
+                return createShareLink(payload);
+              },
+              getImageUrl: (url) => `${url}/card`,
+            }}
+          />
+        )}
+        {discError && <AiFeedback loading={false} result={null} error={discError} variant="general" />}
+      </div>}
+
       <AiFeedback loading={loading} result={result} error={error} onRetry={() => { mode === "write" ? sw() : mode === "translate" ? submitTranslateBatch() : mode === "quiz" ? lq() : le(); }} variant={mode === "quiz" || mode === "examples" ? "general" : "sentence"} />
-      <AiConversationHistory moduleKey={moduleKey} itemKey={item.term} filterIntent={intentForMode[mode]} onContinue={handleContinue} activeConvoId={phase === "practicing" ? cid : null} />
+      <AiConversationHistory
+        moduleKey={moduleKey}
+        itemKey={item.term}
+        filterIntent={intentForMode[mode]}
+        onContinue={mode === "discussion" ? handleContinueDiscussion : handleContinue}
+        activeConvoId={mode === "discussion" ? (discPhase === "practicing" ? discCid : null) : (phase === "practicing" ? cid : null)}
+      />
     </div>
   );
 }

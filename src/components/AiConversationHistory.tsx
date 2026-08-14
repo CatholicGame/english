@@ -7,6 +7,7 @@ import { AiBandFeedback } from "./AiBandFeedback";
 import { ConversationFeedback } from "./ConversationFeedback";
 import { Modal } from "./Modal";
 import { ShareButton } from "./ShareButton";
+import { CopyButton } from "./CopyButton";
 import { createShareLink } from "@/lib/share-client";
 import type { SharedConvoPayload } from "@/lib/share-payload";
 
@@ -26,6 +27,7 @@ export const INTENT_LABELS: Record<string, string> = {
   cielts_vocab_sentence: "🎓 Vocab",
   cielts_writing_feedback: "📝 Writing",
   cielts_speaking_feedback: "🎤 Speaking",
+  discussion: "🗣️ Discussion",
 };
 
 function fmtDate(ts: number): string {
@@ -74,7 +76,12 @@ export function BatchReviewContent({ data }: { data: Record<string, unknown> }) 
               {src?.vi && <p className="text-[11px] text-neutral-500">{src.vi}</p>}
               {src?.user && <p className="italic">Your: {src.user}</p>}
               {r.feedback && <p>{r.feedback}</p>}
-              {r.corrected && <p className="italic text-accent-800">→ {r.corrected}</p>}
+              {r.corrected && (
+                <p className="flex flex-wrap items-center gap-1.5 italic text-accent-800">
+                  <span>→ {r.corrected}</span>
+                  <CopyButton text={r.corrected} className="rounded-full border px-2 py-0.5 text-[11px] font-bold not-italic" style={{ borderColor: "var(--color-accent-800)", color: "var(--color-accent-800)" }} />
+                </p>
+              )}
             </div>
           </div>
         );
@@ -115,7 +122,12 @@ function SentenceCheckContent({ data }: { data: Record<string, unknown> }) {
     <div className="flex flex-col gap-1">
       {correct !== undefined && <p className="font-extrabold">{correct ? "✅ Correct!" : "❌ Needs improvement"}</p>}
       {feedback && <p>{feedback}</p>}
-      {correction && <p className="italic text-accent-800">→ {correction}</p>}
+      {correction && (
+        <p className="flex flex-wrap items-center gap-1.5 italic text-accent-800">
+          <span>→ {correction}</span>
+          <CopyButton text={correction} className="rounded-full border px-2 py-0.5 text-[11px] font-bold not-italic" style={{ borderColor: "var(--color-accent-800)", color: "var(--color-accent-800)" }} />
+        </p>
+      )}
       {tip && <p className="text-[11px]">💡 {tip}</p>}
       {alternative && <p className="text-[11px]">📝 {alternative}</p>}
       {vocab && vocab.length > 0 && <KeyVocab vocab={vocab} />}
@@ -200,6 +212,7 @@ export function AiConversationHistory({ moduleKey, itemKey, filterIntent, onCont
   const convos = filterIntent ? allConvos.filter(c => c.intent === filterIntent) : allConvos;
   const [expanded, setExpanded] = useState<string | null>(null);
   const [confirmClear, setConfirmClear] = useState(false);
+  const [confirmDeleteId, setConfirmDeleteId] = useState<string | null>(null);
   const [viewingFeedback, setViewingFeedback] = useState<AiConversation | null>(null);
 
   if (convos.length === 0) return null;
@@ -210,22 +223,25 @@ export function AiConversationHistory({ moduleKey, itemKey, filterIntent, onCont
         <span className="label-xs text-neutral-600">📚 History ({convos.length})</span>
         {!confirmClear ? (
           <button
-            className="text-[10px] text-neutral-400 hover:text-accent-800"
+            className="rounded-full border px-2 py-0.5 text-[11px] font-bold"
+            style={{ borderColor: "var(--color-divider)", color: "var(--color-neutral-600)" }}
             onClick={() => setConfirmClear(true)}
           >
-            Clear all
+            🗑️ Clear all
           </button>
         ) : (
           <span className="flex items-center gap-1">
-            <span className="text-[10px] text-accent-800">Sure?</span>
+            <span className="text-[11px] font-bold text-accent-800">Sure?</span>
             <button
-              className="text-[10px] font-extrabold text-accent-800"
+              className="rounded-full border px-2 py-0.5 text-[11px] font-extrabold"
+              style={{ borderColor: "var(--color-accent-800)", background: "var(--color-accent-800)", color: "#fff" }}
               onClick={() => { clearAllForItem(itemKey); setConfirmClear(false); }}
             >
               Yes
             </button>
             <button
-              className="text-[10px] text-neutral-400"
+              className="rounded-full border px-2 py-0.5 text-[11px] font-bold"
+              style={{ borderColor: "var(--color-divider)", color: "var(--color-text)" }}
               onClick={() => setConfirmClear(false)}
             >
               No
@@ -265,13 +281,34 @@ export function AiConversationHistory({ moduleKey, itemKey, filterIntent, onCont
                   getImageUrl={(url) => `${url}/card`}
                   label="Share"
                 />
-                <button
-                  className="text-[10px] text-neutral-400 hover:text-accent-800"
-                  onClick={() => deleteConversation(itemKey, c.id)}
-                  title="Delete"
-                >
-                  🗑
-                </button>
+                {confirmDeleteId === c.id ? (
+                  <span className="flex items-center gap-1">
+                    <span className="text-[11px] font-bold text-accent-800">Sure?</span>
+                    <button
+                      className="rounded-full border px-2 py-0.5 text-[11px] font-extrabold"
+                      style={{ borderColor: "var(--color-accent-800)", background: "var(--color-accent-800)", color: "#fff" }}
+                      onClick={() => { deleteConversation(itemKey, c.id); setConfirmDeleteId(null); }}
+                    >
+                      Yes
+                    </button>
+                    <button
+                      className="rounded-full border px-2 py-0.5 text-[11px] font-bold"
+                      style={{ borderColor: "var(--color-divider)", color: "var(--color-text)" }}
+                      onClick={() => setConfirmDeleteId(null)}
+                    >
+                      No
+                    </button>
+                  </span>
+                ) : (
+                  <button
+                    className="rounded-full border px-2 py-0.5 text-[11px] font-bold"
+                    style={{ borderColor: "var(--color-accent-800)", color: "var(--color-accent-800)" }}
+                    onClick={() => setConfirmDeleteId(c.id)}
+                    title="Delete"
+                  >
+                    🗑️ Delete
+                  </button>
+                )}
               </span>
             </div>
             {c.messages.length > 0 && (
@@ -298,7 +335,7 @@ export function AiConversationHistory({ moduleKey, itemKey, filterIntent, onCont
                     </div>
                   ))}
                 </div>
-                {c.intent === "cpv_conversation" && onContinue && c.id !== activeConvoId && (
+                {(c.intent === "cpv_conversation" || c.intent === "discussion") && onContinue && c.id !== activeConvoId && (
                   <button
                     className="btn btn-primary mt-2 w-full px-3 py-1.5 text-[12px] font-extrabold"
                     onClick={() => { setExpanded(null); onContinue(c); }}

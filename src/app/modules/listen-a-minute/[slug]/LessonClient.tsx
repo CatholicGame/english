@@ -428,14 +428,60 @@ export function LessonClient({ slug }: { slug: string }) {
     setPickerMode(true);
   }
 
-  function toggleWord(wordIndex: number) {
+  // Word picker: tap toggles one word; press-and-drag across several words
+  // applies the same toggle direction to all of them in one gesture (like
+  // dragging to select/deselect a range of checkboxes) — the direction is
+  // decided once, from the first word touched, so a drag started on a picked
+  // word erases the range and a drag started on an unpicked word fills it in.
+  const dragRef = useRef<{ active: boolean; mode: "add" | "remove" } | null>(null);
+
+  function applyPick(wordIndex: number, mode: "add" | "remove") {
     setPickedWords((prev) => {
+      const has = prev.has(wordIndex);
+      if ((mode === "add") === has) return prev;
       const next = new Set(prev);
-      if (next.has(wordIndex)) next.delete(wordIndex);
-      else next.add(wordIndex);
+      if (mode === "add") next.add(wordIndex);
+      else next.delete(wordIndex);
       return next;
     });
   }
+
+  function startWordDrag(wordIndex: number) {
+    const mode: "add" | "remove" = pickedWords.has(wordIndex) ? "remove" : "add";
+    dragRef.current = { active: true, mode };
+    applyPick(wordIndex, mode);
+  }
+
+  function dragOverWord(wordIndex: number) {
+    if (dragRef.current?.active) applyPick(wordIndex, dragRef.current.mode);
+  }
+
+  useEffect(() => {
+    if (!pickerMode) return;
+    function endDrag() {
+      dragRef.current = null;
+    }
+    function onTouchMove(e: TouchEvent) {
+      if (!dragRef.current?.active) return;
+      const touch = e.touches[0];
+      if (!touch) return;
+      e.preventDefault();
+      const el = document.elementFromPoint(touch.clientX, touch.clientY) as HTMLElement | null;
+      const idxAttr = el?.closest("[data-word-index]")?.getAttribute("data-word-index");
+      if (idxAttr != null) dragOverWord(Number(idxAttr));
+    }
+    document.addEventListener("mouseup", endDrag);
+    document.addEventListener("touchend", endDrag);
+    document.addEventListener("touchcancel", endDrag);
+    document.addEventListener("touchmove", onTouchMove, { passive: false });
+    return () => {
+      document.removeEventListener("mouseup", endDrag);
+      document.removeEventListener("touchend", endDrag);
+      document.removeEventListener("touchcancel", endDrag);
+      document.removeEventListener("touchmove", onTouchMove);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pickerMode]);
 
   function saveCustomCloze() {
     saveHiddenWords(slug, [...pickedWords]);
@@ -702,8 +748,8 @@ export function LessonClient({ slug }: { slug: string }) {
               </div>
 
               {pickerMode ? (
-                <div className="mt-3 bg-surface p-4 text-[15px] leading-[2] text-pretty">
-                  <p className="label-xs mb-2">Chạm vào từ bạn muốn ẩn đi để tự luyện fill-in-the-blank:</p>
+                <div className="mt-3 bg-surface p-4 text-[15px] leading-[2] text-pretty select-none" style={{ touchAction: "pan-y" }}>
+                  <p className="label-xs mb-2">Chạm hoặc kéo qua các từ bạn muốn ẩn đi để tự luyện fill-in-the-blank:</p>
                   {tokenizeWords(plainText).map((t, i) =>
                     t.wordIndex === null ? (
                       <span key={i}>{t.text}</span>
@@ -711,7 +757,10 @@ export function LessonClient({ slug }: { slug: string }) {
                       <button
                         key={i}
                         type="button"
-                        onClick={() => toggleWord(t.wordIndex!)}
+                        data-word-index={t.wordIndex}
+                        onMouseDown={() => startWordDrag(t.wordIndex!)}
+                        onMouseEnter={() => dragOverWord(t.wordIndex!)}
+                        onTouchStart={() => startWordDrag(t.wordIndex!)}
                         className="inline rounded px-0.5"
                         style={
                           pickedWords.has(t.wordIndex)

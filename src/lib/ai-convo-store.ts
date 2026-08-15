@@ -15,6 +15,7 @@ export type IntentType =
   | "cpv_context_quiz"
   | "cpv_example_gen"
   | "text_lookup"
+  | "grammar_lookup"
   | "cpv_writing_passage"
   | "cpv_writing_review"
   | "lam_opinion_feedback"

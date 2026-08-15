@@ -4,6 +4,7 @@ import type { DictionaryData } from "./dictionary-store";
 import type { TranslationData } from "./translation-store";
 import type { SubscriptionData } from "./subscription-store";
 import type { CustomClozeData } from "./listen-custom-cloze-store";
+import type { GrammarData } from "./grammar-store";
 import type { SessionPayload } from "./session-cookie";
 
 const FILES_URL = "https://www.googleapis.com/drive/v3/files";
@@ -199,4 +200,15 @@ export function readDriveListenCustomCloze(accessToken: string, session: Session
 
 export function writeDriveListenCustomCloze(accessToken: string, session: SessionPayload, data: CustomClozeData) {
   return writeDriveJson(accessToken, session, "listen-custom-cloze", data);
+}
+
+// ─── Personal Grammar Dictionary ────────────────────────────────────
+// Single global list per user, same shape of pattern as dictionary/translations.
+
+export function readDriveGrammar(accessToken: string, session: SessionPayload) {
+  return readDriveJson<GrammarData>(accessToken, session, "grammar");
+}
+
+export function writeDriveGrammar(accessToken: string, session: SessionPayload, data: GrammarData) {
+  return writeDriveJson(accessToken, session, "grammar", data);
 }

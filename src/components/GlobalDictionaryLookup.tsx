@@ -12,6 +12,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { useDictionaryStore } from "@/lib/use-dictionary-store";
 import { useTranslationStore } from "@/lib/use-translation-store";
+import { useGrammarStore } from "@/lib/use-grammar-store";
 import {
   applyCssHighlights,
   clearCssHighlights,
@@ -21,6 +22,7 @@ import {
   type HighlightTerm,
 } from "@/lib/text-highlight";
 import { VocabPopup } from "./VocabPopup";
+import { GrammarPopup } from "./GrammarPopup";
 
 const MIN_LEN = 2;
 const MAX_LEN = 400;
@@ -54,10 +56,11 @@ function findContext(node: Node | null): string | undefined {
 
 export function GlobalDictionaryLookup() {
   const [pill, setPill] = useState<Pill | null>(null);
-  const [active, setActive] = useState<{ word: string; context?: string } | null>(null);
+  const [active, setActive] = useState<{ kind: "vocab" | "grammar"; word: string; context?: string } | null>(null);
   const pathname = usePathname();
   const { entries: vocabEntries } = useDictionaryStore();
   const { entries: translationEntries } = useTranslationStore();
+  const { entries: grammarEntries } = useGrammarStore();
   const matchesRef = useRef<HighlightMatch[]>([]);
 
   const handleSelection = useCallback(() => {
@@ -122,7 +125,8 @@ export function GlobalDictionaryLookup() {
   useEffect(() => {
     const vocabTerms: HighlightTerm[] = Object.entries(vocabEntries).map(([key, entry]) => ({ key, matchText: key, type: entry.category ?? "word" }));
     const translationTerms: HighlightTerm[] = Object.keys(translationEntries).map((key) => ({ key, matchText: key, type: "translation" }));
-    const terms = [...vocabTerms, ...translationTerms];
+    const grammarTerms: HighlightTerm[] = Object.entries(grammarEntries).map(([key, entry]) => ({ key, matchText: entry.text, type: "grammar" }));
+    const terms = [...vocabTerms, ...translationTerms, ...grammarTerms];
 
     let timer: ReturnType<typeof setTimeout> | null = null;
     function rescan() {
@@ -148,7 +152,7 @@ export function GlobalDictionaryLookup() {
       if (timer) clearTimeout(timer);
       observer.disconnect();
     };
-  }, [vocabEntries, translationEntries, pathname]);
+  }, [vocabEntries, translationEntries, grammarEntries, pathname]);
 
   // Tap on a highlighted span (no active drag-selection) reopens the cached result.
   useEffect(() => {
@@ -160,7 +164,7 @@ export function GlobalDictionaryLookup() {
       const match = findMatchAtPoint(matchesRef.current, e.clientX, e.clientY);
       if (match) {
         setPill(null);
-        setActive({ word: match.key });
+        setActive({ kind: match.type === "grammar" ? "grammar" : "vocab", word: match.key });
       }
     }
     document.addEventListener("click", onClick);
@@ -177,17 +181,25 @@ export function GlobalDictionaryLookup() {
           className="fixed z-[65] flex items-center gap-1 border bg-bg px-3 py-1.5 shadow-lg"
           style={{ left: pill.x, top: pill.y, transform: "translateX(-50%)", borderColor: "var(--color-divider)" }}
         >
-          <span className="max-w-[160px] truncate text-[12px] font-extrabold">{pill.word}</span>
+          <span className="max-w-[120px] truncate text-[12px] font-extrabold">{pill.word}</span>
           <button
-            className="bg-accent px-2.5 py-0.5 text-[11px] font-extrabold text-white"
-            onClick={() => { setActive({ word: pill.word, context: pill.context }); setPill(null); }}
+            className="bg-accent px-2.5 py-0.5 text-[11px] font-extrabold whitespace-nowrap text-white"
+            onClick={() => { setActive({ kind: "vocab", word: pill.word, context: pill.context }); setPill(null); }}
           >
             🔍 Tra cứu
+          </button>
+          <button
+            className="whitespace-nowrap px-2.5 py-0.5 text-[11px] font-extrabold text-white"
+            style={{ background: "#00897b" }}
+            onClick={() => { setActive({ kind: "grammar", word: pill.word, context: pill.context }); setPill(null); }}
+          >
+            📐 Ngữ pháp
           </button>
           <button className="text-[14px] text-neutral-500 hover:text-neutral-700" onClick={() => setPill(null)}>✕</button>
         </div>
       )}
-      {active && <VocabPopup word={active.word} context={active.context} onClose={() => setActive(null)} />}
+      {active?.kind === "vocab" && <VocabPopup word={active.word} context={active.context} onClose={() => setActive(null)} />}
+      {active?.kind === "grammar" && <GrammarPopup text={active.word} context={active.context} onClose={() => setActive(null)} />}
     </>
   );
 }

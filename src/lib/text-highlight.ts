@@ -5,7 +5,7 @@
 
 import { VOCAB_CATEGORY_META, type VocabCategory } from "./dictionary-store";
 
-export type HighlightType = VocabCategory | "translation";
+export type HighlightType = VocabCategory | "translation" | "grammar";
 
 export interface HighlightTerm {
   /** Key used to reopen the popup for this match (already cached, so no AI call). */
@@ -22,16 +22,21 @@ export interface HighlightMatch {
 }
 
 const TRANSLATION_COLOR = "#607d8b";
+const GRAMMAR_COLOR = "#00897b";
 
 function highlightGroupName(type: HighlightType): string {
-  return type === "translation" ? "translation-lookup" : `vocab-${type}`;
+  if (type === "translation") return "translation-lookup";
+  if (type === "grammar") return "grammar-lookup";
+  return `vocab-${type}`;
 }
 
 function highlightColor(type: HighlightType): string {
-  return type === "translation" ? TRANSLATION_COLOR : VOCAB_CATEGORY_META[type].color;
+  if (type === "translation") return TRANSLATION_COLOR;
+  if (type === "grammar") return GRAMMAR_COLOR;
+  return VOCAB_CATEGORY_META[type].color;
 }
 
-const ALL_HIGHLIGHT_TYPES: HighlightType[] = ["word", "collocation", "phrasal_verb", "idiom", "translation"];
+const ALL_HIGHLIGHT_TYPES: HighlightType[] = ["word", "collocation", "phrasal_verb", "idiom", "translation", "grammar"];
 
 const SKIP_TAGS = new Set(["SCRIPT", "STYLE", "INPUT", "TEXTAREA", "SELECT", "NOSCRIPT"]);
 const MAX_MATCHES = 500;
@@ -128,7 +133,7 @@ function stripTrailingE(s: string): string {
 }
 
 export function stemWord(word: string): string {
-  let s = word.toLowerCase();
+  const s = word.toLowerCase();
   if (s.length > 4 && (s.endsWith("ies") || s.endsWith("ied"))) return s.slice(0, -3) + "y";
   if (s.length > 5 && s.endsWith("ing")) return stripTrailingE(collapseDoubledConsonant(s.slice(0, -3)));
   if (s.length > 4 && s.endsWith("ed")) return stripTrailingE(collapseDoubledConsonant(s.slice(0, -2)));
@@ -189,7 +194,7 @@ export function findHighlightMatches(terms: HighlightTerm[]): HighlightMatch[] {
   for (const term of sorted) {
     if (matches.length >= MAX_MATCHES) break;
 
-    if (term.type === "translation") {
+    if (term.type === "translation" || term.type === "grammar") {
       const regex = buildTranslationRegex(term.matchText);
       if (!regex) continue;
       let m: RegExpExecArray | null;

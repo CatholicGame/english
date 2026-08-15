@@ -376,6 +376,55 @@ function textLookup(payload: Record<string, unknown>): PromptResult {
   };
 }
 
+// ─── Grammar Lookup & Discussion (select any text anywhere in the app) ──
+// Classifies whether the selection actually shows a nameable grammar
+// structure (needs at least a full clause/sentence — a single word or bare
+// noun phrase never qualifies) and, if so, explains it — then supports
+// open-ended follow-up questions about that same structure, branching on
+// `history` exactly like cpvConversationStart/discussionChat do.
+
+function grammarLookup(payload: Record<string, unknown>): PromptResult {
+  const text = payload.text as string;
+  const context = payload.context as string | undefined;
+  const category = payload.category as string | undefined;
+  const history = payload.history as string | undefined;
+
+  // Follow-up question about an already-classified grammar point.
+  if (history) {
+    return {
+      systemPrompt:
+        `You are an English grammar tutor helping a Vietnamese student understand a specific grammar structure: "${category}", ` +
+        `found in the sentence: "${text}". Answer the student's follow-up questions clearly and concisely, with extra examples when useful. ` +
+        "Keep replies short (2-4 sentences) unless the question needs more." +
+        feedbackLangNote(payload),
+      userMessage: "Conversation so far:\n" + history + "\n\nRespond to the student's latest message.",
+      temperature: 0.4,
+      jsonMode: false,
+    };
+  }
+
+  return {
+    systemPrompt:
+      "You analyze a piece of selected English text for its GRAMMAR structure, for a Vietnamese learner. " +
+      "First decide: does the selection show at least one clear, nameable grammar pattern worth teaching — a full sentence or clause " +
+      "demonstrating something like a verb tense/aspect, a conditional, passive voice, a relative clause, reported speech, a modal, an inversion, etc.? " +
+      "A single word, a bare noun phrase, or ordinary text with nothing distinctive to teach does NOT qualify — in that case respond with isGrammar: false " +
+      "and keep the reply minimal (no invented grammar structure, no forced explanation)." +
+      feedbackLangNote(payload),
+    userMessage:
+      `Selected text: "${text}"\nSurrounding context: "${context ?? ""}"\n\n` +
+      "Respond in JSON only:\n" +
+      "{\n" +
+      "  \"isGrammar\": boolean,\n" +
+      "  \"category\": \"short, standard English grammar term, e.g. 'Present Perfect Continuous', 'Second Conditional', 'Non-defining relative clause' — omit if isGrammar is false\",\n" +
+      "  \"explanation\": \"how this structure is formed and why it's used here — required if isGrammar is true\",\n" +
+      "  \"example\": { \"en\": \"a different example sentence using the same structure\", \"vi\": \"bản dịch\" },\n" +
+      "  \"note\": \"1 short sentence explaining why this isn't a special grammar pattern — only if isGrammar is false\"\n" +
+      "}",
+    temperature: 0.3,
+  };
+}
+
 // ─── Dispatcher ──────────────────────────────────────────────────
 
 // DeepSeek occasionally leaks Chinese characters into responses regardless of
@@ -415,6 +464,8 @@ export function buildPrompt(
         return cpvExampleGen(payload);
       case "text_lookup":
         return textLookup(payload);
+      case "grammar_lookup":
+        return grammarLookup(payload);
       case "cpv_writing_passage":
         return cpvWritingPassageGenerate(payload);
       case "cpv_writing_review":

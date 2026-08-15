@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useAiConvoStore } from "@/lib/use-ai-convo-store";
-import type { AiConversation, IntentType } from "@/lib/ai-convo-store";
+import type { AiConversation } from "@/lib/ai-convo-store";
 import { AiBandFeedback } from "./AiBandFeedback";
 import { ConversationFeedback } from "./ConversationFeedback";
 import { Modal } from "./Modal";
@@ -28,6 +28,7 @@ export const INTENT_LABELS: Record<string, string> = {
   cielts_writing_feedback: "📝 Writing",
   cielts_speaking_feedback: "🎤 Speaking",
   discussion: "🗣️ Discussion",
+  grammar_lookup: "📐 Ngữ pháp",
 };
 
 function fmtDate(ts: number): string {
@@ -135,6 +136,37 @@ function SentenceCheckContent({ data }: { data: Record<string, unknown> }) {
   );
 }
 
+/** Grammar classification (see GrammarPopup.tsx / ai-prompts.ts `grammarLookup`):
+ * { isGrammar, category?, explanation?, example?, note? } */
+function GrammarAnalysisContent({ data }: { data: Record<string, unknown> }) {
+  const isGrammar = data.isGrammar as boolean;
+  const category = data.category as string | undefined;
+  const explanation = data.explanation as string | undefined;
+  const example = data.example as { en: string; vi: string } | undefined;
+  const note = data.note as string | undefined;
+
+  if (!isGrammar) {
+    return (
+      <div>
+        <p className="font-extrabold">📐 Không có cấu trúc ngữ pháp đặc biệt</p>
+        {note && <p className="mt-0.5">{note}</p>}
+      </div>
+    );
+  }
+
+  return (
+    <div className="flex flex-col gap-1">
+      {category && <p className="font-extrabold text-accent-800">📐 {category}</p>}
+      {explanation && <p>{explanation}</p>}
+      {example && (
+        <p className="text-[11px] text-neutral-600">
+          {example.en} — {example.vi}
+        </p>
+      )}
+    </div>
+  );
+}
+
 /** Renders an assistant message's saved content. Assistant messages are stored as
  * JSON.stringify(data) — plain-text conversation replies fail to JSON.parse and
  * fall through to raw text. */
@@ -151,6 +183,7 @@ export function AiHistoryMessage({ content }: { content: string }) {
   const obj = data as Record<string, unknown>;
   if (Array.isArray(obj.results)) return <BatchReviewContent data={obj} />;
   if (obj.overallBand !== undefined) return <AiBandFeedback loading={false} result={obj} error={null} />;
+  if (obj.isGrammar !== undefined) return <GrammarAnalysisContent data={obj} />;
   if (obj.feedback !== undefined || obj.correction !== undefined || obj.correct !== undefined) {
     return <SentenceCheckContent data={obj} />;
   }
@@ -335,7 +368,9 @@ export function AiConversationHistory({ moduleKey, itemKey, filterIntent, onCont
                     </div>
                   ))}
                 </div>
-                {(c.intent === "cpv_conversation" || c.intent === "discussion") && onContinue && c.id !== activeConvoId && (
+                {(c.intent === "cpv_conversation" || c.intent === "discussion" || c.intent === "grammar_lookup") &&
+                  onContinue &&
+                  c.id !== activeConvoId && (
                   <button
                     className="btn btn-primary mt-2 w-full px-3 py-1.5 text-[12px] font-extrabold"
                     onClick={() => { setExpanded(null); onContinue(c); }}

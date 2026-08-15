@@ -98,19 +98,65 @@ function escapeRegExp(s: string): string {
   return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
-function buildRegex(term: HighlightTerm): RegExp | null {
-  const escaped = escapeRegExp(term.matchText.toLowerCase());
+function buildTranslationRegex(matchText: string): RegExp | null {
+  const escaped = escapeRegExp(matchText.toLowerCase());
   if (!escaped) return null;
-  const pattern = term.type === "translation" ? escaped : `\\b${escaped}\\b`;
   try {
-    return new RegExp(pattern, "g");
+    return new RegExp(escaped, "g");
   } catch {
     return null;
   }
 }
 
+// ─── Inflection-tolerant word matching ───────────────────────────
+// A vocab term looked up in one inflected form (e.g. "backtracks") should
+// also highlight other forms of the same word wherever they appear ("backtrack",
+// "backtracked", "backtracking"), not just the exact string that was searched.
+// Rather than trying to enumerate every surface form of a term, both the term
+// and every candidate word in the page are reduced to the same rough stem —
+// if the stems match, so does the word, regardless of which form was looked up.
+
+function collapseDoubledConsonant(s: string): string {
+  const last = s[s.length - 1];
+  const prev = s[s.length - 2];
+  if (s.length >= 3 && last === prev && !"aeiou".includes(last)) return s.slice(0, -1);
+  return s;
+}
+
+function stripTrailingE(s: string): string {
+  return s.length > 2 && s.endsWith("e") ? s.slice(0, -1) : s;
+}
+
+export function stemWord(word: string): string {
+  let s = word.toLowerCase();
+  if (s.length > 4 && (s.endsWith("ies") || s.endsWith("ied"))) return s.slice(0, -3) + "y";
+  if (s.length > 5 && s.endsWith("ing")) return stripTrailingE(collapseDoubledConsonant(s.slice(0, -3)));
+  if (s.length > 4 && s.endsWith("ed")) return stripTrailingE(collapseDoubledConsonant(s.slice(0, -2)));
+  if (s.length > 4 && /(?:[sxz]|ch|sh)es$/.test(s)) return s.slice(0, -2);
+  if (s.length > 3 && s.endsWith("s") && !/(?:ss|us|is)$/.test(s)) return stripTrailingE(s.slice(0, -1));
+  return stripTrailingE(s);
+}
+
+interface Token {
+  text: string;
+  start: number;
+  end: number;
+}
+
+function tokenize(text: string): Token[] {
+  const tokens: Token[] = [];
+  const re = /[a-z0-9']+/g;
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(text))) {
+    tokens.push({ text: m[0], start: m.index, end: m.index + m[0].length });
+  }
+  return tokens;
+}
+
 /** Scans the whole page for every occurrence of every term. Longer terms are
- * matched first so a multi-word idiom wins over a shorter word inside it. */
+ * matched first so a multi-word idiom wins over a shorter word inside it.
+ * Vocab terms match by word stem (any inflected form); translations still
+ * match as a literal substring. */
 export function findHighlightMatches(terms: HighlightTerm[]): HighlightMatch[] {
   if (terms.length === 0 || typeof document === "undefined") return [];
 
@@ -118,29 +164,70 @@ export function findHighlightMatches(terms: HighlightTerm[]): HighlightMatch[] {
   if (!corpus) return [];
   const searchCorpus = corpus.toLowerCase();
 
+  const tokens = tokenize(searchCorpus);
+  const stemIndex = new Map<string, Token[]>();
+  for (const t of tokens) {
+    const stem = stemWord(t.text);
+    const list = stemIndex.get(stem);
+    if (list) list.push(t);
+    else stemIndex.set(stem, [t]);
+  }
+
   const sorted = [...terms].sort((a, b) => b.matchText.length - a.matchText.length);
   const occupied: Array<[number, number]> = [];
   const overlaps = (start: number, end: number) => occupied.some(([s, e]) => start < e && end > s);
 
   const matches: HighlightMatch[] = [];
+  const addMatch = (start: number, end: number, term: HighlightTerm) => {
+    if (overlaps(start, end)) return;
+    const range = rangeFromMatch(nodes, start, end);
+    if (!range) return;
+    occupied.push([start, end]);
+    matches.push({ range, key: term.key, type: term.type });
+  };
+
   for (const term of sorted) {
-    const regex = buildRegex(term);
-    if (!regex) continue;
-    let m: RegExpExecArray | null;
-    let guard = 0;
-    while (matches.length < MAX_MATCHES && guard++ < MAX_MATCHES_PER_TERM && (m = regex.exec(searchCorpus))) {
-      const start = m.index;
-      const end = start + m[0].length;
-      if (m[0].length === 0) { regex.lastIndex++; continue; }
-      if (!overlaps(start, end)) {
-        const range = rangeFromMatch(nodes, start, end);
-        if (range) {
-          occupied.push([start, end]);
-          matches.push({ range, key: term.key, type: term.type });
+    if (matches.length >= MAX_MATCHES) break;
+
+    if (term.type === "translation") {
+      const regex = buildTranslationRegex(term.matchText);
+      if (!regex) continue;
+      let m: RegExpExecArray | null;
+      let guard = 0;
+      while (matches.length < MAX_MATCHES && guard++ < MAX_MATCHES_PER_TERM && (m = regex.exec(searchCorpus))) {
+        if (m[0].length === 0) { regex.lastIndex++; continue; }
+        addMatch(m.index, m.index + m[0].length, term);
+      }
+      continue;
+    }
+
+    const words = term.matchText.toLowerCase().trim().split(/\s+/).filter(Boolean);
+    if (words.length === 0) continue;
+    const wordStems = words.map(stemWord);
+    let count = 0;
+
+    if (wordStems.length === 1) {
+      const candidates = stemIndex.get(wordStems[0]) ?? [];
+      for (const tok of candidates) {
+        if (matches.length >= MAX_MATCHES || count++ >= MAX_MATCHES_PER_TERM) break;
+        addMatch(tok.start, tok.end, term);
+      }
+    } else {
+      for (let i = 0; i + wordStems.length <= tokens.length; i++) {
+        if (matches.length >= MAX_MATCHES || count >= MAX_MATCHES_PER_TERM) break;
+        let ok = true;
+        for (let j = 0; j < wordStems.length; j++) {
+          if (stemWord(tokens[i + j].text) !== wordStems[j]) { ok = false; break; }
+          if (j > 0 && !/^\s+$/.test(searchCorpus.slice(tokens[i + j - 1].end, tokens[i + j].start))) { ok = false; break; }
         }
+        if (!ok) continue;
+        const start = tokens[i].start;
+        const end = tokens[i + wordStems.length - 1].end;
+        if (overlaps(start, end)) continue;
+        addMatch(start, end, term);
+        count++;
       }
     }
-    if (matches.length >= MAX_MATCHES) break;
   }
   return matches;
 }

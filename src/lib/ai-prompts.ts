@@ -378,46 +378,60 @@ function textLookup(payload: Record<string, unknown>): PromptResult {
 
 // ─── Dispatcher ──────────────────────────────────────────────────
 
+// DeepSeek occasionally leaks Chinese characters into responses regardless of
+// the requested feedback language (a known model quirk, not specific to any
+// one intent) — every system prompt gets this guard appended so the fix lives
+// in one place instead of being repeated per intent.
+const LANGUAGE_GUARD =
+  " Respond only in English and/or Vietnamese exactly as instructed above — never output Chinese, Japanese, Korean, or any other language, even a single word or character of it.";
+
+function withLanguageGuard(result: PromptResult): PromptResult {
+  return { ...result, systemPrompt: result.systemPrompt + LANGUAGE_GUARD };
+}
+
 export function buildPrompt(
   intent: IntentType,
   payload: Record<string, unknown>,
 ): PromptResult {
-  switch (intent) {
-    case "cpv_sentence_check":
-      return cpvSentenceCheck(payload);
-    case "cpv_paraphrase":
-      return cpvParaphraseGenerate(payload);
-    case "cpv_conversation":
-      return cpvConversationStart(payload);
-    case "cpv_conversation_preview":
-      return cpvConversationPreview(payload);
-    case "cpv_translate":
-      return cpvTranslate(payload);
-    case "cpv_translate_batch":
-      return cpvTranslateBatch(payload);
-    case "cpv_translate_batch_review":
-      return cpvTranslateBatchReview(payload);
-    case "cpv_context_quiz":
-      return cpvContextQuiz(payload);
-    case "cpv_example_gen":
-      return cpvExampleGen(payload);
-    case "text_lookup":
-      return textLookup(payload);
-    case "cpv_writing_passage":
-      return cpvWritingPassageGenerate(payload);
-    case "cpv_writing_review":
-      return cpvWritingReview(payload);
-    case "lam_opinion_feedback":
-      return lamOpinionFeedback(payload);
-    case "discussion":
-      return discussionChat(payload);
-    case "cielts_writing_feedback":
-      return cieltsWritingFeedback(payload);
-    case "cielts_speaking_feedback":
-      return cieltsSpeakingFeedback(payload);
-    case "cielts_vocab_sentence":
-      return cieltsVocabSentence(payload);
-    default:
-      throw new Error(`Unknown intent: ${intent}`);
-  }
+  const result = ((): PromptResult => {
+    switch (intent) {
+      case "cpv_sentence_check":
+        return cpvSentenceCheck(payload);
+      case "cpv_paraphrase":
+        return cpvParaphraseGenerate(payload);
+      case "cpv_conversation":
+        return cpvConversationStart(payload);
+      case "cpv_conversation_preview":
+        return cpvConversationPreview(payload);
+      case "cpv_translate":
+        return cpvTranslate(payload);
+      case "cpv_translate_batch":
+        return cpvTranslateBatch(payload);
+      case "cpv_translate_batch_review":
+        return cpvTranslateBatchReview(payload);
+      case "cpv_context_quiz":
+        return cpvContextQuiz(payload);
+      case "cpv_example_gen":
+        return cpvExampleGen(payload);
+      case "text_lookup":
+        return textLookup(payload);
+      case "cpv_writing_passage":
+        return cpvWritingPassageGenerate(payload);
+      case "cpv_writing_review":
+        return cpvWritingReview(payload);
+      case "lam_opinion_feedback":
+        return lamOpinionFeedback(payload);
+      case "discussion":
+        return discussionChat(payload);
+      case "cielts_writing_feedback":
+        return cieltsWritingFeedback(payload);
+      case "cielts_speaking_feedback":
+        return cieltsSpeakingFeedback(payload);
+      case "cielts_vocab_sentence":
+        return cieltsVocabSentence(payload);
+      default:
+        throw new Error(`Unknown intent: ${intent}`);
+    }
+  })();
+  return withLanguageGuard(result);
 }

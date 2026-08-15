@@ -52,3 +52,5 @@ next-env.d.ts
 # local yt-dlp binary + scratch downloads from scripts/download-soundcloud-audio.mjs
 /.bin/
 /downloads/
+
+.env*

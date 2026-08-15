@@ -18,6 +18,8 @@ import {
   type TypeQuestion,
 } from "@/lib/session";
 import { norm, speak } from "@/lib/utils";
+import { useSubscriptionStore } from "@/lib/use-subscription-store";
+import { isVerbLocked } from "@/lib/content-access";
 
 const SESSION_LENGTH = 12;
 
@@ -64,7 +66,12 @@ export function RunClient() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { loaded, progress, grade } = useProgress();
-  const all = useMemo(() => buildAllItems(VERBS), []);
+  const { isPro } = useSubscriptionStore();
+  // Same rule as the Today hub: never quiz on Pro-locked verbs, even via a
+  // hand-crafted verbs= param — filtering the pool here means locked items
+  // simply aren't there to match against.
+  const unlockedVerbs = useMemo(() => VERBS.filter((v) => !isVerbLocked(v.verb, isPro)), [isPro]);
+  const all = useMemo(() => buildAllItems(unlockedVerbs), [unlockedVerbs]);
 
   const [session, setSession] = useState<Session | null | undefined>(undefined);
   const [qi, setQi] = useState(0);

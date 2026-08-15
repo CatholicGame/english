@@ -8,6 +8,9 @@ import { useProgress } from "@/lib/progress-context";
 import { dueCount, learnedCount, dayBars } from "@/lib/stats";
 import { loadMistakes, clearMistakes } from "@/lib/mistakes-store";
 import type { AllItem } from "@/lib/flatten";
+import { useSubscriptionStore } from "@/lib/use-subscription-store";
+import { isVerbLocked } from "@/lib/content-access";
+import { useDashboardProgress } from "@/lib/use-dashboard-progress";
 
 const DAILY_GOAL = 20;
 
@@ -23,8 +26,15 @@ const PRACTICE_MODES = [
 
 export default function TodayPage() {
   const router = useRouter();
-  const { loaded, progress, days, streak, todayDone } = useProgress();
-  const all = useMemo(() => buildAllItems(VERBS), []);
+  const { loaded, progress, days, todayDone } = useProgress();
+  const { isPro } = useSubscriptionStore();
+  // Same unified streak shown on the home page — a learner shouldn't see two
+  // different "streak" numbers for what feels like one continuous habit.
+  const { streak } = useDashboardProgress();
+  // Review/stats only ever draw from unlocked verbs — a free user shouldn't be
+  // quizzed on (or see progress toward) Pro content via the aggregate review flow.
+  const unlockedVerbs = useMemo(() => VERBS.filter((v) => !isVerbLocked(v.verb, isPro)), [isPro]);
+  const all = useMemo(() => buildAllItems(unlockedVerbs), [unlockedVerbs]);
   const [mistakes, setMistakes] = useState<AllItem[]>([]);
 
   const learned = learnedCount(all, progress);

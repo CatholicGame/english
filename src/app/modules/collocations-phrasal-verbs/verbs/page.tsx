@@ -6,6 +6,9 @@ import { useRouter } from "next/navigation";
 import { GROUP_LABELS, VERBS } from "@/data/basic-verbs";
 import { useProgress } from "@/lib/progress-context";
 import { lvlOf } from "@/lib/stats";
+import { useSubscriptionStore } from "@/lib/use-subscription-store";
+import { isVerbLocked } from "@/lib/content-access";
+import { LockIcon } from "@/components/LockIcon";
 
 const GROUP_KEYS = ["all", ...Object.keys(GROUP_LABELS)];
 
@@ -18,6 +21,7 @@ const CheckIcon = ({ className = "h-4 w-4" }: { className?: string }) => (
 export default function VerbsPage() {
   const router = useRouter();
   const { progress } = useProgress();
+  const { isPro } = useSubscriptionStore();
   const [query, setQuery] = useState("");
   const [group, setGroup] = useState("all");
   const [selecting, setSelecting] = useState(false);
@@ -42,6 +46,7 @@ export default function VerbsPage() {
   );
 
   function toggleVerb(verb: string) {
+    if (isVerbLocked(verb, isPro)) return;
     setSelected((prev) => {
       const next = new Set(prev);
       if (next.has(verb)) next.delete(verb);
@@ -112,13 +117,28 @@ export default function VerbsPage() {
             const done = v.items.filter((it) => lvlOf(progress, `${v.verb}::${it.term}`) >= 3).length;
             const pct = v.items.length ? Math.round((done / v.items.length) * 100) : 0;
             const isSel = selected.has(v.verb);
+            const locked = isVerbLocked(v.verb, isPro);
+
+            const nameRow = (
+              <span className="flex items-baseline gap-2">
+                <span className="text-[18px] font-extrabold tracking-tight uppercase">{v.verb}</span>
+                <span className="text-[10px] tracking-wider text-accent">{v.group}</span>
+                {locked && (
+                  <span className="label-xs flex items-center gap-1 whitespace-nowrap text-neutral-500">
+                    <LockIcon />
+                    Pro
+                  </span>
+                )}
+              </span>
+            );
 
             if (selecting) {
               return (
                 <button
                   key={v.verb}
                   onClick={() => toggleVerb(v.verb)}
-                  className="divider-b flex items-center gap-3 px-4 py-3 hover:bg-surface text-left"
+                  disabled={locked}
+                  className={`divider-b flex items-center gap-3 px-4 py-3 text-left ${locked ? "opacity-50" : "hover:bg-surface"}`}
                 >
                   <span className={`flex h-5 w-5 flex-none items-center justify-center border-2 ${
                     isSel ? "border-accent bg-accent text-bg" : "border-neutral-400"
@@ -126,10 +146,7 @@ export default function VerbsPage() {
                     {isSel && <CheckIcon className="h-3 w-3" />}
                   </span>
                   <span className="min-w-0 flex-1">
-                    <span className="flex items-baseline gap-2">
-                      <span className="text-[18px] font-extrabold tracking-tight uppercase">{v.verb}</span>
-                      <span className="text-[10px] tracking-wider text-accent">{v.group}</span>
-                    </span>
+                    {nameRow}
                     <span className="mt-0.5 block truncate text-[11px] text-neutral-600">
                       {v.items.slice(0, 3).map((it) => it.term).join(" · ")}
                     </span>
@@ -146,17 +163,10 @@ export default function VerbsPage() {
               );
             }
 
-            return (
-              <Link
-                key={v.verb}
-                href={`/modules/collocations-phrasal-verbs/verbs/${v.verb.toLowerCase()}`}
-                className="divider-b flex items-center gap-3 px-4 py-3 hover:bg-surface"
-              >
+            const body = (
+              <>
                 <span className="min-w-0 flex-1">
-                  <span className="flex items-baseline gap-2">
-                    <span className="text-[18px] font-extrabold tracking-tight uppercase">{v.verb}</span>
-                    <span className="text-[10px] tracking-wider text-accent">{v.group}</span>
-                  </span>
+                  {nameRow}
                   <span className="mt-0.5 block truncate text-[11px] text-neutral-600">
                     {v.items
                       .slice(0, 3)
@@ -172,6 +182,20 @@ export default function VerbsPage() {
                     <span className="block h-full bg-accent" style={{ width: `${pct}%` }} />
                   </span>
                 </span>
+              </>
+            );
+
+            return locked ? (
+              <div key={v.verb} className="divider-b flex items-center gap-3 px-4 py-3 opacity-50">
+                {body}
+              </div>
+            ) : (
+              <Link
+                key={v.verb}
+                href={`/modules/collocations-phrasal-verbs/verbs/${v.verb.toLowerCase()}`}
+                className="divider-b flex items-center gap-3 px-4 py-3 hover:bg-surface"
+              >
+                {body}
               </Link>
             );
           })}

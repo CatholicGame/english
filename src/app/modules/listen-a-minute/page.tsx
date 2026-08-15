@@ -6,6 +6,9 @@ import { LISTEN_LESSONS, type ListenLesson } from "@/data/listen-a-minute";
 import { getCurrentLesson } from "@/lib/listen-progress";
 import { useProgress } from "@/lib/progress-context";
 import { lvlOf } from "@/lib/stats";
+import { useSubscriptionStore } from "@/lib/use-subscription-store";
+import { isListenLessonLocked } from "@/lib/content-access";
+import { LockIcon } from "@/components/LockIcon";
 
 function ChevronIcon({ open }: { open: boolean }) {
   return (
@@ -26,6 +29,7 @@ function ChevronIcon({ open }: { open: boolean }) {
 
 export default function ListenAMinutePage() {
   const { progress } = useProgress();
+  const { isPro } = useSubscriptionStore();
   const [query, setQuery] = useState("");
   const [collapsed, setCollapsed] = useState<Record<string, boolean>>({});
   const [current, setCurrent] = useState<{ slug: string; step: number } | null>(null);
@@ -43,7 +47,8 @@ export default function ListenAMinutePage() {
     () => (current ? LISTEN_LESSONS.find((l) => l.slug === current.slug) : undefined),
     [current],
   );
-  const showContinue = currentLesson && lvlOf(progress, currentLesson.slug) === 0;
+  const showContinue =
+    currentLesson && lvlOf(progress, currentLesson.slug) === 0 && !isListenLessonLocked(currentLesson.slug, isPro);
 
   const sorted = useMemo(() => [...LISTEN_LESSONS].sort((a, b) => a.title.localeCompare(b.title)), []);
 
@@ -148,14 +153,34 @@ export default function ListenAMinutePage() {
                 <div className="lg:grid lg:grid-cols-2 lg:gap-x-4">
                   {lessons.map((lesson) => {
                     const done = lvlOf(progress, lesson.slug) > 0;
-                    return (
+                    const locked = isListenLessonLocked(lesson.slug, isPro);
+                    const body = (
+                      <>
+                        <span className="text-[16px] font-extrabold">{lesson.title}</span>
+                        {done ? (
+                          <span className="label-xs text-accent">Done</span>
+                        ) : locked ? (
+                          <span className="label-xs flex items-center gap-1 whitespace-nowrap text-neutral-500">
+                            <LockIcon />
+                            Pro
+                          </span>
+                        ) : null}
+                      </>
+                    );
+                    return locked ? (
+                      <div
+                        key={lesson.slug}
+                        className="divider-b flex items-center justify-between gap-3 px-4 py-3 pl-6 opacity-50"
+                      >
+                        {body}
+                      </div>
+                    ) : (
                       <Link
                         key={lesson.slug}
                         href={`/modules/listen-a-minute/${lesson.slug}`}
                         className="divider-b flex items-center justify-between gap-3 px-4 py-3 pl-6 hover:bg-surface"
                       >
-                        <span className="text-[16px] font-extrabold">{lesson.title}</span>
-                        {done && <span className="label-xs text-accent">Done</span>}
+                        {body}
                       </Link>
                     );
                   })}

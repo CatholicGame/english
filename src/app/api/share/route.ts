@@ -2,7 +2,7 @@ import { NextResponse, type NextRequest } from "next/server";
 import { saveShare } from "@/lib/share-store";
 
 export async function POST(request: NextRequest) {
-  const hasSession = request.cookies.get("gd_session") ?? request.cookies.get("guest_ok");
+  const hasSession = request.cookies.get("gd_session");
   if (!hasSession) {
     return NextResponse.json({ ok: false, error: "unauthorized" }, { status: 401 });
   }

@@ -7,7 +7,7 @@ export function proxy(request: NextRequest) {
     return NextResponse.next();
   }
 
-  const seen = request.cookies.get("gd_session") ?? request.cookies.get("guest_ok");
+  const seen = request.cookies.get("gd_session");
   if (!seen) {
     const url = new URL("/login", request.url);
     url.searchParams.set("returnTo", pathname);

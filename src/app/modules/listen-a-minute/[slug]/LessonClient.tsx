@@ -25,6 +25,9 @@ import { ChatInput } from "@/components/ChatInput";
 import { ConversationFeedback } from "@/components/ConversationFeedback";
 import { createShareLink } from "@/lib/share-client";
 import type { SharedConvoPayload } from "@/lib/share-payload";
+import { useSubscriptionStore } from "@/lib/use-subscription-store";
+import { isListenLessonLocked } from "@/lib/content-access";
+import { ProPaywallNotice } from "@/components/ProPaywallNotice";
 
 const MODULE_KEY = "listen-a-minute";
 const TOTAL_STEPS = 4;
@@ -341,6 +344,7 @@ function LessonDiscussion({ lesson }: { lesson: ListenLesson }) {
 export function LessonClient({ slug }: { slug: string }) {
   const router = useRouter();
   const { grade } = useProgress();
+  const { isPro } = useSubscriptionStore();
   const lesson = useMemo(() => LISTEN_LESSONS.find((l) => l.slug === slug), [slug]);
 
   const [step, setStep] = useState(() => {
@@ -410,6 +414,10 @@ export function LessonClient({ slug }: { slug: string }) {
         </button>
       </div>
     );
+  }
+
+  if (isListenLessonLocked(lesson.slug, isPro)) {
+    return <ProPaywallNotice what={`Bài "${lesson.title}"`} />;
   }
 
   function stopBoundWatch() {

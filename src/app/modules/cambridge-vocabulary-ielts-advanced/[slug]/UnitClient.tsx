@@ -31,6 +31,9 @@ import { createShareLink } from "@/lib/share-client";
 import type { SharedConvoPayload } from "@/lib/share-payload";
 import { currentAiLang } from "@/lib/ai-lang-prefs";
 import { CopyButton } from "@/components/CopyButton";
+import { useSubscriptionStore } from "@/lib/use-subscription-store";
+import { isCambridgeUnitLocked } from "@/lib/content-access";
+import { ProPaywallNotice } from "@/components/ProPaywallNotice";
 
 const MODULE_KEY = "cambridge-vocabulary-ielts-advanced";
 
@@ -1926,6 +1929,7 @@ function ListIcon() {
 export function UnitClient({ slug }: { slug: string }) {
   const router = useRouter();
   const { grade } = useProgress();
+  const { isPro } = useSubscriptionStore();
   const unit = useMemo(() => getCambridgeUnit(slug), [slug]);
 
   const [stepIndex, setStepIndex] = useState(0);
@@ -1942,6 +1946,10 @@ export function UnitClient({ slug }: { slug: string }) {
         </button>
       </div>
     );
+  }
+
+  if (isCambridgeUnitLocked(unit.unit, isPro)) {
+    return <ProPaywallNotice what={`Unit ${unit.unit}: ${unit.title}`} />;
   }
 
   const steps: UnitStep[] = unit.steps;

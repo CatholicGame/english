@@ -6,6 +6,20 @@ export function lvlOf(progress: ProgressMap, key: string): number {
   return progress[key]?.l ?? 0;
 }
 
+/** Consecutive days (counting back from today) with at least one graded item
+ * — the same "did I keep the chain going" streak shown per-module today,
+ * extracted so it can also be computed over a merged/unified DaysMap. */
+export function computeStreak(days: DaysMap): number {
+  let streak = 0;
+  for (let i = 0; i < 400; i++) {
+    const d = new Date();
+    d.setDate(d.getDate() - i);
+    if (days[dayKey(d)]) streak++;
+    else if (i > 0) break;
+  }
+  return streak;
+}
+
 export function dueItems(all: AllItem[], progress: ProgressMap): AllItem[] {
   const now = Date.now();
   const due = all.filter((i) => {

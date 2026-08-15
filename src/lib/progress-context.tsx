@@ -4,6 +4,7 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useRef, use
 import { useAuth } from "./auth-context";
 import { dayKey } from "./utils";
 import { addGlobalXP } from "./global-score";
+import { computeStreak } from "./stats";
 
 export interface ProgressEntry {
   l: number;
@@ -30,7 +31,7 @@ interface ProgressContextValue {
 
 const ProgressContext = createContext<ProgressContextValue | null>(null);
 
-function loadState(storageKey: string): ProgressState {
+export function loadState(storageKey: string): ProgressState {
   let progress: ProgressMap = {};
   let days: DaysMap = {};
   try {
@@ -46,7 +47,7 @@ function loadState(storageKey: string): ProgressState {
   return { progress, days };
 }
 
-function persistState(storageKey: string, state: ProgressState) {
+export function persistState(storageKey: string, state: ProgressState) {
   try {
     localStorage.setItem(`${storageKey}:progress`, JSON.stringify(state.progress));
     localStorage.setItem(`${storageKey}:days`, JSON.stringify(state.days));
@@ -55,7 +56,7 @@ function persistState(storageKey: string, state: ProgressState) {
   }
 }
 
-function mergeProgress(local: ProgressMap, cloud: ProgressMap): ProgressMap {
+export function mergeProgress(local: ProgressMap, cloud: ProgressMap): ProgressMap {
   const keys = new Set([...Object.keys(local), ...Object.keys(cloud)]);
   const out: ProgressMap = {};
   for (const k of keys) {
@@ -66,7 +67,7 @@ function mergeProgress(local: ProgressMap, cloud: ProgressMap): ProgressMap {
   return out;
 }
 
-function mergeDays(local: DaysMap, cloud: DaysMap): DaysMap {
+export function mergeDays(local: DaysMap, cloud: DaysMap): DaysMap {
   const keys = new Set([...Object.keys(local), ...Object.keys(cloud)]);
   const out: DaysMap = {};
   for (const k of keys) {
@@ -183,13 +184,7 @@ export function ProgressProvider({
     [storageKey, authenticated, refresh],
   );
 
-  let streak = 0;
-  for (let i = 0; i < 400; i++) {
-    const d = new Date();
-    d.setDate(d.getDate() - i);
-    if (state.days[dayKey(d)]) streak++;
-    else if (i > 0) break;
-  }
+  const streak = computeStreak(state.days);
   const todayDone = state.days[dayKey(new Date())] || 0;
 
   const value = useMemo<ProgressContextValue>(

@@ -7,6 +7,9 @@ import { addGlobalXP } from "@/lib/global-score";
 import { useAiConvoStore } from "@/lib/use-ai-convo-store";
 import type { IntentType } from "@/lib/ai-convo-store";
 import { AiConversationHistory, BatchReviewContent } from "@/components/AiConversationHistory";
+import { useSubscriptionStore } from "@/lib/use-subscription-store";
+import { isVerbLocked } from "@/lib/content-access";
+import { LockIcon } from "@/components/LockIcon";
 
 const MODULE_KEY = "collocations-phrasal-verbs";
 const GROUP_KEYS = ["all", ...Object.keys(GROUP_LABELS)];
@@ -58,6 +61,7 @@ const CheckIcon = ({ className = "h-4 w-4" }: { className?: string }) => (
 
 export default function WritePage() {
   const { appendMessages } = useAiConvoStore(MODULE_KEY);
+  const { isPro } = useSubscriptionStore();
   const [phase, setPhase] = useState<"select" | "write" | "result">("select");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -116,6 +120,7 @@ export default function WritePage() {
   );
 
   function toggleVerb(verb: string) {
+    if (isVerbLocked(verb, isPro)) return;
     setSelected((prev) => {
       const next = new Set(prev);
       if (next.has(verb)) next.delete(verb);
@@ -275,11 +280,13 @@ export default function WritePage() {
             <div className="max-h-[320px] overflow-y-auto rounded border" style={{ borderColor: "var(--color-divider)" }}>
               {listVerbs.map((v) => {
                 const isSel = selected.has(v.verb);
+                const locked = isVerbLocked(v.verb, isPro);
                 return (
                   <button
                     key={v.verb}
                     onClick={() => toggleVerb(v.verb)}
-                    className="flex w-full items-center gap-3 px-3 py-2.5 text-left hover:bg-surface"
+                    disabled={locked}
+                    className={`flex w-full items-center gap-3 px-3 py-2.5 text-left ${locked ? "opacity-50" : "hover:bg-surface"}`}
                     style={{ borderBottom: "1px solid var(--color-divider)" }}
                   >
                     <span className={`flex h-5 w-5 flex-none items-center justify-center border-2 ${isSel ? "border-accent bg-accent text-bg" : "border-neutral-400"}`}>
@@ -289,6 +296,12 @@ export default function WritePage() {
                       <span className="flex items-baseline gap-2">
                         <span className="text-[13px] font-extrabold uppercase tracking-tight">{v.verb}</span>
                         <span className="text-[10px] tracking-wider text-accent">{v.group}</span>
+                        {locked && (
+                          <span className="label-xs flex items-center gap-1 whitespace-nowrap text-neutral-500">
+                            <LockIcon />
+                            Pro
+                          </span>
+                        )}
                       </span>
                       <span className="block truncate text-[11px] text-neutral-600">{v.items.slice(0, 3).map((it) => it.term).join(" · ")}</span>
                     </span>

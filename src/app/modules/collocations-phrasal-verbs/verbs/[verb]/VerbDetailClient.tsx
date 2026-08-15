@@ -8,6 +8,9 @@ import { GROUP_LABELS, VERBS } from "@/data/basic-verbs";
 import { useProgress } from "@/lib/progress-context";
 import { lvlOf } from "@/lib/stats";
 import { speak } from "@/lib/utils";
+import { useSubscriptionStore } from "@/lib/use-subscription-store";
+import { isVerbLocked } from "@/lib/content-access";
+import { ProPaywallNotice } from "@/components/ProPaywallNotice";
 
 const SpeakerIcon = ({ className = "h-4 w-4" }: { className?: string }) => (
   <svg
@@ -66,6 +69,7 @@ function AiSection({ item }: { item: { term: string; type: string; en: string; v
 export function VerbDetailClient({ slug }: { slug: string }) {
   const router = useRouter();
   const { progress } = useProgress();
+  const { isPro } = useSubscriptionStore();
   const [tab, setTab] = useState<"coll" | "phr">("coll");
 
   const verb = useMemo(() => VERBS.find((v) => v.verb.toLowerCase() === slug.toLowerCase()), [slug]);
@@ -82,6 +86,10 @@ export function VerbDetailClient({ slug }: { slug: string }) {
         </button>
       </div>
     );
+  }
+
+  if (isVerbLocked(verb.verb, isPro)) {
+    return <ProPaywallNotice what={`Động từ "${verb.verb}"`} />;
   }
 
   const items = verb.items.filter((it) => (tab === "coll" ? it.type !== "phrasal_verb" : it.type === "phrasal_verb"));

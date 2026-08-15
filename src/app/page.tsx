@@ -1,8 +1,27 @@
+"use client";
+
 import Link from "next/link";
 import { MODULES } from "@/data/modules";
 import { GlobalScoreBadge } from "@/components/GlobalScoreBadge";
+import { useDashboardProgress, type DashboardProgress } from "@/lib/use-dashboard-progress";
+
+function moduleStatLabel(slug: string, d: DashboardProgress): string | null {
+  if (!d.loaded) return null;
+  switch (slug) {
+    case "collocations-phrasal-verbs":
+      return d.collocationsDue > 0 ? `${d.collocationsDue} cụm từ cần ôn hôm nay` : "Đã ôn hết cho hôm nay ✓";
+    case "cambridge-vocabulary-ielts-advanced":
+      return `Đã hoàn thành ${d.cambridgeDone}/${d.cambridgeTotal} unit`;
+    case "listen-a-minute":
+      return `Đã học ${d.listenDone}/${d.listenTotal} bài`;
+    default:
+      return null;
+  }
+}
 
 export default function HomePage() {
+  const dashboard = useDashboardProgress();
+
   return (
     <div className="mx-auto flex min-h-screen w-full max-w-[480px] flex-col bg-bg lg:max-w-[1040px] lg:border-x-2 lg:border-[color:var(--color-divider)]">
       <div className="divider-b px-4 py-6">
@@ -11,9 +30,28 @@ export default function HomePage() {
       </div>
 
       <div className="divider-b px-4 py-4">
-        <div className="flex items-center justify-between">
-          <span className="label-xs uppercase tracking-wider">Total XP</span>
-          <GlobalScoreBadge className="text-[15px]" />
+        <div className="label-xs mb-2">Tổng quan</div>
+        <div className="grid grid-cols-3 gap-[2px] bg-[color:var(--color-divider)]">
+          <div className="bg-bg px-3 py-3">
+            <div className="text-[24px] leading-none font-extrabold">🔥 {dashboard.streak}</div>
+            <div className="label-xs mt-1.5">Ngày liên tiếp</div>
+          </div>
+          <Link href="/dictionary" className="bg-bg px-3 py-3 hover:bg-surface">
+            <div className="text-[24px] leading-none font-extrabold">{dashboard.wordsSaved}</div>
+            <div className="label-xs mt-1.5">Từ đã lưu</div>
+          </Link>
+          <div className="bg-bg px-3 py-3">
+            <GlobalScoreBadge className="text-[24px] leading-none font-extrabold" />
+            <div className="label-xs mt-1.5">Tổng XP</div>
+          </div>
+        </div>
+        <div className="mt-3 flex h-8 items-end justify-between gap-1">
+          {dashboard.weekBars.map((bar, i) => (
+            <div key={i} className="flex flex-1 flex-col items-stretch gap-1">
+              <div style={{ background: bar.color, height: `${bar.h}px` }} />
+              <span className="text-center text-[9px] tracking-wider text-neutral-600">{bar.label}</span>
+            </div>
+          ))}
         </div>
       </div>
 
@@ -32,7 +70,9 @@ export default function HomePage() {
                   <span className="label-xs whitespace-nowrap text-accent">{m.subtitle}</span>
                 </div>
                 <p className="mt-2 text-[13px] leading-relaxed text-neutral-700">{m.description}</p>
-                <div className="mt-3 text-[11px] text-neutral-600">{m.statsLabel}</div>
+                <div className="mt-3 text-[11px] font-bold text-accent-800">
+                  {moduleStatLabel(m.slug, dashboard) ?? m.statsLabel}
+                </div>
               </Link>
             ) : (
               <div key={m.slug} className="border border-dashed border-neutral-400 p-4 opacity-60">

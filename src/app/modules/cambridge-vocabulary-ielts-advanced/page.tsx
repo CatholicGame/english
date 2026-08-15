@@ -4,26 +4,13 @@ import Link from "next/link";
 import { UNITS_META } from "@/data/cambridge-vocabulary-ielts";
 import { useProgress } from "@/lib/progress-context";
 import { lvlOf } from "@/lib/stats";
-
-function LockIcon() {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={2}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="block h-3.5 w-3.5 flex-none"
-    >
-      <rect x="3" y="11" width="18" height="11" rx="2" />
-      <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-    </svg>
-  );
-}
+import { useSubscriptionStore } from "@/lib/use-subscription-store";
+import { isCambridgeUnitLocked } from "@/lib/content-access";
+import { LockIcon } from "@/components/LockIcon";
 
 export default function CambridgeUnitsPage() {
   const { progress } = useProgress();
+  const { isPro } = useSubscriptionStore();
   const total = UNITS_META.length;
   const doneCount = UNITS_META.filter((u) => lvlOf(progress, u.slug) > 0).length;
   const donePct = total ? Math.round((doneCount / total) * 100) : 0;
@@ -66,6 +53,7 @@ export default function CambridgeUnitsPage() {
         <div className="lg:grid lg:grid-cols-2 lg:gap-x-4">
           {UNITS_META.map((u) => {
             const done = lvlOf(progress, u.slug) > 0;
+            const locked = u.available && isCambridgeUnitLocked(u.unit, isPro);
             const body = (
               <>
                 <div className="flex items-baseline justify-between gap-3">
@@ -80,6 +68,11 @@ export default function CambridgeUnitsPage() {
                       <LockIcon />
                       Soon
                     </span>
+                  ) : locked ? (
+                    <span className="label-xs flex items-center gap-1 whitespace-nowrap text-neutral-500">
+                      <LockIcon />
+                      Pro
+                    </span>
                   ) : null}
                 </div>
                 <div className="mt-1 text-[12px] text-neutral-600">{u.topics}</div>
@@ -88,7 +81,7 @@ export default function CambridgeUnitsPage() {
                 </div>
               </>
             );
-            return u.available ? (
+            return u.available && !locked ? (
               <Link
                 key={u.slug}
                 href={`/modules/cambridge-vocabulary-ielts-advanced/${u.slug}`}

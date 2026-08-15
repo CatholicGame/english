@@ -69,7 +69,7 @@ function AiSection({ item }: { item: { term: string; type: string; en: string; v
 export function VerbDetailClient({ slug }: { slug: string }) {
   const router = useRouter();
   const { progress } = useProgress();
-  const { isPro } = useSubscriptionStore();
+  const { isUnlocked } = useSubscriptionStore();
   const [tab, setTab] = useState<"coll" | "phr">("coll");
 
   const verb = useMemo(() => VERBS.find((v) => v.verb.toLowerCase() === slug.toLowerCase()), [slug]);
@@ -88,7 +88,7 @@ export function VerbDetailClient({ slug }: { slug: string }) {
     );
   }
 
-  if (isVerbLocked(verb.verb, isPro)) {
+  if (isVerbLocked(verb.verb, isUnlocked)) {
     return <ProPaywallNotice what={`Động từ "${verb.verb}"`} />;
   }
 

@@ -9,6 +9,7 @@ import { lvlOf } from "@/lib/stats";
 import { useSubscriptionStore } from "@/lib/use-subscription-store";
 import { isListenLessonLocked } from "@/lib/content-access";
 import { LockIcon } from "@/components/LockIcon";
+import { PurchaseModal } from "@/components/PurchaseModal";
 
 function ChevronIcon({ open }: { open: boolean }) {
   return (
@@ -29,10 +30,11 @@ function ChevronIcon({ open }: { open: boolean }) {
 
 export default function ListenAMinutePage() {
   const { progress } = useProgress();
-  const { isPro } = useSubscriptionStore();
+  const { isUnlocked } = useSubscriptionStore();
   const [query, setQuery] = useState("");
   const [collapsed, setCollapsed] = useState<Record<string, boolean>>({});
   const [current, setCurrent] = useState<{ slug: string; step: number } | null>(null);
+  const [showPurchase, setShowPurchase] = useState(false);
   const ql = query.trim().toLowerCase();
 
   useEffect(() => {
@@ -48,7 +50,7 @@ export default function ListenAMinutePage() {
     [current],
   );
   const showContinue =
-    currentLesson && lvlOf(progress, currentLesson.slug) === 0 && !isListenLessonLocked(currentLesson.slug, isPro);
+    currentLesson && lvlOf(progress, currentLesson.slug) === 0 && !isListenLessonLocked(currentLesson.slug, isUnlocked);
 
   const sorted = useMemo(() => [...LISTEN_LESSONS].sort((a, b) => a.title.localeCompare(b.title)), []);
 
@@ -153,7 +155,7 @@ export default function ListenAMinutePage() {
                 <div className="lg:grid lg:grid-cols-2 lg:gap-x-4">
                   {lessons.map((lesson) => {
                     const done = lvlOf(progress, lesson.slug) > 0;
-                    const locked = isListenLessonLocked(lesson.slug, isPro);
+                    const locked = isListenLessonLocked(lesson.slug, isUnlocked);
                     const body = (
                       <>
                         <span className="text-[16px] font-extrabold">{lesson.title}</span>
@@ -162,18 +164,19 @@ export default function ListenAMinutePage() {
                         ) : locked ? (
                           <span className="label-xs flex items-center gap-1 whitespace-nowrap text-neutral-500">
                             <LockIcon />
-                            Pro
+                            Khoá
                           </span>
                         ) : null}
                       </>
                     );
                     return locked ? (
-                      <div
+                      <button
                         key={lesson.slug}
-                        className="divider-b flex items-center justify-between gap-3 px-4 py-3 pl-6 opacity-50"
+                        onClick={() => setShowPurchase(true)}
+                        className="divider-b flex w-full items-center justify-between gap-3 px-4 py-3 pl-6 text-left opacity-50 hover:opacity-70"
                       >
                         {body}
-                      </div>
+                      </button>
                     ) : (
                       <Link
                         key={lesson.slug}
@@ -191,6 +194,7 @@ export default function ListenAMinutePage() {
         })}
         {filtered.length === 0 && <div className="px-4 py-8 text-[13px] text-neutral-600">No match.</div>}
       </div>
+      {showPurchase && <PurchaseModal onClose={() => setShowPurchase(false)} />}
     </div>
   );
 }

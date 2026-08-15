@@ -9,6 +9,7 @@ import { lvlOf } from "@/lib/stats";
 import { useSubscriptionStore } from "@/lib/use-subscription-store";
 import { isVerbLocked } from "@/lib/content-access";
 import { LockIcon } from "@/components/LockIcon";
+import { PurchaseModal } from "@/components/PurchaseModal";
 
 const GROUP_KEYS = ["all", ...Object.keys(GROUP_LABELS)];
 
@@ -21,11 +22,12 @@ const CheckIcon = ({ className = "h-4 w-4" }: { className?: string }) => (
 export default function VerbsPage() {
   const router = useRouter();
   const { progress } = useProgress();
-  const { isPro } = useSubscriptionStore();
+  const { isUnlocked } = useSubscriptionStore();
   const [query, setQuery] = useState("");
   const [group, setGroup] = useState("all");
   const [selecting, setSelecting] = useState(false);
   const [selected, setSelected] = useState<Set<string>>(new Set());
+  const [showPurchase, setShowPurchase] = useState(false);
 
   const ql = query.trim().toLowerCase();
 
@@ -46,7 +48,10 @@ export default function VerbsPage() {
   );
 
   function toggleVerb(verb: string) {
-    if (isVerbLocked(verb, isPro)) return;
+    if (isVerbLocked(verb, isUnlocked)) {
+      setShowPurchase(true);
+      return;
+    }
     setSelected((prev) => {
       const next = new Set(prev);
       if (next.has(verb)) next.delete(verb);
@@ -117,7 +122,7 @@ export default function VerbsPage() {
             const done = v.items.filter((it) => lvlOf(progress, `${v.verb}::${it.term}`) >= 3).length;
             const pct = v.items.length ? Math.round((done / v.items.length) * 100) : 0;
             const isSel = selected.has(v.verb);
-            const locked = isVerbLocked(v.verb, isPro);
+            const locked = isVerbLocked(v.verb, isUnlocked);
 
             const nameRow = (
               <span className="flex items-baseline gap-2">
@@ -126,7 +131,7 @@ export default function VerbsPage() {
                 {locked && (
                   <span className="label-xs flex items-center gap-1 whitespace-nowrap text-neutral-500">
                     <LockIcon />
-                    Pro
+                    Khoá
                   </span>
                 )}
               </span>
@@ -137,8 +142,7 @@ export default function VerbsPage() {
                 <button
                   key={v.verb}
                   onClick={() => toggleVerb(v.verb)}
-                  disabled={locked}
-                  className={`divider-b flex items-center gap-3 px-4 py-3 text-left ${locked ? "opacity-50" : "hover:bg-surface"}`}
+                  className={`divider-b flex items-center gap-3 px-4 py-3 text-left ${locked ? "opacity-50 hover:opacity-70" : "hover:bg-surface"}`}
                 >
                   <span className={`flex h-5 w-5 flex-none items-center justify-center border-2 ${
                     isSel ? "border-accent bg-accent text-bg" : "border-neutral-400"
@@ -186,9 +190,13 @@ export default function VerbsPage() {
             );
 
             return locked ? (
-              <div key={v.verb} className="divider-b flex items-center gap-3 px-4 py-3 opacity-50">
+              <button
+                key={v.verb}
+                onClick={() => setShowPurchase(true)}
+                className="divider-b flex w-full items-center gap-3 px-4 py-3 text-left opacity-50 hover:opacity-70"
+              >
                 {body}
-              </div>
+              </button>
             ) : (
               <Link
                 key={v.verb}
@@ -233,6 +241,7 @@ export default function VerbsPage() {
           </div>
         </div>
       )}
+      {showPurchase && <PurchaseModal onClose={() => setShowPurchase(false)} />}
     </div>
   );
 }

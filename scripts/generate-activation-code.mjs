@@ -1,7 +1,11 @@
-// Generates the manual activation code for a Google account email, to hand out
-// after confirming a bank/QR-code payment out-of-band (no payment gateway is
-// wired up yet — see src/lib/subscription-store.ts). The user redeems the code
-// in Settings -> "Gói dịch vụ", which posts to /api/account/activate.
+// Generates the manual activation codes for a Google account email, to hand
+// out after confirming a bank/QR-code payment out-of-band (no payment gateway
+// is wired up yet — see src/lib/subscription-store.ts). Prints one code per
+// package since the amount actually paid determines which one to send — the
+// user redeems whichever code you give them in Settings -> "Gói dịch vụ" (or
+// the popup shown when tapping locked content), which posts to
+// /api/account/activate; the server figures out which package the code
+// belongs to on its own.
 //
 // Usage:
 //   node scripts/generate-activation-code.mjs user@gmail.com
@@ -44,10 +48,22 @@ if (!secret) {
   process.exit(1);
 }
 
-const hash = createHmac("sha256", secret).update(email.trim().toLowerCase()).digest("hex").toUpperCase();
-const raw = hash.slice(0, 8);
-const code = `${raw.slice(0, 4)}-${raw.slice(4)}`;
+// Keep in sync with PRICING_PLANS in src/lib/subscription-store.ts.
+const PLANS = [
+  { cycle: "monthly", label: "1 tháng", priceVnd: 50_000 },
+  { cycle: "quarterly", label: "3 tháng", priceVnd: 130_000 },
+  { cycle: "semiannual", label: "6 tháng", priceVnd: 220_000 },
+  { cycle: "yearly", label: "12 tháng", priceVnd: 360_000 },
+];
 
-console.log(`Email:      ${email}`);
-console.log(`Code:       ${code}`);
-console.log(`Redeem at:  Settings (gear icon) -> Gói dịch vụ, after signing in with this Google account.`);
+function codeFor(cycle) {
+  const hash = createHmac("sha256", secret).update(`${email.trim().toLowerCase()}:${cycle}`).digest("hex").toUpperCase();
+  const raw = hash.slice(0, 8);
+  return `${raw.slice(0, 4)}-${raw.slice(4)}`;
+}
+
+console.log(`Email: ${email}\n`);
+for (const plan of PLANS) {
+  console.log(`${plan.label.padEnd(10)} ${plan.priceVnd.toLocaleString("vi-VN")}đ   ${codeFor(plan.cycle)}`);
+}
+console.log(`\nGửi ĐÚNG 1 mã tương ứng với gói người dùng đã thanh toán. Nhập ở Settings (bánh răng) -> Gói dịch vụ, hoặc popup hiện ra khi bấm vào nội dung bị khoá.`);

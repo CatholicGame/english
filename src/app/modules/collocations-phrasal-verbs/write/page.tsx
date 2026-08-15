@@ -10,6 +10,7 @@ import { AiConversationHistory, BatchReviewContent } from "@/components/AiConver
 import { useSubscriptionStore } from "@/lib/use-subscription-store";
 import { isVerbLocked } from "@/lib/content-access";
 import { LockIcon } from "@/components/LockIcon";
+import { PurchaseModal } from "@/components/PurchaseModal";
 
 const MODULE_KEY = "collocations-phrasal-verbs";
 const GROUP_KEYS = ["all", ...Object.keys(GROUP_LABELS)];
@@ -61,10 +62,11 @@ const CheckIcon = ({ className = "h-4 w-4" }: { className?: string }) => (
 
 export default function WritePage() {
   const { appendMessages } = useAiConvoStore(MODULE_KEY);
-  const { isPro } = useSubscriptionStore();
+  const { isUnlocked } = useSubscriptionStore();
   const [phase, setPhase] = useState<"select" | "write" | "result">("select");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [showPurchase, setShowPurchase] = useState(false);
 
   // Select phase
   const [query, setQuery] = useState("");
@@ -120,7 +122,10 @@ export default function WritePage() {
   );
 
   function toggleVerb(verb: string) {
-    if (isVerbLocked(verb, isPro)) return;
+    if (isVerbLocked(verb, isUnlocked)) {
+      setShowPurchase(true);
+      return;
+    }
     setSelected((prev) => {
       const next = new Set(prev);
       if (next.has(verb)) next.delete(verb);
@@ -280,13 +285,12 @@ export default function WritePage() {
             <div className="max-h-[320px] overflow-y-auto rounded border" style={{ borderColor: "var(--color-divider)" }}>
               {listVerbs.map((v) => {
                 const isSel = selected.has(v.verb);
-                const locked = isVerbLocked(v.verb, isPro);
+                const locked = isVerbLocked(v.verb, isUnlocked);
                 return (
                   <button
                     key={v.verb}
                     onClick={() => toggleVerb(v.verb)}
-                    disabled={locked}
-                    className={`flex w-full items-center gap-3 px-3 py-2.5 text-left ${locked ? "opacity-50" : "hover:bg-surface"}`}
+                    className={`flex w-full items-center gap-3 px-3 py-2.5 text-left ${locked ? "opacity-50 hover:opacity-70" : "hover:bg-surface"}`}
                     style={{ borderBottom: "1px solid var(--color-divider)" }}
                   >
                     <span className={`flex h-5 w-5 flex-none items-center justify-center border-2 ${isSel ? "border-accent bg-accent text-bg" : "border-neutral-400"}`}>
@@ -299,7 +303,7 @@ export default function WritePage() {
                         {locked && (
                           <span className="label-xs flex items-center gap-1 whitespace-nowrap text-neutral-500">
                             <LockIcon />
-                            Pro
+                            Khoá
                           </span>
                         )}
                       </span>
@@ -403,6 +407,7 @@ export default function WritePage() {
       )}
 
       <AiConversationHistory moduleKey={MODULE_KEY} itemKey="__writing__" filterIntent="cpv_writing_review" />
+      {showPurchase && <PurchaseModal onClose={() => setShowPurchase(false)} />}
     </div>
   );
 }

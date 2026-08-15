@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { UNITS_META } from "@/data/cambridge-vocabulary-ielts";
 import { useProgress } from "@/lib/progress-context";
@@ -7,10 +8,12 @@ import { lvlOf } from "@/lib/stats";
 import { useSubscriptionStore } from "@/lib/use-subscription-store";
 import { isCambridgeUnitLocked } from "@/lib/content-access";
 import { LockIcon } from "@/components/LockIcon";
+import { PurchaseModal } from "@/components/PurchaseModal";
 
 export default function CambridgeUnitsPage() {
   const { progress } = useProgress();
-  const { isPro } = useSubscriptionStore();
+  const { isUnlocked } = useSubscriptionStore();
+  const [showPurchase, setShowPurchase] = useState(false);
   const total = UNITS_META.length;
   const doneCount = UNITS_META.filter((u) => lvlOf(progress, u.slug) > 0).length;
   const donePct = total ? Math.round((doneCount / total) * 100) : 0;
@@ -53,7 +56,7 @@ export default function CambridgeUnitsPage() {
         <div className="lg:grid lg:grid-cols-2 lg:gap-x-4">
           {UNITS_META.map((u) => {
             const done = lvlOf(progress, u.slug) > 0;
-            const locked = u.available && isCambridgeUnitLocked(u.unit, isPro);
+            const locked = u.available && isCambridgeUnitLocked(u.unit, isUnlocked);
             const body = (
               <>
                 <div className="flex items-baseline justify-between gap-3">
@@ -71,7 +74,7 @@ export default function CambridgeUnitsPage() {
                   ) : locked ? (
                     <span className="label-xs flex items-center gap-1 whitespace-nowrap text-neutral-500">
                       <LockIcon />
-                      Pro
+                      Khoá
                     </span>
                   ) : null}
                 </div>
@@ -81,7 +84,18 @@ export default function CambridgeUnitsPage() {
                 </div>
               </>
             );
-            return u.available && !locked ? (
+            if (locked) {
+              return (
+                <button
+                  key={u.slug}
+                  onClick={() => setShowPurchase(true)}
+                  className="divider-b block w-full px-4 py-3 text-left opacity-50 hover:opacity-70"
+                >
+                  {body}
+                </button>
+              );
+            }
+            return u.available ? (
               <Link
                 key={u.slug}
                 href={`/modules/cambridge-vocabulary-ielts-advanced/${u.slug}`}
@@ -97,6 +111,7 @@ export default function CambridgeUnitsPage() {
           })}
         </div>
       </div>
+      {showPurchase && <PurchaseModal onClose={() => setShowPurchase(false)} />}
     </div>
   );
 }

@@ -344,7 +344,7 @@ function LessonDiscussion({ lesson }: { lesson: ListenLesson }) {
 export function LessonClient({ slug }: { slug: string }) {
   const router = useRouter();
   const { grade } = useProgress();
-  const { isPro } = useSubscriptionStore();
+  const { isUnlocked } = useSubscriptionStore();
   const lesson = useMemo(() => LISTEN_LESSONS.find((l) => l.slug === slug), [slug]);
 
   const [step, setStep] = useState(() => {
@@ -416,7 +416,7 @@ export function LessonClient({ slug }: { slug: string }) {
     );
   }
 
-  if (isListenLessonLocked(lesson.slug, isPro)) {
+  if (isListenLessonLocked(lesson.slug, isUnlocked)) {
     return <ProPaywallNotice what={`Bài "${lesson.title}"`} />;
   }
 

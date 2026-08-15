@@ -27,13 +27,14 @@ const PRACTICE_MODES = [
 export default function TodayPage() {
   const router = useRouter();
   const { loaded, progress, days, todayDone } = useProgress();
-  const { isPro } = useSubscriptionStore();
+  const { isUnlocked } = useSubscriptionStore();
   // Same unified streak shown on the home page — a learner shouldn't see two
   // different "streak" numbers for what feels like one continuous habit.
   const { streak } = useDashboardProgress();
-  // Review/stats only ever draw from unlocked verbs — a free user shouldn't be
-  // quizzed on (or see progress toward) Pro content via the aggregate review flow.
-  const unlockedVerbs = useMemo(() => VERBS.filter((v) => !isVerbLocked(v.verb, isPro)), [isPro]);
+  // Review/stats only ever draw from unlocked verbs — a locked-out user
+  // shouldn't be quizzed on (or see progress toward) locked content via the
+  // aggregate review flow.
+  const unlockedVerbs = useMemo(() => VERBS.filter((v) => !isVerbLocked(v.verb, isUnlocked)), [isUnlocked]);
   const all = useMemo(() => buildAllItems(unlockedVerbs), [unlockedVerbs]);
   const [mistakes, setMistakes] = useState<AllItem[]>([]);
 

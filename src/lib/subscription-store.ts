@@ -1,37 +1,94 @@
-// Dummy/interim entitlement record — there is no payment gateway wired up yet
-// (the QR-code payment provider account is being set up separately), so "has
-// this person paid" is tracked manually: after confirming a bank/QR transfer
-// out-of-band, the admin generates an activation code (scripts/generate-activation-code.mjs)
-// and the user redeems it via /api/account/activate. The record is then synced
-// through the same personal-Drive appDataFolder pattern as the dictionary/
-// translations stores (see google-drive.ts), so it survives a refresh and
-// follows the user across devices — but note it is NOT a real source of truth
-// for billing (the client could edit its own local copy). Replace this whole
-// module with server-side webhook-driven entitlement once a real payment
-// gateway is integrated.
+// Entitlement record: every new account gets a 3-day free trial with everything
+// unlocked (starting the moment the account is first seen — stamped server-side,
+// see /api/drive/subscription), then locked content (src/lib/content-access.ts)
+// reverts to its normal free/locked split until the user pays for a duration-based
+// package. There is no payment gateway wired up yet (see docs/subscription-interim-system.md)
+// — paying still means a manual bank/QR transfer confirmed out-of-band, after which
+// the admin issues an activation code (scripts/generate-activation-code.mjs) tied to
+// the specific package purchased, redeemed via /api/account/activate.
 
-export type SubscriptionPlan = "free" | "pro";
+export type BillingCycle = "monthly" | "quarterly" | "semiannual" | "yearly";
+
+export interface PricingPlan {
+  cycle: BillingCycle;
+  label: string;
+  months: number;
+  priceVnd: number;
+  /** Short, relatable "this costs about as much as X" hook shown next to the
+   * price — makes the number feel light instead of abstract. */
+  hook?: string;
+}
+
+export const TRIAL_DAYS = 3;
+const DAY_MS = 24 * 60 * 60 * 1000;
+
+// 1 month is deliberately the most expensive per-month rate — longer
+// commitments get a steadily bigger discount (13% / 27% / 40% off the
+// monthly rate) to make the longer packages the obviously better deal.
+export const PRICING_PLANS: PricingPlan[] = [
+  { cycle: "monthly", label: "1 tháng", months: 1, priceVnd: 50_000, hook: "🧋 bằng 1 cốc trà sữa" },
+  { cycle: "quarterly", label: "3 tháng", months: 3, priceVnd: 130_000 },
+  { cycle: "semiannual", label: "6 tháng", months: 6, priceVnd: 220_000 },
+  { cycle: "yearly", label: "12 tháng", months: 12, priceVnd: 360_000, hook: "☕ Chưa tới 1.000đ/ngày" },
+];
 
 export interface SubscriptionData {
-  plan: SubscriptionPlan;
-  /** How this plan was granted — always "manual_dummy" until a real gateway exists. */
-  source: "manual_dummy" | "none";
-  activatedAt?: number;
+  /** Set once, server-side, the first time this account is ever seen — never reset. */
+  trialStartedAt: number;
+  /** Timestamp when paid access runs out; absent if never paid. */
+  paidUntil?: number;
+  lastCycle?: BillingCycle;
   note?: string;
   updatedAt: number;
 }
 
-const STORAGE_KEY = "subscription:status";
-
 export const DEFAULT_SUBSCRIPTION: SubscriptionData = {
-  plan: "free",
-  source: "none",
+  trialStartedAt: 0,
   updatedAt: 0,
 };
 
+export function isTrialActive(data: SubscriptionData, now: number = Date.now()): boolean {
+  return data.trialStartedAt > 0 && now < data.trialStartedAt + TRIAL_DAYS * DAY_MS;
+}
+
+export function isPaidActive(data: SubscriptionData, now: number = Date.now()): boolean {
+  return data.paidUntil != null && now < data.paidUntil;
+}
+
+export function isUnlocked(data: SubscriptionData, now: number = Date.now()): boolean {
+  return isTrialActive(data, now) || isPaidActive(data, now);
+}
+
+/** Whole days left in the trial (0 once expired or never started). */
+export function trialDaysLeft(data: SubscriptionData, now: number = Date.now()): number {
+  if (!isTrialActive(data, now)) return 0;
+  return Math.max(0, Math.ceil((data.trialStartedAt + TRIAL_DAYS * DAY_MS - now) / DAY_MS));
+}
+
+function addMonths(ts: number, months: number): number {
+  const d = new Date(ts);
+  d.setMonth(d.getMonth() + months);
+  return d.getTime();
+}
+
+/** Extends paid access by the purchased package — stacks on top of any
+ * remaining paid time instead of resetting it, so renewing early doesn't lose
+ * the unused balance. */
+export function withPaidExtended(
+  current: SubscriptionData,
+  cycle: BillingCycle,
+  note: string,
+  now: number = Date.now(),
+): SubscriptionData {
+  const plan = PRICING_PLANS.find((p) => p.cycle === cycle);
+  const months = plan?.months ?? 1;
+  const base = Math.max(current.paidUntil ?? 0, now);
+  return { ...current, paidUntil: addMonths(base, months), lastCycle: cycle, note, updatedAt: now };
+}
+
 export function loadSubscription(): SubscriptionData {
   try {
-    const raw = localStorage.getItem(STORAGE_KEY);
+    const raw = localStorage.getItem("subscription:status");
     return raw ? { ...DEFAULT_SUBSCRIPTION, ...JSON.parse(raw) } : DEFAULT_SUBSCRIPTION;
   } catch {
     return DEFAULT_SUBSCRIPTION;
@@ -40,25 +97,26 @@ export function loadSubscription(): SubscriptionData {
 
 export function persistSubscription(data: SubscriptionData) {
   try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    localStorage.setItem("subscription:status", JSON.stringify(data));
   } catch {
     // localStorage unavailable (private mode, quota)
   }
 }
 
-export function withPlanActivated(note: string): SubscriptionData {
-  return {
-    plan: "pro",
-    source: "manual_dummy",
-    activatedAt: Date.now(),
-    note,
-    updatedAt: Date.now(),
-  };
-}
-
-/** Cloud always wins over the free default (there's only ever one writer of a
- * "pro" grant — the activation route — so no genuine conflict to resolve; just
- * keep whichever record is newer). */
+/** trialStartedAt: earliest wins (never shorten someone's trial by merging).
+ * paidUntil: latest wins. Everything else follows whichever side is newer. */
 export function mergeSubscription(local: SubscriptionData, cloud: SubscriptionData): SubscriptionData {
-  return cloud.updatedAt >= local.updatedAt ? cloud : local;
+  const trialStartedAt =
+    local.trialStartedAt > 0 && cloud.trialStartedAt > 0
+      ? Math.min(local.trialStartedAt, cloud.trialStartedAt)
+      : local.trialStartedAt || cloud.trialStartedAt;
+  const paidUntil = Math.max(local.paidUntil ?? 0, cloud.paidUntil ?? 0) || undefined;
+  const newer = local.updatedAt >= cloud.updatedAt ? local : cloud;
+  return {
+    trialStartedAt,
+    paidUntil,
+    lastCycle: newer.lastCycle,
+    note: newer.note,
+    updatedAt: Math.max(local.updatedAt, cloud.updatedAt),
+  };
 }

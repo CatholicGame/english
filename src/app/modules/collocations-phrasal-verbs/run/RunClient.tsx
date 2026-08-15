@@ -66,11 +66,11 @@ export function RunClient() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { loaded, progress, grade } = useProgress();
-  const { isPro } = useSubscriptionStore();
+  const { isUnlocked } = useSubscriptionStore();
   // Same rule as the Today hub: never quiz on Pro-locked verbs, even via a
   // hand-crafted verbs= param — filtering the pool here means locked items
   // simply aren't there to match against.
-  const unlockedVerbs = useMemo(() => VERBS.filter((v) => !isVerbLocked(v.verb, isPro)), [isPro]);
+  const unlockedVerbs = useMemo(() => VERBS.filter((v) => !isVerbLocked(v.verb, isUnlocked)), [isUnlocked]);
   const all = useMemo(() => buildAllItems(unlockedVerbs), [unlockedVerbs]);
 
   const [session, setSession] = useState<Session | null | undefined>(undefined);

@@ -7,6 +7,8 @@ import {
   loadSubscription,
   mergeSubscription,
   persistSubscription,
+  isUnlocked as computeIsUnlocked,
+  trialDaysLeft as computeTrialDaysLeft,
   type SubscriptionData,
 } from "./subscription-store";
 
@@ -69,5 +71,12 @@ export function useSubscriptionStore() {
     setData(data);
   }, []);
 
-  return { subscription, isPro: subscription.plan === "pro", applyServerSubscription };
+  // updatedAt === 0 means we haven't heard from Drive yet on this device (a
+  // fresh sign-in with no local cache) — assume unlocked until we know
+  // otherwise instead of flashing a paywall at a legitimate trial/paid user.
+  const loaded = subscription.updatedAt > 0;
+  const isUnlocked = loaded ? computeIsUnlocked(subscription) : true;
+  const trialDaysLeft = loaded ? computeTrialDaysLeft(subscription) : 0;
+
+  return { subscription, loaded, isUnlocked, trialDaysLeft, applyServerSubscription };
 }

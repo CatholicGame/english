@@ -52,7 +52,7 @@ export interface DashboardProgress {
 
 export function useDashboardProgress(): DashboardProgress {
   const { loading: authLoading, authenticated, refresh } = useAuth();
-  const { isPro } = useSubscriptionStore();
+  const { isUnlocked } = useSubscriptionStore();
   const { entries } = useDictionaryStore();
   const [snapshots, setSnapshots] = useState<Snapshots | null>(null);
 
@@ -108,9 +108,9 @@ export function useDashboardProgress(): DashboardProgress {
 
   const collocationsDue = useMemo(() => {
     if (!snapshots) return 0;
-    const unlockedVerbs = VERBS.filter((v) => !isVerbLocked(v.verb, isPro));
+    const unlockedVerbs = VERBS.filter((v) => !isVerbLocked(v.verb, isUnlocked));
     return dueCount(buildAllItems(unlockedVerbs), snapshots.collocations.progress);
-  }, [snapshots, isPro]);
+  }, [snapshots, isUnlocked]);
 
   const cambridgeDone = useMemo(() => {
     if (!snapshots) return 0;

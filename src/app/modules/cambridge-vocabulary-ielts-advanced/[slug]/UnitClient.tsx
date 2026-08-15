@@ -1929,7 +1929,7 @@ function ListIcon() {
 export function UnitClient({ slug }: { slug: string }) {
   const router = useRouter();
   const { grade } = useProgress();
-  const { isPro } = useSubscriptionStore();
+  const { isUnlocked } = useSubscriptionStore();
   const unit = useMemo(() => getCambridgeUnit(slug), [slug]);
 
   const [stepIndex, setStepIndex] = useState(0);
@@ -1948,7 +1948,7 @@ export function UnitClient({ slug }: { slug: string }) {
     );
   }
 
-  if (isCambridgeUnitLocked(unit.unit, isPro)) {
+  if (isCambridgeUnitLocked(unit.unit, isUnlocked)) {
     return <ProPaywallNotice what={`Unit ${unit.unit}: ${unit.title}`} />;
   }
 

@@ -18,6 +18,16 @@ export async function GET() {
   if (filesChanged(auth.session.files, files)) {
     await writeSession({ ...auth.session, files });
   }
+
+  // First time this account is ever seen — stamp the 3-day trial start using
+  // the server clock (not the client's), and persist it immediately so it's
+  // never re-stamped later.
+  if (!data) {
+    const started: SubscriptionData = { trialStartedAt: Date.now(), updatedAt: Date.now() };
+    await writeDriveSubscription(auth.accessToken, auth.session, started);
+    return NextResponse.json({ data: started });
+  }
+
   return NextResponse.json({ data });
 }
 

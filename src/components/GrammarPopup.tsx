@@ -4,16 +4,23 @@
 // on any text selection. The AI first classifies whether the selection shows
 // a nameable grammar structure (needs at least a full clause/sentence); if it
 // does, the result is saved to the personal grammar dictionary
-// (grammar-store.ts) and the popup turns into an open chat so the learner can
-// ask follow-up questions, backed by the same ai-convo-store persistence used
-// everywhere else. Past entries sharing the same grammar category are listed
-// as a reminder ("you've seen this structure before").
+// (grammar-store.ts) and the popup grows a sidebar + an open chat:
+//
+// - Sidebar: every saved grammar entry, grouped by category (grammar repeats
+//   across many sentences — Second Conditional shows up again and again — so
+//   this is a browsable index, not just a flat "similar" reminder). Picking
+//   an entry switches the detail pane to that record.
+// - Detail pane: category/explanation/example for whichever record is
+//   selected, plus its own ongoing chat (reuses ChatInput + useAiConvoStore,
+//   same persistence pattern as LessonDiscussion). GrammarChat is remounted
+//   (via `key`) per record so each one's chat state stays independent without
+//   manual reset logic.
 
 import { useEffect, useRef, useState } from "react";
 import { Modal } from "./Modal";
 import { ChatInput } from "./ChatInput";
 import { CopyButton } from "./CopyButton";
-import { findSimilarByCategory, normalizeGrammarText } from "@/lib/grammar-store";
+import { normalizeCategory, normalizeGrammarText, type GrammarData, type GrammarEntry } from "@/lib/grammar-store";
 import { useGrammarStore } from "@/lib/use-grammar-store";
 import { useAiConvoStore } from "@/lib/use-ai-convo-store";
 import type { AiMessage } from "@/lib/ai-convo-store";
@@ -46,29 +53,44 @@ async function callAi(payload: Record<string, unknown>) {
   return j.data;
 }
 
+interface CategoryGroup {
+  category: string;
+  items: [string, GrammarEntry][];
+}
+
+function groupByCategory(entries: GrammarData): CategoryGroup[] {
+  const groups = new Map<string, [string, GrammarEntry][]>();
+  for (const [k, e] of Object.entries(entries)) {
+    const norm = normalizeCategory(e.category);
+    const list = groups.get(norm);
+    if (list) list.push([k, e]);
+    else groups.set(norm, [[k, e]]);
+  }
+  return [...groups.values()]
+    .map((items) => ({
+      category: items[0][1].category,
+      items: items.sort((a, b) => b[1].updatedAt - a[1].updatedAt),
+    }))
+    .sort((a, b) => b.items[0][1].updatedAt - a.items[0][1].updatedAt);
+}
+
 export function GrammarPopup({ text, context, onClose }: Props) {
   const { entries, getEntry, saveEntry } = useGrammarStore();
-  const { getConvos, appendMessages } = useAiConvoStore(MODULE_KEY);
-  const key = normalizeGrammarText(text);
+  const { appendMessages } = useAiConvoStore(MODULE_KEY);
+  const originalKey = normalizeGrammarText(text);
+  const cachedEntry = getEntry(originalKey);
 
-  // Resolved synchronously from cache (lazy initializers, not an effect) —
-  // avoids a redundant AI call and a set-state-in-effect for the common case
-  // of reopening an already-classified sentence.
-  const cachedEntry = getEntry(key);
-  const cachedConvo = getConvos(key)[0];
-
-  const [result, setResult] = useState<ClassifyResult | null>(() =>
+  // Ephemeral classification result for the sentence actually being looked up
+  // right now — before it necessarily has a saved entry (or forever, if
+  // isGrammar turns out false and nothing gets saved).
+  const [freshResult, setFreshResult] = useState<ClassifyResult | null>(() =>
     cachedEntry
       ? { isGrammar: true, category: cachedEntry.category, explanation: cachedEntry.explanation, example: cachedEntry.example }
       : null,
   );
   const [loading, setLoading] = useState(() => !cachedEntry);
   const [error, setError] = useState<string | null>(null);
-  const [cid, setCid] = useState<string | null>(() => cachedConvo?.id ?? null);
-  const [chat, setChat] = useState<AiMessage[]>(() => (cachedConvo ? cachedConvo.messages.slice(1) : []));
-  const [chatIn, setChatIn] = useState("");
-  const [sending, setSending] = useState(false);
-  const chatEndRef = useRef<HTMLDivElement>(null);
+  const [viewingKey, setViewingKey] = useState(originalKey);
 
   useEffect(() => {
     if (cachedEntry) return; // already resolved above
@@ -77,9 +99,9 @@ export function GrammarPopup({ text, context, onClose }: Props) {
     callAi({ text, context })
       .then((d: ClassifyResult) => {
         if (cancelled) return;
-        setResult(d);
+        setFreshResult(d);
         if (d.isGrammar && d.category) {
-          saveEntry(key, {
+          saveEntry(originalKey, {
             text,
             category: d.category,
             explanation: d.explanation ?? "",
@@ -87,10 +109,9 @@ export function GrammarPopup({ text, context, onClose }: Props) {
             context,
             discussed: false,
           });
-          const newCid = appendMessages(key, d.category, null, "grammar_lookup", [
+          appendMessages(originalKey, d.category, null, "grammar_lookup", [
             { role: "assistant", content: JSON.stringify(d), timestamp: Date.now() },
           ]);
-          setCid(newCid);
         }
       })
       .catch((e) => {
@@ -102,14 +123,114 @@ export function GrammarPopup({ text, context, onClose }: Props) {
 
     return () => { cancelled = true; };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [key]);
+  }, [originalKey]);
+
+  const viewingEntry = entries[viewingKey] ?? null;
+  const isViewingOriginal = viewingKey === originalKey;
+  const category = viewingEntry?.category ?? (isViewingOriginal ? freshResult?.category : undefined);
+  const explanation = viewingEntry?.explanation ?? (isViewingOriginal ? freshResult?.explanation : undefined);
+  const example = viewingEntry?.example ?? (isViewingOriginal ? freshResult?.example : undefined);
+  const isGrammar = viewingEntry ? true : isViewingOriginal ? freshResult?.isGrammar : undefined;
+  const note = isViewingOriginal ? freshResult?.note : undefined;
+
+  const groups = groupByCategory(entries);
+  const showSidebar = Object.keys(entries).length > 1;
+
+  return (
+    <Modal onClose={onClose} contentClassName="lg:max-w-[720px]">
+      {loading && isViewingOriginal ? (
+        <p className="animate-pulse text-[13px] text-neutral-600">Đang phân tích ngữ pháp...</p>
+      ) : error && isViewingOriginal ? (
+        <p className="text-[13px] text-accent-700">{error}</p>
+      ) : isGrammar === false ? (
+        <div>
+          <div className="mb-1 text-[15px] font-extrabold">📐 Không có cấu trúc ngữ pháp đặc biệt</div>
+          {note && <p className="text-[13px] leading-relaxed text-neutral-600">{note}</p>}
+        </div>
+      ) : (
+        <div className="lg:flex lg:flex-row lg:gap-4">
+          {showSidebar && (
+            <div
+              className="mb-3 lg:mb-0 lg:w-[220px] lg:flex-none lg:border-r lg:pr-4"
+              style={{ borderColor: "var(--color-divider)" }}
+            >
+              <span className="label-xs mb-1.5 block text-neutral-600">
+                📚 Các lần đã tra ({Object.keys(entries).length})
+              </span>
+              <div className="flex max-h-[160px] flex-col gap-2.5 overflow-y-auto lg:max-h-[420px]">
+                {groups.map((g) => (
+                  <div key={g.category}>
+                    <div className="label-xs mb-1 text-accent">{g.category}</div>
+                    <div className="flex flex-col gap-0.5">
+                      {g.items.map(([k, e]) => (
+                        <button
+                          key={k}
+                          type="button"
+                          onClick={() => setViewingKey(k)}
+                          className="rounded px-2 py-1 text-left text-[12px] leading-snug"
+                          style={{
+                            background: k === viewingKey ? "var(--color-accent-100)" : undefined,
+                            color: k === viewingKey ? "var(--color-accent-800)" : "var(--color-text)",
+                          }}
+                        >
+                          <span className="line-clamp-2">{e.text}</span>
+                          {e.discussed && <span className="ml-1 text-[10px] font-bold">✓</span>}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <div className="flex flex-1 flex-col gap-3 pr-4 lg:pr-0">
+            <div>
+              <span className="label-xs text-accent">Cấu trúc ngữ pháp</span>
+              <div className="mt-0.5 text-[16px] font-extrabold">{category}</div>
+            </div>
+            {explanation && <p className="text-[14px] leading-relaxed">{explanation}</p>}
+
+            {example && (
+              <div className="border-t pt-3" style={{ borderColor: "var(--color-divider)" }}>
+                <span className="label-xs">Ví dụ khác</span>
+                <p className="mt-1 flex flex-wrap items-center gap-1.5 text-[14px] leading-relaxed">
+                  <span>{example.en}</span>
+                  <CopyButton text={example.en} className="text-[11px] font-bold text-accent" />
+                </p>
+                <p className="mt-0.5 text-[13px] text-neutral-600">{example.vi}</p>
+              </div>
+            )}
+
+            {viewingEntry && <GrammarChat key={viewingKey} entryKey={viewingKey} text={viewingEntry.text} category={viewingEntry.category} />}
+          </div>
+        </div>
+      )}
+    </Modal>
+  );
+}
+
+/** Chat continuation for one grammar record — remounted (via the parent's
+ * `key={viewingKey}`) whenever the sidebar selection changes, so each
+ * record's chat state is independent without manual reset wiring. */
+function GrammarChat({ entryKey, text, category }: { entryKey: string; text: string; category: string }) {
+  const { getEntry, saveEntry } = useGrammarStore();
+  const { getConvos, appendMessages } = useAiConvoStore(MODULE_KEY);
+  const cachedConvo = getConvos(entryKey)[0];
+
+  const [cid, setCid] = useState<string | null>(() => cachedConvo?.id ?? null);
+  const [chat, setChat] = useState<AiMessage[]>(() => (cachedConvo ? cachedConvo.messages.slice(1) : []));
+  const [chatIn, setChatIn] = useState("");
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const chatEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [chat]);
 
   async function sendMessage() {
-    if (!chatIn.trim() || !result?.category) return;
+    if (!chatIn.trim()) return;
     const um: AiMessage = { role: "user", content: chatIn.trim(), timestamp: Date.now() };
     const nm = [...chat, um];
     setChat(nm);
@@ -118,15 +239,15 @@ export function GrammarPopup({ text, context, onClose }: Props) {
     setError(null);
     try {
       const history = nm.map((m) => `${m.role === "user" ? "Student" : "Tutor"}: ${m.content}`).join("\n");
-      const d = await callAi({ text, category: result.category, history });
+      const d = await callAi({ text, category, history });
       const aiText = (d?.content as string | undefined) ?? "";
       const am: AiMessage = { role: "assistant", content: aiText, timestamp: Date.now() };
       setChat([...nm, am]);
-      const newCid = appendMessages(key, result.category, cid, "grammar_lookup", [um, am]);
+      const newCid = appendMessages(entryKey, category, cid, "grammar_lookup", [um, am]);
       setCid(newCid);
 
-      const entry = getEntry(key);
-      if (entry && !entry.discussed) saveEntry(key, { ...entry, discussed: true });
+      const entry = getEntry(entryKey);
+      if (entry && !entry.discussed) saveEntry(entryKey, { ...entry, discussed: true });
     } catch (e) {
       setError(e instanceof Error ? e.message : "AI failed");
     } finally {
@@ -134,101 +255,52 @@ export function GrammarPopup({ text, context, onClose }: Props) {
     }
   }
 
-  const similar = result?.isGrammar && result.category ? findSimilarByCategory(entries, result.category, key) : [];
-
   return (
-    <Modal onClose={onClose}>
-      {loading ? (
-        <p className="animate-pulse text-[13px] text-neutral-600">Đang phân tích ngữ pháp...</p>
-      ) : error ? (
-        <p className="text-[13px] text-accent-700">{error}</p>
-      ) : !result ? null : !result.isGrammar ? (
-        <div>
-          <div className="mb-1 text-[15px] font-extrabold">📐 Không có cấu trúc ngữ pháp đặc biệt</div>
-          {result.note && <p className="text-[13px] leading-relaxed text-neutral-600">{result.note}</p>}
-        </div>
-      ) : (
-        <div className="flex flex-col gap-3 pr-4">
-          <div>
-            <span className="label-xs text-accent">Cấu trúc ngữ pháp</span>
-            <div className="mt-0.5 text-[16px] font-extrabold">{result.category}</div>
-          </div>
-          <p className="text-[14px] leading-relaxed">{result.explanation}</p>
-
-          {result.example && (
-            <div className="border-t pt-3" style={{ borderColor: "var(--color-divider)" }}>
-              <span className="label-xs">Ví dụ khác</span>
-              <p className="mt-1 flex flex-wrap items-center gap-1.5 text-[14px] leading-relaxed">
-                <span>{result.example.en}</span>
-                <CopyButton text={result.example.en} className="text-[11px] font-bold text-accent" />
-              </p>
-              <p className="mt-0.5 text-[13px] text-neutral-600">{result.example.vi}</p>
+    <div className="border-t pt-3" style={{ borderColor: "var(--color-divider)" }}>
+      <span className="label-xs mb-2 block text-accent">🗣️ Hỏi thêm về ngữ pháp này</span>
+      {chat.length > 0 && (
+        <div className="mb-2 flex max-h-[240px] flex-col gap-2 overflow-y-auto">
+          {chat.map((m, i) => (
+            <div
+              key={i}
+              className="rounded p-2 text-[12px] leading-relaxed"
+              style={{
+                background: m.role === "user" ? "var(--color-accent-100)" : "var(--color-surface)",
+                alignSelf: m.role === "user" ? "flex-end" : "flex-start",
+                maxWidth: "85%",
+              }}
+            >
+              <span className="label-xs mb-0.5 block">{m.role === "user" ? "Bạn" : "AI"}</span>
+              <p className="whitespace-pre-wrap">{m.content}</p>
             </div>
-          )}
-
-          {similar.length > 0 && (
-            <div className="border-t pt-3" style={{ borderColor: "var(--color-divider)" }}>
-              <span className="label-xs mb-1.5 block text-neutral-600">
-                🔁 Bạn đã từng gặp cấu trúc này ({similar.length})
-              </span>
-              <div className="flex flex-col gap-1">
-                {similar.map(([k, e]) => (
-                  <div key={k} className="rounded bg-surface px-2.5 py-1.5 text-[12px] leading-relaxed">
-                    <p className="truncate">{e.text}</p>
-                    {e.discussed && <span className="text-[10px] font-bold text-accent">✓ Đã thảo luận</span>}
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          <div className="border-t pt-3" style={{ borderColor: "var(--color-divider)" }}>
-            <span className="label-xs mb-2 block text-accent">🗣️ Hỏi thêm về ngữ pháp này</span>
-            {chat.length > 0 && (
-              <div className="mb-2 flex max-h-[240px] flex-col gap-2 overflow-y-auto">
-                {chat.map((m, i) => (
-                  <div
+          ))}
+          {sending && (
+            <div className="rounded p-2" style={{ background: "var(--color-surface)", alignSelf: "flex-start" }}>
+              <span className="inline-flex items-center gap-1">
+                {[0, 1, 2].map((i) => (
+                  <span
                     key={i}
-                    className="rounded p-2 text-[12px] leading-relaxed"
-                    style={{
-                      background: m.role === "user" ? "var(--color-accent-100)" : "var(--color-surface)",
-                      alignSelf: m.role === "user" ? "flex-end" : "flex-start",
-                      maxWidth: "85%",
-                    }}
-                  >
-                    <span className="label-xs mb-0.5 block">{m.role === "user" ? "Bạn" : "AI"}</span>
-                    <p className="whitespace-pre-wrap">{m.content}</p>
-                  </div>
+                    className="inline-block h-1.5 w-1.5 animate-bounce rounded-full bg-current opacity-60"
+                    style={{ animationDelay: `${i * 150}ms` }}
+                  />
                 ))}
-                {sending && (
-                  <div className="rounded p-2" style={{ background: "var(--color-surface)", alignSelf: "flex-start" }}>
-                    <span className="inline-flex items-center gap-1">
-                      {[0, 1, 2].map((i) => (
-                        <span
-                          key={i}
-                          className="inline-block h-1.5 w-1.5 animate-bounce rounded-full bg-current opacity-60"
-                          style={{ animationDelay: `${i * 150}ms` }}
-                        />
-                      ))}
-                    </span>
-                  </div>
-                )}
-                <div ref={chatEndRef} />
-              </div>
-            )}
-            <div className="flex items-end gap-2">
-              <ChatInput value={chatIn} onChange={setChatIn} onSend={sendMessage} disabled={sending || !chatIn.trim()} />
-              <button
-                className="btn btn-primary px-3 py-2.5 text-[13px] font-extrabold disabled:opacity-40"
-                disabled={sending || !chatIn.trim()}
-                onClick={sendMessage}
-              >
-                Gửi
-              </button>
+              </span>
             </div>
-          </div>
+          )}
+          <div ref={chatEndRef} />
         </div>
       )}
-    </Modal>
+      {error && <p className="mb-2 text-[12px] text-accent-700">{error}</p>}
+      <div className="flex items-end gap-2">
+        <ChatInput value={chatIn} onChange={setChatIn} onSend={sendMessage} disabled={sending || !chatIn.trim()} />
+        <button
+          className="btn btn-primary px-3 py-2.5 text-[13px] font-extrabold disabled:opacity-40"
+          disabled={sending || !chatIn.trim()}
+          onClick={sendMessage}
+        >
+          Gửi
+        </button>
+      </div>
+    </div>
   );
 }

@@ -71,16 +71,6 @@ export function withEntryDeleted(all: GrammarData, key: string): GrammarData {
   return next;
 }
 
-/** Every OTHER entry sharing the same (normalized) grammar category — used to
- * remind the learner "you've discussed this structure before". */
-export function findSimilarByCategory(all: GrammarData, category: string, excludeKey?: string): [string, GrammarEntry][] {
-  const target = normalizeCategory(category);
-  if (!target) return [];
-  return Object.entries(all)
-    .filter(([key, e]) => key !== excludeKey && normalizeCategory(e.category) === target)
-    .sort((a, b) => b[1].updatedAt - a[1].updatedAt);
-}
-
 /** Union-merge cloud and local copies, keeping the newer version of each entry. */
 export function mergeGrammar(local: GrammarData, cloud: GrammarData): GrammarData {
   const keys = new Set([...Object.keys(local), ...Object.keys(cloud)]);

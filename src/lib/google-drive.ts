@@ -3,6 +3,7 @@ import type { AiConvoData } from "./ai-convo-store";
 import type { DictionaryData } from "./dictionary-store";
 import type { TranslationData } from "./translation-store";
 import type { SubscriptionData } from "./subscription-store";
+import type { CustomClozeData } from "./listen-custom-cloze-store";
 import type { SessionPayload } from "./session-cookie";
 
 const FILES_URL = "https://www.googleapis.com/drive/v3/files";
@@ -186,4 +187,16 @@ export function readDriveSubscription(accessToken: string, session: SessionPaylo
 
 export function writeDriveSubscription(accessToken: string, session: SessionPayload, data: SubscriptionData) {
   return writeDriveJson(accessToken, session, "subscription", data);
+}
+
+// ─── Listen A Minute — learner's own custom cloze picks ────────────
+// One file for the whole module, keyed internally by lesson slug — same
+// shape of pattern as notes-store.ts's per-module file.
+
+export function readDriveListenCustomCloze(accessToken: string, session: SessionPayload) {
+  return readDriveJson<CustomClozeData>(accessToken, session, "listen-custom-cloze");
+}
+
+export function writeDriveListenCustomCloze(accessToken: string, session: SessionPayload, data: CustomClozeData) {
+  return writeDriveJson(accessToken, session, "listen-custom-cloze", data);
 }

@@ -82,10 +82,11 @@ subscription.json trong Drive appDataFolder của CHÍNH người đó
 | `src/app/api/account/activate/route.ts` | Server route: khớp mã → gói, đọc entitlement hiện tại, cộng dồn thời hạn, ghi vào Drive |
 | `src/lib/google-drive.ts` (`readDriveSubscription`/`writeDriveSubscription`) | Đọc/ghi `subscription.json` trong `appDataFolder` — cùng pattern với dictionary/translations |
 | `src/app/api/drive/subscription/route.ts` | GET (stamp `trialStartedAt` lần đầu nếu chưa có) / PUT sync giữa client cache và Drive |
-| `src/lib/use-subscription-store.ts` | React hook: fetch khi login, cung cấp `isUnlocked`, `trialDaysLeft`, `applyServerSubscription`. Trong lúc chưa fetch xong lần đầu (thiết bị mới), mặc định coi là unlocked để tránh flash nội dung khoá cho người dùng hợp lệ |
+| `src/lib/use-subscription-store.ts` | React hook: fetch khi login, cung cấp `isUnlocked`, `trialDaysLeft`, `applyServerSubscription`, `setDebugOverride`. Trong lúc chưa fetch xong lần đầu (thiết bị mới), mặc định coi là unlocked để tránh flash nội dung khoá cho người dùng hợp lệ |
 | `src/components/SubscriptionSettings.tsx` | Trạng thái (trial còn X ngày / đã kích hoạt đến ngày Y / hết hạn) + bảng giá + ô nhập mã — dùng chung ở Settings VÀ trong `PurchaseModal` |
 | `src/components/PurchaseModal.tsx` | Popup (dùng `Modal`) mở khi bấm vào bất kỳ mục nội dung nào đang khoá |
 | `src/components/ProPaywallNotice.tsx` | Hiển thị inline (không phải popup) khi truy cập thẳng URL của 1 trang chi tiết đang khoá |
+| `src/components/DebugUnlockToggle.tsx` | **DEBUG ONLY** (2026-08-15) — 2 nút "Ép mở khoá"/"Ép khoá" trong Settings, set `subscription.debugOverride` (`"locked"`\|`"unlocked"`\|`undefined`). `isUnlocked()` check override này TRƯỚC trial/paid thật. Không đụng vào `trialStartedAt`/`paidUntil` — trial 7 ngày vẫn chạy ngầm bình thường, tắt override là thấy lại đúng trạng thái thật ngay. **Phải xoá component này + field `debugOverride` khi có thanh toán thật** — không có lý do chính đáng để giữ lại sau đó. |
 
 ---
 
@@ -105,6 +106,7 @@ subscription.json trong Drive appDataFolder của CHÍNH người đó
 - [ ] Chuyển entitlement từ "file trong Drive người dùng" sang **DB trung tâm** (bảng `subscriptions` khoá theo `userId`/email) — đây là điều kiện tiên quyết để hệ thống đáng tin cậy cho billing thật (xem thêm mục "Mô hình tài khoản & sở hữu dữ liệu thật" trong [production-readiness-roadmap.md](./production-readiness-roadmap.md)).
 - [ ] Thêm route/admin action để revoke quyền truy cập (hoàn tiền, tranh chấp, gian lận) — hiện chỉ có thể cộng thêm, không trừ được.
 - [ ] Xoá `scripts/generate-activation-code.mjs`, `src/lib/activation-code.ts`, `/api/account/activate` — không mở rộng thêm cơ chế mã thủ công, thay hẳn bằng webhook.
+- [ ] **Xoá `src/components/DebugUnlockToggle.tsx` + field `debugOverride` khỏi `SubscriptionData`** — không có lý do chính đáng để giữ nút "Ép mở khoá/Ép khoá" sau khi có thanh toán thật.
 - [ ] Thêm audit log ai đã redeem mã nào lúc nào (khắc phục giới hạn #5).
 - [ ] Cân nhắc giữ hay bỏ việc đồng bộ trạng thái subscription qua Drive: nếu đã có DB trung tâm làm nguồn sự thật, việc cache vào Drive không còn cần thiết cho tính đúng đắn — có thể bỏ để giảm bề mặt tấn công (mục 1 ở trên).
 - [ ] Xác nhận lại giá 12 tháng (360.000đ) hoặc điều chỉnh theo dữ liệu thực tế/phản hồi thị trường thay vì suy luận toán học ban đầu.

@@ -10,8 +10,9 @@ import {
   type ListenLesson,
 } from "@/data/listen-a-minute";
 import { NotesList } from "@/components/NotesList";
-import { parseCloze, renderClozePlain } from "@/lib/cloze";
+import { buildClozeTemplate, parseCloze, renderClozePlain, tokenizeWords } from "@/lib/cloze";
 import { clearCurrentLesson, getCurrentLesson, setCurrentLesson } from "@/lib/listen-progress";
+import { useListenCustomClozeStore } from "@/lib/use-listen-custom-cloze-store";
 import { useProgress } from "@/lib/progress-context";
 import { norm, shuffle } from "@/lib/utils";
 import { lookupVocabWord, type VocabEntry } from "@/lib/vocab-lookup";
@@ -360,8 +361,31 @@ export function LessonClient({ slug }: { slug: string }) {
   const boundEndRef = useRef<number | null>(null);
   const boundWatchRef = useRef<number | null>(null);
   const playGenRef = useRef(0);
+  // Gap-fill: pause while a blank is focused, resume after — but only if we're
+  // the ones who paused it (not if the learner had already paused manually),
+  // and only once focus actually leaves the whole gap-fill group (tabbing
+  // straight from one blank to the next shouldn't blip the audio back on).
+  const pausedForGapRef = useRef(false);
 
-  const segments = useMemo(() => (lesson ? parseCloze(lesson.clozeTemplate) : []), [lesson]);
+  // Learner's own "which words to blank out" pick, alongside the
+  // author-authored default cloze — see listen-custom-cloze-store.ts.
+  const { getEntry, saveHiddenWords, clearEntry } = useListenCustomClozeStore();
+  const customEntry = getEntry(slug);
+  const hasCustomCloze = !!customEntry && customEntry.hiddenWords.length > 0;
+  const [clozeVersion, setClozeVersion] = useState<"default" | "custom">("default");
+  const [pickerMode, setPickerMode] = useState(false);
+  const [pickedWords, setPickedWords] = useState<Set<number>>(new Set());
+
+  const plainText = useMemo(() => (lesson ? renderClozePlain(lesson.clozeTemplate) : ""), [lesson]);
+  const activeTemplate = useMemo(() => {
+    if (!lesson) return "";
+    if (clozeVersion === "custom" && customEntry) {
+      return buildClozeTemplate(plainText, new Set(customEntry.hiddenWords));
+    }
+    return lesson.clozeTemplate;
+  }, [lesson, plainText, clozeVersion, customEntry]);
+
+  const segments = useMemo(() => (lesson ? parseCloze(activeTemplate) : []), [lesson, activeTemplate]);
   const blankAnswers = useMemo(
     () => segments.filter((s): s is { blank: string } => "blank" in s).map((s) => s.blank),
     [segments],
@@ -381,6 +405,45 @@ export function LessonClient({ slug }: { slug: string }) {
   }, [segments]);
   const [gapInputs, setGapInputs] = useState<string[]>(() => blankAnswers.map(() => ""));
   const [gapSubmitted, setGapSubmitted] = useState(false);
+
+  // Switching between the default and personal cloze changes which/how many
+  // blanks exist — start that version fresh rather than keeping stale answers.
+  // Done as a direct action (not a useEffect reacting to clozeVersion) so the
+  // reset happens in the same event as the switch, not a follow-up render.
+  function changeClozeVersion(v: "default" | "custom") {
+    const template =
+      v === "custom" && customEntry ? buildClozeTemplate(plainText, new Set(customEntry.hiddenWords)) : lesson?.clozeTemplate ?? "";
+    const blankCount = parseCloze(template).filter((s) => "blank" in s).length;
+    setGapInputs(Array(blankCount).fill(""));
+    setGapSubmitted(false);
+    setClozeVersion(v);
+  }
+
+  function openPicker() {
+    setPickedWords(new Set(customEntry?.hiddenWords ?? []));
+    setPickerMode(true);
+  }
+
+  function toggleWord(wordIndex: number) {
+    setPickedWords((prev) => {
+      const next = new Set(prev);
+      if (next.has(wordIndex)) next.delete(wordIndex);
+      else next.add(wordIndex);
+      return next;
+    });
+  }
+
+  function saveCustomCloze() {
+    saveHiddenWords(slug, [...pickedWords]);
+    changeClozeVersion("custom");
+    setPickerMode(false);
+  }
+
+  function deleteCustomCloze() {
+    clearEntry(slug);
+    if (clozeVersion === "custom") changeClozeVersion("default");
+    setPickerMode(false);
+  }
 
   const scrambled = useMemo(
     () => (lesson ? lesson.spellingWords.map(scrambleWord) : []),
@@ -496,6 +559,27 @@ export function LessonClient({ slug }: { slug: string }) {
     setCurrentTime(t);
   }
 
+  function handleGapFocus() {
+    const el = audioRef.current;
+    if (el && !el.paused) {
+      el.pause();
+      pausedForGapRef.current = true;
+    }
+  }
+
+  function handleGapBlur() {
+    // Defer so the newly-focused element (if any) is already active by the
+    // time we check it.
+    setTimeout(() => {
+      const stillInGapFill = (document.activeElement as HTMLElement | null)?.dataset.gapInput === "true";
+      if (stillInGapFill) return;
+      if (pausedForGapRef.current) {
+        audioRef.current?.play();
+        pausedForGapRef.current = false;
+      }
+    }, 0);
+  }
+
   function goBack() {
     audioRef.current?.pause();
     if (step === 1) {
@@ -586,32 +670,82 @@ export function LessonClient({ slug }: { slug: string }) {
               <div className="label-xs">{playing ? "Playing…" : "Tap to listen"}</div>
             </div>
             <div className="lg:flex-1">
-              <button className="btn btn-secondary lg:hidden" onClick={() => setShowScript((v) => !v)}>
-                {showScript ? "Hide script" : "Show script"}
-              </button>
-              {lesson.sentences.length > 0 && (
-                <div className={`mt-3 lg:mt-0 lg:block ${showScript ? "block" : "hidden"}`}>
-                  {lesson.sentences.map((s, i) => (
-                    <button
-                      key={i}
-                      onClick={() => playSentence(i)}
-                      className="divider-b block w-full px-4 py-2.5 text-left text-[15px] leading-relaxed"
-                      style={{
-                        background: i === activeSentence ? "var(--color-accent-100)" : "var(--color-surface)",
-                        color: i === activeSentence ? "var(--color-accent-800)" : "var(--color-text)",
-                      }}
-                    >
-                      {s.text}
+              <div className="flex flex-wrap gap-2">
+                <button className="btn btn-secondary lg:hidden" onClick={() => setShowScript((v) => !v)}>
+                  {showScript ? "Hide script" : "Show script"}
+                </button>
+                {(showScript || pickerMode) &&
+                  (pickerMode ? (
+                    <>
+                      <button className="btn btn-primary px-3 py-1.5 text-[12px]" onClick={saveCustomCloze}>
+                        Lưu ({pickedWords.size} từ)
+                      </button>
+                      <button className="btn btn-ghost px-3 py-1.5 text-[12px]" onClick={() => setPickerMode(false)}>
+                        Huỷ
+                      </button>
+                    </>
+                  ) : (
+                    <button className="btn btn-ghost px-3 py-1.5 text-[12px]" onClick={openPicker}>
+                      ✂️ Tạo bài fill của tôi
                     </button>
                   ))}
+                {!pickerMode && hasCustomCloze && (
+                  <button className="btn btn-ghost px-3 py-1.5 text-[12px] text-accent-700" onClick={deleteCustomCloze}>
+                    Xoá bản của tôi
+                  </button>
+                )}
+              </div>
+
+              {pickerMode ? (
+                <div className="mt-3 bg-surface p-4 text-[15px] leading-[2] text-pretty">
+                  <p className="label-xs mb-2">Chạm vào từ bạn muốn ẩn đi để tự luyện fill-in-the-blank:</p>
+                  {tokenizeWords(plainText).map((t, i) =>
+                    t.wordIndex === null ? (
+                      <span key={i}>{t.text}</span>
+                    ) : (
+                      <button
+                        key={i}
+                        type="button"
+                        onClick={() => toggleWord(t.wordIndex!)}
+                        className="inline rounded px-0.5"
+                        style={
+                          pickedWords.has(t.wordIndex)
+                            ? { background: "var(--color-accent)", color: "#fff" }
+                            : undefined
+                        }
+                      >
+                        {t.text}
+                      </button>
+                    ),
+                  )}
                 </div>
-              )}
-              {lesson.sentences.length === 0 && (
-                <div
-                  className={`mt-3 bg-surface p-4 text-[15px] leading-relaxed lg:mt-0 lg:block ${showScript ? "block" : "hidden"}`}
-                >
-                  {renderClozePlain(lesson.clozeTemplate)}
-                </div>
+              ) : (
+                <>
+                  {lesson.sentences.length > 0 && (
+                    <div className={`mt-3 lg:mt-0 lg:block ${showScript ? "block" : "hidden"}`}>
+                      {lesson.sentences.map((s, i) => (
+                        <button
+                          key={i}
+                          onClick={() => playSentence(i)}
+                          className="divider-b block w-full px-4 py-2.5 text-left text-[15px] leading-relaxed"
+                          style={{
+                            background: i === activeSentence ? "var(--color-accent-100)" : "var(--color-surface)",
+                            color: i === activeSentence ? "var(--color-accent-800)" : "var(--color-text)",
+                          }}
+                        >
+                          {s.text}
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                  {lesson.sentences.length === 0 && (
+                    <div
+                      className={`mt-3 bg-surface p-4 text-[15px] leading-relaxed lg:mt-0 lg:block ${showScript ? "block" : "hidden"}`}
+                    >
+                      {renderClozePlain(lesson.clozeTemplate)}
+                    </div>
+                  )}
+                </>
               )}
             </div>
           </div>
@@ -629,6 +763,24 @@ export function LessonClient({ slug }: { slug: string }) {
 
       {step === 2 && (
         <div className="flex flex-1 flex-col p-4">
+          {hasCustomCloze && (
+            <div className="mb-3 flex gap-1.5 lg:mx-auto lg:w-full lg:max-w-[720px]">
+              {(["default", "custom"] as const).map((v) => (
+                <button
+                  key={v}
+                  onClick={() => changeClozeVersion(v)}
+                  className="flex-1 px-3 py-1.5 text-[12px] font-extrabold tracking-wide uppercase"
+                  style={{
+                    background: clozeVersion === v ? "var(--color-ink)" : "var(--color-bg)",
+                    color: clozeVersion === v ? "var(--color-bg)" : "var(--color-ink)",
+                    border: "1px solid var(--color-divider)",
+                  }}
+                >
+                  {v === "default" ? "Mặc định" : "Của tôi"}
+                </button>
+              ))}
+            </div>
+          )}
           <div className="mb-4 bg-surface p-4 text-[16px] leading-[2.75] text-pretty lg:mx-auto lg:max-w-[720px]">
             {segments.map((s, i) => {
               if ("text" in s) return <span key={i}>{s.text}</span>;
@@ -637,6 +789,7 @@ export function LessonClient({ slug }: { slug: string }) {
               return (
                 <input
                   key={i}
+                  data-gap-input="true"
                   className="input mx-1 my-1.5 inline-block w-[104px]"
                   style={{
                     display: "inline-block",
@@ -649,6 +802,8 @@ export function LessonClient({ slug }: { slug: string }) {
                     next[idx] = e.target.value;
                     setGapInputs(next);
                   }}
+                  onFocus={handleGapFocus}
+                  onBlur={handleGapBlur}
                   placeholder="..."
                 />
               );

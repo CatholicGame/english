@@ -39,6 +39,14 @@ export interface SubscriptionData {
   paidUntil?: number;
   lastCycle?: BillingCycle;
   note?: string;
+  /** DEBUG ONLY — manual force-lock/unlock from Settings, for testing before a
+   * real payment gateway exists (see docs/subscription-interim-system.md). Sits
+   * on top of the real trial/paid state without touching it, so the trial
+   * clock (trialStartedAt) keeps counting normally underneath regardless of
+   * this override — clearing the override always reveals the true state.
+   * Remove this whole field once real payment ships; it has no legitimate use
+   * after that. */
+  debugOverride?: "locked" | "unlocked";
   updatedAt: number;
 }
 
@@ -56,7 +64,19 @@ export function isPaidActive(data: SubscriptionData, now: number = Date.now()): 
 }
 
 export function isUnlocked(data: SubscriptionData, now: number = Date.now()): boolean {
+  if (data.debugOverride === "locked") return false;
+  if (data.debugOverride === "unlocked") return true;
   return isTrialActive(data, now) || isPaidActive(data, now);
+}
+
+/** DEBUG ONLY — sets/clears the manual override without disturbing
+ * trialStartedAt/paidUntil, so the real trial keeps running underneath. */
+export function withDebugOverride(
+  current: SubscriptionData,
+  override: "locked" | "unlocked" | null,
+  now: number = Date.now(),
+): SubscriptionData {
+  return { ...current, debugOverride: override ?? undefined, updatedAt: now };
 }
 
 /** Whole days left in the trial (0 once expired or never started). */
@@ -117,6 +137,7 @@ export function mergeSubscription(local: SubscriptionData, cloud: SubscriptionDa
     paidUntil,
     lastCycle: newer.lastCycle,
     note: newer.note,
+    debugOverride: newer.debugOverride,
     updatedAt: Math.max(local.updatedAt, cloud.updatedAt),
   };
 }

@@ -9,6 +9,7 @@ import {
   persistSubscription,
   isUnlocked as computeIsUnlocked,
   trialDaysLeft as computeTrialDaysLeft,
+  withDebugOverride,
   type SubscriptionData,
 } from "./subscription-store";
 
@@ -38,6 +39,16 @@ function subscribe(onStoreChange: () => void) {
   const s = getStore();
   s.listeners.add(onStoreChange);
   return () => s.listeners.delete(onStoreChange);
+}
+
+function pushToCloud(data: SubscriptionData, onReauthRequired: () => void) {
+  fetch("/api/drive/subscription", {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  })
+    .then((r) => { if (r.status === 401) onReauthRequired(); })
+    .catch(() => { /* best-effort */ });
 }
 
 export function useSubscriptionStore() {
@@ -71,6 +82,18 @@ export function useSubscriptionStore() {
     setData(data);
   }, []);
 
+  // DEBUG ONLY (see subscription-store.ts) — force-lock/unlock from Settings
+  // while real payment doesn't exist yet. Leaves trialStartedAt/paidUntil
+  // untouched, so the real trial keeps counting underneath regardless.
+  const setDebugOverride = useCallback(
+    (override: "locked" | "unlocked" | null) => {
+      const next = withDebugOverride(getStore().data, override);
+      setData(next);
+      pushToCloud(next, refresh);
+    },
+    [refresh],
+  );
+
   // updatedAt === 0 means we haven't heard from Drive yet on this device (a
   // fresh sign-in with no local cache) — assume unlocked until we know
   // otherwise instead of flashing a paywall at a legitimate trial/paid user.
@@ -78,5 +101,5 @@ export function useSubscriptionStore() {
   const isUnlocked = loaded ? computeIsUnlocked(subscription) : true;
   const trialDaysLeft = loaded ? computeTrialDaysLeft(subscription) : 0;
 
-  return { subscription, loaded, isUnlocked, trialDaysLeft, applyServerSubscription };
+  return { subscription, loaded, isUnlocked, trialDaysLeft, applyServerSubscription, setDebugOverride };
 }

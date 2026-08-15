@@ -33,6 +33,10 @@ import { ProPaywallNotice } from "@/components/ProPaywallNotice";
 const MODULE_KEY = "listen-a-minute";
 const TOTAL_STEPS = 4;
 const STEP_LABELS = ["Listening", "Gap fill", "Spelling", "Extension"];
+// Every lesson's audio has ~2.5s of lead-in before the actual content starts
+// — skip straight past it whenever playback starts fresh (or restarts after
+// finishing), rather than making the learner sit through it every time.
+const INTRO_SKIP_SECONDS = 2.5;
 
 function scrambleWord(word: string): string {
   const letters = word.split("");
@@ -540,6 +544,7 @@ export function LessonClient({ slug }: { slug: string }) {
     if (!el) return;
     if (el.paused) {
       if (el.ended) el.currentTime = 0;
+      if (el.currentTime < INTRO_SKIP_SECONDS) el.currentTime = INTRO_SKIP_SECONDS;
       boundEndRef.current = null;
       playGenRef.current++;
       stopBoundWatch();

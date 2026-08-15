@@ -1,9 +1,12 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { MODULES } from "@/data/modules";
 import { GlobalScoreBadge } from "@/components/GlobalScoreBadge";
+import { PurchaseModal } from "@/components/PurchaseModal";
 import { useDashboardProgress, type DashboardProgress } from "@/lib/use-dashboard-progress";
+import { useSubscriptionStore } from "@/lib/use-subscription-store";
 
 function moduleStatLabel(slug: string, d: DashboardProgress): string | null {
   if (!d.loaded) return null;
@@ -21,6 +24,8 @@ function moduleStatLabel(slug: string, d: DashboardProgress): string | null {
 
 export default function HomePage() {
   const dashboard = useDashboardProgress();
+  const { trialDaysLeft } = useSubscriptionStore();
+  const [showPurchase, setShowPurchase] = useState(false);
 
   return (
     <div className="mx-auto flex min-h-screen w-full max-w-[480px] flex-col bg-bg lg:max-w-[1040px] lg:border-x-2 lg:border-[color:var(--color-divider)]">
@@ -28,6 +33,20 @@ export default function HomePage() {
         <h1 className="text-[30px]">PhrasalUp</h1>
         <p className="mt-1 text-[13px] text-neutral-600">Choose a topic to start practicing.</p>
       </div>
+
+      {trialDaysLeft > 0 && (
+        <div className="divider-b flex items-center justify-between gap-3 bg-accent-100 px-4 py-2.5">
+          <span className="text-[12px] font-bold text-accent-800">
+            🎁 Còn {trialDaysLeft} ngày dùng thử — mọi nội dung đang mở khoá
+          </span>
+          <button
+            className="btn btn-primary flex-none px-3 py-1.5 text-[11px]"
+            onClick={() => setShowPurchase(true)}
+          >
+            Xem gói
+          </button>
+        </div>
+      )}
 
       <div className="divider-b px-4 py-4">
         <div className="label-xs mb-2">Tổng quan</div>
@@ -86,6 +105,7 @@ export default function HomePage() {
           )}
         </div>
       </div>
+      {showPurchase && <PurchaseModal onClose={() => setShowPurchase(false)} />}
     </div>
   );
 }

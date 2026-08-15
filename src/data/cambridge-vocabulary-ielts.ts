@@ -115,13 +115,49 @@ export interface SpeakingStep {
   tip: string;
 }
 
+// One series per named sub-category (e.g. an age group, a weight bracket) —
+// color is assigned by slot position when rendered (a fixed, validated
+// categorical order), never authored here, so chart data stays just data.
+export interface ChartSeriesDef {
+  key: string;
+  label: string;
+}
+
+export interface ChartGroupData {
+  /** Row label — e.g. "Clothing", "2010 — 20–29". */
+  label: string;
+  /** seriesKey -> value (0-100). */
+  values: Record<string, number>;
+}
+
+export interface ChartPanel {
+  /** Optional sub-heading, e.g. "2010" vs "1950" for a chart split into two panels. */
+  title?: string;
+  series: ChartSeriesDef[];
+  groups: ChartGroupData[];
+}
+
+export type WritingChart =
+  // Independent 0-100 measures per series, compared side by side (e.g. % of
+  // each age group who do X) — NOT parts of a whole.
+  | { kind: "groupedBar"; panels: ChartPanel[] }
+  // Parts of a whole per group (values within a group sum to ~100%) — rendered
+  // as a single 100%-stacked bar per group, never a pie (see dataviz skill:
+  // part-to-whole → stacked bar, not pie).
+  | { kind: "stackedBar"; panels: ChartPanel[] };
+
 export interface WritingTaskStep {
   kind: "writing_task";
   title: string;
   taskLabel: string;
   prompt: string;
   chartCaption?: string;
+  /** Plain-text rows sent to the AI as chart context for grading — keep this
+   * populated even when `chart` below also exists (AI feedback reads chartRows). */
   chartRows?: string[];
+  /** Typed chart data for visual rendering (WritingChartView) — optional; when
+   * absent, chartRows falls back to a plain bullet list. */
+  chart?: WritingChart;
   minWords: number;
   tip: string;
   modelAnswer: string;
@@ -1579,6 +1615,25 @@ const UNIT_3_NO_MAN_IS_AN_ISLAND: CambridgeUnit = {
         "Home decoration — Under 25: 30%, 25–50: 55%, Over 50: 60%",
         "Social media posts — Under 25: 66%, 25–50: 33%, Over 50: 10%",
       ],
+      chart: {
+        kind: "groupedBar",
+        panels: [
+          {
+            series: [
+              { key: "u25", label: "Under 25" },
+              { key: "m2550", label: "25–50" },
+              { key: "o50", label: "Over 50" },
+            ],
+            groups: [
+              { label: "Clothing", values: { u25: 68, m2550: 45, o50: 22 } },
+              { label: "Hairstyle", values: { u25: 52, m2550: 20, o50: 8 } },
+              { label: "Music taste", values: { u25: 74, m2550: 58, o50: 35 } },
+              { label: "Home decoration", values: { u25: 30, m2550: 55, o50: 60 } },
+              { label: "Social media posts", values: { u25: 66, m2550: 33, o50: 10 } },
+            ],
+          },
+        ],
+      },
       minWords: 150,
       tip:
         "You will increase your Writing Task 1 band score if you (1) mention all the major features of the chart; (2) describe the figures accurately; (3) paraphrase the information in the question rather than copying it; (4) avoid repeating the same words and phrases and vary your sentence structures; and (5) give an overview of the most important trends before going into detail.",
@@ -3423,6 +3478,31 @@ const UNIT_7_WAYS_AND_MEANS: CambridgeUnit = {
         "Most common disadvantages — Weather: 20%, High cost of living: 45%, Entertainment: 30%, Food quality: 5%",
         "Most common advantages — The people: 40%, The scenery: 37%, Good accommodation: 11%, Culture: 12%",
       ],
+      chart: {
+        kind: "stackedBar",
+        panels: [
+          {
+            title: "Most common disadvantages",
+            series: [
+              { key: "cost", label: "High cost of living" },
+              { key: "entertainment", label: "Entertainment" },
+              { key: "weather", label: "Weather" },
+              { key: "food", label: "Food quality" },
+            ],
+            groups: [{ label: "Disadvantages", values: { weather: 20, cost: 45, entertainment: 30, food: 5 } }],
+          },
+          {
+            title: "Most common advantages",
+            series: [
+              { key: "people", label: "The people" },
+              { key: "scenery", label: "The scenery" },
+              { key: "culture", label: "Culture" },
+              { key: "accommodation", label: "Good accommodation" },
+            ],
+            groups: [{ label: "Advantages", values: { people: 40, scenery: 37, accommodation: 11, culture: 12 } }],
+          },
+        ],
+      },
       minWords: 150,
       tip:
         "Show the examiner you can paraphrase the figures in the chart. Use phrases like 'just under half of', 'a third of' and 'a fifth of' instead of exact percentages. Remember not to repeat the words in the question too many times — use 'plus points' and 'benefits' in place of 'advantages', and 'drawbacks' or 'problems' in place of 'disadvantages'.",
@@ -10522,6 +10602,43 @@ const UNIT_23_IELTS_WRITING: CambridgeUnit = {
         "1950 — 50–59: underweight 30%, ideal 55%, overweight 12%, obese 3%",
         "1950 — 60–69: underweight 40%, ideal 48%, overweight 10%, obese 2%",
       ],
+      chart: {
+        kind: "stackedBar",
+        panels: [
+          {
+            title: "2010",
+            series: [
+              { key: "under", label: "Underweight" },
+              { key: "ideal", label: "Ideal" },
+              { key: "over", label: "Overweight" },
+              { key: "obese", label: "Obese" },
+            ],
+            groups: [
+              { label: "20–29", values: { under: 20, ideal: 72, over: 4, obese: 4 } },
+              { label: "30–39", values: { under: 2, ideal: 52, over: 36, obese: 10 } },
+              { label: "40–49", values: { under: 2, ideal: 40, over: 33, obese: 25 } },
+              { label: "50–59", values: { under: 2, ideal: 42, over: 5, obese: 51 } },
+              { label: "60–69", values: { under: 0, ideal: 15, over: 25, obese: 60 } },
+            ],
+          },
+          {
+            title: "1950",
+            series: [
+              { key: "under", label: "Underweight" },
+              { key: "ideal", label: "Ideal" },
+              { key: "over", label: "Overweight" },
+              { key: "obese", label: "Obese" },
+            ],
+            groups: [
+              { label: "20–29", values: { under: 21, ideal: 71, over: 8, obese: 0 } },
+              { label: "30–39", values: { under: 25, ideal: 60, over: 15, obese: 0 } },
+              { label: "40–49", values: { under: 22, ideal: 60, over: 15, obese: 3 } },
+              { label: "50–59", values: { under: 30, ideal: 55, over: 12, obese: 3 } },
+              { label: "60–69", values: { under: 40, ideal: 48, over: 10, obese: 2 } },
+            ],
+          },
+        ],
+      },
       minWords: 150,
       tip:
         "Bài Task 1 phải có: introduction (viết lại đề bằng từ của bạn), overview (xu hướng chính) và tất cả các số liệu nổi bật — đủ mọi nhóm tuổi, mọi hạng cân và các xu hướng chính. Error warning: dùng \"amount\" với danh từ không đếm được và \"number\" với danh từ đếm được; \"per cent\" luôn đi kèm con số, còn \"percentage\" đứng một mình. Dành khoảng 20 phút và viết ít nhất 150 từ.",

@@ -2,13 +2,13 @@
 
 **Trạng thái: tạm thời / dummy.** Tài liệu này mô tả chính xác hệ thống "đã trả phí hay chưa" hiện có, vì sao nó chưa hoàn thiện, và checklist cụ thể cần làm khi có tài khoản thanh toán QR code động thật. Tham chiếu lại file này trước khi sửa bất cứ gì liên quan đến subscription/payment.
 
-Bối cảnh: tạo ngày 2026-08-15, khi tài khoản với nhà cung cấp QR code động (để tracking thanh toán + bảo mật) vẫn đang trong quá trình đăng ký, chưa có để tích hợp webhook thật. Cập nhật ngày 2026-08-15 (cùng ngày): bỏ mô hình "Free/Pro" theo tính năng, chuyển sang mô hình **theo thời gian** (trial 3 ngày + gói trả phí theo tháng) — chi tiết bên dưới.
+Bối cảnh: tạo ngày 2026-08-15, khi tài khoản với nhà cung cấp QR code động (để tracking thanh toán + bảo mật) vẫn đang trong quá trình đăng ký, chưa có để tích hợp webhook thật. Cập nhật ngày 2026-08-15 (cùng ngày): bỏ mô hình "Free/Pro" theo tính năng, chuyển sang mô hình **theo thời gian** (trial 7 ngày + gói trả phí theo tháng) — chi tiết bên dưới.
 
 ---
 
-## Mô hình hiện tại: trial 3 ngày + gói trả phí theo thời hạn
+## Mô hình hiện tại: trial 7 ngày + gói trả phí theo thời hạn
 
-Không có khái niệm "gói Pro" cố định — mọi tài khoản đều **mở khoá toàn bộ trong 3 ngày đầu** kể từ lần đăng nhập đầu tiên (`trialStartedAt`, tính bằng đồng hồ server, không phải client). Sau 3 ngày, nội dung khoá quay lại trạng thái free/locked bình thường (`src/lib/content-access.ts`) cho tới khi tài khoản có `paidUntil` (mua thêm thời hạn) còn hiệu lực.
+Không có khái niệm "gói Pro" cố định — mọi tài khoản đều **mở khoá toàn bộ trong 7 ngày đầu** kể từ lần đăng nhập đầu tiên (`trialStartedAt`, tính bằng đồng hồ server, không phải client). Sau 7 ngày, nội dung khoá quay lại trạng thái free/locked bình thường (`src/lib/content-access.ts`) cho tới khi tài khoản có `paidUntil` (mua thêm thời hạn) còn hiệu lực.
 
 ### Bảng giá (`PRICING_PLANS` trong `subscription-store.ts`)
 
@@ -42,9 +42,9 @@ Người dùng đăng nhập Google lần đầu
         │
         ▼
 GET /api/drive/subscription trả về rỗng lần đầu → server stamp
-trialStartedAt = Date.now() ngay lúc đó, ghi vào Drive → mở khoá 3 ngày
+trialStartedAt = Date.now() ngay lúc đó, ghi vào Drive → mở khoá 7 ngày
         │
-        ▼ (nếu hết 3 ngày mà chưa mua)
+        ▼ (nếu hết 7 ngày mà chưa mua)
 Nội dung quay lại khoá bình thường — bấm vào mục khoá bất kỳ đâu
 (list Cambridge/Listen/Verbs, trang Write) → mở PurchaseModal
         │

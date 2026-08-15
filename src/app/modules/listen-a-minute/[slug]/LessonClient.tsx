@@ -516,7 +516,10 @@ export function LessonClient({ slug }: { slug: string }) {
 
   return (
     <div className="flex min-h-screen flex-col">
-      <div className="sticky top-0 z-30 bg-bg">
+      {/* Sticky right below AppHeader (h-12) — top-0 would collide with it,
+          since AppHeader is also sticky top-0 with a higher z-index and would
+          render on top of (hiding) this block once scrolled. */}
+      <div className="sticky top-12 z-30 bg-bg">
         <div className="divider-b flex items-center gap-3 px-4 py-3">
           <button onClick={goBack} className="relative h-[18px] w-[18px] flex-none text-neutral-600 hover:text-accent">
             <BackIcon />

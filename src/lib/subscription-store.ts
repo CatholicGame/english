@@ -1,4 +1,4 @@
-// Entitlement record: every new account gets a 3-day free trial with everything
+// Entitlement record: every new account gets a 7-day free trial with everything
 // unlocked (starting the moment the account is first seen — stamped server-side,
 // see /api/drive/subscription), then locked content (src/lib/content-access.ts)
 // reverts to its normal free/locked split until the user pays for a duration-based
@@ -19,7 +19,7 @@ export interface PricingPlan {
   hook?: string;
 }
 
-export const TRIAL_DAYS = 3;
+export const TRIAL_DAYS = 7;
 const DAY_MS = 24 * 60 * 60 * 1000;
 
 // 1 month is deliberately the most expensive per-month rate — longer

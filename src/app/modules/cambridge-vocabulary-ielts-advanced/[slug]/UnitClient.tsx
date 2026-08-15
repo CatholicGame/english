@@ -34,6 +34,7 @@ import { CopyButton } from "@/components/CopyButton";
 import { useSubscriptionStore } from "@/lib/use-subscription-store";
 import { isCambridgeUnitLocked } from "@/lib/content-access";
 import { ProPaywallNotice } from "@/components/ProPaywallNotice";
+import { WritingChartView } from "@/components/IeltsChart";
 
 const MODULE_KEY = "cambridge-vocabulary-ielts-advanced";
 
@@ -1834,15 +1835,23 @@ function WritingTaskStepView({
       <div className="mb-4 bg-surface p-4">
         <div className="label-xs mb-2 text-accent">{step.taskLabel}</div>
         <div className="mb-3 text-[14px] leading-relaxed font-extrabold">{step.prompt}</div>
-        {step.chartRows && step.chartRows.length > 0 && (
+        {step.chart ? (
           <div className="border border-[color:var(--color-divider)] bg-bg p-3">
-            {step.chartCaption && <div className="label-xs mb-2">{step.chartCaption}</div>}
-            <ul className="flex flex-col gap-1 text-[13px] leading-relaxed">
-              {step.chartRows.map((r, i) => (
-                <li key={i}>{r}</li>
-              ))}
-            </ul>
+            {step.chartCaption && <div className="label-xs mb-3">{step.chartCaption}</div>}
+            <WritingChartView chart={step.chart} />
           </div>
+        ) : (
+          step.chartRows &&
+          step.chartRows.length > 0 && (
+            <div className="border border-[color:var(--color-divider)] bg-bg p-3">
+              {step.chartCaption && <div className="label-xs mb-2">{step.chartCaption}</div>}
+              <ul className="flex flex-col gap-1 text-[13px] leading-relaxed">
+                {step.chartRows.map((r, i) => (
+                  <li key={i}>{r}</li>
+                ))}
+              </ul>
+            </div>
+          )
         )}
       </div>
 

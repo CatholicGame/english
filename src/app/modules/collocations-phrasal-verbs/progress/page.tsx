@@ -1,51 +1,10 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import { GROUP_LABELS, VERBS } from "@/data/basic-verbs";
-import { useAuth } from "@/lib/auth-context";
 import { buildAllItems } from "@/lib/flatten";
 import { useProgress } from "@/lib/progress-context";
 import { dayBars, groupStats, masteryBuckets } from "@/lib/stats";
-
-function AccountBlock() {
-  const { loading, authenticated, user, setLoggedOut } = useAuth();
-  const [signingOut, setSigningOut] = useState(false);
-
-  async function signOut() {
-    setSigningOut(true);
-    await fetch("/api/auth/logout", { method: "POST" }).catch(() => {});
-    setLoggedOut();
-    window.location.href = "/login";
-  }
-
-  if (loading) return null;
-
-  return (
-    <div className="divider-b flex items-center justify-between gap-3 px-4 py-3">
-      {authenticated ? (
-        <>
-          <span className="flex min-w-0 items-center gap-2">
-            {user?.picture && (
-              // eslint-disable-next-line @next/next/no-img-element -- external Google avatar, not worth next/image config for one small icon
-              <img src={user.picture} alt="" className="h-6 w-6 flex-none rounded-full" referrerPolicy="no-referrer" />
-            )}
-            <span className="truncate text-[12px] text-neutral-600">Đã đồng bộ với {user?.email}</span>
-          </span>
-          <button className="btn btn-ghost flex-none" onClick={signOut} disabled={signingOut}>
-            Đăng xuất
-          </button>
-        </>
-      ) : (
-        <>
-          <span className="text-[12px] text-neutral-600">Chưa đăng nhập — tiến độ chỉ lưu trên máy này</span>
-          <a href="/login" className="btn btn-ghost flex-none">
-            Đăng nhập
-          </a>
-        </>
-      )}
-    </div>
-  );
-}
 
 export default function ProgressPage() {
   const { loaded, progress, days } = useProgress();
@@ -71,8 +30,6 @@ export default function ProgressPage() {
       <div className="divider-b px-4 py-4">
         <h1 className="text-[30px]">Progress</h1>
       </div>
-
-      <AccountBlock />
 
       <div className="divider-b px-4 py-4">
         <div className="label-xs mb-3">Last 14 days</div>

@@ -1,6 +1,6 @@
 // Interim manual content gating: which units/lessons/verbs stay free
 // regardless of unlock status, while everything else requires the account to
-// be "unlocked" — either still inside its 3-day trial or paid
+// be "unlocked" — either still inside its 7-day trial or paid
 // (src/lib/subscription-store.ts, see docs/subscription-interim-system.md).
 // AI-practice features are intentionally NOT gated here — no request-quota
 // limiting exists yet (see docs/launch-checklist.md, "Kiểm soát chi phí AI").

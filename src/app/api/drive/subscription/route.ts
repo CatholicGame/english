@@ -19,7 +19,7 @@ export async function GET() {
     await writeSession({ ...auth.session, files });
   }
 
-  // First time this account is ever seen — stamp the 3-day trial start using
+  // First time this account is ever seen — stamp the 7-day trial start using
   // the server clock (not the client's), and persist it immediately so it's
   // never re-stamped later.
   if (!data) {

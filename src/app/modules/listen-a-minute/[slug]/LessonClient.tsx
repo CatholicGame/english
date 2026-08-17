@@ -708,25 +708,26 @@ export function LessonClient({ slug }: { slug: string }) {
       </div>
 
       {step === 1 && (
-        <div className="flex flex-1 flex-col p-4">
-          <div className="lg:flex lg:flex-1 lg:flex-row lg:items-start lg:gap-8">
-            <div className="mb-4 flex flex-col items-center gap-3 bg-surface px-4 py-8 lg:mb-0 lg:w-[340px] lg:flex-none lg:sticky lg:top-6">
-              <button
-                className="btn btn-primary flex h-[72px] w-[72px] items-center justify-center p-0"
-                onClick={togglePlay}
-                aria-label={playing ? "Pause" : "Play"}
-              >
-                {playing ? <PauseIcon /> : <SpeakerIcon />}
-              </button>
-              <div className="label-xs">{playing ? "Playing…" : "Tap to listen"}</div>
-            </div>
-            <div className="lg:flex-1">
+        <div className="flex flex-1 flex-col p-4 pb-[96px]">
+          {/* No separate play button here — the persistent scrubber bar above
+              (sticky under the header, visible on every step) already covers
+              play/pause plus seeking, so a second big "Tap to listen" control
+              here was pure duplication. */}
+          <div className="lg:mx-auto lg:w-full lg:max-w-[720px]">
               <div className="flex flex-wrap gap-2">
                 <button className="btn btn-secondary lg:hidden" onClick={() => setShowScript((v) => !v)}>
                   {showScript ? "Hide script" : "Show script"}
                 </button>
-                {(showScript || pickerMode) &&
-                  (pickerMode ? (
+                {/* On mobile this group only appears once the script is shown/being
+                    picked (showScript toggle above is lg:hidden). On desktop the
+                    script is unconditionally visible (`lg:block` further down),
+                    but showScript itself never becomes true there since its only
+                    toggle button doesn't render at that breakpoint — `lg:contents`
+                    keeps this group visible on desktop regardless, instead of it
+                    being permanently unreachable (bug: "Tạo bài fill" never showed
+                    on desktop since showScript could never flip true). */}
+                <div className={showScript || pickerMode ? "contents" : "hidden lg:contents"}>
+                  {pickerMode ? (
                     <>
                       <button className="btn btn-primary px-3 py-1.5 text-[12px]" onClick={saveCustomCloze}>
                         Lưu ({pickedWords.size} từ)
@@ -739,7 +740,8 @@ export function LessonClient({ slug }: { slug: string }) {
                     <button className="btn btn-ghost px-3 py-1.5 text-[12px]" onClick={openPicker}>
                       ✂️ Tạo bài fill của tôi
                     </button>
-                  ))}
+                  )}
+                </div>
                 {!pickerMode && hasCustomCloze && (
                   <button className="btn btn-ghost px-3 py-1.5 text-[12px] text-accent-700" onClick={deleteCustomCloze}>
                     Xoá bản của tôi
@@ -801,22 +803,26 @@ export function LessonClient({ slug }: { slug: string }) {
                   )}
                 </>
               )}
+          </div>
+          <div className="fixed inset-x-0 bottom-0 bg-bg">
+            <div className="divider-t mx-auto max-w-[480px] p-4 lg:max-w-[720px]">
+              <button
+                className="btn btn-primary btn-block px-4 py-3"
+                onClick={() => {
+                  audioRef.current?.pause();
+                  setStep(2);
+                }}
+              >
+                Continue
+              </button>
             </div>
           </div>
-          <button
-            className="btn btn-primary btn-block mt-auto px-4 py-3 lg:mt-6"
-            onClick={() => {
-              audioRef.current?.pause();
-              setStep(2);
-            }}
-          >
-            Continue
-          </button>
         </div>
       )}
 
       {step === 2 && (
-        <div className="flex flex-1 flex-col p-4">
+        <>
+        <div className="flex flex-1 flex-col p-4 pb-[96px]">
           {hasCustomCloze && (
             <div className="mb-3 flex gap-1.5 lg:mx-auto lg:w-full lg:max-w-[720px]">
               {(["default", "custom"] as const).map((v) => (
@@ -863,15 +869,19 @@ export function LessonClient({ slug }: { slug: string }) {
               );
             })}
           </div>
-          {gapSubmitted ? (
-            <>
-              <div className="mb-3 bg-accent-100 px-4 py-3 text-[13px] leading-relaxed text-accent-800">
-                <span className="label-xs mb-0.5 block">Score</span>
-                <span className="font-extrabold">
-                  {gapCorrect}/{blankAnswers.length} correct
-                </span>
-              </div>
-              <div className="mt-auto flex gap-3">
+          {gapSubmitted && (
+            <div className="mb-3 bg-accent-100 px-4 py-3 text-[13px] leading-relaxed text-accent-800">
+              <span className="label-xs mb-0.5 block">Score</span>
+              <span className="font-extrabold">
+                {gapCorrect}/{blankAnswers.length} correct
+              </span>
+            </div>
+          )}
+        </div>
+        <div className="fixed inset-x-0 bottom-0 bg-bg">
+          <div className="divider-t mx-auto max-w-[480px] p-4 lg:max-w-[720px]">
+            {gapSubmitted ? (
+              <div className="flex gap-3">
                 <button className="btn btn-secondary flex-1 px-4 py-3" onClick={() => setGapSubmitted(false)}>
                   Redo
                 </button>
@@ -879,17 +889,18 @@ export function LessonClient({ slug }: { slug: string }) {
                   Continue
                 </button>
               </div>
-            </>
-          ) : (
-            <button className="btn btn-primary btn-block mt-auto px-4 py-3" onClick={() => setGapSubmitted(true)}>
-              Check
-            </button>
-          )}
+            ) : (
+              <button className="btn btn-primary btn-block px-4 py-3" onClick={() => setGapSubmitted(true)}>
+                Check
+              </button>
+            )}
+          </div>
         </div>
+        </>
       )}
 
       {step === 3 && (
-        <div className="flex flex-1 flex-col p-4">
+        <div className="flex flex-1 flex-col p-4 pb-[96px]">
           <div className="mb-2 text-[13px] text-neutral-700">
             Unscramble the letters to spell each word correctly.
           </div>
@@ -921,28 +932,32 @@ export function LessonClient({ slug }: { slug: string }) {
               );
             })}
           </div>
-          {spellSubmitted ? (
-            <>
-              <div className="mb-3 bg-accent-100 px-4 py-3 text-[13px] leading-relaxed text-accent-800">
-                <span className="label-xs mb-0.5 block">Score</span>
-                <span className="font-extrabold">
-                  {spellCorrect}/{lesson.spellingWords.length} correct
-                </span>
-              </div>
-              <button className="btn btn-primary btn-block mt-auto px-4 py-3" onClick={() => setStep(4)}>
-                Continue
-              </button>
-            </>
-          ) : (
-            <button className="btn btn-primary btn-block mt-auto px-4 py-3" onClick={() => setSpellSubmitted(true)}>
-              Check
-            </button>
+          {spellSubmitted && (
+            <div className="mb-3 bg-accent-100 px-4 py-3 text-[13px] leading-relaxed text-accent-800">
+              <span className="label-xs mb-0.5 block">Score</span>
+              <span className="font-extrabold">
+                {spellCorrect}/{lesson.spellingWords.length} correct
+              </span>
+            </div>
           )}
+          <div className="fixed inset-x-0 bottom-0 bg-bg">
+            <div className="divider-t mx-auto max-w-[480px] p-4 lg:max-w-[720px]">
+              {spellSubmitted ? (
+                <button className="btn btn-primary btn-block px-4 py-3" onClick={() => setStep(4)}>
+                  Continue
+                </button>
+              ) : (
+                <button className="btn btn-primary btn-block px-4 py-3" onClick={() => setSpellSubmitted(true)}>
+                  Check
+                </button>
+              )}
+            </div>
+          </div>
         </div>
       )}
 
       {step === 4 && (
-        <div className="flex flex-1 flex-col p-4">
+        <div className="flex flex-1 flex-col p-4 pb-[96px]">
           <div className="mb-3 text-[13px] text-neutral-700">
             Extend what you have learned with these follow-up tasks.
           </div>
@@ -972,9 +987,13 @@ export function LessonClient({ slug }: { slug: string }) {
             ))}
           </div>
           <LessonDiscussion lesson={lesson} />
-          <button className="btn btn-primary btn-block mt-auto px-4 py-3" onClick={finish}>
-            Finish lesson
-          </button>
+          <div className="fixed inset-x-0 bottom-0 bg-bg">
+            <div className="divider-t mx-auto max-w-[480px] p-4 lg:max-w-[720px]">
+              <button className="btn btn-primary btn-block px-4 py-3" onClick={finish}>
+                Finish lesson
+              </button>
+            </div>
+          </div>
         </div>
       )}
 

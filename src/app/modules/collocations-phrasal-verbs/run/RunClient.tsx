@@ -328,13 +328,17 @@ export function RunClient() {
       <div className="label-xs px-4 pt-3 text-accent">{MODE_LABELS[session.mode]}</div>
 
       {q?.kind === "flash" && (
-        <div className="flex flex-1 flex-col p-4 lg:mx-auto lg:w-full lg:max-w-[640px]">
+        // lg:flex-none on both this wrapper and the card below: without it, `flex-1`
+        // stretches the card to fill the whole remaining viewport height on a tall
+        // desktop window (min-h-screen further up), leaving a huge empty gap around
+        // the short "Tap to reveal" text and pushing the grade buttons below the fold.
+        <div className="flex flex-1 flex-col p-4 lg:mx-auto lg:w-full lg:max-w-[640px] lg:flex-none">
           <button
             onClick={() => {
               if (!flipped) speak(q.item.term);
               setFlipped(!flipped);
             }}
-            className="animate-pop flex flex-1 w-full flex-col justify-center gap-3 bg-surface p-6 text-left"
+            className="animate-pop flex flex-1 w-full flex-col justify-center gap-3 bg-surface p-6 text-left lg:flex-none lg:min-h-[280px]"
           >
             <span className="text-[30px] leading-tight font-extrabold tracking-tight text-balance">
               {q.item.term}

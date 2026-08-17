@@ -22,7 +22,8 @@ export type IntentType =
   | "discussion"
   | "cielts_writing_feedback"
   | "cielts_speaking_feedback"
-  | "cielts_vocab_sentence";
+  | "cielts_vocab_sentence"
+  | "cielts_vocab_paragraph";
 
 export interface AiMessage {
   role: "user" | "assistant" | "system";

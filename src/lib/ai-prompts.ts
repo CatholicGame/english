@@ -238,6 +238,25 @@ function cieltsVocabSentence(payload: Record<string, unknown>): PromptResult {
   };
 }
 
+// Generates the ONE shared sample paragraph cached per word in
+// src/lib/ielts-vocab-sample-db.ts (see src/app/api/ielts-vocab-sample/route.ts)
+// — pure English content, no feedback/explanation prose, so unlike the
+// evaluation intents above this does not call feedbackLangNote().
+function cieltsVocabParagraph(payload: Record<string, unknown>): PromptResult {
+  const term = payload.term as string;
+  const pos = payload.pos as string;
+  const en = payload.en as string;
+  const usageNote = payload.usageNote as string;
+
+  return {
+    systemPrompt:
+      "You are an IELTS Writing Task 2 tutor. You write natural, academic-register sample paragraphs of the quality a band 7-8 candidate would produce.",
+    userMessage: `Write ONE short IELTS Writing Task 2 style paragraph (60-90 words) that naturally and correctly uses the word "${term}" (${pos}, meaning: "${en}"; usage note: "${usageNote}"). Pick any general essay topic (education, society, technology, environment, health, etc.) that the word fits naturally. Write in English only. Return ONLY the paragraph text — no title, no quotation marks, no explanation.`,
+    temperature: 0.7,
+    jsonMode: false,
+  };
+}
+
 // ─── Topic 1 Extended: Translation, Context Quiz, Examples ─────
 
 function cpvTranslateBatch(payload: Record<string, unknown>): PromptResult {
@@ -480,6 +499,8 @@ export function buildPrompt(
         return cieltsSpeakingFeedback(payload);
       case "cielts_vocab_sentence":
         return cieltsVocabSentence(payload);
+      case "cielts_vocab_paragraph":
+        return cieltsVocabParagraph(payload);
       default:
         throw new Error(`Unknown intent: ${intent}`);
     }

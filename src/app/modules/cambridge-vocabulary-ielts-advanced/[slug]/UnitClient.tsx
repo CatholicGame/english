@@ -219,6 +219,51 @@ function ChipRow({ label, items, tone }: { label: string; items: string[]; tone:
   );
 }
 
+function IeltsVocabSample({ word }: { word: VocabWord }) {
+  const [paragraph, setParagraph] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  async function load() {
+    setLoading(true);
+    setError(null);
+    try {
+      const res = await fetch(`/api/ielts-vocab-sample?term=${encodeURIComponent(word.term)}`);
+      const j = await res.json();
+      if (!res.ok) throw new Error(j.error || "AI failed");
+      setParagraph(j.paragraph);
+    } catch (e) {
+      setError(e instanceof Error ? e.message : "AI failed");
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  return (
+    <div className="mt-3">
+      {!paragraph && (
+        <button className="btn btn-secondary" disabled={loading} onClick={load}>
+          {loading ? "Đang tạo đoạn văn mẫu..." : "📝 Xem đoạn văn mẫu Writing Task 2"}
+        </button>
+      )}
+      {error && <p className="mt-1.5 text-[11px] text-red-600">{error}</p>}
+      {paragraph && (
+        <div className="bg-surface p-3 text-[13px] leading-relaxed">
+          <div className="mb-1.5 flex items-center justify-between gap-2">
+            <span className="label-xs text-accent">📝 Đoạn văn mẫu Writing Task 2</span>
+            <CopyButton
+              text={paragraph}
+              className="rounded-full border px-2 py-0.5 text-[11px] font-bold"
+              style={{ borderColor: "var(--color-accent-800)", color: "var(--color-accent-800)" }}
+            />
+          </div>
+          {paragraph}
+        </div>
+      )}
+    </div>
+  );
+}
+
 type VocabPMode = "write" | "translate" | "converse" | "discussion";
 
 const VOCAB_MODE_LABELS: Record<VocabPMode, string> = {
@@ -983,6 +1028,8 @@ function VocabStepView({ step, onNext }: { step: VocabStep; onNext: (score?: Sco
               <span className="label-xs mb-0.5 block text-accent-700">🎯 IELTS tip</span>
               {w.ieltsTip}
             </div>
+
+            <IeltsVocabSample word={w} />
 
             <VocabAiPractice key={w.term} word={w} />
           </div>

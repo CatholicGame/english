@@ -11218,3 +11218,19 @@ export const CAMBRIDGE_UNITS: CambridgeUnit[] = [
 export function getCambridgeUnit(slug: string): CambridgeUnit | undefined {
   return CAMBRIDGE_UNITS.find((u) => u.slug === slug);
 }
+
+/** Looks a word up across every unit's vocab steps — used server-side to
+ * validate that an AI-generation request names a real vocab word instead of
+ * an arbitrary string (see src/app/api/ielts-vocab-sample/route.ts), so the
+ * cost of generating+caching a sample is bounded to this fixed word list. */
+export function findVocabWord(term: string): VocabWord | undefined {
+  const needle = term.trim().toLowerCase();
+  for (const unit of CAMBRIDGE_UNITS) {
+    for (const step of unit.steps) {
+      if (step.kind !== "vocab") continue;
+      const found = step.words.find((w) => w.term.toLowerCase() === needle);
+      if (found) return found;
+    }
+  }
+  return undefined;
+}

@@ -53,8 +53,8 @@ Xem thêm bối cảnh chiến lược đầy đủ hơn ở [production-readine
 
 ## 5. Kiểm soát chi phí AI
 
-- [ ] Quota số lượt gọi AI/ngày theo gói (free thấp, pro cao/không giới hạn) — hiện `/api/ai` không có giới hạn nào.
-- [ ] `max_tokens` hợp lý theo từng intent trong `callDeepSeek` (`src/app/api/ai/route.ts`).
+- [x] **Quota lượt gọi AI/ngày** (2026-08-17) — `/api/ai` giờ yêu cầu session (trước đây không check gì) và giới hạn `AI_DAILY_CALL_LIMIT = 40` lượt/ngày/tài khoản (`subscription-store.ts`), đếm nguyên tử qua Firestore transaction (`checkAndIncrementAiUsage` trong `subscription-db.ts`, field `aiCallsToday`/`aiCallsDate` trong chính doc `subscriptions/{email}`), trả `429` kèm message khi vượt. Cùng 1 ngưỡng cho mọi gói (1/3/6/12 tháng chỉ khác thời hạn, không khác mức truy cập). Tính toán: chi phí DeepSeek/lượt (giờ peak, model `deepseek-v4-flash`) ≈ 30đ, nên 40 lượt/ngày vẫn có biên an toàn lớn so với giá gói rẻ nhất (50k/tháng ≈ 1.667đ/ngày).
+- [ ] `max_tokens` hợp lý theo từng intent trong `callDeepSeek` (`src/app/api/ai/route.ts`) — vẫn chưa làm, hiện không giới hạn độ dài output.
 
 ## 6. Đo lường
 

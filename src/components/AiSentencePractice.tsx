@@ -26,6 +26,35 @@ export interface ItemInfo {
   term: string; type: string; en: string; vi: string; ex: string;
 }
 
+// Debounced localStorage draft persistence for in-progress Write/Translate text —
+// without this, navigating away before submitting (e.g. after generating the 5
+// translate sentences but before answering) silently loses that state, forcing a
+// re-generate. Same pattern as Cambridge's inline practice draft persistence.
+function loadDraft<T>(key: string): T | null {
+  try {
+    const raw = localStorage.getItem(key);
+    return raw ? (JSON.parse(raw) as T) : null;
+  } catch {
+    return null;
+  }
+}
+
+function saveDraft(key: string, draft: unknown) {
+  try {
+    localStorage.setItem(key, JSON.stringify(draft));
+  } catch {
+    // localStorage unavailable
+  }
+}
+
+function clearDraft(key: string) {
+  try {
+    localStorage.removeItem(key);
+  } catch {
+    // localStorage unavailable
+  }
+}
+
 export function AiSentencePractice({ item, moduleKey, showItemInfo = true }: { item: ItemInfo; moduleKey: string; showItemInfo?: boolean }) {
   const ik = item.term;
   const il = `${item.term} (${item.type})`;
@@ -46,8 +75,40 @@ export function AiSentencePractice({ item, moduleKey, showItemInfo = true }: { i
   const [chatIn, setChatIn] = useState("");
   const [chat, setChat] = useState<AiMessage[]>([]);
   const chatEndRef = useRef<HTMLDivElement>(null);
+  const writeDraftKey = `${moduleKey}:draft:write:${item.term}`;
+  const translateDraftKey = `${moduleKey}:draft:translate:${item.term}`;
 
   useEffect(() => { chatEndRef.current?.scrollIntoView({ behavior: "smooth" }); }, [chat]);
+
+  // Restore any in-progress draft on mount.
+  useEffect(() => {
+    const wd = loadDraft<{ sentence: string }>(writeDraftKey);
+    if (wd?.sentence) setSentence(wd.sentence);
+    const td = loadDraft<{ viSentences: string[]; translations: string[] }>(translateDraftKey);
+    if (td?.viSentences?.length) {
+      setViSentences(td.viSentences);
+      setTranslations(td.translations ?? new Array(td.viSentences.length).fill(""));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    const t = setTimeout(() => {
+      if (sentence.trim()) saveDraft(writeDraftKey, { sentence });
+      else clearDraft(writeDraftKey);
+    }, 800);
+    return () => clearTimeout(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sentence]);
+
+  useEffect(() => {
+    const t = setTimeout(() => {
+      if (viSentences.length && !batchResult) saveDraft(translateDraftKey, { viSentences, translations });
+      else clearDraft(translateDraftKey);
+    }, 800);
+    return () => clearTimeout(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [viSentences, translations, batchResult]);
 
   async function callAi(intent: IntentType, payload: Record<string, unknown>) {
     setLoading(true); setError(null); setResult(null);
@@ -62,8 +123,8 @@ export function AiSentencePractice({ item, moduleKey, showItemInfo = true }: { i
   const sw = useCallback(async () => {
     if (!sentence.trim()) return;
     const d = await callAi("cpv_sentence_check", { term: item.term, en: item.en, vi: item.vi, ex: item.ex, sentence: sentence.trim() });
-    if (d) { setResult(d); const id = appendMessages(ik, il, cid, "cpv_sentence_check", [{ role: "user", content: sentence.trim(), timestamp: Date.now() }, { role: "assistant", content: JSON.stringify(d), timestamp: Date.now() }]); if (!cid) setCid(id); }
-  }, [sentence, item, ik, il, cid, appendMessages]);
+    if (d) { setResult(d); const id = appendMessages(ik, il, cid, "cpv_sentence_check", [{ role: "user", content: sentence.trim(), timestamp: Date.now() }, { role: "assistant", content: JSON.stringify(d), timestamp: Date.now() }]); if (!cid) setCid(id); clearDraft(writeDraftKey); }
+  }, [sentence, item, ik, il, cid, appendMessages, writeDraftKey]);
 
   const loadTranslate = useCallback(async () => {
     setViSentences([]); setTranslations([]); setBatchResult(null); setResult(null);
@@ -86,8 +147,9 @@ export function AiSentencePractice({ item, moduleKey, showItemInfo = true }: { i
         { role: "user", content: "Submitted 5 translations", timestamp: Date.now() },
         { role: "assistant", content: JSON.stringify(enriched), timestamp: Date.now() },
       ]);
+      clearDraft(translateDraftKey);
     }
-  }, [viSentences, translations, item, ik, il, cid, appendMessages]);
+  }, [viSentences, translations, item, ik, il, cid, appendMessages, translateDraftKey]);
 
   const lq = useCallback(async () => {
     setQz(null); setQuizAnswers([]);

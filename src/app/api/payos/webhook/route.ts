@@ -3,6 +3,13 @@ import { getPayOS } from "@/lib/payos-client";
 import { getOrder, getSubscription, markOrderPaidOnce, setSubscription } from "@/lib/subscription-db";
 import { withPaidExtended, DEFAULT_SUBSCRIPTION, PRICING_PLANS } from "@/lib/subscription-store";
 
+// PayOS's webhook-URL confirmation flow may probe reachability with a plain
+// GET before sending its signed test payload via POST — without this, Next.js
+// returns 405 for GET on a POST-only route, which reads as "unreachable".
+export async function GET() {
+  return NextResponse.json({ ok: true });
+}
+
 // No session cookie here — PayOS calls this server-to-server. Authenticity
 // comes from the HMAC signature (checksum key), not our auth cookie. See
 // docs/subscription-interim-system.md for why entitlement lives in Firestore

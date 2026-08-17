@@ -68,8 +68,8 @@ export default function TermsPage() {
       <h2 className="mt-6 text-[16px] font-extrabold">7. Liên hệ</h2>
       <p className="mt-2">
         Mọi thắc mắc về điều khoản dịch vụ, vui lòng liên hệ:{" "}
-        <a href="mailto:namnc@mirabo-global.com" className="font-bold text-accent underline">
-          namnc@mirabo-global.com
+        <a href="mailto:nguyencongnam506@gmail.com" className="font-bold text-accent underline">
+          nguyencongnam506@gmail.com
         </a>
       </p>
     </div>

@@ -9,7 +9,6 @@ import { AuthStatus } from "./AuthStatus";
 import { GlobalScoreBadge } from "./GlobalScoreBadge";
 import { VoiceSettings } from "./VoiceSettings";
 import { SubscriptionSettings } from "./SubscriptionSettings";
-import { DebugUnlockToggle } from "./DebugUnlockToggle";
 import { loadUiPrefs, saveUiPrefs, applyUiPrefs, type UiPrefs, type FontId } from "@/lib/ui-prefs";
 import { loadAiLangPrefs, saveAiLangPrefs, type AiLang } from "@/lib/ai-lang-prefs";
 import { ShareButton } from "./ShareButton";
@@ -122,9 +121,6 @@ export function AppHeader() {
             </div>
             <div className="divider-b">
               <SubscriptionSettings />
-            </div>
-            <div className="divider-b">
-              <DebugUnlockToggle />
             </div>
             <VoiceSettings />
             <div className="divider-t px-3 py-2">

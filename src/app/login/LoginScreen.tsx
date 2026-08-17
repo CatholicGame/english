@@ -79,8 +79,8 @@ export function LoginScreen() {
         </a>
         <p className="mt-3 text-center text-[11px] text-neutral-500 lg:text-left">
           Bằng việc đăng nhập, bạn đồng ý với{" "}
-          <Link href="/terms" target="_blank" className="underline">Điều khoản dịch vụ</Link> và{" "}
-          <Link href="/privacy" target="_blank" className="underline">Chính sách quyền riêng tư</Link>.
+          <Link href="/terms" className="underline">Điều khoản dịch vụ</Link> và{" "}
+          <Link href="/privacy" className="underline">Chính sách quyền riêng tư</Link>.
         </p>
       </div>
       {showFeatures && (

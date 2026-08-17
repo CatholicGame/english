@@ -42,7 +42,7 @@ function subscribe(onStoreChange: () => void) {
 }
 
 function pushToCloud(data: SubscriptionData, onReauthRequired: () => void) {
-  fetch("/api/drive/subscription", {
+  fetch("/api/subscription", {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
@@ -51,36 +51,36 @@ function pushToCloud(data: SubscriptionData, onReauthRequired: () => void) {
     .catch(() => { /* best-effort */ });
 }
 
+/** Fetches the Firestore-backed record and merges it into the local cache.
+ * Used both on mount and to re-poll right after returning from a PayOS
+ * checkout, where the webhook may land a moment after the redirect does. */
+async function fetchFromServer(onReauthRequired: () => void): Promise<void> {
+  const res = await fetch("/api/subscription");
+  if (res.status === 401) { onReauthRequired(); return; }
+  if (!res.ok) throw new Error(`fetch subscription failed: ${res.status}`);
+  const { data } = await res.json();
+  if (!data) return;
+  setData(mergeSubscription(getStore().data, data));
+}
+
 export function useSubscriptionStore() {
   const { loading: authLoading, authenticated, refresh } = useAuth();
   const subscription = useSyncExternalStore(subscribe, () => getStore().data, () => DEFAULT_SUBSCRIPTION);
 
-  // Fetch from Drive on mount (when authenticated)
+  // Fetch from the server on mount (when authenticated)
   useEffect(() => {
     if (authLoading || !authenticated) return;
     const s = getStore();
     if (s.fetchStarted) return;
     s.fetchStarted = true;
 
-    fetch("/api/drive/subscription")
-      .then((r) => {
-        if (r.status === 401) refresh();
-        return r.ok ? r.json() : Promise.reject(r);
-      })
-      .then(({ data }) => {
-        if (!data) return;
-        const merged = mergeSubscription(getStore().data, data);
-        setData(merged);
-      })
-      .catch(() => { s.fetchStarted = false; });
+    fetchFromServer(refresh).catch(() => { s.fetchStarted = false; });
   }, [authLoading, authenticated, refresh]);
 
-  // /api/account/activate already wrote the record to Drive server-side (it's
-  // the source of truth for the grant) — this just mirrors that result into
-  // the local cache so the UI updates immediately, without a redundant write.
-  const applyServerSubscription = useCallback((data: SubscriptionData) => {
-    setData(data);
-  }, []);
+  // Exposed for the post-PayOS-checkout return flow, which needs to re-poll
+  // outside the once-per-mount guard above (the webhook can land a beat after
+  // the browser redirect back into the app).
+  const refetch = useCallback(() => fetchFromServer(refresh), [refresh]);
 
   // DEBUG ONLY (see subscription-store.ts) — force-lock/unlock from Settings
   // while real payment doesn't exist yet. Leaves trialStartedAt/paidUntil
@@ -101,5 +101,5 @@ export function useSubscriptionStore() {
   const isUnlocked = loaded ? computeIsUnlocked(subscription) : true;
   const trialDaysLeft = loaded ? computeTrialDaysLeft(subscription) : 0;
 
-  return { subscription, loaded, isUnlocked, trialDaysLeft, applyServerSubscription, setDebugOverride };
+  return { subscription, loaded, isUnlocked, trialDaysLeft, setDebugOverride, refetch };
 }

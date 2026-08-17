@@ -10,11 +10,10 @@ Xem thêm bối cảnh chiến lược đầy đủ hơn ở [production-readine
 
 - [x] Bỏ tài khoản khách (`guest_ok`) — mọi người dùng bắt buộc đăng nhập Google (`src/app/login/LoginScreen.tsx`, `src/proxy.ts`, `src/app/api/share/route.ts`).
 - [x] Xác nhận dữ liệu cá nhân hoá đã lưu **ẩn** trong Drive riêng của từng người — kiến trúc `drive.appdata` scope + `appDataFolder` (`src/lib/google-drive.ts`) đã làm đúng việc này từ trước, không cần xây thêm.
-- [x] Dựng flow tracking thanh toán tạm thời (dummy) trong lúc chờ tài khoản QR code động:
-  - `src/lib/subscription-store.ts` — bản ghi entitlement (`plan: "free"|"pro"`) đồng bộ qua Drive giống dictionary/translations.
-  - `src/app/api/drive/subscription/route.ts` — GET/PUT sync.
-  - `src/app/api/account/activate/route.ts` + `scripts/generate-activation-code.mjs` — sau khi xác nhận chuyển khoản QR thủ công, chạy `node scripts/generate-activation-code.mjs <email>` để lấy mã, gửi cho người dùng, họ nhập ở Settings → "Gói dịch vụ" (`SubscriptionSettings.tsx`) để tự kích hoạt.
-  - **Lưu ý quan trọng**: đây là cơ chế tin tưởng client (dữ liệu nằm trong Drive của chính người dùng) — chỉ dùng tạm. Khi có tài khoản thanh toán thật, phải thay bằng webhook server-side, không mở rộng thêm cơ chế mã thủ công này. Chi tiết đầy đủ + checklist migrate: [subscription-interim-system.md](./subscription-interim-system.md).
+- [x] Thanh toán thật qua PayOS (2026-08-17), thay hoàn toàn cơ chế mã kích hoạt thủ công trước đó:
+  - `src/lib/subscription-store.ts` — bản ghi entitlement, giờ lưu trong Firestore (`subscriptions/{email}`), không còn trong Drive của từng người.
+  - `src/app/api/subscription/route.ts` — GET/PUT sync (thay `/api/drive/subscription` cũ).
+  - `src/app/api/payos/create-payment-link/route.ts` + `src/app/api/payos/webhook/route.ts` — tạo link thanh toán PayOS thật, webhook tự động cộng thời hạn khi thanh toán thành công (verify chữ ký HMAC qua `payos.webhooks.verify()`). Không cần admin xác nhận bằng mắt hay phát mã tay nữa. Chi tiết đầy đủ: [subscription-interim-system.md](./subscription-interim-system.md).
 
 ---
 
@@ -47,9 +46,10 @@ Xem thêm bối cảnh chiến lược đầy đủ hơn ở [production-readine
   - List item vẫn hiện (mờ + badge 🔒 Khoá) thay vì ẩn hẳn; **bấm/chạm vào mở `PurchaseModal`** (bảng giá + ô nhập mã) thay vì không phản hồi như trước. Truy cập thẳng URL trang chi tiết đang khoá thì hiện `ProPaywallNotice` inline (cùng nội dung, không phải popup).
   - Đã lọc luôn các luồng ôn tập tổng hợp: "Today" hub (`collocations-phrasal-verbs/page.tsx`), "Start review"/`run?verbs=...` (`RunClient.tsx`), và chọn verb để viết luận (`write/page.tsx`) — cả 3 đều loại verb bị khoá khỏi pool trước khi tính stats/tạo câu hỏi/cho chọn, thay vì chỉ chặn ở trang danh sách + chi tiết.
   - Còn lại duy nhất 1 edge case chưa xử lý: mistakes đã lưu (`loadMistakes`) từ trước khi bị khoá (vd. hết hạn trả phí) không bị lọc lại — không đáng lo, hậu quả nhỏ.
-- [x] **Thay "Free/Pro" bằng mô hình trial + gói theo thời hạn** (2026-08-15) — mọi tài khoản mở khoá toàn bộ 7 ngày đầu (`trialStartedAt`, stamp server-side), sau đó khoá lại bình thường cho tới khi mua thêm thời hạn: 1 tháng 50k / 3 tháng 130k / 6 tháng 220k / 12 tháng 360k (`PRICING_PLANS`, xem bảng chiết khấu trong [subscription-interim-system.md](./subscription-interim-system.md)). Mã kích hoạt giờ gắn với gói cụ thể (`matchActivationCode` tự suy ra gói từ mã, người dùng chỉ paste 1 mã).
+- [x] **Thay "Free/Pro" bằng mô hình trial + gói theo thời hạn** (2026-08-15) — mọi tài khoản mở khoá toàn bộ 7 ngày đầu (`trialStartedAt`, stamp server-side), sau đó khoá lại bình thường cho tới khi mua thêm thời hạn: 1 tháng 50k / 3 tháng 130k / 6 tháng 220k / 12 tháng 360k (`PRICING_PLANS`, xem bảng chiết khấu trong [subscription-interim-system.md](./subscription-interim-system.md)).
+- [x] **Webhook thanh toán thật (PayOS)** (2026-08-17) — xem mục "Thanh toán thật qua PayOS" ở trên. Entitlement chuyển sang Firestore (`subscriptions/{email}`) vì webhook không có session người dùng để ghi Drive.
 - [ ] Xác nhận lại giá gói 12 tháng (360k là suy luận toán học tiếp nối đường cong chiết khấu 13%/27%, chưa qua kiểm chứng thị trường) — xem [subscription-interim-system.md](./subscription-interim-system.md).
-- [ ] Khi có tài khoản QR code động thật: thay `/api/account/activate` (mã thủ công) bằng webhook thật từ nhà cung cấp thanh toán, giữ nguyên chỗ lưu trữ (`subscription-store.ts`/Drive) nếu vẫn phù hợp hoặc chuyển sang DB thật nếu cần nhiều người dùng đồng thời.
+- [ ] Revoke path + admin dashboard cho entitlement (xem gap trong [subscription-interim-system.md](./subscription-interim-system.md)) — vẫn chưa làm.
 
 ## 5. Kiểm soát chi phí AI
 

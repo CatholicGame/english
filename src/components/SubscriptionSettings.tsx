@@ -1,16 +1,13 @@
 "use client";
 
-// Status + pricing + redeem box for the app's trial/paid entitlement — there
-// is no payment gateway wired up yet (see src/lib/subscription-store.ts and
-// docs/subscription-interim-system.md). Tapping a plan reveals a QR code once
-// src/lib/payment-config.ts has real bank details (falls back to a "coming
-// soon, message the admin" note until then). After confirming a transfer
-// out-of-band, the admin runs scripts/generate-activation-code.mjs and sends
-// the matching code here to redeem. Reused both in Settings (gear menu) and
-// inside PurchaseModal when tapping locked content.
+// Status + pricing for the app's trial/paid entitlement (see
+// src/lib/subscription-store.ts and docs/subscription-interim-system.md).
+// Tapping a plan creates a real PayOS checkout link and redirects to it;
+// PayOS's own webhook grants paid access automatically once the transfer
+// clears (see /api/payos/webhook) — no manual code entry. Reused both in
+// Settings (gear menu) and inside PurchaseModal when tapping locked content.
 
 import { useState } from "react";
-import { useAuth } from "@/lib/auth-context";
 import { useSubscriptionStore } from "@/lib/use-subscription-store";
 import {
   PRICING_PLANS,
@@ -20,8 +17,6 @@ import {
   type PricingPlan,
   type BillingCycle,
 } from "@/lib/subscription-store";
-import { BANK_TRANSFER, vietQrImageUrl, transferNote } from "@/lib/payment-config";
-import { CopyButton } from "./CopyButton";
 
 function savingsLabel(plan: PricingPlan): string | null {
   if (plan.cycle === "monthly") return null;
@@ -37,29 +32,25 @@ function formatVnd(n: number): string {
 }
 
 export function SubscriptionSettings() {
-  const { user } = useAuth();
-  const { subscription, isUnlocked, applyServerSubscription } = useSubscriptionStore();
-  const [code, setCode] = useState("");
-  const [status, setStatus] = useState<"idle" | "loading" | "error">("idle");
+  const { subscription, isUnlocked } = useSubscriptionStore();
   const [selectedCycle, setSelectedCycle] = useState<BillingCycle | null>(null);
+  const [status, setStatus] = useState<"idle" | "loading" | "error">("idle");
 
-  async function redeem() {
-    if (!code.trim() || status === "loading") return;
+  async function checkout() {
+    if (!selectedCycle || status === "loading") return;
     setStatus("loading");
     try {
-      const res = await fetch("/api/account/activate", {
+      const res = await fetch("/api/payos/create-payment-link", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ code: code.trim() }),
+        body: JSON.stringify({ cycle: selectedCycle }),
       });
       const json = await res.json();
       if (!res.ok || !json.ok) {
         setStatus("error");
         return;
       }
-      applyServerSubscription(json.subscription);
-      setCode("");
-      setStatus("idle");
+      window.location.href = json.checkoutUrl;
     } catch {
       setStatus("error");
     }
@@ -69,7 +60,6 @@ export function SubscriptionSettings() {
   const trialActive = isTrialActive(subscription);
   const daysLeft = computeTrialDaysLeft(subscription);
   const selectedPlan = PRICING_PLANS.find((p) => p.cycle === selectedCycle) ?? null;
-  const note = selectedPlan && user ? transferNote(user.email, selectedPlan.cycle) : "";
 
   return (
     <div className="px-3 py-2">
@@ -95,7 +85,7 @@ export function SubscriptionSettings() {
             <button
               key={plan.cycle}
               type="button"
-              onClick={() => setSelectedCycle(selected ? null : plan.cycle)}
+              onClick={() => { setSelectedCycle(selected ? null : plan.cycle); if (status === "error") setStatus("idle"); }}
               className="flex items-center justify-between border px-3 py-2 text-left"
               style={{
                 borderColor: selected ? "var(--color-accent)" : "var(--color-divider)",
@@ -124,59 +114,24 @@ export function SubscriptionSettings() {
       </div>
 
       {selectedPlan && (
-        <div className="mb-3 border p-3" style={{ borderColor: "var(--color-divider)" }}>
-          {BANK_TRANSFER ? (
-            <>
-              {/* Dynamic VietQR image (amount + content baked in) — a plain
-                  <img>, not next/image, since the URL is generated per plan/user
-                  and isn't a static local asset. */}
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={vietQrImageUrl(BANK_TRANSFER, selectedPlan.priceVnd, note)}
-                alt={`QR chuyển khoản ${formatVnd(selectedPlan.priceVnd)}`}
-                className="mx-auto mb-2 h-auto w-full max-w-[220px]"
-              />
-              <div className="flex items-center justify-between text-[12px]">
-                <span className="text-neutral-600">Số tiền</span>
-                <span className="font-extrabold tabular-nums">{formatVnd(selectedPlan.priceVnd)}</span>
-              </div>
-              <div className="mt-1 flex items-center justify-between gap-2 text-[12px]">
-                <span className="text-neutral-600">Nội dung CK</span>
-                <span className="flex items-center gap-1.5">
-                  <span className="font-extrabold">{note}</span>
-                  <CopyButton text={note} label="Copy" className="text-[11px] font-bold text-accent" />
-                </span>
-              </div>
-            </>
-          ) : (
-            <p className="text-[12px] text-neutral-600">
-              🚧 Đang hoàn tất kênh chuyển khoản QR tự động cho gói {selectedPlan.label}. Nhắn cho admin để được hướng
-              dẫn chuyển khoản thủ công trong lúc chờ.
-            </p>
+        <div className="mb-3">
+          <button
+            type="button"
+            className="btn btn-primary btn-block px-4 py-2.5 text-[13px]"
+            onClick={checkout}
+            disabled={status === "loading"}
+          >
+            {status === "loading" ? "Đang tạo link thanh toán..." : `Thanh toán ${formatVnd(selectedPlan.priceVnd)} qua PayOS`}
+          </button>
+          {status === "error" && (
+            <div className="mt-1.5 text-[11px] text-red-600">Không tạo được link thanh toán, thử lại.</div>
           )}
         </div>
       )}
 
-      {!isUnlocked && (
-        <p className="mb-2 text-[11px] text-neutral-600">
-          Sau khi chuyển khoản theo gói đã chọn, bạn sẽ nhận được mã kích hoạt để nhập bên dưới.
-        </p>
+      {!isUnlocked && !selectedPlan && (
+        <p className="text-[11px] text-neutral-600">Chọn 1 gói ở trên để thanh toán — quyền lợi sẽ tự động kích hoạt ngay sau khi chuyển khoản thành công.</p>
       )}
-
-      <div className="label-xs mb-1.5">Đã thanh toán? Nhập mã kích hoạt</div>
-      <div className="flex gap-1.5">
-        <input
-          className="input flex-1 text-[13px]"
-          placeholder="XXXX-XXXX"
-          value={code}
-          onChange={(e) => { setCode(e.target.value); if (status === "error") setStatus("idle"); }}
-          onKeyDown={(e) => { if (e.key === "Enter") redeem(); }}
-        />
-        <button className="btn btn-primary px-3 py-1.5 text-[12px]" onClick={redeem} disabled={status === "loading"}>
-          Kích hoạt
-        </button>
-      </div>
-      {status === "error" && <div className="mt-1 text-[11px] text-red-600">Mã không đúng, thử lại.</div>}
     </div>
   );
 }

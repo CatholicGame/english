@@ -2,7 +2,6 @@ import type { NotesData } from "./notes-store";
 import type { AiConvoData } from "./ai-convo-store";
 import type { DictionaryData } from "./dictionary-store";
 import type { TranslationData } from "./translation-store";
-import type { SubscriptionData } from "./subscription-store";
 import type { CustomClozeData } from "./listen-custom-cloze-store";
 import type { GrammarData } from "./grammar-store";
 import type { SessionPayload } from "./session-cookie";
@@ -176,18 +175,6 @@ export function readDriveTranslations(accessToken: string, session: SessionPaylo
 
 export function writeDriveTranslations(accessToken: string, session: SessionPayload, data: TranslationData) {
   return writeDriveJson(accessToken, session, "translations", data);
-}
-
-// ─── Subscription (dummy, pre-payment-gateway) ─────────────────────
-// Single global record per user, same shape as dictionary/translations above.
-// See subscription-store.ts for why this exists and its limitations.
-
-export function readDriveSubscription(accessToken: string, session: SessionPayload) {
-  return readDriveJson<SubscriptionData>(accessToken, session, "subscription");
-}
-
-export function writeDriveSubscription(accessToken: string, session: SessionPayload, data: SubscriptionData) {
-  return writeDriveJson(accessToken, session, "subscription", data);
 }
 
 // ─── Listen A Minute — learner's own custom cloze picks ────────────

@@ -3,9 +3,9 @@
 // Shown instead of the real content when a unit/lesson/verb is locked (trial
 // expired and not paid) — see src/lib/content-access.ts and
 // docs/subscription-interim-system.md. Embeds SubscriptionSettings directly
-// so redeeming an activation code doesn't require hunting through the
-// gear-icon Settings menu first. Used for direct navigation to a locked
-// detail URL; PurchaseModal covers the "tap a locked item in a list" case.
+// so checking out doesn't require hunting through the gear-icon Settings menu
+// first. Used for direct navigation to a locked detail URL; PurchaseModal
+// covers the "tap a locked item in a list" case.
 
 import { LockIcon } from "./LockIcon";
 import { SubscriptionSettings } from "./SubscriptionSettings";
@@ -18,8 +18,7 @@ export function ProPaywallNotice({ what }: { what: string }) {
       </div>
       <div className="mb-1 text-[16px] font-extrabold">Nội dung này đã bị khoá</div>
       <p className="mb-4 text-[13px] text-neutral-600">
-        {what} chỉ mở trong thời gian dùng thử hoặc khi đã kích hoạt gói trả phí. Nếu bạn đã thanh toán qua QR code,
-        nhập mã kích hoạt bên dưới để mở khoá.
+        {what} chỉ mở trong thời gian dùng thử hoặc khi đã kích hoạt gói trả phí. Chọn 1 gói bên dưới để thanh toán.
       </p>
       <div className="border border-[color:var(--color-divider)] text-left">
         <SubscriptionSettings />

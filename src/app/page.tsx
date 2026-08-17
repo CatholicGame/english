@@ -1,12 +1,54 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { useRouter, useSearchParams } from "next/navigation";
 import { MODULES } from "@/data/modules";
 import { GlobalScoreBadge } from "@/components/GlobalScoreBadge";
 import { PurchaseModal } from "@/components/PurchaseModal";
 import { useDashboardProgress, type DashboardProgress } from "@/lib/use-dashboard-progress";
 import { useSubscriptionStore } from "@/lib/use-subscription-store";
+import { isPaidActive } from "@/lib/subscription-store";
+
+/** Polls a few times after returning from PayOS's hosted checkout — the
+ * webhook that actually grants paid access can land a beat after the browser
+ * redirect does, so a single refetch on mount can still show the old state.
+ * `isPaidNow` reads the live store (not a stale closure) so the loop can stop
+ * the moment the webhook lands instead of always running to the timeout. */
+function usePayosReturn(refetch: () => Promise<void>, isPaidNow: () => boolean) {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  // Captured once via the lazy initializer (render time, not an effect) — the
+  // "cancel" outcome is pure derived state from the URL, not a side effect.
+  const [payosParam] = useState(() => searchParams.get("payos"));
+  const [status, setStatus] = useState<"idle" | "confirming" | "confirmed" | "timeout" | "cancelled">(
+    () => (payosParam === "cancel" ? "cancelled" : payosParam === "success" ? "confirming" : "idle"),
+  );
+
+  useEffect(() => {
+    if (!payosParam) return;
+    router.replace("/", { scroll: false });
+    if (payosParam !== "success") return;
+
+    let cancelled = false;
+    (async () => {
+      for (let i = 0; i < 6; i++) {
+        await new Promise((r) => setTimeout(r, 2000));
+        if (cancelled) return;
+        try {
+          await refetch();
+        } catch {
+          // ignore, just try again next tick
+        }
+        if (isPaidNow()) { setStatus("confirmed"); return; }
+      }
+      if (!cancelled) setStatus((s) => (s === "confirming" ? "timeout" : s));
+    })();
+    return () => { cancelled = true; };
+  }, [payosParam, router, refetch, isPaidNow]);
+
+  return status;
+}
 
 function moduleStatLabel(slug: string, d: DashboardProgress): string | null {
   if (!d.loaded) return null;
@@ -23,9 +65,29 @@ function moduleStatLabel(slug: string, d: DashboardProgress): string | null {
 }
 
 export default function HomePage() {
+  return (
+    <Suspense fallback={null}>
+      <HomePageContent />
+    </Suspense>
+  );
+}
+
+const PAYOS_STATUS_LABEL: Record<"confirming" | "confirmed" | "timeout" | "cancelled", string> = {
+  confirming: "⏳ Đang xác nhận thanh toán...",
+  confirmed: "✅ Thanh toán thành công — đã kích hoạt gói của bạn!",
+  timeout: "Thanh toán đang được xử lý — quyền lợi sẽ tự động cập nhật trong giây lát, thử tải lại trang nếu chưa thấy.",
+  cancelled: "Bạn đã huỷ thanh toán.",
+};
+
+function HomePageContent() {
   const dashboard = useDashboardProgress();
-  const { trialDaysLeft } = useSubscriptionStore();
+  const { subscription, trialDaysLeft, refetch } = useSubscriptionStore();
   const [showPurchase, setShowPurchase] = useState(false);
+
+  const subscriptionRef = useRef(subscription);
+  useEffect(() => { subscriptionRef.current = subscription; }, [subscription]);
+  const isPaidNow = useCallback(() => isPaidActive(subscriptionRef.current), []);
+  const payosStatus = usePayosReturn(refetch, isPaidNow);
 
   return (
     <div className="mx-auto flex min-h-screen w-full max-w-[480px] flex-col bg-bg lg:max-w-[1040px] lg:border-x-2 lg:border-[color:var(--color-divider)]">
@@ -33,6 +95,12 @@ export default function HomePage() {
         <h1 className="text-[30px]">Vocabulary Builder Pro</h1>
         <p className="mt-1 text-[13px] text-neutral-600">Choose a topic to start practicing.</p>
       </div>
+
+      {payosStatus !== "idle" && (
+        <div className="divider-b bg-accent-100 px-4 py-2.5 text-[12px] font-bold text-accent-800">
+          {PAYOS_STATUS_LABEL[payosStatus]}
+        </div>
+      )}
 
       {trialDaysLeft > 0 && (
         <div className="divider-b flex items-center justify-between gap-3 bg-accent-100 px-4 py-2.5">

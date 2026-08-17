@@ -34,6 +34,80 @@ function statusOf(row: Row): { label: string; color: string } {
   return { label: "Hết hạn", color: "var(--color-danger, #c0392b)" };
 }
 
+/** Extend + lock/unlock controls — identical between the desktop table cell
+ * and the mobile card, only the surrounding layout (table cell vs card box)
+ * differs between the two. */
+function AccountActions({
+  row,
+  busy,
+  cycle,
+  onCycleChange,
+  onExtend,
+  extendTitle,
+  onToggle,
+}: {
+  row: Row;
+  busy: boolean;
+  cycle: BillingCycle;
+  onCycleChange: (cycle: BillingCycle) => void;
+  onExtend: () => void;
+  extendTitle: string | undefined;
+  onToggle: (value: "locked" | "unlocked") => void;
+}) {
+  return (
+    <div className="flex flex-col gap-1.5">
+      <div className="flex gap-1.5">
+        <select
+          className="min-w-0 flex-1 rounded-md border px-1.5 py-1 text-[12px] sm:flex-none"
+          style={{ borderColor: "var(--color-divider)" }}
+          value={cycle}
+          onChange={(e) => onCycleChange(e.target.value as BillingCycle)}
+        >
+          {PRICING_PLANS.map((p) => (
+            <option key={p.cycle} value={p.cycle}>
+              {p.label}
+            </option>
+          ))}
+        </select>
+        <button
+          className="btn btn-secondary flex-none"
+          disabled={busy || extendTitle == null}
+          onClick={onExtend}
+          title={extendTitle}
+        >
+          + Gia hạn
+        </button>
+      </div>
+      <div className="flex gap-1.5">
+        <button
+          className="flex-1 rounded-full px-2.5 py-1 text-[12px] font-bold sm:flex-none"
+          disabled={busy}
+          style={{
+            background: row.debugOverride === "unlocked" ? "var(--color-accent)" : "var(--color-surface)",
+            color: row.debugOverride === "unlocked" ? "#fff" : "var(--color-text)",
+            border: row.debugOverride === "unlocked" ? "none" : "1px solid var(--color-divider)",
+          }}
+          onClick={() => onToggle("unlocked")}
+        >
+          Ép mở khoá
+        </button>
+        <button
+          className="flex-1 rounded-full px-2.5 py-1 text-[12px] font-bold sm:flex-none"
+          disabled={busy}
+          style={{
+            background: row.debugOverride === "locked" ? "var(--color-accent)" : "var(--color-surface)",
+            color: row.debugOverride === "locked" ? "#fff" : "var(--color-text)",
+            border: row.debugOverride === "locked" ? "none" : "1px solid var(--color-divider)",
+          }}
+          onClick={() => onToggle("locked")}
+        >
+          Ép khoá
+        </button>
+      </div>
+    </div>
+  );
+}
+
 async function callApi(path: string, body: unknown) {
   const res = await fetch(path, {
     method: "POST",
@@ -66,10 +140,11 @@ export function AdminDashboard({
   useEffect(() => setNow(Date.now()), []);
 
   async function extend(row: Row) {
+    if (now == null) return; // button is disabled until this loads, shouldn't happen
     const email = row.email;
     const cycle = cycleByEmail[email] ?? PRICING_PLANS[0].cycle;
     const plan = PRICING_PLANS.find((p) => p.cycle === cycle);
-    const newUntil = fmtDate(previewExtendedUntil(row, cycle, now ?? Date.now()));
+    const newUntil = fmtDate(previewExtendedUntil(row, cycle, now));
     const confirmed = window.confirm(
       `Gia hạn ${email} thêm gói "${plan?.label ?? cycle}"?\nHạn sử dụng mới sẽ là: ${newUntil}`,
     );
@@ -155,11 +230,11 @@ export function AdminDashboard({
             tức (không cần thanh toán). Có thể thu hồi lại bằng &ldquo;Ép khoá&rdquo; ở bảng dưới sau khi họ xuất hiện
             trong danh sách.
           </p>
-          <div className="mt-2 flex gap-1.5">
+          <div className="mt-2 flex flex-col gap-1.5 sm:flex-row">
             <input
               type="email"
               placeholder="email@vidu.com"
-              className="rounded-md border px-2 py-1.5 text-[13px]"
+              className="min-w-0 flex-1 rounded-md border px-2 py-1.5 text-[13px]"
               style={{ borderColor: "var(--color-divider)" }}
               value={newFreeEmail}
               onChange={(e) => setNewFreeEmail(e.target.value)}
@@ -171,7 +246,10 @@ export function AdminDashboard({
         </div>
       )}
 
-      <div className="mt-4 overflow-x-auto">
+      {/* Desktop / tablet: table. Hidden below sm — a data table with 5+
+          columns just doesn't fit a portrait phone screen without horizontal
+          scrolling, which is what made this unusable on mobile. */}
+      <div className="mt-4 hidden overflow-x-auto sm:block">
         <table className="w-full min-w-[860px] text-left text-[13px]">
           <thead>
             <tr className="divider-b text-neutral-600">
@@ -180,14 +258,14 @@ export function AdminDashboard({
               <th className="py-2 pr-3 font-bold">Trial hết hạn</th>
               <th className="py-2 pr-3 font-bold">Paid hết hạn</th>
               <th className="py-2 pr-3 font-bold">Gói gần nhất</th>
-              {isSuper && <th className="py-2 pr-3 font-bold">Gia hạn</th>}
-              {isSuper && <th className="py-2 pr-3 font-bold">Ép trạng thái</th>}
+              {isSuper && <th className="py-2 pr-3 font-bold">Hành động</th>}
             </tr>
           </thead>
           <tbody>
             {subscriptions.map((row) => {
               const status = statusOf(row);
               const busy = pending === row.email;
+              const cycle = cycleByEmail[row.email] ?? PRICING_PLANS[0].cycle;
               return (
                 <tr key={row.email} className="divider-b align-top">
                   <td className="py-2.5 pr-3 font-semibold">{row.email}</td>
@@ -201,66 +279,21 @@ export function AdminDashboard({
                   <td className="py-2.5 pr-3">{PRICING_PLANS.find((p) => p.cycle === row.lastCycle)?.label ?? "—"}</td>
                   {isSuper && (
                     <td className="py-2.5 pr-3">
-                      <div className="flex gap-1.5">
-                        <select
-                          className="rounded-md border px-1.5 py-1 text-[12px]"
-                          style={{ borderColor: "var(--color-divider)" }}
-                          value={cycleByEmail[row.email] ?? PRICING_PLANS[0].cycle}
-                          onChange={(e) =>
-                            setCycleByEmail((prev) => ({ ...prev, [row.email]: e.target.value as BillingCycle }))
-                          }
-                        >
-                          {PRICING_PLANS.map((p) => (
-                            <option key={p.cycle} value={p.cycle}>
-                              {p.label}
-                            </option>
-                          ))}
-                        </select>
-                        <button
-                          className="btn btn-secondary"
-                          disabled={busy}
-                          onClick={() => extend(row)}
-                          title={
-                            now != null
-                              ? `Hạn hiện tại: ${fmtDate(row.paidUntil)} → hạn mới sau khi gia hạn: ${fmtDate(
-                                  previewExtendedUntil(row, cycleByEmail[row.email] ?? PRICING_PLANS[0].cycle, now),
-                                )}`
-                              : undefined
-                          }
-                        >
-                          + Gia hạn
-                        </button>
-                      </div>
-                    </td>
-                  )}
-                  {isSuper && (
-                    <td className="py-2.5 pr-3">
-                      <div className="flex gap-1.5">
-                        <button
-                          className="rounded-full px-2.5 py-1 text-[12px] font-bold"
-                          disabled={busy}
-                          style={{
-                            background: row.debugOverride === "unlocked" ? "var(--color-accent)" : "var(--color-surface)",
-                            color: row.debugOverride === "unlocked" ? "#fff" : "var(--color-text)",
-                            border: row.debugOverride === "unlocked" ? "none" : "1px solid var(--color-divider)",
-                          }}
-                          onClick={() => toggleOverride(row.email, row.debugOverride, "unlocked")}
-                        >
-                          Ép mở khoá
-                        </button>
-                        <button
-                          className="rounded-full px-2.5 py-1 text-[12px] font-bold"
-                          disabled={busy}
-                          style={{
-                            background: row.debugOverride === "locked" ? "var(--color-accent)" : "var(--color-surface)",
-                            color: row.debugOverride === "locked" ? "#fff" : "var(--color-text)",
-                            border: row.debugOverride === "locked" ? "none" : "1px solid var(--color-divider)",
-                          }}
-                          onClick={() => toggleOverride(row.email, row.debugOverride, "locked")}
-                        >
-                          Ép khoá
-                        </button>
-                      </div>
+                      <AccountActions
+                        row={row}
+                        busy={busy}
+                        cycle={cycle}
+                        onCycleChange={(next) => setCycleByEmail((prev) => ({ ...prev, [row.email]: next }))}
+                        onExtend={() => extend(row)}
+                        extendTitle={
+                          now != null
+                            ? `Hạn hiện tại: ${fmtDate(row.paidUntil)} → hạn mới sau khi gia hạn: ${fmtDate(
+                                previewExtendedUntil(row, cycle, now),
+                              )}`
+                            : undefined
+                        }
+                        onToggle={(value) => toggleOverride(row.email, row.debugOverride, value)}
+                      />
                     </td>
                   )}
                 </tr>
@@ -270,6 +303,63 @@ export function AdminDashboard({
         </table>
       </div>
 
+      {/* Mobile portrait: one stacked card per account instead of the table. */}
+      <div className="mt-4 flex flex-col gap-3 sm:hidden">
+        {subscriptions.map((row) => {
+          const status = statusOf(row);
+          const busy = pending === row.email;
+          const cycle = cycleByEmail[row.email] ?? PRICING_PLANS[0].cycle;
+          return (
+            <div key={row.email} className="border p-3" style={{ borderColor: "var(--color-divider)" }}>
+              <div className="flex items-start justify-between gap-2">
+                <span className="min-w-0 flex-1 font-semibold break-all">{row.email}</span>
+                <span
+                  className="flex-none rounded-full px-2 py-0.5 text-[12px] font-bold"
+                  style={{ color: status.color }}
+                >
+                  {status.label}
+                </span>
+              </div>
+              <dl className="mt-2 grid grid-cols-2 gap-x-2 gap-y-1 text-[12px] text-neutral-600">
+                <div>
+                  <dt className="inline">Trial hết hạn: </dt>
+                  <dd className="inline text-ink">{fmtDate(row.trialStartedAt || undefined)}</dd>
+                </div>
+                <div>
+                  <dt className="inline">Paid hết hạn: </dt>
+                  <dd className="inline text-ink">{fmtDate(row.paidUntil)}</dd>
+                </div>
+                <div className="col-span-2">
+                  <dt className="inline">Gói gần nhất: </dt>
+                  <dd className="inline text-ink">
+                    {PRICING_PLANS.find((p) => p.cycle === row.lastCycle)?.label ?? "—"}
+                  </dd>
+                </div>
+              </dl>
+              {isSuper && (
+                <div className="mt-3">
+                  <AccountActions
+                    row={row}
+                    busy={busy}
+                    cycle={cycle}
+                    onCycleChange={(next) => setCycleByEmail((prev) => ({ ...prev, [row.email]: next }))}
+                    onExtend={() => extend(row)}
+                    extendTitle={
+                      now != null
+                        ? `Hạn hiện tại: ${fmtDate(row.paidUntil)} → hạn mới sau khi gia hạn: ${fmtDate(
+                            previewExtendedUntil(row, cycle, now),
+                          )}`
+                        : undefined
+                    }
+                    onToggle={(value) => toggleOverride(row.email, row.debugOverride, value)}
+                  />
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
+
       {isSuper && (
         <div className="mt-8">
           <h2 className="text-[16px] font-extrabold">Sub-admin (chỉ xem)</h2>
@@ -277,11 +367,11 @@ export function AdminDashboard({
             Sub-admin thấy được bảng trên nhưng không gia hạn hay khoá/mở khoá được.
           </p>
 
-          <div className="mt-3 flex gap-1.5">
+          <div className="mt-3 flex flex-col gap-1.5 sm:flex-row">
             <input
               type="email"
               placeholder="email@vidu.com"
-              className="rounded-md border px-2 py-1.5 text-[13px]"
+              className="min-w-0 flex-1 rounded-md border px-2 py-1.5 text-[13px]"
               style={{ borderColor: "var(--color-divider)" }}
               value={newAdminEmail}
               onChange={(e) => setNewAdminEmail(e.target.value)}
@@ -294,11 +384,11 @@ export function AdminDashboard({
           <ul className="mt-3 flex flex-col gap-1.5">
             {subAdmins.length === 0 && <li className="text-[13px] text-neutral-600">Chưa có sub-admin nào.</li>}
             {subAdmins.map((a) => (
-              <li key={a.email} className="flex items-center justify-between gap-2 text-[13px]">
-                <span>
+              <li key={a.email} className="flex flex-col gap-1 text-[13px] sm:flex-row sm:items-center sm:justify-between sm:gap-2">
+                <span className="break-all">
                   {a.email} <span className="text-neutral-500">— thêm bởi {a.addedBy}, {fmtDate(a.addedAt)}</span>
                 </span>
-                <button className="btn btn-ghost" disabled={pending === a.email} onClick={() => removeAdmin(a.email)}>
+                <button className="btn btn-ghost self-start" disabled={pending === a.email} onClick={() => removeAdmin(a.email)}>
                   Xoá
                 </button>
               </li>

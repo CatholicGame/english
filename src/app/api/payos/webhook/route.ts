@@ -31,25 +31,33 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ ok: true });
   }
 
-  const orderCode = String(data.orderCode);
-  const order = await getOrder(orderCode);
-  if (!order) {
-    // Unknown order (or from before this system existed) — ack anyway so
-    // payOS doesn't retry forever over something we can never resolve.
+  try {
+    const orderCode = String(data.orderCode);
+    const order = await getOrder(orderCode);
+    if (!order) {
+      // Unknown order (or from before this system existed) — ack anyway so
+      // payOS doesn't retry forever over something we can never resolve.
+      return NextResponse.json({ ok: true });
+    }
+
+    const firstTime = await markOrderPaidOnce(orderCode);
+    if (firstTime) {
+      const plan = PRICING_PLANS.find((p) => p.cycle === order.cycle);
+      const current = await getSubscription(order.email);
+      const updated = withPaidExtended(
+        current ?? DEFAULT_SUBSCRIPTION,
+        order.cycle,
+        `Thanh toán qua PayOS — gói ${plan?.label ?? order.cycle} (orderCode ${orderCode})`,
+      );
+      await setSubscription(order.email, updated);
+    }
+
     return NextResponse.json({ ok: true });
+  } catch (err) {
+    // Signature already verified above — a failure here is our own
+    // Firestore/config problem, not an invalid request. Logged so it shows up
+    // in Vercel's function logs instead of surfacing as a bare 500.
+    console.error("payos webhook: Firestore step failed", err);
+    return NextResponse.json({ ok: false, error: "internal_error" }, { status: 500 });
   }
-
-  const firstTime = await markOrderPaidOnce(orderCode);
-  if (firstTime) {
-    const plan = PRICING_PLANS.find((p) => p.cycle === order.cycle);
-    const current = await getSubscription(order.email);
-    const updated = withPaidExtended(
-      current ?? DEFAULT_SUBSCRIPTION,
-      order.cycle,
-      `Thanh toán qua PayOS — gói ${plan?.label ?? order.cycle} (orderCode ${orderCode})`,
-    );
-    await setSubscription(order.email, updated);
-  }
-
-  return NextResponse.json({ ok: true });
 }

@@ -8,7 +8,11 @@ const MODULE_KEY = "collocations-phrasal-verbs";
 
 export default function ModuleLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const hideNav = pathname.endsWith("/run");
+  // Hidden on any focused single-task screen with its own big text input —
+  // a fixed bottom tab bar sits on top of the mobile keyboard here, eating
+  // the little vertical space left for the prompt text + textarea (see the
+  // "write" page's translate-a-passage flow).
+  const hideNav = pathname.endsWith("/run") || pathname.endsWith("/write");
 
   return (
     <ProgressProvider storageKey={MODULE_KEY}>

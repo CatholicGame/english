@@ -977,12 +977,12 @@ function VocabStepView({ step, onNext }: { step: VocabStep; onNext: (score?: Sco
               </div>
             ))}
 
+            <div className="mt-3 text-[13px] leading-relaxed font-bold">👉 {w.summary}</div>
+
             <div className="mt-3 bg-accent-100 px-3 py-2.5 text-[12px] leading-relaxed text-accent-800">
               <span className="label-xs mb-0.5 block text-accent-700">🎯 IELTS tip</span>
               {w.ieltsTip}
             </div>
-
-            <div className="mt-3 text-[13px] leading-relaxed font-bold">👉 {w.summary}</div>
 
             <VocabAiPractice key={w.term} word={w} />
           </div>

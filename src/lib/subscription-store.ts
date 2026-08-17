@@ -1,11 +1,9 @@
 // Entitlement record: every new account gets a 7-day free trial with everything
 // unlocked (starting the moment the account is first seen — stamped server-side,
-// see /api/drive/subscription), then locked content (src/lib/content-access.ts)
-// reverts to its normal free/locked split until the user pays for a duration-based
-// package. There is no payment gateway wired up yet (see docs/subscription-interim-system.md)
-// — paying still means a manual bank/QR transfer confirmed out-of-band, after which
-// the admin issues an activation code (scripts/generate-activation-code.mjs) tied to
-// the specific package purchased, redeemed via /api/account/activate.
+// see /api/subscription), then locked content (src/lib/content-access.ts) reverts
+// to its normal free/locked split until the user pays for a duration-based
+// package via PayOS (see docs/subscription-interim-system.md). Stored centrally
+// in Firestore (src/lib/subscription-db.ts), not the user's own Google Drive.
 
 export type BillingCycle = "monthly" | "quarterly" | "semiannual" | "yearly";
 
@@ -21,6 +19,13 @@ export interface PricingPlan {
 
 export const TRIAL_DAYS = 7;
 const DAY_MS = 24 * 60 * 60 * 1000;
+
+// Cost-control cap on /api/ai calls (see docs/launch-checklist.md "Kiểm soát
+// chi phí AI") — same limit regardless of plan/cycle, since every paid plan
+// grants the same access, just for a different duration. 40/day sits well
+// above realistic heavy usage (~20/day) while bounding worst-case DeepSeek
+// spend for a single account far below even the cheapest plan's daily price.
+export const AI_DAILY_CALL_LIMIT = 40;
 
 // 1 month is deliberately the most expensive per-month rate — longer
 // commitments get a steadily bigger discount (13% / 27% / 40% off the
@@ -47,6 +52,10 @@ export interface SubscriptionData {
    * Remove this whole field once real payment ships; it has no legitimate use
    * after that. */
   debugOverride?: "locked" | "unlocked";
+  /** Daily /api/ai usage counter — see AI_DAILY_CALL_LIMIT. `aiCallsDate` is a
+   * dayKey() string; the counter resets whenever it no longer matches today. */
+  aiCallsToday?: number;
+  aiCallsDate?: string;
   updatedAt: number;
 }
 

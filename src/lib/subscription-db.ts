@@ -22,6 +22,31 @@ export async function setSubscription(email: string, data: SubscriptionData): Pr
   await getDb().collection("subscriptions").doc(docIdFor(email)).set(data);
 }
 
+/** Atomically checks + increments today's /api/ai call count for an account,
+ * so concurrent requests can't race past the daily limit. Resets the counter
+ * whenever the stored date no longer matches `today` (a dayKey() string).
+ * Uses `set(..., {merge:true})` so it never clobbers the rest of the
+ * subscription record (trialStartedAt, paidUntil, ...). */
+export async function checkAndIncrementAiUsage(
+  email: string,
+  today: string,
+  limit: number,
+): Promise<{ allowed: boolean; count: number }> {
+  const ref = getDb().collection("subscriptions").doc(docIdFor(email));
+  return getDb().runTransaction(async (tx) => {
+    const snap = await tx.get(ref);
+    const current = snap.exists ? (snap.data() as SubscriptionData) : undefined;
+    const sameDay = current?.aiCallsDate === today;
+    const count = sameDay ? (current?.aiCallsToday ?? 0) : 0;
+
+    if (count >= limit) return { allowed: false, count };
+
+    const next = count + 1;
+    tx.set(ref, { aiCallsDate: today, aiCallsToday: next, updatedAt: Date.now() }, { merge: true });
+    return { allowed: true, count: next };
+  });
+}
+
 export interface PayosOrder {
   email: string;
   cycle: BillingCycle;

@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import { useSearchParams } from "next/navigation";
 import logo from "@/assets/logo/logo.png";
@@ -59,8 +60,7 @@ export function LoginScreen() {
         />
         <h1 className="mt-4 text-[30px] lg:text-[40px]">Vocabulary Builder Pro</h1>
         <p className="mt-2 text-[13px] leading-relaxed text-neutral-600 lg:mt-4 lg:max-w-[440px] lg:text-[15px]">
-          Đăng nhập với Google để đồng bộ tiến độ học tập giữa các thiết bị. Dữ liệu được lưu ẩn trong Google Drive
-          của riêng bạn, không hiển thị trong danh sách file Drive thông thường.
+          Đăng nhập với Google để đồng bộ tiến độ học tập an toàn giữa các thiết bị.
         </p>
         <button
           className="btn btn-ghost mt-3 px-0 text-[13px] font-bold text-accent-800"
@@ -77,6 +77,11 @@ export function LoginScreen() {
         >
           Đăng nhập với Google
         </a>
+        <p className="mt-3 text-center text-[11px] text-neutral-500 lg:text-left">
+          Bằng việc đăng nhập, bạn đồng ý với{" "}
+          <Link href="/terms" target="_blank" className="underline">Điều khoản dịch vụ</Link> và{" "}
+          <Link href="/privacy" target="_blank" className="underline">Chính sách quyền riêng tư</Link>.
+        </p>
       </div>
       {showFeatures && (
         <Modal onClose={() => setShowFeatures(false)} contentClassName="lg:max-w-[720px]">

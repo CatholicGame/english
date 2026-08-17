@@ -199,3 +199,29 @@ export function readDriveGrammar(accessToken: string, session: SessionPayload) {
 export function writeDriveGrammar(accessToken: string, session: SessionPayload, data: GrammarData) {
   return writeDriveJson(accessToken, session, "grammar", data);
 }
+
+// ─── Storage quota ──────────────────────────────────────────────────
+// Every write above lands in the user's own Drive (appDataFolder still counts
+// against their overall quota) — if their Drive is full, those writes start
+// failing silently from the user's point of view. Surfaced as a warning
+// banner (src/components/DriveQuotaWarning.tsx) before that happens.
+
+export interface DriveStorageQuota {
+  /** Bytes, or null for unlimited-storage accounts (e.g. some Workspace plans). */
+  limit: number | null;
+  usage: number;
+}
+
+export async function getDriveStorageQuota(accessToken: string): Promise<DriveStorageQuota> {
+  const params = new URLSearchParams({ fields: "storageQuota" });
+  const res = await fetch(`https://www.googleapis.com/drive/v3/about?${params.toString()}`, {
+    headers: authHeaders(accessToken),
+  });
+  if (!res.ok) throw new Error(`Drive about failed: ${res.status}`);
+  const data = await res.json();
+  const quota = data.storageQuota ?? {};
+  return {
+    limit: quota.limit != null ? Number(quota.limit) : null,
+    usage: Number(quota.usage ?? 0),
+  };
+}

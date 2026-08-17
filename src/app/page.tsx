@@ -60,7 +60,7 @@ function moduleStatLabel(slug: string, d: DashboardProgress): string | null {
     case "listen-a-minute":
       return `Đã học ${d.listenDone}/${d.listenTotal} bài`;
     case "idioms":
-      return `Đã hoàn thành ${d.idiomsDone}/${d.idiomsTotal} unit`;
+      return `Đã học ${d.idiomsLearned}/${d.idiomsTotal} từ`;
     default:
       return null;
   }

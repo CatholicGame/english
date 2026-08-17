@@ -9,6 +9,7 @@ export interface IdiomExample {
 }
 
 export interface IdiomItem {
+  slug: string;
   term: string;
   type: "idiom";
   en: string;
@@ -56,6 +57,7 @@ export const UNITS_META: IdiomUnitMeta[] = [
 export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
   "knowledge-and-understanding": [
   {
+    slug: "get-the-hang-of-something",
     term: "get the hang of something",
     type: "idiom",
     en: "If you get the hang of something, you learn how to do it properly, usually after some practice, until it starts to feel easy and natural.",
@@ -68,6 +70,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "It took me a few days to get the hang of the new keyboard, but now I can type much faster.",
   },
   {
+    slug: "get-the-picture",
     term: "get the picture",
     type: "idiom",
     en: "If you get the picture, you understand the general situation or the main point of something, often after someone has explained or shown it to you.",
@@ -80,6 +83,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "She showed me the sales chart for a minute and I immediately got the picture — profits were falling fast.",
   },
   {
+    slug: "get-the-wrong-end-of-the-stick-or-get-hold-of-the-wrong-end-of-the-stick",
     term: "get the wrong end of the stick or get hold of the wrong end of the stick",
     type: "idiom",
     en: "If you get the wrong end of the stick, you misunderstand a situation completely, often reaching a conclusion that is the opposite of what was actually meant.",
@@ -92,6 +96,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "I thought she was angry with me, but I had got the wrong end of the stick — she was actually worried about her own exam.",
   },
   {
+    slug: "get-your-head-around-something-or-get-your-head-round-something",
     term: "get your head around something or get your head round something",
     type: "idiom",
     en: "If you get your head around something, you finally manage to understand a difficult or complicated idea after thinking about it carefully.",
@@ -104,6 +109,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "It took me weeks to get my head around the new tax rules at work.",
   },
   {
+    slug: "go-in-one-ear-and-out-the-other",
     term: "go in one ear and out the other",
     type: "idiom",
     en: "If something goes in one ear and out the other, it is heard but quickly forgotten or ignored, without making any lasting impression.",
@@ -116,6 +122,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "I've told him to tidy his room a hundred times, but it just goes in one ear and out the other.",
   },
   {
+    slug: "a-grey-area",
     term: "a grey area",
     type: "idiom",
     en: "A grey area is a situation, topic, or set of rules that is not clearly defined, so it is hard to say exactly what is right, wrong, allowed, or true.",
@@ -128,6 +135,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Whether employees can use company laptops for personal emails is a bit of a grey area in our office.",
   },
   {
+    slug: "not-have-a-clue",
     term: "not have a clue",
     type: "idiom",
     en: "If you do not have a clue about something, you have absolutely no idea or understanding of it at all.",
@@ -140,6 +148,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "I don't have a clue how to fix this printer — maybe we should call technical support.",
   },
   {
+    slug: "jump-to-conclusions",
     term: "jump to conclusions",
     type: "idiom",
     en: "If you jump to conclusions, you decide that something is true too quickly, before you have enough facts or evidence to be sure.",
@@ -152,6 +161,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Don't jump to conclusions — we don't know yet why she cancelled the meeting.",
   },
   {
+    slug: "put-two-and-two-together",
     term: "put two and two together",
     type: "idiom",
     en: "If you put two and two together, you work out the truth or reach an obvious conclusion by combining separate pieces of information you already have.",
@@ -164,6 +174,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "When I saw his suitcase by the door and the plane ticket on the table, I put two and two together and realized he was leaving.",
   },
   {
+    slug: "read-between-the-lines",
     term: "read between the lines",
     type: "idiom",
     en: "If you read between the lines, you understand the real, hidden meaning of something that has not been said or written directly.",
@@ -176,6 +187,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "He said everything was fine, but if you read between the lines, you could tell he was actually quite stressed.",
   },
   {
+    slug: "take-something-on-board",
     term: "take something on board",
     type: "idiom",
     en: "If you take something on board, you accept a piece of advice, criticism, or new information and seriously consider or act on it.",
@@ -188,6 +200,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "I've taken your feedback on board and will change the design before the next meeting.",
   },
   {
+    slug: "up-to-speed",
     term: "up to speed",
     type: "idiom",
     en: "If you are up to speed on something, you have the latest information about it, or you have reached the level of skill and knowledge needed to perform well.",
@@ -202,6 +215,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
   ],
   "memory-and-mind": [
   {
+    slug: "bear-something-in-mind-or-keep-something-in-mind",
     term: "bear something in mind or keep something in mind",
     type: "idiom",
     en: "If you bear something in mind or keep something in mind, you remember it and take it into account, especially while making a decision or doing something else.",
@@ -214,6 +228,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Please bear in mind that the office will be closed next Monday for the public holiday.",
   },
   {
+    slug: "cross-your-mind",
     term: "cross your mind",
     type: "idiom",
     en: "If a thought or idea crosses your mind, it occurs to you suddenly and briefly, often without you having looked for it.",
@@ -226,6 +241,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "It never crossed my mind that she might already know about the surprise party.",
   },
   {
+    slug: "food-for-thought",
     term: "food for thought",
     type: "idiom",
     en: "Food for thought is information, an idea, or an experience that makes you think seriously about a particular subject.",
@@ -238,6 +254,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "The documentary about climate change gave the students a lot of food for thought.",
   },
   {
+    slug: "a-gut-reaction",
     term: "a gut reaction",
     type: "idiom",
     en: "A gut reaction is an instinctive feeling or response to something that comes immediately, based on emotion rather than careful, logical thought.",
@@ -250,6 +267,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "My gut reaction was to say no, but I decided to think it over for a day.",
   },
   {
+    slug: "lose-the-plot",
     term: "lose the plot",
     type: "idiom",
     en: "If someone loses the plot, they stop thinking or behaving in a sensible, rational way, or they lose touch with what is really happening or what matters.",
@@ -262,6 +280,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Honestly, I think the manager has completely lost the plot with these new rules.",
   },
   {
+    slug: "miles-away",
     term: "miles away",
     type: "idiom",
     en: "If someone is miles away, they are so lost in their own thoughts that they are not paying attention to what is happening around them.",
@@ -274,6 +293,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Sorry, could you repeat that? I was miles away, thinking about the weekend.",
   },
   {
+    slug: "a-mind-like-a-sieve",
     term: "a mind like a sieve",
     type: "idiom",
     en: "If you have a mind like a sieve, you forget things very easily and often, as if information cannot stay in your memory for long.",
@@ -286,6 +306,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "I'm sorry I forgot your birthday again - I have a mind like a sieve these days.",
   },
   {
+    slug: "off-the-top-of-your-head",
     term: "off the top of your head",
     type: "idiom",
     en: "If you say something off the top of your head, you say it immediately from memory or quick thought, without looking anything up or preparing carefully in advance.",
@@ -298,6 +319,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "I can't remember his phone number off the top of my head, but I can check my contacts.",
   },
   {
+    slug: "off-your-head",
     term: "off your head",
     type: "idiom",
     en: "If someone is off their head, they are behaving in a crazy, foolish, or completely irrational way; informally it can also suggest someone is drunk or under the influence of drugs.",
@@ -310,6 +332,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Are you off your head? You can't drive home after drinking that much!",
   },
   {
+    slug: "on-the-tip-of-your-tongue",
     term: "on the tip of your tongue",
     type: "idiom",
     en: "If a word or name is on the tip of your tongue, you are trying hard to remember it and feel that you almost know it, but you cannot recall it at that exact moment.",
@@ -322,6 +345,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Her name is on the tip of my tongue, but I just can't remember it right now.",
   },
   {
+    slug: "out-of-your-mind",
     term: "out of your mind",
     type: "idiom",
     en: "If you are out of your mind, you are behaving in an extremely foolish, reckless, or crazy way, or you are extremely worried or anxious about something.",
@@ -334,6 +358,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "You must be out of your mind to go hiking alone in this storm!",
   },
   {
+    slug: "rack-your-brain",
     term: "rack your brain",
     type: "idiom",
     en: "If you rack your brain, you think very hard and for a long time, trying to remember something or to solve a difficult problem.",
@@ -346,6 +371,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "I've been racking my brain all morning trying to remember where I put the keys.",
   },
   {
+    slug: "ring-a-bell",
     term: "ring a bell",
     type: "idiom",
     en: "If something rings a bell, it sounds familiar to you, even though you may not remember the exact details about it.",
@@ -360,6 +386,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
   ],
   "communicating": [
   {
+    slug: "at-cross-purposes",
     term: "at cross purposes",
     type: "idiom",
     en: "When two people are at cross purposes, they are trying to communicate or work together but are actually misunderstanding each other, because each of them has a different aim or interpretation in mind without realizing it.",
@@ -372,6 +399,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "We were at cross purposes for the whole meeting — I thought we were discussing the budget, and she thought we were talking about the schedule.",
   },
   {
+    slug: "come-out-of-your-shell",
     term: "come out of your shell",
     type: "idiom",
     en: "If someone comes out of their shell, they become less shy and more confident or open in the way they talk and behave with other people.",
@@ -384,6 +412,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "She was very quiet at first, but after a few weeks in the drama club she really came out of her shell.",
   },
   {
+    slug: "find-common-ground",
     term: "find common ground",
     type: "idiom",
     en: "If people find common ground, they discover shared interests, beliefs, or opinions that they can agree on, especially in a situation where they originally seemed to disagree.",
@@ -396,6 +425,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Despite their political differences, the two senators managed to find common ground on education reform.",
   },
   {
+    slug: "from-the-horse-s-mouth",
     term: "from the horse's mouth",
     type: "idiom",
     en: "If you hear something from the horse's mouth, you receive the information directly from the person who is most closely involved in or best informed about a matter, so it is considered highly reliable.",
@@ -408,6 +438,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "I didn't believe the rumor until I heard it from the horse's mouth — the manager himself confirmed it.",
   },
   {
+    slug: "get-your-wires-crossed-or-get-your-lines-crossed",
     term: "get your wires crossed or get your lines crossed",
     type: "idiom",
     en: "If two people get their wires crossed, they misunderstand each other or end up with different, conflicting information about the same situation, which often causes confusion.",
@@ -420,6 +451,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "I think we got our wires crossed — I was waiting at the cafe while you were waiting at the restaurant.",
   },
   {
+    slug: "go-off-on-a-tangent-or-go-off-at-a-tangent",
     term: "go off on a tangent or go off at a tangent",
     type: "idiom",
     en: "If someone goes off on a tangent, they suddenly start talking or writing about a different subject that is only loosely, if at all, connected to the original topic.",
@@ -432,6 +464,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "His answer started well, but halfway through he went off on a tangent about his college days.",
   },
   {
+    slug: "hear-something-through-the-grapevine-or-hear-something-on-the-grapevine",
     term: "hear something through the grapevine or hear something on the grapevine",
     type: "idiom",
     en: "If you hear something through the grapevine, you learn a piece of news or gossip informally, through a chain of people talking to each other, rather than from an official source.",
@@ -444,6 +477,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "I heard through the grapevine that the company is planning some layoffs next month.",
   },
   {
+    slug: "in-black-and-white",
     term: "in black and white",
     type: "idiom",
     en: "If information is in black and white, it is written down or printed clearly, which makes it official, definite, or impossible to deny.",
@@ -456,6 +490,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "I want the agreement in black and white before we start the project, not just a verbal promise.",
   },
   {
+    slug: "in-the-loop",
     term: "in the loop",
     type: "idiom",
     en: "If you are in the loop, you are included in a group of people who receive information and are kept informed about what is happening regarding a particular matter.",
@@ -468,6 +503,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Please keep me in the loop about any changes to the project timeline.",
   },
   {
+    slug: "keep-someone-posted",
     term: "keep someone posted",
     type: "idiom",
     en: "If you keep someone posted, you continue to give them the latest information about a situation as it develops or changes.",
@@ -480,6 +516,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Keep me posted on how the interview goes — I'll be waiting to hear from you.",
   },
   {
+    slug: "let-the-cat-out-of-the-bag",
     term: "let the cat out of the bag",
     type: "idiom",
     en: "If someone lets the cat out of the bag, they accidentally or carelessly reveal a secret that was supposed to be kept hidden.",
@@ -492,6 +529,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "We were planning a surprise party, but my brother let the cat out of the bag by mentioning it to her.",
   },
   {
+    slug: "put-someone-in-the-picture",
     term: "put someone in the picture",
     type: "idiom",
     en: "If you put someone in the picture, you give them all the necessary background information about a situation so that they fully understand it.",
@@ -504,6 +542,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Before the meeting starts, let me put you in the picture about what happened last week.",
   },
   {
+    slug: "spill-the-beans",
     term: "spill the beans",
     type: "idiom",
     en: "If someone spills the beans, they reveal secret or private information, often unintentionally or before the right time.",
@@ -516,6 +555,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Don't spill the beans about the engagement until they announce it themselves.",
   },
   {
+    slug: "touch-base",
     term: "touch base",
     type: "idiom",
     en: "If you touch base with someone, you make brief contact with them, often to exchange updates or check on how things are going.",
@@ -530,6 +570,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
   ],
   "priorities-and-decisions": [
   {
+    slug: "the-bottom-line",
     term: "the bottom line",
     type: "idiom",
     en: "The bottom line is the most important fact or conclusion in a situation, the essential point that matters most after everything else has been considered. It is often used to introduce the final, practical outcome of a discussion or decision.",
@@ -542,6 +583,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "We can debate the details all day, but the bottom line is we need more funding to finish the project.",
   },
   {
+    slug: "cross-that-bridge-when-you-come-to-it",
     term: "cross that bridge when you come to it",
     type: "idiom",
     en: "This idiom means you should deal with a potential problem only when it actually happens, rather than worrying about it in advance. It is used to encourage someone not to waste energy on future difficulties that may never occur.",
@@ -554,6 +596,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "I don't know if we'll get approval, but let's cross that bridge when we come to it.",
   },
   {
+    slug: "cut-to-the-chase",
     term: "cut to the chase",
     type: "idiom",
     en: "To cut to the chase means to get straight to the main point of a matter without wasting time on unnecessary details or introductions. It is often used as a request for someone to stop delaying and say what really matters.",
@@ -566,6 +609,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Let's cut to the chase — are you willing to accept our offer or not?",
   },
   {
+    slug: "the-icing-on-the-cake",
     term: "the icing on the cake",
     type: "idiom",
     en: "The icing on the cake refers to an additional good thing that makes an already positive situation even better. It describes a bonus or extra benefit on top of something that was already satisfying by itself.",
@@ -578,6 +622,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Getting the job was great news, and the signing bonus was just the icing on the cake.",
   },
   {
+    slug: "in-two-minds",
     term: "in two minds",
     type: "idiom",
     en: "To be in two minds about something means to feel uncertain or unable to decide between two choices or opinions. It describes a state of hesitation when a person cannot make up their mind.",
@@ -590,6 +635,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "I'm in two minds about whether to take the new job or stay where I am.",
   },
   {
+    slug: "make-a-mountain-out-of-a-molehill",
     term: "make a mountain out of a molehill",
     type: "idiom",
     en: "To make a mountain out of a molehill means to treat a small, unimportant problem as if it were much more serious than it really is. It is used to criticize someone for exaggerating a minor issue.",
@@ -602,6 +648,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "It was just a small typo — there's no need to make a mountain out of a molehill.",
   },
   {
+    slug: "on-the-back-burner",
     term: "on the back burner",
     type: "idiom",
     en: "If something is on the back burner, it has been deliberately given lower priority and set aside for now, to be dealt with later. It describes a plan or task that is temporarily paused rather than cancelled.",
@@ -614,6 +661,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "We've put the office renovation on the back burner until sales improve.",
   },
   {
+    slug: "play-it-by-ear",
     term: "play it by ear",
     type: "idiom",
     en: "To play something by ear means to decide how to act as a situation develops, without a fixed plan made in advance. It is used when someone chooses to improvise rather than follow a set strategy.",
@@ -626,6 +674,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "We don't have a fixed itinerary for the trip — we're just going to play it by ear.",
   },
   {
+    slug: "sit-on-the-fence",
     term: "sit on the fence",
     type: "idiom",
     en: "To sit on the fence means to avoid taking a clear side in an argument or decision, remaining neutral or undecided. It is often used to describe someone who is unwilling to commit to an opinion, sometimes seen as avoiding responsibility.",
@@ -638,6 +687,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "The senator has been sitting on the fence about the new policy for weeks.",
   },
   {
+    slug: "split-hairs",
     term: "split hairs",
     type: "idiom",
     en: "To split hairs means to argue about very small, unimportant differences or details that make little real difference to the overall matter. It is often used to criticize someone for being needlessly picky in a discussion.",
@@ -650,6 +700,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Let's not split hairs over whether it was ten minutes or twelve — the point is we were late.",
   },
   {
+    slug: "stick-to-your-guns",
     term: "stick to your guns",
     type: "idiom",
     en: "To stick to your guns means to firmly maintain your opinion, decision, or position even when other people criticize it or try to pressure you to change. It describes staying determined under opposition.",
@@ -662,6 +713,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Even though her colleagues disagreed, she stuck to her guns and kept the original plan.",
   },
   {
+    slug: "take-a-back-seat",
     term: "take a back seat",
     type: "idiom",
     en: "To take a back seat means to allow someone else to have control or the leading role, deliberately taking a less important or less active position for a while. It can describe a person, or a task being given lower priority.",
@@ -674,6 +726,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "After the new manager arrived, the founder decided to take a back seat and let her lead.",
   },
   {
+    slug: "the-tip-of-the-iceberg",
     term: "the tip of the iceberg",
     type: "idiom",
     en: "The tip of the iceberg refers to a small, visible part of a much larger problem or situation that is mostly hidden. It is used to indicate that what is currently known or seen is only a fraction of the whole issue.",
@@ -686,6 +739,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "The reported cases are probably just the tip of the iceberg — many go unreported.",
   },
   {
+    slug: "up-in-the-air",
     term: "up in the air",
     type: "idiom",
     en: "If something is up in the air, it is not yet decided or settled, and its outcome remains uncertain. It describes plans, decisions, or situations that could still change.",
@@ -700,6 +754,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
   ],
   "relationships": [
   {
+    slug: "break-the-ice",
     term: "break the ice",
     type: "idiom",
     en: "If you break the ice, you say or do something to make people who have just met feel more relaxed and less awkward with each other.",
@@ -712,6 +767,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "The host told a funny story about herself to break the ice before the workshop began.",
   },
   {
+    slug: "get-off-on-the-wrong-foot",
     term: "get off on the wrong foot",
     type: "idiom",
     en: "If two people get off on the wrong foot, their relationship or a piece of work starts badly, often because of a misunderstanding or a bad first impression.",
@@ -724,6 +780,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "We got off on the wrong foot when I accidentally called my new colleague by the wrong name.",
   },
   {
+    slug: "get-on-like-a-house-on-fire",
     term: "get on like a house on fire",
     type: "idiom",
     en: "If two people get on like a house on fire, they become friendly with each other very quickly and enjoy each other's company a great deal.",
@@ -736,6 +793,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "My mother and my best friend got on like a house on fire the moment they met.",
   },
   {
+    slug: "get-on-someone-s-nerves",
     term: "get on someone's nerves",
     type: "idiom",
     en: "If someone or something gets on your nerves, they annoy or irritate you, usually because of repeated or persistent behavior.",
@@ -748,6 +806,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "His habit of tapping his pen on the desk really gets on my nerves during meetings.",
   },
   {
+    slug: "give-someone-the-cold-shoulder",
     term: "give someone the cold shoulder",
     type: "idiom",
     en: "If you give someone the cold shoulder, you deliberately treat them in an unfriendly way, ignoring them or refusing to talk to them.",
@@ -760,6 +819,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Ever since our disagreement, she has been giving me the cold shoulder at work.",
   },
   {
+    slug: "go-back-a-long-way",
     term: "go back a long way",
     type: "idiom",
     en: "If two people go back a long way, they have known each other for a very long time and their relationship or friendship is well established.",
@@ -772,6 +832,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "David and I go back a long way; we've been friends since primary school.",
   },
   {
+    slug: "hit-it-off",
     term: "hit it off",
     type: "idiom",
     en: "If you hit it off with someone, you like each other and get along well right from the first time you meet.",
@@ -784,6 +845,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "We hit it off immediately when we discovered we both loved hiking.",
   },
   {
+    slug: "leave-someone-in-the-lurch",
     term: "leave someone in the lurch",
     type: "idiom",
     en: "If you leave someone in the lurch, you abandon them in a difficult situation without the help they expected from you.",
@@ -796,6 +858,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "He left his teammates in the lurch by quitting the project just days before the deadline.",
   },
   {
+    slug: "on-the-rocks",
     term: "on the rocks",
     type: "idiom",
     en: "If a relationship, marriage, or business is on the rocks, it is having serious problems and is in danger of ending completely.",
@@ -808,6 +871,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Their marriage has been on the rocks ever since he lost his job.",
   },
   {
+    slug: "on-the-same-wavelength",
     term: "on the same wavelength",
     type: "idiom",
     en: "If two people are on the same wavelength, they think in similar ways, share similar attitudes, and find it easy to understand each other.",
@@ -820,6 +884,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "My business partner and I are always on the same wavelength when it comes to new ideas.",
   },
   {
+    slug: "save-face",
     term: "save face",
     type: "idiom",
     en: "If you save face, you avoid embarrassment, humiliation, or a loss of respect, especially after making a mistake or being in a difficult situation.",
@@ -832,6 +897,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "The manager offered a vague excuse just to save face in front of the whole team.",
   },
   {
+    slug: "sparks-fly",
     term: "sparks fly",
     type: "idiom",
     en: "If sparks fly between two people, they suddenly show strong emotion toward each other, either because they are attracted to one another or because they are having a heated argument.",
@@ -844,6 +910,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Sparks flew between them the moment their eyes met across the room.",
   },
   {
+    slug: "treat-someone-like-dirt",
     term: "treat someone like dirt",
     type: "idiom",
     en: "If you treat someone like dirt, you behave toward them with great disrespect and contempt, as if they had no value or feelings at all.",
@@ -856,6 +923,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "I can't believe he treats his own employees like dirt just to seem powerful.",
   },
   {
+    slug: "your-own-flesh-and-blood",
     term: "your own flesh and blood",
     type: "idiom",
     en: "Your own flesh and blood refers to your close blood relatives, such as your children, parents, or siblings, emphasizing the natural bond you share with them.",
@@ -870,6 +938,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
   ],
   "help-and-encouragement": [
   {
+    slug: "bend-over-backwards-or-bend-over-backward",
     term: "bend over backwards or bend over backward",
     type: "idiom",
     en: "If you bend over backwards for someone, you make an extreme effort or go to great lengths to help or please them, even if it is inconvenient for you.",
@@ -882,6 +951,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Our neighbors bent over backwards to make us feel welcome when we moved in.",
   },
   {
+    slug: "be-there-for-someone",
     term: "be there for someone",
     type: "idiom",
     en: "If you are there for someone, you support and comfort them, especially during a difficult time, by being available whenever they need you.",
@@ -894,6 +964,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "No matter what happens, I promise I'll be there for you.",
   },
   {
+    slug: "give-and-take",
     term: "give and take",
     type: "idiom",
     en: "Give and take is the willingness of people in a relationship or negotiation to compromise, each accepting less than they originally wanted so that both sides benefit.",
@@ -906,6 +977,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "A good marriage requires a lot of give and take from both partners.",
   },
   {
+    slug: "hold-someone-s-hand",
     term: "hold someone's hand",
     type: "idiom",
     en: "If you hold someone's hand through a difficult situation, you guide, support, and reassure them closely, often because they feel nervous or inexperienced.",
@@ -918,6 +990,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "New employees need someone to hold their hand for the first few weeks.",
   },
   {
+    slug: "in-the-same-boat",
     term: "in the same boat",
     type: "idiom",
     en: "If people are in the same boat, they are all facing the same difficult situation or problem, which often creates a sense of shared understanding.",
@@ -930,6 +1003,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Don't worry, plenty of new parents feel exhausted — we're all in the same boat.",
   },
   {
+    slug: "keep-your-chin-up",
     term: "keep your chin up",
     type: "idiom",
     en: "If you keep your chin up during a hard time, you stay positive, brave, and cheerful instead of giving in to discouragement.",
@@ -942,6 +1016,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "I know the results were disappointing, but keep your chin up — there's always next season.",
   },
   {
+    slug: "lend-a-hand-or-lend-someone-a-hand",
     term: "lend a hand or lend someone a hand",
     type: "idiom",
     en: "If you lend a hand or lend someone a hand, you help them do something, especially a physical task that is difficult to manage alone.",
@@ -954,6 +1029,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Could you lend me a hand moving this sofa upstairs?",
   },
   {
+    slug: "look-the-other-way",
     term: "look the other way",
     type: "idiom",
     en: "If you look the other way, you deliberately ignore something wrong or improper that is happening, choosing not to act or intervene, sometimes out of sympathy for the person involved.",
@@ -966,6 +1042,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "The coach looked the other way when a few players broke curfew.",
   },
   {
+    slug: "meet-someone-halfway",
     term: "meet someone halfway",
     type: "idiom",
     en: "If you meet someone halfway, you compromise with them, giving up part of what you want so that an agreement can be reached.",
@@ -978,6 +1055,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "If you're willing to meet me halfway on the price, we have a deal.",
   },
   {
+    slug: "a-pat-on-the-back",
     term: "a pat on the back",
     type: "idiom",
     en: "A pat on the back is praise or congratulation given to someone for doing something well, often used to describe simple recognition or encouragement.",
@@ -990,6 +1068,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "The whole team deserves a pat on the back for finishing the project early.",
   },
   {
+    slug: "put-your-heads-together",
     term: "put your heads together",
     type: "idiom",
     en: "If people put their heads together, they combine their ideas and knowledge by discussing a problem together in order to find a solution.",
@@ -1002,6 +1081,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Let's put our heads together and come up with a better plan by tomorrow.",
   },
   {
+    slug: "sing-someone-s-praises",
     term: "sing someone's praises",
     type: "idiom",
     en: "If you sing someone's praises, you enthusiastically praise them, often talking about their qualities or achievements to other people.",
@@ -1014,6 +1094,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Everyone at the office has been singing her praises since the presentation.",
   },
   {
+    slug: "take-someone-under-your-wing",
     term: "take someone under your wing",
     type: "idiom",
     en: "If you take someone under your wing, you take responsibility for guiding, protecting, and supporting a less experienced person.",
@@ -1026,6 +1107,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "The senior editor took the new intern under her wing and taught her everything.",
   },
   {
+    slug: "a-tower-of-strength-or-a-pillar-of-strength",
     term: "a tower of strength or a pillar of strength",
     type: "idiom",
     en: "If someone is a tower of strength or a pillar of strength, they provide great emotional support and stability to others, especially during a crisis.",
@@ -1040,6 +1122,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
   ],
   "involvement-and-interest": [
   {
+    slug: "not-be-your-cup-of-tea",
     term: "not be your cup of tea",
     type: "idiom",
     en: "If something is not your cup of tea, it is not the type of thing you enjoy or are interested in, even though other people might like it.",
@@ -1052,6 +1135,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Horror movies are just not my cup of tea; I prefer comedies.",
   },
   {
+    slug: "have-an-axe-to-grind",
     term: "have an axe to grind",
     type: "idiom",
     en: "If you have an axe to grind, you have a personal reason for being involved in something or for feeling strongly about it, often because you want to gain an advantage or settle a grievance.",
@@ -1064,6 +1148,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "He kept criticizing the new policy, but everyone knew he had an axe to grind since he'd been passed over for promotion.",
   },
   {
+    slug: "in-the-picture",
     term: "in the picture",
     type: "idiom",
     en: "If you are in the picture, you are fully informed about a situation and aware of what is happening.",
@@ -1076,6 +1161,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Before the meeting starts, let me put you in the picture about what happened last week.",
   },
   {
+    slug: "jump-on-the-bandwagon",
     term: "jump on the bandwagon",
     type: "idiom",
     en: "If you jump on the bandwagon, you start supporting or doing something simply because it has suddenly become popular or successful, not because of genuine belief in it.",
@@ -1088,6 +1174,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Once the app became a hit, dozens of companies jumped on the bandwagon and launched similar products.",
   },
   {
+    slug: "keep-a-low-profile",
     term: "keep a low profile",
     type: "idiom",
     en: "If you keep a low profile, you deliberately avoid attracting attention to yourself, often to stay out of trouble or controversy.",
@@ -1100,6 +1187,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "After the scandal, the politician kept a low profile for several months.",
   },
   {
+    slug: "a-labour-of-love",
     term: "a labour of love",
     type: "idiom",
     en: "A labour of love is a task or piece of work that you do because you enjoy it or care deeply about it, not because you are paid or forced to do it.",
@@ -1112,6 +1200,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Writing this novel took ten years, but it was truly a labour of love for the author.",
   },
   {
+    slug: "mean-business",
     term: "mean business",
     type: "idiom",
     en: "If someone means business, they are serious about what they intend to do and are determined to act on it, so they should be taken seriously.",
@@ -1124,6 +1213,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "When the coach started running extra drills, the players knew he meant business.",
   },
   {
+    slug: "a-nosey-parker",
     term: "a nosey parker",
     type: "idiom",
     en: "A nosey parker is someone who is excessively curious about other people's private affairs and often interferes or pries into matters that do not concern them.",
@@ -1136,6 +1226,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Don't be such a nosey parker - it's none of your business who she's dating.",
   },
   {
+    slug: "poke-your-nose-into-something-or-stick-your-nose-into-something",
     term: "poke your nose into something or stick your nose into something",
     type: "idiom",
     en: "If you poke or stick your nose into something, you interfere in a matter that does not concern you, usually without being asked or wanted.",
@@ -1148,6 +1239,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "I wish my brother would stop poking his nose into my personal life.",
   },
   {
+    slug: "steer-clear-of-something",
     term: "steer clear of something",
     type: "idiom",
     en: "If you steer clear of something, you deliberately avoid it, especially because you think it might cause problems or trouble.",
@@ -1160,6 +1252,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "I try to steer clear of arguments about politics at family dinners.",
   },
   {
+    slug: "try-your-hand-at-something",
     term: "try your hand at something",
     type: "idiom",
     en: "If you try your hand at something, you attempt to do an activity for the first time, usually to see whether you have any skill or interest in it.",
@@ -1172,6 +1265,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "During the holiday, he decided to try his hand at cooking Thai food.",
   },
   {
+    slug: "up-to-your-ears",
     term: "up to your ears",
     type: "idiom",
     en: "If you are up to your ears in something, especially work or problems, you are extremely busy or deeply involved in dealing with a large amount of it.",
@@ -1184,6 +1278,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "I can't go out tonight - I'm up to my ears in homework.",
   },
   {
+    slug: "whet-someone-s-appetite",
     term: "whet someone's appetite",
     type: "idiom",
     en: "If something whets your appetite, it increases your desire or enthusiasm for something, often by giving you a small taste or preview of it.",
@@ -1196,6 +1291,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "The movie trailer really whetted my appetite for the full film.",
   },
   {
+    slug: "your-heart-isn-t-in-something",
     term: "your heart isn't in something",
     type: "idiom",
     en: "If your heart isn't in something, you do not feel genuine enthusiasm, interest, or commitment towards it, even though you may still be doing it.",
@@ -1210,6 +1306,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
   ],
   "starting-and-stopping": [
   {
+    slug: "call-it-a-day",
     term: "call it a day",
     type: "idiom",
     en: "If you call it a day, you decide to stop doing something, usually a piece of work, for the rest of that day because you feel you have done enough or you are too tired to continue.",
@@ -1222,6 +1319,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "We've fixed the main bug and tested it twice, so let's call it a day and finish the rest tomorrow.",
   },
   {
+    slug: "call-it-quits",
     term: "call it quits",
     type: "idiom",
     en: "If you call it quits, you decide to stop doing an activity permanently, or you and someone else agree to end a relationship, argument, or arrangement, often treating things as even or settled.",
@@ -1234,6 +1332,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "After three failed attempts to fix the old car, he finally decided to call it quits and buy a new one.",
   },
   {
+    slug: "cut-your-losses",
     term: "cut your losses",
     type: "idiom",
     en: "If you cut your losses, you stop doing something that is failing or costing you money or time, before the situation gets even worse.",
@@ -1246,6 +1345,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "The startup had spent almost all its funding, so the founders decided to cut their losses and shut it down.",
   },
   {
+    slug: "enough-is-enough",
     term: "enough is enough",
     type: "idiom",
     en: "You say enough is enough when a situation, a behaviour, or a problem has gone on for too long and has become unacceptable, and it must stop right now.",
@@ -1258,6 +1358,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "After the third late delivery this month, the manager said enough is enough and cancelled the contract.",
   },
   {
+    slug: "from-scratch",
     term: "from scratch",
     type: "idiom",
     en: "If you do or make something from scratch, you start from the very beginning, without using any existing materials, plans, or preparation done in advance.",
@@ -1270,6 +1371,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Instead of using a store-bought sauce, my grandmother always makes her curry from scratch.",
   },
   {
+    slug: "grind-to-a-halt",
     term: "grind to a halt",
     type: "idiom",
     en: "If a process, a machine, or an activity grinds to a halt, it gradually slows down and eventually stops completely, usually because of a problem.",
@@ -1282,6 +1384,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Traffic in the city centre ground to a halt after the accident blocked two lanes.",
   },
   {
+    slug: "hit-the-ground-running",
     term: "hit the ground running",
     type: "idiom",
     en: "If you hit the ground running, you start a new job, project, or activity with great energy and speed right from the very beginning, without needing time to prepare or adjust.",
@@ -1294,6 +1397,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "The new manager hit the ground running, reorganising the team's schedule on her very first day.",
   },
   {
+    slug: "in-business",
     term: "in business",
     type: "idiom",
     en: "If a company or shop is in business, it is operating and open to sell its products or services. Informally, if you say someone is in business, you mean they are now ready and able to proceed with something.",
@@ -1306,6 +1410,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "The bakery has been in business on this street corner for over thirty years.",
   },
   {
+    slug: "knock-something-on-the-head",
     term: "knock something on the head",
     type: "idiom",
     en: "If you knock something on the head, you stop a plan, idea, habit, or activity, usually deliberately and often before it causes more trouble.",
@@ -1318,6 +1423,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "The board knocked the merger plan on the head after seeing the company's latest financial report.",
   },
   {
+    slug: "nip-something-in-the-bud",
     term: "nip something in the bud",
     type: "idiom",
     en: "If you nip something in the bud, you stop a problem, habit, or plan at a very early stage, before it has a chance to grow or become more serious.",
@@ -1330,6 +1436,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "The teacher noticed the bad habit early and nipped it in the bud before it spread to the rest of the class.",
   },
   {
+    slug: "set-the-ball-rolling-or-start-the-ball-rolling",
     term: "set the ball rolling or start the ball rolling",
     type: "idiom",
     en: "If you set or start the ball rolling, you begin an activity, discussion, or process, especially one that involves other people, so that it can continue by itself afterwards.",
@@ -1342,6 +1449,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "To set the ball rolling, the host asked each guest to introduce themselves briefly.",
   },
   {
+    slug: "turn-over-a-new-leaf",
     term: "turn over a new leaf",
     type: "idiom",
     en: "If you turn over a new leaf, you start behaving in a better or more responsible way than before, leaving old bad habits or mistakes behind.",
@@ -1354,6 +1462,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "After his health scare, he turned over a new leaf and started exercising every morning.",
   },
   {
+    slug: "up-and-running",
     term: "up and running",
     type: "idiom",
     en: "If a system, machine, business, or project is up and running, it has been started and is now working properly and functioning as intended.",
@@ -1368,6 +1477,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
   ],
   "effort": [
   {
+    slug: "break-your-back",
     term: "break your back",
     type: "idiom",
     en: "If you break your back to do something, you work extremely hard and put in a great deal of effort to achieve it, often to the point of physical or mental exhaustion.",
@@ -1380,6 +1490,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "She broke her back studying for months to pass the bar exam.",
   },
   {
+    slug: "burn-the-candle-at-both-ends",
     term: "burn the candle at both ends",
     type: "idiom",
     en: "If you burn the candle at both ends, you exhaust yourself by working or staying active for very long hours, leaving too little time to rest or sleep.",
@@ -1392,6 +1503,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "He's been burning the candle at both ends lately, working two jobs and studying at night.",
   },
   {
+    slug: "cut-corners",
     term: "cut corners",
     type: "idiom",
     en: "If you cut corners, you do something in the cheapest or easiest way possible, often by skipping necessary steps or lowering quality and safety standards.",
@@ -1404,6 +1516,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "The construction company was fined for cutting corners on fire safety regulations.",
   },
   {
+    slug: "not-do-things-by-halves",
     term: "not do things by halves",
     type: "idiom",
     en: "If someone does not do things by halves, they always complete a task fully and thoroughly, giving it their complete effort rather than a partial one.",
@@ -1416,6 +1529,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "When Maria decorates the house for a party, she never does things by halves.",
   },
   {
+    slug: "do-your-level-best",
     term: "do your level best",
     type: "idiom",
     en: "If you do your level best, you make the greatest possible effort to achieve something, using all your ability and energy.",
@@ -1428,6 +1542,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "I'll do my level best to finish the report before the deadline.",
   },
   {
+    slug: "go-all-out",
     term: "go all out",
     type: "idiom",
     en: "If you go all out, you make a maximum effort and use every available resource to achieve something, holding nothing back.",
@@ -1440,6 +1555,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "The team went all out in the final minutes to score the winning goal.",
   },
   {
+    slug: "go-the-extra-mile",
     term: "go the extra mile",
     type: "idiom",
     en: "If you go the extra mile, you make an additional effort beyond what is expected or required in order to achieve or help with something.",
@@ -1452,6 +1568,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "The staff at that hotel always go the extra mile to make guests feel comfortable.",
   },
   {
+    slug: "land-on-your-feet-or-fall-on-your-feet",
     term: "land on your feet or fall on your feet",
     type: "idiom",
     en: "If you land on your feet (or fall on your feet), you come out of a difficult or risky situation successfully, often thanks to good luck rather than your own effort.",
@@ -1464,6 +1581,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "He lost his job last year, but he landed on his feet and found an even better position.",
   },
   {
+    slug: "not-lift-a-finger-or-not-raise-a-finger",
     term: "not lift a finger or not raise a finger",
     type: "idiom",
     en: "If someone does not lift a finger (or does not raise a finger), they make absolutely no effort to help or do any work at all.",
@@ -1476,6 +1594,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "My brother never lifts a finger to help with the housework.",
   },
   {
+    slug: "make-a-meal-of-something-or-make-a-meal-out-of-something",
     term: "make a meal of something or make a meal out of something",
     type: "idiom",
     en: "If you make a meal of something (or make a meal out of something), you spend far more time, effort, or fuss on a task than is actually necessary, making it seem more complicated or important than it really is.",
@@ -1488,6 +1607,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "It's just a small mistake - don't make a meal of it.",
   },
   {
+    slug: "pull-your-socks-up",
     term: "pull your socks up",
     type: "idiom",
     en: "If you pull your socks up, you make a greater effort to improve your behavior or performance, especially after doing poorly.",
@@ -1500,6 +1620,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "If you want to pass the exam, you really need to pull your socks up and start studying.",
   },
   {
+    slug: "pull-your-weight",
     term: "pull your weight",
     type: "idiom",
     en: "If you pull your weight, you do your fair share of the work in a group or team, contributing as much as everyone else.",
@@ -1512,6 +1633,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Everyone on this project needs to pull their weight if we want to finish on time.",
   },
   {
+    slug: "work-your-fingers-to-the-bone",
     term: "work your fingers to the bone",
     type: "idiom",
     en: "If you work your fingers to the bone, you work extremely hard for a long period of time, often to the point of complete exhaustion.",
@@ -1524,6 +1646,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "My grandmother worked her fingers to the bone raising five children on her own.",
   },
   {
+    slug: "work-your-socks-off",
     term: "work your socks off",
     type: "idiom",
     en: "If you work your socks off, you work extremely hard and put a great deal of energy and effort into something.",
@@ -1538,6 +1661,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
   ],
   "honesty-and-fairness": [
   {
+    slug: "above-board",
     term: "above board",
     type: "idiom",
     en: "If a plan, deal, or person's actions are above board, they are completely honest, open, and legal, with nothing hidden.",
@@ -1550,6 +1674,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "The charity publishes all its accounts online to show that its fundraising is completely above board.",
   },
   {
+    slug: "not-beat-around-the-bush-or-not-beat-about-the-bush",
     term: "not beat around the bush or not beat about the bush",
     type: "idiom",
     en: "If you do not beat around the bush, you say what you mean directly and clearly, instead of avoiding the main point or delaying an unpleasant topic.",
@@ -1562,6 +1687,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Stop beating around the bush and tell me whether you're leaving the company or not.",
   },
   {
+    slug: "below-the-belt",
     term: "below the belt",
     type: "idiom",
     en: "If someone's words or actions are below the belt, they are unfair and cruel, often attacking a person's weakness or a sensitive personal matter.",
@@ -1574,6 +1700,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Bringing up her divorce during the meeting was really below the belt.",
   },
   {
+    slug: "by-fair-means-or-foul",
     term: "by fair means or foul",
     type: "idiom",
     en: "If someone will achieve something by fair means or foul, they are determined to succeed using any method available, whether it is honest or dishonest.",
@@ -1586,6 +1713,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Some athletes are so obsessed with winning that they will cheat by fair means or foul.",
   },
   {
+    slug: "call-a-spade-a-spade",
     term: "call a spade a spade",
     type: "idiom",
     en: "If you call a spade a spade, you describe something honestly and directly, using plain words instead of softening or disguising the truth.",
@@ -1598,6 +1726,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "He's known for calling a spade a spade, even when the truth is uncomfortable.",
   },
   {
+    slug: "come-clean",
     term: "come clean",
     type: "idiom",
     en: "If you come clean, you admit the truth about something you had been hiding, especially a mistake or wrongdoing.",
@@ -1610,6 +1739,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "After weeks of lying, he finally came clean about losing the company's money.",
   },
   {
+    slug: "fair-and-square",
     term: "fair and square",
     type: "idiom",
     en: "If you win or achieve something fair and square, you do it honestly and according to the rules, without cheating or trickery.",
@@ -1622,6 +1752,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "She won the chess tournament fair and square, beating every opponent on merit.",
   },
   {
+    slug: "keep-your-nose-clean",
     term: "keep your nose clean",
     type: "idiom",
     en: "If you keep your nose clean, you stay out of trouble by behaving well and avoiding illegal or dishonest activities.",
@@ -1634,6 +1765,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "After his last job, he promised his parole officer he would keep his nose clean.",
   },
   {
+    slug: "lay-your-cards-on-the-table-or-put-your-cards-on-the-table",
     term: "lay your cards on the table or put your cards on the table",
     type: "idiom",
     en: "If you lay your cards on the table, you tell people honestly and openly what your plans, intentions, or feelings are, instead of keeping them secret.",
@@ -1646,6 +1778,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Let's just lay our cards on the table: what salary are you actually expecting?",
   },
   {
+    slug: "a-level-playing-field",
     term: "a level playing field",
     type: "idiom",
     en: "A level playing field is a situation in which everyone has equal conditions and a fair chance to compete, with no one having an unfair advantage.",
@@ -1658,6 +1791,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "New regulations were introduced to create a level playing field for small businesses competing with large corporations.",
   },
   {
+    slug: "move-the-goalposts",
     term: "move the goalposts",
     type: "idiom",
     en: "If someone moves the goalposts, they unfairly change the rules or the standard for success in the middle of a process, making it harder for others to achieve their goal.",
@@ -1670,6 +1804,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "First they asked for a report, then they moved the goalposts and wanted a full presentation too.",
   },
   {
+    slug: "on-the-level",
     term: "on the level",
     type: "idiom",
     en: "If a person, deal, or offer is on the level, it is honest and legitimate, with no deception involved.",
@@ -1682,6 +1817,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "I checked with the bank, and the offer really is on the level.",
   },
   {
+    slug: "stab-someone-in-the-back",
     term: "stab someone in the back",
     type: "idiom",
     en: "If you stab someone in the back, you betray a person who trusted you, often by secretly working against them or telling others their private information.",
@@ -1694,6 +1830,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "I trusted her with my business idea, but she stabbed me in the back and started her own company using it.",
   },
   {
+    slug: "to-someone-s-face",
     term: "to someone's face",
     type: "idiom",
     en: "If you say something to someone's face, you say it directly to that person in person, rather than talking about them when they are not present.",
@@ -1708,6 +1845,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
   ],
   "deception": [
   {
+    slug: "blow-the-whistle-on-someone-something",
     term: "blow the whistle on someone/something",
     type: "idiom",
     en: "If you blow the whistle on someone or something, you report their wrongdoing or illegal activity to someone in authority, even though this may cause trouble for the people involved.",
@@ -1720,6 +1858,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "An employee finally blew the whistle on the company's illegal dumping of chemical waste.",
   },
   {
+    slug: "cover-your-tracks",
     term: "cover your tracks",
     type: "idiom",
     en: "If you cover your tracks, you hide or destroy any evidence that would show what you have done, usually something wrong or illegal.",
@@ -1732,6 +1871,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "The hacker tried to cover his tracks by deleting the server logs.",
   },
   {
+    slug: "be-economical-with-the-truth",
     term: "be economical with the truth",
     type: "idiom",
     en: "If someone is economical with the truth, they deliberately leave out important facts or details in order to give a misleading impression, without actually stating an outright lie.",
@@ -1744,6 +1884,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "The spokesperson was economical with the truth about the company's real financial situation.",
   },
   {
+    slug: "give-the-game-away",
     term: "give the game away",
     type: "idiom",
     en: "If you give the game away, you accidentally reveal a secret plan, trick, or intention that was supposed to stay hidden.",
@@ -1756,6 +1897,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "He tried to keep the surprise party secret, but his nervous laughter gave the game away.",
   },
   {
+    slug: "go-behind-someone-s-back",
     term: "go behind someone's back",
     type: "idiom",
     en: "If you go behind someone's back, you do something that affects them, often something deceitful or disloyal, without telling them or asking their permission.",
@@ -1768,6 +1910,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "I can't believe he negotiated the deal behind my back without telling me.",
   },
   {
+    slug: "go-through-the-motions",
     term: "go through the motions",
     type: "idiom",
     en: "If you go through the motions, you do something because you are expected to, without any real interest, effort, or sincerity, often just to give the appearance that things are normal.",
@@ -1780,6 +1923,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "After the breakup, he just went through the motions at work for weeks.",
   },
   {
+    slug: "a-hidden-agenda",
     term: "a hidden agenda",
     type: "idiom",
     en: "A hidden agenda is a secret motive or purpose behind someone's actions or proposals, which is different from the reason they openly claim.",
@@ -1792,6 +1936,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Some employees suspected the new manager had a hidden agenda when he suggested restructuring the team.",
   },
   {
+    slug: "keep-something-under-your-hat",
     term: "keep something under your hat",
     type: "idiom",
     en: "If you keep something under your hat, you keep a piece of information secret and do not tell anyone else about it.",
@@ -1804,6 +1949,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Please keep this under your hat until the official announcement is made next week.",
   },
   {
+    slug: "lead-someone-up-the-garden-path",
     term: "lead someone up the garden path",
     type: "idiom",
     en: "If you lead someone up the garden path, you deliberately deceive or mislead them, often by making promises or giving them false information over a period of time.",
@@ -1816,6 +1962,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "The salesman led us up the garden path with promises of a big discount that never came.",
   },
   {
+    slug: "lie-through-your-teeth",
     term: "lie through your teeth",
     type: "idiom",
     en: "If you lie through your teeth, you tell a blatant, shameless lie, often while looking completely calm or sincere.",
@@ -1828,6 +1975,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "He looked me straight in the eye and lied through his teeth about where he had been.",
   },
   {
+    slug: "on-the-fiddle",
     term: "on the fiddle",
     type: "idiom",
     en: "If someone is on the fiddle, they are involved in a dishonest scheme to get money illegally, especially by cheating an employer or a system.",
@@ -1840,6 +1988,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "It turned out the accountant had been on the fiddle for years before anyone noticed.",
   },
   {
+    slug: "pull-someone-s-leg",
     term: "pull someone's leg",
     type: "idiom",
     en: "If you pull someone's leg, you tease them by telling them something untrue in a playful, harmless way, usually as a joke rather than to deceive them seriously.",
@@ -1852,6 +2001,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Relax, I'm just pulling your leg — I didn't really eat the last slice of cake.",
   },
   {
+    slug: "sweep-something-under-the-carpet",
     term: "sweep something under the carpet",
     type: "idiom",
     en: "If you sweep something under the carpet, you deliberately try to hide or ignore a problem, mistake, or embarrassing fact instead of dealing with it properly.",
@@ -1864,6 +2014,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "The company tried to sweep the safety complaints under the carpet instead of investigating them.",
   },
   {
+    slug: "a-white-lie",
     term: "a white lie",
     type: "idiom",
     en: "A white lie is a small, harmless lie, often told to avoid hurting someone's feelings or to smooth over a minor social situation.",
@@ -1878,6 +2029,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
   ],
   "anger-and-irritation": [
   {
+    slug: "bite-someone-s-head-off-or-snap-someone-s-head-off",
     term: "bite someone's head off or snap someone's head off",
     type: "idiom",
     en: "If you bite or snap someone's head off, you respond to them with sudden, harsh anger, usually over something fairly minor. The reaction is often seen as unfair or out of proportion to what the other person actually did.",
@@ -1890,6 +2042,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "I only asked a simple question, but he bit my head off.",
   },
   {
+    slug: "blow-a-fuse",
     term: "blow a fuse",
     type: "idiom",
     en: "If you blow a fuse, you suddenly become extremely angry, often losing control and shouting. The anger builds up quickly and then erupts all at once.",
@@ -1902,6 +2055,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "My dad blew a fuse when he saw the dent in the car door.",
   },
   {
+    slug: "a-dirty-look-or-a-filthy-look",
     term: "a dirty look or a filthy look",
     type: "idiom",
     en: "A dirty or filthy look is an angry or disapproving facial expression aimed at someone, without any words being spoken. If you give someone this kind of look, you are showing your annoyance through your face alone.",
@@ -1914,6 +2068,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "She gave me a dirty look when I cut in line.",
   },
   {
+    slug: "drive-someone-up-the-wall",
     term: "drive someone up the wall",
     type: "idiom",
     en: "If something or someone drives you up the wall, it makes you extremely annoyed or frustrated, often through repeated or constant behavior. The irritation builds until it becomes almost unbearable.",
@@ -1926,6 +2081,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "That dripping tap is driving me up the wall.",
   },
   {
+    slug: "a-face-like-thunder",
     term: "a face like thunder",
     type: "idiom",
     en: "If someone has a face like thunder, their expression clearly shows they are extremely angry. Anyone looking at them can immediately tell that they are furious.",
@@ -1938,6 +2094,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "He walked out of the meeting with a face like thunder.",
   },
   {
+    slug: "fly-off-the-handle",
     term: "fly off the handle",
     type: "idiom",
     en: "If you fly off the handle, you suddenly lose your temper and react with uncontrolled anger. This often happens very quickly and over something relatively small.",
@@ -1950,6 +2107,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "He flew off the handle when I borrowed his laptop without asking.",
   },
   {
+    slug: "give-someone-hell",
     term: "give someone hell",
     type: "idiom",
     en: "If you give someone hell, you criticize, punish, or scold them very severely because you are extremely angry with them. The person on the receiving end is made to feel the full force of that anger.",
@@ -1962,6 +2120,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "The coach gave the team hell for losing the match so badly.",
   },
   {
+    slug: "go-through-the-roof-or-hit-the-roof",
     term: "go through the roof or hit the roof",
     type: "idiom",
     en: "If someone goes through the roof or hits the roof, they become extremely and suddenly angry. Their anger explodes very quickly and intensely, often catching others off guard.",
@@ -1974,6 +2133,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "He went through the roof when he found a scratch on his brand-new car.",
   },
   {
+    slug: "have-a-chip-on-your-shoulder",
     term: "have a chip on your shoulder",
     type: "idiom",
     en: "If you have a chip on your shoulder, you carry ongoing resentment or anger, usually because of a past grievance or a feeling of having been treated unfairly. This bitterness tends to surface easily in your behavior toward others.",
@@ -1986,6 +2146,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "He's had a chip on his shoulder ever since he was passed over for the promotion.",
   },
   {
+    slug: "have-a-fit-or-throw-a-fit",
     term: "have a fit or throw a fit",
     type: "idiom",
     en: "If you have a fit or throw a fit, you react to something with a sudden, dramatic outburst of anger, often shouting or behaving in an exaggerated way. The reaction is very visible and hard to miss.",
@@ -1998,6 +2159,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Mom threw a fit when she saw my report card.",
   },
   {
+    slug: "lose-it",
     term: "lose it",
     type: "idiom",
     en: "If you lose it, you suddenly lose control of your emotions, especially anger, and react in an extreme or irrational way. In that moment, you are no longer able to keep your temper or composure in check.",
@@ -2010,6 +2172,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "I completely lost it when he lied to my face again.",
   },
   {
+    slug: "make-your-blood-boil",
     term: "make your blood boil",
     type: "idiom",
     en: "If something makes your blood boil, it makes you extremely angry or outraged. The feeling is often described as a sudden, intense surge of anger.",
@@ -2022,6 +2185,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "It makes my blood boil to see people littering in the park.",
   },
   {
+    slug: "a-pain-in-the-neck",
     term: "a pain in the neck",
     type: "idiom",
     en: "A pain in the neck is an annoying person or situation that causes ongoing irritation. If someone or something is described this way, they repeatedly bother or frustrate you.",
@@ -2034,6 +2198,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "This printer is such a pain in the neck; it jams every single time.",
   },
   {
+    slug: "a-sore-point-or-a-sore-spot",
     term: "a sore point or a sore spot",
     type: "idiom",
     en: "A sore point or sore spot is a topic that easily upsets or angers someone because it relates to a sensitive or embarrassing matter. Bringing it up tends to provoke a negative emotional reaction.",
@@ -2048,6 +2213,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
   ],
   "fear-and-frustration": [
   {
+    slug: "at-the-end-of-your-tether",
     term: "at the end of your tether",
     type: "idiom",
     en: "If you are at the end of your tether, you have no patience, energy, or emotional strength left to deal with a difficult situation. It describes the point where someone feels they simply cannot cope any longer.",
@@ -2060,6 +2226,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "After three sleepless nights with the crying baby, she was at the end of her tether.",
   },
   {
+    slug: "a-bundle-of-nerves",
     term: "a bundle of nerves",
     type: "idiom",
     en: "If someone is a bundle of nerves, they are extremely nervous, anxious, or tense, often in a way that is visible to others. The phrase emphasizes that the person's anxiety feels concentrated and overwhelming.",
@@ -2072,6 +2239,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Before her driving test, Mai was a bundle of nerves and could barely eat breakfast.",
   },
   {
+    slug: "butterflies-in-your-stomach",
     term: "butterflies in your stomach",
     type: "idiom",
     en: "If you have butterflies in your stomach, you feel a fluttering, nervous sensation in your abdomen, usually because you are excited or worried about something important that is about to happen.",
@@ -2084,6 +2252,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "I always get butterflies in my stomach right before a job interview.",
   },
   {
+    slug: "frighten-the-life-out-of-someone-or-scare-the-life-out-of-someone",
     term: "frighten the life out of someone or scare the life out of someone",
     type: "idiom",
     en: "If something or someone frightens (or scares) the life out of you, it gives you a sudden, very strong shock of fear. The phrase is a hyperbolic way of describing an intense fright.",
@@ -2096,6 +2265,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "That loud thunderclap frightened the life out of me while I was asleep.",
   },
   {
+    slug: "get-cold-feet-or-have-cold-feet",
     term: "get cold feet or have cold feet",
     type: "idiom",
     en: "If you get cold feet, you suddenly become too nervous or afraid to go through with something you had planned to do, especially at the last moment. It often refers to hesitating just before a big decision, like a wedding or a major commitment.",
@@ -2108,6 +2278,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "He got cold feet the night before the wedding and almost called it off.",
   },
   {
+    slug: "not-get-a-word-in-edgeways",
     term: "not get a word in edgeways",
     type: "idiom",
     en: "If you cannot get a word in edgeways, someone else is talking so much or so continuously that you have no chance to say anything yourself. It describes the frustration of being unable to join a conversation.",
@@ -2120,6 +2291,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "My grandmother talks so fast that nobody can get a word in edgeways.",
   },
   {
+    slug: "give-someone-the-creeps",
     term: "give someone the creeps",
     type: "idiom",
     en: "If someone or something gives you the creeps, it makes you feel a strong sense of fear, unease, or disgust, often without a clear or logical reason.",
@@ -2132,6 +2304,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "That abandoned house at the end of the street gives me the creeps.",
   },
   {
+    slug: "jump-out-of-your-skin-or-nearly-jump-out-of-your-skin",
     term: "jump out of your skin or nearly jump out of your skin",
     type: "idiom",
     en: "If you jump (or nearly jump) out of your skin, you are suddenly and severely startled, usually by an unexpected noise or movement. It is a hyperbolic way of describing a strong physical reaction to shock.",
@@ -2144,6 +2317,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "The phone rang so loudly that I nearly jumped out of my skin.",
   },
   {
+    slug: "the-last-straw-or-the-final-straw",
     term: "the last straw or the final straw",
     type: "idiom",
     en: "The last straw (or the final straw) is the last in a series of problems or annoyances that finally makes a situation impossible to tolerate, causing someone to lose patience completely.",
@@ -2156,6 +2330,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "He had missed deadlines before, but arriving late to the client meeting was the last straw.",
   },
   {
+    slug: "on-edge",
     term: "on edge",
     type: "idiom",
     en: "If you are on edge, you feel nervous, tense, or irritable, often because you are worried about something or waiting anxiously for it to happen.",
@@ -2168,6 +2343,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Ever since the burglary, she has been on edge whenever she hears a noise at night.",
   },
   {
+    slug: "red-tape",
     term: "red tape",
     type: "idiom",
     en: "Red tape refers to excessive official rules, forms, and procedures that make a process slow, complicated, and frustrating, especially in government or large organizations.",
@@ -2180,6 +2356,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Getting a work permit here involves so much red tape that it can take months.",
   },
   {
+    slug: "scare-someone-out-of-their-wits",
     term: "scare someone out of their wits",
     type: "idiom",
     en: "If you scare someone out of their wits, you frighten them so severely that they can barely think or react clearly. It emphasizes an extreme, overwhelming level of fear.",
@@ -2192,6 +2369,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "The horror movie scared the kids out of their wits, and they refused to sleep alone that night.",
   },
   {
+    slug: "be-shaking-like-a-leaf",
     term: "be shaking like a leaf",
     type: "idiom",
     en: "If someone is shaking like a leaf, they are trembling uncontrollably, usually because they are very frightened, nervous, or cold.",
@@ -2204,6 +2382,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "By the time she reached the stage, she was shaking like a leaf.",
   },
   {
+    slug: "until-you-are-blue-in-the-face",
     term: "until you are blue in the face",
     type: "idiom",
     en: "If you do or say something until you are blue in the face, you keep doing it repeatedly and with great effort, but without achieving the result you want. It suggests exhausting effort that ultimately fails to persuade or change anything.",
@@ -2218,6 +2397,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
   ],
   "disagreement": [
   {
+    slug: "agree-to-differ-or-agree-to-disagree",
     term: "agree to differ or agree to disagree",
     type: "idiom",
     en: "If two people agree to differ (or agree to disagree), they stop trying to convince each other and accept that they will never share the same opinion on an issue.",
@@ -2230,6 +2410,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "After an hour of debate, we decided to agree to differ and moved on to the next topic.",
   },
   {
+    slug: "at-each-other-s-throats-or-at-one-another-s-throats",
     term: "at each other's throats or at one another's throats",
     type: "idiom",
     en: "If people are at each other's throats, they are arguing or fighting with each other constantly and aggressively.",
@@ -2242,6 +2423,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "The two managers have been at each other's throats ever since the budget was cut.",
   },
   {
+    slug: "a-battle-of-wills",
     term: "a battle of wills",
     type: "idiom",
     en: "A battle of wills is a prolonged struggle between two people or groups, each determined not to give in or change their position.",
@@ -2254,6 +2436,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Getting the toddler to eat vegetables turned into a real battle of wills every evening.",
   },
   {
+    slug: "a-bone-of-contention",
     term: "a bone of contention",
     type: "idiom",
     en: "A bone of contention is a subject or issue that causes ongoing disagreement or argument between people.",
@@ -2266,6 +2449,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Who should do the dishes has always been a bone of contention in our house.",
   },
   {
+    slug: "clear-the-air",
     term: "clear the air",
     type: "idiom",
     en: "If people clear the air, they talk openly about a disagreement or tension in order to remove misunderstanding and improve the relationship.",
@@ -2278,6 +2462,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "We sat down after the argument to clear the air before the trip.",
   },
   {
+    slug: "cross-swords",
     term: "cross swords",
     type: "idiom",
     en: "If two people cross swords, they argue or compete with each other over a particular issue.",
@@ -2290,6 +2475,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "The two senators have crossed swords many times over the new tax bill.",
   },
   {
+    slug: "fight-like-cat-and-dog",
     term: "fight like cat and dog",
     type: "idiom",
     en: "If two people fight like cat and dog, they argue or quarrel with each other frequently and fiercely.",
@@ -2302,6 +2488,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "The two sisters fight like cat and dog whenever they share a room.",
   },
   {
+    slug: "give-someone-a-piece-of-your-mind",
     term: "give someone a piece of your mind",
     type: "idiom",
     en: "If you give someone a piece of your mind, you tell them directly and angrily what you think about something they have done wrong.",
@@ -2314,6 +2501,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "When the waiter was rude, she gave him a piece of her mind.",
   },
   {
+    slug: "have-a-bone-to-pick-with-someone",
     term: "have a bone to pick with someone",
     type: "idiom",
     en: "If you have a bone to pick with someone, you have a reason to be annoyed with them and want to discuss it directly.",
@@ -2326,6 +2514,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "I have a bone to pick with you about who ate the last slice of cake.",
   },
   {
+    slug: "have-a-go-at-someone",
     term: "have a go at someone",
     type: "idiom",
     en: "If you have a go at someone, you criticize them or attack them verbally, often suddenly and for something they did.",
@@ -2338,6 +2527,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "My teacher had a go at me for turning in the report late.",
   },
   {
+    slug: "in-someone-s-bad-books",
     term: "in someone's bad books",
     type: "idiom",
     en: "If you are in someone's bad books, that person is currently annoyed or displeased with you because of something you did.",
@@ -2350,6 +2540,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "I forgot our anniversary, so I'm definitely in my wife's bad books this week.",
   },
   {
+    slug: "jump-down-someone-s-throat",
     term: "jump down someone's throat",
     type: "idiom",
     en: "If you jump down someone's throat, you respond to them angrily and suddenly, often more harshly than the situation deserves.",
@@ -2362,6 +2553,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "I only asked a simple question, but he jumped down my throat immediately.",
   },
   {
+    slug: "kiss-and-make-up",
     term: "kiss and make up",
     type: "idiom",
     en: "If two people kiss and make up, they end an argument and become friendly with each other again.",
@@ -2374,6 +2566,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "The couple argued at the party but kissed and made up before they went home.",
   },
   {
+    slug: "not-see-eye-to-eye",
     term: "not see eye to eye",
     type: "idiom",
     en: "If two people do not see eye to eye, they have a different opinion about something and disagree, often continuously.",
@@ -2386,6 +2579,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "My father and I don't see eye to eye when it comes to career choices.",
   },
   {
+    slug: "a-shouting-match",
     term: "a shouting match",
     type: "idiom",
     en: "A shouting match is a loud, angry argument in which people shout at each other instead of talking calmly.",
@@ -2400,6 +2594,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
   ],
   "success-and-failure": [
   {
+    slug: "back-to-the-drawing-board",
     term: "back to the drawing board",
     type: "idiom",
     en: "If you go back to the drawing board, you start a plan or project again from the very beginning because the previous attempt failed.",
@@ -2412,6 +2607,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "The prototype failed the safety tests, so the engineers had to go back to the drawing board.",
   },
   {
+    slug: "bring-the-house-down",
     term: "bring the house down",
     type: "idiom",
     en: "If a performance brings the house down, it makes the audience clap, laugh, or cheer enthusiastically because it is extremely entertaining or impressive.",
@@ -2424,6 +2620,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "The comedian's final joke brought the house down, and the audience laughed for a full minute.",
   },
   {
+    slug: "come-up-in-the-world",
     term: "come up in the world",
     type: "idiom",
     en: "If someone comes up in the world, they become more successful, wealthy, or socially respected than they were before.",
@@ -2436,6 +2633,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "He started as a delivery driver, but after opening his own business he's really come up in the world.",
   },
   {
+    slug: "fall-flat-on-your-face",
     term: "fall flat on your face",
     type: "idiom",
     en: "If you fall flat on your face, you fail completely and often embarrassingly at something you attempted.",
@@ -2448,6 +2646,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "He tried to impress the investors with a bold pitch, but he fell flat on his face when they asked about the numbers.",
   },
   {
+    slug: "be-fighting-a-losing-battle",
     term: "be fighting a losing battle",
     type: "idiom",
     en: "If you are fighting a losing battle, you are trying hard to achieve something, but you are very unlikely to succeed.",
@@ -2460,6 +2659,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "The small shop is fighting a losing battle against the new supermarket chain nearby.",
   },
   {
+    slug: "go-belly-up",
     term: "go belly-up",
     type: "idiom",
     en: "If a business or organization goes belly-up, it fails completely and stops operating, usually because it runs out of money.",
@@ -2472,6 +2672,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "The startup went belly-up just eighteen months after it was founded.",
   },
   {
+    slug: "go-pear-shaped",
     term: "go pear-shaped",
     type: "idiom",
     en: "If a situation goes pear-shaped, it goes wrong or turns into a mess after starting out well or as planned.",
@@ -2484,6 +2685,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "The wedding plans went pear-shaped when the venue cancelled at the last minute.",
   },
   {
+    slug: "hit-the-nail-on-the-head",
     term: "hit the nail on the head",
     type: "idiom",
     en: "If you hit the nail on the head, you describe or identify something exactly and correctly, especially the real cause of a problem.",
@@ -2496,6 +2698,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "When she said the real problem was poor communication, she hit the nail on the head.",
   },
   {
+    slug: "plain-sailing",
     term: "plain sailing",
     type: "idiom",
     en: "If something is plain sailing, it is easy and free of difficulties or problems, especially after a difficult part is over.",
@@ -2508,6 +2711,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Once we got past the visa paperwork, the rest of the trip was plain sailing.",
   },
   {
+    slug: "save-the-day",
     term: "save the day",
     type: "idiom",
     en: "If someone saves the day, they do something that prevents a failure, disaster, or difficult situation at a critical moment.",
@@ -2520,6 +2724,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "The backup generator saved the day when the power went out during the concert.",
   },
   {
+    slug: "touch-and-go",
     term: "touch and go",
     type: "idiom",
     en: "If a situation is touch and go, the outcome is very uncertain, and it could easily turn out badly.",
@@ -2532,6 +2737,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "It was touch and go for a while after the surgery, but the patient is recovering well now.",
   },
   {
+    slug: "win-hands-down",
     term: "win hands down",
     type: "idiom",
     en: "If you win hands down, you win very easily and clearly, with no real competition or doubt about the result.",
@@ -2544,6 +2750,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Our team won the quiz hands down, finishing with almost double the score of the runner-up.",
   },
   {
+    slug: "with-flying-colours",
     term: "with flying colours",
     type: "idiom",
     en: "If you pass a test, exam, or challenge with flying colours, you succeed very impressively, achieving an excellent result.",
@@ -2556,6 +2763,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "He passed his driving test with flying colours on his very first attempt.",
   },
   {
+    slug: "work-like-a-charm",
     term: "work like a charm",
     type: "idiom",
     en: "If something works like a charm, it works extremely well and produces exactly the result you wanted, often very smoothly or unexpectedly effectively.",
@@ -2570,6 +2778,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
   ],
   "progress": [
   {
+    slug: "be-barking-up-the-wrong-tree",
     term: "be barking up the wrong tree",
     type: "idiom",
     en: "If you are barking up the wrong tree, you are pursuing a mistaken idea or course of action, especially by blaming, suspecting, or asking the wrong person or cause.",
@@ -2582,6 +2791,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "If you think I stole your notebook, you're barking up the wrong tree — I wasn't even here yesterday.",
   },
   {
+    slug: "be-flogging-a-dead-horse",
     term: "be flogging a dead horse",
     type: "idiom",
     en: "If someone is flogging a dead horse, they are wasting time and effort trying to achieve something that has no chance of succeeding, or continuing to discuss a matter that has already been settled.",
@@ -2594,6 +2804,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Trying to convince him to change his mind at this point is just flogging a dead horse.",
   },
   {
+    slug: "gain-ground",
     term: "gain ground",
     type: "idiom",
     en: "If someone or something gains ground, they make progress, become more popular or successful, or move closer to catching up with a rival.",
@@ -2606,6 +2817,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Electric cars are gaining ground quickly as more charging stations appear across the country.",
   },
   {
+    slug: "get-to-grips-with-something-or-come-to-grips-with-something",
     term: "get to grips with something or come to grips with something",
     type: "idiom",
     en: "If you get to grips with something or come to grips with something, you make a real effort to understand it thoroughly and start dealing with it effectively, especially when it is difficult.",
@@ -2618,6 +2830,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "It took me a few weeks to get to grips with the new accounting software.",
   },
   {
+    slug: "get-your-act-together",
     term: "get your act together",
     type: "idiom",
     en: "If you get your act together, you start organizing yourself and behaving in a more efficient, disciplined way, especially after a period of doing things badly or carelessly.",
@@ -2630,6 +2843,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "You need to get your act together if you want to pass the final exam next month.",
   },
   {
+    slug: "go-around-in-circles-or-go-round-in-circles",
     term: "go around in circles or go round in circles",
     type: "idiom",
     en: "If you go around in circles or go round in circles, you keep discussing, thinking about, or doing something repeatedly without making any real progress or reaching a conclusion.",
@@ -2642,6 +2856,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "We've been going around in circles in this meeting for an hour without deciding anything.",
   },
   {
+    slug: "in-the-doldrums",
     term: "in the doldrums",
     type: "idiom",
     en: "If a person, a business, or a situation is in the doldrums, they are feeling low, inactive, or stuck, showing no growth, progress, or improvement for a period of time.",
@@ -2654,6 +2869,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "The housing market has been in the doldrums since interest rates rose sharply last year.",
   },
   {
+    slug: "in-the-pipeline",
     term: "in the pipeline",
     type: "idiom",
     en: "If something is in the pipeline, it is currently being planned, developed, or prepared, and is expected to happen or become available at some point in the near future.",
@@ -2666,6 +2882,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "The company has several new features in the pipeline that should launch by the end of the year.",
   },
   {
+    slug: "light-at-the-end-of-the-tunnel",
     term: "light at the end of the tunnel",
     type: "idiom",
     en: "If there is light at the end of the tunnel, there are signs that a difficult or unpleasant situation is finally coming to an end, giving hope after a long period of hardship.",
@@ -2678,6 +2895,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "After months of chemotherapy, doctors say there's finally light at the end of the tunnel for her recovery.",
   },
   {
+    slug: "make-headway",
     term: "make headway",
     type: "idiom",
     en: "If you make headway, you make progress toward achieving something, especially something that is difficult or has been slow to move forward.",
@@ -2690,6 +2908,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Researchers are finally making headway in understanding the disease after years of study.",
   },
   {
+    slug: "on-a-roll",
     term: "on a roll",
     type: "idiom",
     en: "If someone is on a roll, they are experiencing a continuous streak of success or good luck, with one good result following another.",
@@ -2702,6 +2921,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "She's on a roll this season, scoring in every single match.",
   },
   {
+    slug: "on-the-right-track",
     term: "on the right track",
     type: "idiom",
     en: "If you are on the right track, you are doing something in a way that is likely to lead to success or to the correct result.",
@@ -2714,6 +2934,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Your essay draft looks much clearer now — you're definitely on the right track.",
   },
   {
+    slug: "put-something-on-hold",
     term: "put something on hold",
     type: "idiom",
     en: "If you put something on hold, you delay or pause an action, decision, or plan temporarily, intending to continue or deal with it again later.",
@@ -2728,6 +2949,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
   ],
   "expectation": [
   {
+    slug: "the-calm-before-the-storm-or-the-lull-before-the-storm",
     term: "the calm before the storm or the lull before the storm",
     type: "idiom",
     en: "If a period of time is the calm before the storm, it is an unusually quiet or peaceful time that people sense will soon be followed by trouble, conflict, or a burst of intense activity.",
@@ -2740,6 +2962,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "The office has been eerily quiet all week, but everyone knows it's just the calm before the storm before the big product launch.",
   },
   {
+    slug: "castles-in-the-air",
     term: "castles in the air",
     type: "idiom",
     en: "If someone builds castles in the air, they spend time imagining grand plans, dreams, or ambitions that are unrealistic and very unlikely ever to come true.",
@@ -2752,6 +2975,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "He keeps building castles in the air about starting his own company, but he hasn't even saved enough money to get started.",
   },
   {
+    slug: "not-count-your-chickens-or-not-count-your-chickens-before-they-re-hatched",
     term: "not count your chickens or not count your chickens before they're hatched",
     type: "idiom",
     en: "This idiom is used to warn someone not to assume that something good will definitely happen, or to plan as if a benefit is guaranteed, before it has actually happened.",
@@ -2764,6 +2988,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "We haven't signed the contract yet, so let's not count our chickens before they're hatched.",
   },
   {
+    slug: "feel-something-in-your-bones",
     term: "feel something in your bones",
     type: "idiom",
     en: "If you feel something in your bones, you have a strong intuitive sense that something is true or is going to happen, even without any solid proof.",
@@ -2776,6 +3001,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "I feel it in my bones that this new employee is going to become a great manager one day.",
   },
   {
+    slug: "not-have-a-prayer",
     term: "not have a prayer",
     type: "idiom",
     en: "If someone does not have a prayer, they have absolutely no chance at all of succeeding or achieving what they hope for.",
@@ -2788,6 +3014,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "With three minutes left and a ten-point gap, our team doesn't have a prayer of winning this match.",
   },
   {
+    slug: "it-s-early-days-or-it-s-early-in-the-day",
     term: "it's early days or it's early in the day",
     type: "idiom",
     en: "This idiom means that it is still too soon in a process or situation to know how things will ultimately turn out or to draw firm conclusions.",
@@ -2800,6 +3027,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "It's early days for the new policy, so we shouldn't judge whether it's working just yet.",
   },
   {
+    slug: "like-looking-for-a-needle-in-a-haystack",
     term: "like looking for a needle in a haystack",
     type: "idiom",
     en: "If you describe a task as being like looking for a needle in a haystack, you mean it is extremely difficult, if not nearly impossible, to find one particular thing among a huge number of others.",
@@ -2812,6 +3040,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Searching for one specific email among ten years of messages felt like looking for a needle in a haystack.",
   },
   {
+    slug: "a-long-shot",
     term: "a long shot",
     type: "idiom",
     en: "If something is a long shot, it has only a small chance of succeeding, but it may still be worth attempting.",
@@ -2824,6 +3053,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Applying for that scholarship is a long shot, but I think it's still worth trying.",
   },
   {
+    slug: "on-the-cards",
     term: "on the cards",
     type: "idiom",
     en: "If something is on the cards, it seems likely to happen soon, based on the current signs or circumstances.",
@@ -2836,6 +3066,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Given the company's recent losses, layoffs seem to be on the cards.",
   },
   {
+    slug: "on-the-off-chance",
     term: "on the off-chance",
     type: "idiom",
     en: "If you do something on the off-chance, you do it hoping for a particular good result, even though you believe it is unlikely to happen.",
@@ -2848,6 +3079,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "I called the restaurant on the off-chance that they still had a table free tonight.",
   },
   {
+    slug: "out-of-the-blue",
     term: "out of the blue",
     type: "idiom",
     en: "If something happens out of the blue, it happens suddenly and unexpectedly, without any prior warning.",
@@ -2860,6 +3092,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "My old college roommate called me out of the blue after ten years of silence.",
   },
   {
+    slug: "par-for-the-course",
     term: "par for the course",
     type: "idiom",
     en: "If something is par for the course, it is exactly what you would normally expect to happen in a particular situation, often something unwelcome or mildly frustrating.",
@@ -2872,6 +3105,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "The train was delayed again this morning, but that's par for the course during rush hour.",
   },
   {
+    slug: "not-a-snowball-s-chance-in-hell",
     term: "not a snowball's chance in hell",
     type: "idiom",
     en: "If someone does not have a snowball's chance in hell, they have absolutely no possibility whatsoever of succeeding, because the situation is essentially impossible.",
@@ -2886,6 +3120,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
   ],
   "trouble-and-difficulty": [
   {
+    slug: "be-asking-for-trouble",
     term: "be asking for trouble",
     type: "idiom",
     en: "If you say someone is asking for trouble, you mean that their behavior is so risky or careless that it is very likely to cause problems for them. It is often used as a warning about foreseeable negative consequences.",
@@ -2898,6 +3133,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Driving without a seatbelt on the highway is just asking for trouble.",
   },
   {
+    slug: "bite-off-more-than-you-can-chew",
     term: "bite off more than you can chew",
     type: "idiom",
     en: "If you bite off more than you can chew, you take on a task, responsibility, or commitment that turns out to be too large or difficult for you to handle successfully.",
@@ -2910,6 +3146,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "She agreed to organize three conferences in one month and quickly realized she had bitten off more than she could chew.",
   },
   {
+    slug: "a-catch-22",
     term: "a Catch 22",
     type: "idiom",
     en: "A Catch-22 is a frustrating situation in which you cannot achieve one thing until you have achieved another, but you cannot achieve that other thing either until you have achieved the first one, so no solution seems possible.",
@@ -2922,6 +3159,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "To get a job you need experience, but to get experience you need a job — it's a real Catch-22.",
   },
   {
+    slug: "a-the-fly-in-the-ointment",
     term: "a/the fly in the ointment",
     type: "idiom",
     en: "A fly in the ointment is a small flaw, problem, or drawback that spoils an otherwise good situation, plan, or outcome.",
@@ -2934,6 +3172,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "The new apartment is perfect, except for one fly in the ointment: the noisy street outside.",
   },
   {
+    slug: "not-have-a-leg-to-stand-on",
     term: "not have a leg to stand on",
     type: "idiom",
     en: "If you do not have a leg to stand on, your argument, claim, or position has no valid evidence or logical support, so it will certainly fail if challenged.",
@@ -2946,6 +3185,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "If they can't produce a receipt, they won't have a leg to stand on when they dispute the charge.",
   },
   {
+    slug: "in-over-your-head",
     term: "in over your head",
     type: "idiom",
     en: "If you are in over your head, you are involved in a situation, task, or responsibility that is far too difficult or complicated for you to manage or control.",
@@ -2958,6 +3198,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "When he agreed to manage the whole event alone, he quickly realized he was in over his head.",
   },
   {
+    slug: "out-of-the-frying-pan-into-the-fire-or-from-the-frying-pan-into-the-fire",
     term: "out of the frying pan into the fire or from the frying pan into the fire",
     type: "idiom",
     en: "If you go out of the frying pan into the fire, you escape one bad or difficult situation only to end up in a worse one.",
@@ -2970,6 +3211,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "He quit his stressful job only to join a company that went bankrupt a month later — out of the frying pan into the fire.",
   },
   {
+    slug: "an-own-goal",
     term: "an own goal",
     type: "idiom",
     en: "If you score an own goal, you do something intended to help or protect yourself or your side that actually damages it instead, often through carelessness or poor judgment.",
@@ -2982,6 +3224,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Cutting funding for staff training turned out to be an own goal for the company's productivity.",
   },
   {
+    slug: "put-your-foot-in-it",
     term: "put your foot in it",
     type: "idiom",
     en: "If you put your foot in it, you say or do something careless, tactless, or embarrassing that causes offense or an awkward situation, usually without meaning to.",
@@ -2994,6 +3237,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "I really put my foot in it when I asked about her old job — I didn't know she'd been fired.",
   },
   {
+    slug: "a-stumbling-block",
     term: "a stumbling block",
     type: "idiom",
     en: "A stumbling block is an obstacle or difficulty that prevents progress toward a goal or agreement.",
@@ -3006,6 +3250,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "The biggest stumbling block in the negotiations was the disagreement over pricing.",
   },
   {
+    slug: "teething-problems-or-teething-troubles",
     term: "teething problems or teething troubles",
     type: "idiom",
     en: "Teething problems, or teething troubles, are minor difficulties or setbacks that occur in the early stages of something new, such as a project, product, or system, before it runs smoothly.",
@@ -3018,6 +3263,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "The new software had a few teething problems, but the bugs were fixed within a week.",
   },
   {
+    slug: "a-vicious-circle",
     term: "a vicious circle",
     type: "idiom",
     en: "A vicious circle is a repeating chain of events in which one problem causes another problem, which in turn makes the first problem worse, so the situation keeps getting harder to escape.",
@@ -3032,6 +3278,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
   ],
   "safety-and-risk": [
   {
+    slug: "by-the-skin-of-your-teeth",
     term: "by the skin of your teeth",
     type: "idiom",
     en: "If you do something by the skin of your teeth, you barely manage to succeed or escape, with almost no margin to spare.",
@@ -3044,6 +3291,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "She passed the final exam by the skin of her teeth, scoring just one point above the pass mark.",
   },
   {
+    slug: "a-close-shave",
     term: "a close shave",
     type: "idiom",
     en: "A close shave is a situation in which you narrowly avoid danger, injury, or disaster.",
@@ -3056,6 +3304,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "The car swerved off the road at the last second — that was a close shave for everyone inside.",
   },
   {
+    slug: "the-coast-is-clear",
     term: "the coast is clear",
     type: "idiom",
     en: "If the coast is clear, there is no one around to see or stop you, so it is safe to do something.",
@@ -3068,6 +3317,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Wait until the coast is clear before you sneak the puppy into the dormitory.",
   },
   {
+    slug: "a-good-bet-or-a-safe-bet",
     term: "a good bet or a safe bet",
     type: "idiom",
     en: "If something is a good bet or a safe bet, it is very likely to succeed, be true, or be the wisest choice among the options available.",
@@ -3080,6 +3330,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "If you're looking for a reliable laptop, that brand is usually a safe bet.",
   },
   {
+    slug: "in-safe-hands",
     term: "in safe hands",
     type: "idiom",
     en: "If someone or something is in safe hands, they are being looked after or managed by a person who is capable and trustworthy, so there is little risk of harm.",
@@ -3092,6 +3343,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Don't worry about the children this weekend — they're in safe hands with their grandparents.",
   },
   {
+    slug: "play-it-safe",
     term: "play it safe",
     type: "idiom",
     en: "If you play it safe, you deliberately choose the more cautious option and avoid taking any unnecessary risks.",
@@ -3104,6 +3356,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Instead of investing all his savings in one stock, he decided to play it safe and spread the money around.",
   },
   {
+    slug: "be-playing-with-fire",
     term: "be playing with fire",
     type: "idiom",
     en: "If you are playing with fire, you are doing something risky or reckless that could easily lead to serious trouble or harm.",
@@ -3116,6 +3369,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Lending money to your boss without a written agreement is playing with fire.",
   },
   {
+    slug: "put-all-your-eggs-in-one-basket",
     term: "put all your eggs in one basket",
     type: "idiom",
     en: "If you put all your eggs in one basket, you risk everything on a single plan, option, or venture instead of spreading the risk across several.",
@@ -3128,6 +3382,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Financial advisors usually warn against putting all your eggs in one basket by investing in a single company.",
   },
   {
+    slug: "be-skating-on-thin-ice",
     term: "be skating on thin ice",
     type: "idiom",
     en: "If you are skating on thin ice, you are in a risky or precarious situation where one small mistake could lead to serious trouble.",
@@ -3140,6 +3395,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "After missing three deadlines in a row, he knew he was skating on thin ice with his manager.",
   },
   {
+    slug: "stick-your-neck-out",
     term: "stick your neck out",
     type: "idiom",
     en: "If you stick your neck out, you take a risk by expressing an opinion, taking action, or supporting someone, even though it might expose you to criticism, failure, or danger.",
@@ -3152,6 +3408,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "None of the other managers wanted to stick their necks out and question the new policy.",
   },
   {
+    slug: "take-your-life-in-your-hands-or-take-your-life-into-your-hands",
     term: "take your life in your hands or take your life into your hands",
     type: "idiom",
     en: "If you take your life in your hands, you deliberately do something extremely dangerous that could get you seriously hurt or killed.",
@@ -3164,6 +3421,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Crossing that busy highway on foot, you're really taking your life in your hands.",
   },
   {
+    slug: "to-be-on-the-safe-side",
     term: "to be on the safe side",
     type: "idiom",
     en: "If you do something to be on the safe side, you take an extra precaution in order to avoid a risk or an unwanted outcome, even if it might not be strictly necessary.",
@@ -3178,6 +3436,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
   ],
   "money": [
   {
+    slug: "cost-an-arm-and-a-leg",
     term: "cost an arm and a leg",
     type: "idiom",
     en: "If something costs an arm and a leg, it is extremely expensive, far more than you would normally expect to pay.",
@@ -3190,6 +3449,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "That new laptop looks great, but it costs an arm and a leg.",
   },
   {
+    slug: "down-the-drain",
     term: "down the drain",
     type: "idiom",
     en: "If money, time, or effort goes down the drain, it is completely wasted and produces no benefit at all.",
@@ -3202,6 +3462,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "The company invested millions in the project, but when it failed, all that money went down the drain.",
   },
   {
+    slug: "feel-the-pinch",
     term: "feel the pinch",
     type: "idiom",
     en: "If a person or a business feels the pinch, they start to experience financial difficulty, often because of rising costs or falling income.",
@@ -3214,6 +3475,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "With fuel prices rising every month, many families are really feeling the pinch.",
   },
   {
+    slug: "have-deep-pockets",
     term: "have deep pockets",
     type: "idiom",
     en: "If a person or organization has deep pockets, they have a large amount of money available and can afford to spend heavily.",
@@ -3226,6 +3488,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Only a company with deep pockets could afford to keep funding research for ten years without profit.",
   },
   {
+    slug: "in-the-red",
     term: "in the red",
     type: "idiom",
     en: "If a person, account, or business is in the red, they owe more money than they have, or their finances are operating at a loss.",
@@ -3238,6 +3501,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "The company has been in the red for three consecutive quarters.",
   },
   {
+    slug: "make-ends-meet",
     term: "make ends meet",
     type: "idiom",
     en: "If you make ends meet, you manage to earn just enough money to cover your basic living expenses, with little or nothing left over.",
@@ -3250,6 +3514,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "After losing his second job, he struggled to make ends meet.",
   },
   {
+    slug: "on-a-shoestring",
     term: "on a shoestring",
     type: "idiom",
     en: "If you do something on a shoestring, you do it with a very small amount of money, using a very tight or limited budget.",
@@ -3262,6 +3527,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "They started the business on a shoestring, working from their garage with almost no capital.",
   },
   {
+    slug: "out-of-pocket",
     term: "out of pocket",
     type: "idiom",
     en: "If you pay for something out of pocket, you pay with your own money rather than having it covered by insurance, an employer, or someone else.",
@@ -3274,6 +3540,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "The insurance didn't cover the whole surgery, so we had to pay several thousand dollars out of pocket.",
   },
   {
+    slug: "be-rolling-in-it-or-be-rolling-in-money",
     term: "be rolling in it or be rolling in money",
     type: "idiom",
     en: "If someone is rolling in it, or rolling in money, they have an enormous amount of money and are extremely wealthy.",
@@ -3286,6 +3553,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Ever since his startup was sold, he's been rolling in money.",
   },
   {
+    slug: "a-small-fortune",
     term: "a small fortune",
     type: "idiom",
     en: "If something costs a small fortune, it costs a very large amount of money, even though the word \"small\" is used ironically.",
@@ -3298,6 +3566,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Renovating that old house cost him a small fortune.",
   },
   {
+    slug: "there-s-no-such-thing-as-a-free-lunch-or-there-is-no-free-lunch",
     term: "there's no such thing as a free lunch or there is no free lunch",
     type: "idiom",
     en: "This idiom means that nothing is ever truly free; anything that seems to be given for nothing actually has a hidden cost or expectation attached to it.",
@@ -3310,6 +3579,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "The offer looks amazing, but remember, there's no such thing as a free lunch.",
   },
   {
+    slug: "tighten-your-belt",
     term: "tighten your belt",
     type: "idiom",
     en: "If you tighten your belt, you start spending less money and living more frugally, usually because your income has dropped or times have become difficult.",
@@ -3324,6 +3594,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
   ],
   "authority-and-control": [
   {
+    slug: "be-breathing-down-someone-s-neck",
     term: "be breathing down someone's neck",
     type: "idiom",
     en: "If someone is breathing down your neck, they are watching or checking on you so closely and so often that you feel pressured or unable to relax.",
@@ -3336,6 +3607,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "My boss has been breathing down my neck all week because the deadline is tomorrow.",
   },
   {
+    slug: "call-the-shots",
     term: "call the shots",
     type: "idiom",
     en: "If you call the shots, you are the person who makes the important decisions and controls what happens.",
@@ -3348,6 +3620,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "In this company, it's the founder who calls the shots, not the board of directors.",
   },
   {
+    slug: "get-out-of-hand",
     term: "get out of hand",
     type: "idiom",
     en: "If a situation gets out of hand, it becomes difficult or impossible to control.",
@@ -3360,6 +3633,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "The party got out of hand when uninvited guests started breaking furniture.",
   },
   {
+    slug: "go-over-someone-s-head",
     term: "go over someone's head",
     type: "idiom",
     en: "If you go over someone's head, you skip that person and appeal directly to someone with higher authority instead of dealing with them.",
@@ -3372,6 +3646,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "When my manager refused to approve the budget, I went over her head and spoke to the CEO directly.",
   },
   {
+    slug: "have-someone-eating-out-of-your-hand-or-have-someone-eating-out-of-the-palm-of-your-hand",
     term: "have someone eating out of your hand or have someone eating out of the palm of your hand",
     type: "idiom",
     en: "If you have someone eating out of your hand, you have such complete control or influence over them that they will do almost anything you ask.",
@@ -3384,6 +3659,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "After just one charming speech, the new manager had the whole team eating out of her hand.",
   },
   {
+    slug: "in-high-places",
     term: "in high places",
     type: "idiom",
     en: "If someone has friends or contacts in high places, they know powerful or influential people who are able to help them.",
@@ -3396,6 +3672,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "He managed to avoid the scandal because he has friends in high places.",
   },
   {
+    slug: "a-law-unto-yourself",
     term: "a law unto yourself",
     type: "idiom",
     en: "If someone is a law unto themselves, they behave according to their own personal rules and ignore normal conventions or authority.",
@@ -3408,6 +3685,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Don't expect him to follow the usual procedures - he's always been a law unto himself.",
   },
   {
+    slug: "on-top-of-something",
     term: "on top of something",
     type: "idiom",
     en: "If you are on top of something, you are in full control of it and managing it well, keeping track of all its details.",
@@ -3420,6 +3698,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Don't worry about the project - I'm on top of everything and we'll meet the deadline.",
   },
   {
+    slug: "pass-the-buck",
     term: "pass the buck",
     type: "idiom",
     en: "If you pass the buck, you avoid taking responsibility for a problem by blaming someone else or making them deal with it instead.",
@@ -3432,6 +3711,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Instead of admitting his mistake, he tried to pass the buck to his assistant.",
   },
   {
+    slug: "pull-strings",
     term: "pull strings",
     type: "idiom",
     en: "If you pull strings, you use personal connections or private influence to gain an advantage or get something done, often unofficially.",
@@ -3444,6 +3724,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "He pulled some strings to get his son an interview at the company.",
   },
   {
+    slug: "put-your-foot-down",
     term: "put your foot down",
     type: "idiom",
     en: "If you put your foot down, you firmly insist on something or refuse to allow it to continue, clearly asserting your authority.",
@@ -3456,6 +3737,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "After years of letting her children stay up late, she finally put her foot down about bedtime.",
   },
   {
+    slug: "twist-someone-around-your-little-finger-or-wrap-someone-around-your-little-finger",
     term: "twist someone around your little finger or wrap someone around your little finger",
     type: "idiom",
     en: "If you can twist someone around your little finger, you can easily persuade them to do anything you want because they are so fond of you or devoted to you.",
@@ -3468,6 +3750,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "She can twist her grandfather around her little finger just by smiling at him.",
   },
   {
+    slug: "twist-someone-s-arm",
     term: "twist someone's arm",
     type: "idiom",
     en: "If you twist someone's arm, you persuade or pressure them into doing something that they were originally unwilling to do.",
@@ -3480,6 +3763,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "I didn't want to go to the party, but my friends twisted my arm.",
   },
   {
+    slug: "wear-the-trousers-or-wear-the-pants",
     term: "wear the trousers or wear the pants",
     type: "idiom",
     en: "If someone wears the trousers in a relationship or family, they are the one who makes the decisions and has the most control.",
@@ -3494,6 +3778,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
   ],
   "limitations-and-restrictions": [
   {
+    slug: "bend-the-rules",
     term: "bend the rules",
     type: "idiom",
     en: "If you bend the rules, you allow an exception to a rule or apply it less strictly than normal, usually to help someone or to deal fairly with an unusual situation.",
@@ -3506,6 +3791,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "The teacher bent the rules and let Minh submit his essay a day late because his laptop broke.",
   },
   {
+    slug: "the-dos-and-don-ts",
     term: "the dos and don'ts",
     type: "idiom",
     en: "The dos and don'ts of a situation are the basic rules of accepted or recommended behavior — the things you should do and the things you should avoid doing.",
@@ -3518,6 +3804,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Before you start the new job, HR will explain the dos and don'ts of the office.",
   },
   {
+    slug: "draw-the-line",
     term: "draw the line",
     type: "idiom",
     en: "If you draw the line at something, you set a clear limit on what you are willing to accept, do, or tolerate, and you refuse to go any further than that point.",
@@ -3530,6 +3817,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "I don't mind helping with extra tasks, but I draw the line at working every weekend.",
   },
   {
+    slug: "a-fine-line-between-something",
     term: "a fine line between something",
     type: "idiom",
     en: "A fine line between two things means the difference between them is very small and easy to cross without realizing it, so it can be hard to tell them apart.",
@@ -3542,6 +3830,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "There's a fine line between being confident and being arrogant.",
   },
   {
+    slug: "have-your-hands-full",
     term: "have your hands full",
     type: "idiom",
     en: "If you have your hands full, you are extremely busy with something that takes up all your time and effort, leaving you unable to take on anything else.",
@@ -3554,6 +3843,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "With three kids and a new puppy, she really has her hands full these days.",
   },
   {
+    slug: "off-limits",
     term: "off limits",
     type: "idiom",
     en: "If a place, topic, or activity is off limits, it is forbidden — you are not allowed to enter it, discuss it, or do it.",
@@ -3566,6 +3856,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "The construction site is off limits to anyone without a safety helmet.",
   },
   {
+    slug: "out-of-bounds",
     term: "out of bounds",
     type: "idiom",
     en: "If something is out of bounds, it is outside the permitted area, or it goes beyond what is considered acceptable behavior or conversation.",
@@ -3578,6 +3869,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "His comment about her age was completely out of bounds.",
   },
   {
+    slug: "over-the-top",
     term: "over the top",
     type: "idiom",
     en: "If something is over the top, it is excessive, exaggerated, or more extreme than necessary or appropriate for the situation.",
@@ -3590,6 +3882,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Don't you think fireworks for a birthday dinner is a bit over the top?",
   },
   {
+    slug: "overstep-the-mark",
     term: "overstep the mark",
     type: "idiom",
     en: "If you overstep the mark, you go beyond what is acceptable in your behavior or words, doing or saying something that crosses a proper boundary.",
@@ -3602,6 +3895,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "The intern overstepped the mark by criticizing the CEO's decision in front of clients.",
   },
   {
+    slug: "step-on-someone-s-toes-or-tread-on-someone-s-toes",
     term: "step on someone's toes or tread on someone's toes",
     type: "idiom",
     en: "If you step on someone's toes (or tread on someone's toes), you interfere in their responsibilities or upset them by doing something that is really their job or area, often without meaning to.",
@@ -3614,6 +3908,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "I don't want to step on your toes, but I think the report needs a few changes.",
   },
   {
+    slug: "with-no-strings-attached-or-without-strings",
     term: "with no strings attached or without strings",
     type: "idiom",
     en: "If something, especially an offer or a gift, comes with no strings attached (or without strings), it has no hidden conditions, obligations, or requirements attached to it.",
@@ -3626,6 +3921,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "My uncle lent me the money with no strings attached, so I didn't have to worry about conditions.",
   },
   {
+    slug: "your-hands-are-tied",
     term: "your hands are tied",
     type: "idiom",
     en: "If your hands are tied, you are unable to act freely or do what you would like to do because of rules, promises, or circumstances that restrict you.",
@@ -3640,6 +3936,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
   ],
   "loving-and-liking": [
   {
+    slug: "carry-a-torch-for-someone",
     term: "carry a torch for someone",
     type: "idiom",
     en: "If you carry a torch for someone, you continue to have strong romantic feelings for them, often when those feelings are not returned or the relationship has already ended.",
@@ -3652,6 +3949,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Even after ten years, he still carries a torch for his high school sweetheart.",
   },
   {
+    slug: "common-or-garden-or-garden-variety",
     term: "common-or-garden or garden-variety",
     type: "idiom",
     en: "If something is described as common-or-garden or garden-variety, it means it is very ordinary, typical, or unremarkable, with nothing special or unusual about it.",
@@ -3664,6 +3962,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "It's not a rare disease, just a common-or-garden cold.",
   },
   {
+    slug: "fall-head-over-heels-or-fall-head-over-heels-in-love",
     term: "fall head over heels or fall head over heels in love",
     type: "idiom",
     en: "If you fall head over heels, or fall head over heels in love, with someone, you fall deeply and suddenly in love with them.",
@@ -3676,6 +3975,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "They met at a party and fell head over heels in love within weeks.",
   },
   {
+    slug: "have-a-soft-spot-for-someone-something",
     term: "have a soft spot for someone/something",
     type: "idiom",
     en: "If you have a soft spot for someone or something, you feel a particular fondness or affection for them, often without a strong logical reason.",
@@ -3688,6 +3988,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "My grandmother always had a soft spot for stray cats.",
   },
   {
+    slug: "head-and-shoulders-above-someone-something",
     term: "head and shoulders above someone/something",
     type: "idiom",
     en: "If someone or something is head and shoulders above others, they are clearly much better or more superior in quality or ability.",
@@ -3700,6 +4001,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Her latest novel is head and shoulders above anything else she has written.",
   },
   {
+    slug: "no-great-shakes",
     term: "no great shakes",
     type: "idiom",
     en: "If something or someone is no great shakes, they are not particularly impressive, talented, or good, but rather average or mediocre.",
@@ -3712,6 +4014,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "The restaurant's food was no great shakes, but the service was excellent.",
   },
   {
+    slug: "nothing-to-write-home-about-or-not-much-to-write-home-about",
     term: "nothing to write home about or not much to write home about",
     type: "idiom",
     en: "If something is nothing to write home about, it is unremarkable or unimpressive, not exciting or special enough to be worth mentioning.",
@@ -3724,6 +4027,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "The hotel was clean but nothing to write home about.",
   },
   {
+    slug: "of-your-dreams",
     term: "of your dreams",
     type: "idiom",
     en: "If something or someone is \"of your dreams\" (for example, the man/woman of your dreams, the house of your dreams), they are exactly what you have always wished for, the ideal or perfect version you have always imagined.",
@@ -3736,6 +4040,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "After years of searching, she finally found the house of her dreams.",
   },
   {
+    slug: "an-old-flame",
     term: "an old flame",
     type: "idiom",
     en: "An old flame is a person you used to have a romantic relationship with in the past.",
@@ -3748,6 +4053,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "She bumped into an old flame at the reunion and they talked for hours.",
   },
   {
+    slug: "not-a-patch-on-someone-something",
     term: "not a patch on someone/something",
     type: "idiom",
     en: "If one thing is not a patch on another, it is much worse or far inferior in comparison.",
@@ -3760,6 +4066,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "This new café is nice, but it's not a patch on the one near my old house.",
   },
   {
+    slug: "a-saving-grace",
     term: "a saving grace",
     type: "idiom",
     en: "A saving grace is a single good quality or feature that makes something or someone acceptable despite having many faults or being generally bad.",
@@ -3772,6 +4079,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "The plot was weak, but the saving grace of the movie was its stunning visuals.",
   },
   {
+    slug: "there-are-plenty-more-fish-in-the-sea-or-there-are-other-fish-in-the-sea",
     term: "there are plenty more fish in the sea or there are other fish in the sea",
     type: "idiom",
     en: "This saying is used to comfort someone after a romantic breakup, meaning that there are many other potential partners out there and they should not despair over losing one.",
@@ -3784,6 +4092,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Don't be so upset about the breakup — there are plenty more fish in the sea.",
   },
   {
+    slug: "think-the-world-of-someone",
     term: "think the world of someone",
     type: "idiom",
     en: "If you think the world of someone, you admire and love them very much, holding them in extremely high regard.",
@@ -3796,6 +4105,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Her students think the world of her because she always takes time to help them.",
   },
   {
+    slug: "you-have-to-be-cruel-to-be-kind",
     term: "you have to be cruel to be kind",
     type: "idiom",
     en: "This saying means that sometimes you must do or say something harsh or unpleasant to someone in the short term because it will ultimately benefit them in the long run.",
@@ -3810,6 +4120,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
   ],
   "happiness-and-sadness": [
   {
+    slug: "break-someone-s-heart",
     term: "break someone's heart",
     type: "idiom",
     en: "If something breaks someone's heart, it makes them feel intense sadness or grief, often because of a loss, disappointment, or the end of a romantic relationship.",
@@ -3822,6 +4133,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "It broke her heart when her best friend moved abroad without saying goodbye.",
   },
   {
+    slug: "down-in-the-dumps-or-in-the-dumps",
     term: "down in the dumps or in the dumps",
     type: "idiom",
     en: "If you are down in the dumps, you feel sad, low, or gloomy, usually for a period of time rather than just a moment.",
@@ -3834,6 +4146,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "He's been down in the dumps ever since he failed his driving test.",
   },
   {
+    slug: "full-of-beans",
     term: "full of beans",
     type: "idiom",
     en: "If someone is full of beans, they are lively, energetic, and enthusiastic, often more so than usual.",
@@ -3846,6 +4159,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "The kids were full of beans after eating so much candy at the party.",
   },
   {
+    slug: "get-a-kick-out-of-something",
     term: "get a kick out of something",
     type: "idiom",
     en: "If you get a kick out of something, you feel a strong sense of pleasure, excitement, or enjoyment from doing or experiencing it.",
@@ -3858,6 +4172,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "My dad really gets a kick out of solving crossword puzzles every morning.",
   },
   {
+    slug: "get-on-top-of-you",
     term: "get on top of you",
     type: "idiom",
     en: "If something gets on top of you, it becomes so overwhelming or stressful that you feel you can no longer cope with it easily.",
@@ -3870,6 +4185,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "The workload really got on top of him during exam season, and he couldn't sleep properly.",
   },
   {
+    slug: "have-a-whale-of-a-time",
     term: "have a whale of a time",
     type: "idiom",
     en: "If you have a whale of a time, you enjoy yourself enormously and have a wonderful, exciting experience.",
@@ -3882,6 +4198,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "The children had a whale of a time at the amusement park all afternoon.",
   },
   {
+    slug: "a-long-face",
     term: "a long face",
     type: "idiom",
     en: "If someone has a long face, their expression shows that they are sad, disappointed, or unhappy about something.",
@@ -3894,6 +4211,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Why the long face? Did something bad happen at work?",
   },
   {
+    slug: "look-on-the-bright-side",
     term: "look on the bright side",
     type: "idiom",
     en: "If you look on the bright side, you choose to focus on the positive or hopeful aspects of a difficult situation rather than the negative ones.",
@@ -3906,6 +4224,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "I know you lost your job, but try to look on the bright side — now you have time to learn new skills.",
   },
   {
+    slug: "make-someone-s-day",
     term: "make someone's day",
     type: "idiom",
     en: "If something makes someone's day, it brings them so much joy or satisfaction that it turns an ordinary day into a particularly happy one.",
@@ -3918,6 +4237,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "Thank you for the card, it really made my day!",
   },
   {
+    slug: "not-a-happy-bunny",
     term: "not a happy bunny",
     type: "idiom",
     en: "If someone is not a happy bunny, they are annoyed, displeased, or in a bad mood about something.",
@@ -3930,6 +4250,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "The manager was not a happy bunny when the delivery arrived three hours late.",
   },
   {
+    slug: "on-top-of-the-world",
     term: "on top of the world",
     type: "idiom",
     en: "If you feel on top of the world, you feel extremely happy, successful, and full of confidence.",
@@ -3942,6 +4263,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "After winning the championship, the whole team felt on top of the world.",
   },
   {
+    slug: "over-the-moon",
     term: "over the moon",
     type: "idiom",
     en: "If you are over the moon, you are extremely happy and delighted about something.",
@@ -3954,6 +4276,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "I was over the moon when I found out I got the scholarship.",
   },
   {
+    slug: "a-shoulder-to-cry-on",
     term: "a shoulder to cry on",
     type: "idiom",
     en: "If someone offers you a shoulder to cry on, they give you emotional support and comfort, listening to you and letting you express your sadness, especially during a difficult time.",
@@ -3968,6 +4291,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
   ],
   "health-illness-and-death": [
   {
+    slug: "alive-and-kicking",
     term: "alive and kicking",
     type: "idiom",
     en: "If someone or something is alive and kicking, they are still living, active, or functioning well, often when people might have assumed otherwise.",
@@ -3980,6 +4304,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "People thought the old bookshop had closed down, but it's still alive and kicking on the corner of the street.",
   },
   {
+    slug: "at-death-s-door",
     term: "at death's door",
     type: "idiom",
     en: "If someone is at death's door, they are extremely ill or so close to dying that their life is seriously at risk.",
@@ -3992,6 +4317,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "When he caught pneumonia last winter, he was at death's door for almost a week.",
   },
   {
+    slug: "a-clean-bill-of-health",
     term: "a clean bill of health",
     type: "idiom",
     en: "If someone or something is given a clean bill of health, they are officially declared to be in good condition, with no problems found after an examination or inspection.",
@@ -4004,6 +4330,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "After the annual check-up, my grandfather was given a clean bill of health by his doctor.",
   },
   {
+    slug: "be-dropping-like-flies",
     term: "be dropping like flies",
     type: "idiom",
     en: "If people are dropping like flies, large numbers of them are quickly becoming ill, collapsing, or dying within a short period of time.",
@@ -4016,6 +4343,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "During the flu outbreak, employees at the office were dropping like flies.",
   },
   {
+    slug: "end-it-all",
     term: "end it all",
     type: "idiom",
     en: "If someone ends it all, they take their own life, usually as a way of escaping unbearable suffering or difficulty.",
@@ -4028,6 +4356,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "The support hotline exists for anyone who feels so overwhelmed that they are thinking of ending it all.",
   },
   {
+    slug: "be-fighting-for-your-life",
     term: "be fighting for your life",
     type: "idiom",
     en: "If someone is fighting for their life, they are in a critical medical condition and their survival is seriously in doubt as doctors try to save them.",
@@ -4040,6 +4369,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "After the car crash, the driver was rushed to hospital fighting for his life.",
   },
   {
+    slug: "kick-the-bucket",
     term: "kick the bucket",
     type: "idiom",
     en: "To kick the bucket means to die; it is an informal, and often humorous, way of talking about someone's death.",
@@ -4052,6 +4382,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "My old car finally kicked the bucket after fifteen years on the road.",
   },
   {
+    slug: "knock-someone-for-six",
     term: "knock someone for six",
     type: "idiom",
     en: "If something knocks you for six, it shocks or overwhelms you so much, usually because of unexpected bad news or a difficult event, that you struggle to cope for a while.",
@@ -4064,6 +4395,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "The news of the sudden layoffs knocked the whole team for six.",
   },
   {
+    slug: "a-shadow-of-your-former-self",
     term: "a shadow of your former self",
     type: "idiom",
     en: "If someone is a shadow of their former self, they are much weaker, thinner, or less impressive than they used to be, often because of illness, age, or hardship.",
@@ -4076,6 +4408,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "After months of chemotherapy, he was a shadow of his former self.",
   },
   {
+    slug: "skin-and-bone-or-skin-and-bones",
     term: "skin and bone or skin and bones",
     type: "idiom",
     en: "If someone is skin and bone (or skin and bones), they are extremely thin, often because of illness, malnutrition, or exhaustion.",
@@ -4088,6 +4421,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "The rescued dog was skin and bones when the shelter found it.",
   },
   {
+    slug: "under-the-weather",
     term: "under the weather",
     type: "idiom",
     en: "If you are under the weather, you feel slightly ill or generally unwell.",
@@ -4100,6 +4434,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "I think I'll skip the gym today — I'm feeling a bit under the weather.",
   },
   {
+    slug: "a-wake-up-call",
     term: "a wake-up call",
     type: "idiom",
     en: "If something is a wake-up call, it is an event or piece of information that makes people suddenly realize a serious problem exists and that action needs to be taken.",
@@ -4112,6 +4447,7 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
     ex: "His heart attack at forty was a real wake-up call about his unhealthy diet.",
   },
   {
+    slug: "the-worse-for-wear",
     term: "the worse for wear",
     type: "idiom",
     en: "If someone or something is the worse for wear, they are in a tired, worn-out, or damaged condition, often after a difficult experience or heavy use, and the phrase can also describe someone who has drunk too much alcohol.",
@@ -4126,8 +4462,31 @@ export const IDIOM_UNITS: Record<string, IdiomItem[]> = {
   ],
 };
 
-export function idiomUnitItems(slug: string): IdiomItem[] {
-  return IDIOM_UNITS[slug] ?? [];
+export function idiomUnitItems(unitSlug: string): IdiomItem[] {
+  return IDIOM_UNITS[unitSlug] ?? [];
+}
+
+export function idiomItem(unitSlug: string, itemSlug: string): IdiomItem | undefined {
+  return IDIOM_UNITS[unitSlug]?.find((it) => it.slug === itemSlug);
+}
+
+export function idiomProgressKey(unitSlug: string, itemSlug: string): string {
+  return `${unitSlug}::${itemSlug}`;
+}
+
+export interface IdiomFlatItem extends IdiomItem {
+  unitSlug: string;
+  key: string;
+}
+
+export function allIdiomItems(): IdiomFlatItem[] {
+  const all: IdiomFlatItem[] = [];
+  for (const { slug: unitSlug } of UNITS_META) {
+    for (const it of IDIOM_UNITS[unitSlug] ?? []) {
+      all.push({ ...it, unitSlug, key: idiomProgressKey(unitSlug, it.slug) });
+    }
+  }
+  return all;
 }
 
 export const IDIOM_TOTAL_COUNT = Object.values(IDIOM_UNITS).reduce((sum, items) => sum + items.length, 0);

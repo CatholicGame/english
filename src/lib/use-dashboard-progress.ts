@@ -19,7 +19,7 @@ import { isVerbLocked } from "./content-access";
 import { VERBS } from "@/data/basic-verbs";
 import { UNITS_META } from "@/data/cambridge-vocabulary-ielts";
 import { LISTEN_LESSONS } from "@/data/listen-a-minute";
-import { UNITS_META as IDIOM_UNITS_META } from "@/data/idioms";
+import { allIdiomItems } from "@/data/idioms";
 
 const MODULE_KEYS = {
   collocations: "collocations-phrasal-verbs",
@@ -51,7 +51,7 @@ export interface DashboardProgress {
   cambridgeTotal: number;
   listenDone: number;
   listenTotal: number;
-  idiomsDone: number;
+  idiomsLearned: number;
   idiomsTotal: number;
 }
 
@@ -130,10 +130,12 @@ export function useDashboardProgress(): DashboardProgress {
     return LISTEN_LESSONS.filter((l) => lvlOf(snapshots.listen.progress, l.slug) > 0).length;
   }, [snapshots]);
 
-  const idiomsDone = useMemo(() => {
+  const idiomItems = useMemo(() => allIdiomItems(), []);
+
+  const idiomsLearned = useMemo(() => {
     if (!snapshots) return 0;
-    return IDIOM_UNITS_META.filter((u) => lvlOf(snapshots.idioms.progress, u.slug) > 0).length;
-  }, [snapshots]);
+    return idiomItems.filter((it) => lvlOf(snapshots.idioms.progress, it.key) >= 3).length;
+  }, [snapshots, idiomItems]);
 
   return {
     loaded: snapshots !== null,
@@ -145,7 +147,7 @@ export function useDashboardProgress(): DashboardProgress {
     cambridgeTotal: UNITS_META.length,
     listenDone,
     listenTotal: LISTEN_LESSONS.length,
-    idiomsDone,
-    idiomsTotal: IDIOM_UNITS_META.length,
+    idiomsLearned,
+    idiomsTotal: idiomItems.length,
   };
 }

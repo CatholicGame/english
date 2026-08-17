@@ -11,6 +11,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { useDictionaryStore } from "@/lib/use-dictionary-store";
+import { normalizeWord } from "@/lib/dictionary-store";
 import { useTranslationStore } from "@/lib/use-translation-store";
 import { useGrammarStore } from "@/lib/use-grammar-store";
 import {
@@ -123,7 +124,14 @@ export function GlobalDictionaryLookup() {
   // Re-color every saved vocab word / saved translation wherever it appears,
   // and remember their Ranges so a tap can reopen the cached result.
   useEffect(() => {
-    const vocabTerms: HighlightTerm[] = Object.entries(vocabEntries).map(([key, entry]) => ({ key, matchText: key, type: entry.category ?? "word" }));
+    const vocabTerms: HighlightTerm[] = Object.entries(vocabEntries).flatMap(([key, entry]) => {
+      const type = entry.category ?? "word";
+      const terms: HighlightTerm[] = [{ key, matchText: key, type }];
+      for (const syn of entry.synonyms ?? []) {
+        if (normalizeWord(syn) !== key) terms.push({ key, matchText: syn, type });
+      }
+      return terms;
+    });
     const translationTerms: HighlightTerm[] = Object.keys(translationEntries).map((key) => ({ key, matchText: key, type: "translation" }));
     const grammarTerms: HighlightTerm[] = Object.entries(grammarEntries).map(([key, entry]) => ({ key, matchText: entry.text, type: "grammar" }));
     const terms = [...vocabTerms, ...translationTerms, ...grammarTerms];

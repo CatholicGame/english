@@ -65,6 +65,22 @@ function BackIcon() {
   );
 }
 
+function ListIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="block h-4 w-4"
+    >
+      <path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01" />
+    </svg>
+  );
+}
+
 function SpeakerIcon({ className = "block h-[34px] w-[34px]" }: { className?: string }) {
   return (
     <svg
@@ -356,6 +372,7 @@ export function LessonClient({ slug }: { slug: string }) {
     const cur = getCurrentLesson();
     return cur && cur.slug === slug && cur.step >= 1 && cur.step <= TOTAL_STEPS ? cur.step : 1;
   });
+  const [showStepList, setShowStepList] = useState(false);
   const [showScript, setShowScript] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
   const [playing, setPlaying] = useState(false);
@@ -640,6 +657,15 @@ export function LessonClient({ slug }: { slug: string }) {
     setStep((s) => s - 1);
   }
 
+  // Unrestricted jump, like the exercise menu in the Cambridge Vocabulary
+  // module — no completion gating, since re-visiting an earlier step (or
+  // skipping ahead) is a legitimate way to use this lesson, not a cheat.
+  function jumpToStep(target: number) {
+    audioRef.current?.pause();
+    setStep(target);
+    setShowStepList(false);
+  }
+
   function finish() {
     grade(lesson!.slug, true);
     clearCurrentLesson(lesson!.slug);
@@ -662,13 +688,48 @@ export function LessonClient({ slug }: { slug: string }) {
           <div className="h-1.5 flex-1 bg-neutral-300">
             <div className="h-full bg-accent" style={{ width: `${(step / TOTAL_STEPS) * 100}%` }} />
           </div>
-          <span className="w-9 flex-none text-right text-[11px] tabular-nums text-neutral-600">
+          <button
+            className="flex flex-none items-center gap-1 text-[11px] tabular-nums text-neutral-600 hover:text-accent"
+            onClick={() => setShowStepList(true)}
+            aria-label="Jump to step"
+          >
+            <ListIcon />
             {step}/{TOTAL_STEPS}
-          </span>
+          </button>
         </div>
         <div className="label-xs px-4 pt-3 text-accent">
           {lesson.title} · Step {step}: {STEP_LABELS[step - 1]}
         </div>
+
+        {showStepList && (
+          <div className="fixed inset-0 z-[60] bg-bg">
+            <div className="mx-auto flex h-full max-w-[480px] flex-col lg:max-w-[720px]">
+              <div className="divider-b flex items-center justify-between px-4 py-3">
+                <span className="text-[16px] font-extrabold">Steps in this lesson</span>
+                <button className="btn btn-ghost" onClick={() => setShowStepList(false)}>
+                  Close
+                </button>
+              </div>
+              <div className="flex-1 overflow-y-auto">
+                {STEP_LABELS.map((label, i) => {
+                  const target = i + 1;
+                  return (
+                    <button
+                      key={label}
+                      onClick={() => jumpToStep(target)}
+                      className="divider-b flex w-full items-center gap-3 px-4 py-3 text-left hover:bg-surface"
+                      style={target === step ? { background: "var(--color-accent-100)" } : undefined}
+                    >
+                      <span className="label-xs w-6 flex-none text-neutral-600">{target}</span>
+                      <span className="flex-1 text-[14px] font-extrabold">{label}</span>
+                      {target < step && <span className="label-xs text-accent">Done</span>}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        )}
 
         <audio
           ref={audioRef}

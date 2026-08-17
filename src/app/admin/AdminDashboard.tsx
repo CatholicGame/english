@@ -16,6 +16,8 @@ type Row = SubscriptionData & { email: string };
 type SubAdmin = { email: string; addedBy: string; addedAt: number };
 type Role = "super" | "viewer";
 
+const PAGE_SIZE = 20;
+
 function fmtDate(ts?: number): string {
   return ts ? new Date(ts).toLocaleDateString("vi-VN") : "—";
 }
@@ -131,7 +133,19 @@ export function AdminDashboard({
   const [cycleByEmail, setCycleByEmail] = useState<Record<string, BillingCycle>>({});
   const [newAdminEmail, setNewAdminEmail] = useState("");
   const [newFreeEmail, setNewFreeEmail] = useState("");
+  const [search, setSearch] = useState("");
+  const [page, setPage] = useState(1);
   const isSuper = role === "super";
+
+  const filtered = subscriptions.filter((r) => r.email.toLowerCase().includes(search.trim().toLowerCase()));
+  const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
+  const safePage = Math.min(page, totalPages);
+  const pageItems = filtered.slice((safePage - 1) * PAGE_SIZE, safePage * PAGE_SIZE);
+
+  function updateSearch(value: string) {
+    setSearch(value);
+    setPage(1);
+  }
 
   // Computed client-side only (not during SSR) so the tooltip's "hạn mới"
   // date never disagrees with what hydration renders — it doesn't need to be
@@ -219,7 +233,9 @@ export function AdminDashboard({
     <div className="mx-auto max-w-[1100px] px-4 py-8">
       <h1 className="text-[22px] font-extrabold">Quản lý subscription</h1>
       <p className="mt-1 text-[13px] text-neutral-600">
-        {subscriptions.length} tài khoản. {!isSuper && "Bạn có quyền xem — không thể gia hạn hay khoá/mở khoá."}
+        {search ? `${filtered.length}/${subscriptions.length}` : subscriptions.length} tài khoản
+        {totalPages > 1 && ` — trang ${safePage}/${totalPages}`}.{" "}
+        {!isSuper && "Bạn có quyền xem — không thể gia hạn hay khoá/mở khoá."}
       </p>
 
       {isSuper && (
@@ -246,6 +262,19 @@ export function AdminDashboard({
         </div>
       )}
 
+      <input
+        type="search"
+        placeholder="Tìm theo email..."
+        className="mt-4 w-full rounded-md border px-2 py-1.5 text-[13px] sm:max-w-xs"
+        style={{ borderColor: "var(--color-divider)" }}
+        value={search}
+        onChange={(e) => updateSearch(e.target.value)}
+      />
+
+      {filtered.length === 0 && (
+        <p className="mt-4 text-[13px] text-neutral-600">Không tìm thấy tài khoản nào khớp với &ldquo;{search}&rdquo;.</p>
+      )}
+
       {/* Desktop / tablet: table. Hidden below sm — a data table with 5+
           columns just doesn't fit a portrait phone screen without horizontal
           scrolling, which is what made this unusable on mobile. */}
@@ -262,7 +291,7 @@ export function AdminDashboard({
             </tr>
           </thead>
           <tbody>
-            {subscriptions.map((row) => {
+            {pageItems.map((row) => {
               const status = statusOf(row);
               const busy = pending === row.email;
               const cycle = cycleByEmail[row.email] ?? PRICING_PLANS[0].cycle;
@@ -305,7 +334,7 @@ export function AdminDashboard({
 
       {/* Mobile portrait: one stacked card per account instead of the table. */}
       <div className="mt-4 flex flex-col gap-3 sm:hidden">
-        {subscriptions.map((row) => {
+        {pageItems.map((row) => {
           const status = statusOf(row);
           const busy = pending === row.email;
           const cycle = cycleByEmail[row.email] ?? PRICING_PLANS[0].cycle;
@@ -359,6 +388,24 @@ export function AdminDashboard({
           );
         })}
       </div>
+
+      {totalPages > 1 && (
+        <div className="mt-3 flex items-center justify-center gap-3 text-[13px]">
+          <button className="btn btn-secondary" disabled={safePage <= 1} onClick={() => setPage(safePage - 1)}>
+            ‹ Trước
+          </button>
+          <span className="text-neutral-600">
+            Trang {safePage}/{totalPages}
+          </span>
+          <button
+            className="btn btn-secondary"
+            disabled={safePage >= totalPages}
+            onClick={() => setPage(safePage + 1)}
+          >
+            Sau ›
+          </button>
+        </div>
+      )}
 
       {isSuper && (
         <div className="mt-8">

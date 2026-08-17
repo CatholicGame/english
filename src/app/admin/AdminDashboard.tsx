@@ -1,12 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import {
   isPaidActive,
   isTrialActive,
   PRICING_PLANS,
   trialDaysLeft,
+  withPaidExtended,
   type BillingCycle,
   type SubscriptionData,
 } from "@/lib/subscription-store";
@@ -17,6 +18,12 @@ type Role = "super" | "viewer";
 
 function fmtDate(ts?: number): string {
   return ts ? new Date(ts).toLocaleDateString("vi-VN") : "—";
+}
+
+/** Preview only — same math as the server's withPaidExtended, so the tooltip
+ * matches exactly what clicking "+ Gia hạn" will actually write. */
+function previewExtendedUntil(row: Row, cycle: BillingCycle, now: number): number | undefined {
+  return withPaidExtended(row, cycle, "", now).paidUntil;
 }
 
 function statusOf(row: Row): { label: string; color: string } {
@@ -52,8 +59,22 @@ export function AdminDashboard({
   const [newFreeEmail, setNewFreeEmail] = useState("");
   const isSuper = role === "super";
 
-  async function extend(email: string) {
+  // Computed client-side only (not during SSR) so the tooltip's "hạn mới"
+  // date never disagrees with what hydration renders — it doesn't need to be
+  // live-accurate to the second, just stable once mounted.
+  const [now, setNow] = useState<number | null>(null);
+  useEffect(() => setNow(Date.now()), []);
+
+  async function extend(row: Row) {
+    const email = row.email;
     const cycle = cycleByEmail[email] ?? PRICING_PLANS[0].cycle;
+    const plan = PRICING_PLANS.find((p) => p.cycle === cycle);
+    const newUntil = fmtDate(previewExtendedUntil(row, cycle, now ?? Date.now()));
+    const confirmed = window.confirm(
+      `Gia hạn ${email} thêm gói "${plan?.label ?? cycle}"?\nHạn sử dụng mới sẽ là: ${newUntil}`,
+    );
+    if (!confirmed) return;
+
     setPending(email);
     try {
       await callApi("/api/admin/extend", { email, cycle });
@@ -195,7 +216,18 @@ export function AdminDashboard({
                             </option>
                           ))}
                         </select>
-                        <button className="btn btn-secondary" disabled={busy} onClick={() => extend(row.email)}>
+                        <button
+                          className="btn btn-secondary"
+                          disabled={busy}
+                          onClick={() => extend(row)}
+                          title={
+                            now != null
+                              ? `Hạn hiện tại: ${fmtDate(row.paidUntil)} → hạn mới sau khi gia hạn: ${fmtDate(
+                                  previewExtendedUntil(row, cycleByEmail[row.email] ?? PRICING_PLANS[0].cycle, now),
+                                )}`
+                              : undefined
+                          }
+                        >
                           + Gia hạn
                         </button>
                       </div>

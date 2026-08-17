@@ -191,7 +191,7 @@ function VocabList({ lesson }: { lesson: ListenLesson }) {
 function LessonDiscussion({ lesson }: { lesson: ListenLesson }) {
   const { appendMessages } = useAiConvoStore(MODULE_KEY);
   const [chat, setChat] = useState<AiMessage[]>([]);
-  const [phase, setPhase] = useState<"idle" | "practicing" | "feedback">("idle");
+  const [phase, setPhase] = useState<"practicing" | "feedback">("practicing");
   const [feedback, setFeedback] = useState<Record<string, unknown> | null>(null);
   const [cid, setCid] = useState<string | null>(null);
   const [chatIn, setChatIn] = useState("");
@@ -216,23 +216,6 @@ function LessonDiscussion({ lesson }: { lesson: ListenLesson }) {
     return j.data;
   }
 
-  async function startDiscussion() {
-    setChat([]); setPhase("practicing"); setFeedback(null); setError(null);
-    setLoading(true);
-    try {
-      const d = await callAi({ topic });
-      const aiText = (d?.content as string | undefined) ?? JSON.stringify(d);
-      const am: AiMessage = { role: "assistant", content: aiText, timestamp: Date.now() };
-      setChat([am]);
-      const newCid = appendMessages(ik, il, null, "discussion", [am]);
-      setCid(newCid);
-    } catch (e) {
-      setError(e instanceof Error ? e.message : "AI failed");
-    } finally {
-      setLoading(false);
-    }
-  }
-
   async function sendMessage() {
     if (!chatIn.trim()) return;
     const um: AiMessage = { role: "user", content: chatIn.trim(), timestamp: Date.now() };
@@ -247,7 +230,8 @@ function LessonDiscussion({ lesson }: { lesson: ListenLesson }) {
         .trim();
       const am: AiMessage = { role: "assistant", content: aiText, timestamp: Date.now() };
       setChat([...nm, am]);
-      appendMessages(ik, il, cid, "discussion", [um, am]);
+      const newCid = appendMessages(ik, il, cid, "discussion", [um, am]);
+      if (!cid) setCid(newCid);
     } catch (e) {
       setError(e instanceof Error ? e.message : "AI failed");
     } finally {
@@ -283,14 +267,13 @@ function LessonDiscussion({ lesson }: { lesson: ListenLesson }) {
     <div className="mt-2 border-t pt-4" style={{ borderColor: "var(--color-divider)" }}>
       <div className="label-xs mb-2 text-accent">🗣️ Discuss with AI</div>
 
-      {phase === "idle" && (
-        <button className="btn btn-primary px-4 py-2.5 text-[13px] font-extrabold disabled:opacity-40" disabled={loading} onClick={startDiscussion}>
-          {loading ? "Starting..." : "Start Discussion"}
-        </button>
-      )}
-
       {phase === "practicing" && (
         <div className="flex flex-col gap-3">
+          {chat.length === 0 && (
+            <p className="text-[12px] text-neutral-600">
+              Đặt câu hỏi hoặc chia sẻ ý kiến của bạn về &ldquo;{lesson.title}&rdquo; để bắt đầu cuộc thảo luận.
+            </p>
+          )}
           <div className="flex max-h-[300px] flex-col gap-3 overflow-y-auto rounded border p-3" style={{ borderColor: "var(--color-divider)" }}>
             {chat.map((m, i) => (
               <div key={i} className="rounded p-2.5 text-[13px] leading-relaxed"
@@ -330,7 +313,7 @@ function LessonDiscussion({ lesson }: { lesson: ListenLesson }) {
         <ConversationFeedback
           messages={chat}
           feedback={feedback}
-          onReset={() => { setPhase("idle"); setFeedback(null); setChat([]); }}
+          onReset={() => { setPhase("practicing"); setFeedback(null); setChat([]); setCid(null); }}
           share={{
             title: lesson.title,
             text: `🗣️ Discussion · ${lesson.title}`,

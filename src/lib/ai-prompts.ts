@@ -160,17 +160,21 @@ function discussionChat(payload: Record<string, unknown>): PromptResult {
     };
   }
 
-  // Continuing discussion
-  if (history && history.length > 50) {
+  // The student always speaks first in Discussion mode (unlike Converse, this is
+  // meant to be a question/topic the student themselves brings up) — so any call
+  // with history, however short, is the student's opening message to respond to,
+  // never a cue for the AI to open with its own question.
+  if (history) {
     return {
-      systemPrompt: "You are a friendly, curious English discussion partner. Keep responses to 1-2 sentences, always in English. Ask thoughtful follow-up questions and gently challenge the student's opinions to keep the discussion going.",
+      systemPrompt: "You are a friendly, curious English discussion partner. Keep responses to 1-2 sentences, always in English. Respond naturally to what the student says, ask thoughtful follow-up questions, and gently challenge their opinions to keep the discussion going.",
       userMessage: "Topic: " + topic + ". Continue the discussion naturally. History:\n" + history,
       temperature: 0.8,
       jsonMode: false,
     };
   }
 
-  // First message: start the discussion
+  // No history at all should not normally happen (the student always sends the
+  // first message), but fall back to a short opening question just in case.
   return {
     systemPrompt: "You are a friendly, curious English discussion partner. Start an open discussion by asking one open-ended opinion question about the topic, in English. Keep it short and inviting.",
     userMessage: "Topic: " + topic + ". Ask one open-ended question to start a discussion. Keep it short and friendly.",
@@ -308,15 +312,10 @@ function cpvContextQuiz(payload: Record<string, unknown>): PromptResult {
   const vi = payload.vi as string;
   const requested = Number(payload.count);
   const count = Number.isFinite(requested) ? Math.min(10, Math.max(2, Math.round(requested))) : 5;
-  const wrongCount = count - 1;
-  const exampleItems = [
-    '{ "text": "...", "correct": true }',
-    ...Array.from({ length: wrongCount }, () => '{ "text": "...", "correct": false }'),
-  ].join(",\n    ");
 
   return {
     systemPrompt: "You create vocabulary quiz questions for English learners at B1-B2 level." + feedbackLangNote(payload),
-    userMessage: `Target phrase: "${term}"\nMeaning: "${en}" (${vi})\n\nGenerate ${count} sentences:\n- ONE sentence where the phrase is used CORRECTLY and naturally\n- ${wrongCount} sentence(s) where the phrase is used INCORRECTLY (wrong meaning, wrong grammar, or wrong context) — make each wrong sentence's mistake different from the others\n\nRespond in JSON only:\n{\n  "sentences": [\n    ${exampleItems}\n  ],\n  "explanation": "after user picks, explain why each wrong sentence is wrong"\n}`,
+    userMessage: `Target phrase: "${term}"\nMeaning: "${en}" (${vi})\n\nGenerate ${count} SEPARATE multiple-choice questions that test understanding of this phrase, each with exactly 4 answer options (only one correct). Vary the question style across the ${count} questions — mix these types:\n- "Which sentence uses the phrase correctly?" (3 sentences with subtly wrong usage/meaning/grammar as distractors, 1 correct)\n- "What does the phrase mean in this sentence: ...?" (4 different candidate meanings, 1 correct)\n- "Choose the best way to complete this sentence using the phrase" (fill-in-the-blank style with 4 completions)\nMake distractors plausible but clearly wrong on close reading, and make each question's mistake/angle different from the others.\n\nRespond in JSON only:\n{\n  "questions": [\n    { "question": "the question text (include the example sentence inline if relevant)", "options": ["option A", "option B", "option C", "option D"], "answerIndex": 0, "explanation": "why the correct option is right and briefly why the others are wrong" }\n  ]\n}\n(exactly ${count} entries in "questions", answerIndex is 0-3)`,
     temperature: 0.7,
   };
 }

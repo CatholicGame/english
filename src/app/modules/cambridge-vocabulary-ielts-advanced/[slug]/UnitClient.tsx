@@ -513,9 +513,12 @@ function VocabAiPractice({ word }: { word: VocabWord }) {
   }, []);
 
   // Discussion mode — open-ended chat about the word (no target-phrase requirement).
+  // The STUDENT always speaks first here (unlike Converse) — no AI-initiated opening
+  // line, since a discussion is meant to start from whatever the student wants to
+  // ask or bring up.
   const discTopic = `the word "${word.term}" (meaning: ${word.en})`;
   const [discChat, setDiscChat] = useState<AiMessage[]>([]);
-  const [discPhase, setDiscPhase] = useState<"idle" | "practicing" | "feedback">("idle");
+  const [discPhase, setDiscPhase] = useState<"practicing" | "feedback">("practicing");
   const [discFeedback, setDiscFeedback] = useState<Record<string, unknown> | null>(null);
   const [discCid, setDiscCid] = useState<string | null>(null);
   const [discChatIn, setDiscChatIn] = useState("");
@@ -526,26 +529,6 @@ function VocabAiPractice({ word }: { word: VocabWord }) {
   useEffect(() => {
     discEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [discChat]);
-
-  async function startDiscussion() {
-    setDiscChat([]);
-    setDiscPhase("practicing");
-    setDiscFeedback(null);
-    setDiscError(null);
-    setConvLoading(true);
-    try {
-      const d = await callAi("discussion", { topic: discTopic });
-      const aiText = (d?.content as string | undefined) ?? JSON.stringify(d);
-      const am: AiMessage = { role: "assistant", content: aiText, timestamp: Date.now() };
-      setDiscChat([am]);
-      const newCid = appendMessages(ik, il, null, "discussion", [am]);
-      setDiscCid(newCid);
-    } catch (e) {
-      setDiscError(e instanceof Error ? e.message : "AI failed");
-    } finally {
-      setConvLoading(false);
-    }
-  }
 
   async function sendDiscMessage() {
     if (!discChatIn.trim()) return;
@@ -565,7 +548,8 @@ function VocabAiPractice({ word }: { word: VocabWord }) {
         .trim();
       const am: AiMessage = { role: "assistant", content: aiText, timestamp: Date.now() };
       setDiscChat([...nm, am]);
-      appendMessages(ik, il, discCid, "discussion", [um, am]);
+      const newCid = appendMessages(ik, il, discCid, "discussion", [um, am]);
+      if (!discCid) setDiscCid(newCid);
     } catch (e) {
       setDiscError(e instanceof Error ? e.message : "AI failed");
     } finally {
@@ -855,18 +839,13 @@ function VocabAiPractice({ word }: { word: VocabWord }) {
 
       {mode === "discussion" && (
         <div className="flex flex-col gap-3">
-          {discPhase === "idle" && (
-            <button
-              className="btn btn-primary px-4 py-2.5 text-[13px] font-extrabold disabled:opacity-40"
-              disabled={convLoading}
-              onClick={startDiscussion}
-            >
-              {convLoading ? "Starting..." : "Start Discussion"}
-            </button>
-          )}
-
           {discPhase === "practicing" && (
             <div className="flex flex-col gap-3">
+              {discChat.length === 0 && (
+                <p className="text-[12px] text-neutral-600">
+                  Đặt câu hỏi hoặc chia sẻ ý kiến của bạn về &ldquo;{word.term}&rdquo; để bắt đầu cuộc thảo luận.
+                </p>
+              )}
               <div
                 className="flex max-h-[300px] flex-col gap-3 overflow-y-auto rounded border p-3"
                 style={{ borderColor: "var(--color-divider)" }}
@@ -925,9 +904,10 @@ function VocabAiPractice({ word }: { word: VocabWord }) {
               messages={discChat}
               feedback={discFeedback}
               onReset={() => {
-                setDiscPhase("idle");
+                setDiscPhase("practicing");
                 setDiscFeedback(null);
                 setDiscChat([]);
+                setDiscCid(null);
               }}
               share={{
                 title: word.term,

@@ -26,7 +26,7 @@ export interface ItemInfo {
   term: string; type: string; en: string; vi: string; ex: string;
 }
 
-export function AiSentencePractice({ item, moduleKey }: { item: ItemInfo; moduleKey: string }) {
+export function AiSentencePractice({ item, moduleKey, showItemInfo = true }: { item: ItemInfo; moduleKey: string; showItemInfo?: boolean }) {
   const ik = item.term;
   const il = `${item.term} (${item.type})`;
   const { appendMessages } = useAiConvoStore(moduleKey);
@@ -40,7 +40,7 @@ export function AiSentencePractice({ item, moduleKey }: { item: ItemInfo; module
   const [viSentences, setViSentences] = useState<string[]>([]);
   const [batchResult, setBatchResult] = useState<any>(null);
   const [qz, setQz] = useState<any>(null);
-  const [qp, setQp] = useState<number | null>(null);
+  const [quizAnswers, setQuizAnswers] = useState<(number | null)[]>([]);
   const [quizCount, setQuizCount] = useState(5);
   const [exs, setExs] = useState<any>(null);
   const [chatIn, setChatIn] = useState("");
@@ -89,7 +89,14 @@ export function AiSentencePractice({ item, moduleKey }: { item: ItemInfo; module
     }
   }, [viSentences, translations, item, ik, il, cid, appendMessages]);
 
-  const lq = useCallback(async () => { setQp(null); const d = await callAi("cpv_context_quiz", { term: item.term, en: item.en, vi: item.vi, count: quizCount }); if (d) setQz(d); }, [item, quizCount]);
+  const lq = useCallback(async () => {
+    setQz(null); setQuizAnswers([]);
+    const d = await callAi("cpv_context_quiz", { term: item.term, en: item.en, vi: item.vi, count: quizCount });
+    if (d?.questions) { setQz(d); setQuizAnswers(new Array(d.questions.length).fill(null)); }
+  }, [item, quizCount]);
+  const pickQuizAnswer = useCallback((qi: number, oi: number) => {
+    setQuizAnswers((prev) => { if (prev[qi] != null) return prev; const next = [...prev]; next[qi] = oi; return next; });
+  }, []);
   const le = useCallback(async () => { const d = await callAi("cpv_example_gen", { term: item.term, en: item.en, vi: item.vi, count: 4 }); if (d) setExs(d); }, [item]);
 
   const [preview, setPreview] = useState<{ conversation: { speaker: string; text: string }[] } | null>(null);
@@ -161,8 +168,11 @@ export function AiSentencePractice({ item, moduleKey }: { item: ItemInfo; module
 
   // Discussion — open-ended chat about the term/topic (no target-phrase requirement,
   // unlike Converse), same shape as Converse so it can reuse ConversationFeedback/history.
+  // Unlike Converse, the STUDENT always speaks first here — there's no AI-initiated
+  // opening line, since a discussion is meant to start from whatever the student
+  // wants to ask or bring up, not a scripted prompt.
   const [discChat, setDiscChat] = useState<AiMessage[]>([]);
-  const [discPhase, setDiscPhase] = useState<"idle" | "practicing" | "feedback">("idle");
+  const [discPhase, setDiscPhase] = useState<"practicing" | "feedback">("practicing");
   const [discFeedback, setDiscFeedback] = useState<Record<string, unknown> | null>(null);
   const [discCid, setDiscCid] = useState<string | null>(null);
   const [discChatIn, setDiscChatIn] = useState("");
@@ -172,23 +182,6 @@ export function AiSentencePractice({ item, moduleKey }: { item: ItemInfo; module
   const discTopic = `the phrase "${item.term}" (meaning: ${item.en})`;
 
   useEffect(() => { discEndRef.current?.scrollIntoView({ behavior: "smooth" }); }, [discChat]);
-
-  const startDiscussion = useCallback(async () => {
-    setDiscChat([]); setDiscPhase("practicing"); setDiscFeedback(null); setDiscError(null);
-    setLoading(true);
-    try {
-      const r = await fetch("/api/ai", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ intent: "discussion", payload: { topic: discTopic, aiLang: currentAiLang() } }) });
-      const j = await r.json();
-      if (!j.ok) { setDiscError(j.error); return; }
-      const aiText = j.data?.content ?? JSON.stringify(j.data);
-      const am: AiMessage = { role: "assistant", content: aiText, timestamp: Date.now() };
-      setDiscChat([am]);
-      const newCid = appendMessages(ik, il, null, "discussion", [am]);
-      setDiscCid(newCid);
-    } finally {
-      setLoading(false);
-    }
-  }, [discTopic, ik, il, appendMessages]);
 
   const sendDiscMessage = useCallback(async () => {
     if (!discChatIn.trim()) return;
@@ -203,7 +196,8 @@ export function AiSentencePractice({ item, moduleKey }: { item: ItemInfo; module
       const aiText = (j.data?.content ?? "").replace(/\n*```json[\s\S]*?```\n*/g, "").replace(/\n*\{[\s\S]*"summary"[\s\S]*\}\n*$/g, "").trim();
       const am: AiMessage = { role: "assistant", content: aiText, timestamp: Date.now() };
       setDiscChat([...nm, am]);
-      appendMessages(ik, il, discCid, "discussion", [um, am]);
+      const newCid = appendMessages(ik, il, discCid, "discussion", [um, am]);
+      if (!discCid) setDiscCid(newCid);
     } finally {
       setDiscBusy(null); setLoading(false);
     }
@@ -254,7 +248,7 @@ export function AiSentencePractice({ item, moduleKey }: { item: ItemInfo; module
   return (
     <div className="flex flex-col gap-4">
       <div className="flex flex-wrap gap-1">{(Object.keys(LABELS) as PMode[]).map(m => <button key={m} onClick={() => { setMode(m); setResult(null); setError(null); }} className="rounded-full px-3 py-1 text-[12px] font-bold" style={ts(m)}>{LABELS[m]}</button>)}</div>
-      <div className="rounded bg-surface p-3 text-[13px] leading-relaxed"><span className="font-extrabold">{item.term}</span><span className="text-neutral-600"> — {item.vi}</span><br /><span className="text-[11px] italic text-neutral-500">Example: {item.ex}</span></div>
+      {showItemInfo && <div className="rounded bg-surface p-3 text-[13px] leading-relaxed"><span className="font-extrabold">{item.term}</span><span className="text-neutral-600"> — {item.vi}</span><br /><span className="text-[11px] italic text-neutral-500">Example: {item.ex}</span></div>}
 
 
       {mode === "write" && <div className="flex flex-col gap-3"><textarea className="input min-h-[80px] resize-y" placeholder={`Write a sentence using "${item.term}"...`} value={sentence} onChange={e => setSentence(e.target.value)} /><button className="btn btn-primary px-4 py-2.5 text-[13px] font-extrabold disabled:opacity-40" disabled={loading || !sentence.trim()} onClick={sw}>{loading ? "Checking..." : "Check with AI"}</button></div>}
@@ -331,7 +325,7 @@ export function AiSentencePractice({ item, moduleKey }: { item: ItemInfo; module
       {mode === "quiz" && <div className="flex flex-col gap-3">{!qz ? (
         <div className="flex flex-col gap-3">
           <div className="flex items-center gap-2">
-            <label className="text-[12px] font-bold text-neutral-600" htmlFor="quiz-count">Number of sentences</label>
+            <label className="text-[12px] font-bold text-neutral-600" htmlFor="quiz-count">Number of questions</label>
             <input
               id="quiz-count"
               type="number"
@@ -344,7 +338,43 @@ export function AiSentencePractice({ item, moduleKey }: { item: ItemInfo; module
           </div>
           <button className="btn btn-primary px-4 py-2.5 text-[13px] font-extrabold" disabled={loading} onClick={lq}>{loading ? "Generating..." : "Generate Quiz"}</button>
         </div>
-      ) : <div className="flex flex-col gap-2">{qz.sentences.map((s: any, i: number) => <button key={i} disabled={qp !== null} onClick={() => setQp(i)} className="rounded border p-3 text-left text-[13px] leading-relaxed" style={{ borderColor: qp !== null ? (s.correct ? "var(--color-accent)" : qp === i ? "var(--color-accent-800)" : "var(--color-divider)") : "var(--color-divider)", background: qp !== null ? (s.correct ? "var(--color-accent-100)" : qp === i ? "var(--color-accent-100)" : "transparent") : "transparent" }}><span className="label-xs mr-2">{QUIZ_LETTERS[i]}.</span>{s.text}{qp !== null && <span className="ml-2">{s.correct ? "✅" : qp === i ? "❌" : ""}</span>}</button>)}{qp !== null && <div className="rounded bg-accent-100 p-3 text-[12px] text-accent-800">{qz.explanation}</div>}<button className="btn btn-ghost mt-1 text-[12px]" onClick={lq} disabled={loading}>New Quiz</button></div>}</div>}
+      ) : (
+        <div className="flex flex-col gap-4">
+          {qz.questions.map((q: any, qi: number) => {
+            const picked = quizAnswers[qi];
+            return (
+              <div key={qi} className="flex flex-col gap-2">
+                <p className="text-[13px] leading-relaxed font-extrabold">{qi + 1}. {q.question}</p>
+                <div className="flex flex-col gap-1.5">
+                  {q.options.map((opt: string, oi: number) => (
+                    <button
+                      key={oi}
+                      disabled={picked !== null}
+                      onClick={() => pickQuizAnswer(qi, oi)}
+                      className="rounded border p-2.5 text-left text-[13px] leading-relaxed"
+                      style={{
+                        borderColor: picked !== null ? (oi === q.answerIndex ? "var(--color-accent)" : oi === picked ? "var(--color-accent-800)" : "var(--color-divider)") : "var(--color-divider)",
+                        background: picked !== null ? (oi === q.answerIndex ? "var(--color-accent-100)" : oi === picked ? "var(--color-accent-100)" : "transparent") : "transparent",
+                      }}
+                    >
+                      <span className="label-xs mr-2">{QUIZ_LETTERS[oi]}.</span>{opt}
+                      {picked !== null && oi === q.answerIndex && <span className="ml-2">✅</span>}
+                      {picked !== null && oi === picked && oi !== q.answerIndex && <span className="ml-2">❌</span>}
+                    </button>
+                  ))}
+                </div>
+                {picked !== null && <div className="rounded bg-accent-100 p-2.5 text-[12px] text-accent-800">{q.explanation}</div>}
+              </div>
+            );
+          })}
+          {quizAnswers.every((a) => a !== null) && (
+            <div className="rounded bg-accent-100 p-3 text-[13px] font-extrabold text-accent-800">
+              Score: {quizAnswers.filter((a: number | null, qi: number) => a === qz.questions[qi].answerIndex).length}/{qz.questions.length}
+            </div>
+          )}
+          <button className="btn btn-ghost mt-1 text-[12px]" onClick={lq} disabled={loading}>New Quiz</button>
+        </div>
+      )}</div>}
 
 
       {mode === "examples" && <div className="flex flex-col gap-3">{!exs ? <button className="btn btn-primary px-4 py-2.5 text-[13px] font-extrabold" disabled={loading} onClick={le}>{loading ? "Generating..." : "Generate Examples"}</button> : <div className="flex flex-col gap-3">{exs.examples.map((ex: any, i: number) => (
@@ -446,14 +476,13 @@ export function AiSentencePractice({ item, moduleKey }: { item: ItemInfo; module
       </div>}
 
       {mode === "discussion" && <div className="flex flex-col gap-3">
-        {discPhase === "idle" && (
-          <button className="btn btn-primary px-4 py-2.5 text-[13px] font-extrabold" disabled={loading} onClick={startDiscussion}>
-            {loading ? "Starting..." : "Start Discussion"}
-          </button>
-        )}
-
         {discPhase === "practicing" && (
           <div className="flex flex-col gap-3">
+            {discChat.length === 0 && (
+              <p className="text-[12px] text-neutral-600">
+                Đặt câu hỏi hoặc chia sẻ ý kiến của bạn về &ldquo;{item.term}&rdquo; để bắt đầu cuộc thảo luận.
+              </p>
+            )}
             <div className="flex max-h-[300px] flex-col gap-3 overflow-y-auto rounded border p-3" style={{ borderColor: "var(--color-divider)" }}>
               {discChat.map((m, i) => (
                 <div key={i} className="rounded p-2.5 text-[13px] leading-relaxed group relative"
@@ -493,7 +522,7 @@ export function AiSentencePractice({ item, moduleKey }: { item: ItemInfo; module
           <ConversationFeedback
             messages={discChat}
             feedback={discFeedback}
-            onReset={() => { setDiscPhase("idle"); setDiscFeedback(null); setDiscChat([]); }}
+            onReset={() => { setDiscPhase("practicing"); setDiscFeedback(null); setDiscChat([]); setDiscCid(null); }}
             share={{
               title: item.term,
               text: `🗣️ Discussion · ${item.term}`,

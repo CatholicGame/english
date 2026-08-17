@@ -137,7 +137,7 @@ export function IdiomDetailClient({ slug, termSlug }: { slug: string; termSlug: 
 
         <div className="mt-5 border-t pt-4" style={{ borderColor: "var(--color-divider)" }}>
           <div className="label-xs mb-2 text-accent">🤖 Luyện tập với AI</div>
-          <AiSentencePractice item={it} moduleKey="idioms" />
+          <AiSentencePractice item={it} moduleKey="idioms" showItemInfo={false} />
         </div>
       </div>
     </div>

@@ -49,6 +49,7 @@ export function AdminDashboard({
   const [pending, setPending] = useState<string | null>(null);
   const [cycleByEmail, setCycleByEmail] = useState<Record<string, BillingCycle>>({});
   const [newAdminEmail, setNewAdminEmail] = useState("");
+  const [newFreeEmail, setNewFreeEmail] = useState("");
   const isSuper = role === "super";
 
   async function extend(email: string) {
@@ -71,6 +72,21 @@ export function AdminDashboard({
       router.refresh();
     } catch {
       alert("Cập nhật thất bại, thử lại sau.");
+    } finally {
+      setPending(null);
+    }
+  }
+
+  async function grantFree() {
+    const email = newFreeEmail.trim();
+    if (!email) return;
+    setPending("__grant_free__");
+    try {
+      await callApi("/api/admin/lock", { email, override: "unlocked" });
+      setNewFreeEmail("");
+      router.refresh();
+    } catch {
+      alert("Cấp tài khoản miễn phí thất bại, thử lại sau.");
     } finally {
       setPending(null);
     }
@@ -109,6 +125,30 @@ export function AdminDashboard({
       <p className="mt-1 text-[13px] text-neutral-600">
         {subscriptions.length} tài khoản. {!isSuper && "Bạn có quyền xem — không thể gia hạn hay khoá/mở khoá."}
       </p>
+
+      {isSuper && (
+        <div className="mt-4">
+          <h2 className="text-[14px] font-extrabold">Cấp tài khoản miễn phí (unlock toàn bộ)</h2>
+          <p className="mt-1 text-[13px] text-neutral-600">
+            Nhập email Google bất kỳ — kể cả email chưa từng đăng nhập app — để cấp quyền dùng full miễn phí ngay lập
+            tức (không cần thanh toán). Có thể thu hồi lại bằng &ldquo;Ép khoá&rdquo; ở bảng dưới sau khi họ xuất hiện
+            trong danh sách.
+          </p>
+          <div className="mt-2 flex gap-1.5">
+            <input
+              type="email"
+              placeholder="email@vidu.com"
+              className="rounded-md border px-2 py-1.5 text-[13px]"
+              style={{ borderColor: "var(--color-divider)" }}
+              value={newFreeEmail}
+              onChange={(e) => setNewFreeEmail(e.target.value)}
+            />
+            <button className="btn btn-secondary" disabled={pending === "__grant_free__"} onClick={grantFree}>
+              + Cấp miễn phí
+            </button>
+          </div>
+        </div>
+      )}
 
       <div className="mt-4 overflow-x-auto">
         <table className="w-full min-w-[860px] text-left text-[13px]">

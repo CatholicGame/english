@@ -51,6 +51,22 @@ function GearIcon() {
   );
 }
 
+function FullscreenEnterIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="block h-4 w-4">
+      <path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M21 16v3a2 2 0 0 1-2 2h-3M8 21H5a2 2 0 0 1-2-2v-3" />
+    </svg>
+  );
+}
+
+function FullscreenExitIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="block h-4 w-4">
+      <path d="M9 3v3a2 2 0 0 1-2 2H4M15 3v3a2 2 0 0 0 2 2h3M21 16h-3a2 2 0 0 0-2 2v3M3 16h3a2 2 0 0 1 2 2v3" />
+    </svg>
+  );
+}
+
 export function AppHeader() {
   const pathname = usePathname();
   const router = useRouter();
@@ -58,6 +74,7 @@ export function AppHeader() {
   const [aiLang, setAiLang] = useState<AiLang>("vi");
   const [settingsOpen, setSettingsOpen] = useState(false);
   const settingsRef = useRef<HTMLDivElement>(null);
+  const [isFullscreen, setIsFullscreen] = useState(false);
 
   useEffect(() => {
     const p = loadUiPrefs();
@@ -65,6 +82,22 @@ export function AppHeader() {
     applyUiPrefs(p);
     setAiLang(loadAiLangPrefs().lang);
   }, []);
+
+  useEffect(() => {
+    function onFullscreenChange() {
+      setIsFullscreen(!!document.fullscreenElement);
+    }
+    document.addEventListener("fullscreenchange", onFullscreenChange);
+    return () => document.removeEventListener("fullscreenchange", onFullscreenChange);
+  }, []);
+
+  function toggleFullscreen() {
+    if (document.fullscreenElement) {
+      document.exitFullscreen();
+    } else {
+      document.documentElement.requestFullscreen().catch(() => {});
+    }
+  }
 
   useEffect(() => {
     if (!settingsOpen) return;
@@ -104,6 +137,13 @@ export function AppHeader() {
       <Link href="/dictionary" className="btn btn-ghost btn-icon" aria-label="Từ điển của tôi">
         <BookIcon />
       </Link>
+      <button
+        className="btn btn-ghost btn-icon"
+        onClick={toggleFullscreen}
+        aria-label={isFullscreen ? "Thoát toàn màn hình" : "Toàn màn hình"}
+      >
+        {isFullscreen ? <FullscreenExitIcon /> : <FullscreenEnterIcon />}
+      </button>
       <div ref={settingsRef} className="relative">
         <button className="btn btn-ghost btn-icon" onClick={() => setSettingsOpen((o) => !o)} aria-label="Cài đặt">
           <GearIcon />

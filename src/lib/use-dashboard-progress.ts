@@ -19,11 +19,13 @@ import { isVerbLocked } from "./content-access";
 import { VERBS } from "@/data/basic-verbs";
 import { UNITS_META } from "@/data/cambridge-vocabulary-ielts";
 import { LISTEN_LESSONS } from "@/data/listen-a-minute";
+import { UNITS_META as IDIOM_UNITS_META } from "@/data/idioms";
 
 const MODULE_KEYS = {
   collocations: "collocations-phrasal-verbs",
   cambridge: "cambridge-vocabulary-ielts-advanced",
   listen: "listen-a-minute",
+  idioms: "idioms",
 } as const;
 
 type ModuleId = keyof typeof MODULE_KEYS;
@@ -35,6 +37,7 @@ function loadAllSnapshots(): Snapshots {
     collocations: loadState(MODULE_KEYS.collocations),
     cambridge: loadState(MODULE_KEYS.cambridge),
     listen: loadState(MODULE_KEYS.listen),
+    idioms: loadState(MODULE_KEYS.idioms),
   };
 }
 
@@ -48,6 +51,8 @@ export interface DashboardProgress {
   cambridgeTotal: number;
   listenDone: number;
   listenTotal: number;
+  idiomsDone: number;
+  idiomsTotal: number;
 }
 
 export function useDashboardProgress(): DashboardProgress {
@@ -97,7 +102,10 @@ export function useDashboardProgress(): DashboardProgress {
 
   const unifiedDays = useMemo(() => {
     if (!snapshots) return {} as DaysMap;
-    return mergeDays(mergeDays(snapshots.collocations.days, snapshots.cambridge.days), snapshots.listen.days);
+    return mergeDays(
+      mergeDays(mergeDays(snapshots.collocations.days, snapshots.cambridge.days), snapshots.listen.days),
+      snapshots.idioms.days,
+    );
   }, [snapshots]);
 
   const streak = useMemo(() => computeStreak(unifiedDays), [unifiedDays]);
@@ -122,6 +130,11 @@ export function useDashboardProgress(): DashboardProgress {
     return LISTEN_LESSONS.filter((l) => lvlOf(snapshots.listen.progress, l.slug) > 0).length;
   }, [snapshots]);
 
+  const idiomsDone = useMemo(() => {
+    if (!snapshots) return 0;
+    return IDIOM_UNITS_META.filter((u) => lvlOf(snapshots.idioms.progress, u.slug) > 0).length;
+  }, [snapshots]);
+
   return {
     loaded: snapshots !== null,
     streak,
@@ -132,5 +145,7 @@ export function useDashboardProgress(): DashboardProgress {
     cambridgeTotal: UNITS_META.length,
     listenDone,
     listenTotal: LISTEN_LESSONS.length,
+    idiomsDone,
+    idiomsTotal: IDIOM_UNITS_META.length,
   };
 }

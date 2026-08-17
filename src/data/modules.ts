@@ -1,6 +1,7 @@
 import { VERBS } from "./basic-verbs";
 import { LISTEN_LESSONS } from "./listen-a-minute";
 import { UNITS_META } from "./cambridge-vocabulary-ielts";
+import { UNITS_META as IDIOM_UNITS_META } from "./idioms";
 
 export interface ModuleDef {
   slug: string;
@@ -39,6 +40,15 @@ export const MODULES: ModuleDef[] = [
     description:
       "Work through each unit's real listening, reading, speaking and vocabulary-building tasks from the Cambridge IELTS Advanced coursebook, fully interactive.",
     statsLabel: `${UNITS_META.length} units · ${UNITS_META.filter((u) => u.available).length} ready`,
+    available: true,
+  },
+  {
+    slug: "idioms",
+    title: "Idioms",
+    subtitle: "25 units · 300+ idioms",
+    description:
+      "Learn everyday English idioms grouped by topic — meaning in English & Vietnamese, origin story, examples, then practice translating.",
+    statsLabel: `${IDIOM_UNITS_META.length} units`,
     available: true,
   },
 ];

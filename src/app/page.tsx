@@ -59,6 +59,8 @@ function moduleStatLabel(slug: string, d: DashboardProgress): string | null {
       return `Đã hoàn thành ${d.cambridgeDone}/${d.cambridgeTotal} unit`;
     case "listen-a-minute":
       return `Đã học ${d.listenDone}/${d.listenTotal} bài`;
+    case "idioms":
+      return `Đã hoàn thành ${d.idiomsDone}/${d.idiomsTotal} unit`;
     default:
       return null;
   }

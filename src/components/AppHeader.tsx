@@ -98,8 +98,8 @@ export function AppHeader() {
         <span className="w-9 flex-none" />
       )}
       <Link href="/" className="flex min-w-0 flex-1 items-center gap-1.5 truncate text-[13px] font-extrabold">
-        <Image src={logo} alt="PhrasalUp" width={22} height={22} className="h-[22px] w-[22px] flex-none rounded-full" priority />
-        <span className="truncate">PhrasalUp</span>
+        <Image src={logo} alt="Vocabulary Builder Pro" width={22} height={22} className="h-[22px] w-[22px] flex-none rounded-full" priority />
+        <span className="truncate">Vocabulary Builder Pro</span>
       </Link>
       <GlobalScoreBadge className="text-[12px]" />
       <Link href="/dictionary" className="btn btn-ghost btn-icon" aria-label="Từ điển của tôi">
@@ -114,10 +114,10 @@ export function AppHeader() {
             <div className="divider-b px-3 py-2">
               <ShareButton
                 className="w-full text-left text-[12px] font-bold text-neutral-700 hover:text-accent-800"
-                title="PhrasalUp"
-                text="Học tiếng Anh cụm động từ & collocations mỗi ngày cùng PhrasalUp"
+                title="Vocabulary Builder Pro"
+                text="Học tiếng Anh cụm động từ & collocations mỗi ngày cùng Vocabulary Builder Pro"
                 getUrl={() => appOrigin()}
-                label="Chia sẻ PhrasalUp"
+                label="Chia sẻ Vocabulary Builder Pro"
               />
             </div>
             <div className="divider-b">

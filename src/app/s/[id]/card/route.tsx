@@ -290,7 +290,7 @@ export async function GET(_request: Request, { params }: { params: Promise<{ id:
             <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
               {/* eslint-disable-next-line @next/next/no-img-element -- next/og renders via satori, not the DOM */}
               <img src={logoSrc} width={72} height={72} style={{ borderRadius: 36 }} alt="" />
-              <div style={{ display: "flex", fontSize: 38, fontWeight: 800, color: INK }}>PhrasalUp</div>
+              <div style={{ display: "flex", fontSize: 38, fontWeight: 800, color: INK }}>Vocabulary Builder Pro</div>
             </div>
             <div style={{ display: "flex", fontSize: 26, color: ACCENT_DARK }}>{shareUrl.replace(/^https?:\/\//, "")}</div>
           </div>

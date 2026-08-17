@@ -95,8 +95,8 @@ export function ShareButton({ title, text, getUrl, getImageUrl, className, style
       try {
         const base: ShareData = { title, text, url };
         const file = getImageUrl
-          ? await withDeadline(fetchImageFile(getImageUrl(url), "phrasalup-share.png"), 1000, null)
-          : await withDeadline(fetchImageFile(logo.src, "phrasalup.png"), 1000, null);
+          ? await withDeadline(fetchImageFile(getImageUrl(url), "vocabulary-builder-pro-share.png"), 1000, null)
+          : await withDeadline(fetchImageFile(logo.src, "vocabulary-builder-pro.png"), 1000, null);
         const withFile: ShareData | null = file ? { ...base, files: [file] } : null;
         await navigator.share(withFile && navigator.canShare?.(withFile) ? withFile : base);
         setStatus("idle");

@@ -16,14 +16,14 @@ interface Props {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
   const data = await getShare<SharedConvoPayload>(id);
-  if (!data) return { title: "PhrasalUp" };
+  if (!data) return { title: "Vocabulary Builder Pro" };
 
-  const title = `${data.itemLabel} — PhrasalUp`;
-  const description = shareExcerpt(data) || "Luyện tiếng Anh cùng PhrasalUp";
+  const title = `${data.itemLabel} — Vocabulary Builder Pro`;
+  const description = shareExcerpt(data) || "Luyện tiếng Anh cùng Vocabulary Builder Pro";
   return {
     title,
     description,
-    openGraph: { title, description, type: "article", siteName: "PhrasalUp" },
+    openGraph: { title, description, type: "article", siteName: "Vocabulary Builder Pro" },
     twitter: { card: "summary_large_image", title, description },
   };
 }
@@ -71,7 +71,7 @@ export default async function SharedConversationPage({ params }: Props) {
         </div>
       )}
       <p className="mt-2 border-t pt-2 text-center text-[11px] text-neutral-400" style={{ borderColor: "var(--color-divider)" }}>
-        Shared from PhrasalUp
+        Shared from Vocabulary Builder Pro
       </p>
     </main>
   );

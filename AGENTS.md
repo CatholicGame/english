@@ -4,7 +4,7 @@
 This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
 <!-- END:nextjs-agent-rules -->
 
-# PhrasalUp feature conventions
+# Vocabulary Builder Pro feature conventions
 
 These apply to every AI-practice feature (collocations/phrasal-verbs, Cambridge IELTS advanced, and any future module) — follow them by default, don't wait to be asked.
 

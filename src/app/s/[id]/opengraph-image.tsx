@@ -6,7 +6,7 @@ import type { SharedConvoPayload } from "@/lib/share-payload";
 import { shareExcerpt, shareFeedbackHighlight } from "@/lib/share-excerpt";
 import { INTENT_LABELS } from "@/components/AiConversationHistory";
 
-export const alt = "PhrasalUp";
+export const alt = "Vocabulary Builder Pro";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -17,7 +17,7 @@ export default async function Image({ params }: { params: Promise<{ id: string }
   const logoData = await readFile(join(process.cwd(), "src/assets/logo/logo.png"), "base64");
   const logoSrc = `data:image/png;base64,${logoData}`;
 
-  const kicker = data ? INTENT_LABELS[data.intent] || "PhrasalUp" : "PhrasalUp";
+  const kicker = data ? INTENT_LABELS[data.intent] || "Vocabulary Builder Pro" : "Vocabulary Builder Pro";
   const heading = data?.itemLabel ?? "Học tiếng Anh mỗi ngày";
   const highlight = data ? shareFeedbackHighlight(data) ?? shareExcerpt(data) : null;
 
@@ -51,7 +51,7 @@ export default async function Image({ params }: { params: Promise<{ id: string }
         <div style={{ display: "flex", alignItems: "center", gap: "20px" }}>
           {/* eslint-disable-next-line @next/next/no-img-element -- next/og renders via satori, not the DOM; next/image is not usable here */}
           <img src={logoSrc} width={72} height={72} style={{ borderRadius: 36 }} alt="" />
-          <div style={{ display: "flex", fontSize: 38, fontWeight: 800, color: "#201e1d" }}>PhrasalUp</div>
+          <div style={{ display: "flex", fontSize: 38, fontWeight: 800, color: "#201e1d" }}>Vocabulary Builder Pro</div>
         </div>
       </div>
     ),

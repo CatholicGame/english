@@ -25,7 +25,7 @@ const lora = Lora({
 });
 
 export const metadata: Metadata = {
-  title: "PhrasalUp",
+  title: "Vocabulary Builder Pro",
   description: "Learn English collocations and phrasal verbs by topic.",
 };
 

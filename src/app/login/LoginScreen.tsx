@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useSearchParams } from "next/navigation";
 import logo from "@/assets/logo/logo.png";
 import { Modal } from "@/components/Modal";
+import { trackEvent } from "@/lib/firebase-client";
 
 const FEATURES = [
   {
@@ -69,7 +70,11 @@ export function LoginScreen() {
         </button>
       </div>
       <div className="lg:w-[320px] lg:flex-none">
-        <a href={`/api/auth/login?returnTo=${encodeURIComponent(returnTo)}`} className="btn btn-primary mt-6 w-full px-4 py-3 lg:mt-0">
+        <a
+          href={`/api/auth/login?returnTo=${encodeURIComponent(returnTo)}`}
+          onClick={() => trackEvent("login", { method: "google" })}
+          className="btn btn-primary mt-6 w-full px-4 py-3 lg:mt-0"
+        >
           Đăng nhập với Google
         </a>
       </div>

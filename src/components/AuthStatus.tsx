@@ -3,6 +3,7 @@
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { useAuth } from "@/lib/auth-context";
+import { trackEvent } from "@/lib/firebase-client";
 
 function LogoutIcon() {
   return (
@@ -59,6 +60,7 @@ export function AuthStatus() {
 
   async function signOut() {
     setSigningOut(true);
+    trackEvent("logout");
     await fetch("/api/auth/logout", { method: "POST" }).catch(() => {});
     setLoggedOut();
     window.location.href = "/login";

@@ -22,6 +22,14 @@ export async function setSubscription(email: string, data: SubscriptionData): Pr
   await getDb().collection("subscriptions").doc(docIdFor(email)).set(data);
 }
 
+/** Admin dashboard only — every other read is by-email, so this is the one
+ * full collection scan in the codebase. Doc ID (already lowercased) doubles
+ * as the email since SubscriptionData doesn't store it redundantly. */
+export async function listSubscriptions(): Promise<Array<SubscriptionData & { email: string }>> {
+  const snap = await getDb().collection("subscriptions").get();
+  return snap.docs.map((doc) => ({ email: doc.id, ...(doc.data() as SubscriptionData) }));
+}
+
 /** Atomically checks + increments today's /api/ai call count for an account,
  * so concurrent requests can't race past the daily limit. Resets the counter
  * whenever the stored date no longer matches `today` (a dayKey() string).

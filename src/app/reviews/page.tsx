@@ -6,11 +6,13 @@ import { reviewStats, type PublicReview } from "@/lib/reviews-shared";
 import { markAskedToReview } from "@/lib/review-prompt";
 import { Stars } from "@/components/Stars";
 import { ReviewForm, type MyReview } from "@/components/ReviewForm";
+import { useUiLang } from "@/lib/i18n";
 
 const RATING_ROWS = [5, 4, 3, 2, 1] as const;
 
 export default function ReviewsPage() {
   const { user } = useAuth();
+  const { lang, t } = useUiLang();
   const [reviews, setReviews] = useState<PublicReview[] | null>(null);
   const [myReview, setMyReview] = useState<MyReview | null>(null);
   const [error, setError] = useState(false);
@@ -46,23 +48,20 @@ export default function ReviewsPage() {
   return (
     <div className="mx-auto flex min-h-screen w-full max-w-[480px] flex-col bg-bg lg:max-w-[720px] lg:border-x-2 lg:border-[color:var(--color-divider)]">
       <div className="divider-b px-4 py-6">
-        <h1 className="text-[24px]">⭐ Đánh giá ứng dụng</h1>
-        <p className="mt-1 text-[13px] text-neutral-600">
-          Mọi đánh giá đều công khai — ai dùng app cũng đọc được, giống trên các cửa hàng ứng dụng.
-        </p>
+        <h1 className="text-[24px]">{t("reviews.title")}</h1>
       </div>
 
-      {error && <p className="px-4 py-6 text-[13px] text-accent-700">Không tải được đánh giá, thử lại sau.</p>}
+      {error && <p className="px-4 py-6 text-[13px] text-accent-700">{t("reviews.loadError")}</p>}
 
-      {!error && reviews === null && <p className="px-4 py-6 text-[13px] text-neutral-500">Đang tải...</p>}
+      {!error && reviews === null && <p className="px-4 py-6 text-[13px] text-neutral-500">{t("reviews.loading")}</p>}
 
       {reviews !== null && (
         <>
           <div className="divider-b flex gap-6 px-4 py-5">
             <div className="flex-none text-center">
               <div className="text-[40px] font-extrabold leading-none">{stats.average.toFixed(1)}</div>
-              <Stars value={stats.average} size={16} />
-              <div className="mt-1 text-[12px] text-neutral-600">{stats.count} đánh giá</div>
+              <Stars value={stats.average} size={16} starLabel={t("reviews.star.aria")} />
+              <div className="mt-1 text-[12px] text-neutral-600">{t("reviews.count", { n: stats.count })}</div>
             </div>
             <div className="flex flex-1 flex-col justify-center gap-1">
               {RATING_ROWS.map((n) => {
@@ -86,20 +85,22 @@ export default function ReviewsPage() {
           </div>
 
           <div className="flex-1 px-4 py-4">
-            <h2 className="label-xs mb-3">Tất cả đánh giá</h2>
-            {reviews.length === 0 && <p className="text-[13px] text-neutral-500">Chưa có đánh giá nào. Hãy là người đầu tiên!</p>}
+            <h2 className="label-xs mb-3">{t("reviews.all")}</h2>
+            {reviews.length === 0 && <p className="text-[13px] text-neutral-500">{t("reviews.empty")}</p>}
             <div className="flex flex-col gap-3">
               {reviews.map((r) => (
                 <div key={r.id} className="border-b pb-3" style={{ borderColor: "var(--color-divider)" }}>
                   <div className="flex items-center justify-between gap-2">
-                    <span className="text-[13px] font-extrabold">{r.name || "Ẩn danh"}</span>
-                    <span className="text-[12px] text-neutral-500">{new Date(r.updatedAt).toLocaleDateString("vi-VN")}</span>
+                    <span className="text-[13px] font-extrabold">{r.name || t("reviews.anonymous")}</span>
+                    <span className="text-[12px] text-neutral-500">
+                      {new Date(r.updatedAt).toLocaleDateString(lang === "en" ? "en-US" : "vi-VN")}
+                    </span>
                   </div>
-                  <Stars value={r.rating} size={14} />
+                  <Stars value={r.rating} size={14} starLabel={t("reviews.star.aria")} />
                   {r.comment && <p className="mt-1.5 whitespace-pre-wrap text-[13px] leading-relaxed">{r.comment}</p>}
                   {r.reply && (
                     <div className="mt-2 border-l-2 pl-2.5" style={{ borderColor: "var(--color-accent)" }}>
-                      <span className="label-xs text-accent">Phản hồi từ Vocabulary Builder Pro</span>
+                      <span className="label-xs text-accent">{t("reviews.replyFrom")}</span>
                       <p className="mt-0.5 whitespace-pre-wrap text-[13px] leading-relaxed">{r.reply.message}</p>
                     </div>
                   )}

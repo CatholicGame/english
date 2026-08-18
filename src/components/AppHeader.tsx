@@ -191,7 +191,7 @@ export function AppHeader() {
                 className="mt-1.5 block w-full text-left text-[12px] font-bold text-neutral-700 hover:text-accent-800"
                 onClick={() => setSettingsOpen(false)}
               >
-                ⭐ Đánh giá &amp; góp ý
+                {t("reviews.menuLabel")}
               </Link>
             </div>
             <div className="divider-b">

@@ -14,6 +14,7 @@ import { useEffect, useState } from "react";
 import { useAuth } from "@/lib/auth-context";
 import { useDashboardProgress } from "@/lib/use-dashboard-progress";
 import { alreadyAskedToReview, markAskedToReview, snoozeReviewPrompt } from "@/lib/review-prompt";
+import { useUiLang } from "@/lib/i18n";
 import { Modal } from "./Modal";
 import { ReviewForm } from "./ReviewForm";
 
@@ -23,6 +24,7 @@ const SHOW_DELAY_MS = 1500;
 export function FeedbackPrompt() {
   const { authenticated, user } = useAuth();
   const { loaded, streak } = useDashboardProgress();
+  const { t } = useUiLang();
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -50,13 +52,13 @@ export function FeedbackPrompt() {
 
   return (
     <Modal onClose={notNow}>
-      <h2 className="text-center text-[17px] font-extrabold">Bạn thấy app thế nào?</h2>
-      <p className="mt-1 text-center text-[13px] text-neutral-600">Đánh giá của bạn sẽ hiển thị công khai cho mọi người dùng khác.</p>
+      <h2 className="text-center text-[17px] font-extrabold">{t("reviews.prompt.title")}</h2>
+      <p className="mt-1 text-center text-[13px] text-neutral-600">{t("reviews.prompt.body")}</p>
       <div className="mt-4">
         <ReviewForm initial={null} defaultName={user?.name} onSubmitted={submitted} />
       </div>
       <button type="button" className="btn btn-ghost mt-3 w-full text-center text-[12px] text-neutral-500" onClick={neverAgain}>
-        Không hiển thị lại
+        {t("reviews.neverAgain")}
       </button>
     </Modal>
   );

@@ -10,6 +10,7 @@ import { useSubscriptionStore } from "@/lib/use-subscription-store";
 import { isVerbLocked } from "@/lib/content-access";
 import { LockIcon } from "@/components/LockIcon";
 import { PurchaseModal } from "@/components/PurchaseModal";
+import { useUiLang } from "@/lib/i18n";
 
 const GROUP_KEYS = ["all", ...Object.keys(GROUP_LABELS)];
 
@@ -23,6 +24,7 @@ export default function VerbsPage() {
   const router = useRouter();
   const { progress } = useProgress();
   const { isUnlocked } = useSubscriptionStore();
+  const { lang: uiLang } = useUiLang();
   const [query, setQuery] = useState("");
   const [group, setGroup] = useState("all");
   const [selecting, setSelecting] = useState(false);
@@ -225,8 +227,9 @@ export default function VerbsPage() {
                 { mode: "mix", label: "Mix" },
                 { mode: "mc", label: "MC" },
                 { mode: "type", label: "Type" },
-                { mode: "reverseMc", label: "Rev MC" },
-                { mode: "reverseType", label: "Rev type" },
+                // Reverse modes quiz off the Vietnamese meaning, so they only
+                // make sense when the learner actually reads Vietnamese.
+                ...(uiLang === "vi" ? [{ mode: "reverseMc", label: "Rev MC" }, { mode: "reverseType", label: "Rev type" }] : []),
                 { mode: "flash", label: "Flash" },
               ].map((m) => (
                 <button

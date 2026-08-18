@@ -3,9 +3,9 @@
 // values (e.g. an average of 4.3) via a width-clipped overlay star per
 // position, rather than only whole/half increments.
 
-export function Stars({ value, size = 16 }: { value: number; size?: number }) {
+export function Stars({ value, size = 16, starLabel = "sao" }: { value: number; size?: number; starLabel?: string }) {
   return (
-    <span className="inline-flex" style={{ fontSize: size, lineHeight: 1 }} aria-label={`${value.toFixed(1)}/5 sao`}>
+    <span className="inline-flex" style={{ fontSize: size, lineHeight: 1 }} aria-label={`${value.toFixed(1)}/5 ${starLabel}`}>
       {[1, 2, 3, 4, 5].map((i) => {
         const fill = Math.max(0, Math.min(1, value - (i - 1)));
         return (

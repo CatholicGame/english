@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { StarPicker } from "./StarPicker";
 import { ChatInput } from "./ChatInput";
+import { useUiLang } from "@/lib/i18n";
 
 export interface MyReview {
   rating: number;
@@ -21,6 +22,7 @@ interface Props {
 }
 
 export function ReviewForm({ initial, defaultName, onSubmitted }: Props) {
+  const { t } = useUiLang();
   const [rating, setRating] = useState(initial?.rating ?? 0);
   const [name, setName] = useState(initial?.name ?? defaultName ?? "");
   const [comment, setComment] = useState(initial?.comment ?? "");
@@ -43,7 +45,7 @@ export function ReviewForm({ initial, defaultName, onSubmitted }: Props) {
       onSubmitted({ rating, comment: comment.trim() || undefined, name: name.trim() || undefined });
       setDone(true);
     } catch {
-      setError("Gửi đánh giá thất bại, thử lại sau.");
+      setError(t("reviews.submitFailed"));
     } finally {
       setSubmitting(false);
     }
@@ -52,9 +54,9 @@ export function ReviewForm({ initial, defaultName, onSubmitted }: Props) {
   if (done) {
     return (
       <div className="text-center">
-        <p className="text-[15px] font-extrabold">Cảm ơn bạn đã đánh giá! 🙏</p>
+        <p className="text-[15px] font-extrabold">{t("reviews.thanks")}</p>
         <button type="button" className="btn btn-ghost mt-2 text-[13px]" onClick={() => setDone(false)}>
-          Sửa lại đánh giá
+          {t("reviews.editAgain")}
         </button>
       </div>
     );
@@ -65,7 +67,7 @@ export function ReviewForm({ initial, defaultName, onSubmitted }: Props) {
       <StarPicker value={rating} onChange={setRating} />
       <input
         className="input w-full max-w-[320px] text-center"
-        placeholder="Tên hiển thị (không bắt buộc)"
+        placeholder={t("reviews.namePlaceholder")}
         value={name}
         onChange={(e) => setName(e.target.value)}
         maxLength={60}
@@ -76,7 +78,7 @@ export function ReviewForm({ initial, defaultName, onSubmitted }: Props) {
           onChange={setComment}
           onSend={submit}
           disabled={submitting || !rating}
-          placeholder="Viết cảm nhận của bạn (không bắt buộc)..."
+          placeholder={t("reviews.commentPlaceholder")}
         />
       </div>
       {error && <p className="text-[13px] text-accent-700">{error}</p>}
@@ -86,7 +88,7 @@ export function ReviewForm({ initial, defaultName, onSubmitted }: Props) {
         disabled={!rating || submitting}
         onClick={submit}
       >
-        {submitting ? "Đang gửi..." : initial ? "Cập nhật đánh giá" : "Gửi đánh giá"}
+        {submitting ? t("reviews.sending") : initial ? t("reviews.update") : t("reviews.submit")}
       </button>
     </div>
   );

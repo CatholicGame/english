@@ -11,6 +11,7 @@ import type { AllItem } from "@/lib/flatten";
 import { useSubscriptionStore } from "@/lib/use-subscription-store";
 import { isVerbLocked } from "@/lib/content-access";
 import { useDashboardProgress } from "@/lib/use-dashboard-progress";
+import { useUiLang } from "@/lib/i18n";
 
 const DAILY_GOAL = 20;
 
@@ -18,8 +19,10 @@ const PRACTICE_MODES = [
   { mode: "flash", title: "Flashcards", sub: "Flip and recall" },
   { mode: "mc", title: "Multiple choice", sub: "Pick the meaning" },
   { mode: "type", title: "Typing", sub: "Write it out" },
-  { mode: "reverseMc", title: "Reverse MC", sub: "Meaning → term" },
-  { mode: "reverseType", title: "Reverse type", sub: "Recall the phrase" },
+  // Reverse modes quiz off the Vietnamese meaning, so they only make sense
+  // when the learner actually reads Vietnamese.
+  { mode: "reverseMc", title: "Reverse MC", sub: "Meaning -> term", viOnly: true },
+  { mode: "reverseType", title: "Reverse type", sub: "Recall the phrase", viOnly: true },
   { mode: "match", title: "Matching", sub: "Pair four" },
   { mode: "listen", title: "Listen", sub: "Hear and choose" },
 ];
@@ -28,6 +31,8 @@ export default function TodayPage() {
   const router = useRouter();
   const { loaded, progress, days, todayDone } = useProgress();
   const { isUnlocked } = useSubscriptionStore();
+  const { lang: uiLang } = useUiLang();
+  const practiceModes = useMemo(() => PRACTICE_MODES.filter((m) => !m.viOnly || uiLang === "vi"), [uiLang]);
   // Same unified streak shown on the home page — a learner shouldn't see two
   // different "streak" numbers for what feels like one continuous habit.
   const { streak } = useDashboardProgress();
@@ -136,7 +141,7 @@ export default function TodayPage() {
 
       <div className="label-xs px-4 pt-4 pb-2">Practice</div>
       <div className="divider-t grid grid-cols-2 gap-[2px] bg-[color:var(--color-divider)] lg:grid-cols-3">
-        {PRACTICE_MODES.map((m) => (
+        {practiceModes.map((m) => (
           <button
             key={m.mode}
             className="bg-bg p-4 text-left hover:bg-surface"

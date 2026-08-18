@@ -92,7 +92,26 @@ export function LoginScreen() {
   const [showFeatures, setShowFeatures] = useState(false);
 
   return (
-    <div className="mx-auto flex min-h-screen w-full max-w-[480px] flex-col justify-center bg-bg px-4 lg:max-w-[880px] lg:flex-row lg:items-center lg:gap-16 lg:border-x-2 lg:border-[color:var(--color-divider)] lg:px-8">
+    <div className="relative mx-auto flex min-h-screen w-full max-w-[480px] flex-col justify-center bg-bg px-4 lg:max-w-[880px] lg:flex-row lg:items-center lg:gap-16 lg:border-x-2 lg:border-[color:var(--color-divider)] lg:px-8">
+      <div
+        className="absolute right-4 top-4 z-10 inline-flex items-center gap-0.5 rounded-full border p-0.5"
+        style={{ borderColor: "var(--color-divider)", background: "var(--color-surface)" }}
+      >
+        {UI_LANG_OPTIONS.map((l) => (
+          <button
+            key={l.id}
+            type="button"
+            onClick={() => setUiLang(l.id)}
+            className="rounded-full px-3 py-1 text-[12px] font-bold transition-colors"
+            style={{
+              background: lang === l.id ? "var(--color-accent)" : "transparent",
+              color: lang === l.id ? "#fff" : "var(--color-text)",
+            }}
+          >
+            {l.label}
+          </button>
+        ))}
+      </div>
       <div className="flex flex-col items-center text-center lg:flex-1 lg:items-start lg:text-left">
         <Image
           src={logo}
@@ -126,24 +145,6 @@ export function LoginScreen() {
           <Link href="/terms" className="underline">{t("login.terms")}</Link> {t("login.and")}{" "}
           <Link href="/privacy" className="underline">{t("login.privacy")}</Link>.
         </p>
-        <div className="mt-4 flex items-center justify-center gap-1.5 lg:justify-start">
-          <span className="text-[11px] font-bold text-neutral-500">{t("login.interfaceLang")}:</span>
-          {UI_LANG_OPTIONS.map((l) => (
-            <button
-              key={l.id}
-              type="button"
-              onClick={() => setUiLang(l.id)}
-              className="rounded-full px-2.5 py-1 text-[12px] font-bold"
-              style={{
-                background: lang === l.id ? "var(--color-accent)" : "var(--color-surface)",
-                color: lang === l.id ? "#fff" : "var(--color-text)",
-                border: lang === l.id ? "none" : "1px solid var(--color-divider)",
-              }}
-            >
-              {l.label}
-            </button>
-          ))}
-        </div>
       </div>
       {showFeatures && (
         <Modal onClose={() => setShowFeatures(false)} contentClassName="lg:max-w-[720px]">

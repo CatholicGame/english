@@ -260,8 +260,6 @@ export const STRINGS: Record<string, DictEntry> = {
   "lock.badge": { vi: "Khoá", en: "Locked" },
 
   // ─── Login ───────────────────────────────────────────────────────────
-  "login.interfaceLang": { vi: "Ngôn ngữ giao diện", en: "Interface language" },
-
   // ─── Shared across practice screens ──────────────────────────────────
   "discussion.prompt": {
     vi: "Đặt câu hỏi hoặc chia sẻ ý kiến của bạn về “{term}” để bắt đầu cuộc thảo luận.",

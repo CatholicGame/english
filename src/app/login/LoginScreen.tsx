@@ -16,40 +16,51 @@ interface Feature {
   /** Dictionary key for a title that differs between UI languages. */
   titleKey?: string;
   bodyKey: string;
-  badgeKey?: string;
 }
 
-const FEATURES: Feature[] = [
+interface FeatureGroup {
+  /** Dictionary key for the stage label. */
+  stageKey: string;
+  /** Dictionary key for the stage summary line. */
+  stageDescKey: string;
+  features: Feature[];
+}
+
+/** Organized as a learning path — vocabulary foundation → natural
+ * communication → IELTS-level mastery — plus a motivation system, so a new
+ * learner instantly sees how the features stack up. */
+const FEATURE_GROUPS: FeatureGroup[] = [
   {
-    emoji: "🧩",
-    title: "Collocations & Phrasal Verbs",
-    bodyKey: "feature.cpv.body",
+    stageKey: "feature.stage.vocab",
+    stageDescKey: "feature.stage.vocab.desc",
+    features: [
+      { emoji: "🧩", title: "Collocations & Phrasal Verbs", bodyKey: "feature.cpv.body" },
+      { emoji: "🔍", titleKey: "feature.lookup.title", bodyKey: "feature.lookup.body" },
+    ],
   },
   {
-    emoji: "📖",
-    title: "Cambridge Vocabulary for IELTS Advanced",
-    bodyKey: "feature.cambridge.body",
+    stageKey: "feature.stage.communicate",
+    stageDescKey: "feature.stage.communicate.desc",
+    features: [
+      { emoji: "💬", title: "Idioms", bodyKey: "feature.idiom.body" },
+      { emoji: "🎧", title: "Listen A Minute", bodyKey: "feature.listen.body" },
+    ],
   },
   {
-    emoji: "🎧",
-    title: "Listen A Minute",
-    bodyKey: "feature.listen.body",
+    stageKey: "feature.stage.ielts",
+    stageDescKey: "feature.stage.ielts.desc",
+    features: [
+      { emoji: "📖", title: "Cambridge Vocabulary for IELTS Advanced", bodyKey: "feature.cambridge.body" },
+    ],
   },
   {
-    emoji: "💬",
-    title: "Idiom",
-    bodyKey: "feature.idiom.body",
-    badgeKey: "feature.idiom.badge",
-  },
-  {
-    emoji: "🔍",
-    titleKey: "feature.lookup.title",
-    bodyKey: "feature.lookup.body",
-  },
-  {
-    emoji: "🔥",
-    titleKey: "feature.streak.title",
-    bodyKey: "feature.streak.body",
+    stageKey: "feature.stage.system",
+    stageDescKey: "feature.stage.system.desc",
+    features: [
+      { emoji: "🧭", titleKey: "feature.allinone.title", bodyKey: "feature.allinone.body" },
+      { emoji: "📌", titleKey: "feature.highlight.title", bodyKey: "feature.highlight.body" },
+      { emoji: "🔥", titleKey: "feature.streak.title", bodyKey: "feature.streak.body" },
+    ],
   },
 ];
 
@@ -101,15 +112,22 @@ export function LoginScreen() {
           <p className="mb-4 text-[13px] leading-relaxed text-neutral-600">
             {t("login.whyBody")}
           </p>
-          <div className="flex flex-col gap-3">
-            {FEATURES.map((f) => (
-              <div key={f.bodyKey} className="divider-b pb-3 last:border-b-0 last:pb-0">
-                <div className="flex items-center gap-2">
-                  <span className="text-[18px]">{f.emoji}</span>
-                  <span className="text-[14px] font-extrabold">{f.titleKey ? t(f.titleKey) : f.title}</span>
-                  {f.badgeKey && <span className="label-xs text-accent">{t(f.badgeKey)}</span>}
+          <div className="flex flex-col gap-4">
+            {FEATURE_GROUPS.map((g) => (
+              <div key={g.stageKey} className="divider-b pb-3 last:border-b-0 last:pb-0">
+                <div className="mb-1 text-[13px] font-extrabold text-accent">{t(g.stageKey)}</div>
+                <p className="mb-2 text-[11px] leading-relaxed text-neutral-500">{t(g.stageDescKey)}</p>
+                <div className="flex flex-col gap-3">
+                  {g.features.map((f) => (
+                    <div key={f.bodyKey}>
+                      <div className="flex items-center gap-2">
+                        <span className="text-[16px]">{f.emoji}</span>
+                        <span className="text-[13px] font-extrabold">{f.titleKey ? t(f.titleKey) : f.title}</span>
+                      </div>
+                      <p className="mt-0.5 text-[12px] leading-relaxed text-neutral-600">{t(f.bodyKey)}</p>
+                    </div>
+                  ))}
                 </div>
-                <p className="mt-1 text-[12px] leading-relaxed text-neutral-600">{t(f.bodyKey)}</p>
               </div>
             ))}
           </div>

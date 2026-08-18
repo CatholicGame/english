@@ -135,10 +135,9 @@ export const STRINGS: Record<string, DictEntry> = {
     en: "Hundreds of one-minute listening topics for daily practice. After listening, the AI starts a conversation about the same topic — speaking practice with in-the-moment feedback on how you express yourself.",
   },
   "feature.idiom.body": {
-    vi: "Mảnh ghép cuối của bộ ba collocation – phrasal verb – idiom để nói tự nhiên như người bản ngữ. AI sẽ ra quiz, trò chuyện và chấm cách dùng idiom đúng ngữ cảnh — y hệt trải nghiệm bạn đã quen ở các module trên.",
-    en: "The final piece of the collocation – phrasal verb – idiom trio for sounding like a native speaker. The AI quizzes, chats, and grades idiom usage in context — the same experience you already know from the other modules.",
+    vi: "Mảnh ghép cuối của bộ ba collocation – phrasal verb – idiom để nói tự nhiên như người bản ngữ. Mỗi idiom đi kèm câu chuyện nguồn gốc lịch sử — hiểu vì sao nó ra đời thì tự nhiên nhớ mà không cần học vẹt — cùng quiz, trò chuyện và chấm cách dùng đúng ngữ cảnh.",
+    en: "The final piece of the collocation – phrasal verb – idiom trio for sounding like a native speaker. Every idiom comes with its historical origin story — understand why it exists and it sticks without rote learning — plus quizzes, chat, and context-aware usage grading.",
   },
-  "feature.idiom.badge": { vi: "Sắp ra mắt", en: "Coming soon" },
   "feature.lookup.body": {
     vi: "Đang đọc mà gặp từ lạ hay câu ngữ pháp rối? Bôi đen ngay tại chỗ, ở bất cứ đâu trong app — AI giải nghĩa hoặc phân tích cấu trúc câu tức thì, bằng đúng ngôn ngữ bạn chọn trong Cài đặt.",
     en: "Stuck on an unknown word or a confusing sentence? Select it anywhere in the app — the AI explains the meaning or breaks down the grammar instantly, in the language you chose in Settings.",
@@ -148,6 +147,38 @@ export const STRINGS: Record<string, DictEntry> = {
   "feature.streak.body": {
     vi: "Mỗi lần AI chấm bài — quiz, hội thoại, bài viết — bạn nhận XP ngay lập tức. Chuỗi ngày học được giữ vững nhờ động lực thật từ kết quả AI chấm, không phải điểm ảo vô nghĩa.",
     en: "Every time the AI grades you — quiz, conversation, writing — you earn XP instantly. Your study streak is driven by real motivation from real AI grading, not meaningless fake points.",
+  },
+
+  // ─── Login — learning-path stage headers ─────────────────────────────
+  "feature.stage.vocab": { vi: "🌱 Giai đoạn 1 · Xây vốn từ vựng", en: "🌱 Stage 1 · Build your vocabulary" },
+  "feature.stage.vocab.desc": {
+    vi: "Bắt đầu từ nền móng — nắm chắc collocations, phrasal verbs và tra cứu mọi từ mới ngay tại chỗ.",
+    en: "Start with the foundation — master collocations, phrasal verbs, and look up any new word right where you meet it.",
+  },
+  "feature.stage.communicate": { vi: "🗣️ Giai đoạn 2 · Giao tiếp tự nhiên", en: "🗣️ Stage 2 · Communicate naturally" },
+  "feature.stage.communicate.desc": {
+    vi: "Biến vốn từ thành lời nói — idioms đúng ngữ cảnh và phản xạ nghe–nói với AI mỗi ngày.",
+    en: "Turn vocabulary into speech — context-perfect idioms and daily listening–speaking reflexes with AI.",
+  },
+  "feature.stage.ielts": { vi: "🎯 Giai đoạn 3 · Nâng cao — IELTS", en: "🎯 Stage 3 · Advanced — IELTS" },
+  "feature.stage.ielts.desc": {
+    vi: "Đưa mọi kỹ năng lên tầm band 6.5–9 theo giáo trình Cambridge, được AI chấm điểm như giám khảo thật.",
+    en: "Level everything up to band 6.5–9 on the Cambridge syllabus, graded by AI like a real examiner.",
+  },
+  "feature.stage.system": { vi: "⚙️ Trải nghiệm học liền mạch", en: "⚙️ Seamless learning experience" },
+  "feature.stage.system.desc": {
+    vi: "Mọi công cụ nằm gọn trong app, từ đã tra được highlight ngay trong bài, XP và streak giữ nhịp học mỗi ngày — mạch học không bao giờ đứt quãng.",
+    en: "Every tool lives inside the app, looked-up words light up in your reading, and XP/streaks keep the daily rhythm — your flow never breaks.",
+  },
+  "feature.allinone.title": { vi: "Tất cả trong một", en: "All in one" },
+  "feature.allinone.body": {
+    vi: "Tra cứu từ, phân tích ngữ pháp, từ điển cá nhân và trò chuyện với AI đều nằm ngay trong app — không cần thoát ra tham khảo tài nguyên khác, việc học không bao giờ bị gián đoạn.",
+    en: "Word lookup, grammar analysis, your personal dictionary, and AI chat all live inside the app — no need to leave for outside resources, so learning never gets interrupted.",
+  },
+  "feature.highlight.title": { vi: "Từ đã tra được highlight", en: "Looked-up words highlighted" },
+  "feature.highlight.body": {
+    vi: "Mọi từ bạn từng tra cứu được tô màu ngay trong bài đọc — vô tình bắt gặp lại từng từ thường xuyên hơn, não ghi nhớ lâu hơn rất nhiều so với học một lần rồi quên.",
+    en: "Every word you've ever looked up is highlighted right in your reading — you keep bumping into it, which cements it far better than learning it once and forgetting.",
   },
 };
 

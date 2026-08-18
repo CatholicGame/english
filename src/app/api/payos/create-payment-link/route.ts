@@ -30,7 +30,7 @@ export async function POST(request: NextRequest) {
   // it's just an opaque reference — the real email/plan mapping lives in
   // Firestore (payos_orders), looked up by orderCode when the webhook arrives.
   const description = `VB${String(orderCode).slice(-7)}`;
-  const origin = appOrigin();
+  const origin = appOrigin(request);
 
   const paymentLink = await getPayOS().paymentRequests.create({
     orderCode,

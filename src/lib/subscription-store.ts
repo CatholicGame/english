@@ -12,6 +12,11 @@ export interface PricingPlan {
   label: string;
   months: number;
   priceVnd: number;
+  /** USD price charged via PayPal for international payers — PayPal doesn't
+   * support VND, so the international path bills in USD. Rounded stable
+   * numbers, not a live FX conversion, so both columns stay editable in one
+   * place (adjust together when VND rates move). */
+  priceUsd: number;
   /** Short, relatable "this costs about as much as X" hook shown next to the
    * price — makes the number feel light instead of abstract. */
   hook?: string;
@@ -35,10 +40,10 @@ export const AI_DAILY_CALL_LIMIT = 100;
 // commitments get a steadily bigger discount (13% / 27% / 40% off the
 // monthly rate) to make the longer packages the obviously better deal.
 export const PRICING_PLANS: PricingPlan[] = [
-  { cycle: "monthly", label: "1 tháng", months: 1, priceVnd: 50_000, hook: "🧋 bằng 1 cốc trà sữa" },
-  { cycle: "quarterly", label: "3 tháng", months: 3, priceVnd: 130_000 },
-  { cycle: "semiannual", label: "6 tháng", months: 6, priceVnd: 220_000 },
-  { cycle: "yearly", label: "12 tháng", months: 12, priceVnd: 360_000, hook: "☕ Chưa tới 1.000đ/ngày" },
+  { cycle: "monthly", label: "1 tháng", months: 1, priceVnd: 50_000, priceUsd: 2, hook: "🧋 bằng 1 cốc trà sữa" },
+  { cycle: "quarterly", label: "3 tháng", months: 3, priceVnd: 130_000, priceUsd: 5.5 },
+  { cycle: "semiannual", label: "6 tháng", months: 6, priceVnd: 220_000, priceUsd: 9 },
+  { cycle: "yearly", label: "12 tháng", months: 12, priceVnd: 360_000, priceUsd: 15, hook: "☕ Chưa tới 1.000đ/ngày" },
 ];
 
 export interface SubscriptionData {

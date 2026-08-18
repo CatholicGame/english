@@ -10,28 +10,62 @@ import { useDashboardProgress, type DashboardProgress } from "@/lib/use-dashboar
 import { useSubscriptionStore } from "@/lib/use-subscription-store";
 import { isPaidActive } from "@/lib/subscription-store";
 
-/** Polls a few times after returning from PayOS's hosted checkout — the
- * webhook that actually grants paid access can land a beat after the browser
- * redirect does, so a single refetch on mount can still show the old state.
- * `isPaidNow` reads the live store (not a stale closure) so the loop can stop
- * the moment the webhook lands instead of always running to the timeout. */
-function usePayosReturn(refetch: () => Promise<void>, isPaidNow: () => boolean) {
+/** Polls a few times after returning from a hosted checkout (PayOS or PayPal)
+ * — the payment confirmation can land a beat after the browser redirect does,
+ * so a single refetch on mount can still show the old state. `isPaidNow` reads
+ * the live store (not a stale closure) so the loop can stop the moment access
+ * is granted instead of always running to the timeout. For PayPal, the capture
+ * call (the step that actually charges the buyer) is also fired from here,
+ * before polling. */
+interface PaymentReturnFlow {
+  provider: "payos" | "paypal";
+  outcome: "success" | "cancel";
+  /** PayPal's order id, appended to the return URL as `token` by PayPal. */
+  paypalToken?: string;
+}
+
+function usePaymentReturn(refetch: () => Promise<void>, isPaidNow: () => boolean) {
   const router = useRouter();
   const searchParams = useSearchParams();
   // Captured once via the lazy initializer (render time, not an effect) — the
-  // "cancel" outcome is pure derived state from the URL, not a side effect.
-  const [payosParam] = useState(() => searchParams.get("payos"));
-  const [status, setStatus] = useState<"idle" | "confirming" | "confirmed" | "timeout" | "cancelled">(
-    () => (payosParam === "cancel" ? "cancelled" : payosParam === "success" ? "confirming" : "idle"),
+  // outcomes are pure derived state from the URL, not side effects.
+  const [flow] = useState<PaymentReturnFlow | null>(() => {
+    const payos = searchParams.get("payos");
+    if (payos) return { provider: "payos", outcome: payos === "success" ? "success" : "cancel" };
+    const paypal = searchParams.get("paypal");
+    if (paypal) {
+      return {
+        provider: "paypal",
+        outcome: paypal === "success" ? "success" : "cancel",
+        paypalToken: searchParams.get("token") ?? undefined,
+      };
+    }
+    return null;
+  });
+  const [status, setStatus] = useState<"idle" | "confirming" | "confirmed" | "timeout" | "cancelled">(() =>
+    flow ? (flow.outcome === "cancel" ? "cancelled" : "confirming") : "idle",
   );
 
   useEffect(() => {
-    if (!payosParam) return;
+    if (!flow) return;
     router.replace("/", { scroll: false });
-    if (payosParam !== "success") return;
+    if (flow.outcome !== "success") return;
 
     let cancelled = false;
     (async () => {
+      if (flow.provider === "paypal" && flow.paypalToken) {
+        // PayPal doesn't charge until we capture the approved order — do it
+        // before polling so the first refetch already sees the new paidUntil.
+        try {
+          await fetch("/api/paypal/capture", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ orderId: flow.paypalToken }),
+          });
+        } catch {
+          // fall through to the polling loop; the timeout message covers it
+        }
+      }
       for (let i = 0; i < 6; i++) {
         await new Promise((r) => setTimeout(r, 2000));
         if (cancelled) return;
@@ -45,7 +79,7 @@ function usePayosReturn(refetch: () => Promise<void>, isPaidNow: () => boolean) 
       if (!cancelled) setStatus((s) => (s === "confirming" ? "timeout" : s));
     })();
     return () => { cancelled = true; };
-  }, [payosParam, router, refetch, isPaidNow]);
+  }, [flow, router, refetch, isPaidNow]);
 
   return status;
 }
@@ -74,7 +108,7 @@ export default function HomePage() {
   );
 }
 
-const PAYOS_STATUS_LABEL: Record<"confirming" | "confirmed" | "timeout" | "cancelled", string> = {
+const PAYMENT_STATUS_LABEL: Record<"confirming" | "confirmed" | "timeout" | "cancelled", string> = {
   confirming: "⏳ Đang xác nhận thanh toán...",
   confirmed: "✅ Thanh toán thành công — đã kích hoạt gói của bạn!",
   timeout: "Thanh toán đang được xử lý — quyền lợi sẽ tự động cập nhật trong giây lát, thử tải lại trang nếu chưa thấy.",
@@ -89,7 +123,7 @@ function HomePageContent() {
   const subscriptionRef = useRef(subscription);
   useEffect(() => { subscriptionRef.current = subscription; }, [subscription]);
   const isPaidNow = useCallback(() => isPaidActive(subscriptionRef.current), []);
-  const payosStatus = usePayosReturn(refetch, isPaidNow);
+  const paymentStatus = usePaymentReturn(refetch, isPaidNow);
 
   return (
     <div className="mx-auto flex min-h-screen w-full max-w-[480px] flex-col bg-bg lg:max-w-[1040px] lg:border-x-2 lg:border-[color:var(--color-divider)]">
@@ -98,9 +132,9 @@ function HomePageContent() {
         <p className="mt-1 text-[13px] text-neutral-600">Choose a topic to start practicing.</p>
       </div>
 
-      {payosStatus !== "idle" && (
+      {paymentStatus !== "idle" && (
         <div className="divider-b bg-accent-100 px-4 py-2.5 text-[12px] font-bold text-accent-800">
-          {PAYOS_STATUS_LABEL[payosStatus]}
+          {PAYMENT_STATUS_LABEL[paymentStatus]}
         </div>
       )}
 

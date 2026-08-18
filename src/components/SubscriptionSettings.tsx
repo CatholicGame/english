@@ -2,10 +2,13 @@
 
 // Status + pricing for the app's trial/paid entitlement (see
 // src/lib/subscription-store.ts and docs/subscription-interim-system.md).
-// Tapping a plan creates a real PayOS checkout link and redirects to it;
-// PayOS's own webhook grants paid access automatically once the transfer
-// clears (see /api/payos/webhook) — no manual code entry. Reused both in
-// Settings (gear menu) and inside PurchaseModal when tapping locked content.
+// Two payment options, picked after choosing a plan:
+//   - PayOS: VND, for Vietnamese users (bank transfer / QR code).
+//   - PayPal: USD, for international users (hosted PayPal approval).
+// Both grant access automatically via their own server-side confirmation
+// (PayOS webhook / PayPal capture — see /api/payos/webhook and
+// /api/paypal/capture); no manual code entry. Reused both in Settings (gear
+// menu) and inside PurchaseModal when tapping locked content.
 
 import { useState } from "react";
 import { useSubscriptionStore } from "@/lib/use-subscription-store";
@@ -31,10 +34,15 @@ function formatVnd(n: number): string {
   return `${n.toLocaleString("vi-VN")}đ`;
 }
 
+function formatUsd(n: number): string {
+  return `$${n.toFixed(2)}`;
+}
+
 export function SubscriptionSettings() {
   const { subscription, isUnlocked } = useSubscriptionStore();
   const [selectedCycle, setSelectedCycle] = useState<BillingCycle | null>(null);
   const [status, setStatus] = useState<"idle" | "loading" | "error">("idle");
+  const [paypalStatus, setPaypalStatus] = useState<"idle" | "loading" | "error">("idle");
 
   async function checkout() {
     if (!selectedCycle || status === "loading") return;
@@ -53,6 +61,28 @@ export function SubscriptionSettings() {
       window.location.href = json.checkoutUrl;
     } catch {
       setStatus("error");
+    }
+  }
+
+  async function checkoutPaypal() {
+    if (!selectedCycle || paypalStatus === "loading") return;
+    setPaypalStatus("loading");
+    try {
+      const res = await fetch("/api/paypal/create-order", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ cycle: selectedCycle }),
+      });
+      const json = await res.json();
+      if (!res.ok || !json.ok) {
+        setPaypalStatus("error");
+        return;
+      }
+      // PayPal-hosted approval page — after approving, PayPal redirects back to
+      // /?paypal=success&token=<orderId>, where /api/paypal/capture charges it.
+      window.location.href = json.approveUrl;
+    } catch {
+      setPaypalStatus("error");
     }
   }
 
@@ -107,7 +137,10 @@ export function SubscriptionSettings() {
                   <div className="text-[10px] font-bold text-accent">{savings}</div>
                 ) : null}
               </div>
-              <div className="text-[14px] font-extrabold tabular-nums">{formatVnd(plan.priceVnd)}</div>
+              <div className="text-right">
+                <div className="text-[14px] font-extrabold tabular-nums">{formatVnd(plan.priceVnd)}</div>
+                <div className="text-[10px] font-bold text-neutral-500 tabular-nums">{formatUsd(plan.priceUsd)}</div>
+              </div>
             </button>
           );
         })}
@@ -126,11 +159,30 @@ export function SubscriptionSettings() {
           {status === "error" && (
             <div className="mt-1.5 text-[11px] text-red-600">Không tạo được link thanh toán, thử lại.</div>
           )}
+
+          <div className="my-2.5 flex items-center gap-2 text-[10px] font-bold uppercase tracking-wide text-neutral-400">
+            <span className="h-px flex-1 bg-[color:var(--color-divider)]" />
+            hoặc
+            <span className="h-px flex-1 bg-[color:var(--color-divider)]" />
+          </div>
+
+          <button
+            type="button"
+            className="btn btn-block px-4 py-2.5 text-[13px]"
+            style={{ background: "#ffc439", color: "#003087", borderColor: "var(--color-divider)" }}
+            onClick={checkoutPaypal}
+            disabled={paypalStatus === "loading"}
+          >
+            {paypalStatus === "loading" ? "Đang tạo link PayPal..." : `Thanh toán ${formatUsd(selectedPlan.priceUsd)} qua PayPal`}
+          </button>
+          {paypalStatus === "error" && (
+            <div className="mt-1.5 text-[11px] text-red-600">Không tạo được link PayPal, thử lại.</div>
+          )}
         </div>
       )}
 
       {!isUnlocked && !selectedPlan && (
-        <p className="text-[11px] text-neutral-600">Chọn 1 gói ở trên để thanh toán — quyền lợi sẽ tự động kích hoạt ngay sau khi chuyển khoản thành công.</p>
+        <p className="text-[11px] text-neutral-600">Chọn 1 gói ở trên để thanh toán — PayOS (VNĐ) cho người dùng Việt Nam, hoặc PayPal (USD) cho người nước ngoài. Quyền lợi sẽ tự động kích hoạt ngay sau khi thanh toán thành công.</p>
       )}
     </div>
   );

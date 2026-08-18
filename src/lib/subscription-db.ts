@@ -88,3 +88,48 @@ export async function markOrderPaidOnce(orderCode: string): Promise<boolean> {
     return true;
   });
 }
+
+// --- PayPal (international/USD checkout) ------------------------------------
+// Parallel bookkeeping for the PayPal option: same shape and flow as
+// payos_orders, but keyed by PayPal's own order id (returned when the order is
+// created, echoed back as `token` on the approval redirect, and needed by the
+// capture call), and priced in USD since PayPal has no VND. Money only moves on
+// capture — "paid" is set server-side right after PayPal confirms a capture
+// completed, never by the client.
+
+export interface PaypalOrder {
+  email: string;
+  cycle: BillingCycle;
+  priceUsd: number;
+  status: "pending" | "paid";
+  createdAt: number;
+  paidAt?: number;
+}
+
+export async function createPendingPaypalOrder(
+  paypalOrderId: string,
+  order: Omit<PaypalOrder, "status" | "createdAt">,
+): Promise<void> {
+  await getDb()
+    .collection("paypal_orders")
+    .doc(paypalOrderId)
+    .set({ ...order, status: "pending", createdAt: Date.now() } satisfies PaypalOrder);
+}
+
+export async function getPaypalOrder(paypalOrderId: string): Promise<PaypalOrder | null> {
+  const snap = await getDb().collection("paypal_orders").doc(paypalOrderId).get();
+  return snap.exists ? (snap.data() as PaypalOrder) : null;
+}
+
+/** Same idempotency guard as markOrderPaidOnce, for the capture step: a
+ * repeated capture (double-click, tab refresh on the return URL, retried
+ * redirect) must never extend paid access twice. */
+export async function markPaypalOrderPaidOnce(paypalOrderId: string): Promise<boolean> {
+  const ref = getDb().collection("paypal_orders").doc(paypalOrderId);
+  return getDb().runTransaction(async (tx) => {
+    const snap = await tx.get(ref);
+    if (!snap.exists || (snap.data() as PaypalOrder).status === "paid") return false;
+    tx.update(ref, { status: "paid", paidAt: Date.now() });
+    return true;
+  });
+}

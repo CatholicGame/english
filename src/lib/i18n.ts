@@ -180,6 +180,56 @@ export const STRINGS: Record<string, DictEntry> = {
     vi: "Mọi từ bạn từng tra cứu được tô màu ngay trong bài đọc — vô tình bắt gặp lại từng từ thường xuyên hơn, não ghi nhớ lâu hơn rất nhiều so với học một lần rồi quên.",
     en: "Every word you've ever looked up is highlighted right in your reading — you keep bumping into it, which cements it far better than learning it once and forgetting.",
   },
+
+  // ─── User guide (gear menu + first-run onboarding) ───────────────────
+  "settings.guide": { vi: "Hướng dẫn sử dụng", en: "User guide" },
+  "guide.title": { vi: "Hướng dẫn sử dụng", en: "User guide" },
+  "guide.subtitle": { vi: "Những điều cần biết để bắt đầu nhanh nhất.", en: "Everything you need to start fast." },
+  "guide.start.title": { vi: "🚀 Bắt đầu — lộ trình 3 giai đoạn", en: "🚀 Getting started — the 3-stage path" },
+  "guide.start.body": {
+    vi: "App dạy tiếng Anh theo lộ trình: giai đoạn 1 xây vốn từ vựng (Collocations & Phrasal Verbs), giai đoạn 2 giao tiếp tự nhiên (Idioms, Listen A Minute), giai đoạn 3 nâng cao IELTS (Cambridge IELTS Advanced). Bắt đầu từ Collocations, rồi mở dần các module khác.",
+    en: "The app teaches English along a path: stage 1 builds vocabulary (Collocations & Phrasal Verbs), stage 2 natural communication (Idioms, Listen A Minute), stage 3 IELTS mastery (Cambridge IELTS Advanced). Start with Collocations, then open the rest.",
+  },
+  "guide.practice.title": { vi: "✏️ Luyện tập & động lực", en: "✏️ Practice & motivation" },
+  "guide.practice.body": {
+    vi: "Mỗi module có nhiều chế độ luyện: quiz, viết, dịch, hội thoại với AI và discussion tự do. Mỗi lần AI chấm bài bạn nhận XP; streak cộng dồn mỗi ngày học. Xem tiến độ ở trang chủ.",
+    en: "Every module has several practice modes: quizzes, writing, translation, AI conversation and free discussion. Every AI-graded attempt earns XP; your streak grows each day you study. Track progress on the home page.",
+  },
+  "guide.ai.title": { vi: "🤖 AI trong app", en: "🤖 How the AI helps" },
+  "guide.ai.body": {
+    vi: "AI tự soạn quiz theo ngữ cảnh, đóng vai đối tác hội thoại, và chấm bài nói/viết theo band IELTS (module Cambridge). Ngôn ngữ phản hồi chọn trong Settings → 'Ngôn ngữ phản hồi AI' (Tiếng Việt hoặc English).",
+    en: "The AI builds context-based quizzes, roleplays a conversation partner, and grades speaking/writing with IELTS bands (Cambridge module). Pick the feedback language in Settings → 'AI feedback language' (Vietnamese or English).",
+  },
+  "guide.lookup.title": { vi: "🔍 Tra cứu & highlight", en: "🔍 Lookup & highlights" },
+  "guide.lookup.body": {
+    vi: "Bôi đen bất kỳ từ hoặc câu nào trong app → chọn 'Tra cứu' để xem nghĩa, hoặc 'Ngữ pháp' để AI phân tích cấu trúc. Từ đã tra được tự động tô màu trong bài đọc để bạn gặp lại và nhớ lâu hơn. Tất cả được lưu ở trang Từ điển.",
+    en: "Select any word or sentence in the app → tap 'Lookup' for the meaning, or 'Grammar' for AI structure analysis. Looked-up words are automatically highlighted in your reading so you meet them again and remember longer. Everything is saved on the Dictionary page.",
+  },
+  "guide.payment.title": { vi: "💳 Thanh toán & quyền lợi", en: "💳 Payment & access" },
+  "guide.payment.body": {
+    vi: "Mọi tài khoản có 7 ngày dùng thử với toàn bộ nội dung mở khoá. Hết thời gian thử, chọn gói để tiếp tục: PayOS (VNĐ) cho người Việt Nam, PayPal (USD) cho người nước ngoài. Quyền lợi tự động kích hoạt sau khi thanh toán thành công.",
+    en: "Every account gets a 7-day trial with everything unlocked. After the trial, pick a plan: PayOS (VND) for Vietnamese users, PayPal (USD) for international users. Access activates automatically once payment succeeds.",
+  },
+
+  // ─── First-run onboarding ────────────────────────────────────────────
+  "onboarding.welcome.title": { vi: "Chào mừng đến Vocabulary Builder Pro", en: "Welcome to Vocabulary Builder Pro" },
+  "onboarding.welcome.body": {
+    vi: "App dạy tiếng Anh theo 3 giai đoạn: 🌱 xây vốn từ vựng → 🗣️ giao tiếp tự nhiên → 🎯 nâng cao IELTS. Bạn có thể bắt đầu ngay với Collocations & Phrasal Verbs.",
+    en: "The app teaches English in 3 stages: 🌱 build vocabulary → 🗣️ communicate naturally → 🎯 IELTS mastery. You can start right away with Collocations & Phrasal Verbs.",
+  },
+  "onboarding.lookup.title": { vi: "Bôi đen là tra được ngay", en: "Select any text to look it up" },
+  "onboarding.lookup.body": {
+    vi: "Gặp từ lạ hay câu ngữ pháp rối? Bôi đen ngay tại chỗ → chọn 'Tra cứu' để xem nghĩa, hoặc 'Ngữ pháp' để AI phân tích cấu trúc. Mọi thứ diễn ra ngay trong app — không cần thoát ra tìm tài liệu khác.",
+    en: "Stuck on a word or a confusing sentence? Select it right there → tap 'Lookup' for the meaning, or 'Grammar' for AI structure analysis. Everything happens inside the app — no need to leave for other resources.",
+  },
+  "onboarding.highlight.title": { vi: "Từ đã tra sẽ được highlight", en: "Looked-up words stay highlighted" },
+  "onboarding.highlight.body": {
+    vi: "Những từ bạn từng tra cứu tự động được tô màu trong bài đọc — bạn vô tình bắt gặp lại mỗi ngày và nhớ lâu hơn hẳn. Xem lại tất cả ở trang Từ điển.",
+    en: "Words you've looked up are automatically highlighted in your reading — you keep running into them daily and remember them far longer. Review them all on the Dictionary page.",
+  },
+  "onboarding.next": { vi: "Tiếp", en: "Next" },
+  "onboarding.skip": { vi: "Bỏ qua", en: "Skip" },
+  "onboarding.done": { vi: "Bắt đầu học 🚀", en: "Start learning 🚀" },
 };
 
 const STORAGE_KEY = "english-ui-lang";

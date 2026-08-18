@@ -13,6 +13,7 @@ import { loadUiPrefs, saveUiPrefs, applyUiPrefs, type UiPrefs, type FontId } fro
 import { loadAiLangPrefs, saveAiLangPrefs, type AiLang } from "@/lib/ai-lang-prefs";
 import { useUiLang } from "@/lib/i18n";
 import { ShareButton } from "./ShareButton";
+import { UserGuide } from "./UserGuide";
 import { appOrigin } from "@/lib/app-url";
 
 const FONT_OPTIONS: { id: FontId; label: string }[] = [
@@ -76,6 +77,7 @@ export function AppHeader() {
   const [settingsOpen, setSettingsOpen] = useState(false);
   const settingsRef = useRef<HTMLDivElement>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [guideOpen, setGuideOpen] = useState(false);
   const { lang: uiLang, setUiLang, t } = useUiLang();
 
   useEffect(() => {
@@ -160,6 +162,16 @@ export function AppHeader() {
                 getUrl={() => appOrigin()}
                 label={t("settings.share.label")}
               />
+              <button
+                type="button"
+                className="mt-1.5 w-full text-left text-[12px] font-bold text-neutral-700 hover:text-accent-800"
+                onClick={() => {
+                  setGuideOpen(true);
+                  setSettingsOpen(false);
+                }}
+              >
+                📘 {t("settings.guide")}
+              </button>
             </div>
             <div className="divider-b">
               <SubscriptionSettings />
@@ -242,6 +254,7 @@ export function AppHeader() {
         )}
       </div>
       <AuthStatus />
+      {guideOpen && <UserGuide onClose={() => setGuideOpen(false)} />}
     </header>
   );
 }

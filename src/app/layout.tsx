@@ -3,6 +3,7 @@ import { Archivo, Nunito, Lora } from "next/font/google";
 import { AppHeader } from "@/components/AppHeader";
 import { GlobalDictionaryLookup } from "@/components/GlobalDictionaryLookup";
 import { DriveQuotaWarning } from "@/components/DriveQuotaWarning";
+import { OnboardingGuide } from "@/components/OnboardingGuide";
 import { AuthProvider } from "@/lib/auth-context";
 import { GlobalScoreProvider } from "@/lib/global-score-context";
 import "./globals.css";
@@ -44,6 +45,7 @@ export default function RootLayout({
             <DriveQuotaWarning />
             {children}
             <GlobalDictionaryLookup />
+            <OnboardingGuide />
           </AuthProvider>
         </GlobalScoreProvider>
       </body>

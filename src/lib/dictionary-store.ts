@@ -3,6 +3,8 @@
 // ai-convo-store.ts, but it's a single global list (not split per module) since
 // it's meant to be one shared "my dictionary" across the whole app.
 
+import { gradeSrs, isDueSrs, type SrsState } from "./srs";
+
 export interface VocabExample {
   en: string;
   vi: string;
@@ -43,6 +45,9 @@ export interface DictionaryEntry extends VocabEntry {
   context?: string;
   createdAt: number;
   updatedAt: number;
+  /** Spaced-repetition schedule for this entry (see srs.ts) — absent means
+   * "never reviewed", which counts as due immediately. */
+  srs?: SrsState;
 }
 
 export type DictionaryData = Record<string, DictionaryEntry>;
@@ -91,6 +96,21 @@ export function withEntryDeleted(all: DictionaryData, key: string): DictionaryDa
   const next = { ...all };
   delete next[key];
   return next;
+}
+
+/** Grades a review of this entry (see srs.ts) and reschedules its next
+ * review date. `updatedAt` is bumped too, so the review outcome — not just
+ * a stale earlier edit — wins the local/cloud merge. */
+export function withEntryReviewed(all: DictionaryData, key: string, ok: boolean, now: number = Date.now()): DictionaryData {
+  const existing = all[key];
+  if (!existing) return all;
+  return { ...all, [key]: { ...existing, srs: gradeSrs(existing.srs, ok, now), updatedAt: now } };
+}
+
+/** Keys due for review right now — never-reviewed entries (no `srs` yet)
+ * count as due immediately. */
+export function dueDictionaryKeys(all: DictionaryData, now: number = Date.now()): string[] {
+  return Object.keys(all).filter((k) => isDueSrs(all[k].srs, now));
 }
 
 /** Union-merge cloud and local copies, keeping the newer version of each entry. */

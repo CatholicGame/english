@@ -5,11 +5,13 @@ import { useAuth } from "./auth-context";
 import { dayKey } from "./utils";
 import { addGlobalXP } from "./global-score";
 import { computeStreak } from "./stats";
+import { gradeSrs, type SrsState } from "./srs";
 
 export interface ProgressEntry {
   l: number;
   t: number;
   nextReview?: number; // timestamp — when this item should be reviewed next (SRS)
+  srs?: SrsState; // real per-item ease-factor scheduling (see srs.ts); nextReview above mirrors srs.nextReview for callers that only need the date
 }
 export type ProgressMap = Record<string, ProgressEntry>;
 export type DaysMap = Record<string, number>;
@@ -90,19 +92,6 @@ function pushToCloud(storageKey: string, state: ProgressState, onReauthRequired:
     });
 }
 
-// SRS intervals in milliseconds
-function srsInterval(level: number): number {
-  const intervals: Record<number, number> = {
-    0: 0,                   // due now
-    1: 4 * 60 * 60 * 1000,  // 4 hours
-    2: 24 * 60 * 60 * 1000, // 1 day
-    3: 3 * 24 * 60 * 60 * 1000, // 3 days
-    4: 7 * 24 * 60 * 60 * 1000, // 7 days
-    5: 30 * 24 * 60 * 60 * 1000, // 30 days
-  };
-  return intervals[Math.max(0, Math.min(5, level))] ?? 0;
-}
-
 export function ProgressProvider({
   storageKey,
   children,
@@ -155,14 +144,17 @@ export function ProgressProvider({
   const grade = useCallback(
     (key: string, ok: boolean) => {
       setState((prev) => {
+        const now = Date.now();
         const cur = prev.progress[key]?.l ?? 0;
         const newLvl = Math.max(0, Math.min(5, ok ? cur + 1 : cur - 1));
+        const srs = gradeSrs(prev.progress[key]?.srs, ok, now);
         const nextProgress: ProgressMap = {
           ...prev.progress,
           [key]: {
             l: newLvl,
-            t: Date.now(),
-            nextReview: Date.now() + srsInterval(ok ? newLvl : 0),
+            t: now,
+            nextReview: srs.nextReview,
+            srs,
           },
         };
         const k = dayKey(new Date());

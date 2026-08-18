@@ -7,6 +7,7 @@ import {
   mergeDictionary,
   persistDictionary,
   withEntryDeleted,
+  withEntryReviewed,
   withEntrySaved,
   type DictionaryData,
   type DictionaryEntry,
@@ -114,5 +115,14 @@ export function useDictionaryStore() {
     [schedulePush],
   );
 
-  return { entries: all, getEntry, saveEntry, deleteEntry };
+  const reviewEntry = useCallback(
+    (key: string, ok: boolean) => {
+      const next = withEntryReviewed(getStore().data, key, ok);
+      setData(next);
+      schedulePush(next);
+    },
+    [schedulePush],
+  );
+
+  return { entries: all, getEntry, saveEntry, deleteEntry, reviewEntry };
 }

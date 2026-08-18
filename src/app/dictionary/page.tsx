@@ -4,9 +4,10 @@ import { useMemo, useState } from "react";
 import { useDictionaryStore } from "@/lib/use-dictionary-store";
 import { useTranslationStore } from "@/lib/use-translation-store";
 import { useGrammarStore } from "@/lib/use-grammar-store";
-import { VOCAB_CATEGORY_META, type VocabCategory } from "@/lib/dictionary-store";
+import { VOCAB_CATEGORY_META, dueDictionaryKeys, type VocabCategory } from "@/lib/dictionary-store";
 import { VocabEntryDetail, CategoryBadge } from "@/components/VocabEntryDetail";
 import { GrammarPopup } from "@/components/GrammarPopup";
+import { DictionaryReview } from "@/components/DictionaryReview";
 
 type Tab = "vocab" | "translations" | "grammar";
 
@@ -61,8 +62,11 @@ export default function DictionaryPage() {
 }
 
 function VocabTab({ query }: { query: string }) {
-  const { entries, deleteEntry } = useDictionaryStore();
+  const { entries, deleteEntry, reviewEntry } = useDictionaryStore();
   const [openKey, setOpenKey] = useState<string | null>(null);
+  const [reviewing, setReviewing] = useState(false);
+
+  const dueKeys = useMemo(() => dueDictionaryKeys(entries), [entries]);
 
   const list = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -81,6 +85,21 @@ function VocabTab({ query }: { query: string }) {
 
   return (
     <div className="flex flex-col gap-2">
+      <button
+        type="button"
+        className="btn btn-primary mb-1 w-full py-2.5 text-[13px]"
+        onClick={() => setReviewing(true)}
+      >
+        🔁 Ôn tập {dueKeys.length > 0 ? `(${dueKeys.length} từ đến hạn)` : "(không có từ đến hạn)"}
+      </button>
+      {reviewing && (
+        <DictionaryReview
+          entries={entries}
+          dueKeys={dueKeys}
+          onReview={reviewEntry}
+          onClose={() => setReviewing(false)}
+        />
+      )}
       <div className="mb-1 flex flex-wrap gap-x-3 gap-y-1">
         {(Object.keys(VOCAB_CATEGORY_META) as VocabCategory[]).map((c) => (
           <CategoryBadge key={c} category={c} />

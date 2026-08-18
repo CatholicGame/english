@@ -3,6 +3,7 @@ import { readSession } from "@/lib/google-oauth";
 import { resolveAdminRole } from "@/lib/admin";
 import { listSubAdmins } from "@/lib/admin-db";
 import { listSubscriptions } from "@/lib/subscription-db";
+import { listFeedback } from "@/lib/feedback-db";
 import { AdminDashboard } from "./AdminDashboard";
 
 export default async function AdminPage() {
@@ -14,6 +15,7 @@ export default async function AdminPage() {
   subscriptions.sort((a, b) => b.updatedAt - a.updatedAt);
 
   const subAdmins = role === "super" ? await listSubAdmins() : [];
+  const feedback = await listFeedback();
 
-  return <AdminDashboard subscriptions={subscriptions} role={role} subAdmins={subAdmins} />;
+  return <AdminDashboard subscriptions={subscriptions} role={role} subAdmins={subAdmins} feedback={feedback} />;
 }

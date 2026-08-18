@@ -15,6 +15,8 @@ import {
 type Row = SubscriptionData & { email: string };
 type SubAdmin = { email: string; addedBy: string; addedAt: number };
 type Role = "super" | "viewer";
+type FeedbackRow = { id: string; email: string; rating: number; message?: string; context: "settings" | "prompt"; createdAt: number };
+type Tab = "subscriptions" | "feedback";
 
 const PAGE_SIZE = 20;
 
@@ -123,12 +125,15 @@ export function AdminDashboard({
   subscriptions,
   role,
   subAdmins,
+  feedback,
 }: {
   subscriptions: Row[];
   role: Role;
   subAdmins: SubAdmin[];
+  feedback: FeedbackRow[];
 }) {
   const router = useRouter();
+  const [tab, setTab] = useState<Tab>("subscriptions");
   const [pending, setPending] = useState<string | null>(null);
   const [cycleByEmail, setCycleByEmail] = useState<Record<string, BillingCycle>>({});
   const [newAdminEmail, setNewAdminEmail] = useState("");
@@ -231,7 +236,31 @@ export function AdminDashboard({
 
   return (
     <div className="mx-auto max-w-[1100px] px-4 py-8">
-      <h1 className="text-[22px] font-extrabold">Quản lý subscription</h1>
+      <div className="divider-b flex gap-1">
+        {([
+          { id: "subscriptions", label: "Subscription" },
+          { id: "feedback", label: `Phản hồi${feedback.length ? ` (${feedback.length})` : ""}` },
+        ] as const).map((tb) => (
+          <button
+            key={tb.id}
+            type="button"
+            className="px-3 py-3 text-[13px] font-extrabold"
+            style={{
+              color: tab === tb.id ? "var(--color-accent)" : "var(--color-neutral-600)",
+              borderBottom: tab === tb.id ? "2px solid var(--color-accent)" : "2px solid transparent",
+            }}
+            onClick={() => setTab(tb.id)}
+          >
+            {tb.label}
+          </button>
+        ))}
+      </div>
+
+      {tab === "feedback" && <FeedbackTab feedback={feedback} />}
+
+      {tab === "subscriptions" && (
+      <>
+      <h1 className="mt-6 text-[22px] font-extrabold">Quản lý subscription</h1>
       <p className="mt-1 text-[13px] text-neutral-600">
         {search ? `${filtered.length}/${subscriptions.length}` : subscriptions.length} tài khoản
         {totalPages > 1 && ` — trang ${safePage}/${totalPages}`}.{" "}
@@ -441,6 +470,69 @@ export function AdminDashboard({
               </li>
             ))}
           </ul>
+        </div>
+      )}
+      </>
+      )}
+    </div>
+  );
+}
+
+function Stars({ rating }: { rating: number }) {
+  return (
+    <span style={{ color: "var(--color-accent)" }}>
+      {"★".repeat(rating)}
+      <span style={{ color: "var(--color-divider)" }}>{"★".repeat(5 - rating)}</span>
+    </span>
+  );
+}
+
+function FeedbackTab({ feedback }: { feedback: FeedbackRow[] }) {
+  const [page, setPage] = useState(1);
+  const totalPages = Math.max(1, Math.ceil(feedback.length / PAGE_SIZE));
+  const safePage = Math.min(page, totalPages);
+  const pageItems = feedback.slice((safePage - 1) * PAGE_SIZE, safePage * PAGE_SIZE);
+  const avgRating = feedback.length ? feedback.reduce((sum, f) => sum + f.rating, 0) / feedback.length : 0;
+
+  return (
+    <div className="mt-6">
+      <h1 className="text-[22px] font-extrabold">Phản hồi người dùng</h1>
+      <p className="mt-1 text-[13px] text-neutral-600">
+        {feedback.length} lượt đánh giá
+        {feedback.length > 0 && ` — trung bình ${avgRating.toFixed(1)}/5 ⭐`}
+        {totalPages > 1 && ` — trang ${safePage}/${totalPages}`}.
+      </p>
+
+      {feedback.length === 0 && <p className="mt-4 text-[13px] text-neutral-600">Chưa có phản hồi nào.</p>}
+
+      <div className="mt-4 flex flex-col gap-3">
+        {pageItems.map((f) => (
+          <div key={f.id} className="border p-3" style={{ borderColor: "var(--color-divider)" }}>
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <span className="flex items-center gap-2 text-[15px]">
+                <Stars rating={f.rating} />
+                <span className="text-[12px] font-bold text-neutral-600">{f.email}</span>
+              </span>
+              <span className="text-[12px] text-neutral-500">
+                {new Date(f.createdAt).toLocaleString("vi-VN")} · {f.context === "prompt" ? "gợi ý tự động" : "menu Cài đặt"}
+              </span>
+            </div>
+            {f.message && <p className="mt-2 text-[13px] leading-relaxed">{f.message}</p>}
+          </div>
+        ))}
+      </div>
+
+      {totalPages > 1 && (
+        <div className="mt-3 flex items-center justify-center gap-3 text-[13px]">
+          <button className="btn btn-secondary" disabled={safePage <= 1} onClick={() => setPage(safePage - 1)}>
+            ‹ Trước
+          </button>
+          <span className="text-neutral-600">
+            Trang {safePage}/{totalPages}
+          </span>
+          <button className="btn btn-secondary" disabled={safePage >= totalPages} onClick={() => setPage(safePage + 1)}>
+            Sau ›
+          </button>
         </div>
       )}
     </div>

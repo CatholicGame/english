@@ -7,7 +7,7 @@ import { useSearchParams } from "next/navigation";
 import logo from "@/assets/logo/logo.png";
 import { Modal } from "@/components/Modal";
 import { trackEvent } from "@/lib/firebase-client";
-import { useUiLang, STRINGS } from "@/lib/i18n";
+import { useUiLang } from "@/lib/i18n";
 
 interface BaseFeature {
   emoji: string;
@@ -41,28 +41,11 @@ interface FeatureGroup {
   features: Feature[];
 }
 
-/** Renders a dictionary entry in BOTH languages (EN block then VI block), each
- * tagged with a tiny language badge — English learners get the original text
- * plus a Vietnamese check, instead of a single-language block. */
-function BilingualBlock({ entry }: { entry: { vi: string; en: string } }) {
-  return (
-    <div className="mt-1 flex flex-col gap-1">
-      <p className="text-[12px] leading-relaxed text-neutral-700">
-        <span className="mr-1.5 inline-block rounded bg-neutral-100 px-1 py-px align-middle text-[9px] font-extrabold text-neutral-500">EN</span>
-        {entry.en}
-      </p>
-      <p className="text-[12px] leading-relaxed text-neutral-600">
-        <span className="mr-1.5 inline-block rounded bg-neutral-100 px-1 py-px align-middle text-[9px] font-extrabold text-neutral-500">VI</span>
-        {entry.vi}
-      </p>
-    </div>
-  );
-}
-
 /** Organized as a learning path — vocabulary foundation → natural
  * communication → IELTS-level mastery — plus supporting systems. Every module
  * first answers "why learn this?" before explaining how the app makes it
- * effective, so it reads as pedagogy, not a dry feature list. */
+ * effective, so it reads as pedagogy, not a dry feature list. Content follows
+ * the selected UI language (single-language, like the rest of the app). */
 const FEATURE_GROUPS: FeatureGroup[] = [
   {
     stageKey: "feature.stage.vocab",
@@ -185,15 +168,15 @@ export function LoginScreen() {
                         <div className="mt-1.5 flex flex-col gap-2">
                           <div>
                             <div className="text-[10px] font-extrabold uppercase tracking-wide text-accent">{t("feature.whyLabel")}</div>
-                            <BilingualBlock entry={STRINGS[f.whyKey] ?? { vi: "", en: "" }} />
+                            <p className="mt-0.5 text-[12px] leading-relaxed text-neutral-600">{t(f.whyKey)}</p>
                           </div>
                           <div>
                             <div className="text-[10px] font-extrabold uppercase tracking-wide text-accent">{t("feature.howLabel")}</div>
-                            <BilingualBlock entry={STRINGS[f.howKey] ?? { vi: "", en: "" }} />
+                            <p className="mt-0.5 text-[12px] leading-relaxed text-neutral-600">{t(f.howKey)}</p>
                           </div>
                         </div>
                       ) : (
-                        <BilingualBlock entry={STRINGS[f.bodyKey] ?? { vi: "", en: "" }} />
+                        <p className="mt-0.5 text-[12px] leading-relaxed text-neutral-600">{t(f.bodyKey)}</p>
                       )}
                     </div>
                   ))}

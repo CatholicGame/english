@@ -166,8 +166,6 @@ export const STRINGS: Record<string, DictEntry> = {
   },
   "feature.whyLabel": { vi: "Tại sao cần học?", en: "Why learn this?" },
   "feature.howLabel": { vi: "Vocabulary Builder Pro giúp thế nào?", en: "How Vocabulary Builder Pro helps" },
-  "langTag.en": { vi: "EN", en: "EN" },
-  "langTag.vi": { vi: "VI", en: "VI" },
 
   // ─── Login — learning-path stage headers ─────────────────────────────
   "feature.stage.vocab": { vi: "🌱 Giai đoạn 1 · Xây vốn từ vựng", en: "🌱 Stage 1 · Build your vocabulary" },

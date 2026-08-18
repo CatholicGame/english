@@ -8,8 +8,10 @@ interface Props {
   contentClassName?: string;
 }
 
-/** Bottom-sheet-style popup shared by every full-screen overlay in the app
- * (word lookup, conversation feedback, ...). Click the backdrop or ✕ to close.
+/** Dialog-style popup shared by every full-screen overlay in the app
+ * (word lookup, conversation feedback, key features, ...). Vertically centered
+ * with the sheet capped at 75vh, so content never gets anchored to the bottom
+ * leaving an empty top. Click the backdrop or ✕ to close.
  * While open, the background page is scroll-locked three ways so swiping/wheel
  * can never drag the page behind the sheet:
  *   1. body overflow:hidden for the whole mount,
@@ -48,7 +50,7 @@ export function Modal({ onClose, children, contentClassName }: Props) {
     <div
       ref={overlayRef}
       data-lookup-ignore
-      className="fixed inset-0 z-[70] flex items-end justify-center"
+      className="fixed inset-0 z-[70] flex items-center justify-center"
       onClick={onClose}
     >
       <div className="absolute inset-0 bg-black/40" />

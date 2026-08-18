@@ -112,6 +112,18 @@ export function AppHeader() {
     return () => document.removeEventListener("mousedown", onClick);
   }, [settingsOpen]);
 
+  // Lock the background page while the settings menu is open, same as Modal
+  // does for full-screen popups. Otherwise swiping scrolls the page behind
+  // the dropdown on mobile.
+  useEffect(() => {
+    if (!settingsOpen) return;
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [settingsOpen]);
+
   function updatePrefs(next: Partial<UiPrefs>) {
     setPrefs((prev) => {
       const merged = { ...prev, ...next };
@@ -153,7 +165,10 @@ export function AppHeader() {
           <GearIcon />
         </button>
         {settingsOpen && (
-          <div className="absolute top-full right-0 mt-2 w-64 border border-[color:var(--color-divider)] bg-bg shadow-lg">
+          <div
+            className="absolute top-full right-0 mt-2 w-64 max-h-[calc(100vh-56px)] overflow-y-auto border border-[color:var(--color-divider)] bg-bg shadow-lg"
+            style={{ overscrollBehavior: "contain" }}
+          >
             <div className="divider-b px-3 py-2">
               <ShareButton
                 className="w-full text-left text-[12px] font-bold text-neutral-700 hover:text-accent-800"

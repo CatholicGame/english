@@ -22,10 +22,14 @@ const DAY_MS = 24 * 60 * 60 * 1000;
 
 // Cost-control cap on /api/ai calls (see docs/launch-checklist.md "Kiểm soát
 // chi phí AI") — same limit regardless of plan/cycle, since every paid plan
-// grants the same access, just for a different duration. 40/day sits well
-// above realistic heavy usage (~20/day) while bounding worst-case DeepSeek
-// spend for a single account far below even the cheapest plan's daily price.
-export const AI_DAILY_CALL_LIMIT = 40;
+// grants the same access, just for a different duration. Each turn of a
+// conversation (Converse/Discussion) counts as its own call, so a single
+// study session easily uses 15-30 calls — 100/day gives real headroom for
+// that while still bounding worst-case DeepSeek spend below even the
+// cheapest plan's daily price. Based on measured deepseek-v4-flash cost
+// (~13.7đ/call avg from DeepSeek's own usage dashboard, 2026-08-18):
+// 100 × 13.7đ ≈ 1,370đ/day vs. 1,667đ/day revenue on the 1-month plan.
+export const AI_DAILY_CALL_LIMIT = 100;
 
 // 1 month is deliberately the most expensive per-month rate — longer
 // commitments get a steadily bigger discount (13% / 27% / 40% off the

@@ -7,43 +7,55 @@ import { useSearchParams } from "next/navigation";
 import logo from "@/assets/logo/logo.png";
 import { Modal } from "@/components/Modal";
 import { trackEvent } from "@/lib/firebase-client";
+import { useUiLang } from "@/lib/i18n";
 
-const FEATURES = [
+interface Feature {
+  emoji: string;
+  /** Static title used as-is (same word in both UI languages). */
+  title?: string;
+  /** Dictionary key for a title that differs between UI languages. */
+  titleKey?: string;
+  bodyKey: string;
+  badgeKey?: string;
+}
+
+const FEATURES: Feature[] = [
   {
     emoji: "🧩",
     title: "Collocations & Phrasal Verbs",
-    body: "Không học vẹt: AI tự soạn quiz ngữ cảnh riêng cho từng từ (và giảng vì sao các đáp án khác sai), vào vai bạn trò chuyện để bạn luyện dùng từ trong hội thoại thật, rồi chấm từng câu bạn viết/dịch kèm sửa lỗi tức thì. 7 chế độ ôn tập ngắt quãng lo phần ghi nhớ lâu dài.",
+    bodyKey: "feature.cpv.body",
   },
   {
     emoji: "📖",
     title: "Cambridge Vocabulary for IELTS Advanced",
-    body: "Không phải danh sách từ suông — mỗi unit bám sát giáo trình Cambridge. AI chấm điểm band IELTS thật cho bài nói & bài viết của bạn, kèm nhận xét chi tiết như giám khảo, và đóng vai đối tác hội thoại để luyện phản xạ như thi thật.",
+    bodyKey: "feature.cambridge.body",
   },
   {
     emoji: "🎧",
     title: "Listen A Minute",
-    body: "Hàng trăm bài nghe 1 phút theo chủ đề để luyện phản xạ mỗi ngày. Nghe xong, AI bắt chuyện ngay về chính chủ đề đó — vừa luyện nói vừa được AI nhận xét cách diễn đạt của bạn tại chỗ.",
+    bodyKey: "feature.listen.body",
   },
   {
     emoji: "💬",
     title: "Idiom",
-    body: "Mảnh ghép cuối của bộ ba collocation – phrasal verb – idiom để nói tự nhiên như người bản ngữ. AI sẽ ra quiz, trò chuyện và chấm cách dùng idiom đúng ngữ cảnh — y hệt trải nghiệm bạn đã quen ở các module trên.",
-    badge: "Sắp ra mắt",
+    bodyKey: "feature.idiom.body",
+    badgeKey: "feature.idiom.badge",
   },
   {
     emoji: "🔍",
-    title: "Tra cứu & Ngữ pháp tức thì",
-    body: "Đang đọc mà gặp từ lạ hay câu ngữ pháp rối? Bôi đen ngay tại chỗ, ở bất cứ đâu trong app — AI giải nghĩa hoặc phân tích cấu trúc câu tức thì, bằng đúng ngôn ngữ bạn chọn trong Cài đặt.",
+    titleKey: "feature.lookup.title",
+    bodyKey: "feature.lookup.body",
   },
   {
     emoji: "🔥",
-    title: "Streak & XP",
-    body: "Mỗi lần AI chấm bài — quiz, hội thoại, bài viết — bạn nhận XP ngay lập tức. Chuỗi ngày học được giữ vững nhờ động lực thật từ kết quả AI chấm, không phải điểm ảo vô nghĩa.",
+    titleKey: "feature.streak.title",
+    bodyKey: "feature.streak.body",
   },
 ];
 
 export function LoginScreen() {
   const searchParams = useSearchParams();
+  const { t } = useUiLang();
   const returnTo = searchParams.get("returnTo") ?? "/";
   const [showFeatures, setShowFeatures] = useState(false);
 
@@ -60,13 +72,13 @@ export function LoginScreen() {
         />
         <h1 className="mt-4 text-[30px] lg:text-[40px]">Vocabulary Builder Pro</h1>
         <p className="mt-2 text-[13px] leading-relaxed text-neutral-600 lg:mt-4 lg:max-w-[440px] lg:text-[15px]">
-          Đăng nhập với Google để đồng bộ tiến độ học tập an toàn giữa các thiết bị.
+          {t("login.subtitle")}
         </p>
         <button
           className="btn btn-ghost mt-3 px-0 text-[13px] font-bold text-accent-800"
           onClick={() => setShowFeatures(true)}
         >
-          ✨ Xem tính năng nổi bật
+          {t("login.features")}
         </button>
       </div>
       <div className="lg:w-[320px] lg:flex-none">
@@ -75,30 +87,29 @@ export function LoginScreen() {
           onClick={() => trackEvent("login", { method: "google" })}
           className="btn btn-primary mt-6 w-full px-4 py-3 lg:mt-0"
         >
-          Đăng nhập với Google
+          {t("auth.signin")}
         </a>
         <p className="mt-3 text-center text-[11px] text-neutral-500 lg:text-left">
-          Bằng việc đăng nhập, bạn đồng ý với{" "}
-          <Link href="/terms" className="underline">Điều khoản dịch vụ</Link> và{" "}
-          <Link href="/privacy" className="underline">Chính sách quyền riêng tư</Link>.
+          {t("login.bySigningIn")}{" "}
+          <Link href="/terms" className="underline">{t("login.terms")}</Link> {t("login.and")}{" "}
+          <Link href="/privacy" className="underline">{t("login.privacy")}</Link>.
         </p>
       </div>
       {showFeatures && (
         <Modal onClose={() => setShowFeatures(false)} contentClassName="lg:max-w-[720px]">
-          <h2 className="mb-1 text-[20px] font-extrabold">Vì sao chọn Vocabulary Builder Pro?</h2>
+          <h2 className="mb-1 text-[20px] font-extrabold">{t("login.why")}</h2>
           <p className="mb-4 text-[13px] leading-relaxed text-neutral-600">
-            Không chỉ học từ — luyện dùng từ thật với AI: ra quiz riêng cho bạn, trò chuyện, chấm bài tức thì. Xây vốn
-            từ giao tiếp lẫn học thuật, hướng tới IELTS band 6.5–9, nhớ lâu chứ không học vẹt.
+            {t("login.whyBody")}
           </p>
           <div className="flex flex-col gap-3">
             {FEATURES.map((f) => (
-              <div key={f.title} className="divider-b pb-3 last:border-b-0 last:pb-0">
+              <div key={f.bodyKey} className="divider-b pb-3 last:border-b-0 last:pb-0">
                 <div className="flex items-center gap-2">
                   <span className="text-[18px]">{f.emoji}</span>
-                  <span className="text-[14px] font-extrabold">{f.title}</span>
-                  {f.badge && <span className="label-xs text-accent">{f.badge}</span>}
+                  <span className="text-[14px] font-extrabold">{f.titleKey ? t(f.titleKey) : f.title}</span>
+                  {f.badgeKey && <span className="label-xs text-accent">{t(f.badgeKey)}</span>}
                 </div>
-                <p className="mt-1 text-[12px] leading-relaxed text-neutral-600">{f.body}</p>
+                <p className="mt-1 text-[12px] leading-relaxed text-neutral-600">{t(f.bodyKey)}</p>
               </div>
             ))}
           </div>

@@ -11,6 +11,7 @@ import { VoiceSettings } from "./VoiceSettings";
 import { SubscriptionSettings } from "./SubscriptionSettings";
 import { loadUiPrefs, saveUiPrefs, applyUiPrefs, type UiPrefs, type FontId } from "@/lib/ui-prefs";
 import { loadAiLangPrefs, saveAiLangPrefs, type AiLang } from "@/lib/ai-lang-prefs";
+import { useUiLang } from "@/lib/i18n";
 import { ShareButton } from "./ShareButton";
 import { appOrigin } from "@/lib/app-url";
 
@@ -75,6 +76,7 @@ export function AppHeader() {
   const [settingsOpen, setSettingsOpen] = useState(false);
   const settingsRef = useRef<HTMLDivElement>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const { lang: uiLang, setUiLang, t } = useUiLang();
 
   useEffect(() => {
     const p = loadUiPrefs();
@@ -134,18 +136,18 @@ export function AppHeader() {
         <span className="truncate">Vocabulary Builder Pro</span>
       </Link>
       <GlobalScoreBadge className="text-[12px]" />
-      <Link href="/dictionary" className="btn btn-ghost btn-icon" aria-label="Từ điển của tôi">
+      <Link href="/dictionary" className="btn btn-ghost btn-icon" aria-label={t("dictionary.my")}>
         <BookIcon />
       </Link>
       <button
         className="btn btn-ghost btn-icon"
         onClick={toggleFullscreen}
-        aria-label={isFullscreen ? "Thoát toàn màn hình" : "Toàn màn hình"}
+        aria-label={isFullscreen ? t("fullscreen.exit") : t("fullscreen.enter")}
       >
         {isFullscreen ? <FullscreenExitIcon /> : <FullscreenEnterIcon />}
       </button>
       <div ref={settingsRef} className="relative">
-        <button className="btn btn-ghost btn-icon" onClick={() => setSettingsOpen((o) => !o)} aria-label="Cài đặt">
+        <button className="btn btn-ghost btn-icon" onClick={() => setSettingsOpen((o) => !o)} aria-label={t("settings.aria")}>
           <GearIcon />
         </button>
         {settingsOpen && (
@@ -154,9 +156,9 @@ export function AppHeader() {
               <ShareButton
                 className="w-full text-left text-[12px] font-bold text-neutral-700 hover:text-accent-800"
                 title="Vocabulary Builder Pro"
-                text="Học tiếng Anh cụm động từ & collocations mỗi ngày cùng Vocabulary Builder Pro"
+                text={t("settings.share.text")}
                 getUrl={() => appOrigin()}
-                label="Chia sẻ Vocabulary Builder Pro"
+                label={t("settings.share.label")}
               />
             </div>
             <div className="divider-b">
@@ -164,7 +166,26 @@ export function AppHeader() {
             </div>
             <VoiceSettings />
             <div className="divider-t px-3 py-2">
-              <div className="label-xs mb-1.5">Ngôn ngữ phản hồi AI</div>
+              <div className="label-xs mb-1.5">{t("settings.uiLang")}</div>
+              <div className="flex flex-wrap gap-1.5">
+                {AI_LANG_OPTIONS.map((l) => (
+                  <button
+                    key={l.id}
+                    onClick={() => setUiLang(l.id)}
+                    className="rounded-full px-2.5 py-1 text-[12px] font-bold"
+                    style={{
+                      background: uiLang === l.id ? "var(--color-accent)" : "var(--color-surface)",
+                      color: uiLang === l.id ? "#fff" : "var(--color-text)",
+                      border: uiLang === l.id ? "none" : "1px solid var(--color-divider)",
+                    }}
+                  >
+                    {l.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+            <div className="divider-t px-3 py-2">
+              <div className="label-xs mb-1.5">{t("settings.aiLang")}</div>
               <div className="flex flex-wrap gap-1.5">
                 {AI_LANG_OPTIONS.map((l) => (
                   <button
@@ -186,7 +207,7 @@ export function AppHeader() {
               </div>
             </div>
             <div className="divider-t px-3 py-2">
-              <div className="label-xs mb-1.5">Font</div>
+              <div className="label-xs mb-1.5">{t("settings.font")}</div>
               <div className="flex flex-wrap gap-1.5">
                 {FONT_OPTIONS.map((f) => (
                   <button
@@ -205,7 +226,7 @@ export function AppHeader() {
               </div>
             </div>
             <div className="divider-t px-3 py-2">
-              <div className="label-xs mb-1.5">Size: {Math.round(prefs.zoom * 100)}%</div>
+              <div className="label-xs mb-1.5">{t("settings.size", { pct: Math.round(prefs.zoom * 100) })}</div>
               <input
                 type="range"
                 min={0.875}

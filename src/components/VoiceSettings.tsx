@@ -2,8 +2,10 @@
 
 import { useEffect, useState } from "react";
 import { getEnglishVoices, getPreferredVoiceURI, setPreferredVoiceURI, speak } from "@/lib/utils";
+import { useUiLang } from "@/lib/i18n";
 
 export function VoiceSettings() {
+  const { t } = useUiLang();
   const [voices, setVoices] = useState<SpeechSynthesisVoice[]>([]);
   const [selected, setSelected] = useState("");
 
@@ -29,7 +31,7 @@ export function VoiceSettings() {
 
   return (
     <div className="px-3 py-2">
-      <div className="label-xs mb-1.5">Giọng đọc</div>
+      <div className="label-xs mb-1.5">{t("settings.voice")}</div>
       <select
         className="input text-[13px]"
         value={selected}

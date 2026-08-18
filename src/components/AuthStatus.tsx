@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { useAuth } from "@/lib/auth-context";
 import { trackEvent } from "@/lib/firebase-client";
+import { useUiLang } from "@/lib/i18n";
 
 function LogoutIcon() {
   return (
@@ -43,6 +44,7 @@ function ProfileIcon() {
 export function AuthStatus() {
   const pathname = usePathname();
   const { loading, authenticated, user, setLoggedOut } = useAuth();
+  const { t } = useUiLang();
   const [open, setOpen] = useState(false);
   const [signingOut, setSigningOut] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
@@ -71,7 +73,7 @@ export function AuthStatus() {
       <button
         className="btn btn-icon overflow-hidden"
         onClick={() => setOpen((o) => !o)}
-        aria-label="Tài khoản"
+        aria-label={t("auth.account")}
       >
         {authenticated && user?.picture ? (
           // eslint-disable-next-line @next/next/no-img-element -- external Google avatar, not worth next/image config for one small icon
@@ -91,11 +93,11 @@ export function AuthStatus() {
                 disabled={signingOut}
               >
                 <LogoutIcon />
-                Đăng xuất
+                {t("auth.signout")}
               </button>
             ) : (
               <a href="/login" className="btn btn-ghost w-full justify-start px-0">
-                Đăng nhập với Google
+                {t("auth.signin")}
               </a>
             )}
           </div>

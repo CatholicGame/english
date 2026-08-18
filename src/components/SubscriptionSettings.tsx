@@ -12,6 +12,7 @@
 
 import { useState } from "react";
 import { useSubscriptionStore } from "@/lib/use-subscription-store";
+import { useUiLang } from "@/lib/i18n";
 import {
   PRICING_PLANS,
   isPaidActive,
@@ -21,13 +22,14 @@ import {
   type BillingCycle,
 } from "@/lib/subscription-store";
 
-function savingsLabel(plan: PricingPlan): string | null {
+/** Returns the % saving vs. buying month-to-month, or null when not applicable. */
+function savingsPct(plan: PricingPlan): number | null {
   if (plan.cycle === "monthly") return null;
   const monthly = PRICING_PLANS.find((p) => p.cycle === "monthly");
   if (!monthly) return null;
   const baseline = monthly.priceVnd * plan.months;
   const pct = Math.round((1 - plan.priceVnd / baseline) * 100);
-  return pct > 0 ? `Tiết kiệm ${pct}%` : null;
+  return pct > 0 ? pct : null;
 }
 
 function formatVnd(n: number): string {
@@ -40,6 +42,7 @@ function formatUsd(n: number): string {
 
 export function SubscriptionSettings() {
   const { subscription, isUnlocked } = useSubscriptionStore();
+  const { lang, t } = useUiLang();
   const [selectedCycle, setSelectedCycle] = useState<BillingCycle | null>(null);
   const [status, setStatus] = useState<"idle" | "loading" | "error">("idle");
   const [paypalStatus, setPaypalStatus] = useState<"idle" | "loading" | "error">("idle");
@@ -93,23 +96,23 @@ export function SubscriptionSettings() {
 
   return (
     <div className="px-3 py-2">
-      <div className="label-xs mb-1.5">Gói dịch vụ</div>
+      <div className="label-xs mb-1.5">{t("subs.plan")}</div>
 
       {paidActive ? (
         <div className="mb-3 text-[12px] font-bold text-accent-800">
-          ✓ Đã kích hoạt — dùng được đến {new Date(subscription.paidUntil!).toLocaleDateString("vi-VN")}
+          {t("subs.activeUntil", { date: new Date(subscription.paidUntil!).toLocaleDateString(lang === "en" ? "en-US" : "vi-VN") })}
         </div>
       ) : trialActive ? (
         <div className="mb-3 text-[12px] font-bold text-accent-800">
-          🎁 Đang dùng thử miễn phí — còn {daysLeft} ngày
+          {t("subs.trialLeft", { n: daysLeft })}
         </div>
       ) : (
-        <div className="mb-3 text-[12px] font-bold text-neutral-600">Hết hạn dùng thử — một số nội dung đã bị khoá.</div>
+        <div className="mb-3 text-[12px] font-bold text-neutral-600">{t("subs.trialExpired")}</div>
       )}
 
       <div className="mb-3 flex flex-col gap-1.5">
         {PRICING_PLANS.map((plan) => {
-          const savings = savingsLabel(plan);
+          const savings = savingsPct(plan);
           const selected = plan.cycle === selectedCycle;
           return (
             <button
@@ -124,17 +127,17 @@ export function SubscriptionSettings() {
             >
               <div>
                 <div className="flex items-center gap-1.5">
-                  <span className="text-[13px] font-extrabold">{plan.label}</span>
+                  <span className="text-[13px] font-extrabold">{t(`plan.${plan.cycle}`)}</span>
                   {plan.cycle === "yearly" && (
                     <span className="rounded-full bg-accent px-1.5 py-0.5 text-[9px] font-extrabold tracking-wide text-white uppercase">
-                      Tốt nhất
+                      {t("subs.bestValue")}
                     </span>
                   )}
                 </div>
                 {plan.hook ? (
-                  <div className="text-[10px] font-bold text-accent">{plan.hook}</div>
-                ) : savings ? (
-                  <div className="text-[10px] font-bold text-accent">{savings}</div>
+                  <div className="text-[10px] font-bold text-accent">{t(`plan_hook.${plan.cycle}`)}</div>
+                ) : savings != null ? (
+                  <div className="text-[10px] font-bold text-accent">{t("subs.savePct", { pct: savings })}</div>
                 ) : null}
               </div>
               <div className="text-right">
@@ -154,15 +157,15 @@ export function SubscriptionSettings() {
             onClick={checkout}
             disabled={status === "loading"}
           >
-            {status === "loading" ? "Đang tạo link thanh toán..." : `Thanh toán ${formatVnd(selectedPlan.priceVnd)} qua PayOS`}
+            {status === "loading" ? t("subs.creatingLink") : t("subs.payPayos", { price: formatVnd(selectedPlan.priceVnd) })}
           </button>
           {status === "error" && (
-            <div className="mt-1.5 text-[11px] text-red-600">Không tạo được link thanh toán, thử lại.</div>
+            <div className="mt-1.5 text-[11px] text-red-600">{t("subs.payosError")}</div>
           )}
 
           <div className="my-2.5 flex items-center gap-2 text-[10px] font-bold uppercase tracking-wide text-neutral-400">
             <span className="h-px flex-1 bg-[color:var(--color-divider)]" />
-            hoặc
+            {t("subs.or")}
             <span className="h-px flex-1 bg-[color:var(--color-divider)]" />
           </div>
 
@@ -173,16 +176,16 @@ export function SubscriptionSettings() {
             onClick={checkoutPaypal}
             disabled={paypalStatus === "loading"}
           >
-            {paypalStatus === "loading" ? "Đang tạo link PayPal..." : `Thanh toán ${formatUsd(selectedPlan.priceUsd)} qua PayPal`}
+            {paypalStatus === "loading" ? t("subs.creatingPaypal") : t("subs.payPaypal", { price: formatUsd(selectedPlan.priceUsd) })}
           </button>
           {paypalStatus === "error" && (
-            <div className="mt-1.5 text-[11px] text-red-600">Không tạo được link PayPal, thử lại.</div>
+            <div className="mt-1.5 text-[11px] text-red-600">{t("subs.paypalError")}</div>
           )}
         </div>
       )}
 
       {!isUnlocked && !selectedPlan && (
-        <p className="text-[11px] text-neutral-600">Chọn 1 gói ở trên để thanh toán — PayOS (VNĐ) cho người dùng Việt Nam, hoặc PayPal (USD) cho người nước ngoài. Quyền lợi sẽ tự động kích hoạt ngay sau khi thanh toán thành công.</p>
+        <p className="text-[11px] text-neutral-600">{t("subs.footer")}</p>
       )}
     </div>
   );

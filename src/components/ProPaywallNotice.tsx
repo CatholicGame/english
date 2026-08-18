@@ -9,17 +9,17 @@
 
 import { LockIcon } from "./LockIcon";
 import { SubscriptionSettings } from "./SubscriptionSettings";
+import { useUiLang } from "@/lib/i18n";
 
 export function ProPaywallNotice({ what }: { what: string }) {
+  const { t } = useUiLang();
   return (
     <div className="mx-auto max-w-[420px] px-4 py-10 text-center">
       <div className="mb-2 flex justify-center text-neutral-500">
         <LockIcon className="block h-8 w-8" />
       </div>
-      <div className="mb-1 text-[16px] font-extrabold">Nội dung này đã bị khoá</div>
-      <p className="mb-4 text-[13px] text-neutral-600">
-        {what} chỉ mở trong thời gian dùng thử hoặc khi đã kích hoạt gói trả phí. Chọn 1 gói bên dưới để thanh toán.
-      </p>
+      <div className="mb-1 text-[16px] font-extrabold">{t("paywall.locked")}</div>
+      <p className="mb-4 text-[13px] text-neutral-600">{t("paywall.body", { what })}</p>
       <div className="border border-[color:var(--color-divider)] text-left">
         <SubscriptionSettings />
       </div>

@@ -64,6 +64,7 @@ export function GlobalDictionaryLookup() {
   const { entries: translationEntries } = useTranslationStore();
   const { entries: grammarEntries } = useGrammarStore();
   const matchesRef = useRef<HighlightMatch[]>([]);
+  const rescanRef = useRef<() => void>(() => {});
   const { t } = useUiLang();
 
   const handleSelection = useCallback(() => {
@@ -144,6 +145,7 @@ export function GlobalDictionaryLookup() {
       matchesRef.current = matches;
       applyCssHighlights(matches);
     }
+    rescanRef.current = rescan;
     function scheduleRescan() {
       if (timer) clearTimeout(timer);
       timer = setTimeout(rescan, RESCAN_DEBOUNCE_MS);
@@ -170,6 +172,14 @@ export function GlobalDictionaryLookup() {
       if (isIgnored(e.target as Node)) return;
       const selection = window.getSelection();
       if (selection && !selection.isCollapsed) return;
+      // The debounced rescan (RESCAN_DEBOUNCE_MS after the last DOM mutation)
+      // can leave matchesRef.current holding stale Range objects whose
+      // underlying text node has since been mutated in place by React (e.g.
+      // a word list item swapping content) — the Range still auto-tracks
+      // that node/offset, so it now silently points at different text than
+      // the term it was matched against. Rescanning synchronously right
+      // before hit-testing guarantees matches always reflect the live DOM.
+      rescanRef.current();
       if (matchesRef.current.length === 0) return;
       const match = findMatchAtPoint(matchesRef.current, e.clientX, e.clientY);
       if (match) {

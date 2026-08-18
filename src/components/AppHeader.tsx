@@ -166,8 +166,7 @@ export function AppHeader() {
         </button>
         {settingsOpen && (
           <div
-            className="absolute top-full right-0 mt-2 w-64 max-h-[calc(100vh-56px)] overflow-y-auto border border-[color:var(--color-divider)] bg-bg shadow-lg"
-            style={{ overscrollBehavior: "contain" }}
+            className="absolute top-full right-0 mt-2 w-64 max-h-[calc(100dvh-56px)] overflow-y-auto overscroll-contain border border-[color:var(--color-divider)] bg-bg shadow-lg"
           >
             <div className="divider-b px-3 py-2">
               <ShareButton

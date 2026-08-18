@@ -11,12 +11,22 @@ import {
   type BillingCycle,
   type SubscriptionData,
 } from "@/lib/subscription-store";
+import { Stars } from "@/components/Stars";
 
 type Row = SubscriptionData & { email: string };
 type SubAdmin = { email: string; addedBy: string; addedAt: number };
 type Role = "super" | "viewer";
-type FeedbackRow = { id: string; email: string; rating: number; message?: string; context: "settings" | "prompt"; createdAt: number };
-type Tab = "subscriptions" | "feedback";
+type ReviewRow = {
+  id: string;
+  email: string;
+  rating: number;
+  comment?: string;
+  name?: string;
+  createdAt: number;
+  updatedAt: number;
+  reply?: { message: string; updatedAt: number };
+};
+type Tab = "subscriptions" | "reviews";
 
 const PAGE_SIZE = 20;
 
@@ -125,12 +135,12 @@ export function AdminDashboard({
   subscriptions,
   role,
   subAdmins,
-  feedback,
+  reviews,
 }: {
   subscriptions: Row[];
   role: Role;
   subAdmins: SubAdmin[];
-  feedback: FeedbackRow[];
+  reviews: ReviewRow[];
 }) {
   const router = useRouter();
   const [tab, setTab] = useState<Tab>("subscriptions");
@@ -239,7 +249,7 @@ export function AdminDashboard({
       <div className="divider-b flex gap-1">
         {([
           { id: "subscriptions", label: "Subscription" },
-          { id: "feedback", label: `Phản hồi${feedback.length ? ` (${feedback.length})` : ""}` },
+          { id: "reviews", label: `Đánh giá${reviews.length ? ` (${reviews.length})` : ""}` },
         ] as const).map((tb) => (
           <button
             key={tb.id}
@@ -256,7 +266,7 @@ export function AdminDashboard({
         ))}
       </div>
 
-      {tab === "feedback" && <FeedbackTab feedback={feedback} />}
+      {tab === "reviews" && <ReviewsTab reviews={reviews} isSuper={isSuper} />}
 
       {tab === "subscriptions" && (
       <>
@@ -478,46 +488,122 @@ export function AdminDashboard({
   );
 }
 
-function Stars({ rating }: { rating: number }) {
+/** Inline compose box for the single owner reply on a review — collapsed to
+ * just a button until opened, mirrors Play Store's "reply to review" flow. */
+function ReplyBox({ review, onSaved }: { review: ReviewRow; onSaved: () => void }) {
+  const [open, setOpen] = useState(false);
+  const [message, setMessage] = useState(review.reply?.message ?? "");
+  const [saving, setSaving] = useState(false);
+
+  async function save() {
+    setSaving(true);
+    try {
+      await callApi("/api/admin/review-reply", { id: review.id, message });
+      setOpen(false);
+      onSaved();
+    } catch {
+      alert("Gửi phản hồi thất bại, thử lại sau.");
+    } finally {
+      setSaving(false);
+    }
+  }
+
+  if (!open) {
+    return (
+      <button type="button" className="btn btn-ghost mt-2 text-[12px]" onClick={() => setOpen(true)}>
+        {review.reply ? "Sửa phản hồi" : "↩ Trả lời"}
+      </button>
+    );
+  }
+
   return (
-    <span style={{ color: "var(--color-accent)" }}>
-      {"★".repeat(rating)}
-      <span style={{ color: "var(--color-divider)" }}>{"★".repeat(5 - rating)}</span>
-    </span>
+    <div className="mt-2 flex flex-col gap-1.5">
+      <textarea
+        className="input w-full resize-none text-[13px]"
+        rows={2}
+        placeholder="Viết phản hồi công khai tới người đánh giá này..."
+        value={message}
+        onChange={(e) => setMessage(e.target.value)}
+      />
+      <div className="flex gap-1.5">
+        <button type="button" className="btn btn-primary text-[12px]" disabled={saving} onClick={save}>
+          {saving ? "Đang lưu..." : "Lưu phản hồi"}
+        </button>
+        <button type="button" className="btn btn-secondary text-[12px]" disabled={saving} onClick={() => setOpen(false)}>
+          Huỷ
+        </button>
+      </div>
+    </div>
   );
 }
 
-function FeedbackTab({ feedback }: { feedback: FeedbackRow[] }) {
+function ReviewsTab({ reviews, isSuper }: { reviews: ReviewRow[]; isSuper: boolean }) {
+  const router = useRouter();
   const [page, setPage] = useState(1);
-  const totalPages = Math.max(1, Math.ceil(feedback.length / PAGE_SIZE));
+  const [deleting, setDeleting] = useState<string | null>(null);
+  const totalPages = Math.max(1, Math.ceil(reviews.length / PAGE_SIZE));
   const safePage = Math.min(page, totalPages);
-  const pageItems = feedback.slice((safePage - 1) * PAGE_SIZE, safePage * PAGE_SIZE);
-  const avgRating = feedback.length ? feedback.reduce((sum, f) => sum + f.rating, 0) / feedback.length : 0;
+  const pageItems = reviews.slice((safePage - 1) * PAGE_SIZE, safePage * PAGE_SIZE);
+  const avgRating = reviews.length ? reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length : 0;
+
+  async function remove(id: string) {
+    if (!window.confirm("Xoá đánh giá này khỏi trang công khai?")) return;
+    setDeleting(id);
+    try {
+      await callApi("/api/admin/review-delete", { id });
+      router.refresh();
+    } catch {
+      alert("Xoá thất bại, thử lại sau.");
+    } finally {
+      setDeleting(null);
+    }
+  }
 
   return (
     <div className="mt-6">
-      <h1 className="text-[22px] font-extrabold">Phản hồi người dùng</h1>
+      <h1 className="text-[22px] font-extrabold">Đánh giá (công khai trên /reviews)</h1>
       <p className="mt-1 text-[13px] text-neutral-600">
-        {feedback.length} lượt đánh giá
-        {feedback.length > 0 && ` — trung bình ${avgRating.toFixed(1)}/5 ⭐`}
-        {totalPages > 1 && ` — trang ${safePage}/${totalPages}`}.
+        {reviews.length} đánh giá
+        {reviews.length > 0 && ` — trung bình ${avgRating.toFixed(1)}/5 ⭐`}
+        {totalPages > 1 && ` — trang ${safePage}/${totalPages}`}.{" "}
+        {!isSuper && "Bạn có quyền xem — không thể xoá."}
       </p>
 
-      {feedback.length === 0 && <p className="mt-4 text-[13px] text-neutral-600">Chưa có phản hồi nào.</p>}
+      {reviews.length === 0 && <p className="mt-4 text-[13px] text-neutral-600">Chưa có đánh giá nào.</p>}
 
       <div className="mt-4 flex flex-col gap-3">
-        {pageItems.map((f) => (
-          <div key={f.id} className="border p-3" style={{ borderColor: "var(--color-divider)" }}>
-            <div className="flex flex-wrap items-center justify-between gap-2">
-              <span className="flex items-center gap-2 text-[15px]">
-                <Stars rating={f.rating} />
-                <span className="text-[12px] font-bold text-neutral-600">{f.email}</span>
+        {pageItems.map((r) => (
+          <div key={r.id} className="border p-3" style={{ borderColor: "var(--color-divider)" }}>
+            <div className="flex flex-wrap items-start justify-between gap-2">
+              <span className="flex flex-col gap-0.5">
+                <span className="flex items-center gap-2">
+                  <Stars value={r.rating} size={15} />
+                  <span className="text-[13px] font-extrabold">{r.name || "Ẩn danh"}</span>
+                </span>
+                <span className="text-[12px] font-bold text-neutral-500">{r.email}</span>
               </span>
-              <span className="text-[12px] text-neutral-500">
-                {new Date(f.createdAt).toLocaleString("vi-VN")} · {f.context === "prompt" ? "gợi ý tự động" : "menu Cài đặt"}
+              <span className="flex flex-none flex-col items-end gap-1">
+                <span className="text-[12px] text-neutral-500">{new Date(r.updatedAt).toLocaleString("vi-VN")}</span>
+                {isSuper && (
+                  <button
+                    type="button"
+                    className="btn btn-ghost text-[12px] text-red-600"
+                    disabled={deleting === r.id}
+                    onClick={() => remove(r.id)}
+                  >
+                    Xoá
+                  </button>
+                )}
               </span>
             </div>
-            {f.message && <p className="mt-2 text-[13px] leading-relaxed">{f.message}</p>}
+            {r.comment && <p className="mt-2 text-[13px] leading-relaxed">{r.comment}</p>}
+            {r.reply && (
+              <div className="mt-2 border-l-2 pl-2.5" style={{ borderColor: "var(--color-accent)" }}>
+                <span className="label-xs text-accent">Phản hồi của bạn</span>
+                <p className="mt-0.5 text-[13px] leading-relaxed">{r.reply.message}</p>
+              </div>
+            )}
+            {isSuper && <ReplyBox review={r} onSaved={() => router.refresh()} />}
           </div>
         ))}
       </div>

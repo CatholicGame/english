@@ -37,6 +37,13 @@ function getFirebaseApp(): App {
 let firestore: Firestore | null = null;
 
 export function getDb(): Firestore {
-  if (!firestore) firestore = getFirestore(getFirebaseApp());
+  if (!firestore) {
+    firestore = getFirestore(getFirebaseApp());
+    // Several callers spread optional fields (e.g. reviews-db.ts's `comment`/
+    // `name`/`reply`) straight into a write — without this, an `undefined`
+    // value throws ("Cannot use 'undefined' as a Firestore value") instead of
+    // just omitting the field, which is what every caller actually wants.
+    firestore.settings({ ignoreUndefinedProperties: true });
+  }
   return firestore;
 }

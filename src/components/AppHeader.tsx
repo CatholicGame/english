@@ -14,7 +14,6 @@ import { loadAiLangPrefs, saveAiLangPrefs, type AiLang } from "@/lib/ai-lang-pre
 import { useUiLang } from "@/lib/i18n";
 import { ShareButton } from "./ShareButton";
 import { UserGuide } from "./UserGuide";
-import { FeedbackModal } from "./FeedbackModal";
 import { appOrigin } from "@/lib/app-url";
 
 const FONT_OPTIONS: { id: FontId; label: string }[] = [
@@ -79,7 +78,6 @@ export function AppHeader() {
   const settingsRef = useRef<HTMLDivElement>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [guideOpen, setGuideOpen] = useState(false);
-  const [feedbackOpen, setFeedbackOpen] = useState(false);
   const { lang: uiLang, setUiLang, t } = useUiLang();
 
   useEffect(() => {
@@ -188,16 +186,13 @@ export function AppHeader() {
               >
                 📘 {t("settings.guide")}
               </button>
-              <button
-                type="button"
-                className="mt-1.5 w-full text-left text-[12px] font-bold text-neutral-700 hover:text-accent-800"
-                onClick={() => {
-                  setFeedbackOpen(true);
-                  setSettingsOpen(false);
-                }}
+              <Link
+                href="/reviews"
+                className="mt-1.5 block w-full text-left text-[12px] font-bold text-neutral-700 hover:text-accent-800"
+                onClick={() => setSettingsOpen(false)}
               >
                 ⭐ Đánh giá &amp; góp ý
-              </button>
+              </Link>
             </div>
             <div className="divider-b">
               <SubscriptionSettings />
@@ -281,7 +276,6 @@ export function AppHeader() {
       </div>
       <AuthStatus />
       {guideOpen && <UserGuide onClose={() => setGuideOpen(false)} />}
-      {feedbackOpen && <FeedbackModal context="settings" onClose={() => setFeedbackOpen(false)} />}
     </header>
   );
 }

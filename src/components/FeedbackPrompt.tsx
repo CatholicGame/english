@@ -5,54 +5,46 @@
 // opinion (streak >= MIN_STREAK), so it never interrupts someone who just
 // signed up. Asking is a one-time thing (submit or dismiss both set the same
 // localStorage flag) rather than a recurring nag, since there's already an
-// always-available entry point in Settings for anyone who wants to rate later.
+// always-available entry point (Settings -> /reviews) for anyone who wants
+// to rate later. Submits into the same public reviews collection as the
+// /reviews page (see reviews-db.ts) — this is just a lower-friction shortcut
+// to the same rating, not a separate private feedback channel.
 
 import { useEffect, useState } from "react";
 import { useAuth } from "@/lib/auth-context";
 import { useDashboardProgress } from "@/lib/use-dashboard-progress";
-import { FeedbackModal } from "./FeedbackModal";
+import { alreadyAskedToReview, markAskedToReview } from "@/lib/review-prompt";
+import { Modal } from "./Modal";
+import { ReviewForm } from "./ReviewForm";
 
-const STORAGE_KEY = "feedback:asked";
 const MIN_STREAK = 3;
 const SHOW_DELAY_MS = 1500;
 
-function alreadyAsked(): boolean {
-  try {
-    return localStorage.getItem(STORAGE_KEY) === "1";
-  } catch {
-    return true; // private mode / storage unavailable — don't risk asking every load
-  }
-}
-
-function markAsked() {
-  try {
-    localStorage.setItem(STORAGE_KEY, "1");
-  } catch {
-    // best-effort
-  }
-}
-
 export function FeedbackPrompt() {
-  const { authenticated } = useAuth();
+  const { authenticated, user } = useAuth();
   const { loaded, streak } = useDashboardProgress();
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    if (!authenticated || !loaded || streak < MIN_STREAK || alreadyAsked()) return;
+    if (!authenticated || !loaded || streak < MIN_STREAK || alreadyAskedToReview()) return;
     const timer = setTimeout(() => setOpen(true), SHOW_DELAY_MS);
     return () => clearTimeout(timer);
   }, [authenticated, loaded, streak]);
 
   if (!open) return null;
 
+  function close() {
+    markAskedToReview();
+    setOpen(false);
+  }
+
   return (
-    <FeedbackModal
-      context="prompt"
-      onSubmitted={markAsked}
-      onClose={() => {
-        markAsked();
-        setOpen(false);
-      }}
-    />
+    <Modal onClose={close}>
+      <h2 className="text-center text-[17px] font-extrabold">Bạn thấy app thế nào?</h2>
+      <p className="mt-1 text-center text-[13px] text-neutral-600">Đánh giá của bạn sẽ hiển thị công khai cho mọi người dùng khác.</p>
+      <div className="mt-4">
+        <ReviewForm initial={null} defaultName={user?.name} onSubmitted={close} />
+      </div>
+    </Modal>
   );
 }

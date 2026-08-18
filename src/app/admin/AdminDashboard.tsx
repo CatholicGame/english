@@ -11,6 +11,7 @@ import {
   type BillingCycle,
   type SubscriptionData,
 } from "@/lib/subscription-store";
+import type { RevenueOrder } from "@/lib/subscription-db";
 import { Stars } from "@/components/Stars";
 
 type Row = SubscriptionData & { email: string };
@@ -26,7 +27,7 @@ type ReviewRow = {
   updatedAt: number;
   reply?: { message: string; updatedAt: number };
 };
-type Tab = "subscriptions" | "reviews";
+type Tab = "subscriptions" | "revenue" | "reviews";
 
 const PAGE_SIZE = 20;
 
@@ -136,11 +137,13 @@ export function AdminDashboard({
   role,
   subAdmins,
   reviews,
+  orders,
 }: {
   subscriptions: Row[];
   role: Role;
   subAdmins: SubAdmin[];
   reviews: ReviewRow[];
+  orders: RevenueOrder[];
 }) {
   const router = useRouter();
   const [tab, setTab] = useState<Tab>("subscriptions");
@@ -249,6 +252,7 @@ export function AdminDashboard({
       <div className="divider-b flex gap-1">
         {([
           { id: "subscriptions", label: "Subscription" },
+          { id: "revenue", label: "Doanh thu" },
           { id: "reviews", label: `Đánh giá${reviews.length ? ` (${reviews.length})` : ""}` },
         ] as const).map((tb) => (
           <button
@@ -265,6 +269,8 @@ export function AdminDashboard({
           </button>
         ))}
       </div>
+
+      {tab === "revenue" && <RevenueTab orders={orders} />}
 
       {tab === "reviews" && <ReviewsTab reviews={reviews} isSuper={isSuper} />}
 
@@ -533,6 +539,74 @@ function ReplyBox({ review, onSaved }: { review: ReviewRow; onSaved: () => void 
           Huỷ
         </button>
       </div>
+    </div>
+  );
+}
+
+function fmtMoney(amount: number, currency: "VND" | "USD"): string {
+  return currency === "VND" ? `${amount.toLocaleString("vi-VN")} đ` : `$${amount.toLocaleString("en-US")}`;
+}
+
+function RevenueTab({ orders }: { orders: RevenueOrder[] }) {
+  const [page, setPage] = useState(1);
+  const totalPages = Math.max(1, Math.ceil(orders.length / PAGE_SIZE));
+  const safePage = Math.min(page, totalPages);
+  const pageItems = orders.slice((safePage - 1) * PAGE_SIZE, safePage * PAGE_SIZE);
+
+  const totalVnd = orders.filter((o) => o.currency === "VND").reduce((sum, o) => sum + o.amount, 0);
+  const totalUsd = orders.filter((o) => o.currency === "USD").reduce((sum, o) => sum + o.amount, 0);
+
+  return (
+    <div className="mt-6">
+      <h1 className="text-[22px] font-extrabold">Doanh thu</h1>
+      <p className="mt-1 text-[13px] text-neutral-600">
+        {orders.length} giao dịch đã thanh toán. Tổng: {fmtMoney(totalVnd, "VND")}
+        {totalUsd > 0 && ` + ${fmtMoney(totalUsd, "USD")}`}
+        {totalPages > 1 && `, trang ${safePage}/${totalPages}`}.
+      </p>
+
+      {orders.length === 0 && <p className="mt-4 text-[13px] text-neutral-600">Chưa có giao dịch nào.</p>}
+
+      {orders.length > 0 && (
+        <div className="mt-4 overflow-x-auto">
+          <table className="w-full min-w-[640px] text-left text-[13px]">
+            <thead>
+              <tr className="divider-b text-neutral-600">
+                <th className="py-2 pr-3 font-bold">Email</th>
+                <th className="py-2 pr-3 font-bold">Cổng</th>
+                <th className="py-2 pr-3 font-bold">Gói</th>
+                <th className="py-2 pr-3 font-bold">Số tiền</th>
+                <th className="py-2 pr-3 font-bold">Ngày thanh toán</th>
+              </tr>
+            </thead>
+            <tbody>
+              {pageItems.map((o) => (
+                <tr key={`${o.method}:${o.id}`} className="divider-b align-top">
+                  <td className="py-2.5 pr-3 font-semibold">{o.email}</td>
+                  <td className="py-2.5 pr-3">{o.method === "payos" ? "PayOS" : "PayPal"}</td>
+                  <td className="py-2.5 pr-3">{PRICING_PLANS.find((p) => p.cycle === o.cycle)?.label ?? o.cycle}</td>
+                  <td className="py-2.5 pr-3">{fmtMoney(o.amount, o.currency)}</td>
+                  <td className="py-2.5 pr-3">{fmtDate(o.paidAt)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+
+      {totalPages > 1 && (
+        <div className="mt-3 flex items-center justify-center gap-3 text-[13px]">
+          <button className="btn btn-secondary" disabled={safePage <= 1} onClick={() => setPage(safePage - 1)}>
+            ‹ Trước
+          </button>
+          <span className="text-neutral-600">
+            Trang {safePage}/{totalPages}
+          </span>
+          <button className="btn btn-secondary" disabled={safePage >= totalPages} onClick={() => setPage(safePage + 1)}>
+            Sau ›
+          </button>
+        </div>
+      )}
     </div>
   );
 }

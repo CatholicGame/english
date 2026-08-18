@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import { readSession } from "@/lib/google-oauth";
 import { resolveAdminRole } from "@/lib/admin";
 import { listSubAdmins } from "@/lib/admin-db";
-import { listSubscriptions } from "@/lib/subscription-db";
+import { listSubscriptions, listPaidOrders } from "@/lib/subscription-db";
 import { listReviewsForAdmin } from "@/lib/reviews-db";
 import { AdminDashboard } from "./AdminDashboard";
 
@@ -16,6 +16,7 @@ export default async function AdminPage() {
 
   const subAdmins = role === "super" ? await listSubAdmins() : [];
   const reviews = await listReviewsForAdmin();
+  const orders = await listPaidOrders();
 
-  return <AdminDashboard subscriptions={subscriptions} role={role} subAdmins={subAdmins} reviews={reviews} />;
+  return <AdminDashboard subscriptions={subscriptions} role={role} subAdmins={subAdmins} reviews={reviews} orders={orders} />;
 }

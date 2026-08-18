@@ -133,3 +133,30 @@ export async function markPaypalOrderPaidOnce(paypalOrderId: string): Promise<bo
     return true;
   });
 }
+
+// --- Revenue (admin dashboard only) -----------------------------------------
+
+export type RevenueOrder =
+  | { id: string; method: "payos"; email: string; cycle: BillingCycle; amount: number; currency: "VND"; paidAt: number }
+  | { id: string; method: "paypal"; email: string; cycle: BillingCycle; amount: number; currency: "USD"; paidAt: number };
+
+/** Admin dashboard only — the two order collections are the actual money
+ * ledger (subscriptions/{email} only tracks entitlement, not what was paid),
+ * so this is where "how much have we made" has to be read from. */
+export async function listPaidOrders(): Promise<RevenueOrder[]> {
+  const [payosSnap, paypalSnap] = await Promise.all([
+    getDb().collection("payos_orders").where("status", "==", "paid").get(),
+    getDb().collection("paypal_orders").where("status", "==", "paid").get(),
+  ]);
+
+  const payos: RevenueOrder[] = payosSnap.docs.map((doc) => {
+    const d = doc.data() as PayosOrder;
+    return { id: doc.id, method: "payos", email: d.email, cycle: d.cycle, amount: d.priceVnd, currency: "VND", paidAt: d.paidAt ?? d.createdAt };
+  });
+  const paypal: RevenueOrder[] = paypalSnap.docs.map((doc) => {
+    const d = doc.data() as PaypalOrder;
+    return { id: doc.id, method: "paypal", email: d.email, cycle: d.cycle, amount: d.priceUsd, currency: "USD", paidAt: d.paidAt ?? d.createdAt };
+  });
+
+  return [...payos, ...paypal].sort((a, b) => b.paidAt - a.paidAt);
+}

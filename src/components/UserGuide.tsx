@@ -1,6 +1,6 @@
 "use client";
 
-// Full user guide opened from the gear menu (AppHeader) — walks a learner
+// Full user guide opened from the gear menu (AppHeader). Walks a learner
 // through the 3-stage learning path, practice modes, the AI, lookup/highlight,
 // and payment. All copy lives in the i18n dictionary so it stays bilingual.
 

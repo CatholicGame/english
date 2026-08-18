@@ -4,6 +4,12 @@
 This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
 <!-- END:nextjs-agent-rules -->
 
+# Writing style (mandatory)
+
+- Do NOT use the em dash "—" in any user-facing text or in agent-written prose. It reads as noisy and unprofessional. Use plain punctuation instead (a period, comma, colon, or semicolon). Example: "Đang dùng thử. Còn 3 ngày" not "Đang dùng thử — còn 3 ngày".
+- Also avoid other decorative/informal typography in user-facing copy: arrows ("→"), en dashes in ranges ("–"; use a hyphen: "6.5-9", "A-Z"), and multi-symbol separators.
+- Applies everywhere: `STRINGS` in `src/lib/i18n.ts`, component labels, chat replies, and docs. When writing or reviewing copy, scan for these characters and replace them with plain punctuation.
+
 # Vocabulary Builder Pro feature conventions
 
 These apply to every AI-practice feature (collocations/phrasal-verbs, Cambridge IELTS advanced, and any future module) — follow them by default, don't wait to be asked.

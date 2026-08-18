@@ -166,7 +166,7 @@ export default function WritePage() {
     const pool = chosenVerbs.flatMap((v) => v.items.map((it) => ({ term: it.term, en: it.en, vi: it.vi })));
     const d = await callAi("cpv_writing_passage", { pool, topic: topicForLang(selectedTopic, lang), wordCount });
     if (d?.passage) {
-      // The AI picks whichever subset of the pool fits the passage best — resolve
+      // The AI picks whichever subset of the pool fits the passage best. Resolve
       // its chosen terms back against the pool so we grade against exactly what it used.
       const chosenSet = new Set(Array.isArray(d.chosenPhrases) ? d.chosenPhrases : []);
       const chosen = pool.filter((p) => chosenSet.has(p.term));
@@ -316,7 +316,7 @@ export default function WritePage() {
               {listVerbs.length === 0 && <p className="px-3 py-4 text-[12px] text-neutral-500">No match.</p>}
             </div>
             <p className="mt-2 text-[11px] text-neutral-500">
-              {selected.size} verb group{selected.size === 1 ? "" : "s"} selected — AI will pick whichever expressions fit the passage best.
+              {selected.size} verb group{selected.size === 1 ? "" : "s"} selected. The AI will pick whichever expressions fit the passage best.
             </p>
           </div>
 

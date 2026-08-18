@@ -17,15 +17,14 @@ interface BaseFeature {
   titleKey?: string;
 }
 
-/** A learning module — shown as "Why learn this?" then "How the app helps",
- * each rendered in both EN and VI. */
+/** A learning module. Shown as "Why learn this?" then "How the app helps". */
 interface ModuleFeature extends BaseFeature {
   kind: "module";
   whyKey: string;
   howKey: string;
 }
 
-/** A supporting capability — shown as a single EN + VI block. */
+/** A supporting capability. Shown as a single content block. */
 interface SimpleFeature extends BaseFeature {
   kind: "simple";
   bodyKey: string;
@@ -41,8 +40,8 @@ interface FeatureGroup {
   features: Feature[];
 }
 
-/** Organized as a learning path — vocabulary foundation → natural
- * communication → IELTS-level mastery — plus supporting systems. Every module
+/** Organized as a learning path: vocabulary foundation, natural
+ * communication, IELTS-level mastery, plus supporting systems. Every module
  * first answers "why learn this?" before explaining how the app makes it
  * effective, so it reads as pedagogy, not a dry feature list. Content follows
  * the selected UI language (single-language, like the rest of the app). */

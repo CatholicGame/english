@@ -6,6 +6,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { MODULES } from "@/data/modules";
 import { GlobalScoreBadge } from "@/components/GlobalScoreBadge";
 import { PurchaseModal } from "@/components/PurchaseModal";
+import { FeedbackPrompt } from "@/components/FeedbackPrompt";
 import { useDashboardProgress, type DashboardProgress } from "@/lib/use-dashboard-progress";
 import { useSubscriptionStore } from "@/lib/use-subscription-store";
 import { isPaidActive } from "@/lib/subscription-store";
@@ -207,6 +208,7 @@ function HomePageContent() {
         </div>
       </div>
       {showPurchase && <PurchaseModal onClose={() => setShowPurchase(false)} />}
+      <FeedbackPrompt />
     </div>
   );
 }

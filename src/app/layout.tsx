@@ -4,7 +4,6 @@ import { AppHeader } from "@/components/AppHeader";
 import { GlobalDictionaryLookup } from "@/components/GlobalDictionaryLookup";
 import { DriveQuotaWarning } from "@/components/DriveQuotaWarning";
 import { OnboardingGuide } from "@/components/OnboardingGuide";
-import { FeedbackPrompt } from "@/components/FeedbackPrompt";
 import { AuthProvider } from "@/lib/auth-context";
 import { GlobalScoreProvider } from "@/lib/global-score-context";
 import "./globals.css";
@@ -47,7 +46,6 @@ export default function RootLayout({
             {children}
             <GlobalDictionaryLookup />
             <OnboardingGuide />
-            <FeedbackPrompt />
           </AuthProvider>
         </GlobalScoreProvider>
       </body>

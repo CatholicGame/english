@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useAuth } from "@/lib/auth-context";
+import { useUiLang } from "@/lib/i18n";
 
 // Warn once Drive free space gets low enough that our own writes (small, but
 // still real files in appDataFolder) risk failing — see
@@ -15,6 +16,7 @@ function fmtGb(bytes: number): string {
 
 export function DriveQuotaWarning() {
   const { authenticated } = useAuth();
+  const { t } = useUiLang();
   const [freeBytes, setFreeBytes] = useState<number | null>(null);
 
   useEffect(() => {
@@ -43,8 +45,7 @@ export function DriveQuotaWarning() {
         borderBottom: "2px solid var(--color-accent-300)",
       }}
     >
-      ⚠️ Google Drive của bạn chỉ còn {fmtGb(Math.max(freeBytes, 0))} trống — tiến độ học có thể không đồng bộ được.
-      Hãy dọn bớt dung lượng Drive.
+      {t("quota.low", { gb: fmtGb(Math.max(freeBytes, 0)) })} {t("quota.cleanup")}
     </div>
   );
 }

@@ -7,16 +7,31 @@ import { useSearchParams } from "next/navigation";
 import logo from "@/assets/logo/logo.png";
 import { Modal } from "@/components/Modal";
 import { trackEvent } from "@/lib/firebase-client";
-import { useUiLang } from "@/lib/i18n";
+import { useUiLang, STRINGS } from "@/lib/i18n";
 
-interface Feature {
+interface BaseFeature {
   emoji: string;
   /** Static title used as-is (same word in both UI languages). */
   title?: string;
   /** Dictionary key for a title that differs between UI languages. */
   titleKey?: string;
+}
+
+/** A learning module — shown as "Why learn this?" then "How the app helps",
+ * each rendered in both EN and VI. */
+interface ModuleFeature extends BaseFeature {
+  kind: "module";
+  whyKey: string;
+  howKey: string;
+}
+
+/** A supporting capability — shown as a single EN + VI block. */
+interface SimpleFeature extends BaseFeature {
+  kind: "simple";
   bodyKey: string;
 }
+
+type Feature = ModuleFeature | SimpleFeature;
 
 interface FeatureGroup {
   /** Dictionary key for the stage label. */
@@ -26,47 +41,71 @@ interface FeatureGroup {
   features: Feature[];
 }
 
+/** Renders a dictionary entry in BOTH languages (EN block then VI block), each
+ * tagged with a tiny language badge — English learners get the original text
+ * plus a Vietnamese check, instead of a single-language block. */
+function BilingualBlock({ entry }: { entry: { vi: string; en: string } }) {
+  return (
+    <div className="mt-1 flex flex-col gap-1">
+      <p className="text-[12px] leading-relaxed text-neutral-700">
+        <span className="mr-1.5 inline-block rounded bg-neutral-100 px-1 py-px align-middle text-[9px] font-extrabold text-neutral-500">EN</span>
+        {entry.en}
+      </p>
+      <p className="text-[12px] leading-relaxed text-neutral-600">
+        <span className="mr-1.5 inline-block rounded bg-neutral-100 px-1 py-px align-middle text-[9px] font-extrabold text-neutral-500">VI</span>
+        {entry.vi}
+      </p>
+    </div>
+  );
+}
+
 /** Organized as a learning path — vocabulary foundation → natural
- * communication → IELTS-level mastery — plus a motivation system, so a new
- * learner instantly sees how the features stack up. */
+ * communication → IELTS-level mastery — plus supporting systems. Every module
+ * first answers "why learn this?" before explaining how the app makes it
+ * effective, so it reads as pedagogy, not a dry feature list. */
 const FEATURE_GROUPS: FeatureGroup[] = [
   {
     stageKey: "feature.stage.vocab",
     stageDescKey: "feature.stage.vocab.desc",
     features: [
-      { emoji: "🧩", title: "Collocations & Phrasal Verbs", bodyKey: "feature.cpv.body" },
-      { emoji: "🔍", titleKey: "feature.lookup.title", bodyKey: "feature.lookup.body" },
+      { kind: "module", emoji: "🧩", title: "Collocations & Phrasal Verbs", whyKey: "feature.cpv.why", howKey: "feature.cpv.how" },
+      { kind: "simple", emoji: "🔍", titleKey: "feature.lookup.title", bodyKey: "feature.lookup.body" },
     ],
   },
   {
     stageKey: "feature.stage.communicate",
     stageDescKey: "feature.stage.communicate.desc",
     features: [
-      { emoji: "💬", title: "Idioms", bodyKey: "feature.idiom.body" },
-      { emoji: "🎧", title: "Listen A Minute", bodyKey: "feature.listen.body" },
+      { kind: "module", emoji: "💬", title: "Idioms", whyKey: "feature.idiom.why", howKey: "feature.idiom.how" },
+      { kind: "module", emoji: "🎧", title: "Listen A Minute", whyKey: "feature.listen.why", howKey: "feature.listen.how" },
     ],
   },
   {
     stageKey: "feature.stage.ielts",
     stageDescKey: "feature.stage.ielts.desc",
     features: [
-      { emoji: "📖", title: "Cambridge Vocabulary for IELTS Advanced", bodyKey: "feature.cambridge.body" },
+      { kind: "module", emoji: "📖", title: "Cambridge Vocabulary for IELTS Advanced", whyKey: "feature.cambridge.why", howKey: "feature.cambridge.how" },
     ],
   },
   {
     stageKey: "feature.stage.system",
     stageDescKey: "feature.stage.system.desc",
     features: [
-      { emoji: "🧭", titleKey: "feature.allinone.title", bodyKey: "feature.allinone.body" },
-      { emoji: "📌", titleKey: "feature.highlight.title", bodyKey: "feature.highlight.body" },
-      { emoji: "🔥", titleKey: "feature.streak.title", bodyKey: "feature.streak.body" },
+      { kind: "simple", emoji: "🧭", titleKey: "feature.allinone.title", bodyKey: "feature.allinone.body" },
+      { kind: "simple", emoji: "📌", titleKey: "feature.highlight.title", bodyKey: "feature.highlight.body" },
+      { kind: "simple", emoji: "🔥", titleKey: "feature.streak.title", bodyKey: "feature.streak.body" },
     ],
   },
 ];
 
+const UI_LANG_OPTIONS: { id: "vi" | "en"; label: string }[] = [
+  { id: "vi", label: "Tiếng Việt" },
+  { id: "en", label: "English" },
+];
+
 export function LoginScreen() {
   const searchParams = useSearchParams();
-  const { t } = useUiLang();
+  const { lang, setUiLang, t } = useUiLang();
   const returnTo = searchParams.get("returnTo") ?? "/";
   const [showFeatures, setShowFeatures] = useState(false);
 
@@ -105,6 +144,24 @@ export function LoginScreen() {
           <Link href="/terms" className="underline">{t("login.terms")}</Link> {t("login.and")}{" "}
           <Link href="/privacy" className="underline">{t("login.privacy")}</Link>.
         </p>
+        <div className="mt-4 flex items-center justify-center gap-1.5 lg:justify-start">
+          <span className="text-[11px] font-bold text-neutral-500">{t("login.interfaceLang")}:</span>
+          {UI_LANG_OPTIONS.map((l) => (
+            <button
+              key={l.id}
+              type="button"
+              onClick={() => setUiLang(l.id)}
+              className="rounded-full px-2.5 py-1 text-[12px] font-bold"
+              style={{
+                background: lang === l.id ? "var(--color-accent)" : "var(--color-surface)",
+                color: lang === l.id ? "#fff" : "var(--color-text)",
+                border: lang === l.id ? "none" : "1px solid var(--color-divider)",
+              }}
+            >
+              {l.label}
+            </button>
+          ))}
+        </div>
       </div>
       {showFeatures && (
         <Modal onClose={() => setShowFeatures(false)} contentClassName="lg:max-w-[720px]">
@@ -119,12 +176,25 @@ export function LoginScreen() {
                 <p className="mb-2 text-[11px] leading-relaxed text-neutral-500">{t(g.stageDescKey)}</p>
                 <div className="flex flex-col gap-3">
                   {g.features.map((f) => (
-                    <div key={f.bodyKey}>
+                    <div key={f.kind === "module" ? f.whyKey : f.bodyKey}>
                       <div className="flex items-center gap-2">
                         <span className="text-[16px]">{f.emoji}</span>
                         <span className="text-[13px] font-extrabold">{f.titleKey ? t(f.titleKey) : f.title}</span>
                       </div>
-                      <p className="mt-0.5 text-[12px] leading-relaxed text-neutral-600">{t(f.bodyKey)}</p>
+                      {f.kind === "module" ? (
+                        <div className="mt-1.5 flex flex-col gap-2">
+                          <div>
+                            <div className="text-[10px] font-extrabold uppercase tracking-wide text-accent">{t("feature.whyLabel")}</div>
+                            <BilingualBlock entry={STRINGS[f.whyKey] ?? { vi: "", en: "" }} />
+                          </div>
+                          <div>
+                            <div className="text-[10px] font-extrabold uppercase tracking-wide text-accent">{t("feature.howLabel")}</div>
+                            <BilingualBlock entry={STRINGS[f.howKey] ?? { vi: "", en: "" }} />
+                          </div>
+                        </div>
+                      ) : (
+                        <BilingualBlock entry={STRINGS[f.bodyKey] ?? { vi: "", en: "" }} />
+                      )}
                     </div>
                   ))}
                 </div>

@@ -14,6 +14,7 @@ import { useDictionaryStore } from "@/lib/use-dictionary-store";
 import { normalizeWord } from "@/lib/dictionary-store";
 import { useTranslationStore } from "@/lib/use-translation-store";
 import { useGrammarStore } from "@/lib/use-grammar-store";
+import { useUiLang } from "@/lib/i18n";
 import {
   applyCssHighlights,
   clearCssHighlights,
@@ -63,6 +64,7 @@ export function GlobalDictionaryLookup() {
   const { entries: translationEntries } = useTranslationStore();
   const { entries: grammarEntries } = useGrammarStore();
   const matchesRef = useRef<HighlightMatch[]>([]);
+  const { t } = useUiLang();
 
   const handleSelection = useCallback(() => {
     const selection = window.getSelection();
@@ -194,14 +196,14 @@ export function GlobalDictionaryLookup() {
             className="bg-accent px-2.5 py-0.5 text-[11px] font-extrabold whitespace-nowrap text-white"
             onClick={() => { setActive({ kind: "vocab", word: pill.word, context: pill.context }); setPill(null); }}
           >
-            🔍 Tra cứu
+            {t("lookup.lookup")}
           </button>
           <button
             className="whitespace-nowrap px-2.5 py-0.5 text-[11px] font-extrabold text-white"
             style={{ background: "#00897b" }}
             onClick={() => { setActive({ kind: "grammar", word: pill.word, context: pill.context }); setPill(null); }}
           >
-            📐 Ngữ pháp
+            {t("lookup.grammar")}
           </button>
           <button className="text-[14px] text-neutral-500 hover:text-neutral-700" onClick={() => setPill(null)}>✕</button>
         </div>

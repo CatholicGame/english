@@ -20,6 +20,7 @@ import { useAiConvoStore } from "@/lib/use-ai-convo-store";
 import type { AiConversation, AiMessage } from "@/lib/ai-convo-store";
 import { addGlobalXP } from "@/lib/global-score";
 import { currentAiLang } from "@/lib/ai-lang-prefs";
+import { useUiLang } from "@/lib/i18n";
 import { AiFeedback } from "@/components/AiFeedback";
 import { AiConversationHistory } from "@/components/AiConversationHistory";
 import { ChatInput } from "@/components/ChatInput";
@@ -189,6 +190,7 @@ function VocabList({ lesson }: { lesson: ListenLesson }) {
 // IELTS advanced), reusing ConversationFeedback/AiConversationHistory so history
 // rendering never drifts from the live view.
 function LessonDiscussion({ lesson }: { lesson: ListenLesson }) {
+  const { t } = useUiLang();
   const { appendMessages } = useAiConvoStore(MODULE_KEY);
   const [chat, setChat] = useState<AiMessage[]>([]);
   const [phase, setPhase] = useState<"practicing" | "feedback">("practicing");
@@ -271,7 +273,7 @@ function LessonDiscussion({ lesson }: { lesson: ListenLesson }) {
         <div className="flex flex-col gap-3">
           {chat.length === 0 && (
             <p className="text-[12px] text-neutral-600">
-              Đặt câu hỏi hoặc chia sẻ ý kiến của bạn về &ldquo;{lesson.title}&rdquo; để bắt đầu cuộc thảo luận.
+              {t("discussion.prompt", { term: lesson.title })}
             </p>
           )}
           <div className="flex max-h-[300px] flex-col gap-3 overflow-y-auto rounded border p-3" style={{ borderColor: "var(--color-divider)" }}>

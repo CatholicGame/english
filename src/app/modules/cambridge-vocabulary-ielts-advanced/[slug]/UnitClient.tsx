@@ -30,6 +30,7 @@ import { ConversationFeedback } from "@/components/ConversationFeedback";
 import { createShareLink } from "@/lib/share-client";
 import type { SharedConvoPayload } from "@/lib/share-payload";
 import { currentAiLang } from "@/lib/ai-lang-prefs";
+import { useUiLang } from "@/lib/i18n";
 import { CopyButton } from "@/components/CopyButton";
 import { useSubscriptionStore } from "@/lib/use-subscription-store";
 import { isCambridgeUnitLocked } from "@/lib/content-access";
@@ -220,6 +221,7 @@ function ChipRow({ label, items, tone }: { label: string; items: string[]; tone:
 }
 
 function IeltsVocabSample({ word }: { word: VocabWord }) {
+  const { t } = useUiLang();
   const [paragraph, setParagraph] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -243,14 +245,14 @@ function IeltsVocabSample({ word }: { word: VocabWord }) {
     <div className="mt-3">
       {!paragraph && (
         <button className="btn btn-secondary" disabled={loading} onClick={load}>
-          {loading ? "Đang tạo đoạn văn mẫu..." : "📝 Xem đoạn văn mẫu Writing Task 2"}
+          {loading ? t("unit.sampleLoading") : t("unit.sampleButton")}
         </button>
       )}
       {error && <p className="mt-1.5 text-[11px] text-red-600">{error}</p>}
       {paragraph && (
         <div className="bg-surface p-3 text-[13px] leading-relaxed">
           <div className="mb-1.5 flex items-center justify-between gap-2">
-            <span className="label-xs text-accent">📝 Đoạn văn mẫu Writing Task 2</span>
+            <span className="label-xs text-accent">{t("unit.sampleLabel")}</span>
             <CopyButton
               text={paragraph}
               className="rounded-full border px-2 py-0.5 text-[11px] font-bold"
@@ -281,6 +283,7 @@ const VOCAB_INTENT_FOR_MODE: Record<VocabPMode, string> = {
 };
 
 function VocabAiPractice({ word }: { word: VocabWord }) {
+  const { t } = useUiLang();
   const ik = word.term;
   const il = `${word.term} (${word.pos})`;
   const writeDraftKey = `${MODULE_KEY}:draft:vocab-write:${word.term}`;
@@ -843,7 +846,7 @@ function VocabAiPractice({ word }: { word: VocabWord }) {
             <div className="flex flex-col gap-3">
               {discChat.length === 0 && (
                 <p className="text-[12px] text-neutral-600">
-                  Đặt câu hỏi hoặc chia sẻ ý kiến của bạn về &ldquo;{word.term}&rdquo; để bắt đầu cuộc thảo luận.
+                  {t("discussion.prompt", { term: word.term })}
                 </p>
               )}
               <div
@@ -943,6 +946,7 @@ function VocabAiPractice({ word }: { word: VocabWord }) {
 }
 
 function VocabStepView({ step, onNext }: { step: VocabStep; onNext: (score?: Score) => void }) {
+  const { t } = useUiLang();
   const [i, setI] = useState(0);
   const [revealed, setRevealed] = useState(true);
   const w = step.words[i];
@@ -978,7 +982,7 @@ function VocabStepView({ step, onNext }: { step: VocabStep; onNext: (score?: Sco
 
           {!revealed && (
             <button className="btn btn-primary btn-block mt-4 px-4 py-3" onClick={() => setRevealed(true)}>
-              Xem giải thích chi tiết
+              {t("unit.explain")}
             </button>
           )}
         </div>
@@ -990,11 +994,11 @@ function VocabStepView({ step, onNext }: { step: VocabStep; onNext: (score?: Sco
               <div className="mt-1 text-[15px] font-extrabold text-accent-700">{w.vi}</div>
             </div>
 
-            <div className="label-xs mb-2 text-accent">🌟 Ý chính</div>
-            <ChipRow label="Từ đồng nghĩa" items={w.synonyms} tone="neutral" />
-            <ChipRow label="Trái nghĩa" items={w.antonyms} tone="accent" />
+            <div className="label-xs mb-2 text-accent">{t("unit.keyIdea")}</div>
+            <ChipRow label={t("unit.synonyms")} items={w.synonyms} tone="neutral" />
+            <ChipRow label={t("unit.antonyms")} items={w.antonyms} tone="accent" />
 
-            <div className="label-xs mb-2 text-accent">📌 Ví dụ</div>
+            <div className="label-xs mb-2 text-accent">{t("unit.examples")}</div>
             {w.examples.map((ex, idx) => (
               <div key={idx} className="mb-2 text-[13px] leading-relaxed">
                 <div>{ex.en}</div>

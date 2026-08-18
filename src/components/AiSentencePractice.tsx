@@ -11,6 +11,7 @@ import { addGlobalXP } from "@/lib/global-score";
 import { createShareLink } from "@/lib/share-client";
 import type { SharedConvoPayload } from "@/lib/share-payload";
 import { currentAiLang } from "@/lib/ai-lang-prefs";
+import { useUiLang } from "@/lib/i18n";
 import { CopyButton } from "./CopyButton";
 
 type PMode = "write" | "translate" | "quiz" | "examples" | "converse" | "discussion";
@@ -59,6 +60,7 @@ export function AiSentencePractice({ item, moduleKey, showItemInfo = true }: { i
   const ik = item.term;
   const il = `${item.term} (${item.type})`;
   const { appendMessages } = useAiConvoStore(moduleKey);
+  const { t } = useUiLang();
   const [mode, setMode] = useState<PMode>("write");
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<unknown>(null);
@@ -574,7 +576,7 @@ export function AiSentencePractice({ item, moduleKey, showItemInfo = true }: { i
           <div className="flex flex-col gap-3">
             {discChat.length === 0 && (
               <p className="text-[12px] text-neutral-600">
-                Đặt câu hỏi hoặc chia sẻ ý kiến của bạn về &ldquo;{item.term}&rdquo; để bắt đầu cuộc thảo luận.
+                {t("discussion.prompt", { term: item.term })}
               </p>
             )}
             <div className="flex max-h-[300px] flex-col gap-3 overflow-y-auto rounded border p-3" style={{ borderColor: "var(--color-divider)" }}>

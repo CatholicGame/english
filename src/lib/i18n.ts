@@ -122,21 +122,37 @@ export const STRINGS: Record<string, DictEntry> = {
     vi: "Không chỉ học từ — luyện dùng từ thật với AI: ra quiz riêng cho bạn, trò chuyện, chấm bài tức thì. Xây vốn từ giao tiếp lẫn học thuật, hướng tới IELTS band 6.5–9, nhớ lâu chứ không học vẹt.",
     en: "Not just word lists — practice using real language with AI: personalized quizzes, conversation practice, instant grading. Build everyday and academic vocabulary toward IELTS band 6.5–9, with long-term retention instead of rote learning.",
   },
-  "feature.cpv.body": {
-    vi: "Không học vẹt: AI tự soạn quiz ngữ cảnh riêng cho từng từ (và giảng vì sao các đáp án khác sai), vào vai bạn trò chuyện để bạn luyện dùng từ trong hội thoại thật, rồi chấm từng câu bạn viết/dịch kèm sửa lỗi tức thì. 7 chế độ ôn tập ngắt quãng lo phần ghi nhớ lâu dài.",
-    en: "No rote learning: AI builds a context quiz for every phrase (and explains why the other answers are wrong), roleplays a conversation partner so you use the phrase for real, then grades each sentence you write/translate with instant corrections. 7 spaced-repetition modes handle long-term retention.",
+  "feature.cpv.why": {
+    vi: "Cụm động từ (phrasal verbs) và collocations chiếm phần lớn tiếng Anh người bản ngữ dùng mỗi ngày — nhưng nghĩa của chúng thường không thể đoán từ từng từ riêng lẻ. Không nắm chúng, bạn sẽ nghe hiểu chậm và nói nghe như 'dịch từng chữ'.",
+    en: "Phrasal verbs and collocations make up a huge share of everyday native English — yet their meaning usually can't be guessed from the individual words. Skip them and you'll listen slowly and sound like you're translating word-by-word.",
   },
-  "feature.cambridge.body": {
-    vi: "Không phải danh sách từ suông — mỗi unit bám sát giáo trình Cambridge. AI chấm điểm band IELTS thật cho bài nói & bài viết của bạn, kèm nhận xét chi tiết như giám khảo, và đóng vai đối tác hội thoại để luyện phản xạ như thi thật.",
-    en: "Not a bare word list — each unit follows the Cambridge coursebook. AI scores your speaking and writing with real IELTS bands plus detailed examiner-style feedback, and acts as a conversation partner for exam-like practice.",
+  "feature.cpv.how": {
+    vi: "Thay vì học thuộc danh sách, Vocabulary Builder Pro nhóm từ theo nghĩa gốc của động từ, để AI tự soạn quiz theo ngữ cảnh (kèm giải thích vì sao đáp án khác sai), cho bạn hội thoại thật để dùng từ, và 7 chế độ ôn tập ngắt quãng giúp nhớ lâu.",
+    en: "Instead of rote lists, Vocabulary Builder Pro groups phrases by the core meaning of the verb, has AI build context quizzes (explaining why the wrong answers are wrong), roleplays real conversations so you actually use the phrases, and 7 spaced-repetition modes lock them in long-term.",
   },
-  "feature.listen.body": {
-    vi: "Hàng trăm bài nghe 1 phút theo chủ đề để luyện phản xạ mỗi ngày. Nghe xong, AI bắt chuyện ngay về chính chủ đề đó — vừa luyện nói vừa được AI nhận xét cách diễn đạt của bạn tại chỗ.",
-    en: "Hundreds of one-minute listening topics for daily practice. After listening, the AI starts a conversation about the same topic — speaking practice with in-the-moment feedback on how you express yourself.",
+  "feature.cambridge.why": {
+    vi: "IELTS điểm cao đòi hỏi vốn từ học thuật và phối hợp cả 4 kỹ năng — một danh sách từ suông không đưa bạn tới đó được.",
+    en: "A high IELTS band needs academic vocabulary plus all four skills working together — a bare word list can't get you there.",
   },
-  "feature.idiom.body": {
-    vi: "Mảnh ghép cuối của bộ ba collocation – phrasal verb – idiom để nói tự nhiên như người bản ngữ. Mỗi idiom đi kèm câu chuyện nguồn gốc lịch sử — hiểu vì sao nó ra đời thì tự nhiên nhớ mà không cần học vẹt — cùng quiz, trò chuyện và chấm cách dùng đúng ngữ cảnh.",
-    en: "The final piece of the collocation – phrasal verb – idiom trio for sounding like a native speaker. Every idiom comes with its historical origin story — understand why it exists and it sticks without rote learning — plus quizzes, chat, and context-aware usage grading.",
+  "feature.cambridge.how": {
+    vi: "Mỗi unit bám sát giáo trình Cambridge: bài nghe, đọc, nói, viết tương tác hoàn chỉnh. AI chấm bài nói/viết của bạn theo band IELTS thật với nhận xét chi tiết như giám khảo.",
+    en: "Every unit follows the Cambridge coursebook: full interactive listening, reading, speaking and writing tasks. The AI grades your speaking and writing with real IELTS bands and detailed examiner-style feedback.",
+  },
+  "feature.listen.why": {
+    vi: "Nghe hiểu là kỹ năng cần luyện đều mỗi ngày với lượng nhỏ. Nghe chủ đề ngắn giúp tai quen dần với tốc độ tự nhiên, đồng thời tích lũy kiến thức nền để nói và viết về sau.",
+    en: "Listening is a skill that needs small daily practice. Short topics let your ear gradually adjust to natural speed while building background knowledge you'll reuse for speaking and writing.",
+  },
+  "feature.listen.how": {
+    vi: "Hàng trăm bài nghe 1 phút được sắp xếp theo bảng chữ cái, phủ đa dạng chủ đề. Nghe xong, bạn điền từ còn thiếu, sửa chính tả, rồi AI bắt chuyện ngay về chính chủ đề đó để luyện nói.",
+    en: "Hundreds of one-minute topics organized A–Z across a wide range of subjects. After listening, fill in the gaps, fix the spelling, then the AI starts a conversation about the very same topic to practice speaking.",
+  },
+  "feature.idiom.why": {
+    vi: "Idioms là thứ tạo nên chất 'bản ngữ' — nhưng gần như không thể dịch từng từ. Nắm đúng idioms giúp bạn nghe người bản xứ không bị lạc, và diễn đạt sắc sảo, tự nhiên.",
+    en: "Idioms are what make you sound native — yet they're almost impossible to translate word-for-word. Understanding them keeps you from getting lost when natives speak, and lets you express yourself sharply and naturally.",
+  },
+  "feature.idiom.how": {
+    vi: "Mỗi idiom đi kèm câu chuyện nguồn gốc lịch sử để bạn hiểu vì sao nó ra đời — nhớ tự nhiên, không học vẹt — cùng ví dụ, quiz và hội thoại AI để luyện dùng đúng ngữ cảnh.",
+    en: "Every idiom comes with its historical origin story so you understand why it exists — you remember it naturally, no rote learning — plus examples, quizzes, and AI conversations to practice using it in the right context.",
   },
   "feature.lookup.body": {
     vi: "Đang đọc mà gặp từ lạ hay câu ngữ pháp rối? Bôi đen ngay tại chỗ, ở bất cứ đâu trong app — AI giải nghĩa hoặc phân tích cấu trúc câu tức thì, bằng đúng ngôn ngữ bạn chọn trong Cài đặt.",
@@ -148,6 +164,10 @@ export const STRINGS: Record<string, DictEntry> = {
     vi: "Mỗi lần AI chấm bài — quiz, hội thoại, bài viết — bạn nhận XP ngay lập tức. Chuỗi ngày học được giữ vững nhờ động lực thật từ kết quả AI chấm, không phải điểm ảo vô nghĩa.",
     en: "Every time the AI grades you — quiz, conversation, writing — you earn XP instantly. Your study streak is driven by real motivation from real AI grading, not meaningless fake points.",
   },
+  "feature.whyLabel": { vi: "Tại sao cần học?", en: "Why learn this?" },
+  "feature.howLabel": { vi: "Vocabulary Builder Pro giúp thế nào?", en: "How Vocabulary Builder Pro helps" },
+  "langTag.en": { vi: "EN", en: "EN" },
+  "langTag.vi": { vi: "VI", en: "VI" },
 
   // ─── Login — learning-path stage headers ─────────────────────────────
   "feature.stage.vocab": { vi: "🌱 Giai đoạn 1 · Xây vốn từ vựng", en: "🌱 Stage 1 · Build your vocabulary" },
@@ -230,6 +250,52 @@ export const STRINGS: Record<string, DictEntry> = {
   "onboarding.next": { vi: "Tiếp", en: "Next" },
   "onboarding.skip": { vi: "Bỏ qua", en: "Skip" },
   "onboarding.done": { vi: "Bắt đầu học 🚀", en: "Start learning 🚀" },
+
+  // ─── Collocations writing practice ───────────────────────────────────
+  "write.groupHelp": {
+    vi: "Chọn nhóm động từ (do, go, ...) — AI sẽ tự chọn những collocation/phrasal verb phù hợp nhất trong nhóm để dựng bài, không cần dùng hết.",
+    en: "Pick verb groups (do, go, ...) — the AI chooses the collocations/phrasal verbs that best fit the passage from them; you don't need to use them all.",
+  },
+  "write.promptTopicAndGroup": { vi: "Chọn một chủ đề và ít nhất một nhóm động từ để bắt đầu.", en: "Pick a topic and at least one verb group to start." },
+  "write.promptTopic": { vi: "Chọn một chủ đề ở trên để bắt đầu.", en: "Pick a topic above to start." },
+  "write.promptGroup": { vi: "Chọn ít nhất một nhóm động từ để bắt đầu.", en: "Pick at least one verb group to start." },
+  "lock.badge": { vi: "Khoá", en: "Locked" },
+
+  // ─── Login ───────────────────────────────────────────────────────────
+  "login.interfaceLang": { vi: "Ngôn ngữ giao diện", en: "Interface language" },
+
+  // ─── Shared across practice screens ──────────────────────────────────
+  "discussion.prompt": {
+    vi: "Đặt câu hỏi hoặc chia sẻ ý kiến của bạn về “{term}” để bắt đầu cuộc thảo luận.",
+    en: "Ask a question or share your thoughts about “{term}” to start the discussion.",
+  },
+  "lookup.lookup": { vi: "🔍 Tra cứu", en: "🔍 Look up" },
+  "lookup.grammar": { vi: "📐 Ngữ pháp", en: "📐 Grammar" },
+  "quota.low": {
+    vi: "⚠️ Google Drive của bạn chỉ còn {gb} trống — tiến độ học có thể không đồng bộ được.",
+    en: "⚠️ Your Google Drive only has {gb} left — study progress may not sync.",
+  },
+  "quota.cleanup": { vi: "Hãy dọn bớt dung lượng Drive.", en: "Free up some Drive space." },
+
+  // ─── Cambridge unit labels ───────────────────────────────────────────
+  "unit.sampleLoading": { vi: "Đang tạo đoạn văn mẫu...", en: "Generating sample passage..." },
+  "unit.sampleButton": { vi: "📝 Xem đoạn văn mẫu Writing Task 2", en: "📝 See sample Writing Task 2 passage" },
+  "unit.sampleLabel": { vi: "📝 Đoạn văn mẫu Writing Task 2", en: "📝 Sample Writing Task 2 passage" },
+  "unit.explain": { vi: "Xem giải thích chi tiết", en: "See detailed explanation" },
+  "unit.keyIdea": { vi: "🌟 Ý chính", en: "🌟 Key idea" },
+  "unit.synonyms": { vi: "Từ đồng nghĩa", en: "Synonyms" },
+  "unit.antonyms": { vi: "Trái nghĩa", en: "Antonyms" },
+  "unit.examples": { vi: "📌 Ví dụ", en: "📌 Examples" },
+
+  // ─── Idiom detail labels ─────────────────────────────────────────────
+  "idiom.learned": { vi: "Đã thuộc", en: "Learned" },
+  "idiom.concept": { vi: "📖 Khái niệm", en: "📖 Meaning" },
+  "idiom.origin": { vi: "📜 Nguồn gốc", en: "📜 Origin" },
+  "idiom.remember": { vi: "🧠 Bạn có nhớ thành ngữ này không?", en: "🧠 Do you remember this idiom?" },
+  "idiom.review": { vi: "🔁 Cần ôn lại", en: "🔁 Need review" },
+  "idiom.known": { vi: "✅ Đã nhớ", en: "✅ Got it" },
+  "idiom.practice": { vi: "🤖 Luyện tập với AI", en: "🤖 Practice with AI" },
+  "idiom.examples": { vi: "✏️ Ví dụ", en: "✏️ Examples" },
 };
 
 const STORAGE_KEY = "english-ui-lang";

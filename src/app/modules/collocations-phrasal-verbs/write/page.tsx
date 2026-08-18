@@ -2,7 +2,8 @@
 
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { GROUP_LABELS, VERBS } from "@/data/basic-verbs";
-import { loadTopics, addCustomTopic } from "@/lib/writing-topics";
+import { loadTopics, addCustomTopic, topicForLang } from "@/lib/writing-topics";
+import { useUiLang } from "@/lib/i18n";
 import { addGlobalXP } from "@/lib/global-score";
 import { useAiConvoStore } from "@/lib/use-ai-convo-store";
 import type { IntentType } from "@/lib/ai-convo-store";
@@ -63,6 +64,7 @@ const CheckIcon = ({ className = "h-4 w-4" }: { className?: string }) => (
 export default function WritePage() {
   const { appendMessages } = useAiConvoStore(MODULE_KEY);
   const { isUnlocked } = useSubscriptionStore();
+  const { lang, t } = useUiLang();
   const [phase, setPhase] = useState<"select" | "write" | "result">("select");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -162,7 +164,7 @@ export default function WritePage() {
     if (!selectedTopic || selected.size === 0) return;
     const chosenVerbs = VERBS.filter((v) => selected.has(v.verb));
     const pool = chosenVerbs.flatMap((v) => v.items.map((it) => ({ term: it.term, en: it.en, vi: it.vi })));
-    const d = await callAi("cpv_writing_passage", { pool, topic: selectedTopic, wordCount });
+    const d = await callAi("cpv_writing_passage", { pool, topic: topicForLang(selectedTopic, lang), wordCount });
     if (d?.passage) {
       // The AI picks whichever subset of the pool fits the passage best — resolve
       // its chosen terms back against the pool so we grade against exactly what it used.
@@ -222,18 +224,18 @@ export default function WritePage() {
           <div>
             <span className="label-xs mb-2 block text-neutral-600">Topic</span>
             <div className="flex flex-wrap gap-1.5">
-              {topics.map((t) => (
+              {topics.map((tp) => (
                 <button
-                  key={t}
-                  onClick={() => setSelectedTopic(t)}
+                  key={tp}
+                  onClick={() => setSelectedTopic(tp)}
                   className="rounded-full px-3 py-1.5 text-[12px] font-bold"
                   style={{
-                    background: selectedTopic === t ? "var(--color-accent)" : "var(--color-surface)",
-                    color: selectedTopic === t ? "#fff" : "var(--color-text)",
-                    border: selectedTopic === t ? "none" : "1px solid var(--color-divider)",
+                    background: selectedTopic === tp ? "var(--color-accent)" : "var(--color-surface)",
+                    color: selectedTopic === tp ? "#fff" : "var(--color-text)",
+                    border: selectedTopic === tp ? "none" : "1px solid var(--color-divider)",
                   }}
                 >
-                  {t}
+                  {topicForLang(tp, lang)}
                 </button>
               ))}
             </div>
@@ -267,9 +269,7 @@ export default function WritePage() {
 
           <div>
             <span className="label-xs mb-2 block text-neutral-600">Verb groups to draw from</span>
-            <p className="mb-2 text-[11px] text-neutral-500">
-              Chọn nhóm động từ (do, go, ...) — AI sẽ tự chọn những collocation/phrasal verb phù hợp nhất trong nhóm để dựng bài, không cần dùng hết.
-            </p>
+            <p className="mb-2 text-[11px] text-neutral-500">{t("write.groupHelp")}</p>
             <input className="input mb-2" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Search verb, phrase or meaning" />
             <div className="mb-2 flex gap-1.5 overflow-x-auto">
               {GROUP_KEYS.map((k) => (
@@ -303,7 +303,7 @@ export default function WritePage() {
                         {locked && (
                           <span className="label-xs flex items-center gap-1 whitespace-nowrap text-neutral-500">
                             <LockIcon />
-                            Khoá
+                            {t("lock.badge")}
                           </span>
                         )}
                       </span>
@@ -337,10 +337,10 @@ export default function WritePage() {
           {!loading && (selected.size === 0 || !selectedTopic) && (
             <p className="text-center text-[11px] text-neutral-500">
               {!selectedTopic && selected.size === 0
-                ? "Chọn một chủ đề và ít nhất một nhóm động từ để bắt đầu."
+                ? t("write.promptTopicAndGroup")
                 : !selectedTopic
-                  ? "Chọn một chủ đề ở trên để bắt đầu."
-                  : "Chọn ít nhất một nhóm động từ để bắt đầu."}
+                  ? t("write.promptTopic")
+                  : t("write.promptGroup")}
             </p>
           )}
         </div>
@@ -350,7 +350,7 @@ export default function WritePage() {
         <div className="flex flex-col gap-3">
           <div className="flex items-center justify-between">
             <span className="text-[12px] text-neutral-600">
-              Topic: <span className="font-extrabold text-ink">{selectedTopic}</span> · ~{wordCount} words
+              Topic: <span className="font-extrabold text-ink">{topicForLang(selectedTopic ?? "", lang)}</span> · ~{wordCount} words
             </span>
             <button className="text-[11px] text-neutral-400 hover:text-accent-800" onClick={discardDraft}>
               Discard, start new

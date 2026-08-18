@@ -151,15 +151,43 @@ export function AiSentencePractice({ item, moduleKey, showItemInfo = true }: { i
     }
   }, [viSentences, translations, item, ik, il, cid, appendMessages, translateDraftKey]);
 
+  const quizSavedRef = useRef(false);
   const lq = useCallback(async () => {
-    setQz(null); setQuizAnswers([]);
+    setQz(null); setQuizAnswers([]); quizSavedRef.current = false;
     const d = await callAi("cpv_context_quiz", { term: item.term, en: item.en, vi: item.vi, count: quizCount });
     if (d?.questions) { setQz(d); setQuizAnswers(new Array(d.questions.length).fill(null)); }
   }, [item, quizCount]);
   const pickQuizAnswer = useCallback((qi: number, oi: number) => {
     setQuizAnswers((prev) => { if (prev[qi] != null) return prev; const next = [...prev]; next[qi] = oi; return next; });
   }, []);
-  const le = useCallback(async () => { const d = await callAi("cpv_example_gen", { term: item.term, en: item.en, vi: item.vi, count: 4 }); if (d) setExs(d); }, [item]);
+  const le = useCallback(async () => {
+    const d = await callAi("cpv_example_gen", { term: item.term, en: item.en, vi: item.vi, count: 4 });
+    if (d) {
+      setExs(d);
+      appendMessages(ik, il, null, "cpv_example_gen", [
+        { role: "user", content: "Generate example sentences", timestamp: Date.now() },
+        { role: "assistant", content: JSON.stringify(d), timestamp: Date.now() },
+      ]);
+    }
+  }, [item, ik, il, appendMessages]);
+
+  // Persist a completed quiz (questions + answers + score) so it survives a refresh
+  // and syncs to Drive, like every other AI result. The quiz is an evaluation, so it
+  // also awards XP (10 per correct / 2 per incorrect).
+  useEffect(() => {
+    if (!qz || quizSavedRef.current) return;
+    if (quizAnswers.length === 0 || quizAnswers.some((a) => a === null)) return;
+    quizSavedRef.current = true;
+    const total = qz.questions.length;
+    const score = quizAnswers.filter((a, qi) => a === qz.questions[qi].answerIndex).length;
+    const xpEarned = score * 10 + (total - score) * 2;
+    const enriched = { ...qz, userAnswers: quizAnswers, score, total, xpEarned };
+    addGlobalXP(xpEarned);
+    appendMessages(ik, il, null, "cpv_context_quiz", [
+      { role: "user", content: `Answered ${total} quiz questions`, timestamp: Date.now() },
+      { role: "assistant", content: JSON.stringify(enriched), timestamp: Date.now() },
+    ]);
+  }, [qz, quizAnswers, ik, il, appendMessages]);
 
   const [preview, setPreview] = useState<{ conversation: { speaker: string; text: string }[] } | null>(null);
   const [phase, setPhase] = useState<"idle" | "preview" | "practicing" | "feedback">("idle");
@@ -307,6 +335,9 @@ export function AiSentencePractice({ item, moduleKey, showItemInfo = true }: { i
     setChat(msgs);
   }, []);
 
+  const quizDone = !!qz && quizAnswers.length > 0 && quizAnswers.every((a) => a !== null);
+  const quizScore = quizDone ? quizAnswers.filter((a, qi) => a === qz.questions[qi].answerIndex).length : 0;
+
   return (
     <div className="flex flex-col gap-4">
       <div className="flex flex-wrap gap-1">{(Object.keys(LABELS) as PMode[]).map(m => <button key={m} onClick={() => { setMode(m); setResult(null); setError(null); }} className="rounded-full px-3 py-1 text-[12px] font-bold" style={ts(m)}>{LABELS[m]}</button>)}</div>
@@ -429,9 +460,10 @@ export function AiSentencePractice({ item, moduleKey, showItemInfo = true }: { i
               </div>
             );
           })}
-          {quizAnswers.every((a) => a !== null) && (
+          {quizDone && (
             <div className="rounded bg-accent-100 p-3 text-[13px] font-extrabold text-accent-800">
-              Score: {quizAnswers.filter((a: number | null, qi: number) => a === qz.questions[qi].answerIndex).length}/{qz.questions.length}
+              Score: {quizScore}/{qz.questions.length}
+              <span className="ml-2 text-accent">+{quizScore * 10 + (qz.questions.length - quizScore) * 2} XP</span>
             </div>
           )}
           <button className="btn btn-ghost mt-1 text-[12px]" onClick={lq} disabled={loading}>New Quiz</button>

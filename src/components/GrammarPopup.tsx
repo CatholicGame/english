@@ -6,10 +6,11 @@
 // does, the result is saved to the personal grammar dictionary
 // (grammar-store.ts) and the popup grows a sidebar + an open chat:
 //
-// - Sidebar: every saved grammar entry, grouped by category (grammar repeats
-//   across many sentences — Second Conditional shows up again and again — so
-//   this is a browsable index, not just a flat "similar" reminder). Picking
-//   an entry switches the detail pane to that record.
+// - Sidebar: only the saved entries that share the current lookup's grammar
+//   category (grammar repeats across many sentences — Second Conditional shows
+//   up again and again), so the learner immediately sees this is a REPETITION
+//   of something they've already looked up. Picking an entry switches the
+//   detail pane to that record.
 // - Detail pane: category/explanation/example for whichever record is
 //   selected, plus its own ongoing chat (reuses ChatInput + useAiConvoStore,
 //   same persistence pattern as LessonDiscussion). GrammarChat is remounted
@@ -20,7 +21,7 @@ import { useEffect, useRef, useState } from "react";
 import { Modal } from "./Modal";
 import { ChatInput } from "./ChatInput";
 import { CopyButton } from "./CopyButton";
-import { normalizeCategory, normalizeGrammarText, type GrammarData, type GrammarEntry } from "@/lib/grammar-store";
+import { normalizeCategory, normalizeGrammarText } from "@/lib/grammar-store";
 import { useGrammarStore } from "@/lib/use-grammar-store";
 import { useAiConvoStore } from "@/lib/use-ai-convo-store";
 import type { AiMessage } from "@/lib/ai-convo-store";
@@ -51,27 +52,6 @@ async function callAi(payload: Record<string, unknown>) {
   const j = await r.json();
   if (!j.ok) throw new Error(j.error || "AI failed");
   return j.data;
-}
-
-interface CategoryGroup {
-  category: string;
-  items: [string, GrammarEntry][];
-}
-
-function groupByCategory(entries: GrammarData): CategoryGroup[] {
-  const groups = new Map<string, [string, GrammarEntry][]>();
-  for (const [k, e] of Object.entries(entries)) {
-    const norm = normalizeCategory(e.category);
-    const list = groups.get(norm);
-    if (list) list.push([k, e]);
-    else groups.set(norm, [[k, e]]);
-  }
-  return [...groups.values()]
-    .map((items) => ({
-      category: items[0][1].category,
-      items: items.sort((a, b) => b[1].updatedAt - a[1].updatedAt),
-    }))
-    .sort((a, b) => b.items[0][1].updatedAt - a.items[0][1].updatedAt);
 }
 
 export function GrammarPopup({ text, context, onClose }: Props) {
@@ -133,8 +113,14 @@ export function GrammarPopup({ text, context, onClose }: Props) {
   const isGrammar = viewingEntry ? true : isViewingOriginal ? freshResult?.isGrammar : undefined;
   const note = isViewingOriginal ? freshResult?.note : undefined;
 
-  const groups = groupByCategory(entries);
-  const showSidebar = Object.keys(entries).length > 1;
+  // Only surface entries that share the CURRENT lookup's grammar category, so the
+  // learner sees at a glance that this structure has come up before (a repetition),
+  // rather than a browsable index of every unrelated structure ever looked up.
+  const originalCategory = cachedEntry?.category ?? freshResult?.category;
+  const sameCategoryEntries = Object.entries(entries)
+    .filter(([, e]) => normalizeCategory(e.category) === normalizeCategory(originalCategory ?? ""))
+    .sort((a, b) => b[1].updatedAt - a[1].updatedAt);
+  const showSidebar = sameCategoryEntries.length > 1;
 
   return (
     <Modal onClose={onClose} contentClassName="lg:max-w-[720px]">
@@ -155,30 +141,23 @@ export function GrammarPopup({ text, context, onClose }: Props) {
               style={{ borderColor: "var(--color-divider)" }}
             >
               <span className="label-xs mb-1.5 block text-neutral-600">
-                📚 Các lần đã tra ({Object.keys(entries).length})
+                🔁 Đã gặp cấu trúc này ({sameCategoryEntries.length} lần)
               </span>
-              <div className="flex max-h-[160px] flex-col gap-2.5 overflow-y-auto lg:max-h-[420px]">
-                {groups.map((g) => (
-                  <div key={g.category}>
-                    <div className="label-xs mb-1 text-accent">{g.category}</div>
-                    <div className="flex flex-col gap-0.5">
-                      {g.items.map(([k, e]) => (
-                        <button
-                          key={k}
-                          type="button"
-                          onClick={() => setViewingKey(k)}
-                          className="rounded px-2 py-1 text-left text-[12px] leading-snug"
-                          style={{
-                            background: k === viewingKey ? "var(--color-accent-100)" : undefined,
-                            color: k === viewingKey ? "var(--color-accent-800)" : "var(--color-text)",
-                          }}
-                        >
-                          <span className="line-clamp-2">{e.text}</span>
-                          {e.discussed && <span className="ml-1 text-[10px] font-bold">✓</span>}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
+              <div className="flex max-h-[160px] flex-col gap-0.5 overflow-y-auto lg:max-h-[420px]">
+                {sameCategoryEntries.map(([k, e]) => (
+                  <button
+                    key={k}
+                    type="button"
+                    onClick={() => setViewingKey(k)}
+                    className="rounded px-2 py-1 text-left text-[12px] leading-snug"
+                    style={{
+                      background: k === viewingKey ? "var(--color-accent-100)" : undefined,
+                      color: k === viewingKey ? "var(--color-accent-800)" : "var(--color-text)",
+                    }}
+                  >
+                    <span className="line-clamp-2">{e.text}</span>
+                    {e.discussed && <span className="ml-1 text-[10px] font-bold">✓</span>}
+                  </button>
                 ))}
               </div>
             </div>

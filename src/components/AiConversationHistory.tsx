@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { memo, useMemo, useState } from "react";
 import { useAiConvoStore } from "@/lib/use-ai-convo-store";
 import type { AiConversation } from "@/lib/ai-convo-store";
 import { AiBandFeedback } from "./AiBandFeedback";
@@ -167,6 +167,71 @@ function GrammarAnalysisContent({ data }: { data: Record<string, unknown> }) {
   );
 }
 
+const QUIZ_LETTERS = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
+
+/** Context quiz result: { questions: [{question, options, answerIndex, explanation}],
+ *  userAnswers, score, total, xpEarned } */
+function QuizReviewContent({ data }: { data: Record<string, unknown> }) {
+  const questions = data.questions as { question: string; options: string[]; answerIndex: number; explanation: string }[];
+  const userAnswers = data.userAnswers as (number | null)[] | undefined;
+  const score = data.score as number | undefined;
+  const total = data.total as number | undefined;
+  const xpEarned = data.xpEarned as number | undefined;
+
+  return (
+    <div className="flex flex-col gap-2">
+      {questions.map((q, i) => {
+        const picked = userAnswers?.[i];
+        const correct = picked != null && picked === q.answerIndex;
+        return (
+          <div key={i} className="rounded border p-2" style={{ borderColor: "var(--color-divider)" }}>
+            <p className="text-[12px] font-extrabold">
+              {i + 1}. {q.question} {picked != null && (correct ? "✅" : "❌")}
+            </p>
+            <div className="mt-1 flex flex-col gap-0.5">
+              {q.options.map((opt, oi) => (
+                <p
+                  key={oi}
+                  className="text-[11px]"
+                  style={{
+                    color: oi === q.answerIndex ? "var(--color-accent)" : picked === oi ? "var(--color-accent-800)" : "var(--color-neutral-600)",
+                  }}
+                >
+                  {QUIZ_LETTERS[oi] ?? oi}. {opt}{oi === q.answerIndex ? " ✓" : picked === oi ? " ✗" : ""}
+                </p>
+              ))}
+            </div>
+            {q.explanation && <p className="mt-1 text-[11px] text-neutral-500">{q.explanation}</p>}
+          </div>
+        );
+      })}
+      {score != null && total != null && (
+        <p className="text-[12px] font-extrabold">Score: {score}/{total}</p>
+      )}
+      {xpEarned != null && <p className="text-[11px] font-extrabold text-accent">+{xpEarned} XP</p>}
+    </div>
+  );
+}
+
+/** Example generation result: { examples: [{context, sentence, note}] } */
+function ExamplesContent({ data }: { data: Record<string, unknown> }) {
+  const examples = data.examples as { context: string; sentence: string; note: string }[];
+  return (
+    <div className="flex flex-col gap-2">
+      {examples.map((ex, i) => (
+        <div key={i} className="rounded border p-2" style={{ borderColor: "var(--color-divider)" }}>
+          <div className="mb-1 flex items-center justify-between gap-2">
+            <span className="label-xs block text-accent">{ex.context}</span>
+            <CopyButton text={ex.sentence} className="rounded-full border px-2 py-0.5 text-[11px] font-bold" style={{ borderColor: "var(--color-accent)", color: "var(--color-accent)" }} />
+          </div>
+          <p className="text-[13px] leading-relaxed font-extrabold">{ex.sentence}</p>
+          {ex.note && <p className="mt-1 text-[11px] italic text-neutral-500">{ex.note}</p>}
+        </div>
+      ))}
+    </div>
+  );
+}
+
 /** Renders an assistant message's saved content. Assistant messages are stored as
  * JSON.stringify(data) — plain-text conversation replies fail to JSON.parse and
  * fall through to raw text. */
@@ -184,6 +249,8 @@ export function AiHistoryMessage({ content }: { content: string }) {
   if (Array.isArray(obj.results)) return <BatchReviewContent data={obj} />;
   if (obj.overallBand !== undefined) return <AiBandFeedback loading={false} result={obj} error={null} />;
   if (obj.isGrammar !== undefined) return <GrammarAnalysisContent data={obj} />;
+  if (Array.isArray(obj.questions)) return <QuizReviewContent data={obj} />;
+  if (Array.isArray(obj.examples)) return <ExamplesContent data={obj} />;
   if (obj.feedback !== undefined || obj.correction !== undefined || obj.correct !== undefined) {
     return <SentenceCheckContent data={obj} />;
   }
@@ -239,10 +306,28 @@ async function buildShareUrl(c: AiConversation): Promise<string> {
   return createShareLink(payload);
 }
 
-export function AiConversationHistory({ moduleKey, itemKey, filterIntent, onContinue, activeConvoId }: Props) {
+function AiConversationHistoryImpl({ moduleKey, itemKey, filterIntent, onContinue, activeConvoId }: Props) {
   const { getConvos, deleteConversation, clearAllForItem } = useAiConvoStore(moduleKey);
   const allConvos = getConvos(itemKey);
-  const convos = filterIntent ? allConvos.filter(c => c.intent === filterIntent) : allConvos;
+  const convos = useMemo(
+    () => (filterIntent ? allConvos.filter((c) => c.intent === filterIntent) : allConvos),
+    [allConvos, filterIntent],
+  );
+
+  // Precompute feedback + display messages once per conversation so toggling the
+  // expanded state (or any other local state change) doesn't re-JSON.parse every
+  // message of every conversation on every render.
+  const rows = useMemo(
+    () =>
+      convos.map((c) => {
+        const feedback = findFeedback(c);
+        const displayMessages = feedback
+          ? c.messages.filter((m) => !parseFeedbackContent(m.content))
+          : c.messages;
+        return { c, feedback, displayMessages };
+      }),
+    [convos],
+  );
   const [expanded, setExpanded] = useState<string | null>(null);
   const [confirmClear, setConfirmClear] = useState(false);
   const [confirmDeleteId, setConfirmDeleteId] = useState<string | null>(null);
@@ -283,9 +368,7 @@ export function AiConversationHistory({ moduleKey, itemKey, filterIntent, onCont
         )}
       </div>
       <div className="flex flex-col gap-2">
-        {convos.map((c) => {
-          const feedback = findFeedback(c);
-          const displayMessages = feedback ? c.messages.filter((m) => !parseFeedbackContent(m.content)) : c.messages;
+        {rows.map(({ c, feedback, displayMessages }) => {
           return (
           <div key={c.id} className="rounded border p-2.5" style={{ borderColor: "var(--color-divider)" }}>
             <div className="flex items-center justify-between">
@@ -410,3 +493,5 @@ export function AiConversationHistory({ moduleKey, itemKey, filterIntent, onCont
     </div>
   );
 }
+
+export const AiConversationHistory = memo(AiConversationHistoryImpl);

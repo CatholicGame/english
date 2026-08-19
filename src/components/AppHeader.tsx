@@ -166,7 +166,11 @@ export function AppHeader() {
         </button>
         {settingsOpen && (
           <div
-            className="absolute top-full right-0 mt-2 w-64 max-h-[calc(100dvh-56px)] overflow-y-auto overscroll-contain border border-[color:var(--color-divider)] bg-bg shadow-lg"
+            // Full-width sheet right below the header on mobile — a narrow
+            // w-64 dropdown anchored to the gear icon left a lopsided gap on
+            // the opposite side of a phone-width screen. From sm: up, back to
+            // the compact anchored dropdown (there's room for it to float).
+            className="fixed inset-x-0 top-12 max-h-[calc(100dvh-3rem)] overflow-y-auto overscroll-contain border-t border-[color:var(--color-divider)] bg-bg shadow-lg sm:absolute sm:inset-x-auto sm:top-full sm:right-0 sm:mt-2 sm:w-64 sm:max-h-[calc(100dvh-56px)] sm:border"
           >
             <div className="divider-b px-3 py-2">
               <ShareButton

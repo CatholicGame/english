@@ -63,9 +63,9 @@ export const STRINGS: Record<string, DictEntry> = {
     vi: "Chọn 1 gói ở trên để thanh toán: PayOS (VNĐ) cho người dùng Việt Nam, hoặc PayPal (USD) cho người nước ngoài. Quyền lợi sẽ tự động kích hoạt ngay sau khi thanh toán thành công.",
     en: "Pick a plan above to pay: PayOS (VND) for Vietnamese users, or PayPal (USD) for international users. Access activates automatically once payment succeeds.",
   },
-  "subs.aiCostHook": {
-    vi: "💡 Chưa tới {price}/lượt luyện cùng AI, kể cả khi dùng hết {limit} lượt mỗi ngày",
-    en: "💡 Under {price} per AI practice request, even at the full {limit}/day limit",
+  "subs.valueHook": {
+    vi: "🤖 Học và luyện tập cùng AI, mở khoá toàn bộ tính năng và nội dung",
+    en: "🤖 Practice with AI, every feature and all content unlocked",
   },
   "plan.monthly": { vi: "1 tháng", en: "1 month" },
   "plan.quarterly": { vi: "3 tháng", en: "3 months" },

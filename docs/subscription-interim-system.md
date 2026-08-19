@@ -23,7 +23,7 @@ Mỗi gói có 2 giá: **VNĐ** (PayOS, người dùng Việt Nam) và **USD** (
 
 1 tháng cố tình là giá/tháng đắt nhất — quy đổi/tháng giảm đều 10.000đ mỗi bậc. **Cập nhật 2026-08-19**: tăng từ bảng giá cũ (50k/130k/220k/360k) — bảng cũ được tính dựa trên chi phí DeepSeek trung bình ~13,7đ/lượt đo **trước khi** sửa lỗi reasoning-mode (xem AGENTS.md mục AI); chi phí thật hiện đang được đo lại qua tab "Token AI" trong admin dashboard trước khi cân nhắc thêm lần nữa. Giá 12 tháng vẫn là suy luận toán học, **chưa qua kiểm chứng thị trường** — điều chỉnh tuỳ ý trong `PRICING_PLANS`.
 
-Mỗi gói có thể có `hook` — 1 câu so sánh ngắn để giá cảm thấy "nhẹ" (gói 1 tháng: "🧋 chưa tới 2 cốc trà sữa"; gói 12 tháng: "📅 Chỉ 2.000đ/ngày"). Gói 12 tháng có badge "Tốt nhất" trong `SubscriptionSettings.tsx`. Ngoài ra còn 1 dòng nhấn mạnh giá trị chung, tính động từ `AI_DAILY_CALL_LIMIT` và giá gói rẻ nhất theo tháng: "Chưa tới Xđ/lượt luyện cùng AI, kể cả khi dùng hết 100 lượt mỗi ngày" (`subs.aiCostHook` trong `i18n.ts`, tính trong `SubscriptionSettings.tsx`).
+Mỗi gói có thể có `hook` — 1 câu so sánh ngắn để giá cảm thấy "nhẹ" (gói 1 tháng: "🧋 chưa tới 2 cốc trà sữa"; gói 12 tháng: "📅 Chỉ 2.000đ/ngày"). Gói 12 tháng có badge "Tốt nhất" trong `SubscriptionSettings.tsx`. Ngoài ra còn 1 dòng nhấn mạnh giá trị chung phía trên danh sách gói: "Học và luyện tập cùng AI, mở khoá toàn bộ tính năng và nội dung" (`subs.valueHook` trong `i18n.ts`) — cố tình không quy đổi ra "đồng/lượt" hay nhắc tới `AI_DAILY_CALL_LIMIT`, vì không có ý nghĩa với người dùng cuối, chỉ cần biết tiền dùng để làm gì.
 
 ### Vì sao entitlement chuyển sang Firestore
 

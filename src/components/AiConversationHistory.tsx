@@ -314,8 +314,8 @@ function AiConversationHistoryImpl({ moduleKey, itemKey, filterIntent, onContinu
     [allConvos, filterIntent],
   );
 
-  // Precompute feedback + display messages once per conversation so toggling the
-  // expanded state (or any other local state change) doesn't re-JSON.parse every
+  // Precompute feedback + display messages once per conversation so opening a
+  // modal (or any other local state change) doesn't re-JSON.parse every
   // message of every conversation on every render.
   const rows = useMemo(
     () =>
@@ -328,10 +328,10 @@ function AiConversationHistoryImpl({ moduleKey, itemKey, filterIntent, onContinu
       }),
     [convos],
   );
-  const [expanded, setExpanded] = useState<string | null>(null);
   const [confirmClear, setConfirmClear] = useState(false);
   const [confirmDeleteId, setConfirmDeleteId] = useState<string | null>(null);
   const [viewingFeedback, setViewingFeedback] = useState<AiConversation | null>(null);
+  const [viewingConvo, setViewingConvo] = useState<AiConversation | null>(null);
 
   if (convos.length === 0) return null;
 
@@ -374,7 +374,7 @@ function AiConversationHistoryImpl({ moduleKey, itemKey, filterIntent, onContinu
             <div className="flex items-center justify-between">
               <button
                 className="text-[12px] font-extrabold text-left hover:text-accent"
-                onClick={() => setExpanded(expanded === c.id ? null : c.id)}
+                onClick={() => setViewingConvo(c)}
               >
                 {INTENT_LABELS[c.intent] || c.intent} · {fmtDate(c.createdAt)}
               </button>
@@ -432,41 +432,49 @@ function AiConversationHistoryImpl({ moduleKey, itemKey, filterIntent, onContinu
                 {c.messages[0].content.slice(0, 80)}...
               </p>
             )}
-            {expanded === c.id && (
-              <>
-                <div className="mt-3 flex max-h-[300px] flex-col gap-2 overflow-y-auto border-t pt-2">
-                  {displayMessages.map((m, i) => (
-                    <div
-                      key={i}
-                      className="rounded p-2 text-[12px] leading-relaxed"
-                      style={{
-                        background: m.role === "user" ? "var(--color-accent-100)" : "var(--color-surface)",
-                        alignSelf: m.role === "user" ? "flex-end" : "flex-start",
-                      }}
-                    >
-                      <span className="label-xs mb-0.5 block">
-                        {m.role === "user" ? "You" : m.role === "assistant" ? "AI" : "System"}
-                      </span>
-                      {m.role === "assistant" ? <AiHistoryMessage content={m.content} /> : <p className="whitespace-pre-wrap">{m.content}</p>}
-                    </div>
-                  ))}
-                </div>
-                {(c.intent === "cpv_conversation" || c.intent === "discussion" || c.intent === "grammar_lookup") &&
-                  onContinue &&
-                  c.id !== activeConvoId && (
-                  <button
-                    className="btn btn-primary mt-2 w-full px-3 py-1.5 text-[12px] font-extrabold"
-                    onClick={() => { setExpanded(null); onContinue(c); }}
-                  >
-                    💬 Continue this conversation
-                  </button>
-                )}
-              </>
-            )}
           </div>
           );
         })}
       </div>
+      {viewingConvo && (() => {
+        const row = rows.find((r) => r.c.id === viewingConvo.id);
+        const displayMessages = row?.displayMessages ?? viewingConvo.messages;
+        return (
+          <Modal onClose={() => setViewingConvo(null)}>
+            <div className="mb-3">
+              <span className="label-xs text-neutral-500">{INTENT_LABELS[viewingConvo.intent] || viewingConvo.intent} · {fmtDate(viewingConvo.createdAt)}</span>
+              <h3 className="text-[14px] font-extrabold">{viewingConvo.itemLabel}</h3>
+            </div>
+            <div className="flex flex-col gap-2">
+              {displayMessages.map((m, i) => (
+                <div
+                  key={i}
+                  className="rounded p-2 text-[12px] leading-relaxed"
+                  style={{
+                    background: m.role === "user" ? "var(--color-accent-100)" : "var(--color-surface)",
+                    alignSelf: m.role === "user" ? "flex-end" : "flex-start",
+                  }}
+                >
+                  <span className="label-xs mb-0.5 block">
+                    {m.role === "user" ? "You" : m.role === "assistant" ? "AI" : "System"}
+                  </span>
+                  {m.role === "assistant" ? <AiHistoryMessage content={m.content} /> : <p className="whitespace-pre-wrap">{m.content}</p>}
+                </div>
+              ))}
+            </div>
+            {(viewingConvo.intent === "cpv_conversation" || viewingConvo.intent === "discussion" || viewingConvo.intent === "grammar_lookup") &&
+              onContinue &&
+              viewingConvo.id !== activeConvoId && (
+              <button
+                className="btn btn-primary mt-3 w-full px-3 py-1.5 text-[12px] font-extrabold"
+                onClick={() => { const c = viewingConvo; setViewingConvo(null); onContinue(c); }}
+              >
+                💬 Continue this conversation
+              </button>
+            )}
+          </Modal>
+        );
+      })()}
       {viewingFeedback && (() => {
         const feedback = findFeedback(viewingFeedback);
         if (!feedback) return null;

@@ -32,15 +32,23 @@ export async function callDeepSeek(prompt: PromptResult) {
     },
     body: JSON.stringify(body),
   });
-  const elapsedMs = Date.now() - startedAt;
+  // fetch() resolves on response headers, not on a fully-drained body — this is
+  // time-to-first-byte only. Do NOT log this alone as "the call took Xms": for a
+  // non-streaming completion the server typically only sends headers once it
+  // starts flushing the body, so a fast ttfbMs next to a huge reasoning_tokens
+  // count (seen previously) doesn't mean the model was fast — it means the real
+  // time was spent in the res.json() below, downloading/parsing the body while
+  // the model was still finishing generation server-side.
+  const ttfbMs = Date.now() - startedAt;
 
   if (!res.ok) {
     const err = await res.text();
-    console.error(`DeepSeek API error ${res.status} after ${elapsedMs}ms:`, err);
+    console.error(`DeepSeek API error ${res.status} after ttfb=${ttfbMs}ms:`, err);
     throw new Error(`DeepSeek API error ${res.status}: ${err.slice(0, 200)}`);
   }
 
   const data = await res.json();
+  const totalMs = Date.now() - startedAt;
   const choice = data.choices?.[0];
   const content = choice?.message?.content;
   // Diagnostic: DeepSeek's reasoning models spend most of the latency on hidden
@@ -49,7 +57,7 @@ export async function callDeepSeek(prompt: PromptResult) {
   // is where the time went, not model/network throughput. Logged on every call
   // (not just failures) so a slow request can actually be diagnosed after the fact.
   console.log(
-    `DeepSeek call: ${elapsedMs}ms, finish_reason=${choice?.finish_reason},`,
+    `DeepSeek call: ttfb=${ttfbMs}ms total=${totalMs}ms finish_reason=${choice?.finish_reason},`,
     `reasoning_tokens=${data.usage?.completion_tokens_details?.reasoning_tokens ?? "n/a"},`,
     `reasoning_content_len=${choice?.message?.reasoning_content?.length ?? 0},`,
     `completion_tokens=${data.usage?.completion_tokens ?? "n/a"},`,

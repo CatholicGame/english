@@ -8,8 +8,14 @@ import { dayKey } from "@/lib/utils";
 import { callDeepSeek } from "@/lib/deepseek-client";
 
 export async function POST(request: NextRequest) {
+  // Diagnostic: breaks down where a slow /api/ai call actually spends its time —
+  // session/Firestore checks before the model call, vs callDeepSeek itself (which
+  // logs its own ttfb/total split — see deepseek-client.ts) — so a 20s report
+  // can be traced to a phase instead of assumed to be "the model is slow".
+  const requestStartedAt = Date.now();
   const session = await readSession();
   if (!session) return NextResponse.json({ ok: false, error: "reauth_required" }, { status: 401 });
+  const afterSessionMs = Date.now() - requestStartedAt;
 
   const today = dayKey(new Date());
   const usage = await peekAiUsage(session.user.email, today, AI_DAILY_CALL_LIMIT);
@@ -19,6 +25,7 @@ export async function POST(request: NextRequest) {
       { status: 429 },
     );
   }
+  const afterUsageCheckMs = Date.now() - requestStartedAt;
 
   try {
     const body = await request.json();
@@ -36,6 +43,12 @@ export async function POST(request: NextRequest) {
     }
 
     const result = await callDeepSeek(prompt);
+    const totalRouteMs = Date.now() - requestStartedAt;
+    console.log(
+      `/api/ai [${intent}]: total=${totalRouteMs}ms`,
+      `(session=${afterSessionMs}ms, usage_check=${afterUsageCheckMs - afterSessionMs}ms,`,
+      `parse_and_deepseek=${totalRouteMs - afterUsageCheckMs}ms)`,
+    );
 
     // Deferred until after the response is sent, so the increment's Firestore
     // round-trip never adds latency to the AI call itself — see incrementAiUsage().

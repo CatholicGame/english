@@ -227,11 +227,13 @@ export default function WritePage() {
           </button>
         </div>
 
-        {/* Its own scroll container (not page-level scroll) so a focused textarea
-            scrolls within these bounds instead of the whole document — the passage
-            stays reachable instead of getting shoved off the top by the keyboard. */}
-        <div className="flex flex-1 flex-col gap-3 overflow-y-auto px-4 py-3">
-          <div className="flex flex-wrap gap-1.5">
+        {/* Three independent regions, not one shared page scroll — keywords stay
+            fixed, the passage and the textarea each scroll within their own bounds.
+            min-h-0 on this flex column (and on the textarea wrapper below) is what
+            lets the children actually shrink and scroll instead of overflowing the
+            viewport when the keyboard opens. */}
+        <div className="flex min-h-0 flex-1 flex-col gap-2 px-4 py-3">
+          <div className="flex flex-none flex-wrap gap-1.5">
             {terms.map((t) => (
               <span key={t.term} className="rounded-full border px-2.5 py-1 text-[11px] font-bold" style={{ borderColor: "var(--color-accent-800)", color: "var(--color-accent-800)" }}>
                 {t.term}
@@ -239,24 +241,26 @@ export default function WritePage() {
             ))}
           </div>
 
-          <div className="rounded bg-accent-100 p-3 text-[13px] leading-relaxed text-accent-800">{passage}</div>
+          <div className="max-h-[30vh] flex-none overflow-y-auto rounded bg-accent-100 p-3 text-[13px] leading-relaxed text-accent-800">{passage}</div>
 
-          <textarea
-            className="input min-h-[200px] resize-y"
-            placeholder="Translate the passage into English..."
-            value={translation}
-            onChange={(e) => setTranslation(e.target.value)}
-          />
-          <p className="text-[11px] text-neutral-500">
-            {translation.trim() ? translation.trim().split(/\s+/).length : 0} words · 💾 Draft is saved automatically
-          </p>
+          <div className="flex min-h-0 flex-1 flex-col gap-1.5">
+            <textarea
+              className="input min-h-0 flex-1 resize-none overflow-y-auto"
+              placeholder="Translate the passage into English..."
+              value={translation}
+              onChange={(e) => setTranslation(e.target.value)}
+            />
+            <p className="flex-none text-[11px] text-neutral-500">
+              {translation.trim() ? translation.trim().split(/\s+/).length : 0} words · 💾 Draft is saved automatically
+            </p>
 
-          {error && (
-            <div className="rounded bg-accent-100 p-4 text-[13px] leading-relaxed text-accent-800">
-              <p className="font-extrabold">Error</p>
-              <p className="mt-1">{error}</p>
-            </div>
-          )}
+            {error && (
+              <div className="flex-none rounded bg-accent-100 p-4 text-[13px] leading-relaxed text-accent-800">
+                <p className="font-extrabold">Error</p>
+                <p className="mt-1">{error}</p>
+              </div>
+            )}
+          </div>
         </div>
 
         {/* Sticky footer, not the end of scrollable content — always visible above
@@ -281,127 +285,135 @@ export default function WritePage() {
     );
   }
 
-  return (
-    <div className="flex flex-col gap-4 px-4 py-4 lg:px-6 lg:py-6">
-      <h1 className="text-[26px]">✍️ Write</h1>
+  if (phase === "select") {
+    return (
+      <div className="flex h-dvh flex-col">
+        <div className="flex-none px-4 pt-4 pb-1 lg:px-6 lg:pt-6">
+          <h1 className="text-[26px]">✍️ Write</h1>
+        </div>
 
-      {phase === "select" && (
-        <div className="flex flex-col gap-4">
-          <div>
-            <span className="label-xs mb-2 block text-neutral-600">Topic</span>
-            <div className="flex flex-wrap gap-1.5">
-              {topics.map((tp) => (
-                <button
-                  key={tp}
-                  onClick={() => setSelectedTopic(tp)}
-                  className="rounded-full px-3 py-1.5 text-[12px] font-bold"
-                  style={{
-                    background: selectedTopic === tp ? "var(--color-accent)" : "var(--color-surface)",
-                    color: selectedTopic === tp ? "#fff" : "var(--color-text)",
-                    border: selectedTopic === tp ? "none" : "1px solid var(--color-divider)",
-                  }}
-                >
-                  {topicForLang(tp, lang)}
-                </button>
-              ))}
-            </div>
-            <div className="mt-2 flex gap-1.5">
-              <input
-                className="input flex-1 text-[12px]"
-                placeholder="Add a custom topic..."
-                value={newTopic}
-                onChange={(e) => setNewTopic(e.target.value)}
-                onKeyDown={(e) => e.key === "Enter" && handleAddTopic()}
-              />
-              <button className="btn btn-ghost px-3 text-[12px] font-extrabold" onClick={handleAddTopic} disabled={!newTopic.trim()}>
-                Add
-              </button>
-            </div>
-          </div>
-
-          <div>
-            <span className="label-xs mb-1 block text-neutral-600">Length: ~{wordCount} words</span>
-            <input
-              type="range"
-              min={50}
-              max={200}
-              step={25}
-              value={wordCount}
-              onChange={(e) => setWordCount(Number(e.target.value))}
-              className="h-1 w-full accent-[var(--color-accent)]"
-              aria-label="Target word count"
-            />
-          </div>
-
-          <div>
-            <span className="label-xs mb-2 block text-neutral-600">Verb groups to draw from</span>
-            <p className="mb-2 text-[11px] text-neutral-500">{t("write.groupHelp")}</p>
-            <input className="input mb-2" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Search verb, phrase or meaning" />
-            <div className="mb-2 flex gap-1.5 overflow-x-auto">
-              {GROUP_KEYS.map((k) => (
-                <button
-                  key={k}
-                  onClick={() => setGroup(k)}
-                  className={`flex-none px-3 py-1.5 text-[11px] font-extrabold tracking-wider uppercase ${group === k ? "bg-ink text-bg" : "bg-surface text-ink"}`}
-                >
-                  {k === "all" ? "All" : k}
-                </button>
-              ))}
-            </div>
-            <div className="max-h-[320px] overflow-y-auto rounded border" style={{ borderColor: "var(--color-divider)" }}>
-              {listVerbs.map((v) => {
-                const isSel = selected.has(v.verb);
-                const locked = isVerbLocked(v.verb, isUnlocked);
-                return (
+        {/* Scrollable middle so the "Generate Passage" action below stays pinned
+            in place instead of scrolling away under a long verb list. */}
+        <div className="flex-1 overflow-y-auto px-4 py-3 lg:px-6">
+          <div className="flex flex-col gap-4">
+            <div>
+              <span className="label-xs mb-2 block text-neutral-600">Topic</span>
+              <div className="flex flex-wrap gap-1.5">
+                {topics.map((tp) => (
                   <button
-                    key={v.verb}
-                    onClick={() => toggleVerb(v.verb)}
-                    className={`flex w-full items-center gap-3 px-3 py-2.5 text-left ${locked ? "opacity-50 hover:opacity-70" : "hover:bg-surface"}`}
-                    style={{ borderBottom: "1px solid var(--color-divider)" }}
+                    key={tp}
+                    onClick={() => setSelectedTopic(tp)}
+                    className="rounded-full px-3 py-1.5 text-[12px] font-bold"
+                    style={{
+                      background: selectedTopic === tp ? "var(--color-accent)" : "var(--color-surface)",
+                      color: selectedTopic === tp ? "#fff" : "var(--color-text)",
+                      border: selectedTopic === tp ? "none" : "1px solid var(--color-divider)",
+                    }}
                   >
-                    <span className={`flex h-5 w-5 flex-none items-center justify-center border-2 ${isSel ? "border-accent bg-accent text-bg" : "border-neutral-400"}`}>
-                      {isSel && <CheckIcon className="h-3 w-3" />}
-                    </span>
-                    <span className="min-w-0 flex-1">
-                      <span className="flex items-baseline gap-2">
-                        <span className="text-[13px] font-extrabold uppercase tracking-tight">{v.verb}</span>
-                        <span className="text-[10px] tracking-wider text-accent">{v.group}</span>
-                        {locked && (
-                          <span className="label-xs flex items-center gap-1 whitespace-nowrap text-neutral-500">
-                            <LockIcon />
-                            {t("lock.badge")}
-                          </span>
-                        )}
-                      </span>
-                      <span className="block truncate text-[11px] text-neutral-600">{v.items.slice(0, 3).map((it) => it.term).join(" · ")}</span>
-                    </span>
-                    <span className="flex-none text-[11px] tabular-nums text-neutral-500">{v.items.length}</span>
+                    {topicForLang(tp, lang)}
                   </button>
-                );
-              })}
-              {listVerbs.length === 0 && <p className="px-3 py-4 text-[12px] text-neutral-500">No match.</p>}
+                ))}
+              </div>
+              <div className="mt-2 flex gap-1.5">
+                <input
+                  className="input flex-1 text-[12px]"
+                  placeholder="Add a custom topic..."
+                  value={newTopic}
+                  onChange={(e) => setNewTopic(e.target.value)}
+                  onKeyDown={(e) => e.key === "Enter" && handleAddTopic()}
+                />
+                <button className="btn btn-ghost px-3 text-[12px] font-extrabold" onClick={handleAddTopic} disabled={!newTopic.trim()}>
+                  Add
+                </button>
+              </div>
             </div>
-            <p className="mt-2 text-[11px] text-neutral-500">
-              {selected.size} verb group{selected.size === 1 ? "" : "s"} selected. The AI will pick whichever expressions fit the passage best.
-            </p>
+
+            <div>
+              <span className="label-xs mb-1 block text-neutral-600">Length: ~{wordCount} words</span>
+              <input
+                type="range"
+                min={50}
+                max={200}
+                step={25}
+                value={wordCount}
+                onChange={(e) => setWordCount(Number(e.target.value))}
+                className="h-1 w-full accent-[var(--color-accent)]"
+                aria-label="Target word count"
+              />
+            </div>
+
+            <div>
+              <span className="label-xs mb-2 block text-neutral-600">Verb groups to draw from</span>
+              <p className="mb-2 text-[11px] text-neutral-500">{t("write.groupHelp")}</p>
+              <input className="input mb-2" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Search verb, phrase or meaning" />
+              <div className="mb-2 flex gap-1.5 overflow-x-auto">
+                {GROUP_KEYS.map((k) => (
+                  <button
+                    key={k}
+                    onClick={() => setGroup(k)}
+                    className={`flex-none px-3 py-1.5 text-[11px] font-extrabold tracking-wider uppercase ${group === k ? "bg-ink text-bg" : "bg-surface text-ink"}`}
+                  >
+                    {k === "all" ? "All" : k}
+                  </button>
+                ))}
+              </div>
+              <div className="max-h-[320px] overflow-y-auto rounded border" style={{ borderColor: "var(--color-divider)" }}>
+                {listVerbs.map((v) => {
+                  const isSel = selected.has(v.verb);
+                  const locked = isVerbLocked(v.verb, isUnlocked);
+                  return (
+                    <button
+                      key={v.verb}
+                      onClick={() => toggleVerb(v.verb)}
+                      className={`flex w-full items-center gap-3 px-3 py-2.5 text-left ${locked ? "opacity-50 hover:opacity-70" : "hover:bg-surface"}`}
+                      style={{ borderBottom: "1px solid var(--color-divider)" }}
+                    >
+                      <span className={`flex h-5 w-5 flex-none items-center justify-center border-2 ${isSel ? "border-accent bg-accent text-bg" : "border-neutral-400"}`}>
+                        {isSel && <CheckIcon className="h-3 w-3" />}
+                      </span>
+                      <span className="min-w-0 flex-1">
+                        <span className="flex items-baseline gap-2">
+                          <span className="text-[13px] font-extrabold uppercase tracking-tight">{v.verb}</span>
+                          <span className="text-[10px] tracking-wider text-accent">{v.group}</span>
+                          {locked && (
+                            <span className="label-xs flex items-center gap-1 whitespace-nowrap text-neutral-500">
+                              <LockIcon />
+                              {t("lock.badge")}
+                            </span>
+                          )}
+                        </span>
+                        <span className="block truncate text-[11px] text-neutral-600">{v.items.slice(0, 3).map((it) => it.term).join(" · ")}</span>
+                      </span>
+                      <span className="flex-none text-[11px] tabular-nums text-neutral-500">{v.items.length}</span>
+                    </button>
+                  );
+                })}
+                {listVerbs.length === 0 && <p className="px-3 py-4 text-[12px] text-neutral-500">No match.</p>}
+              </div>
+              <p className="mt-2 text-[11px] text-neutral-500">
+                {selected.size} verb group{selected.size === 1 ? "" : "s"} selected. The AI will pick whichever expressions fit the passage best.
+              </p>
+            </div>
+
+            {error && (
+              <div className="rounded bg-accent-100 p-4 text-[13px] leading-relaxed text-accent-800">
+                <p className="font-extrabold">Error</p>
+                <p className="mt-1">{error}</p>
+              </div>
+            )}
           </div>
+        </div>
 
-          {error && (
-            <div className="rounded bg-accent-100 p-4 text-[13px] leading-relaxed text-accent-800">
-              <p className="font-extrabold">Error</p>
-              <p className="mt-1">{error}</p>
-            </div>
-          )}
-
+        <div className="flex-none border-t px-4 py-3 lg:px-6" style={{ borderColor: "var(--color-divider)", background: "var(--color-bg)" }}>
           <button
-            className="btn btn-primary px-4 py-2.5 text-[13px] font-extrabold disabled:opacity-40"
+            className="btn btn-primary btn-block px-4 py-2.5 text-[13px] font-extrabold disabled:opacity-40"
             disabled={loading || selected.size === 0 || !selectedTopic}
             onClick={generate}
           >
             {loading ? "Generating..." : "Generate Passage"}
           </button>
           {!loading && (selected.size === 0 || !selectedTopic) && (
-            <p className="text-center text-[11px] text-neutral-500">
+            <p className="mt-2 text-center text-[11px] text-neutral-500">
               {!selectedTopic && selected.size === 0
                 ? t("write.promptTopicAndGroup")
                 : !selectedTopic
@@ -410,7 +422,13 @@ export default function WritePage() {
             </p>
           )}
         </div>
-      )}
+      </div>
+    );
+  }
+
+  return (
+    <div className="flex flex-col gap-4 px-4 py-4 lg:px-6 lg:py-6">
+      <h1 className="text-[26px]">✍️ Write</h1>
 
       {phase === "result" && result && (
         <div className="flex flex-col gap-3">

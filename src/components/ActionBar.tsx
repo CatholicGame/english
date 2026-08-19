@@ -1,26 +1,39 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useRef, useState } from "react";
 
 const ActionBarContext = createContext<((node: React.ReactNode) => void) | null>(null);
 
-/** Full-height screen shell: a fixed header, a scrollable content area, and a
- * footer that's only rendered when some descendant claims it via useActionBar() —
- * so the screen's primary action (Generate, Submit, Check with AI, ...) is
- * always reachable at the bottom of the viewport instead of scrolling away with
- * the content above it. See the collocations "Write" page for the reference
- * usage, and AGENTS.md's "Action buttons stay pinned" convention.
+/** Full-height screen shell: a fixed-position header slot, a scrollable
+ * content area, and a footer that's only rendered when some descendant claims
+ * it via useActionBar() — so the screen's primary action (Generate, Submit,
+ * Check with AI, ...) is always reachable at the bottom of the viewport
+ * instead of scrolling away with the content above it. See the collocations
+ * "Write" page for the reference usage, and AGENTS.md's "Action buttons stay
+ * pinned" convention.
+ *
+ * The footer is `position: fixed` (same technique as `BottomNav`), not a
+ * `flex-none` last child sized by a height calculation the way an earlier
+ * version of this component did (`h-[calc(100dvh/svh - 3rem)]` on the outer
+ * box, footer pinned "to the bottom of that box"). That approach re-derives
+ * the footer's position from the viewport-height unit's exact value, and
+ * every mobile viewport-height quirk (chrome collapse on scroll, the app's own
+ * Fullscreen API toggle, gesture-nav safe areas, ...) throws that arithmetic
+ * off by a different amount — the footer ends up floating above the real
+ * bottom edge, fully off-screen, or overlapping content depending on the mode.
+ * `fixed bottom-0` sidesteps all of that: the browser itself keeps it glued to
+ * the true visible bottom edge, the same guarantee `AppHeader`'s
+ * `sticky top-0` already gives the top edge — no recomputation, no drift.
  *
  * `fullViewport` (default false): the global `AppHeader` (`sticky top-0 h-12`
- * in `src/app/layout.tsx`) sits ABOVE `{children}` in normal page flow and
- * takes up real space that a bare `h-dvh` box doesn't know about — nesting one
- * below it without accounting for those 3rem overflows the actual viewport by
- * exactly that much, silently pushing the footer below the fold (it's still
- * "pinned to the bottom of the box", just a box that's 3rem taller than what's
- * visible). Leave this false for a screen rendered as normal page content.
- * Pass `true` only when this is already nested inside a `fixed inset-0`
- * overlay that covers the whole viewport itself (so AppHeader is covered, not
- * stacked above this) — e.g. VerbDetailClient's full-screen "AI Practice" overlay. */
+ * in `src/app/layout.tsx`) sits ABOVE `{children}` in normal page flow — the
+ * scrollable content box still needs to size itself around that (a fixed
+ * footer doesn't need to know about it, but the content scrollbar does, so it
+ * doesn't reserve blank space at the bottom or clip early). Leave this false
+ * for a screen rendered as normal page content. Pass `true` only when this is
+ * already nested inside a `fixed inset-0` overlay that covers the whole
+ * viewport itself (so AppHeader is covered, not stacked above this) — e.g.
+ * VerbDetailClient's full-screen "AI Practice" overlay. */
 export function ActionBarScreen({
   header,
   children,
@@ -31,35 +44,52 @@ export function ActionBarScreen({
   fullViewport?: boolean;
 }) {
   const [footer, setFooter] = useState<React.ReactNode>(null);
+  const footerRef = useRef<HTMLDivElement>(null);
+  const [footerHeight, setFooterHeight] = useState(0);
+
+  // Reserve exactly as much bottom space in the scrollable content as the
+  // fixed footer actually renders at (a single button vs. a stacked pair vs.
+  // a chat composer row all differ), so it never overlaps the tail end of
+  // scrolled content.
+  useEffect(() => {
+    const el = footerRef.current;
+    if (!el) {
+      setFooterHeight(0);
+      return;
+    }
+    const measure = () => setFooterHeight(el.offsetHeight);
+    measure();
+    const ro = new ResizeObserver(measure);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, [footer]);
+
   return (
     <ActionBarContext.Provider value={setFooter}>
-      {/* svh, not dvh: dvh recomputes continuously as the mobile browser's own
-          chrome collapses/expands during a scroll gesture, so a box sized by it
-          visibly resizes (and drags its flex-positioned footer along) mid-scroll
-          — unlike the sticky-positioned AppHeader above, which re-anchors every
-          frame regardless. svh is the stable "chrome assumed visible" size, so
-          this box (and the footer inside it) never moves once laid out. */}
-      <div className={`flex flex-col overflow-hidden ${fullViewport ? "h-svh" : "h-[calc(100svh-3rem)]"}`}>
+      <div className={`flex flex-col ${fullViewport ? "h-full" : "h-[calc(100svh-3rem)]"}`}>
         {header && <div className="flex-none">{header}</div>}
-        <div className="flex min-h-0 flex-1 flex-col">{children}</div>
-        {footer && (
-          <div
-            className="flex-none border-t px-4 pt-3"
-            style={{
-              borderColor: "var(--color-divider)",
-              background: "var(--color-bg)",
-              paddingBottom: "calc(0.75rem + env(safe-area-inset-bottom, 0px))",
-            }}
-          >
-            {footer}
-          </div>
-        )}
+        <div className="flex min-h-0 flex-1 flex-col" style={{ paddingBottom: footer ? footerHeight : 0 }}>
+          {children}
+        </div>
       </div>
+      {footer && (
+        <div
+          ref={footerRef}
+          className="fixed inset-x-0 bottom-0 z-50 border-t px-4 pt-3"
+          style={{
+            borderColor: "var(--color-divider)",
+            background: "var(--color-bg)",
+            paddingBottom: "calc(0.75rem + env(safe-area-inset-bottom, 0px))",
+          }}
+        >
+          {footer}
+        </div>
+      )}
     </ActionBarContext.Provider>
   );
 }
 
-/** Claims the enclosing ActionBarScreen's sticky footer for `node` while this
+/** Claims the enclosing ActionBarScreen's fixed footer for `node` while this
  * component is mounted with a non-null node, releasing it on unmount or when
  * node becomes null (e.g. a mode switch that has no action right now). Only one
  * claim is active at a time per screen — that matches the usual case of "one

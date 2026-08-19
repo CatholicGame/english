@@ -37,7 +37,14 @@ export function ActionBarScreen({
         {header && <div className="flex-none">{header}</div>}
         <div className="flex min-h-0 flex-1 flex-col">{children}</div>
         {footer && (
-          <div className="flex-none border-t px-4 py-3" style={{ borderColor: "var(--color-divider)", background: "var(--color-bg)" }}>
+          <div
+            className="flex-none border-t px-4 pt-3"
+            style={{
+              borderColor: "var(--color-divider)",
+              background: "var(--color-bg)",
+              paddingBottom: "calc(0.75rem + env(safe-area-inset-bottom, 0px))",
+            }}
+          >
             {footer}
           </div>
         )}

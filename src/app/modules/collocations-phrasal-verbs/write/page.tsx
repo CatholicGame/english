@@ -271,7 +271,10 @@ export default function WritePage() {
         {/* Sticky footer, not the end of scrollable content — always visible above
             the keyboard, and doubles as a visible "AI is working" indicator instead
             of a button label the user has to scroll down to notice. */}
-        <div className="flex-none border-t px-4 py-3" style={{ borderColor: "var(--color-divider)", background: "var(--color-bg)" }}>
+        <div
+          className="flex-none border-t px-4 pt-3"
+          style={{ borderColor: "var(--color-divider)", background: "var(--color-bg)", paddingBottom: "calc(0.75rem + env(safe-area-inset-bottom, 0px))" }}
+        >
           {loading && (
             <div className="mb-2 flex items-center gap-2 text-[12px] font-bold text-accent-800">
               <span className="inline-block h-3 w-3 flex-none animate-spin rounded-full border-2 border-accent-800 border-t-transparent" />
@@ -417,7 +420,10 @@ export default function WritePage() {
           </div>
         </div>
 
-        <div className="flex-none border-t px-4 py-3 lg:px-6" style={{ borderColor: "var(--color-divider)", background: "var(--color-bg)" }}>
+        <div
+          className="flex-none border-t px-4 pt-3 lg:px-6"
+          style={{ borderColor: "var(--color-divider)", background: "var(--color-bg)", paddingBottom: "calc(0.75rem + env(safe-area-inset-bottom, 0px))" }}
+        >
           <button
             className="btn btn-primary btn-block px-4 py-2.5 text-[13px] font-extrabold disabled:opacity-40"
             disabled={loading || selected.size === 0 || !selectedTopic}

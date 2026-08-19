@@ -285,7 +285,7 @@ function WritingContent({
     </>
   );
   useActionBar(footerContent);
-  const [showTerms, setShowTerms] = useState(false);
+  const [showTerms, setShowTerms] = useState(true);
 
   return (
     // Three independent regions, not one shared page scroll — keywords stay
@@ -293,9 +293,9 @@ function WritingContent({
     // min-h-0 is what lets the children actually shrink and scroll instead of
     // overflowing the viewport when the keyboard opens.
     <div className="flex min-h-0 flex-1 flex-col gap-2 px-4 py-3">
-      {/* Collapsed to one line by default — a passage using many phrases (a
-          full verb group's worth) used to wrap this fixed row across 2-3
-          lines, permanently eating space the passage/textarea needed. */}
+      {/* Expanded by default; still collapsible for a passage using many
+          phrases (a full verb group's worth) whose expanded row would
+          otherwise wrap across 2-3 lines and eat space the passage/textarea need. */}
       <div className="flex-none">
         <button
           type="button"

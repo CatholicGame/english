@@ -23,6 +23,7 @@ export async function callDeepSeek(prompt: PromptResult) {
   // DO NOT use response_format: json_object — DeepSeek v4 handles it inconsistently
   // Instead, always extract JSON from text response
 
+  const startedAt = Date.now();
   const res = await fetch(`${DEEPSEEK_BASE}/chat/completions`, {
     method: "POST",
     headers: {
@@ -31,16 +32,29 @@ export async function callDeepSeek(prompt: PromptResult) {
     },
     body: JSON.stringify(body),
   });
+  const elapsedMs = Date.now() - startedAt;
 
   if (!res.ok) {
     const err = await res.text();
-    console.error(`DeepSeek API error ${res.status}:`, err);
+    console.error(`DeepSeek API error ${res.status} after ${elapsedMs}ms:`, err);
     throw new Error(`DeepSeek API error ${res.status}: ${err.slice(0, 200)}`);
   }
 
   const data = await res.json();
   const choice = data.choices?.[0];
   const content = choice?.message?.content;
+  // Diagnostic: DeepSeek's reasoning models spend most of the latency on hidden
+  // "thinking" tokens (reasoning_content) that never reach the visible content —
+  // a slow call with a short answer and a short prompt is a strong signal this
+  // is where the time went, not model/network throughput. Logged on every call
+  // (not just failures) so a slow request can actually be diagnosed after the fact.
+  console.log(
+    `DeepSeek call: ${elapsedMs}ms, finish_reason=${choice?.finish_reason},`,
+    `reasoning_tokens=${data.usage?.completion_tokens_details?.reasoning_tokens ?? "n/a"},`,
+    `reasoning_content_len=${choice?.message?.reasoning_content?.length ?? 0},`,
+    `completion_tokens=${data.usage?.completion_tokens ?? "n/a"},`,
+    `prompt_tokens=${data.usage?.prompt_tokens ?? "n/a"}`,
+  );
   if (!content) {
     console.error(
       "Empty content from DeepSeek. finish_reason:", choice?.finish_reason,

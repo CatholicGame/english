@@ -44,6 +44,15 @@ export const STRINGS: Record<string, DictEntry> = {
   "auth.account": { vi: "Tài khoản", en: "Account" },
   "auth.signout": { vi: "Đăng xuất", en: "Sign out" },
   "auth.signin": { vi: "Đăng nhập với Google", en: "Sign in with Google" },
+  "login.inAppWarning": {
+    vi: "Bạn đang mở trong {app}. Đăng nhập Google có thể bị chặn ở trình duyệt này.",
+    en: "You're viewing this inside {app}. Google sign-in may be blocked in this browser.",
+  },
+  "login.inAppOpenChrome": { vi: "Mở bằng Chrome", en: "Open in Chrome" },
+  "login.inAppIosHint": {
+    vi: "Nhấn nút chia sẻ hoặc \"...\" ở trên, rồi chọn \"Mở bằng Safari\".",
+    en: "Tap the share or \"...\" button above, then choose \"Open in Safari\".",
+  },
 
   // ─── Subscription / pricing ──────────────────────────────────────────
   "subs.plan": { vi: "Gói dịch vụ", en: "Plan" },

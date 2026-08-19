@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { useSearchParams } from "next/navigation";
 import logo from "@/assets/logo/logo.png";
+import { InAppBrowserNotice } from "@/components/InAppBrowserNotice";
 import { Modal } from "@/components/Modal";
 import { trackEvent } from "@/lib/firebase-client";
 import { useUiLang } from "@/lib/i18n";
@@ -113,6 +114,7 @@ export function LoginScreen() {
         ))}
       </div>
       <div className="flex flex-col items-center text-center lg:flex-1 lg:items-start lg:text-left">
+        <InAppBrowserNotice />
         <Image
           src={logo}
           alt="Vocabulary Builder Pro"

@@ -8,6 +8,7 @@ import { AiConversationHistory } from "./AiConversationHistory";
 import { ChatInput } from "./ChatInput";
 import { ConversationFeedback } from "./ConversationFeedback";
 import { addGlobalXP } from "@/lib/global-score";
+import { useActionBar } from "./ActionBar";
 import { createShareLink } from "@/lib/share-client";
 import type { SharedConvoPayload } from "@/lib/share-payload";
 import { currentAiLang } from "@/lib/ai-lang-prefs";
@@ -340,19 +341,100 @@ export function AiSentencePractice({ item, moduleKey, showItemInfo = true }: { i
   const quizDone = !!qz && quizAnswers.length > 0 && quizAnswers.every((a) => a !== null);
   const quizScore = quizDone ? quizAnswers.filter((a, qi) => a === qz.questions[qi].answerIndex).length : 0;
 
+  // The current mode/phase's primary action, computed once so it can either be
+  // claimed by an enclosing ActionBarScreen's pinned footer (when this component
+  // is hosted full-screen — see VerbDetailClient's "AI Practice" overlay) or
+  // rendered inline where it always used to live (when embedded partway down an
+  // ordinary content page, e.g. IdiomDetailClient — see useActionBar()).
+  let footerContent: React.ReactNode = null;
+  if (mode === "write") {
+    footerContent = (
+      <button className="btn btn-primary btn-block px-4 py-2.5 text-[13px] font-extrabold disabled:opacity-40" disabled={loading || !sentence.trim()} onClick={sw}>
+        {loading ? "Checking..." : "Check with AI"}
+      </button>
+    );
+  } else if (mode === "translate") {
+    if (viSentences.length === 0) {
+      footerContent = (
+        <button className="btn btn-primary btn-block px-4 py-2.5 text-[13px] font-extrabold" disabled={loading} onClick={loadTranslate}>
+          {loading ? "Generating..." : "Generate 5 Sentences"}
+        </button>
+      );
+    } else if (!batchResult) {
+      footerContent = (
+        <button className="btn btn-primary btn-block px-4 py-2.5 text-[13px] font-extrabold disabled:opacity-40" disabled={loading || translations.every(t => !t.trim())} onClick={submitTranslateBatch}>
+          {loading ? "Reviewing..." : "Submit All & Get Feedback"}
+        </button>
+      );
+    } else {
+      footerContent = <button className="btn btn-ghost btn-block text-[12px]" onClick={loadTranslate} disabled={loading}>New set</button>;
+    }
+  } else if (mode === "quiz") {
+    footerContent = !qz ? (
+      <button className="btn btn-primary btn-block px-4 py-2.5 text-[13px] font-extrabold" disabled={loading} onClick={lq}>{loading ? "Generating..." : "Generate Quiz"}</button>
+    ) : (
+      <button className="btn btn-ghost btn-block text-[12px]" onClick={lq} disabled={loading}>New Quiz</button>
+    );
+  } else if (mode === "examples") {
+    footerContent = !exs ? (
+      <button className="btn btn-primary btn-block px-4 py-2.5 text-[13px] font-extrabold" disabled={loading} onClick={le}>{loading ? "Generating..." : "Generate Examples"}</button>
+    ) : (
+      <button className="btn btn-ghost btn-block text-[12px]" onClick={le} disabled={loading}>Refresh</button>
+    );
+  } else if (mode === "converse") {
+    if (phase === "idle") {
+      footerContent = (
+        <button className="btn btn-primary btn-block px-4 py-2.5 text-[13px] font-extrabold" disabled={loading} onClick={loadPreview}>
+          {loading ? "Generating..." : "Generate Sample Conversation"}
+        </button>
+      );
+    } else if (phase === "preview") {
+      footerContent = (
+        <button className="btn btn-primary btn-block px-4 py-2.5 text-[13px] font-extrabold" disabled={loading} onClick={startPractice}>
+          {loading ? "Starting..." : "Start Practice"}
+        </button>
+      );
+    } else if (phase === "practicing") {
+      footerContent = chatBusy === "end" ? (
+        <div className="flex items-center justify-center gap-2 rounded border p-3 text-[12px] text-neutral-600" style={{ borderColor: "var(--color-divider)" }}>
+          <span className="inline-block h-3.5 w-3.5 animate-spin rounded-full border-2 border-current border-t-transparent" />
+          Analyzing your conversation...
+        </div>
+      ) : (
+        <div className="flex items-end gap-2">
+          <ChatInput value={chatIn} onChange={setChatIn} onSend={sendMessage} disabled={loading || !chatIn.trim()} />
+          <button className="btn btn-primary px-3 py-2.5 text-[13px] font-extrabold" disabled={loading || !chatIn.trim()} onClick={sendMessage}>Send</button>
+          <button className="btn btn-ghost px-3 py-2.5 text-[12px]" disabled={loading || !chat.some(m => m.role === "user")} onClick={endAndFeedback}>End</button>
+        </div>
+      );
+    }
+  } else if (mode === "discussion" && discPhase === "practicing") {
+    footerContent = discBusy === "end" ? (
+      <div className="flex items-center justify-center gap-2 rounded border p-3 text-[12px] text-neutral-600" style={{ borderColor: "var(--color-divider)" }}>
+        <span className="inline-block h-3.5 w-3.5 animate-spin rounded-full border-2 border-current border-t-transparent" />
+        Analyzing your discussion...
+      </div>
+    ) : (
+      <div className="flex items-end gap-2">
+        <ChatInput value={discChatIn} onChange={setDiscChatIn} onSend={sendDiscMessage} disabled={loading || !discChatIn.trim()} />
+        <button className="btn btn-primary px-3 py-2.5 text-[13px] font-extrabold" disabled={loading || !discChatIn.trim()} onClick={sendDiscMessage}>Send</button>
+        <button className="btn btn-ghost px-3 py-2.5 text-[12px]" disabled={loading || !discChat.some(m => m.role === "user")} onClick={endDiscussion}>End</button>
+      </div>
+    );
+  }
+  const footerClaimed = useActionBar(footerContent);
+
   return (
     <div className="flex flex-col gap-4">
       <div className="flex flex-wrap gap-1">{(Object.keys(LABELS) as PMode[]).map(m => <button key={m} onClick={() => { setMode(m); setResult(null); setError(null); }} className="rounded-full px-3 py-1 text-[12px] font-bold" style={ts(m)}>{LABELS[m]}</button>)}</div>
       {showItemInfo && <div className="rounded bg-surface p-3 text-[13px] leading-relaxed"><span className="font-extrabold">{item.term}</span><span className="text-neutral-600"> — {item.vi}</span><br /><span className="text-[11px] italic text-neutral-500">Example: {item.ex}</span></div>}
 
 
-      {mode === "write" && <div className="flex flex-col gap-3"><textarea className="input min-h-[80px] resize-y" placeholder={`Write a sentence using "${item.term}"...`} value={sentence} onChange={e => setSentence(e.target.value)} /><button className="btn btn-primary px-4 py-2.5 text-[13px] font-extrabold disabled:opacity-40" disabled={loading || !sentence.trim()} onClick={sw}>{loading ? "Checking..." : "Check with AI"}</button></div>}
+      {mode === "write" && <div className="flex flex-col gap-3"><textarea className="input min-h-[80px] resize-y" placeholder={`Write a sentence using "${item.term}"...`} value={sentence} onChange={e => setSentence(e.target.value)} />{!footerClaimed && footerContent}</div>}
 
       {mode === "translate" && <div className="flex flex-col gap-3">
         {viSentences.length === 0 ? (
-          <button className="btn btn-primary px-4 py-2.5 text-[13px] font-extrabold" disabled={loading} onClick={loadTranslate}>
-            {loading ? "Generating..." : "Generate 5 Sentences"}
-          </button>
+          !footerClaimed && footerContent
         ) : !batchResult ? (
           <div className="flex flex-col gap-3">
             <p className="text-[12px] text-neutral-600">Translate each sentence using "{item.term}".</p>
@@ -373,13 +455,7 @@ export function AiSentencePractice({ item, moduleKey, showItemInfo = true }: { i
                 />
               </div>
             ))}
-            <button
-              className="btn btn-primary px-4 py-2.5 text-[13px] font-extrabold disabled:opacity-40"
-              disabled={loading || translations.every(t => !t.trim())}
-              onClick={submitTranslateBatch}
-            >
-              {loading ? "Reviewing..." : "Submit All & Get Feedback"}
-            </button>
+            {!footerClaimed && footerContent}
           </div>
         ) : (
           <div className="flex flex-col gap-3">
@@ -412,7 +488,7 @@ export function AiSentencePractice({ item, moduleKey, showItemInfo = true }: { i
             {batchResult?.best != null && (
               <p className="text-[12px]">⭐ Best: sentence #{batchResult.best + 1} &nbsp;|&nbsp; ⚠️ Work on: #{batchResult.needsWork + 1}</p>
             )}
-            <button className="btn btn-ghost text-[12px]" onClick={loadTranslate} disabled={loading}>New set</button>
+            {!footerClaimed && footerContent}
           </div>
         )}
       </div>}
@@ -431,7 +507,7 @@ export function AiSentencePractice({ item, moduleKey, showItemInfo = true }: { i
               className="input w-16 text-center text-[13px]"
             />
           </div>
-          <button className="btn btn-primary px-4 py-2.5 text-[13px] font-extrabold" disabled={loading} onClick={lq}>{loading ? "Generating..." : "Generate Quiz"}</button>
+          {!footerClaimed && footerContent}
         </div>
       ) : (
         <div className="flex flex-col gap-4">
@@ -468,12 +544,12 @@ export function AiSentencePractice({ item, moduleKey, showItemInfo = true }: { i
               <span className="ml-2 text-accent">+{quizScore * 10 + (qz.questions.length - quizScore) * 2} XP</span>
             </div>
           )}
-          <button className="btn btn-ghost mt-1 text-[12px]" onClick={lq} disabled={loading}>New Quiz</button>
+          {!footerClaimed && footerContent}
         </div>
       )}</div>}
 
 
-      {mode === "examples" && <div className="flex flex-col gap-3">{!exs ? <button className="btn btn-primary px-4 py-2.5 text-[13px] font-extrabold" disabled={loading} onClick={le}>{loading ? "Generating..." : "Generate Examples"}</button> : <div className="flex flex-col gap-3">{exs.examples.map((ex: any, i: number) => (
+      {mode === "examples" && <div className="flex flex-col gap-3">{!exs ? (!footerClaimed && footerContent) : <div className="flex flex-col gap-3">{exs.examples.map((ex: any, i: number) => (
         <div key={i} className="rounded border p-3" style={{ borderColor: "var(--color-divider)" }}>
           <div className="mb-1 flex items-center justify-between gap-2">
             <span className="label-xs block text-accent">{ex.context}</span>
@@ -482,15 +558,11 @@ export function AiSentencePractice({ item, moduleKey, showItemInfo = true }: { i
           <p className="text-[13px] leading-relaxed font-extrabold">{ex.sentence}</p>
           <p className="mt-1 text-[11px] italic text-neutral-500">{ex.note}</p>
         </div>
-      ))}<button className="btn btn-ghost text-[12px]" onClick={le} disabled={loading}>Refresh</button></div>}</div>}
+      ))}{!footerClaimed && footerContent}</div>}</div>}
 
       {mode === "converse" && <div className="flex flex-col gap-3">
         {/* Phase: Idle — show Generate Sample button */}
-        {phase === "idle" && (
-          <button className="btn btn-primary px-4 py-2.5 text-[13px] font-extrabold" disabled={loading} onClick={loadPreview}>
-            {loading ? "Generating..." : "Generate Sample Conversation"}
-          </button>
-        )}
+        {phase === "idle" && !footerClaimed && footerContent}
 
         {/* Phase: Preview — show sample + start practice button */}
         {phase === "preview" && preview && (
@@ -501,9 +573,7 @@ export function AiSentencePractice({ item, moduleKey, showItemInfo = true }: { i
                 <p key={i} className="mb-1"><span className="font-extrabold">{line.speaker}:</span> {line.text}</p>
               ))}
             </div>
-            <button className="btn btn-primary px-4 py-2.5 text-[13px] font-extrabold" disabled={loading} onClick={startPractice}>
-              {loading ? "Starting..." : "Start Practice"}
-            </button>
+            {!footerClaimed && footerContent}
           </div>
         )}
 
@@ -530,18 +600,7 @@ export function AiSentencePractice({ item, moduleKey, showItemInfo = true }: { i
               )}
               <div ref={chatEndRef} />
             </div>
-            {chatBusy === "end" ? (
-              <div className="flex items-center justify-center gap-2 rounded border p-3 text-[12px] text-neutral-600" style={{ borderColor: "var(--color-divider)" }}>
-                <span className="inline-block h-3.5 w-3.5 animate-spin rounded-full border-2 border-current border-t-transparent" />
-                Analyzing your conversation...
-              </div>
-            ) : (
-              <div className="flex items-end gap-2">
-                <ChatInput value={chatIn} onChange={setChatIn} onSend={sendMessage} disabled={loading || !chatIn.trim()} />
-                <button className="btn btn-primary px-3 py-2.5 text-[13px] font-extrabold" disabled={loading || !chatIn.trim()} onClick={sendMessage}>Send</button>
-                <button className="btn btn-ghost px-3 py-2.5 text-[12px]" disabled={loading || !chat.some(m => m.role === "user")} onClick={endAndFeedback}>End</button>
-              </div>
-            )}
+            {!footerClaimed && footerContent}
           </div>
         )}
 
@@ -599,18 +658,7 @@ export function AiSentencePractice({ item, moduleKey, showItemInfo = true }: { i
               )}
               <div ref={discEndRef} />
             </div>
-            {discBusy === "end" ? (
-              <div className="flex items-center justify-center gap-2 rounded border p-3 text-[12px] text-neutral-600" style={{ borderColor: "var(--color-divider)" }}>
-                <span className="inline-block h-3.5 w-3.5 animate-spin rounded-full border-2 border-current border-t-transparent" />
-                Analyzing your discussion...
-              </div>
-            ) : (
-              <div className="flex items-end gap-2">
-                <ChatInput value={discChatIn} onChange={setDiscChatIn} onSend={sendDiscMessage} disabled={loading || !discChatIn.trim()} />
-                <button className="btn btn-primary px-3 py-2.5 text-[13px] font-extrabold" disabled={loading || !discChatIn.trim()} onClick={sendDiscMessage}>Send</button>
-                <button className="btn btn-ghost px-3 py-2.5 text-[12px]" disabled={loading || !discChat.some(m => m.role === "user")} onClick={endDiscussion}>End</button>
-              </div>
-            )}
+            {!footerClaimed && footerContent}
           </div>
         )}
 

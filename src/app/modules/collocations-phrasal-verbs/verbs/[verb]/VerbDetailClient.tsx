@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { NotesList } from "@/components/NotesList";
 import { AiSentencePractice } from "@/components/AiSentencePractice";
+import { ActionBarScreen } from "@/components/ActionBar";
 import { GROUP_LABELS, VERBS } from "@/data/basic-verbs";
 import { useProgress } from "@/lib/progress-context";
 import { lvlOf } from "@/lib/stats";
@@ -43,22 +44,27 @@ function AiSection({ item }: { item: { term: string; type: string; en: string; v
 
       {open && (
         <div className="fixed inset-0 z-[60] bg-bg">
-          <div className="mx-auto flex h-full max-w-[480px] flex-col lg:max-w-[720px]">
-            {/* Header */}
-            <div className="flex items-center justify-between px-4 py-3" style={{ borderBottom: "1px solid var(--color-divider)" }}>
-              <div>
-                <span className="text-[16px] font-extrabold">🤖 AI Practice</span>
-                <span className="ml-2 text-[13px] text-neutral-600">{item.term}</span>
+          <div className="mx-auto h-full max-w-[480px] lg:max-w-[720px]">
+            <ActionBarScreen
+              header={
+                <div className="flex items-center justify-between px-4 py-3" style={{ borderBottom: "1px solid var(--color-divider)" }}>
+                  <div>
+                    <span className="text-[16px] font-extrabold">🤖 AI Practice</span>
+                    <span className="ml-2 text-[13px] text-neutral-600">{item.term}</span>
+                  </div>
+                  <button className="btn btn-ghost text-[13px]" onClick={() => setOpen(false)}>
+                    ✕ Close
+                  </button>
+                </div>
+              }
+            >
+              {/* Scrollable content — the current mode's primary action (Check
+                  with AI, Send/End, ...) is pulled out of this flow into the
+                  screen's pinned footer by AiSentencePractice's useActionBar(). */}
+              <div className="min-h-0 flex-1 overflow-y-auto px-4 py-4">
+                <AiSentencePractice item={item} moduleKey="collocations-phrasal-verbs" />
               </div>
-              <button className="btn btn-ghost text-[13px]" onClick={() => setOpen(false)}>
-                ✕ Close
-              </button>
-            </div>
-
-            {/* Scrollable content */}
-            <div className="flex-1 overflow-y-auto px-4 py-4">
-              <AiSentencePractice item={item} moduleKey="collocations-phrasal-verbs" />
-            </div>
+            </ActionBarScreen>
           </div>
         </div>
       )}

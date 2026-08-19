@@ -36,6 +36,7 @@ import { useSubscriptionStore } from "@/lib/use-subscription-store";
 import { isCambridgeUnitLocked } from "@/lib/content-access";
 import { ProPaywallNotice } from "@/components/ProPaywallNotice";
 import { WritingChartView } from "@/components/IeltsChart";
+import { ActionBarScreen, useActionBar } from "@/components/ActionBar";
 
 const MODULE_KEY = "cambridge-vocabulary-ielts-advanced";
 
@@ -1686,6 +1687,29 @@ function SpeakingStepView({
     return `${m}:${r.toString().padStart(2, "0")}`;
   }
 
+  // Only claimed once the transcript + "Get AI Feedback"/Continue buttons are
+  // actually on screen (the "done" phase) — idle/prep/speak stay footer-less,
+  // unchanged, since that's a focused full-screen countdown with nothing to pin.
+  const footerContent =
+    phase === "done" ? (
+      <div className="flex flex-col gap-2">
+        <button
+          className="btn btn-primary btn-block px-4 py-2 text-[13px] font-extrabold disabled:opacity-40"
+          disabled={aiLoading || !transcript.trim()}
+          onClick={getFeedback}
+        >
+          {aiLoading ? "Scoring..." : "Get AI Feedback"}
+        </button>
+        <ContinueButton
+          onClick={() => {
+            clearDraft(draftKey);
+            onNext();
+          }}
+        />
+      </div>
+    ) : null;
+  const footerClaimed = useActionBar(footerContent);
+
   return (
     <div className="flex flex-1 flex-col p-4 lg:mx-auto lg:w-full lg:max-w-[640px]">
       <div className="mb-4 bg-surface p-4">
@@ -1772,24 +1796,12 @@ function SpeakingStepView({
               value={transcript}
               onChange={(e) => setTranscript(e.target.value)}
             />
-            <button
-              className="btn btn-primary px-4 py-2 text-[13px] font-extrabold disabled:opacity-40"
-              disabled={aiLoading || !transcript.trim()}
-              onClick={getFeedback}
-            >
-              {aiLoading ? "Scoring..." : "Get AI Feedback"}
-            </button>
             <div className="mt-3">
               <AiBandFeedback loading={aiLoading} result={aiResult} error={aiError} onRetry={getFeedback} />
             </div>
             <AiConversationHistory moduleKey={MODULE_KEY} itemKey={itemKey} filterIntent="cielts_speaking_feedback" />
           </div>
-          <ContinueButton
-            onClick={() => {
-              clearDraft(draftKey);
-              onNext();
-            }}
-          />
+          {!footerClaimed && footerContent}
         </>
       )}
     </div>
@@ -1861,6 +1873,35 @@ function WritingTaskStepView({
     }
   }
 
+  // Both "Get AI Feedback" and "Show model answer"/"Continue" are simultaneously
+  // available once there's a draft — stacked together in the pinned footer so
+  // neither requires scrolling past the (auto-growing) textarea to reach, and
+  // the "Scoring..." state stays visible instead of scrolling off with it.
+  const footerContent = (
+    <div className="flex flex-col gap-2">
+      <button
+        className="btn btn-primary btn-block px-4 py-2 text-[13px] font-extrabold disabled:opacity-40"
+        disabled={aiLoading || !draft.trim()}
+        onClick={getFeedback}
+      >
+        {aiLoading ? "Scoring..." : "Get AI Feedback"}
+      </button>
+      {showModel ? (
+        <ContinueButton
+          onClick={() => {
+            clearDraft(draftKey);
+            onNext();
+          }}
+        />
+      ) : (
+        <button className="btn btn-secondary btn-block px-4 py-3" onClick={() => setShowModel(true)}>
+          Show model answer
+        </button>
+      )}
+    </div>
+  );
+  const footerClaimed = useActionBar(footerContent);
+
   return (
     <div className="flex flex-1 flex-col p-4 lg:mx-auto lg:w-full lg:max-w-[720px]">
       <div className="mb-4 bg-surface p-4">
@@ -1897,41 +1938,24 @@ function WritingTaskStepView({
 
       <div className="mb-4 border-t pt-4" style={{ borderColor: "var(--color-divider)" }}>
         <div className="label-xs mb-2 text-accent">🎓 Get AI feedback on your draft</div>
-        <button
-          className="btn btn-primary px-4 py-2 text-[13px] font-extrabold disabled:opacity-40"
-          disabled={aiLoading || !draft.trim()}
-          onClick={getFeedback}
-        >
-          {aiLoading ? "Scoring..." : "Get AI Feedback"}
-        </button>
         <div className="mt-3">
           <AiBandFeedback loading={aiLoading} result={aiResult} error={aiError} onRetry={getFeedback} />
         </div>
         <AiConversationHistory moduleKey={MODULE_KEY} itemKey={itemKey} filterIntent="cielts_writing_feedback" />
       </div>
 
-      {showModel ? (
-        <>
-          <div className="mb-3 bg-accent-100 p-4 text-[13px] leading-relaxed whitespace-pre-wrap text-accent-800">
-            <div className="mb-1 flex items-center justify-between gap-2">
-              <span className="label-xs block text-accent-700">Model answer</span>
-              <CopyButton text={step.modelAnswer} className="rounded-full border px-2 py-0.5 text-[11px] font-bold" style={{ borderColor: "var(--color-accent-800)", color: "var(--color-accent-800)" }} />
-            </div>
-            {step.modelAnswer}
+      {showModel && (
+        <div className="mb-3 bg-accent-100 p-4 text-[13px] leading-relaxed whitespace-pre-wrap text-accent-800">
+          <div className="mb-1 flex items-center justify-between gap-2">
+            <span className="label-xs block text-accent-700">Model answer</span>
+            <CopyButton text={step.modelAnswer} className="rounded-full border px-2 py-0.5 text-[11px] font-bold" style={{ borderColor: "var(--color-accent-800)", color: "var(--color-accent-800)" }} />
           </div>
-          <Tip>{step.tip}</Tip>
-          <ContinueButton
-            onClick={() => {
-              clearDraft(draftKey);
-              onNext();
-            }}
-          />
-        </>
-      ) : (
-        <button className="btn btn-primary btn-block mt-auto px-4 py-3" onClick={() => setShowModel(true)}>
-          Show model answer
-        </button>
+          {step.modelAnswer}
+        </div>
       )}
+      {showModel && <Tip>{step.tip}</Tip>}
+
+      {!footerClaimed && footerContent}
     </div>
   );
 }
@@ -2052,44 +2076,48 @@ export function UnitClient({ slug }: { slug: string }) {
   }
 
   return (
-    <div className="flex min-h-screen flex-col">
-      <div className="divider-b flex items-center gap-3 px-4 py-3">
-        <button onClick={goBack} className="relative h-[18px] w-[18px] flex-none text-neutral-600 hover:text-accent">
-          <BackIcon />
-        </button>
-        <div className="h-1.5 flex-1 bg-neutral-300">
-          <div className="h-full bg-accent" style={{ width: `${(stepIndex / steps.length) * 100}%` }} />
-        </div>
-      </div>
-      <div className="px-4 pt-3">
-        <span className="label-xs block text-accent">
-          Unit {unit.unit} · {unit.title} — {step.title}
-        </span>
-      </div>
-      <div className="flex items-center justify-between gap-3 px-4 pt-2">
-        <button
-          className="btn btn-ghost px-0 text-[11px]"
-          onClick={() => router.push("/modules/cambridge-vocabulary-ielts-advanced")}
-        >
-          ← Thoát
-        </button>
-        <div className="flex flex-none items-center gap-3">
-          <button
-            className="flex items-center gap-1 text-[11px] tabular-nums text-neutral-600 hover:text-accent"
-            onClick={() => setShowStepList(true)}
-            aria-label="Jump to exercise"
-          >
-            <ListIcon />
-            {stepIndex + 1}/{steps.length}
-          </button>
-          {stepIndex + 1 < steps.length && (
-            <button className="btn btn-ghost px-0 text-[11px]" onClick={() => handleNext()}>
-              Skip →
+    <ActionBarScreen
+      header={
+        <>
+          <div className="divider-b flex items-center gap-3 px-4 py-3">
+            <button onClick={goBack} className="relative h-[18px] w-[18px] flex-none text-neutral-600 hover:text-accent">
+              <BackIcon />
             </button>
-          )}
-        </div>
-      </div>
-
+            <div className="h-1.5 flex-1 bg-neutral-300">
+              <div className="h-full bg-accent" style={{ width: `${(stepIndex / steps.length) * 100}%` }} />
+            </div>
+          </div>
+          <div className="px-4 pt-3">
+            <span className="label-xs block text-accent">
+              Unit {unit.unit} · {unit.title} — {step.title}
+            </span>
+          </div>
+          <div className="flex items-center justify-between gap-3 px-4 pt-2">
+            <button
+              className="btn btn-ghost px-0 text-[11px]"
+              onClick={() => router.push("/modules/cambridge-vocabulary-ielts-advanced")}
+            >
+              ← Thoát
+            </button>
+            <div className="flex flex-none items-center gap-3">
+              <button
+                className="flex items-center gap-1 text-[11px] tabular-nums text-neutral-600 hover:text-accent"
+                onClick={() => setShowStepList(true)}
+                aria-label="Jump to exercise"
+              >
+                <ListIcon />
+                {stepIndex + 1}/{steps.length}
+              </button>
+              {stepIndex + 1 < steps.length && (
+                <button className="btn btn-ghost px-0 text-[11px]" onClick={() => handleNext()}>
+                  Skip →
+                </button>
+              )}
+            </div>
+          </div>
+        </>
+      }
+    >
       {showStepList && (
         <div className="fixed inset-0 z-[60] bg-bg">
           <div className="mx-auto flex h-full max-w-[480px] flex-col lg:max-w-[1040px]">
@@ -2123,31 +2151,37 @@ export function UnitClient({ slug }: { slug: string }) {
         </div>
       )}
 
-      {step.kind === "vocab" && <VocabStepView key={stepIndex} step={step} onNext={handleNext} />}
-      {step.kind === "listening_cloze" && <ListeningClozeStepView key={stepIndex} step={step} onNext={handleNext} />}
-      {step.kind === "sort" && <SortStepView key={stepIndex} step={step} onNext={handleNext} />}
-      {step.kind === "type_fill" && <TypeFillStepView key={stepIndex} step={step} onNext={handleNext} />}
-      {step.kind === "fill_mc" && <FillMcStepView key={stepIndex} step={step} onNext={handleNext} />}
-      {step.kind === "reading_tfng" && <ReadingTfNgStepView key={stepIndex} step={step} onNext={handleNext} />}
-      {step.kind === "reveal_pairs" && <RevealPairsStepView key={stepIndex} step={step} onNext={handleNext} />}
-      {step.kind === "speaking" && (
-        <SpeakingStepView
-          key={stepIndex}
-          step={step}
-          onNext={handleNext}
-          itemKey={`${unit.slug}:${step.title}`}
-          unitVocab={unitVocab}
-        />
-      )}
-      {step.kind === "writing_task" && (
-        <WritingTaskStepView
-          key={stepIndex}
-          step={step}
-          onNext={handleNext}
-          itemKey={`${unit.slug}:${step.title}`}
-          unitVocab={unitVocab}
-        />
-      )}
-    </div>
+      {/* Scrollable step content. Most step kinds render their own "Continue"
+          button inline here, unchanged — only Writing/Speaking tasks (long
+          textarea + AI feedback) claim the pinned footer below, via
+          useActionBar() in WritingTaskStepView/SpeakingStepView. */}
+      <div className="min-h-0 flex-1 overflow-y-auto">
+        {step.kind === "vocab" && <VocabStepView key={stepIndex} step={step} onNext={handleNext} />}
+        {step.kind === "listening_cloze" && <ListeningClozeStepView key={stepIndex} step={step} onNext={handleNext} />}
+        {step.kind === "sort" && <SortStepView key={stepIndex} step={step} onNext={handleNext} />}
+        {step.kind === "type_fill" && <TypeFillStepView key={stepIndex} step={step} onNext={handleNext} />}
+        {step.kind === "fill_mc" && <FillMcStepView key={stepIndex} step={step} onNext={handleNext} />}
+        {step.kind === "reading_tfng" && <ReadingTfNgStepView key={stepIndex} step={step} onNext={handleNext} />}
+        {step.kind === "reveal_pairs" && <RevealPairsStepView key={stepIndex} step={step} onNext={handleNext} />}
+        {step.kind === "speaking" && (
+          <SpeakingStepView
+            key={stepIndex}
+            step={step}
+            onNext={handleNext}
+            itemKey={`${unit.slug}:${step.title}`}
+            unitVocab={unitVocab}
+          />
+        )}
+        {step.kind === "writing_task" && (
+          <WritingTaskStepView
+            key={stepIndex}
+            step={step}
+            onNext={handleNext}
+            itemKey={`${unit.slug}:${step.title}`}
+            unitVocab={unitVocab}
+          />
+        )}
+      </div>
+    </ActionBarScreen>
   );
 }

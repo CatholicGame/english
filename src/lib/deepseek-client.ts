@@ -18,6 +18,13 @@ export async function callDeepSeek(prompt: PromptResult) {
       { role: "user", content: userMessage },
     ],
     temperature,
+    // deepseek-v4-flash defaults to thinking mode at "high" reasoning effort when
+    // this is omitted (confirmed via api-docs.deepseek.com/guides/thinking_mode) —
+    // measured in production as >90% of generated tokens being hidden reasoning
+    // for a plain passage-generation call (reasoning_tokens=4189 of 4570 total).
+    // None of this app's intents (grading against a given rubric, generating
+    // text, classifying a lookup) need multi-step reasoning, so disable it.
+    thinking: { type: "disabled" },
     // No max_tokens cap — let DeepSeek use the model's own default/maximum output length.
   };
   // DO NOT use response_format: json_object — DeepSeek v4 handles it inconsistently

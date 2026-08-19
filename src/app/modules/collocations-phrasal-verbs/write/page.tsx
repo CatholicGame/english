@@ -215,6 +215,72 @@ export default function WritePage() {
     resetToSelect();
   }
 
+  if (phase === "write") {
+    return (
+      <div className="flex h-dvh flex-col">
+        <div className="flex flex-none items-center justify-between border-b px-4 py-3" style={{ borderColor: "var(--color-divider)" }}>
+          <span className="text-[12px] text-neutral-600">
+            Topic: <span className="font-extrabold text-ink">{topicForLang(selectedTopic ?? "", lang)}</span> · ~{wordCount} words
+          </span>
+          <button className="text-[11px] text-neutral-400 hover:text-accent-800" onClick={discardDraft}>
+            Discard, start new
+          </button>
+        </div>
+
+        {/* Its own scroll container (not page-level scroll) so a focused textarea
+            scrolls within these bounds instead of the whole document — the passage
+            stays reachable instead of getting shoved off the top by the keyboard. */}
+        <div className="flex flex-1 flex-col gap-3 overflow-y-auto px-4 py-3">
+          <div className="flex flex-wrap gap-1.5">
+            {terms.map((t) => (
+              <span key={t.term} className="rounded-full border px-2.5 py-1 text-[11px] font-bold" style={{ borderColor: "var(--color-accent-800)", color: "var(--color-accent-800)" }}>
+                {t.term}
+              </span>
+            ))}
+          </div>
+
+          <div className="rounded bg-accent-100 p-3 text-[13px] leading-relaxed text-accent-800">{passage}</div>
+
+          <textarea
+            className="input min-h-[200px] resize-y"
+            placeholder="Translate the passage into English..."
+            value={translation}
+            onChange={(e) => setTranslation(e.target.value)}
+          />
+          <p className="text-[11px] text-neutral-500">
+            {translation.trim() ? translation.trim().split(/\s+/).length : 0} words · 💾 Draft is saved automatically
+          </p>
+
+          {error && (
+            <div className="rounded bg-accent-100 p-4 text-[13px] leading-relaxed text-accent-800">
+              <p className="font-extrabold">Error</p>
+              <p className="mt-1">{error}</p>
+            </div>
+          )}
+        </div>
+
+        {/* Sticky footer, not the end of scrollable content — always visible above
+            the keyboard, and doubles as a visible "AI is working" indicator instead
+            of a button label the user has to scroll down to notice. */}
+        <div className="flex-none border-t px-4 py-3" style={{ borderColor: "var(--color-divider)", background: "var(--color-bg)" }}>
+          {loading && (
+            <div className="mb-2 flex items-center gap-2 text-[12px] font-bold text-accent-800">
+              <span className="inline-block h-3 w-3 flex-none animate-spin rounded-full border-2 border-accent-800 border-t-transparent" />
+              AI is reviewing your writing...
+            </div>
+          )}
+          <button
+            className="btn btn-primary btn-block px-4 py-2.5 text-[13px] font-extrabold disabled:opacity-40"
+            disabled={loading || !translation.trim()}
+            onClick={submit}
+          >
+            {loading ? "Reviewing..." : "Submit & Get Feedback"}
+          </button>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="flex flex-col gap-4 px-4 py-4 lg:px-6 lg:py-6">
       <h1 className="text-[26px]">✍️ Write</h1>
@@ -343,54 +409,6 @@ export default function WritePage() {
                   : t("write.promptGroup")}
             </p>
           )}
-        </div>
-      )}
-
-      {phase === "write" && (
-        <div className="flex flex-col gap-3">
-          <div className="flex items-center justify-between">
-            <span className="text-[12px] text-neutral-600">
-              Topic: <span className="font-extrabold text-ink">{topicForLang(selectedTopic ?? "", lang)}</span> · ~{wordCount} words
-            </span>
-            <button className="text-[11px] text-neutral-400 hover:text-accent-800" onClick={discardDraft}>
-              Discard, start new
-            </button>
-          </div>
-
-          <div className="flex flex-wrap gap-1.5">
-            {terms.map((t) => (
-              <span key={t.term} className="rounded-full border px-2.5 py-1 text-[11px] font-bold" style={{ borderColor: "var(--color-accent-800)", color: "var(--color-accent-800)" }}>
-                {t.term}
-              </span>
-            ))}
-          </div>
-
-          <div className="rounded bg-accent-100 p-3 text-[13px] leading-relaxed text-accent-800">{passage}</div>
-
-          <textarea
-            className="input min-h-[200px] resize-y"
-            placeholder="Translate the passage into English..."
-            value={translation}
-            onChange={(e) => setTranslation(e.target.value)}
-          />
-          <p className="text-[11px] text-neutral-500">
-            {translation.trim() ? translation.trim().split(/\s+/).length : 0} words · 💾 Draft is saved automatically
-          </p>
-
-          {error && (
-            <div className="rounded bg-accent-100 p-4 text-[13px] leading-relaxed text-accent-800">
-              <p className="font-extrabold">Error</p>
-              <p className="mt-1">{error}</p>
-            </div>
-          )}
-
-          <button
-            className="btn btn-primary px-4 py-2.5 text-[13px] font-extrabold disabled:opacity-40"
-            disabled={loading || !translation.trim()}
-            onClick={submit}
-          >
-            {loading ? "Reviewing..." : "Submit & Get Feedback"}
-          </button>
         </div>
       )}
 

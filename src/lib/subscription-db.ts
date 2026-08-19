@@ -30,28 +30,42 @@ export async function listSubscriptions(): Promise<Array<SubscriptionData & { em
   return snap.docs.map((doc) => ({ email: doc.id, ...(doc.data() as SubscriptionData) }));
 }
 
-/** Atomically checks + increments today's /api/ai call count for an account,
- * so concurrent requests can't race past the daily limit. Resets the counter
- * whenever the stored date no longer matches `today` (a dayKey() string).
- * Uses `set(..., {merge:true})` so it never clobbers the rest of the
- * subscription record (trialStartedAt, paidUntil, ...). */
-export async function checkAndIncrementAiUsage(
+/** Cheap, non-blocking read of today's /api/ai call count — a plain `.get()`,
+ * not a transaction, so it's fast enough to sit in front of the (much slower)
+ * AI call without adding meaningful latency. Resets whenever the stored date
+ * no longer matches `today` (a dayKey() string). Since this doesn't write,
+ * two concurrent requests can both read a count just under `limit` and both
+ * get `allowed: true` — see incrementAiUsage() for the tradeoff this makes. */
+export async function peekAiUsage(
   email: string,
   today: string,
   limit: number,
 ): Promise<{ allowed: boolean; count: number }> {
+  const snap = await getDb().collection("subscriptions").doc(docIdFor(email)).get();
+  const current = snap.exists ? (snap.data() as SubscriptionData) : undefined;
+  const sameDay = current?.aiCallsDate === today;
+  const count = sameDay ? (current?.aiCallsToday ?? 0) : 0;
+  return { allowed: count < limit, count };
+}
+
+/** Atomically increments today's /api/ai call count. Meant to be scheduled via
+ * Next's `after()` once the AI response has already been sent, so the write
+ * (and its transaction round-trip) never sits on the request's critical path.
+ * Deliberately paired with peekAiUsage() instead of a single check-and-increment
+ * transaction: the accepted tradeoff is that a burst of concurrent requests
+ * right at the limit can overshoot by a request or two (since the increment
+ * for request N hasn't landed yet when request N+1 reads), in exchange for the
+ * daily-limit check no longer blocking every single AI call on a Firestore
+ * transaction. Uses `set(..., {merge:true})` so it never clobbers the rest of
+ * the subscription record (trialStartedAt, paidUntil, ...). */
+export async function incrementAiUsage(email: string, today: string): Promise<void> {
   const ref = getDb().collection("subscriptions").doc(docIdFor(email));
-  return getDb().runTransaction(async (tx) => {
+  await getDb().runTransaction(async (tx) => {
     const snap = await tx.get(ref);
     const current = snap.exists ? (snap.data() as SubscriptionData) : undefined;
     const sameDay = current?.aiCallsDate === today;
     const count = sameDay ? (current?.aiCallsToday ?? 0) : 0;
-
-    if (count >= limit) return { allowed: false, count };
-
-    const next = count + 1;
-    tx.set(ref, { aiCallsDate: today, aiCallsToday: next, updatedAt: Date.now() }, { merge: true });
-    return { allowed: true, count: next };
+    tx.set(ref, { aiCallsDate: today, aiCallsToday: count + 1, updatedAt: Date.now() }, { merge: true });
   });
 }
 

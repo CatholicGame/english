@@ -1,8 +1,8 @@
-import { NextResponse, type NextRequest } from "next/server";
+import { NextResponse, type NextRequest, after } from "next/server";
 import { buildPrompt, type PromptResult } from "@/lib/ai-prompts";
 import type { IntentType } from "@/lib/ai-convo-store";
 import { readSession } from "@/lib/google-oauth";
-import { checkAndIncrementAiUsage } from "@/lib/subscription-db";
+import { peekAiUsage, incrementAiUsage } from "@/lib/subscription-db";
 import { AI_DAILY_CALL_LIMIT } from "@/lib/subscription-store";
 import { dayKey } from "@/lib/utils";
 import { callDeepSeek } from "@/lib/deepseek-client";
@@ -11,7 +11,8 @@ export async function POST(request: NextRequest) {
   const session = await readSession();
   if (!session) return NextResponse.json({ ok: false, error: "reauth_required" }, { status: 401 });
 
-  const usage = await checkAndIncrementAiUsage(session.user.email, dayKey(new Date()), AI_DAILY_CALL_LIMIT);
+  const today = dayKey(new Date());
+  const usage = await peekAiUsage(session.user.email, today, AI_DAILY_CALL_LIMIT);
   if (!usage.allowed) {
     return NextResponse.json(
       { ok: false, error: "daily_limit_reached", message: `Bạn đã dùng hết ${AI_DAILY_CALL_LIMIT} lượt AI hôm nay. Quay lại vào ngày mai nhé!` },
@@ -35,6 +36,10 @@ export async function POST(request: NextRequest) {
     }
 
     const result = await callDeepSeek(prompt);
+
+    // Deferred until after the response is sent, so the increment's Firestore
+    // round-trip never adds latency to the AI call itself — see incrementAiUsage().
+    after(() => incrementAiUsage(session.user.email, today));
 
     return NextResponse.json({ ok: true, data: result });
   } catch (err: any) {

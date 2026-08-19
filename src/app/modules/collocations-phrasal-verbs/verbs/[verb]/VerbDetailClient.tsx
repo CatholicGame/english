@@ -46,6 +46,7 @@ function AiSection({ item }: { item: { term: string; type: string; en: string; v
         <div className="fixed inset-0 z-[60] bg-bg">
           <div className="mx-auto h-full max-w-[480px] lg:max-w-[720px]">
             <ActionBarScreen
+              fullViewport
               header={
                 <div className="flex items-center justify-between px-4 py-3" style={{ borderBottom: "1px solid var(--color-divider)" }}>
                   <div>

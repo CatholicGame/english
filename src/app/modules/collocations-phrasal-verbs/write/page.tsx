@@ -216,8 +216,13 @@ export default function WritePage() {
   }
 
   if (phase === "write") {
+    // calc(100dvh - 3rem), not h-dvh: the global AppHeader (src/app/layout.tsx,
+    // "sticky top-0 h-12") sits above this page in normal flow and takes up
+    // real space a bare h-dvh box doesn't know about — without subtracting it,
+    // this box overflows the actual viewport by exactly 3rem and the footer
+    // below ends up just past the bottom of the screen.
     return (
-      <div className="flex h-dvh flex-col">
+      <div className="flex h-[calc(100dvh-3rem)] flex-col">
         <div className="flex flex-none items-center justify-between border-b px-4 py-3" style={{ borderColor: "var(--color-divider)" }}>
           <span className="text-[12px] text-neutral-600">
             Topic: <span className="font-extrabold text-ink">{topicForLang(selectedTopic ?? "", lang)}</span> · ~{wordCount} words
@@ -286,8 +291,13 @@ export default function WritePage() {
   }
 
   if (phase === "select") {
+    // calc(100dvh - 3rem), not h-dvh: the global AppHeader (src/app/layout.tsx,
+    // "sticky top-0 h-12") sits above this page in normal flow and takes up
+    // real space a bare h-dvh box doesn't know about — without subtracting it,
+    // this box overflows the actual viewport by exactly 3rem and the footer
+    // below ends up just past the bottom of the screen.
     return (
-      <div className="flex h-dvh flex-col">
+      <div className="flex h-[calc(100dvh-3rem)] flex-col">
         <div className="flex-none px-4 pt-4 pb-1 lg:px-6 lg:pt-6">
           <h1 className="text-[26px]">✍️ Write</h1>
         </div>

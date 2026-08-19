@@ -9,12 +9,31 @@ const ActionBarContext = createContext<((node: React.ReactNode) => void) | null>
  * so the screen's primary action (Generate, Submit, Check with AI, ...) is
  * always reachable at the bottom of the viewport instead of scrolling away with
  * the content above it. See the collocations "Write" page for the reference
- * usage, and AGENTS.md's "Action buttons stay pinned" convention. */
-export function ActionBarScreen({ header, children }: { header?: React.ReactNode; children: React.ReactNode }) {
+ * usage, and AGENTS.md's "Action buttons stay pinned" convention.
+ *
+ * `fullViewport` (default false): the global `AppHeader` (`sticky top-0 h-12`
+ * in `src/app/layout.tsx`) sits ABOVE `{children}` in normal page flow and
+ * takes up real space that a bare `h-dvh` box doesn't know about — nesting one
+ * below it without accounting for those 3rem overflows the actual viewport by
+ * exactly that much, silently pushing the footer below the fold (it's still
+ * "pinned to the bottom of the box", just a box that's 3rem taller than what's
+ * visible). Leave this false for a screen rendered as normal page content.
+ * Pass `true` only when this is already nested inside a `fixed inset-0`
+ * overlay that covers the whole viewport itself (so AppHeader is covered, not
+ * stacked above this) — e.g. VerbDetailClient's full-screen "AI Practice" overlay. */
+export function ActionBarScreen({
+  header,
+  children,
+  fullViewport = false,
+}: {
+  header?: React.ReactNode;
+  children: React.ReactNode;
+  fullViewport?: boolean;
+}) {
   const [footer, setFooter] = useState<React.ReactNode>(null);
   return (
     <ActionBarContext.Provider value={setFooter}>
-      <div className="flex h-dvh flex-col">
+      <div className={`flex flex-col ${fullViewport ? "h-dvh" : "h-[calc(100dvh-3rem)]"}`}>
         {header && <div className="flex-none">{header}</div>}
         <div className="flex min-h-0 flex-1 flex-col">{children}</div>
         {footer && (

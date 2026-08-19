@@ -41,8 +41,12 @@ function saveCustomTopics(topics: string[]) {
 }
 
 export function loadTopics(): string[] {
+  // Custom topics first (most-recently-added first) — the learner just typed
+  // this in deliberately, so it should be immediately visible instead of
+  // buried after all 8 presets.
   const custom = loadCustomTopics();
-  return [...PRESET_TOPICS.map((p) => p.vi), ...custom.filter((tp) => !PRESET_TOPICS.some((p) => p.vi === tp))];
+  const customFirst = custom.filter((tp) => !PRESET_TOPICS.some((p) => p.vi === tp)).reverse();
+  return [...customFirst, ...PRESET_TOPICS.map((p) => p.vi)];
 }
 
 /** Localizes a topic for display. Presets map vi→en; custom topics pass

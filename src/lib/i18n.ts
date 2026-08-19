@@ -63,12 +63,16 @@ export const STRINGS: Record<string, DictEntry> = {
     vi: "Chọn 1 gói ở trên để thanh toán: PayOS (VNĐ) cho người dùng Việt Nam, hoặc PayPal (USD) cho người nước ngoài. Quyền lợi sẽ tự động kích hoạt ngay sau khi thanh toán thành công.",
     en: "Pick a plan above to pay: PayOS (VND) for Vietnamese users, or PayPal (USD) for international users. Access activates automatically once payment succeeds.",
   },
+  "subs.aiCostHook": {
+    vi: "💡 Chưa tới {price}/lượt luyện cùng AI, kể cả khi dùng hết {limit} lượt mỗi ngày",
+    en: "💡 Under {price} per AI practice request, even at the full {limit}/day limit",
+  },
   "plan.monthly": { vi: "1 tháng", en: "1 month" },
   "plan.quarterly": { vi: "3 tháng", en: "3 months" },
   "plan.semiannual": { vi: "6 tháng", en: "6 months" },
   "plan.yearly": { vi: "12 tháng", en: "12 months" },
-  "plan_hook.monthly": { vi: "🧋 bằng 1 cốc trà sữa", en: "🧋 about a bubble tea" },
-  "plan_hook.yearly": { vi: "☕ Chưa tới 1.000đ/ngày", en: "☕ under 1,000₫ a day" },
+  "plan_hook.monthly": { vi: "🧋 chưa tới 2 cốc trà sữa", en: "🧋 under 2 bubble teas" },
+  "plan_hook.yearly": { vi: "📅 Chỉ 2.000đ/ngày", en: "📅 only 2,000₫ a day" },
 
   // ─── Home page ───────────────────────────────────────────────────────
   "home.tagline": { vi: "Chọn chủ đề để bắt đầu luyện tập.", en: "Choose a topic to start practicing." },

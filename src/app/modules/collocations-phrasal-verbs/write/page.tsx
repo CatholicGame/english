@@ -285,6 +285,7 @@ function WritingContent({
     </>
   );
   useActionBar(footerContent);
+  const [showTerms, setShowTerms] = useState(false);
 
   return (
     // Three independent regions, not one shared page scroll — keywords stay
@@ -292,12 +293,27 @@ function WritingContent({
     // min-h-0 is what lets the children actually shrink and scroll instead of
     // overflowing the viewport when the keyboard opens.
     <div className="flex min-h-0 flex-1 flex-col gap-2 px-4 py-3">
-      <div className="flex flex-none flex-wrap gap-1.5">
-        {terms.map((t) => (
-          <span key={t.term} className="rounded-full border px-2.5 py-1 text-[11px] font-bold" style={{ borderColor: "var(--color-accent-800)", color: "var(--color-accent-800)" }}>
-            {t.term}
-          </span>
-        ))}
+      {/* Collapsed to one line by default — a passage using many phrases (a
+          full verb group's worth) used to wrap this fixed row across 2-3
+          lines, permanently eating space the passage/textarea needed. */}
+      <div className="flex-none">
+        <button
+          type="button"
+          className="flex items-center gap-1 text-[11px] font-bold text-accent-800"
+          onClick={() => setShowTerms((v) => !v)}
+        >
+          🔑 {terms.length} target phrase{terms.length === 1 ? "" : "s"}
+          <span className="text-[9px]">{showTerms ? "▲" : "▼"}</span>
+        </button>
+        {showTerms && (
+          <div className="mt-1.5 flex flex-wrap gap-1.5">
+            {terms.map((t) => (
+              <span key={t.term} className="rounded-full border px-2.5 py-1 text-[11px] font-bold" style={{ borderColor: "var(--color-accent-800)", color: "var(--color-accent-800)" }}>
+                {t.term}
+              </span>
+            ))}
+          </div>
+        )}
       </div>
 
       <div className="max-h-[30vh] flex-none overflow-y-auto rounded bg-accent-100 p-3 text-[13px] leading-relaxed text-accent-800">{passage}</div>
@@ -567,7 +583,7 @@ export default function WritePage() {
                   Topic: <span className="font-extrabold text-ink">{topicForLang(selectedTopic ?? "", lang)}</span> · ~{wordCount} words
                 </span>
                 <button className="text-[11px] font-bold text-accent-800 underline hover:text-accent" onClick={discardDraft}>
-                  Discard, start new
+                  Close
                 </button>
               </div>
             }

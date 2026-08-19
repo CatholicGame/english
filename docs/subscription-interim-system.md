@@ -16,14 +16,14 @@ Mỗi gói có 2 giá: **VNĐ** (PayOS, người dùng Việt Nam) và **USD** (
 
 | Gói | Giá VNĐ | Giá USD | Quy đổi/tháng | Tiết kiệm so với mua lẻ theo tháng |
 |---|---|---|---|---|
-| 1 tháng | 50.000đ | $2.00 | 50.000đ | — (giá tham chiếu) |
-| 3 tháng | 130.000đ | $5.50 | ~43.300đ | 13% |
-| 6 tháng | 220.000đ | $9.00 | ~36.700đ | 27% |
-| 12 tháng | 360.000đ | $15.00 | 30.000đ | 40% |
+| 1 tháng | 90.000đ | $3.50 | 90.000đ | — (giá tham chiếu) |
+| 3 tháng | 240.000đ | $10.00 | 80.000đ | 11% |
+| 6 tháng | 420.000đ | $17.00 | 70.000đ | 22% |
+| 12 tháng | 720.000đ | $30.00 | 60.000đ | 33% |
 
-1 tháng cố tình là giá/tháng đắt nhất — gói càng dài chiết khấu càng sâu. Giá 12 tháng vẫn là suy luận toán học ban đầu, **chưa qua kiểm chứng thị trường** — điều chỉnh tuỳ ý trong `PRICING_PLANS`.
+1 tháng cố tình là giá/tháng đắt nhất — quy đổi/tháng giảm đều 10.000đ mỗi bậc. **Cập nhật 2026-08-19**: tăng từ bảng giá cũ (50k/130k/220k/360k) — bảng cũ được tính dựa trên chi phí DeepSeek trung bình ~13,7đ/lượt đo **trước khi** sửa lỗi reasoning-mode (xem AGENTS.md mục AI); chi phí thật hiện đang được đo lại qua tab "Token AI" trong admin dashboard trước khi cân nhắc thêm lần nữa. Giá 12 tháng vẫn là suy luận toán học, **chưa qua kiểm chứng thị trường** — điều chỉnh tuỳ ý trong `PRICING_PLANS`.
 
-Mỗi gói có thể có `hook` — 1 câu so sánh ngắn để giá cảm thấy "nhẹ" (gói 1 tháng: "🧋 bằng 1 cốc trà sữa"; gói 12 tháng: "☕ Chưa tới 1.000đ/ngày"). Gói 12 tháng có badge "Tốt nhất" trong `SubscriptionSettings.tsx`.
+Mỗi gói có thể có `hook` — 1 câu so sánh ngắn để giá cảm thấy "nhẹ" (gói 1 tháng: "🧋 chưa tới 2 cốc trà sữa"; gói 12 tháng: "📅 Chỉ 2.000đ/ngày"). Gói 12 tháng có badge "Tốt nhất" trong `SubscriptionSettings.tsx`. Ngoài ra còn 1 dòng nhấn mạnh giá trị chung, tính động từ `AI_DAILY_CALL_LIMIT` và giá gói rẻ nhất theo tháng: "Chưa tới Xđ/lượt luyện cùng AI, kể cả khi dùng hết 100 lượt mỗi ngày" (`subs.aiCostHook` trong `i18n.ts`, tính trong `SubscriptionSettings.tsx`).
 
 ### Vì sao entitlement chuyển sang Firestore
 

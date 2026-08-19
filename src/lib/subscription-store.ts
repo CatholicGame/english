@@ -30,20 +30,27 @@ const DAY_MS = 24 * 60 * 60 * 1000;
 // grants the same access, just for a different duration. Each turn of a
 // conversation (Converse/Discussion) counts as its own call, so a single
 // study session easily uses 15-30 calls — 100/day gives real headroom for
-// that while still bounding worst-case DeepSeek spend below even the
-// cheapest plan's daily price. Based on measured deepseek-v4-flash cost
-// (~13.7đ/call avg from DeepSeek's own usage dashboard, 2026-08-18):
-// 100 × 13.7đ ≈ 1,370đ/day vs. 1,667đ/day revenue on the 1-month plan.
+// that. The ~13.7đ/call avg DeepSeek cost this was originally sized against
+// (2026-08-18, vs. 1,667đ/day revenue on the then-50k monthly plan) was
+// measured BEFORE the reasoning-mode fix in deepseek-client.ts — real
+// per-call cost is now unknown and being re-measured for real via the admin
+// "Token AI" tab (src/app/admin/AdminDashboard.tsx) before either this limit
+// or the token-based-limiting idea gets revisited. Don't recalibrate this
+// number from the stale 13.7đ figure.
 export const AI_DAILY_CALL_LIMIT = 100;
 
-// 1 month is deliberately the most expensive per-month rate — longer
-// commitments get a steadily bigger discount (13% / 27% / 40% off the
-// monthly rate) to make the longer packages the obviously better deal.
+// 1 month is deliberately the most expensive per-month rate — the per-month
+// equivalent steps down by a flat 10,000đ per tier (90k → 80k → 70k → 60k) to
+// make the longer packages the obviously better deal (11% / 22% / 33% off the
+// monthly rate). Revised 2026-08-19 up from 50k/130k/220k/360k: the original
+// ladder was sized against a stale ~13.7đ/call DeepSeek cost average that
+// included the (since-fixed) reasoning-mode token blowup — see
+// AI_DAILY_CALL_LIMIT below and docs/subscription-interim-system.md.
 export const PRICING_PLANS: PricingPlan[] = [
-  { cycle: "monthly", label: "1 tháng", months: 1, priceVnd: 50_000, priceUsd: 2, hook: "🧋 bằng 1 cốc trà sữa" },
-  { cycle: "quarterly", label: "3 tháng", months: 3, priceVnd: 130_000, priceUsd: 5.5 },
-  { cycle: "semiannual", label: "6 tháng", months: 6, priceVnd: 220_000, priceUsd: 9 },
-  { cycle: "yearly", label: "12 tháng", months: 12, priceVnd: 360_000, priceUsd: 15, hook: "☕ Chưa tới 1.000đ/ngày" },
+  { cycle: "monthly", label: "1 tháng", months: 1, priceVnd: 90_000, priceUsd: 3.5, hook: "🧋 chưa tới 2 cốc trà sữa" },
+  { cycle: "quarterly", label: "3 tháng", months: 3, priceVnd: 240_000, priceUsd: 10 },
+  { cycle: "semiannual", label: "6 tháng", months: 6, priceVnd: 420_000, priceUsd: 17 },
+  { cycle: "yearly", label: "12 tháng", months: 12, priceVnd: 720_000, priceUsd: 30, hook: "📅 Chỉ 2.000đ/ngày" },
 ];
 
 export interface SubscriptionData {

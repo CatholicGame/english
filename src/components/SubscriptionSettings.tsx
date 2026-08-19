@@ -15,6 +15,7 @@ import { useSubscriptionStore } from "@/lib/use-subscription-store";
 import { useUiLang } from "@/lib/i18n";
 import {
   PRICING_PLANS,
+  AI_DAILY_CALL_LIMIT,
   isPaidActive,
   isTrialActive,
   trialDaysLeft as computeTrialDaysLeft,
@@ -30,6 +31,18 @@ function savingsPct(plan: PricingPlan): number | null {
   const baseline = monthly.priceVnd * plan.months;
   const pct = Math.round((1 - plan.priceVnd / baseline) * 100);
   return pct > 0 ? pct : null;
+}
+
+/** Worst-case cost per AI request: the plan's own price spread evenly across
+ * its days, divided by the daily call cap — i.e. "even if you maxed out
+ * AI_DAILY_CALL_LIMIT every single day of the plan, each request still only
+ * cost this much." A real, honest number (not an average that needs usage
+ * data we don't have yet — see AI_DAILY_CALL_LIMIT's comment), and the
+ * strongest one: actual per-request cost for anyone not maxing out daily is
+ * lower still. */
+function worstCaseCostPerAiRequest(plan: PricingPlan): number {
+  const perDay = plan.priceVnd / (plan.months * 30);
+  return Math.ceil(perDay / AI_DAILY_CALL_LIMIT);
 }
 
 function formatVnd(n: number): string {
@@ -93,6 +106,11 @@ export function SubscriptionSettings() {
   const trialActive = isTrialActive(subscription);
   const daysLeft = computeTrialDaysLeft(subscription);
   const selectedPlan = PRICING_PLANS.find((p) => p.cycle === selectedCycle) ?? null;
+  // Anchor the headline "worth it" stat to whichever plan is cheapest
+  // per-month (yearly, by design) — the strongest honest number, not
+  // per-plan noise repeated four times.
+  const bestValuePlan = PRICING_PLANS.reduce((a, b) => (a.priceVnd / a.months < b.priceVnd / b.months ? a : b));
+  const aiCostPerRequest = worstCaseCostPerAiRequest(bestValuePlan);
 
   return (
     <div className="px-3 py-2">
@@ -109,6 +127,10 @@ export function SubscriptionSettings() {
       ) : (
         <div className="mb-3 text-[12px] font-bold text-neutral-600">{t("subs.trialExpired")}</div>
       )}
+
+      <div className="mb-3 rounded bg-accent-100 px-3 py-2 text-[12px] leading-relaxed font-bold text-accent-800">
+        {t("subs.aiCostHook", { price: formatVnd(aiCostPerRequest), limit: String(AI_DAILY_CALL_LIMIT) })}
+      </div>
 
       <div className="mb-3 flex flex-col gap-1.5">
         {PRICING_PLANS.map((plan) => {

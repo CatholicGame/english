@@ -4,6 +4,7 @@ import { resolveAdminRole } from "@/lib/admin";
 import { listSubAdmins } from "@/lib/admin-db";
 import { listSubscriptions, listPaidOrders } from "@/lib/subscription-db";
 import { listReviewsForAdmin } from "@/lib/reviews-db";
+import { listTokenUsage } from "@/lib/token-usage-db";
 import { AdminDashboard } from "./AdminDashboard";
 
 export default async function AdminPage() {
@@ -17,6 +18,16 @@ export default async function AdminPage() {
   const subAdmins = role === "super" ? await listSubAdmins() : [];
   const reviews = await listReviewsForAdmin();
   const orders = await listPaidOrders();
+  const tokenUsage = await listTokenUsage();
 
-  return <AdminDashboard subscriptions={subscriptions} role={role} subAdmins={subAdmins} reviews={reviews} orders={orders} />;
+  return (
+    <AdminDashboard
+      subscriptions={subscriptions}
+      role={role}
+      subAdmins={subAdmins}
+      reviews={reviews}
+      orders={orders}
+      tokenUsage={tokenUsage}
+    />
+  );
 }

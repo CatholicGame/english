@@ -1,9 +1,11 @@
-import { NextResponse, type NextRequest } from "next/server";
+import { NextResponse, type NextRequest, after } from "next/server";
 import { readSession } from "@/lib/google-oauth";
 import { findVocabWord } from "@/data/cambridge-vocabulary-ielts";
 import { getVocabSample, setVocabSample } from "@/lib/ielts-vocab-sample-db";
 import { buildPrompt } from "@/lib/ai-prompts";
 import { callDeepSeek } from "@/lib/deepseek-client";
+import { incrementTokenUsage } from "@/lib/token-usage-db";
+import { dayKey } from "@/lib/utils";
 
 // Shared, cached-forever AI content — deliberately NOT gated by
 // AI_DAILY_CALL_LIMIT (see /api/ai/route.ts) since the benefit is shared
@@ -31,11 +33,16 @@ export async function GET(request: NextRequest) {
       en: word.en,
       usageNote: word.usageNote,
     });
-    const result = await callDeepSeek(prompt);
-    const paragraph = typeof result?.content === "string" ? result.content.trim() : "";
+    const { data, usage } = await callDeepSeek(prompt);
+    const content = (data as { content?: unknown })?.content;
+    const paragraph = typeof content === "string" ? content.trim() : "";
     if (!paragraph) throw new Error("empty paragraph from AI");
 
     const saved = await setVocabSample(word.term, paragraph);
+    // Rare (once ever per vocab word, see comment above) but still a real AI
+    // cost — attribute it to whoever happened to trigger the cache miss, same
+    // as every /api/ai call, so the admin token-usage view stays complete.
+    after(() => incrementTokenUsage(session.user.email, dayKey(new Date()), usage));
     return NextResponse.json({ paragraph: saved.paragraph });
   } catch (err) {
     console.error("ielts-vocab-sample: generation failed", err);

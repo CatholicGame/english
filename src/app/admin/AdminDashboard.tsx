@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import {
   isPaidActive,
@@ -12,6 +12,7 @@ import {
   type SubscriptionData,
 } from "@/lib/subscription-store";
 import type { RevenueOrder } from "@/lib/subscription-db";
+import type { DailyTokenUsage } from "@/lib/token-usage-db";
 import { Stars } from "@/components/Stars";
 
 type Row = SubscriptionData & { email: string };
@@ -27,7 +28,7 @@ type ReviewRow = {
   updatedAt: number;
   reply?: { message: string; updatedAt: number };
 };
-type Tab = "subscriptions" | "revenue" | "reviews";
+type Tab = "subscriptions" | "revenue" | "reviews" | "tokens";
 
 const PAGE_SIZE = 20;
 
@@ -138,12 +139,14 @@ export function AdminDashboard({
   subAdmins,
   reviews,
   orders,
+  tokenUsage,
 }: {
   subscriptions: Row[];
   role: Role;
   subAdmins: SubAdmin[];
   reviews: ReviewRow[];
   orders: RevenueOrder[];
+  tokenUsage: DailyTokenUsage[];
 }) {
   const router = useRouter();
   const [tab, setTab] = useState<Tab>("subscriptions");
@@ -254,6 +257,7 @@ export function AdminDashboard({
           { id: "subscriptions", label: "Subscription" },
           { id: "revenue", label: "Doanh thu" },
           { id: "reviews", label: `Đánh giá${reviews.length ? ` (${reviews.length})` : ""}` },
+          { id: "tokens", label: "Token AI" },
         ] as const).map((tb) => (
           <button
             key={tb.id}
@@ -273,6 +277,8 @@ export function AdminDashboard({
       {tab === "revenue" && <RevenueTab orders={orders} />}
 
       {tab === "reviews" && <ReviewsTab reviews={reviews} isSuper={isSuper} />}
+
+      {tab === "tokens" && <TokenUsageTab usage={tokenUsage} />}
 
       {tab === "subscriptions" && (
       <>
@@ -681,6 +687,299 @@ function ReviewsTab({ reviews, isSuper }: { reviews: ReviewRow[]; isSuper: boole
           </div>
         ))}
       </div>
+
+      {totalPages > 1 && (
+        <div className="mt-3 flex items-center justify-center gap-3 text-[13px]">
+          <button className="btn btn-secondary" disabled={safePage <= 1} onClick={() => setPage(safePage - 1)}>
+            ‹ Trước
+          </button>
+          <span className="text-neutral-600">
+            Trang {safePage}/{totalPages}
+          </span>
+          <button className="btn btn-secondary" disabled={safePage >= totalPages} onClick={() => setPage(safePage + 1)}>
+            Sau ›
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ─── Token AI usage ───────────────────────────────────────────────
+
+type RangePreset = "7" | "30" | "90" | "all";
+
+const RANGE_PRESETS: { id: RangePreset; label: string; days: number | null }[] = [
+  { id: "7", label: "7 ngày", days: 7 },
+  { id: "30", label: "30 ngày", days: 30 },
+  { id: "90", label: "90 ngày", days: 90 },
+  { id: "all", label: "Tất cả", days: null },
+];
+
+function fmtCompact(n: number): string {
+  if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1)}M`;
+  if (n >= 1_000) return `${(n / 1_000).toFixed(1)}K`;
+  return Math.round(n).toLocaleString("vi-VN");
+}
+
+/** e.g. "2026-08-19" → "19/8" */
+function fmtShortDate(dateKey: string): string {
+  const [, m, d] = dateKey.split("-");
+  return `${Number(d)}/${Number(m)}`;
+}
+
+/** Rounds a max value up to a "clean" gridline ceiling (1/2/5/10 × 10^n) —
+ * never an arbitrary max-of-data value, which produces ugly gridline labels. */
+function niceCeil(n: number): number {
+  if (n <= 0) return 10;
+  const exp = Math.floor(Math.log10(n));
+  const base = 10 ** exp;
+  const mult = n / base;
+  const niceMult = mult <= 1 ? 1 : mult <= 2 ? 2 : mult <= 5 ? 5 : 10;
+  return niceMult * base;
+}
+
+/** Single-series (total tokens/day) bar chart — one hue (the app's own accent
+ * token, already used everywhere else), no legend needed per the dataviz
+ * convention for a single series. Bars are the hit target for hover/focus
+ * (see dataviz skill's interaction.md): each bar's full column width is the
+ * target, wider than the painted bar itself, so it's actually hittable on a
+ * dense range. Every value shown here is also in the "Xem bảng theo ngày"
+ * table toggle below — the tooltip enhances, it never gates. */
+function TokenChart({ data }: { data: { date: string; tokens: number }[] }) {
+  const [hoverIdx, setHoverIdx] = useState<number | null>(null);
+  const VB_W = 1000;
+  const VB_H = 240;
+  const padLeft = 46;
+  const padRight = 10;
+  const padTop = 12;
+  const padBottom = 26;
+  const plotW = VB_W - padLeft - padRight;
+  const plotH = VB_H - padTop - padBottom;
+
+  const maxVal = niceCeil(Math.max(...data.map((d) => d.tokens), 1));
+  const n = data.length;
+  const slot = plotW / Math.max(n, 1);
+  const barW = Math.max(3, Math.min(24, slot * 0.6));
+  const labelEvery = Math.max(1, Math.ceil(n / 8));
+  const gridSteps = [0, 0.5, 1];
+
+  return (
+    <div className="relative">
+      <svg viewBox={`0 0 ${VB_W} ${VB_H}`} className="w-full" style={{ height: 220, overflow: "visible" }} role="img" aria-label="Biểu đồ tổng token AI theo ngày">
+        {gridSteps.map((s) => {
+          const y = padTop + plotH * (1 - s);
+          return (
+            <g key={s}>
+              <line x1={padLeft} x2={VB_W - padRight} y1={y} y2={y} style={{ stroke: "var(--color-divider)" }} strokeWidth={1} />
+              <text x={padLeft - 6} y={y + 4} textAnchor="end" fontSize={11} style={{ fill: "var(--color-neutral-600)" }}>
+                {fmtCompact(maxVal * s)}
+              </text>
+            </g>
+          );
+        })}
+        {data.map((d, i) => {
+          const x = padLeft + slot * i + (slot - barW) / 2;
+          const h = maxVal > 0 ? (d.tokens / maxVal) * plotH : 0;
+          const y = padTop + plotH - h;
+          const isHover = hoverIdx === i;
+          return (
+            <g key={d.date}>
+              <rect
+                x={x}
+                y={y}
+                width={barW}
+                height={Math.max(h, d.tokens > 0 ? 2 : 0)}
+                rx={4}
+                style={{ fill: "var(--color-accent)" }}
+                opacity={isHover ? 1 : 0.85}
+              />
+              {i % labelEvery === 0 && (
+                <text x={padLeft + slot * i + slot / 2} y={VB_H - 8} textAnchor="middle" fontSize={10} style={{ fill: "var(--color-neutral-600)" }}>
+                  {fmtShortDate(d.date)}
+                </text>
+              )}
+              {/* Hit target spans the full column, not just the painted bar —
+                  a thin bar on a 90-day range is only a few px wide. */}
+              <rect
+                x={padLeft + slot * i}
+                y={padTop}
+                width={slot}
+                height={plotH}
+                fill="transparent"
+                tabIndex={0}
+                onMouseEnter={() => setHoverIdx(i)}
+                onMouseLeave={() => setHoverIdx((cur) => (cur === i ? null : cur))}
+                onFocus={() => setHoverIdx(i)}
+                onBlur={() => setHoverIdx((cur) => (cur === i ? null : cur))}
+              />
+            </g>
+          );
+        })}
+      </svg>
+      {hoverIdx != null && (
+        <div
+          className="pointer-events-none absolute rounded px-2 py-1 text-[11px] font-bold whitespace-nowrap text-white"
+          style={{
+            background: "var(--color-text)",
+            left: `${((padLeft + slot * hoverIdx + slot / 2) / VB_W) * 100}%`,
+            top: 0,
+            transform: "translate(-50%, -100%)",
+          }}
+        >
+          {fmtShortDate(data[hoverIdx].date)}: {data[hoverIdx].tokens.toLocaleString("vi-VN")} token
+        </div>
+      )}
+    </div>
+  );
+}
+
+function TokenUsageTab({ usage }: { usage: DailyTokenUsage[] }) {
+  const [range, setRange] = useState<RangePreset>("30");
+  const [showTable, setShowTable] = useState(false);
+  const [page, setPage] = useState(1);
+
+  const cutoff = useMemo(() => {
+    const preset = RANGE_PRESETS.find((p) => p.id === range);
+    if (!preset?.days) return null;
+    const d = new Date();
+    d.setDate(d.getDate() - (preset.days - 1));
+    return d.toISOString().slice(0, 10);
+  }, [range]);
+
+  const filtered = useMemo(() => (cutoff ? usage.filter((u) => u.date >= cutoff) : usage), [usage, cutoff]);
+
+  const dailyTotals = useMemo(() => {
+    const map = new Map<string, number>();
+    for (const u of filtered) {
+      map.set(u.date, (map.get(u.date) ?? 0) + u.promptTokens + u.completionTokens);
+    }
+    return [...map.entries()].sort(([a], [b]) => a.localeCompare(b)).map(([date, tokens]) => ({ date, tokens }));
+  }, [filtered]);
+
+  const perUser = useMemo(() => {
+    const map = new Map<string, { email: string; tokens: number; reasoningTokens: number; calls: number }>();
+    for (const u of filtered) {
+      const cur = map.get(u.email) ?? { email: u.email, tokens: 0, reasoningTokens: 0, calls: 0 };
+      cur.tokens += u.promptTokens + u.completionTokens;
+      cur.reasoningTokens += u.reasoningTokens;
+      cur.calls += u.calls;
+      map.set(u.email, cur);
+    }
+    return [...map.values()].sort((a, b) => b.tokens - a.tokens);
+  }, [filtered]);
+
+  const totalTokensSum = dailyTotals.reduce((s, d) => s + d.tokens, 0);
+  const totalCalls = filtered.reduce((s, u) => s + u.calls, 0);
+  const avgPerCall = totalCalls ? Math.round(totalTokensSum / totalCalls) : 0;
+
+  const totalPages = Math.max(1, Math.ceil(perUser.length / PAGE_SIZE));
+  const safePage = Math.min(page, totalPages);
+  const pageItems = perUser.slice((safePage - 1) * PAGE_SIZE, safePage * PAGE_SIZE);
+
+  return (
+    <div className="mt-6">
+      <h1 className="text-[22px] font-extrabold">Mức tiêu thụ token AI</h1>
+      <p className="mt-1 text-[13px] text-neutral-600">
+        Tổng hợp token DeepSeek theo tài khoản, để phát hiện chi phí bất thường (ví dụ: reasoning mode âm thầm bật lại).
+      </p>
+
+      {/* Date range filter — one row, above everything it scopes, so the KPI
+          row, chart, and per-account table below always agree on the slice. */}
+      <div className="mt-4 flex flex-wrap gap-1.5">
+        {RANGE_PRESETS.map((p) => (
+          <button
+            key={p.id}
+            type="button"
+            className="rounded-full px-3 py-1.5 text-[12px] font-bold"
+            style={{
+              background: range === p.id ? "var(--color-accent)" : "var(--color-surface)",
+              color: range === p.id ? "#fff" : "var(--color-text)",
+              border: range === p.id ? "none" : "1px solid var(--color-divider)",
+            }}
+            onClick={() => {
+              setRange(p.id);
+              setPage(1);
+            }}
+          >
+            {p.label}
+          </button>
+        ))}
+      </div>
+
+      <div className="mt-4 grid grid-cols-3 gap-[2px] bg-[color:var(--color-divider)]">
+        <div className="bg-bg p-3">
+          <div className="text-[20px] leading-none font-extrabold tabular-nums">{fmtCompact(totalTokensSum)}</div>
+          <div className="label-xs mt-1 text-neutral-600">Tổng token</div>
+        </div>
+        <div className="bg-bg p-3">
+          <div className="text-[20px] leading-none font-extrabold tabular-nums">{totalCalls.toLocaleString("vi-VN")}</div>
+          <div className="label-xs mt-1 text-neutral-600">Tổng lượt gọi AI</div>
+        </div>
+        <div className="bg-bg p-3">
+          <div className="text-[20px] leading-none font-extrabold tabular-nums">{fmtCompact(avgPerCall)}</div>
+          <div className="label-xs mt-1 text-neutral-600">TB token / lượt</div>
+        </div>
+      </div>
+
+      {dailyTotals.length === 0 ? (
+        <p className="mt-4 text-[13px] text-neutral-600">Chưa có dữ liệu token trong khoảng thời gian này.</p>
+      ) : (
+        <div className="mt-4">
+          <TokenChart data={dailyTotals} />
+          <button type="button" className="btn btn-ghost mt-1 text-[12px]" onClick={() => setShowTable((v) => !v)}>
+            {showTable ? "Ẩn bảng theo ngày" : "Xem bảng theo ngày"}
+          </button>
+          {showTable && (
+            <div className="mt-2 max-h-[240px] overflow-y-auto rounded border" style={{ borderColor: "var(--color-divider)" }}>
+              <table className="w-full text-left text-[12px]">
+                <thead>
+                  <tr className="divider-b text-neutral-600">
+                    <th className="px-2 py-1.5 font-bold">Ngày</th>
+                    <th className="px-2 py-1.5 font-bold">Token</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[...dailyTotals].reverse().map((d) => (
+                    <tr key={d.date} className="divider-b">
+                      <td className="px-2 py-1.5 tabular-nums">{d.date}</td>
+                      <td className="px-2 py-1.5 tabular-nums">{d.tokens.toLocaleString("vi-VN")}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+        </div>
+      )}
+
+      <h2 className="mt-6 text-[16px] font-extrabold">Theo tài khoản</h2>
+      {perUser.length === 0 ? (
+        <p className="mt-2 text-[13px] text-neutral-600">Không có dữ liệu.</p>
+      ) : (
+        <div className="mt-2 overflow-x-auto">
+          <table className="w-full min-w-[560px] text-left text-[13px]">
+            <thead>
+              <tr className="divider-b text-neutral-600">
+                <th className="py-2 pr-3 font-bold">Email</th>
+                <th className="py-2 pr-3 font-bold">Token</th>
+                <th className="py-2 pr-3 font-bold">Trong đó suy luận</th>
+                <th className="py-2 pr-3 font-bold">Lượt gọi</th>
+              </tr>
+            </thead>
+            <tbody>
+              {pageItems.map((u) => (
+                <tr key={u.email} className="divider-b align-top">
+                  <td className="py-2.5 pr-3 font-semibold">{u.email}</td>
+                  <td className="py-2.5 pr-3 tabular-nums">{fmtCompact(u.tokens)}</td>
+                  <td className="py-2.5 pr-3 tabular-nums">{u.reasoningTokens > 0 ? fmtCompact(u.reasoningTokens) : "—"}</td>
+                  <td className="py-2.5 pr-3 tabular-nums">{u.calls.toLocaleString("vi-VN")}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
 
       {totalPages > 1 && (
         <div className="mt-3 flex items-center justify-center gap-3 text-[13px]">

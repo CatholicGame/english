@@ -213,6 +213,29 @@ function QuizReviewContent({ data }: { data: Record<string, unknown> }) {
   );
 }
 
+/** Collocations "Write" passage, saved the moment it's generated — before any
+ * review exists (see isWritingUnresolved). { passage, terms: [{term,en,vi}],
+ * topic?, wordCount? }. */
+function WritingPassageContent({ data }: { data: Record<string, unknown> }) {
+  const passage = data.passage as string;
+  const terms = (data.terms as { term: string; en: string; vi: string }[] | undefined) ?? [];
+
+  return (
+    <div className="flex flex-col gap-2">
+      {terms.length > 0 && (
+        <div className="flex flex-wrap gap-1.5">
+          {terms.map((t) => (
+            <span key={t.term} className="rounded-full border px-2 py-0.5 text-[11px] font-bold" style={{ borderColor: "var(--color-accent-800)", color: "var(--color-accent-800)" }}>
+              {t.term}
+            </span>
+          ))}
+        </div>
+      )}
+      <p className="whitespace-pre-wrap leading-relaxed">{passage}</p>
+    </div>
+  );
+}
+
 /** Example generation result: { examples: [{context, sentence, note}] } */
 function ExamplesContent({ data }: { data: Record<string, unknown> }) {
   const examples = data.examples as { context: string; sentence: string; note: string }[];
@@ -247,6 +270,7 @@ export function AiHistoryMessage({ content }: { content: string }) {
   }
   const obj = data as Record<string, unknown>;
   if (Array.isArray(obj.results)) return <BatchReviewContent data={obj} />;
+  if (typeof obj.passage === "string" && Array.isArray(obj.terms)) return <WritingPassageContent data={obj} />;
   if (obj.overallBand !== undefined) return <AiBandFeedback loading={false} result={obj} error={null} />;
   if (obj.isGrammar !== undefined) return <GrammarAnalysisContent data={obj} />;
   if (Array.isArray(obj.questions)) return <QuizReviewContent data={obj} />;
@@ -462,6 +486,7 @@ function AiConversationHistoryImpl({ moduleKey, itemKey, filterIntent, onContinu
       {viewingConvo && (() => {
         const row = rows.find((r) => r.c.id === viewingConvo.id);
         const displayMessages = row?.displayMessages ?? viewingConvo.messages;
+        const canResumeWriting = viewingConvo.intent === "cpv_writing_passage" && (row?.unresolved ?? isWritingUnresolved(viewingConvo));
         return (
           <Modal onClose={() => setViewingConvo(null)}>
             <div className="mb-3">
@@ -485,14 +510,14 @@ function AiConversationHistoryImpl({ moduleKey, itemKey, filterIntent, onContinu
                 </div>
               ))}
             </div>
-            {(viewingConvo.intent === "cpv_conversation" || viewingConvo.intent === "discussion" || viewingConvo.intent === "grammar_lookup") &&
+            {(viewingConvo.intent === "cpv_conversation" || viewingConvo.intent === "discussion" || viewingConvo.intent === "grammar_lookup" || canResumeWriting) &&
               onContinue &&
               viewingConvo.id !== activeConvoId && (
               <button
                 className="btn btn-primary mt-3 w-full px-3 py-1.5 text-[12px] font-extrabold"
                 onClick={() => { const c = viewingConvo; setViewingConvo(null); onContinue(c); }}
               >
-                💬 Continue this conversation
+                {canResumeWriting ? "✍️ Continue writing" : "💬 Continue this conversation"}
               </button>
             )}
           </Modal>

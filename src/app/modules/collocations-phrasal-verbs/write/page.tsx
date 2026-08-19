@@ -6,7 +6,7 @@ import { loadTopics, addCustomTopic, topicForLang } from "@/lib/writing-topics";
 import { useUiLang, type UiLang } from "@/lib/i18n";
 import { addGlobalXP } from "@/lib/global-score";
 import { useAiConvoStore } from "@/lib/use-ai-convo-store";
-import type { IntentType } from "@/lib/ai-convo-store";
+import type { AiConversation, IntentType } from "@/lib/ai-convo-store";
 import { AiConversationHistory, BatchReviewContent } from "@/components/AiConversationHistory";
 import { ActionBarScreen, useActionBar } from "@/components/ActionBar";
 import { Modal } from "@/components/Modal";
@@ -82,7 +82,10 @@ function SelectContent({
   topics, selectedTopic, setSelectedTopic, newTopic, setNewTopic, onAddTopic,
   wordCount, setWordCount, query, setQuery, group, setGroup, listVerbs,
   selected, onToggleVerb, isUnlocked, t, lang, error, loading, onGenerate,
+  onContinueWriting, activeCid,
 }: {
+  onContinueWriting: (convo: AiConversation) => void;
+  activeCid: string | null;
   topics: string[];
   selectedTopic: string | null;
   setSelectedTopic: (v: string) => void;
@@ -238,7 +241,13 @@ function SelectContent({
       </div>
 
       <div className="mt-4">
-        <AiConversationHistory moduleKey={MODULE_KEY} itemKey="__writing__" filterIntent="cpv_writing_passage" />
+        <AiConversationHistory
+          moduleKey={MODULE_KEY}
+          itemKey="__writing__"
+          filterIntent="cpv_writing_passage"
+          onContinue={onContinueWriting}
+          activeConvoId={activeCid}
+        />
       </div>
     </div>
   );
@@ -441,7 +450,7 @@ export default function WritePage() {
         `Viết: ${selectedTopic} (${finalTerms.map((tm) => tm.term).join(", ")})`,
         null,
         "cpv_writing_passage",
-        [{ role: "assistant", content: JSON.stringify({ passage: d.passage, terms: finalTerms }), timestamp: Date.now() }],
+        [{ role: "assistant", content: JSON.stringify({ passage: d.passage, terms: finalTerms, topic: selectedTopic, wordCount }), timestamp: Date.now() }],
       );
       setCid(newCid);
       setWriting(true);
@@ -472,6 +481,36 @@ export default function WritePage() {
       setResultModal(enriched);
     }
   }, [translation, terms, passage, selectedTopic, cid, appendMessages]);
+
+  // Reopens the writing overlay on an unresolved (not-yet-submitted) history
+  // record — see AiConversationHistory's "✍️ Continue writing" button. The
+  // passage/terms/topic/wordCount were persisted on generate(); translation
+  // resumes from the local draft only if it's for this same conversation
+  // (otherwise it belongs to a different, now-abandoned attempt).
+  const resumeWriting = useCallback(
+    (convo: AiConversation) => {
+      const first = convo.messages.find((m) => m.role === "assistant");
+      if (!first) return;
+      let parsed: { passage?: string; terms?: Term[]; topic?: string; wordCount?: number };
+      try {
+        parsed = JSON.parse(first.content);
+      } catch {
+        return;
+      }
+      if (!parsed.passage || !Array.isArray(parsed.terms)) return;
+      const existingDraft = loadDraft();
+      setCid(convo.id);
+      setSelectedTopic(parsed.topic ?? selectedTopic);
+      setWordCount(parsed.wordCount ?? wordCount);
+      setTerms(parsed.terms);
+      setPassage(parsed.passage);
+      setTranslation(existingDraft?.cid === convo.id ? existingDraft.translation : "");
+      setSessionId(existingDraft?.cid === convo.id ? existingDraft.sessionId : newSessionId());
+      setError(null);
+      setWriting(true);
+    },
+    [selectedTopic, wordCount],
+  );
 
   function discardDraft() {
     clearDraft();
@@ -513,6 +552,8 @@ export default function WritePage() {
           error={writing ? null : error}
           loading={loading && !writing}
           onGenerate={generate}
+          onContinueWriting={resumeWriting}
+          activeCid={writing ? cid : null}
         />
       </ActionBarScreen>
 
@@ -525,7 +566,7 @@ export default function WritePage() {
                 <span className="text-[12px] text-neutral-600">
                   Topic: <span className="font-extrabold text-ink">{topicForLang(selectedTopic ?? "", lang)}</span> · ~{wordCount} words
                 </span>
-                <button className="text-[11px] text-neutral-400 hover:text-accent-800" onClick={discardDraft}>
+                <button className="text-[11px] font-bold text-accent-800 underline hover:text-accent" onClick={discardDraft}>
                   Discard, start new
                 </button>
               </div>

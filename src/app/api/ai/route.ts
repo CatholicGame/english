@@ -3,6 +3,7 @@ import { buildPrompt, type PromptResult } from "@/lib/ai-prompts";
 import type { IntentType } from "@/lib/ai-convo-store";
 import { readSession } from "@/lib/google-oauth";
 import { peekAiUsage, incrementAiUsage } from "@/lib/subscription-db";
+import { incrementTokenUsage } from "@/lib/token-usage-db";
 import { AI_DAILY_CALL_LIMIT } from "@/lib/subscription-store";
 import { dayKey } from "@/lib/utils";
 import { callDeepSeek } from "@/lib/deepseek-client";
@@ -42,7 +43,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ ok: false, error: e.message }, { status: 400 });
     }
 
-    const result = await callDeepSeek(prompt);
+    const { data: result, usage } = await callDeepSeek(prompt);
     const totalRouteMs = Date.now() - requestStartedAt;
     console.log(
       `/api/ai [${intent}]: total=${totalRouteMs}ms`,
@@ -50,9 +51,15 @@ export async function POST(request: NextRequest) {
       `parse_and_deepseek=${totalRouteMs - afterUsageCheckMs}ms)`,
     );
 
-    // Deferred until after the response is sent, so the increment's Firestore
-    // round-trip never adds latency to the AI call itself — see incrementAiUsage().
-    after(() => incrementAiUsage(session.user.email, today));
+    // Deferred until after the response is sent, so these Firestore round-trips
+    // never add latency to the AI call itself — see incrementAiUsage() and
+    // incrementTokenUsage().
+    after(() =>
+      Promise.all([
+        incrementAiUsage(session.user.email, today),
+        incrementTokenUsage(session.user.email, today, usage),
+      ]),
+    );
 
     return NextResponse.json({ ok: true, data: result });
   } catch (err: any) {

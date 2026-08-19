@@ -9,7 +9,18 @@ function apiKey(): string {
   return v.trim();
 }
 
-export async function callDeepSeek(prompt: PromptResult) {
+export interface TokenUsage {
+  promptTokens: number;
+  completionTokens: number;
+  reasoningTokens: number;
+}
+
+export interface DeepSeekResult {
+  data: unknown;
+  usage: TokenUsage;
+}
+
+export async function callDeepSeek(prompt: PromptResult): Promise<DeepSeekResult> {
   const { systemPrompt, userMessage, temperature, jsonMode } = prompt;
   const body: Record<string, unknown> = {
     model: MODEL,
@@ -81,14 +92,20 @@ export async function callDeepSeek(prompt: PromptResult) {
     throw new Error("Empty response from DeepSeek");
   }
 
+  const usage: TokenUsage = {
+    promptTokens: data.usage?.prompt_tokens ?? 0,
+    completionTokens: data.usage?.completion_tokens ?? 0,
+    reasoningTokens: data.usage?.completion_tokens_details?.reasoning_tokens ?? 0,
+  };
+
   // Conversation intents return plain text
-  if (jsonMode === false) return { content };
+  if (jsonMode === false) return { data: { content }, usage };
 
   // Extract JSON from response (handles ```json blocks, raw JSON, or wrapped text)
   const codeBlock = content.match(/```(?:json)?\s*([\s\S]*?)\s*```/);
   const jsonStr = codeBlock ? codeBlock[1] : content.match(/\{[\s\S]*\}/)?.[0] || content;
-  try { return JSON.parse(jsonStr); } catch {
+  try { return { data: JSON.parse(jsonStr), usage }; } catch {
     console.error("Failed to parse JSON from:", content.slice(0, 300));
-    return { raw: content };
+    return { data: { raw: content }, usage };
   }
 }

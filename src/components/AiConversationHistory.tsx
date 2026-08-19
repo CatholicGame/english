@@ -282,6 +282,24 @@ function parseFeedbackContent(content: string): Record<string, unknown> | null {
   return null;
 }
 
+/** The collocations "Write" flow saves a conversation the moment a passage is
+ * generated (so an abandoned attempt still shows up in history), then appends
+ * the review to that SAME conversation on submit — withMessagesAppended()
+ * never changes a conversation's `intent` after creation, so both states share
+ * `intent: "cpv_writing_passage"` and are told apart by whether a review
+ * message (the `results` array shape from cpv_writing_review) exists yet. */
+function isWritingUnresolved(c: AiConversation): boolean {
+  if (c.intent !== "cpv_writing_passage") return false;
+  return !c.messages.some((m) => {
+    if (m.role !== "assistant") return false;
+    try {
+      return Array.isArray((JSON.parse(m.content) as { results?: unknown }).results);
+    } catch {
+      return false;
+    }
+  });
+}
+
 /** Most recent feedback for a conversation (a re-continued conversation can be
  * ended more than once). */
 function findFeedback(c: AiConversation): Record<string, unknown> | null {
@@ -324,7 +342,7 @@ function AiConversationHistoryImpl({ moduleKey, itemKey, filterIntent, onContinu
         const displayMessages = feedback
           ? c.messages.filter((m) => !parseFeedbackContent(m.content))
           : c.messages;
-        return { c, feedback, displayMessages };
+        return { c, feedback, displayMessages, unresolved: isWritingUnresolved(c) };
       }),
     [convos],
   );
@@ -368,7 +386,7 @@ function AiConversationHistoryImpl({ moduleKey, itemKey, filterIntent, onContinu
         )}
       </div>
       <div className="flex flex-col gap-2">
-        {rows.map(({ c, feedback, displayMessages }) => {
+        {rows.map(({ c, feedback, unresolved }) => {
           return (
           <div key={c.id} className="rounded border p-2.5" style={{ borderColor: "var(--color-divider)" }}>
             <div className="flex items-center justify-between">
@@ -377,6 +395,11 @@ function AiConversationHistoryImpl({ moduleKey, itemKey, filterIntent, onContinu
                 onClick={() => setViewingConvo(c)}
               >
                 {INTENT_LABELS[c.intent] || c.intent} · {fmtDate(c.createdAt)}
+                {unresolved && (
+                  <span className="ml-1.5 rounded-full px-2 py-0.5 text-[10px] font-bold" style={{ background: "var(--color-accent-100)", color: "var(--color-accent-800)" }}>
+                    ⏳ Chưa giải quyết
+                  </span>
+                )}
               </button>
               <span className="flex items-center gap-2">
                 {feedback && (

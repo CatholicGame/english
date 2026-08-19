@@ -77,7 +77,6 @@ export function useActionBar(node: React.ReactNode | null): boolean {
     if (!setFooter) return;
     setFooter(node);
     return () => setFooter(null);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [setFooter, node]);
   return setFooter !== null;
 }

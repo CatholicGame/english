@@ -222,7 +222,7 @@ export default function WritePage() {
     // this box overflows the actual viewport by exactly 3rem and the footer
     // below ends up just past the bottom of the screen.
     return (
-      <div className="flex h-[calc(100dvh-3rem)] flex-col">
+      <div className="flex h-[calc(100dvh-3rem)] flex-col overflow-hidden">
         <div className="flex flex-none items-center justify-between border-b px-4 py-3" style={{ borderColor: "var(--color-divider)" }}>
           <span className="text-[12px] text-neutral-600">
             Topic: <span className="font-extrabold text-ink">{topicForLang(selectedTopic ?? "", lang)}</span> · ~{wordCount} words
@@ -297,14 +297,17 @@ export default function WritePage() {
     // this box overflows the actual viewport by exactly 3rem and the footer
     // below ends up just past the bottom of the screen.
     return (
-      <div className="flex h-[calc(100dvh-3rem)] flex-col">
+      <div className="flex h-[calc(100dvh-3rem)] flex-col overflow-hidden">
         <div className="flex-none px-4 pt-4 pb-1 lg:px-6 lg:pt-6">
           <h1 className="text-[26px]">✍️ Write</h1>
         </div>
 
-        {/* Scrollable middle so the "Generate Passage" action below stays pinned
-            in place instead of scrolling away under a long verb list. */}
-        <div className="flex-1 overflow-y-auto px-4 py-3 lg:px-6">
+        {/* min-h-0 is required here: without it, a flex column child defaults to
+            min-height:auto (≈ its content's height) and never actually shrinks
+            to fit the remaining space, so overflow-y-auto never kicks in — the
+            box just grows past the viewport and the whole page scrolls instead,
+            dragging the "Generate Passage" footer down with it. */}
+        <div className="min-h-0 flex-1 overflow-y-auto px-4 py-3 lg:px-6">
           <div className="flex flex-col gap-4">
             <div>
               <span className="label-xs mb-2 block text-neutral-600">Topic</span>

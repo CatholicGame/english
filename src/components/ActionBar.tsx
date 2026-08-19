@@ -33,7 +33,7 @@ export function ActionBarScreen({
   const [footer, setFooter] = useState<React.ReactNode>(null);
   return (
     <ActionBarContext.Provider value={setFooter}>
-      <div className={`flex flex-col ${fullViewport ? "h-dvh" : "h-[calc(100dvh-3rem)]"}`}>
+      <div className={`flex flex-col overflow-hidden ${fullViewport ? "h-dvh" : "h-[calc(100dvh-3rem)]"}`}>
         {header && <div className="flex-none">{header}</div>}
         <div className="flex min-h-0 flex-1 flex-col">{children}</div>
         {footer && (

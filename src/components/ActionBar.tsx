@@ -33,7 +33,13 @@ export function ActionBarScreen({
   const [footer, setFooter] = useState<React.ReactNode>(null);
   return (
     <ActionBarContext.Provider value={setFooter}>
-      <div className={`flex flex-col overflow-hidden ${fullViewport ? "h-dvh" : "h-[calc(100dvh-3rem)]"}`}>
+      {/* svh, not dvh: dvh recomputes continuously as the mobile browser's own
+          chrome collapses/expands during a scroll gesture, so a box sized by it
+          visibly resizes (and drags its flex-positioned footer along) mid-scroll
+          — unlike the sticky-positioned AppHeader above, which re-anchors every
+          frame regardless. svh is the stable "chrome assumed visible" size, so
+          this box (and the footer inside it) never moves once laid out. */}
+      <div className={`flex flex-col overflow-hidden ${fullViewport ? "h-svh" : "h-[calc(100svh-3rem)]"}`}>
         {header && <div className="flex-none">{header}</div>}
         <div className="flex min-h-0 flex-1 flex-col">{children}</div>
         {footer && (

@@ -221,8 +221,11 @@ export default function WritePage() {
     // real space a bare h-dvh box doesn't know about — without subtracting it,
     // this box overflows the actual viewport by exactly 3rem and the footer
     // below ends up just past the bottom of the screen.
+    // svh, not dvh — see ActionBar.tsx's ActionBarScreen for why: dvh
+    // recomputes as the mobile browser's chrome collapses/expands mid-scroll,
+    // visibly dragging this box's flex-positioned footer along with it.
     return (
-      <div className="flex h-[calc(100dvh-3rem)] flex-col overflow-hidden">
+      <div className="flex h-[calc(100svh-3rem)] flex-col overflow-hidden">
         <div className="flex flex-none items-center justify-between border-b px-4 py-3" style={{ borderColor: "var(--color-divider)" }}>
           <span className="text-[12px] text-neutral-600">
             Topic: <span className="font-extrabold text-ink">{topicForLang(selectedTopic ?? "", lang)}</span> · ~{wordCount} words
@@ -299,8 +302,11 @@ export default function WritePage() {
     // real space a bare h-dvh box doesn't know about — without subtracting it,
     // this box overflows the actual viewport by exactly 3rem and the footer
     // below ends up just past the bottom of the screen.
+    // svh, not dvh — see ActionBar.tsx's ActionBarScreen for why: dvh
+    // recomputes as the mobile browser's chrome collapses/expands mid-scroll,
+    // visibly dragging this box's flex-positioned footer along with it.
     return (
-      <div className="flex h-[calc(100dvh-3rem)] flex-col overflow-hidden">
+      <div className="flex h-[calc(100svh-3rem)] flex-col overflow-hidden">
         <div className="flex-none px-4 pt-4 pb-1 lg:px-6 lg:pt-6">
           <h1 className="text-[26px]">✍️ Write</h1>
         </div>

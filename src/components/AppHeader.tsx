@@ -134,6 +134,26 @@ export function AppHeader() {
   }
 
   if (pathname === "/login" || pathname.startsWith("/s/")) return null;
+
+  // Admin dashboard is a separate tool, not a vocab-learning screen: none of
+  // the learner chrome (dictionary shortcut, fullscreen, AI/UI/font settings,
+  // guide) applies there. Keep only branding, a way back to learner mode, and
+  // the account menu, since the same Google account can be both admin and learner.
+  if (pathname.startsWith("/admin")) {
+    return (
+      <header className="sticky top-0 z-40 flex h-12 flex-none items-center gap-1.5 border-b-2 border-[color:var(--color-divider)] bg-bg px-2">
+        <Link href="/admin" className="flex min-w-0 flex-1 items-center gap-1.5 truncate text-[13px] font-extrabold">
+          <Image src={logo} alt="Vocabulary Builder Pro" width={22} height={22} className="h-[22px] w-[22px] flex-none rounded-full" priority />
+          <span className="truncate">Admin</span>
+        </Link>
+        <Link href="/" className="btn btn-ghost text-[12px] font-bold">
+          Chế độ học
+        </Link>
+        <AuthStatus />
+      </header>
+    );
+  }
+
   const showBack = pathname !== "/";
 
   return (

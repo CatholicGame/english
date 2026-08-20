@@ -6,6 +6,7 @@ import {
   getGrammarUnit,
   type AiPracticeStep,
   type FillMcStep,
+  type JudgeCorrectStep,
   type RuleStep,
   type TypeFillStep,
   type GrammarUnitStep,
@@ -172,17 +173,30 @@ function FillMcStepView({ step, onNext }: { step: FillMcStep; onNext: (score?: S
 
 // ---------- Type-in fill ----------
 
+/** The book prints one answer, but a written question or clause has several
+ * equally correct forms (contracted vs full, "anybody" vs "anyone"), so an item
+ * can carry extra accepted wordings. norm() strips apostrophes and case, so
+ * "I'm"/"I am" really are distinct strings and must both be listed. */
+function matchesAnswer(input: string, item: { answer: string; accept?: string[] }): boolean {
+  const v = norm(input);
+  if (!v) return false;
+  return v === norm(item.answer) || (item.accept ?? []).some((a) => norm(a) === v);
+}
+
 function TypeFillStepView({ step, onNext }: { step: TypeFillStep; onNext: (score?: Score) => void }) {
   const [inputs, setInputs] = useState<string[]>(() => step.items.map(() => ""));
   const [checked, setChecked] = useState(false);
-  const correctCount = inputs.filter((v, i) => norm(v) === norm(step.items[i].answer)).length;
+  const correctCount = inputs.filter((v, i) => matchesAnswer(v, step.items[i])).length;
 
   return (
     <div className="flex flex-1 flex-col p-4">
       <div className="mb-3 text-[13px] text-neutral-700">{step.instructions}</div>
+      {step.passage && (
+        <div className="mb-4 bg-surface p-3 text-[13px] leading-relaxed whitespace-pre-line">{step.passage}</div>
+      )}
       <div className="lg:grid lg:grid-cols-2 lg:gap-x-6">
         {step.items.map((it, i) => {
-          const ok = checked && norm(inputs[i]) === norm(it.answer);
+          const ok = checked && matchesAnswer(inputs[i], it);
           const bad = checked && !ok;
           return (
             <div key={i} className="mb-3">
@@ -220,6 +234,122 @@ function TypeFillStepView({ step, onNext }: { step: TypeFillStep; onNext: (score
         <ContinueButton onClick={() => onNext({ correct: correctCount, total: step.items.length })} />
       ) : (
         <button className="btn btn-primary btn-block mt-auto px-4 py-3" onClick={() => setChecked(true)}>
+          Kiểm tra
+        </button>
+      )}
+    </div>
+  );
+}
+
+// ---------- Judge + correct ----------
+
+/** "Are the underlined verbs OK? Correct them where necessary." Two decisions
+ * per item: is it right, and if not what should it be. Scored as one point,
+ * awarded only when both halves are right, so guessing "sai" and typing
+ * anything doesn't earn credit. */
+function JudgeCorrectStepView({ step, onNext }: { step: JudgeCorrectStep; onNext: (score?: Score) => void }) {
+  const [verdicts, setVerdicts] = useState<(boolean | null)[]>(() => step.items.map(() => null));
+  const [fixes, setFixes] = useState<string[]>(() => step.items.map(() => ""));
+  const [checked, setChecked] = useState(false);
+
+  function isRight(i: number): boolean {
+    const it = step.items[i];
+    if (verdicts[i] !== !it.ok) return false; // verdict[i] === true means learner said "needs fixing"
+    if (it.ok) return true;
+    return matchesAnswer(fixes[i], { answer: it.correction ?? "", accept: it.accept });
+  }
+
+  const correctCount = step.items.filter((_, i) => isRight(i)).length;
+  const allAnswered = verdicts.every((v, i) => v !== null && (v === false || fixes[i].trim() !== ""));
+
+  return (
+    <div className="flex flex-1 flex-col p-4">
+      <div className="mb-3 text-[13px] text-neutral-700">{step.instructions}</div>
+      <div className="flex flex-col gap-4">
+        {step.items.map((it, i) => {
+          const parts = it.sentence.split(it.underlined);
+          const ok = checked && isRight(i);
+          const bad = checked && !ok;
+          return (
+            <div key={i} className="border-l-2 pl-3" style={{ borderColor: bad ? "var(--color-accent)" : "var(--color-divider)" }}>
+              <div className="text-[14px] leading-relaxed">
+                {parts[0]}
+                <span className="font-extrabold underline decoration-2 underline-offset-2">{it.underlined}</span>
+                {parts.slice(1).join(it.underlined)}
+              </div>
+              <div className="mt-1.5 flex flex-wrap gap-1.5">
+                {[
+                  { label: "Đúng rồi", value: false },
+                  { label: "Cần sửa", value: true },
+                ].map((opt) => {
+                  const picked = verdicts[i] === opt.value;
+                  return (
+                    <button
+                      key={opt.label}
+                      disabled={checked}
+                      className="rounded-full border px-3 py-1 text-[12px] font-bold"
+                      style={{
+                        borderColor: picked ? "var(--color-accent)" : "var(--color-divider)",
+                        background: picked ? "var(--color-accent-100)" : "var(--color-surface)",
+                        color: picked ? "var(--color-accent-800)" : "var(--color-text)",
+                      }}
+                      onClick={() => {
+                        const next = [...verdicts];
+                        next[i] = opt.value;
+                        setVerdicts(next);
+                      }}
+                    >
+                      {opt.label}
+                    </button>
+                  );
+                })}
+              </div>
+              {verdicts[i] === true && (
+                <input
+                  className="input mt-1.5"
+                  disabled={checked}
+                  value={fixes[i]}
+                  onChange={(e) => {
+                    const next = [...fixes];
+                    next[i] = e.target.value;
+                    setFixes(next);
+                  }}
+                  placeholder={`Sửa "${it.underlined}" thành...`}
+                />
+              )}
+              {bad && (
+                <div className="mt-1 text-[12px] text-accent-700">
+                  {it.ok ? (
+                    <>
+                      Câu này <span className="font-extrabold">đúng rồi</span>.
+                    </>
+                  ) : (
+                    <>
+                      Đáp án: <span className="font-extrabold">{it.correction}</span>
+                    </>
+                  )}
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
+      {checked && (
+        <div className="mt-4 mb-3 bg-accent-100 px-4 py-3 text-[13px] leading-relaxed text-accent-800">
+          <span className="label-xs mb-0.5 block">Kết quả</span>
+          <span className="font-extrabold">
+            {correctCount}/{step.items.length} đúng
+          </span>
+        </div>
+      )}
+      {checked ? (
+        <ContinueButton onClick={() => onNext({ correct: correctCount, total: step.items.length })} />
+      ) : (
+        <button
+          className="btn btn-primary btn-block mt-auto px-4 py-3 disabled:opacity-40"
+          disabled={!allAnswered}
+          onClick={() => setChecked(true)}
+        >
           Kiểm tra
         </button>
       )}
@@ -319,6 +449,7 @@ const STEP_KIND_LABELS: Record<GrammarUnitStep["kind"], string> = {
   rule: "Học",
   fill_mc: "Thực hành",
   type_fill: "Thực hành",
+  judge_correct: "Thực hành",
   ai_practice: "Luyện AI",
 };
 
@@ -438,6 +569,7 @@ export function UnitClient({ slug }: { slug: string }) {
         {step.kind === "rule" && <RuleStepView key={stepIndex} step={step} onNext={handleNext} />}
         {step.kind === "fill_mc" && <FillMcStepView key={stepIndex} step={step} onNext={handleNext} />}
         {step.kind === "type_fill" && <TypeFillStepView key={stepIndex} step={step} onNext={handleNext} />}
+        {step.kind === "judge_correct" && <JudgeCorrectStepView key={stepIndex} step={step} onNext={handleNext} />}
         {step.kind === "ai_practice" && (
           <AiPracticeStepView key={stepIndex} step={step} unitTitle={unit.title} itemKey={unit.slug} onNext={handleNext} />
         )}

@@ -2961,6 +2961,1746 @@ const UNIT_8_PRESENT_PERFECT_2: GrammarUnit = {
   ]
 };
 
+const UNIT_9_PRESENT_PERFECT_CONTINUOUS: GrammarUnit = {
+  "unit": 9,
+  "slug": "present-perfect-continuous",
+  "title": "Present perfect continuous (I have been doing)",
+  "topic": "Present perfect and past",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "have/has been + -ing: an activity that has just stopped",
+          "body": "have/has been + -ing is the present perfect continuous (I/we/they/you have been doing; he/she/it has been doing). We use it for an activity that has recently stopped or has just stopped. The ground being wet even though it isn't raining now is a typical example: something happened over a period leading up to now.",
+          "examples": [
+            {
+              "en": "Is it raining? No, but the ground is wet. It's been raining.",
+              "note": "It's been = It has been"
+            },
+            {
+              "en": "Why are you out of breath? Have you been running?"
+            },
+            {
+              "en": "Paul is very tired. He's been working hard."
+            },
+            {
+              "en": "Why are you so tired? What have you been doing?"
+            },
+            {
+              "en": "I've been talking to Amanda and she agrees with me."
+            },
+            {
+              "en": "Where have you been? I've been looking for you."
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "how long, for, since: an activity that is still happening",
+          "body": "We also use the present perfect continuous, especially with how long, for and since, when the activity is still happening now or has only just stopped. It can describe a single continuing activity or something repeated over a period.",
+          "examples": [
+            {
+              "en": "It began raining two hours ago and it is still raining. How long has it been raining? It's been raining for two hours."
+            },
+            {
+              "en": "How long have you been learning English?",
+              "note": "you're still learning English"
+            },
+            {
+              "en": "Ben is watching TV. He's been watching TV all day."
+            },
+            {
+              "en": "Where have you been? I've been looking for you for the last half hour."
+            },
+            {
+              "en": "Chris hasn't been feeling well recently."
+            },
+            {
+              "en": "Silvia is a very good tennis player. She's been playing since she was eight.",
+              "note": "a repeated action"
+            },
+            {
+              "en": "Every morning they meet in the same cafe. They've been going there for years."
+            }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "I am doing vs I have been doing",
+          "body": "Compare the present continuous (I am doing), which describes what is happening right now, with the present perfect continuous (I have been doing), which looks back at an activity over a period up to now.",
+          "examples": [
+            {
+              "en": "Don't disturb me now. I'm working."
+            },
+            {
+              "en": "I've been working hard. Now I'm going to have a break."
+            },
+            {
+              "en": "We need an umbrella. It's raining."
+            },
+            {
+              "en": "The ground is wet. It's been raining."
+            },
+            {
+              "en": "Hurry up! We're waiting."
+            },
+            {
+              "en": "We've been waiting for an hour."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "9.2 · Viết câu hỏi cho từng tình huống",
+      "instructions": "Viết một câu hỏi cho mỗi tình huống, dùng thì hiện tại hoàn thành tiếp diễn (have/has been + -ing).",
+      "passage": "Ví dụ: 1 You meet Kate as she is leaving the swimming pool. Hi, Kate. (you / swim?) Have you been swimming?",
+      "items": [
+        {
+          "prompt": "2 You have arrived a little late to meet Ben who is waiting for you. You say: (you / wait / long?) ___",
+          "answer": "Have you been waiting long?"
+        },
+        {
+          "prompt": "3 Jane's little boy comes into the house with a very dirty face and dirty hands. His mother says: (what / you / do?) ___",
+          "answer": "What have you been doing?"
+        },
+        {
+          "prompt": "4 You are in a shop and see Anna. You didn't know she worked there. You say: (how long / you / work / here?) ___",
+          "answer": "How long have you been working here?"
+        },
+        {
+          "prompt": "5 A friend tells you about his job, he sells phones. You say: (how long / you / do / that?) ___",
+          "answer": "How long have you been doing that?"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "9.3 · Đọc tình huống và hoàn thành câu",
+      "instructions": "Đọc tình huống rồi hoàn thành câu bằng thì hiện tại hoàn thành tiếp diễn (have/has been + -ing).",
+      "passage": "Ví dụ: 1 It's raining. The rain started two hours ago. It's been raining for two hours.",
+      "items": [
+        {
+          "prompt": "2 We are waiting for the bus. We started waiting 20 minutes ago. We ___ for 20 minutes.",
+          "answer": "have been waiting",
+          "accept": [
+            "'ve been waiting"
+          ]
+        },
+        {
+          "prompt": "3 I'm learning Japanese. I started classes in December. I ___ since December.",
+          "answer": "have been learning Japanese",
+          "accept": [
+            "'ve been learning Japanese",
+            "have been learning"
+          ]
+        },
+        {
+          "prompt": "4 Jessica is working in a hotel. She started working there on 18 January. ___ since 18 January.",
+          "answer": "She has been working in a hotel",
+          "accept": [
+            "She's been working in a hotel",
+            "She has been working there",
+            "She's been working there"
+          ]
+        },
+        {
+          "prompt": "5 Our friends always go to Italy for their holidays. The first time was years ago. ___ for years.",
+          "answer": "They have been going to Italy",
+          "accept": [
+            "They've been going to Italy"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "9.4 · Chọn hiện tại tiếp diễn hay hiện tại hoàn thành tiếp diễn",
+      "instructions": "Chia động từ trong ngoặc ở thì hiện tại tiếp diễn (am/is/are + -ing) hoặc hiện tại hoàn thành tiếp diễn (have/has been + -ing).",
+      "passage": "Ví dụ: 1 Maria has been learning (Maria / learn) English for two years.",
+      "items": [
+        {
+          "prompt": "2 Hi, Tom. ___ (I / look) for you. I need to ask you something.",
+          "answer": "I've been looking",
+          "accept": [
+            "I have been looking"
+          ]
+        },
+        {
+          "prompt": "3 Why ___ (you / look) at me like that? Stop it!",
+          "answer": "are you looking"
+        },
+        {
+          "prompt": "4 Rachel is a teacher. ___ (she / teach) for ten years.",
+          "answer": "She has been teaching",
+          "accept": [
+            "She's been teaching"
+          ]
+        },
+        {
+          "prompt": "5 ___ (I / think) about what you said and I've decided to take your advice.",
+          "answer": "I've been thinking",
+          "accept": [
+            "I have been thinking"
+          ]
+        },
+        {
+          "prompt": "6 'Is Paul on holiday this week?' 'No, ___ (he / work).'",
+          "answer": "he's working",
+          "accept": [
+            "he is working"
+          ]
+        },
+        {
+          "prompt": "7 Sarah is very tired. ___ (she / work) very hard recently.",
+          "answer": "She's been working",
+          "accept": [
+            "She has been working"
+          ]
+        },
+        {
+          "prompt": "8 It's dangerous to use your phone when ___ (you / drive).",
+          "answer": "you're driving",
+          "accept": [
+            "you are driving"
+          ]
+        },
+        {
+          "prompt": "9 Laura ___ (travel) in South America for the last three months.",
+          "answer": "has been travelling",
+          "accept": [
+            "has been traveling"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng thì hiện tại hoàn thành tiếp diễn (have/has been + -ing) để nói về một hoạt động vừa mới kết thúc, hoặc dùng how long/for/since để nói hoạt động đó đã kéo dài bao lâu.",
+      "ruleSummary": "This unit practises the present perfect continuous (have/has been + -ing). It is used for an activity that has recently stopped or has just stopped, often explaining a present result (Why are you out of breath? Have you been running? The ground is wet. It's been raining.), and for an activity that is still happening now, especially with how long, for and since (How long have you been learning English? They've been playing tennis since 2 o'clock.), or for a repeated action over a period (She's been playing since she was eight.). Compare it with the present continuous (I am doing), which simply describes what is happening right now with no sense of an activity carried on over a period up to now. A correct student sentence must use have/has been plus the -ing form of the verb, and should refer to an activity, not a state verb such as know or have, which do not normally take the continuous."
+    }
+  ]
+};
+
+const UNIT_10_PRESENT_PERFECT_CONTINUOUS_AND_SIMPLE: GrammarUnit = {
+  "unit": 10,
+  "slug": "present-perfect-continuous-and-simple",
+  "title": "Present perfect continuous and simple (I have been doing and I have done)",
+  "topic": "Present perfect and past",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "has been painting vs has painted: activity vs result",
+          "body": "Compare has been painting (present perfect continuous), which focuses on the activity itself without saying whether it is finished, and has painted (present perfect simple), which focuses on the result of a completed action. Kate having paint on her clothes tells us about the activity; the bedroom now being yellow tells us about the finished result.",
+          "examples": [
+            {
+              "en": "There is paint on Kate's clothes. She has been painting her bedroom.",
+              "note": "the activity, not necessarily finished"
+            },
+            {
+              "en": "The bedroom was green. Now it is yellow. She has painted her bedroom.",
+              "note": "the finished result"
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "Explaining a present state vs reporting a completed action",
+          "body": "The present perfect continuous often explains a present state (dirty hands, eating too much) by pointing at the activity itself; the present perfect simple reports that something has been completed.",
+          "examples": [
+            {
+              "en": "My hands are very dirty. I've been repairing my bike."
+            },
+            {
+              "en": "My bike is OK again now. I've repaired it.",
+              "note": "= I've finished repairing it"
+            },
+            {
+              "en": "Joe has been eating too much recently. He should eat less."
+            },
+            {
+              "en": "Somebody has eaten all the chocolates. The box is empty."
+            },
+            {
+              "en": "It's nice to see you again. What have you been doing since we last met?"
+            },
+            {
+              "en": "Where's the book I gave you? What have you done with it?"
+            },
+            {
+              "en": "Where have you been? Have you been playing tennis?"
+            },
+            {
+              "en": "Have you ever played tennis?"
+            }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "how long vs how much/how many/how many times",
+          "body": "We use the continuous to say how long something has been happening, when it is still going on. We use the simple to say how much, how many or how many times, for completed actions.",
+          "examples": [
+            {
+              "en": "How long have you been reading that book?"
+            },
+            {
+              "en": "Amy is writing emails. She's been writing emails all morning."
+            },
+            {
+              "en": "They've been playing tennis since 2 o'clock."
+            },
+            {
+              "en": "I'm learning Arabic, but I haven't been learning it very long."
+            },
+            {
+              "en": "How many pages of that book have you read?"
+            },
+            {
+              "en": "Amy has sent lots of emails this morning."
+            },
+            {
+              "en": "They've played tennis three times this week."
+            },
+            {
+              "en": "I'm learning Arabic, but I haven't learnt very much yet."
+            }
+          ]
+        },
+        {
+          "label": "D",
+          "heading": "Verbs not normally used in the continuous",
+          "body": "Some verbs, for example know, are not normally used in continuous forms (be + -ing). For a list of these verbs, see Unit 4A; for have, see Unit 17. Note that want and mean can be used in the present perfect continuous.",
+          "examples": [
+            {
+              "en": "I've known about the problem for a long time.",
+              "note": "not I've been knowing"
+            },
+            {
+              "en": "How long have you had that camera?",
+              "note": "not have you been having"
+            },
+            {
+              "en": "I've been meaning to phone Anna, but I keep forgetting."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "10.1 · Đọc tình huống và hoàn thành câu",
+      "instructions": "Đọc tình huống rồi hoàn thành các câu bằng động từ trong ngoặc, chia ở thì hiện tại hoàn thành tiếp diễn hoặc hiện tại hoàn thành đơn.",
+      "passage": "Ví dụ: 1 Tom started reading a book two hours ago. He is still reading it and now he is on page 53. He has been reading for two hours. (read) He has read 53 pages so far. (read)",
+      "items": [
+        {
+          "prompt": "2a Rachel is from Australia. She is travelling round Europe. She began her trip three months ago. She ___ for three months. (travel)",
+          "answer": "has been travelling round Europe",
+          "accept": [
+            "'s been travelling round Europe",
+            "has been travelling"
+          ]
+        },
+        {
+          "prompt": "2b She began her trip three months ago. ___ six countries so far. (visit)",
+          "answer": "She has visited",
+          "accept": [
+            "She's visited"
+          ]
+        },
+        {
+          "prompt": "3a Patrick is a tennis player. He began playing tennis when he was 10 years old. This year he won the national championship again, for the fourth time. ___ the national championship four times. (win)",
+          "answer": "He has won",
+          "accept": [
+            "He's won"
+          ]
+        },
+        {
+          "prompt": "3b ___ since he was ten. (play)",
+          "answer": "He has been playing tennis",
+          "accept": [
+            "He's been playing tennis",
+            "He has been playing"
+          ]
+        },
+        {
+          "prompt": "4a When they left college, Lisa and Sue started making films together. They still make films. They ___ films since they left college. (make)",
+          "answer": "have been making",
+          "accept": [
+            "'ve been making"
+          ]
+        },
+        {
+          "prompt": "4b ___ five films since they left college. (make)",
+          "answer": "They have made",
+          "accept": [
+            "They've made"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "10.2 · Đặt câu hỏi với hiện tại hoàn thành đơn hoặc tiếp diễn",
+      "instructions": "Đặt câu hỏi bằng các từ trong ngoặc, dùng thì hiện tại hoàn thành đơn (have/has done) hoặc tiếp diễn (have/has been doing).",
+      "passage": "Ví dụ: 1 You have a friend who is learning Arabic. You ask: (how long / learn / Arabic?) How long have you been learning Arabic?",
+      "items": [
+        {
+          "prompt": "2 You have just arrived to meet a friend. She is waiting for you. You ask: (wait / long?) ___",
+          "answer": "Have you been waiting long?"
+        },
+        {
+          "prompt": "3 You see somebody fishing by the river. You ask: (catch / any fish?) ___",
+          "answer": "Have you caught any fish?"
+        },
+        {
+          "prompt": "4 Some friends of yours are having a party next week. You ask: (how many people / invite?) ___",
+          "answer": "How many people have you invited?"
+        },
+        {
+          "prompt": "5 A friend of yours is a teacher. You ask: (how long / teach?) ___",
+          "answer": "How long have you been teaching?"
+        },
+        {
+          "prompt": "6a You meet somebody who is a writer. You ask: (how many books / write?) ___",
+          "answer": "How many books have you written?"
+        },
+        {
+          "prompt": "6b You also ask: (how long / write / books?) ___",
+          "answer": "How long have you been writing books?"
+        },
+        {
+          "prompt": "7a A friend of yours is saving money to go on a world trip. You ask: (how long / save?) ___",
+          "answer": "How long have you been saving?"
+        },
+        {
+          "prompt": "7b You also ask: (how much money / save?) ___",
+          "answer": "How much money have you saved?"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "10.3 · Chia động từ ở thì hiện tại hoàn thành đơn hoặc tiếp diễn",
+      "instructions": "Chia động từ trong ngoặc ở thì hiện tại hoàn thành đơn (have/has done) hoặc tiếp diễn (have/has been doing).",
+      "passage": "Ví dụ: 1 Where have you been? Have you been playing (you / play) tennis?",
+      "items": [
+        {
+          "prompt": "2 Look! ___ (somebody / break) that window.",
+          "answer": "Somebody has broken",
+          "accept": [
+            "Somebody's broken"
+          ]
+        },
+        {
+          "prompt": "3 You look tired. ___ (you / work) hard?",
+          "answer": "Have you been working",
+          "accept": [
+            "Have you been working hard"
+          ]
+        },
+        {
+          "prompt": "4 '___ (you / ever / work) in a factory?' 'No, never.'",
+          "answer": "Have you ever worked"
+        },
+        {
+          "prompt": "5 Where's Lisa? Where ___ (she / go)?",
+          "answer": "has she gone"
+        },
+        {
+          "prompt": "6 This is a very old book. ___ (I / have) it since I was a child.",
+          "answer": "I've had",
+          "accept": [
+            "I have had"
+          ]
+        },
+        {
+          "prompt": "7 'Have you been busy?' 'No, ___ (I / watch) TV.'",
+          "answer": "I've been watching",
+          "accept": [
+            "I have been watching"
+          ]
+        },
+        {
+          "prompt": "8 My brother is an actor. ___ (he / appear) in several films.",
+          "answer": "He has appeared",
+          "accept": [
+            "He's appeared"
+          ]
+        },
+        {
+          "prompt": "9 'Sorry I'm late.' 'That's all right. ___ (I / not / wait) long.'",
+          "answer": "I haven't been waiting",
+          "accept": [
+            "I have not been waiting"
+          ]
+        },
+        {
+          "prompt": "10 Are you OK? You look as if ___ (you / cry).",
+          "answer": "you've been crying",
+          "accept": [
+            "you have been crying"
+          ]
+        },
+        {
+          "prompt": "11 'Is it still raining?' 'No, ___ (it / stop).'",
+          "answer": "it's stopped",
+          "accept": [
+            "it has stopped"
+          ]
+        },
+        {
+          "prompt": "12 The children are tired now. ___ (they / play) in the garden.",
+          "answer": "They've been playing",
+          "accept": [
+            "They have been playing"
+          ]
+        },
+        {
+          "prompt": "13a ___ (I / lose) my phone.",
+          "answer": "I've lost",
+          "accept": [
+            "I have lost"
+          ]
+        },
+        {
+          "prompt": "13b ___ (you / see) it?",
+          "answer": "Have you seen"
+        },
+        {
+          "prompt": "14a ___ (I / read) the book you lent me, but",
+          "answer": "I've been reading",
+          "accept": [
+            "I have been reading"
+          ]
+        },
+        {
+          "prompt": "14b ___ (I / not / finish) it yet. It's really interesting.",
+          "answer": "I haven't finished",
+          "accept": [
+            "I have not finished"
+          ]
+        },
+        {
+          "prompt": "15 ___ (I / read) the book you lent me, so you can have it back now.",
+          "answer": "I've read",
+          "accept": [
+            "I have read"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh so sánh hiện tại hoàn thành tiếp diễn (I've been doing, nhấn mạnh hoạt động) với hiện tại hoàn thành đơn (I've done, nhấn mạnh kết quả), ví dụ về một việc bạn đang làm và một việc bạn đã hoàn thành.",
+      "ruleSummary": "This unit contrasts the present perfect continuous (have/has been + -ing) with the present perfect simple (have/has + past participle). The continuous focuses on the activity itself, regardless of whether it is finished (She has been painting her bedroom), often explaining a present state (My hands are dirty. I've been repairing my bike.). The simple focuses on the result of a completed action (She has painted her bedroom. My bike is OK now, I've repaired it.). Use the continuous with how long to ask about an activity still going on (How long have you been reading that book?), and the simple with how much, how many or how many times for completed actions (How many pages have you read? They've played tennis three times this week.). Some verbs, especially state verbs like know and have, are not normally used in the continuous. A correct student sentence should use the continuous when describing an ongoing or repeated activity without regard to completion, and the simple when reporting a finished result or a quantity."
+    }
+  ]
+};
+
+const UNIT_11_HOW_LONG_HAVE_YOU_BEEN: GrammarUnit = {
+  "unit": 11,
+  "slug": "how-long-have-you-been",
+  "title": "How long have you (been) ...?",
+  "topic": "Present perfect and past",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "How long have they been married? (not How long are they married?)",
+          "body": "We use the present perfect, not the present simple, to ask how long something that began in the past has continued up to now, even though we use the present simple to describe the situation itself. Dan and Kate are married (present), but we ask How long have they been married? and say They have been married for 20 years, not How long are they married? or They are married for 20 years.",
+          "examples": [
+            {
+              "en": "They have been married for 20 years."
+            },
+            {
+              "en": "How long have they been married?",
+              "note": "not How long are they married?"
+            },
+            {
+              "en": "Paul is in hospital. He's been in hospital since Monday.",
+              "note": "not Paul is in hospital since Monday"
+            },
+            {
+              "en": "We know each other very well. We've known each other for a long time.",
+              "note": "not We know each other for a long time"
+            },
+            {
+              "en": "Do they have a car? How long have they had their car?"
+            },
+            {
+              "en": "She's waiting for somebody. She hasn't been waiting very long."
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "I've known / I've been learning: simple vs continuous with how long",
+          "body": "I've known, I've had and I've lived are present perfect simple; I've been learning and I've been waiting are present perfect continuous. When we ask or say how long, the continuous is more usual (see Unit 10), but some verbs, for example know and like, are not normally used in the continuous. See also Units 4A and 10C; for have, see Unit 17.",
+          "examples": [
+            {
+              "en": "I've been learning English since January."
+            },
+            {
+              "en": "It's been raining all morning."
+            },
+            {
+              "en": "Richard has been doing the same job for 20 years."
+            },
+            {
+              "en": "'How long have you been driving?' 'Since I was 17.'"
+            },
+            {
+              "en": "How long have you known Jane?",
+              "note": "not have you been knowing"
+            },
+            {
+              "en": "I've had these shoes for ages.",
+              "note": "not I've been having"
+            }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "live and work: either form; always: simple only",
+          "body": "You can use either the continuous or the simple with live and work. But we use the simple (have lived etc.), not the continuous, with always.",
+          "examples": [
+            {
+              "en": "Julia has been living in this house for a long time.",
+              "note": "or Julia has lived ..."
+            },
+            {
+              "en": "How long have you been working here?",
+              "note": "or How long have you worked here?"
+            },
+            {
+              "en": "I've always lived in the country.",
+              "note": "not I've always been living"
+            }
+          ]
+        },
+        {
+          "label": "D",
+          "heading": "I haven't (done something) since/for ...",
+          "body": "We use the present perfect simple, not the continuous, to say I haven't (done something) since/for a period, meaning the last time it happened was that long ago.",
+          "examples": [
+            {
+              "en": "I haven't seen Tom since Monday.",
+              "note": "= Monday was the last time I saw him"
+            },
+            {
+              "en": "Sarah hasn't phoned for ages.",
+              "note": "= the last time she phoned was ages ago"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "fill_mc",
+      "title": "11.1 · Chọn câu đúng",
+      "instructions": "Chọn cách diễn đạt đúng trong mỗi cặp.",
+      "passage": "Ví dụ: 1 Ben is a friend of mine. I know / I've known him very well. (I know is correct)",
+      "items": [
+        {
+          "before": "I like your house. How long",
+          "options": [
+            "do you live",
+            "have you lived"
+          ],
+          "after": "here?",
+          "answer": "have you lived"
+        },
+        {
+          "before": "You'll need an umbrella if you go out now.",
+          "options": [
+            "It's raining",
+            "It's been raining"
+          ],
+          "after": "",
+          "answer": "It's raining"
+        },
+        {
+          "before": "The weather",
+          "options": [
+            "is",
+            "has been"
+          ],
+          "after": "awful since I arrived here.",
+          "answer": "has been"
+        },
+        {
+          "before": "I'm sorry I'm late.",
+          "options": [
+            "Are you waiting",
+            "Have you been waiting"
+          ],
+          "after": "long?",
+          "answer": "Have you been waiting"
+        },
+        {
+          "before": "We've moved.",
+          "options": [
+            "We're living",
+            "We've been living"
+          ],
+          "after": "in New Street now.",
+          "answer": "We're living"
+        },
+        {
+          "before": "I met Maria only recently.",
+          "options": [
+            "I don't know",
+            "I haven't known"
+          ],
+          "after": "her very long.",
+          "answer": "I haven't known"
+        },
+        {
+          "before": "Lisa is in Germany.",
+          "options": [
+            "She's",
+            "She's been"
+          ],
+          "after": "there on a business trip.",
+          "answer": "She's"
+        },
+        {
+          "before": "That's a very old bike. How long",
+          "options": [
+            "do you have",
+            "have you had"
+          ],
+          "after": "it?",
+          "answer": "have you had"
+        },
+        {
+          "before": "I'm not feeling good.",
+          "options": [
+            "I'm feeling",
+            "I've been feeling"
+          ],
+          "after": "ill all day.",
+          "answer": "I've been feeling"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "11.2 · Đọc tình huống và viết câu hỏi",
+      "instructions": "Đọc tình huống rồi viết câu hỏi bằng các từ trong ngoặc, dùng how long have/has ...",
+      "passage": "Ví dụ: 1 A friend tells you that Paul is in hospital. You ask him: (how long / Paul / hospital?) How long has Paul been in hospital?",
+      "items": [
+        {
+          "prompt": "2 You know that Jane is a good friend of Katherine's. You ask Jane: (how long / you / know / Katherine?) ___",
+          "answer": "How long have you known Katherine?"
+        },
+        {
+          "prompt": "3 Your friend's sister went to Australia some time ago and she's still there. You ask your friend: (how long / sister / in Australia?) ___",
+          "answer": "How long has your sister been in Australia?"
+        },
+        {
+          "prompt": "4 You meet a woman who tells you that she teaches English. You ask her: (how long / you / teach / English?) ___",
+          "answer": "How long have you been teaching English?"
+        },
+        {
+          "prompt": "5 Tom always wears the same jacket. It's very old. You ask him: (how long / you / have / that jacket?) ___",
+          "answer": "How long have you had that jacket?"
+        },
+        {
+          "prompt": "6 You are talking to a friend about Joe, who now works at the airport. You ask your friend: (how long / Joe / work / airport?) ___",
+          "answer": "How long has Joe been working at the airport?",
+          "accept": [
+            "How long has Joe worked at the airport?"
+          ]
+        },
+        {
+          "prompt": "7 You meet somebody on a plane. She says that she lives in Chicago. You ask her: (you / always / live / in Chicago?) ___",
+          "answer": "Have you always lived in Chicago?"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "11.3 · Hoàn thành câu trả lời của B",
+      "instructions": "Hoàn thành câu trả lời của B, dùng thì hiện tại hoàn thành đơn hoặc tiếp diễn.",
+      "passage": "Ví dụ: 1 A: Paul is in hospital, isn't he? B: Yes, he has been in hospital since Monday.",
+      "items": [
+        {
+          "prompt": "2 A: Do you see Lisa very often? B: No, I ___ her for three months.",
+          "answer": "haven't seen",
+          "accept": [
+            "have not seen"
+          ]
+        },
+        {
+          "prompt": "3 A: Is Paul married? B: Yes, he ___ married for ten years.",
+          "answer": "has been",
+          "accept": [
+            "'s been"
+          ]
+        },
+        {
+          "prompt": "4 A: Is Amy married? B: Yes, she ___ married to a German guy.",
+          "answer": "she's",
+          "accept": [
+            "she is"
+          ]
+        },
+        {
+          "prompt": "5 A: Do you still play tennis? B: No, I ___ tennis for years.",
+          "answer": "haven't played",
+          "accept": [
+            "have not played"
+          ]
+        },
+        {
+          "prompt": "6 A: Are you waiting for the bus? B: Yes, I ___ for about 20 minutes.",
+          "answer": "have been waiting",
+          "accept": [
+            "'ve been waiting"
+          ]
+        },
+        {
+          "prompt": "7 A: You know Mel, don't you? B: Yes, we ___ each other a long time.",
+          "answer": "have known",
+          "accept": [
+            "'ve known"
+          ]
+        },
+        {
+          "prompt": "8 A: Jack is never ill, is he? B: No, he ___ ill since I've known him.",
+          "answer": "hasn't been",
+          "accept": [
+            "has not been"
+          ]
+        },
+        {
+          "prompt": "9 A: Martin lives in Italy, doesn't he? B: Yes, he ___ in Milan.",
+          "answer": "lives",
+          "accept": [
+            "'s living"
+          ]
+        },
+        {
+          "prompt": "10 A: Sue lives in Berlin, doesn't she? B: Yes, she ___ in Berlin for many years.",
+          "answer": "has lived",
+          "accept": [
+            "'s lived",
+            "'s been living",
+            "has been living"
+          ]
+        },
+        {
+          "prompt": "11 A: Is Joe watching TV? B: Yes, he ___ TV all evening.",
+          "answer": "has been watching",
+          "accept": [
+            "'s been watching"
+          ]
+        },
+        {
+          "prompt": "12 A: Do you watch TV a lot? B: No, I ___ TV since last weekend.",
+          "answer": "haven't watched",
+          "accept": [
+            "have not watched"
+          ]
+        },
+        {
+          "prompt": "13 A: Do you have a headache? B: Yes, I ___ a headache all morning.",
+          "answer": "have had",
+          "accept": [
+            "'ve had"
+          ]
+        },
+        {
+          "prompt": "14 A: Do you go to the cinema a lot? B: No, I ___ to the cinema for ages.",
+          "answer": "haven't been",
+          "accept": [
+            "have not been"
+          ]
+        },
+        {
+          "prompt": "15 A: Would you like to go to New York one day? B: Yes, I ___ to go to New York. (use always / want)",
+          "answer": "have always wanted",
+          "accept": [
+            "'ve always wanted"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng how long have/has ... been ...? để hỏi về khoảng thời gian một việc đã diễn ra, và trả lời bằng have/has been + for/since.",
+      "ruleSummary": "This unit practises asking and answering how long something has continued up to now, using the present perfect rather than the present simple: How long have they been married? They have been married for 20 years (not How long are they married? / They are married for 20 years). I've known, I've had and I've lived are present perfect simple; I've been learning and I've been waiting are present perfect continuous, and the continuous is more usual with how long, except for state verbs such as know, like, have, which stay simple. Live and work can take either form, but always is only used with the simple (I've always lived in the country, not I've always been living). We also use the present perfect simple, not the continuous, in the pattern I haven't (done something) since/for ... (I haven't seen Tom since Monday). A correct student sentence should use the present perfect, simple or continuous matching the verb, rather than the present simple, whenever the sentence describes something continuing up to now, and must use since plus a starting point or for plus a length of time correctly."
+    }
+  ]
+};
+
+const UNIT_12_FOR_AND_SINCE: GrammarUnit = {
+  "unit": 12,
+  "slug": "for-and-since",
+  "title": "For and since, When ...? and How long ...?",
+  "topic": "Present perfect and past",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "for a period of time; since the start of a period",
+          "body": "We use for and since to say how long something has been happening. We use for + a period of time (for two hours, for a week, for ages, for 50 years); we use since + the start of a period (since 8 o'clock, since Monday, since 2001). Note that we say for six months, not since six months.",
+          "examples": [
+            {
+              "en": "Sally has been working here for six months.",
+              "note": "not since six months"
+            },
+            {
+              "en": "Sally has been working here since April.",
+              "note": "= from April until now"
+            },
+            {
+              "en": "I haven't seen Tom for three days."
+            },
+            {
+              "en": "I haven't seen Tom since Monday."
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "leaving out for; in instead of for; not for all ...",
+          "body": "We often leave out for, but not usually in negative sentences. You can use in instead of for in negative sentences (I haven't ... etc.). We do not use for before all ... (all day, all my life etc.).",
+          "examples": [
+            {
+              "en": "They've been married for ten years.",
+              "note": "or They've been married ten years"
+            },
+            {
+              "en": "They haven't had a holiday for ten years.",
+              "note": "you need for here"
+            },
+            {
+              "en": "They haven't had a holiday in ten years.",
+              "note": "= for ten years"
+            },
+            {
+              "en": "I've lived here all my life.",
+              "note": "not for all my life"
+            }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "When ...? (+ past simple) vs How long ...? (+ present perfect)",
+          "body": "Compare When ...? with the past simple, which asks about a point in time, and How long ...? with the present perfect, which asks about a duration up to now.",
+          "examples": [
+            {
+              "en": "When did it start raining? It started raining an hour ago / at 1 o'clock."
+            },
+            {
+              "en": "How long has it been raining? It's been raining for an hour / since 1 o'clock."
+            },
+            {
+              "en": "When did Joe and Kate first meet? They first met a long time ago / at school / when they were at school."
+            },
+            {
+              "en": "How long have they known each other? They've known each other for a long time / at school / since they were at school.",
+              "note": "since they were at school"
+            }
+          ]
+        },
+        {
+          "label": "D",
+          "heading": "it's (been) ... since something happened",
+          "body": "We say it's (= it is) or it's been (= it has been) a long time / six months etc. since something happened.",
+          "examples": [
+            {
+              "en": "It's two years since I last saw Joe.",
+              "note": "or It's been two years since ...; = I haven't seen Joe for two years"
+            },
+            {
+              "en": "It's ages since we went to the cinema.",
+              "note": "or It's been ages since ...; = We haven't been to the cinema for ages"
+            },
+            {
+              "en": "How long is it since Mrs Hill died?",
+              "note": "or How long has it been since ...?; = when did she die?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "fill_mc",
+      "title": "12.1 · Chọn for hoặc since",
+      "instructions": "Chọn for hoặc since cho mỗi câu.",
+      "passage": "Ví dụ: 1 It's been raining since lunchtime.",
+      "items": [
+        {
+          "before": "Paul has lived in Brazil",
+          "options": [
+            "for",
+            "since"
+          ],
+          "after": "ten years.",
+          "answer": "for"
+        },
+        {
+          "before": "I'm tired of waiting. We've been sitting here",
+          "options": [
+            "for",
+            "since"
+          ],
+          "after": "an hour.",
+          "answer": "for"
+        },
+        {
+          "before": "Kevin has been looking for a job",
+          "options": [
+            "for",
+            "since"
+          ],
+          "after": "he left school.",
+          "answer": "since"
+        },
+        {
+          "before": "I haven't been to a party",
+          "options": [
+            "for",
+            "since"
+          ],
+          "after": "ages.",
+          "answer": "for"
+        },
+        {
+          "before": "I wonder where Joe is. I haven't seen him",
+          "options": [
+            "for",
+            "since"
+          ],
+          "after": "last week.",
+          "answer": "since"
+        },
+        {
+          "before": "Jane is away on holiday. She's been away",
+          "options": [
+            "for",
+            "since"
+          ],
+          "after": "Friday.",
+          "answer": "since"
+        },
+        {
+          "before": "The weather is dry. It hasn't rained",
+          "options": [
+            "for",
+            "since"
+          ],
+          "after": "a few weeks.",
+          "answer": "for"
+        }
+      ]
+    },
+    {
+      "kind": "fill_mc",
+      "title": "12.2 · Chọn câu hỏi đúng cho câu trả lời",
+      "instructions": "Đọc câu trả lời rồi chọn câu hỏi đúng.",
+      "passage": "Ví dụ: 1 Answer: Ten years ago. Question: When did they get married? (correct, not How long have they been married?)",
+      "items": [
+        {
+          "before": "Answer: About five years.",
+          "options": [
+            "How long have you had this car?",
+            "When did you buy this car?"
+          ],
+          "after": "",
+          "answer": "How long have you had this car?"
+        },
+        {
+          "before": "Answer: Only a few minutes.",
+          "options": [
+            "How long have you been waiting?",
+            "When did you get here?"
+          ],
+          "after": "",
+          "answer": "How long have you been waiting?"
+        },
+        {
+          "before": "Answer: September.",
+          "options": [
+            "How long have you been doing your course?",
+            "When did your course start?"
+          ],
+          "after": "",
+          "answer": "When did your course start?"
+        },
+        {
+          "before": "Answer: Last week.",
+          "options": [
+            "How long has Anna been in London?",
+            "When did Anna arrive in London?"
+          ],
+          "after": "",
+          "answer": "When did Anna arrive in London?"
+        },
+        {
+          "before": "Answer: A long time.",
+          "options": [
+            "How long have you known each other?",
+            "When did you first meet each other?"
+          ],
+          "after": "",
+          "answer": "How long have you known each other?"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "12.3 · Đọc tình huống và hoàn thành câu",
+      "instructions": "Đọc tình huống rồi hoàn thành câu.",
+      "passage": "Ví dụ: 1 It's raining. It's been raining since lunchtime. It started raining at lunchtime.\n2 Ann and Jess are friends. They first met years ago. They've known each other for years.",
+      "items": [
+        {
+          "prompt": "3 Mark is unwell. He became ill on Sunday. He has ___ Sunday.",
+          "answer": "been ill since",
+          "accept": [
+            "been unwell since"
+          ]
+        },
+        {
+          "prompt": "4 Sarah is married. She's been married for a year. She got ___.",
+          "answer": "married a year ago"
+        },
+        {
+          "prompt": "5 You have a headache. It started when you woke up. I've ___ I woke up.",
+          "answer": "had a headache since"
+        },
+        {
+          "prompt": "6 Sue is in a meeting at work. It's been going on since 9 o'clock. The meeting ___ at 9 o'clock.",
+          "answer": "started"
+        },
+        {
+          "prompt": "7 You're working in a hotel. You started working there six months ago. I've been ___.",
+          "answer": "working in a hotel for six months"
+        },
+        {
+          "prompt": "8 Kate is learning Japanese. She's been doing this for a long time. Kate started ___.",
+          "answer": "learning Japanese a long time ago"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "12.4 · Hoàn thành câu trả lời của B",
+      "instructions": "Hoàn thành câu trả lời của B. Sau đó viết lại câu trả lời đó theo mẫu It's ... since ....",
+      "passage": "Ví dụ: 1 A: Do you often go on holiday? B: No, I haven't had a holiday for five years.\n5 (viết lại câu 1) No, it's five years since I last had a holiday.",
+      "items": [
+        {
+          "prompt": "2 A: Have you seen Lisa recently? B: No, I ___ about a month.",
+          "answer": "haven't seen her for"
+        },
+        {
+          "prompt": "3 A: Do you still go swimming regularly? B: No, I ___ a long time.",
+          "answer": "haven't been swimming for"
+        },
+        {
+          "prompt": "4 A: Do you still ride a bike these days? B: No, I ___ ages.",
+          "answer": "haven't ridden a bike for"
+        },
+        {
+          "prompt": "6 Viết lại câu 2 theo mẫu It's ... since ...: No, it's ___.",
+          "answer": "about a month since I last saw Lisa"
+        },
+        {
+          "prompt": "7 Viết lại câu 3 theo mẫu It's ... since ...: No, it's ___.",
+          "answer": "a long time since I last went swimming"
+        },
+        {
+          "prompt": "8 Viết lại câu 4 theo mẫu It's ... since ...: ___.",
+          "answer": "It's ages since I last rode a bike"
+        }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng for hoặc since để nói một việc đã kéo dài bao lâu, hoặc dùng how long ...? để hỏi, so sánh với khi nào việc đó bắt đầu (when ...?).",
+      "ruleSummary": "This unit practises for (a period of time: for two hours, for ten years) and since (the start of a period: since 8 o'clock, since Monday), always with the present perfect, to say how long something has been happening (not since six months, but since April). For is often left out except in negative sentences (They've been married ten years, but They haven't had a holiday for ten years), and for + all ... (all day, all my life) is never used. Compare When ...? with the past simple, which asks about a point in time (When did it start raining? It started raining an hour ago.), with How long ...? with the present perfect, which asks about a duration up to now (How long has it been raining? It's been raining for an hour.). Also practises it's / it's been + a period + since something happened (It's two years since I last saw Joe = I haven't seen Joe for two years). A correct student sentence must pair for with a length of time and since with a starting point, and must use the present perfect, not the present simple, whenever for/since expresses a duration up to now."
+    }
+  ]
+};
+
+const UNIT_13_PRESENT_PERFECT_AND_PAST_1: GrammarUnit = {
+  "unit": 13,
+  "slug": "present-perfect-and-past-1",
+  "title": "Present perfect and past 1 (I have done and I did)",
+  "topic": "Present perfect and past",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "Tom has lost his key (now) vs Tom lost his key (only about the past)",
+          "body": "The present perfect (something has happened) is a present tense: it tells us about the situation now. Tom has lost his key means he doesn't have his key now. The past simple (something happened) tells us only about the past; if somebody says Tom lost his key, we don't know whether he has the key now or not, only that he lost it at some time in the past.",
+          "examples": [
+            {
+              "en": "They've gone away. They'll be back on Friday.",
+              "note": "they are away now"
+            },
+            {
+              "en": "They went away, but I think they're back at home now.",
+              "note": "not They've gone away"
+            },
+            {
+              "en": "It has stopped raining now, so we don't need the umbrella.",
+              "note": "it isn't raining now"
+            },
+            {
+              "en": "It stopped raining for a while, but now it's raining again.",
+              "note": "not It has stopped"
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "New or recent happenings vs things that are not recent or new",
+          "body": "You can use the present perfect for new or recent happenings, and usually the past simple works too. But use the past simple, not the present perfect, for things that are not recent or new, such as historical facts.",
+          "examples": [
+            {
+              "en": "I've repaired the washing machine. It's working OK now."
+            },
+            {
+              "en": "'Hannah has had a baby! It's a boy.' 'That's great news.'"
+            },
+            {
+              "en": "I repaired the washing machine. It's working OK now.",
+              "note": "past simple also possible here"
+            },
+            {
+              "en": "Mozart was a composer. He wrote more than 600 pieces of music.",
+              "note": "not has been ... has written"
+            },
+            {
+              "en": "My mother grew up in Italy.",
+              "note": "not has grown"
+            },
+            {
+              "en": "Somebody has invented a new type of washing machine.",
+              "note": "new information"
+            },
+            {
+              "en": "Who invented the telephone?",
+              "note": "not has invented"
+            }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "Give new information with the present perfect, continue with the past simple",
+          "body": "We use the present perfect to give new information, but if we continue to talk about it, we normally switch to the past simple.",
+          "examples": [
+            {
+              "en": "'Ow! I've burnt myself.' 'How did you do that?' 'I picked up a hot dish.'",
+              "note": "not have you done ... have picked"
+            },
+            {
+              "en": "'Look! Somebody has spilt something on the sofa.' 'Well, it wasn't me. I didn't do it.'",
+              "note": "not hasn't been ... haven't done"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "13.1 · Hoàn thành câu bằng hiện tại hoàn thành hoặc quá khứ đơn",
+      "instructions": "Hoàn thành các câu, dùng thì hiện tại hoàn thành nếu có thể, nếu không thì dùng quá khứ đơn.",
+      "passage": "Ví dụ: 1 I can't get in. I've lost (lose) my key.",
+      "items": [
+        {
+          "prompt": "2 The office is empty now. Everybody ___ home. (go)",
+          "answer": "has gone",
+          "accept": [
+            "'s gone"
+          ]
+        },
+        {
+          "prompt": "3 I meant to call you last night, but I ___. (forget)",
+          "answer": "forgot"
+        },
+        {
+          "prompt": "4 Can you help us? Our car ___ down. (break)",
+          "answer": "has broken",
+          "accept": [
+            "'s broken"
+          ]
+        },
+        {
+          "prompt": "5 Are you OK? Yes, I ___ a headache, but it's OK now. (have)",
+          "answer": "'ve had",
+          "accept": [
+            "have had"
+          ]
+        },
+        {
+          "prompt": "6 Helen ___ to New York for a holiday, but she's back home in London now. (go)",
+          "answer": "went"
+        }
+      ]
+    },
+    {
+      "kind": "judge_correct",
+      "title": "13.2 · Phần gạch chân đúng hay cần sửa?",
+      "instructions": "Phần gạch chân trong mỗi câu đã đúng chưa? Sửa lại nếu cần.",
+      "items": [
+        {
+          "sentence": "Did you hear about Sophie? She's given up her job.",
+          "underlined": "She's given up her job",
+          "ok": true
+        },
+        {
+          "sentence": "My mother has grown up in Italy.",
+          "underlined": "has grown up",
+          "ok": false,
+          "correction": "grew up"
+        },
+        {
+          "sentence": "How many plays has William Shakespeare written?",
+          "underlined": "has William Shakespeare written",
+          "ok": false,
+          "correction": "did William Shakespeare write",
+          "accept": [
+            "did Shakespeare write"
+          ]
+        },
+        {
+          "sentence": "I've forgotten his name. Is it Joe or Jack?",
+          "underlined": "I've forgotten",
+          "ok": true
+        },
+        {
+          "sentence": "Who has invented paper?",
+          "underlined": "has invented",
+          "ok": false,
+          "correction": "invented"
+        },
+        {
+          "sentence": "Drugs have become a big problem everywhere.",
+          "underlined": "have become",
+          "ok": true
+        },
+        {
+          "sentence": "We've washed the car, but now it's dirty again.",
+          "underlined": "We've washed",
+          "ok": false,
+          "correction": "We washed"
+        },
+        {
+          "sentence": "Where have you been born?",
+          "underlined": "have you been born",
+          "ok": false,
+          "correction": "were you born"
+        },
+        {
+          "sentence": "Ellie has gone shopping. She'll be back in about an hour.",
+          "underlined": "Ellie has gone shopping",
+          "ok": true
+        },
+        {
+          "sentence": "Albert Einstein has been the scientist who has developed the theory of relativity.",
+          "underlined": "has been the scientist who has developed",
+          "ok": false,
+          "correction": "was the scientist who developed"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "13.3 · Chia động từ ở thì hiện tại hoàn thành hoặc quá khứ đơn",
+      "instructions": "Chia động từ trong ngoặc ở thì hiện tại hoàn thành hoặc quá khứ đơn.",
+      "passage": "Ví dụ: 1 It stopped raining for a while, but now it's raining again. (it / stop)\n2 The town where I live is very different now. It has changed a lot. (it / change)",
+      "items": [
+        {
+          "prompt": "3 I studied German at school, but ___ most of it now. (I / forget)",
+          "answer": "I've forgotten",
+          "accept": [
+            "I have forgotten"
+          ]
+        },
+        {
+          "prompt": "4 The police ___ three people, but later they let them go. (arrest)",
+          "answer": "arrested"
+        },
+        {
+          "prompt": "5 What do you think of my English? Do you think ___? (it / improve)",
+          "answer": "it's improved",
+          "accept": [
+            "it has improved"
+          ]
+        },
+        {
+          "prompt": "6 Are you ready to go? ___ your coffee? (you / finish)",
+          "answer": "Have you finished"
+        },
+        {
+          "prompt": "7 ___ for a job as a tour guide, but I wasn't successful. (I / apply)",
+          "answer": "I applied"
+        },
+        {
+          "prompt": "8 Where's my bike? ___ outside the house, but it's not there now. (it / be)",
+          "answer": "It was"
+        },
+        {
+          "prompt": "9 Quick! We need to call an ambulance. ___ an accident. (there / be)",
+          "answer": "There's been",
+          "accept": [
+            "There has been"
+          ]
+        },
+        {
+          "prompt": "10a A: I've found my phone. B: Oh, good. Where ___ it? (you / find)",
+          "answer": "did you find"
+        },
+        {
+          "prompt": "10b A: I've found my phone. B: Oh, good. Where did you find it? A: ___ at the bottom of my bag. (It / be)",
+          "answer": "It was"
+        },
+        {
+          "prompt": "11a Ben won't be able to play tennis for a while. ___ his arm. (He / break)",
+          "answer": "He's broken",
+          "accept": [
+            "He has broken"
+          ]
+        },
+        {
+          "prompt": "11b Oh. How ___? (that / happen)",
+          "answer": "did that happen"
+        },
+        {
+          "prompt": "11c ___ off a ladder. (He / fall)",
+          "answer": "He fell"
+        }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh: một câu dùng thì hiện tại hoàn thành để đưa ra một tin mới hoặc gần đây, và một câu tiếp theo dùng thì quá khứ đơn để kể tiếp chi tiết về việc đó, giống ví dụ: I've burnt myself. How did you do that? I picked up a hot dish.",
+      "ruleSummary": "This unit practises choosing between the present perfect (has/have done) and the past simple (did) when there is no explicit finished-time marker. The present perfect is a present tense: it tells us about the situation now (Tom has lost his key = he doesn't have it now), and is typical for new or recent news (I've repaired the washing machine. Hannah has had a baby!). The past simple only tells us about the past and is required for things that are not recent or new, especially historical facts (Mozart was a composer, not has been; Who invented the telephone?, not has invented). A key pattern: we use the present perfect to give new information, but once we continue talking about the same event, we switch to the past simple (I've burnt myself. How did you do that? I picked up a hot dish, not have you done / have picked). A correct student sentence must use the present perfect only for something that is new, recent, or still relevant right now, and the past simple once the same event is being discussed further or when it is a finished, non-recent fact."
+    }
+  ]
+};
+
+const UNIT_14_PRESENT_PERFECT_AND_PAST_2: GrammarUnit = {
+  "unit": 14,
+  "slug": "present-perfect-and-past-2",
+  "title": "Present perfect and past 2 (I have done and I did)",
+  "topic": "Present perfect and past",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "Do not use the present perfect for a finished time",
+          "body": "We do not use the present perfect (I have done) when we talk about a finished time (for example, yesterday, last year, ten minutes ago etc.); we use a past tense. We also use the past, not the present perfect, to ask When ...? or What time ...?",
+          "examples": [
+            {
+              "en": "It was very cold yesterday.",
+              "note": "not has been"
+            },
+            {
+              "en": "Paul and Lucy arrived ten minutes ago.",
+              "note": "not have arrived"
+            },
+            {
+              "en": "Did you eat a lot of sweets when you were a child?",
+              "note": "not have you eaten"
+            },
+            {
+              "en": "I got home late last night. I was very tired and went straight to bed."
+            },
+            {
+              "en": "When did your friends arrive?",
+              "note": "not have ... arrived"
+            },
+            {
+              "en": "What time did you finish work?"
+            },
+            {
+              "en": "Tom has lost his key. He can't get into the house.",
+              "note": "compare: Tom lost his key yesterday. He couldn't get into the house."
+            },
+            {
+              "en": "Is Carla here or has she left?",
+              "note": "compare: When did Carla leave?"
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "Unfinished period (present perfect) vs finished period (past simple)",
+          "body": "We use the present perfect for a period of time that continues until now, for example today, this week, since 2010. We use the past simple for a finished time in the past, for example yesterday, last week, from 2010 to 2014.",
+          "examples": [
+            {
+              "en": "I've done a lot of work today.",
+              "note": "compare: I did a lot of work yesterday."
+            },
+            {
+              "en": "It hasn't rained this week.",
+              "note": "compare: It didn't rain last week."
+            },
+            {
+              "en": "Have you seen Anna this morning?",
+              "note": "it is still morning now; compare: Did you see Anna this morning? (it is now afternoon or evening)"
+            },
+            {
+              "en": "Have you seen Ben recently?",
+              "note": "in the last few days or weeks; compare: Did you see Ben on Sunday?"
+            },
+            {
+              "en": "I've been working here since 2010.",
+              "note": "I still work here now; compare: I worked here from 2010 to 2014. (I don't work here now)"
+            },
+            {
+              "en": "I don't know where Lisa is. I haven't seen her.",
+              "note": "= I haven't seen her recently; compare: Was Lisa at the party on Sunday? I don't think so. I didn't see her."
+            },
+            {
+              "en": "We've been waiting for an hour.",
+              "note": "we are still waiting now; compare: We waited (or were waiting) for an hour. (we are no longer waiting)"
+            },
+            {
+              "en": "Jack lives in Los Angeles. He has lived there for seven years.",
+              "note": "compare: Jack lived in New York for ten years. Now he lives in Los Angeles."
+            },
+            {
+              "en": "I've never ridden a horse.",
+              "note": "in my life; compare: I never rode a bike when I was a child."
+            },
+            {
+              "en": "It's been a really good holiday. I've really enjoyed it.",
+              "note": "said on the last day of the holiday; compare: It was a really good holiday. I really enjoyed it. (said after coming back)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "judge_correct",
+      "title": "14.1 · Phần gạch chân đúng hay cần sửa?",
+      "instructions": "Phần gạch chân trong mỗi câu đã đúng chưa? Sửa lại nếu cần.",
+      "items": [
+        {
+          "sentence": "I've lost my key. I can't find it anywhere.",
+          "underlined": "I've lost my key",
+          "ok": true
+        },
+        {
+          "sentence": "Have you eaten a lot of sweets when you were a child?",
+          "underlined": "Have you eaten",
+          "ok": false,
+          "correction": "Did you eat"
+        },
+        {
+          "sentence": "I've bought a new car. You must come and see it.",
+          "underlined": "I've bought a new car",
+          "ok": true
+        },
+        {
+          "sentence": "I've bought a new car last week.",
+          "underlined": "I've bought a new car",
+          "ok": false,
+          "correction": "I bought a new car"
+        },
+        {
+          "sentence": "Where have you been yesterday evening?",
+          "underlined": "have you been",
+          "ok": false,
+          "correction": "were you"
+        },
+        {
+          "sentence": "Maria has left school in 1999.",
+          "underlined": "has left",
+          "ok": false,
+          "correction": "left"
+        },
+        {
+          "sentence": "I'm looking for Mike. Have you seen him?",
+          "underlined": "Have you seen him",
+          "ok": true
+        },
+        {
+          "sentence": "'Have you been to Paris?' 'Yes, many times.'",
+          "underlined": "Have you been to Paris",
+          "ok": true
+        },
+        {
+          "sentence": "I'm very hungry. I haven't eaten much today.",
+          "underlined": "I haven't eaten much today",
+          "ok": true
+        },
+        {
+          "sentence": "When has this bridge been built?",
+          "underlined": "has this bridge been built",
+          "ok": false,
+          "correction": "was this bridge built"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "14.2 · Đặt câu từ các từ trong ngoặc",
+      "instructions": "Đặt câu từ các từ trong ngoặc, dùng thì hiện tại hoàn thành hoặc quá khứ đơn.",
+      "passage": "Ví dụ: 1 (it / not / rain / this week) It hasn't rained this week.",
+      "items": [
+        {
+          "prompt": "2 (the weather / be / cold / recently) The weather ___",
+          "answer": "has been cold recently"
+        },
+        {
+          "prompt": "3 (it / cold / last week) It ___",
+          "answer": "was cold last week"
+        },
+        {
+          "prompt": "4 (I / not / eat / any fruit yesterday) I ___",
+          "answer": "didn't eat any fruit yesterday"
+        },
+        {
+          "prompt": "5 (I / not / eat / any fruit today) ___",
+          "answer": "I haven't eaten any fruit today"
+        },
+        {
+          "prompt": "6 (Emily / earn / a lot of money / this year) ___",
+          "answer": "Emily has earned a lot of money this year",
+          "accept": [
+            "Emily's earned a lot of money this year"
+          ]
+        },
+        {
+          "prompt": "7 (she / not / earn / so much / last year) ___",
+          "answer": "She didn't earn so much last year"
+        },
+        {
+          "prompt": "8 (you / have / a holiday recently?) ___",
+          "answer": "Have you had a holiday recently?"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "14.3 · Chia động từ ở thì hiện tại hoàn thành hoặc quá khứ đơn",
+      "instructions": "Chia động từ trong ngoặc ở thì hiện tại hoàn thành hoặc quá khứ đơn.",
+      "passage": "Ví dụ: 1 I haven't been (I / not / be) to Canada, but I'd like to go there.\n2 Paul and Lucy arrived (arrive) about ten minutes ago.",
+      "items": [
+        {
+          "prompt": "3 I'm tired. ___ well last night. (I / not / sleep)",
+          "answer": "I didn't sleep"
+        },
+        {
+          "prompt": "4a ___ a bus drivers' strike last week. (There / be)",
+          "answer": "There was"
+        },
+        {
+          "prompt": "4b so ___ no buses. (there / be)",
+          "answer": "there were"
+        },
+        {
+          "prompt": "5a Edward ___ in a bank for 15 years. (work)",
+          "answer": "worked"
+        },
+        {
+          "prompt": "5b Then ___ it up. Now he works as a gardener. (he / give)",
+          "answer": "he gave"
+        },
+        {
+          "prompt": "6 Mary lives in Dublin. ___ there all her life. (She / live)",
+          "answer": "She has lived",
+          "accept": [
+            "She's lived"
+          ]
+        },
+        {
+          "prompt": "7a My grandfather ___ before I was born. (die)",
+          "answer": "died"
+        },
+        {
+          "prompt": "7b ___ him. (I / never / meet)",
+          "answer": "I've never met",
+          "accept": [
+            "I have never met"
+          ]
+        },
+        {
+          "prompt": "8 I don't know Karen's husband. ___ him. (I / never / meet)",
+          "answer": "I've never met",
+          "accept": [
+            "I have never met"
+          ]
+        },
+        {
+          "prompt": "9 It's nearly lunchtime, and ___ Martin all morning. I wonder where he is. (I / not / see)",
+          "answer": "I haven't seen"
+        },
+        {
+          "prompt": "10a A: ___ to the cinema last night? (you / go)",
+          "answer": "Did you go"
+        },
+        {
+          "prompt": "10b B: Yes, but the movie ___ awful. (be)",
+          "answer": "was"
+        },
+        {
+          "prompt": "11a A: ___ very warm here since we arrived. (It / be)",
+          "answer": "It's been",
+          "accept": [
+            "It has been"
+          ]
+        },
+        {
+          "prompt": "11b B: Yes, ___ 35 degrees yesterday. (it / be)",
+          "answer": "it was"
+        },
+        {
+          "prompt": "12a A: Where do you live? B: In Boston. A: How long ___ there? (you / live)",
+          "answer": "have you lived"
+        },
+        {
+          "prompt": "12b B: Five years. A: Where ___ before that? (you / live)",
+          "answer": "did you live"
+        },
+        {
+          "prompt": "12c B: In Chicago. A: And how long ___ in Chicago? (you / live)",
+          "answer": "did you live"
+        }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh so sánh thì hiện tại hoàn thành (cho khoảng thời gian chưa kết thúc như today, this week) với quá khứ đơn (cho khoảng thời gian đã kết thúc như yesterday, last week), ví dụ: It hasn't rained this week. / It didn't rain last week.",
+      "ruleSummary": "This unit practises the present perfect (have/has done) for an unfinished period continuing until now (today, this week, since 2010) versus the past simple (did) for a finished time in the past (yesterday, last week, from 2010 to 2014). The present perfect is never used with a finished-time expression such as yesterday, last year or ten minutes ago (It was very cold yesterday, not has been; Paul and Lucy arrived ten minutes ago, not have arrived), and When ...? or What time ...? are always followed by the past simple, never the present perfect. A correct student sentence must use the present perfect only when the time period referred to is still open (today, this week, since a point that continues to now) and the past simple whenever a specific finished time is named or implied, including with When ...? and What time ...? questions."
+    }
+  ]
+};
+
 export const UNITS_META: GrammarUnitMeta[] = [
   { unit: 1, slug: UNIT_1_PRESENT_CONTINUOUS.slug, title: UNIT_1_PRESENT_CONTINUOUS.title, topic: UNIT_1_PRESENT_CONTINUOUS.topic, available: true },
   { unit: 2, slug: UNIT_2_PRESENT_SIMPLE.slug, title: UNIT_2_PRESENT_SIMPLE.title, topic: UNIT_2_PRESENT_SIMPLE.topic, available: true },
@@ -2970,9 +4710,15 @@ export const UNITS_META: GrammarUnitMeta[] = [
   { unit: 6, slug: UNIT_6_PAST_CONTINUOUS.slug, title: UNIT_6_PAST_CONTINUOUS.title, topic: UNIT_6_PAST_CONTINUOUS.topic, available: true },
   { unit: 7, slug: UNIT_7_PRESENT_PERFECT_1.slug, title: UNIT_7_PRESENT_PERFECT_1.title, topic: UNIT_7_PRESENT_PERFECT_1.topic, available: true },
   { unit: 8, slug: UNIT_8_PRESENT_PERFECT_2.slug, title: UNIT_8_PRESENT_PERFECT_2.title, topic: UNIT_8_PRESENT_PERFECT_2.topic, available: true },
+  { unit: 9, slug: UNIT_9_PRESENT_PERFECT_CONTINUOUS.slug, title: UNIT_9_PRESENT_PERFECT_CONTINUOUS.title, topic: UNIT_9_PRESENT_PERFECT_CONTINUOUS.topic, available: true },
+  { unit: 10, slug: UNIT_10_PRESENT_PERFECT_CONTINUOUS_AND_SIMPLE.slug, title: UNIT_10_PRESENT_PERFECT_CONTINUOUS_AND_SIMPLE.title, topic: UNIT_10_PRESENT_PERFECT_CONTINUOUS_AND_SIMPLE.topic, available: true },
+  { unit: 11, slug: UNIT_11_HOW_LONG_HAVE_YOU_BEEN.slug, title: UNIT_11_HOW_LONG_HAVE_YOU_BEEN.title, topic: UNIT_11_HOW_LONG_HAVE_YOU_BEEN.topic, available: true },
+  { unit: 12, slug: UNIT_12_FOR_AND_SINCE.slug, title: UNIT_12_FOR_AND_SINCE.title, topic: UNIT_12_FOR_AND_SINCE.topic, available: true },
+  { unit: 13, slug: UNIT_13_PRESENT_PERFECT_AND_PAST_1.slug, title: UNIT_13_PRESENT_PERFECT_AND_PAST_1.title, topic: UNIT_13_PRESENT_PERFECT_AND_PAST_1.topic, available: true },
+  { unit: 14, slug: UNIT_14_PRESENT_PERFECT_AND_PAST_2.slug, title: UNIT_14_PRESENT_PERFECT_AND_PAST_2.title, topic: UNIT_14_PRESENT_PERFECT_AND_PAST_2.topic, available: true },
 ];
 
-export const GRAMMAR_UNITS: GrammarUnit[] = [UNIT_1_PRESENT_CONTINUOUS, UNIT_2_PRESENT_SIMPLE, UNIT_3_PRESENT_CONTINUOUS_AND_SIMPLE_1, UNIT_4_PRESENT_CONTINUOUS_AND_SIMPLE_2, UNIT_5_PAST_SIMPLE, UNIT_6_PAST_CONTINUOUS, UNIT_7_PRESENT_PERFECT_1, UNIT_8_PRESENT_PERFECT_2];
+export const GRAMMAR_UNITS: GrammarUnit[] = [UNIT_1_PRESENT_CONTINUOUS, UNIT_2_PRESENT_SIMPLE, UNIT_3_PRESENT_CONTINUOUS_AND_SIMPLE_1, UNIT_4_PRESENT_CONTINUOUS_AND_SIMPLE_2, UNIT_5_PAST_SIMPLE, UNIT_6_PAST_CONTINUOUS, UNIT_7_PRESENT_PERFECT_1, UNIT_8_PRESENT_PERFECT_2, UNIT_9_PRESENT_PERFECT_CONTINUOUS, UNIT_10_PRESENT_PERFECT_CONTINUOUS_AND_SIMPLE, UNIT_11_HOW_LONG_HAVE_YOU_BEEN, UNIT_12_FOR_AND_SINCE, UNIT_13_PRESENT_PERFECT_AND_PAST_1, UNIT_14_PRESENT_PERFECT_AND_PAST_2];
 
 export function getGrammarUnit(slug: string): GrammarUnit | undefined {
   return GRAMMAR_UNITS.find((u) => u.slug === slug);

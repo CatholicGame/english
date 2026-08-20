@@ -114,6 +114,9 @@ function FillMcStepView({ step, onNext }: { step: FillMcStep; onNext: (score?: S
   return (
     <div className="flex flex-1 flex-col p-4">
       <div className="mb-3 text-[13px] text-neutral-700">{step.instructions}</div>
+      {step.passage && (
+        <div className="mb-4 bg-surface p-3 text-[13px] leading-relaxed whitespace-pre-line">{step.passage}</div>
+      )}
       <div className="lg:grid lg:grid-cols-2 lg:gap-x-6">
         {step.items.map((it, i) => (
           <div key={i} className="mb-4">

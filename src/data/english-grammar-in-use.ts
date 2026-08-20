@@ -36,6 +36,9 @@ export interface FillMcStep {
   kind: "fill_mc";
   title: string;
   instructions: string;
+  /** Same role as on TypeFillStep: the word bank or worked example the book
+   * prints once above the whole exercise. */
+  passage?: string;
   items: FillMcItem[];
 }
 
@@ -1818,15 +1821,1158 @@ const UNIT_5_PAST_SIMPLE: GrammarUnit = {
   ]
 };
 
+const UNIT_6_PAST_CONTINUOUS: GrammarUnit = {
+  "unit": 6,
+  "slug": "past-continuous",
+  "title": "Past continuous (I was doing)",
+  "topic": "Present and past",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "Cách thành lập: was/were + -ing",
+          "body": "Study this example situation. Yesterday Karen and Joe played tennis. They started at 10 o'clock and finished at 11.30. So, at 10.30 they were playing tennis. \"They were playing\" means they were in the middle of playing; they had not finished. was/were + -ing is the past continuous: I/he/she/it was playing, we/you/they were playing (doing, working etc.).",
+          "examples": [
+            {
+              "en": "Yesterday Karen and Joe played tennis. They started at 10 o'clock and finished at 11.30.",
+              "note": "past simple: the complete action"
+            },
+            {
+              "en": "At 10.30 they were playing tennis.",
+              "note": "= they were in the middle of playing, they had not finished"
+            },
+            {
+              "en": "he / she / it was playing",
+              "note": "was + -ing"
+            },
+            {
+              "en": "we / you / they were doing",
+              "note": "were + -ing"
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "Nghĩa: đang ở giữa một hành động trong quá khứ",
+          "body": "I was doing something means I was in the middle of doing it at a certain time. The action or situation started before this time, but had not finished. So the order is: I started doing, I was doing, I finished doing, and the time we are talking about is somewhere in the middle.",
+          "examples": [
+            {
+              "en": "This time last year I was living in Hong Kong."
+            },
+            {
+              "en": "What were you doing at 10 o'clock last night?"
+            },
+            {
+              "en": "I waved to Helen, but she wasn't looking."
+            }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "So sánh I was doing và I did",
+          "body": "Compare I was doing (past continuous) and I did (past simple). I was doing means we are in the middle of an action, not necessarily finished. I did means a complete action.",
+          "examples": [
+            {
+              "en": "We were walking home when I met Dan.",
+              "note": "in the middle of walking home"
+            },
+            {
+              "en": "We walked home after the party last night.",
+              "note": "= all the way, completely"
+            },
+            {
+              "en": "Kate was watching TV when we arrived.",
+              "note": "she had already started before we arrived"
+            },
+            {
+              "en": "Kate watched TV a lot when she was ill last year.",
+              "note": "past simple: complete action"
+            }
+          ]
+        },
+        {
+          "label": "D",
+          "heading": "Một việc xảy ra giữa lúc việc khác đang diễn ra",
+          "body": "You can say that something happened (past simple) in the middle of something else (past continuous). But we use the past simple to say that one thing happened after another. Compare: \"When Karen arrived, we were having dinner\" means we had already started before she arrived, while \"When Karen arrived, we had dinner\" means Karen arrived, and then we had dinner.",
+          "examples": [
+            {
+              "en": "Matt phoned while we were having dinner."
+            },
+            {
+              "en": "It was raining when I got up."
+            },
+            {
+              "en": "I saw you in the park yesterday. You were sitting on the grass and reading a book."
+            },
+            {
+              "en": "I hurt my back while I was working in the garden."
+            },
+            {
+              "en": "I was walking along the road when I saw Dan. So I stopped, and we talked for a while.",
+              "note": "past simple for one thing after another"
+            },
+            {
+              "en": "When Karen arrived, we were having dinner.",
+              "note": "= we had already started before she arrived"
+            },
+            {
+              "en": "When Karen arrived, we had dinner.",
+              "note": "= Karen arrived, and then we had dinner"
+            }
+          ]
+        },
+        {
+          "label": "E",
+          "heading": "Động từ không dùng ở thể tiếp diễn",
+          "body": "Some verbs (for example, know and want) are not normally used in continuous forms (is + -ing, was + -ing etc.). See Unit 4A for a list of these verbs.",
+          "examples": [
+            {
+              "en": "We were good friends. We knew each other well.",
+              "note": "not we were knowing"
+            },
+            {
+              "en": "I was enjoying the party, but Chris wanted to go home.",
+              "note": "not was wanting"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "fill_mc",
+      "title": "6.1 · Chọn cụm động từ đúng",
+      "instructions": "Hoàn thành các câu. Chọn một cụm trong khung cho mỗi chỗ trống.",
+      "passage": "Khung từ: was looking / was wearing / wasn't listening / weren't looking / was snowing / was working / were sitting / were you going.\nVí dụ mẫu: Today Helen is wearing a skirt. Yesterday she was wearing trousers.",
+      "items": [
+        {
+          "before": "\"What did he say?\" \"I don't know. I",
+          "after": ".\"",
+          "options": [
+            "was looking",
+            "was wearing",
+            "wasn't listening",
+            "weren't looking",
+            "was snowing",
+            "was working",
+            "were sitting",
+            "were you going"
+          ],
+          "answer": "wasn't listening"
+        },
+        {
+          "before": "We",
+          "after": "at the back of the theatre. We couldn't hear very well.",
+          "options": [
+            "was looking",
+            "was wearing",
+            "wasn't listening",
+            "weren't looking",
+            "was snowing",
+            "was working",
+            "were sitting",
+            "were you going"
+          ],
+          "answer": "were sitting"
+        },
+        {
+          "before": "This time last year Steve",
+          "after": "on a farm.",
+          "options": [
+            "was looking",
+            "was wearing",
+            "wasn't listening",
+            "weren't looking",
+            "was snowing",
+            "was working",
+            "were sitting",
+            "were you going"
+          ],
+          "answer": "was working"
+        },
+        {
+          "before": "They didn't see me. They",
+          "after": "in my direction.",
+          "options": [
+            "was looking",
+            "was wearing",
+            "wasn't listening",
+            "weren't looking",
+            "was snowing",
+            "was working",
+            "were sitting",
+            "were you going"
+          ],
+          "answer": "weren't looking"
+        },
+        {
+          "before": "The weather was bad. It was very cold and it",
+          "after": ".",
+          "options": [
+            "was looking",
+            "was wearing",
+            "wasn't listening",
+            "weren't looking",
+            "was snowing",
+            "was working",
+            "were sitting",
+            "were you going"
+          ],
+          "answer": "was snowing"
+        },
+        {
+          "before": "I saw you in your car. Where",
+          "after": "?",
+          "options": [
+            "was looking",
+            "was wearing",
+            "wasn't listening",
+            "weren't looking",
+            "was snowing",
+            "was working",
+            "were sitting",
+            "were you going"
+          ],
+          "answer": "were you going"
+        },
+        {
+          "before": "I saw Kate a few minutes ago. She",
+          "after": "for you.",
+          "options": [
+            "was looking",
+            "was wearing",
+            "wasn't listening",
+            "weren't looking",
+            "was snowing",
+            "was working",
+            "were sitting",
+            "were you going"
+          ],
+          "answer": "was looking"
+        }
+      ]
+    },
+    {
+      "kind": "fill_mc",
+      "title": "6.2 · Nối hai vế câu",
+      "instructions": "Vế nào đi với vế nào? Chọn phần kết thúc phù hợp cho mỗi câu.",
+      "passage": "Các phần kết thúc: a when she was living in Rome. b she was working in a clothes shop. c when I was driving home. d but nobody was watching it. e while we were watching a film. f my friends were waiting for me. g because he wasn't feeling well.",
+      "items": [
+        {
+          "before": "When I got to the cafe",
+          "after": "",
+          "options": [
+            "when she was living in Rome.",
+            "she was working in a clothes shop.",
+            "when I was driving home.",
+            "but nobody was watching it.",
+            "while we were watching a film.",
+            "my friends were waiting for me.",
+            "because he wasn't feeling well."
+          ],
+          "answer": "my friends were waiting for me."
+        },
+        {
+          "before": "We fell asleep",
+          "after": "",
+          "options": [
+            "when she was living in Rome.",
+            "she was working in a clothes shop.",
+            "when I was driving home.",
+            "but nobody was watching it.",
+            "while we were watching a film.",
+            "my friends were waiting for me.",
+            "because he wasn't feeling well."
+          ],
+          "answer": "while we were watching a film."
+        },
+        {
+          "before": "Amy learnt Italian",
+          "after": "",
+          "options": [
+            "when she was living in Rome.",
+            "she was working in a clothes shop.",
+            "when I was driving home.",
+            "but nobody was watching it.",
+            "while we were watching a film.",
+            "my friends were waiting for me.",
+            "because he wasn't feeling well."
+          ],
+          "answer": "when she was living in Rome."
+        },
+        {
+          "before": "Tom didn't come out with us",
+          "after": "",
+          "options": [
+            "when she was living in Rome.",
+            "she was working in a clothes shop.",
+            "when I was driving home.",
+            "but nobody was watching it.",
+            "while we were watching a film.",
+            "my friends were waiting for me.",
+            "because he wasn't feeling well."
+          ],
+          "answer": "because he wasn't feeling well."
+        },
+        {
+          "before": "The car began to make a strange noise",
+          "after": "",
+          "options": [
+            "when she was living in Rome.",
+            "she was working in a clothes shop.",
+            "when I was driving home.",
+            "but nobody was watching it.",
+            "while we were watching a film.",
+            "my friends were waiting for me.",
+            "because he wasn't feeling well."
+          ],
+          "answer": "when I was driving home."
+        },
+        {
+          "before": "The TV was on",
+          "after": "",
+          "options": [
+            "when she was living in Rome.",
+            "she was working in a clothes shop.",
+            "when I was driving home.",
+            "but nobody was watching it.",
+            "while we were watching a film.",
+            "my friends were waiting for me.",
+            "because he wasn't feeling well."
+          ],
+          "answer": "but nobody was watching it."
+        },
+        {
+          "before": "When I first met Jessica",
+          "after": "",
+          "options": [
+            "when she was living in Rome.",
+            "she was working in a clothes shop.",
+            "when I was driving home.",
+            "but nobody was watching it.",
+            "while we were watching a film.",
+            "my friends were waiting for me.",
+            "because he wasn't feeling well."
+          ],
+          "answer": "she was working in a clothes shop."
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "6.3 · Hai mẩu chuyện ngắn",
+      "instructions": "Chia động từ trong ngoặc ở thì quá khứ tiếp diễn hoặc quá khứ đơn. Mỗi câu chỉ điền vào chỗ trống được đánh dấu.",
+      "passage": "Mẩu chuyện 1: gặp Sue ngoài phố. Mẩu chuyện 2: đạp xe về nhà và một người đàn ông bước ra đường.",
+      "items": [
+        {
+          "prompt": "I ___ (see) Sue in town yesterday, but she didn't see me. She was looking the other way.",
+          "answer": "saw"
+        },
+        {
+          "prompt": "I saw Sue in town yesterday, but she ___ (not/see) me. She was looking the other way.",
+          "answer": "didn't see",
+          "accept": [
+            "did not see"
+          ]
+        },
+        {
+          "prompt": "I saw Sue in town yesterday, but she didn't see me. She ___ (look) the other way.",
+          "answer": "was looking"
+        },
+        {
+          "prompt": "I ___ (cycle) home yesterday when a man stepped out into the road in front of me.",
+          "answer": "was cycling"
+        },
+        {
+          "prompt": "I was cycling home yesterday when a man ___ (step) out into the road in front of me.",
+          "answer": "stepped"
+        },
+        {
+          "prompt": "I ___ (go) quite fast, but luckily I managed to stop in time, and I didn't hit him.",
+          "answer": "was going"
+        },
+        {
+          "prompt": "I was going quite fast, but luckily I ___ (manage) to stop in time, and I didn't hit him.",
+          "answer": "managed"
+        },
+        {
+          "prompt": "I was going quite fast, but luckily I managed to stop in time, and I ___ (not/hit) him.",
+          "answer": "didn't hit",
+          "accept": [
+            "did not hit"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "6.4 · Quá khứ tiếp diễn hay quá khứ đơn",
+      "instructions": "Chia động từ trong ngoặc ở thì quá khứ tiếp diễn hoặc quá khứ đơn. Mỗi câu chỉ điền vào chỗ trống được đánh dấu.",
+      "passage": "Ví dụ mẫu: Jenny was waiting (wait) for me when I arrived (arrive).",
+      "items": [
+        {
+          "prompt": "\"What ___ (you / do) at this time yesterday?\" \"I was asleep.\"",
+          "answer": "were you doing"
+        },
+        {
+          "prompt": "\"___ (you / go) out last night?\" \"No, I was too tired.\"",
+          "answer": "Did you go"
+        },
+        {
+          "prompt": "How fast ___ (you / drive) when the accident happened?",
+          "answer": "were you driving"
+        },
+        {
+          "prompt": "How fast were you driving when the accident ___ (happen)?",
+          "answer": "happened"
+        },
+        {
+          "prompt": "Sam ___ (take) a picture of me while I wasn't looking.",
+          "answer": "took"
+        },
+        {
+          "prompt": "Sam took a picture of me while I ___ (not / look).",
+          "answer": "wasn't looking",
+          "accept": [
+            "was not looking"
+          ]
+        },
+        {
+          "prompt": "We were in a very difficult position. We ___ (not / know) what to do, so we did nothing.",
+          "answer": "didn't know",
+          "accept": [
+            "did not know"
+          ]
+        },
+        {
+          "prompt": "We were in a very difficult position. We didn't know what to do, so we ___ (do) nothing.",
+          "answer": "did"
+        },
+        {
+          "prompt": "I haven't seen Alan for ages. When I last ___ (see) him, he was trying to find a job.",
+          "answer": "saw"
+        },
+        {
+          "prompt": "I haven't seen Alan for ages. When I last saw him, he ___ (try) to find a job.",
+          "answer": "was trying"
+        },
+        {
+          "prompt": "I ___ (walk) along the street when suddenly I heard something behind me.",
+          "answer": "was walking"
+        },
+        {
+          "prompt": "I was walking along the street when suddenly I ___ (hear) something behind me.",
+          "answer": "heard"
+        },
+        {
+          "prompt": "Somebody ___ (follow) me. I was scared and I started to run.",
+          "answer": "was following"
+        },
+        {
+          "prompt": "Somebody was following me. I was scared and I ___ (start) to run.",
+          "answer": "started"
+        },
+        {
+          "prompt": "When I was young, I ___ (want) to be a pilot. Later I changed my mind.",
+          "answer": "wanted"
+        },
+        {
+          "prompt": "When I was young, I wanted to be a pilot. Later I ___ (change) my mind.",
+          "answer": "changed"
+        },
+        {
+          "prompt": "Last night I ___ (drop) a plate when I was doing the washing up.",
+          "answer": "dropped"
+        },
+        {
+          "prompt": "Last night I dropped a plate when I ___ (do) the washing up.",
+          "answer": "was doing"
+        },
+        {
+          "prompt": "Last night I dropped a plate when I was doing the washing up. Fortunately it ___ (not / break).",
+          "answer": "didn't break",
+          "accept": [
+            "did not break"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "instructions": "Hãy viết 2 đến 3 câu tiếng Anh dùng thì quá khứ tiếp diễn (was/were + V-ing) để kể một việc đang diễn ra trong quá khứ thì có việc khác xảy ra chen vào, ví dụ: I was cooking dinner when the phone rang.",
+      "ruleSummary": "The past continuous is was/were + -ing and describes an action that was in progress at a point in the past: it had started before that time but had not finished (This time last year I was living in Hong Kong. What were you doing at 10 o'clock last night?). It contrasts with the past simple, which presents a complete action (We were walking home when I met Dan versus We walked home after the party). Very often the two combine: the past simple event happens in the middle of the ongoing past continuous action (It was raining when I got up; Matt phoned while we were having dinner), while two past simple verbs mean one thing happened after another. A correct student sentence should therefore use was/were plus an -ing form for the background or interrupted action, agree the auxiliary with the subject (was for I/he/she/it, were for we/you/they), and should not put stative verbs such as know, want, like, need or believe into the continuous form."
+    }
+  ]
+};
+
+const UNIT_7_PRESENT_PERFECT_1: GrammarUnit = {
+  "unit": 7,
+  "slug": "present-perfect-1",
+  "title": "Present perfect 1 (I have done)",
+  "topic": "Present perfect and past",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "Cấu tạo hiện tại hoàn thành (have/has + past participle)",
+          "body": "Study this example situation: Tom can't find his key. He has lost it. He lost it and he doesn't have it now. Have lost / has lost is the present perfect simple. The present perfect simple is have/has + past participle: I/we/they/you have (I've etc.) and he/she/it has (he's etc.) + finished / lost / done / been etc. The past participle often ends in -ed (finished, decided etc.), but many verbs are irregular (lost, done, written etc.). For a list of irregular verbs, see Appendix 1.",
+          "examples": [
+            {
+              "en": "I've lost my key."
+            },
+            {
+              "en": "He's lost his key.",
+              "note": "= He has lost ..."
+            },
+            {
+              "en": "he has lost his key",
+              "note": "= he lost it and he doesn't have it now"
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "Việc mới xảy ra và kết quả ở hiện tại; gone to / been to",
+          "body": "When we say 'something has happened', this is usually new information. When we use the present perfect, there is a connection with now: the action in the past has a result now. Compare gone (to) and been (to): has gone to means the person is there now or on the way there, while has been to means the person has now come back.",
+          "examples": [
+            {
+              "en": "Ow! I've cut my finger."
+            },
+            {
+              "en": "The road is closed. There's been an accident.",
+              "note": "= There has been ..."
+            },
+            {
+              "en": "Police have arrested two men in connection with the robbery."
+            },
+            {
+              "en": "Tom has lost his key.",
+              "note": "= he doesn't have it now"
+            },
+            {
+              "en": "He told me his name, but I've forgotten it.",
+              "note": "= I can't remember it now"
+            },
+            {
+              "en": "Sally is still here. She hasn't gone out.",
+              "note": "= she is here now"
+            },
+            {
+              "en": "I can't find my bag. Have you seen it?",
+              "note": "= do you know where it is now?"
+            },
+            {
+              "en": "James is on holiday. He has gone to Italy.",
+              "note": "= he is there now or on his way there"
+            },
+            {
+              "en": "Amy is back home now. She has been to Italy.",
+              "note": "= she has now come back"
+            }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "just, already và yet",
+          "body": "You can use the present perfect with just, already and yet. Just = a short time ago. Already = sooner than expected. Yet = until now; we use yet to show that we are expecting something to happen, and we use yet in questions and negative sentences.",
+          "examples": [
+            {
+              "en": "'Are you hungry?' 'No, I've just had lunch.'",
+              "note": "just = a short time ago"
+            },
+            {
+              "en": "Hello. Have you just arrived?"
+            },
+            {
+              "en": "'Don't forget to pay the bill.' 'I've already paid it.'",
+              "note": "already = sooner than expected"
+            },
+            {
+              "en": "'What time is Mark leaving?' 'He's already left.'"
+            },
+            {
+              "en": "Has it stopped raining yet?",
+              "note": "yet = until now, in questions"
+            },
+            {
+              "en": "I've written the email, but I haven't sent it yet.",
+              "note": "yet in negative sentences"
+            }
+          ]
+        },
+        {
+          "label": "D",
+          "heading": "Có thể dùng quá khứ đơn thay thế",
+          "body": "You can also use the past simple (did, went, had etc.) in the examples on this page. So both the present perfect and the past simple are possible in these situations.",
+          "examples": [
+            {
+              "en": "Ben isn't here. He's gone out.",
+              "note": "or He went out."
+            },
+            {
+              "en": "'Are you hungry?' 'No, I've just had lunch.'",
+              "note": "or 'No, I just had lunch.'"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "7.1 · Hoàn thành câu với hiện tại hoàn thành",
+      "instructions": "Đọc các tình huống và hoàn thành câu bằng thì hiện tại hoàn thành. Chọn động từ trong danh sách cho sẵn. Ví dụ: Tom is looking for his key. He can't find it. Tom has lost his key.",
+      "passage": "Chọn từ các động từ sau: break, disappear, go up, grow, improve, lose, shrink, stop",
+      "items": [
+        {
+          "prompt": "Maria's English wasn't very good. Now it is better. Her English ___.",
+          "answer": "has improved",
+          "accept": [
+            "'s improved",
+            "has improved a lot"
+          ]
+        },
+        {
+          "prompt": "My bag was here, but it isn't here any more. My bag ___.",
+          "answer": "has disappeared",
+          "accept": [
+            "'s disappeared"
+          ]
+        },
+        {
+          "prompt": "Lisa can't walk and her leg is in plaster. Lisa ___.",
+          "answer": "has broken her leg",
+          "accept": [
+            "'s broken her leg"
+          ]
+        },
+        {
+          "prompt": "Last week the bus fare was 1.80 pounds. Now it is 2 pounds. The bus fare ___.",
+          "answer": "has gone up",
+          "accept": [
+            "'s gone up"
+          ]
+        },
+        {
+          "prompt": "Dan didn't have a beard before. Now he has a beard. Dan ___.",
+          "answer": "has grown a beard",
+          "accept": [
+            "'s grown a beard"
+          ]
+        },
+        {
+          "prompt": "It was raining ten minutes ago. It isn't raining now. It ___.",
+          "answer": "has stopped raining",
+          "accept": [
+            "'s stopped raining",
+            "has stopped"
+          ]
+        },
+        {
+          "prompt": "I washed my sweater, and now it's too small for me. My sweater ___.",
+          "answer": "has shrunk",
+          "accept": [
+            "'s shrunk"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "fill_mc",
+      "title": "7.2 · Chọn been hoặc gone",
+      "instructions": "Điền been hoặc gone vào chỗ trống. Ví dụ: My parents are on holiday. They've gone to Italy.",
+      "items": [
+        {
+          "before": "Hello! I've just",
+          "after": "to the shops. I've bought lots of things.",
+          "options": [
+            "been",
+            "gone"
+          ],
+          "answer": "been"
+        },
+        {
+          "before": "Tom has just",
+          "after": "out. He'll be back in about an hour.",
+          "options": [
+            "been",
+            "gone"
+          ],
+          "answer": "gone"
+        },
+        {
+          "before": "Alice isn't here at the moment. I don't know where she's",
+          "after": ".",
+          "options": [
+            "been",
+            "gone"
+          ],
+          "answer": "gone"
+        },
+        {
+          "before": "You're very late. Where have you",
+          "after": "?",
+          "options": [
+            "been",
+            "gone"
+          ],
+          "answer": "been"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "7.3 · Viết dạng hiện tại hoàn thành từ gợi ý",
+      "instructions": "Hoàn thành các câu bằng thì hiện tại hoàn thành, dùng các từ trong ngoặc. Ví dụ: Sally is still here. She hasn't gone (she / not / go) out.",
+      "items": [
+        {
+          "prompt": "I can't find my bag. ___ (you / see / it) anywhere?",
+          "answer": "Have you seen it"
+        },
+        {
+          "prompt": "I can't log on to the website. ___ (I / forget) my password.",
+          "answer": "I've forgotten",
+          "accept": [
+            "I have forgotten"
+          ]
+        },
+        {
+          "prompt": "I sent Joe an email this morning, but ___ (he / not / reply).",
+          "answer": "he hasn't replied",
+          "accept": [
+            "he has not replied"
+          ]
+        },
+        {
+          "prompt": "Is the meeting still going on, or ___ (it / finish)?",
+          "answer": "has it finished"
+        },
+        {
+          "prompt": "___ (the weather / change). It's colder now.",
+          "answer": "The weather has changed",
+          "accept": [
+            "The weather's changed"
+          ]
+        },
+        {
+          "prompt": "___ (you / not / sign) the form. Could you sign it now, please?",
+          "answer": "You haven't signed",
+          "accept": [
+            "You have not signed"
+          ]
+        },
+        {
+          "prompt": "Are your friends still here, or ___ (they / go) home?",
+          "answer": "have they gone"
+        },
+        {
+          "prompt": "Paul doesn't know what he's going to do. ___ (he / not / decide / yet).",
+          "answer": "He hasn't decided yet",
+          "accept": [
+            "He has not decided yet"
+          ]
+        },
+        {
+          "prompt": "'Do you know where Julia is?' 'Yes, ___ (I / just / see / her).'",
+          "answer": "I've just seen her",
+          "accept": [
+            "I have just seen her"
+          ]
+        },
+        {
+          "prompt": "'When is David going away?' '___ (he / already / go).'",
+          "answer": "He's already gone",
+          "accept": [
+            "He has already gone"
+          ]
+        },
+        {
+          "prompt": "A: ___ (your course / start / yet)? B: Not yet. It starts next week.",
+          "answer": "Has your course started yet"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "7.4 · Viết câu với just, already hoặc yet",
+      "instructions": "Đọc các tình huống và viết câu dùng just, already hoặc yet, với động từ cho trong ngoặc. Ví dụ: 'Would you like something to eat?' You say: No thank you. I've just had lunch. (have lunch)",
+      "items": [
+        {
+          "prompt": "Joe goes out. Five minutes later, the phone rings and the caller says, 'Can I speak to Joe?' You say: I'm afraid ___. (go out)",
+          "answer": "he's just gone out",
+          "accept": [
+            "he has just gone out",
+            "he just went out"
+          ]
+        },
+        {
+          "prompt": "You are eating in a restaurant. The waiter thinks you have finished and starts to take your plate away. You say: Wait a minute! ___. (not / finish)",
+          "answer": "I haven't finished yet",
+          "accept": [
+            "I have not finished yet"
+          ]
+        },
+        {
+          "prompt": "You plan to eat at a restaurant tonight. You phone to reserve a table. Later your friend says, 'Shall I phone to reserve a table?' You say: No, ___. (do it)",
+          "answer": "I've already done it",
+          "accept": [
+            "I have already done it",
+            "I've already done that",
+            "I already did it"
+          ]
+        },
+        {
+          "prompt": "You know that Lisa is looking for a place to live. Perhaps she has been successful. You ask her: ___? (find)",
+          "answer": "Have you found a place to live yet",
+          "accept": [
+            "Have you found a place yet",
+            "Have you found somewhere to live yet"
+          ]
+        },
+        {
+          "prompt": "You are still thinking about where to go for your holiday. A friend asks, 'Where are you going for your holiday?' You say: ___. (not / decide)",
+          "answer": "I haven't decided yet",
+          "accept": [
+            "We haven't decided yet",
+            "I have not decided yet",
+            "We have not decided yet"
+          ]
+        },
+        {
+          "prompt": "Laura went out, but a few minutes ago she returned. Somebody asks, 'Is Laura still out?' You say: No, ___. (come back)",
+          "answer": "she's just come back",
+          "accept": [
+            "she has just come back",
+            "she just came back"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng thì hiện tại hoàn thành (have/has + past participle) để nói về việc vừa xảy ra và còn ảnh hưởng tới hiện tại, có thể dùng thêm just, already hoặc yet.",
+      "ruleSummary": "The present perfect simple is have/has + past participle (I have finished, she has lost). It reports something that happened in the past but has a connection with now, usually because the past action has a present result or because the information is new (I've cut my finger; Tom has lost his key, so he doesn't have it now). Note the contrast between has gone to (the person is still away) and has been to (the person has come back). It is often used with just (a short time ago), already (sooner than expected) and yet (until now, only in questions and negatives, normally at the end of the sentence). A correct student sentence must use have/has plus a correct past participle, agree the auxiliary with the subject, and describe a situation with present relevance rather than a finished past time reference such as yesterday or last year."
+    }
+  ]
+};
+
+const UNIT_8_PRESENT_PERFECT_2: GrammarUnit = {
+  "unit": 8,
+  "slug": "present-perfect-2",
+  "title": "Present perfect 2 (I have done)",
+  "topic": "Present perfect and past",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "A period continuing from the past until now",
+          "body": "When we talk about a period of time that continues from the past until now, we use the present perfect (have been, have travelled etc.). In the example conversation, Dave and Jane talk about the places Jane has visited in her life, and a person's life is a period that continues until now. Note that been (to) means visited.",
+          "examples": [
+            {
+              "en": "Have you travelled a lot, Jane? Yes, I've been to lots of places.",
+              "note": "Jane's life = a period until now"
+            },
+            {
+              "en": "Really? Have you ever been to China? Yes, I've been to China twice."
+            },
+            {
+              "en": "What about India? No, I haven't been to India."
+            },
+            {
+              "en": "Have you ever eaten caviar?"
+            },
+            {
+              "en": "We've never had a car."
+            },
+            {
+              "en": "I don't know what the film is about. I haven't seen it."
+            },
+            {
+              "en": "Susan really loves that book. She's read it three times.",
+              "note": "She's = She has"
+            },
+            {
+              "en": "It's a really boring movie. It's the most boring movie I've ever seen."
+            },
+            {
+              "en": "I've never been to Canada. Have you been there?",
+              "note": "been (to) = visited"
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "recently, so far, today, this year: unfinished periods",
+          "body": "We also use the present perfect when the speaker is talking about a period that continues until now, with expressions such as recently, in the last few days, so far and since I arrived. In the same way we use the present perfect with today, this evening, this year etc. when these periods are not finished at the time of speaking.",
+          "examples": [
+            {
+              "en": "Have you heard anything from Ben recently?"
+            },
+            {
+              "en": "I've met a lot of people in the last few days."
+            },
+            {
+              "en": "Everything is going well. There haven't been any problems so far."
+            },
+            {
+              "en": "The weather is bad here. It's rained every day since I arrived.",
+              "note": "It's = It has; since I arrived = from when I arrived until now"
+            },
+            {
+              "en": "It's good to see you again. We haven't seen each other for a long time."
+            },
+            {
+              "en": "I've drunk four cups of coffee today.",
+              "note": "today is not finished"
+            },
+            {
+              "en": "Have you had a holiday this year?"
+            },
+            {
+              "en": "I haven't seen Tom this morning. Have you?"
+            }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "It's the first time something has happened",
+          "body": "We say It's the (first) time something has happened. For example, if Don is having his first driving lesson, we can say It's the first time he has driven a car, or He hasn't driven a car before, or He has never driven a car before. We use the present perfect here, not the present simple.",
+          "examples": [
+            {
+              "en": "It's the first time he has driven a car.",
+              "note": "not It's the first time he drives a car"
+            },
+            {
+              "en": "He hasn't driven a car before."
+            },
+            {
+              "en": "He has never driven a car before."
+            },
+            {
+              "en": "This is the first time I've driven a car."
+            },
+            {
+              "en": "Sarah has lost her passport again. This is the second time this has happened.",
+              "note": "not this happens"
+            },
+            {
+              "en": "Andy is phoning his girlfriend again. It's the third time he's phoned her this evening."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "8.1 · Đặt câu hỏi với ever",
+      "instructions": "Bạn hỏi mọi người về những việc họ đã từng làm. Viết câu hỏi đầy đủ với ever, dùng thì hiện tại hoàn thành.",
+      "passage": "Ví dụ: 1 (ride / horse?) Have you ever ridden a horse?",
+      "items": [
+        {
+          "prompt": "2 (be / California?) ___",
+          "answer": "Have you ever been to California?",
+          "accept": [
+            "Have you been to California?"
+          ]
+        },
+        {
+          "prompt": "3 (run / marathon?) ___",
+          "answer": "Have you ever run a marathon?",
+          "accept": [
+            "Have you run a marathon?"
+          ]
+        },
+        {
+          "prompt": "4 (speak / famous person?) ___",
+          "answer": "Have you ever spoken to a famous person?",
+          "accept": [
+            "Have you ever spoken with a famous person?",
+            "Have you spoken to a famous person?"
+          ]
+        },
+        {
+          "prompt": "5 (most beautiful place / visit?) ___",
+          "answer": "What's the most beautiful place you've ever visited?",
+          "accept": [
+            "What is the most beautiful place you've ever visited?",
+            "What's the most beautiful place you have ever visited?",
+            "What is the most beautiful place you have ever visited?"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "8.2 · Hoàn thành câu trả lời của B",
+      "instructions": "Hoàn thành câu trả lời của B. Một số câu ở dạng khẳng định, một số ở dạng phủ định. Dùng các động từ trong khung, chia ở thì hiện tại hoàn thành.",
+      "passage": "Động từ dùng cho bài này: be, be, eat, happen, have, have, meet, play, read, see, try\n\nVí dụ: 1 A: What's Mark's sister like? B: I've no idea. I've never met her.",
+      "items": [
+        {
+          "prompt": "2 A: Is everything going well? B: Yes, we ___ any problems so far.",
+          "answer": "haven't had",
+          "accept": [
+            "have not had"
+          ]
+        },
+        {
+          "prompt": "3 A: Are you hungry? B: Yes. I ___ much today.",
+          "answer": "haven't eaten",
+          "accept": [
+            "have not eaten"
+          ]
+        },
+        {
+          "prompt": "4 A: Can you play chess? B: Yes, but ___ for ages.",
+          "answer": "I haven't played",
+          "accept": [
+            "I have not played",
+            "I haven't played chess",
+            "I've not played"
+          ]
+        },
+        {
+          "prompt": "5 A: Are you enjoying your holiday? B: Yes, it's the best holiday ___ for a long time.",
+          "answer": "I've had",
+          "accept": [
+            "I have had"
+          ]
+        },
+        {
+          "prompt": "6 A: What's that book about? B: I don't know. ___ it.",
+          "answer": "I haven't read",
+          "accept": [
+            "I have not read",
+            "I've never read",
+            "I have never read"
+          ]
+        },
+        {
+          "prompt": "7 A: Is Brussels an interesting place? B: I've no idea. ___ there.",
+          "answer": "I've never been",
+          "accept": [
+            "I have never been",
+            "I haven't been",
+            "I have not been"
+          ]
+        },
+        {
+          "prompt": "8 A: I hear your car broke down again yesterday. B: Yes, it's the second time ___ this month.",
+          "answer": "it's happened",
+          "accept": [
+            "it has happened",
+            "this has happened",
+            "it's happened to me"
+          ]
+        },
+        {
+          "prompt": "9 A: Do you like caviar? B: I don't know. ___ it.",
+          "answer": "I've never tried",
+          "accept": [
+            "I have never tried",
+            "I haven't tried",
+            "I have not tried"
+          ]
+        },
+        {
+          "prompt": "10 A: Mike was late for work again today. B: Again? He ___ late every day this week.",
+          "answer": "has been",
+          "accept": [
+            "'s been"
+          ]
+        },
+        {
+          "prompt": "11 A: Who's that woman by the door? B: I don't know. ___ her before.",
+          "answer": "I haven't seen",
+          "accept": [
+            "I have not seen",
+            "I've never seen",
+            "I have never seen"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "8.4 · Đọc tình huống và hoàn thành câu",
+      "instructions": "Đọc các tình huống rồi hoàn thành câu bằng thì hiện tại hoàn thành (It's the first time ... / ... hasn't ... before).",
+      "passage": "Ví dụ: 1 Jack is driving a car for the first time. He's very nervous and not sure what to do. It's the first time he's driven a car.",
+      "items": [
+        {
+          "prompt": "2 Some children at the zoo are looking at a giraffe. They've never seen one before. It's the first time ___ a giraffe.",
+          "answer": "they've seen",
+          "accept": [
+            "they have seen"
+          ]
+        },
+        {
+          "prompt": "3 Sue is riding a horse. She doesn't look very confident or comfortable. She ___ before.",
+          "answer": "hasn't ridden a horse",
+          "accept": [
+            "has not ridden a horse",
+            "has never ridden a horse",
+            "hasn't ridden a horse before"
+          ]
+        },
+        {
+          "prompt": "4 Joe and Lisa are on holiday in Japan. They've been to Japan once before. This is the second time ___.",
+          "answer": "they've been to Japan",
+          "accept": [
+            "they have been to Japan",
+            "they've visited Japan",
+            "they have visited Japan",
+            "they've been in Japan"
+          ]
+        },
+        {
+          "prompt": "5 Emily is staying at the Prince Hotel. She stayed there a few years ago. It's not the first ___ this hotel.",
+          "answer": "time she's stayed at",
+          "accept": [
+            "time she has stayed at",
+            "time she's stayed in",
+            "time she has stayed in"
+          ]
+        },
+        {
+          "prompt": "6 Ben is playing tennis for the first time. He's a complete beginner. ___ before.",
+          "answer": "He hasn't played tennis",
+          "accept": [
+            "He has not played tennis",
+            "He has never played tennis",
+            "He's never played tennis"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng thì hiện tại hoàn thành cho khoảng thời gian kéo dài đến hiện tại: nói về trải nghiệm trong đời bạn (I've been to ... / I've never eaten ...), về hôm nay hoặc tuần này (I haven't seen him today), hoặc dùng mẫu It's the first time I've ...",
+      "ruleSummary": "This unit practises the present perfect (have/has + past participle) for a period of time that continues from the past until now. It covers life experience, often with ever or never (Have you ever been to China? I've never had a car. It's the most boring film I've ever seen), where been to means visited; unfinished time periods such as recently, in the last few days, so far, since I arrived, today, this evening and this year (I've drunk four cups of coffee today. There haven't been any problems so far); and the pattern It's the (first/second/third) time something has happened, where the present perfect is required, not the present simple (It's the first time he has driven a car, not he drives; This is the second time this has happened, not happens). A correct student sentence must use have/has plus a correct past participle, must refer to a period that includes the present moment (not a finished past time such as yesterday or last year), and must form negatives and questions with haven't/hasn't and Have/Has."
+    }
+  ]
+};
+
 export const UNITS_META: GrammarUnitMeta[] = [
   { unit: 1, slug: UNIT_1_PRESENT_CONTINUOUS.slug, title: UNIT_1_PRESENT_CONTINUOUS.title, topic: UNIT_1_PRESENT_CONTINUOUS.topic, available: true },
   { unit: 2, slug: UNIT_2_PRESENT_SIMPLE.slug, title: UNIT_2_PRESENT_SIMPLE.title, topic: UNIT_2_PRESENT_SIMPLE.topic, available: true },
   { unit: 3, slug: UNIT_3_PRESENT_CONTINUOUS_AND_SIMPLE_1.slug, title: UNIT_3_PRESENT_CONTINUOUS_AND_SIMPLE_1.title, topic: UNIT_3_PRESENT_CONTINUOUS_AND_SIMPLE_1.topic, available: true },
   { unit: 4, slug: UNIT_4_PRESENT_CONTINUOUS_AND_SIMPLE_2.slug, title: UNIT_4_PRESENT_CONTINUOUS_AND_SIMPLE_2.title, topic: UNIT_4_PRESENT_CONTINUOUS_AND_SIMPLE_2.topic, available: true },
   { unit: 5, slug: UNIT_5_PAST_SIMPLE.slug, title: UNIT_5_PAST_SIMPLE.title, topic: UNIT_5_PAST_SIMPLE.topic, available: true },
+  { unit: 6, slug: UNIT_6_PAST_CONTINUOUS.slug, title: UNIT_6_PAST_CONTINUOUS.title, topic: UNIT_6_PAST_CONTINUOUS.topic, available: true },
+  { unit: 7, slug: UNIT_7_PRESENT_PERFECT_1.slug, title: UNIT_7_PRESENT_PERFECT_1.title, topic: UNIT_7_PRESENT_PERFECT_1.topic, available: true },
+  { unit: 8, slug: UNIT_8_PRESENT_PERFECT_2.slug, title: UNIT_8_PRESENT_PERFECT_2.title, topic: UNIT_8_PRESENT_PERFECT_2.topic, available: true },
 ];
 
-export const GRAMMAR_UNITS: GrammarUnit[] = [UNIT_1_PRESENT_CONTINUOUS, UNIT_2_PRESENT_SIMPLE, UNIT_3_PRESENT_CONTINUOUS_AND_SIMPLE_1, UNIT_4_PRESENT_CONTINUOUS_AND_SIMPLE_2, UNIT_5_PAST_SIMPLE];
+export const GRAMMAR_UNITS: GrammarUnit[] = [UNIT_1_PRESENT_CONTINUOUS, UNIT_2_PRESENT_SIMPLE, UNIT_3_PRESENT_CONTINUOUS_AND_SIMPLE_1, UNIT_4_PRESENT_CONTINUOUS_AND_SIMPLE_2, UNIT_5_PAST_SIMPLE, UNIT_6_PAST_CONTINUOUS, UNIT_7_PRESENT_PERFECT_1, UNIT_8_PRESENT_PERFECT_2];
 
 export function getGrammarUnit(slug: string): GrammarUnit | undefined {
   return GRAMMAR_UNITS.find((u) => u.slug === slug);

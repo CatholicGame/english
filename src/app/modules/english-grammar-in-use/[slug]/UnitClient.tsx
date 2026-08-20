@@ -20,7 +20,7 @@ import { useAiConvoStore } from "@/lib/use-ai-convo-store";
 import { addGlobalXP } from "@/lib/global-score";
 import { AiFeedback } from "@/components/AiFeedback";
 import { currentAiLang } from "@/lib/ai-lang-prefs";
-import { useUiLang } from "@/lib/i18n";
+import { useUiLang, type TranslateFn } from "@/lib/i18n";
 import { useSubscriptionStore } from "@/lib/use-subscription-store";
 import { isGrammarUnitLocked } from "@/lib/content-access";
 import { ProPaywallNotice } from "@/components/ProPaywallNotice";
@@ -68,12 +68,20 @@ function ListIcon() {
   );
 }
 
-function ContinueButton({ onClick, label = "Tiếp tục" }: { onClick: () => void; label?: string }) {
+function ContinueButton({ onClick, label }: { onClick: () => void; label?: string }) {
+  const { t } = useUiLang();
   return (
     <button className="btn btn-primary btn-block mt-auto px-4 py-3" onClick={onClick}>
-      {label}
+      {label ?? t("grammar.continue")}
     </button>
   );
+}
+
+/** vi is the default (this module is authored Vietnamese-first); en is shown
+ * only when the UI language is English, falling back to vi if a unit hasn't
+ * been given an English pass yet. */
+function loc(vi: string, en: string | undefined, lang: string): string {
+  return lang === "en" ? en ?? vi : vi;
 }
 
 // ---------- Rule (explanation) ----------
@@ -153,7 +161,9 @@ function RuleBlockView({ block: b }: { block: RuleBlock }) {
               {b.label}
             </span>
           )}
-          {b.heading && <span className="text-[14px] leading-snug font-extrabold text-white">{b.heading}</span>}
+          {b.heading && (
+            <span className="text-[14px] leading-snug font-extrabold text-white">{loc(b.heading, b.headingEn, lang)}</span>
+          )}
         </div>
       )}
       <div className="p-3">
@@ -204,6 +214,7 @@ function RuleBlockView({ block: b }: { block: RuleBlock }) {
 }
 
 function RuleStepView({ step, onNext }: { step: RuleStep; onNext: (score?: Score) => void }) {
+  const { t } = useUiLang();
   return (
     <div className="flex flex-1 flex-col p-4">
       <div className="flex flex-col gap-4">
@@ -211,7 +222,7 @@ function RuleStepView({ step, onNext }: { step: RuleStep; onNext: (score?: Score
           <RuleBlockView key={i} block={b} />
         ))}
       </div>
-      <ContinueButton onClick={() => onNext()} label="Sang phần thực hành" />
+      <ContinueButton onClick={() => onNext()} label={t("grammar.toPractice")} />
     </div>
   );
 }
@@ -219,17 +230,21 @@ function RuleStepView({ step, onNext }: { step: RuleStep; onNext: (score?: Score
 // ---------- Multiple choice fill-in ----------
 
 function FillMcStepView({ step, onNext }: { step: FillMcStep; onNext: (score?: Score) => void }) {
+  const { lang, t } = useUiLang();
   const [picked, setPicked] = useState<(string | null)[]>(() => step.items.map(() => null));
   const [checked, setChecked] = useState(false);
   const allPicked = picked.every((p) => p !== null);
   const correctCount = picked.filter((p, i) => p === step.items[i].answer).length;
+  const passage = loc(step.passage ?? "", step.passageEn, lang);
 
   return (
     <div className="flex flex-1 flex-col p-4">
-      <div className="mb-3 text-[13px] leading-relaxed text-neutral-700">{renderRich(step.instructions)}</div>
-      {step.passage && (
+      <div className="mb-3 text-[13px] leading-relaxed text-neutral-700">
+        {renderRich(loc(step.instructions, step.instructionsEn, lang))}
+      </div>
+      {passage && (
         <div className="mb-4 flex flex-col gap-1 rounded-md bg-surface p-3 text-[13px] leading-relaxed">
-          {step.passage.split("\n").map((line, k) => (
+          {passage.split("\n").map((line, k) => (
             <p key={k}>{renderRich(line)}</p>
           ))}
         </div>
@@ -278,9 +293,9 @@ function FillMcStepView({ step, onNext }: { step: FillMcStep; onNext: (score?: S
       </div>
       {checked && (
         <div className="mb-3 bg-accent-100 px-4 py-3 text-[13px] leading-relaxed text-accent-800">
-          <span className="label-xs mb-0.5 block">Kết quả</span>
+          <span className="label-xs mb-0.5 block">{t("grammar.result")}</span>
           <span className="font-extrabold">
-            {correctCount}/{step.items.length} đúng
+            {t("grammar.scoreCorrect", { correct: correctCount, total: step.items.length })}
           </span>
         </div>
       )}
@@ -292,7 +307,7 @@ function FillMcStepView({ step, onNext }: { step: FillMcStep; onNext: (score?: S
           disabled={!allPicked}
           onClick={() => setChecked(true)}
         >
-          Kiểm tra
+          {t("grammar.check")}
         </button>
       )}
     </div>
@@ -307,6 +322,7 @@ interface PairSel {
 }
 
 function MatchPairsStepView({ step, onNext }: { step: MatchPairsStep; onNext: (score?: Score) => void }) {
+  const { lang, t } = useUiLang();
   const [sel, setSel] = useState<PairSel | null>(null);
   const [doneLeft, setDoneLeft] = useState<Record<number, number>>({});
   const [wrong, setWrong] = useState<{ l: number; r: number } | null>(null);
@@ -347,7 +363,9 @@ function MatchPairsStepView({ step, onNext }: { step: MatchPairsStep; onNext: (s
 
   return (
     <div className="flex flex-1 flex-col p-4 lg:mx-auto lg:w-full lg:max-w-[640px]">
-      <div className="mb-3 text-[13px] leading-relaxed text-neutral-700">{renderRich(step.instructions)}</div>
+      <div className="mb-3 text-[13px] leading-relaxed text-neutral-700">
+        {renderRich(loc(step.instructions, step.instructionsEn, lang))}
+      </div>
       <div className="grid grid-cols-2 gap-2.5">
         <div className="flex flex-col gap-1.5">
           {step.left.map((text, i) => (
@@ -380,9 +398,9 @@ function MatchPairsStepView({ step, onNext }: { step: MatchPairsStep; onNext: (s
       </div>
       {allDone && (
         <div className="mt-3 bg-accent-100 px-4 py-3 text-[13px] leading-relaxed text-accent-800">
-          <span className="label-xs mb-0.5 block">Kết quả</span>
+          <span className="label-xs mb-0.5 block">{t("grammar.result")}</span>
           <span className="font-extrabold">
-            {step.left.length}/{step.left.length + mistakes} lần chạm đúng
+            {t("grammar.scoreCorrectTaps", { correct: step.left.length, total: step.left.length + mistakes })}
           </span>
         </div>
       )}
@@ -406,6 +424,7 @@ function matchesAnswer(input: string, item: { answer: string; accept?: string[] 
 }
 
 function TypeFillStepView({ step, onNext }: { step: TypeFillStep; onNext: (score?: Score) => void }) {
+  const { lang, t } = useUiLang();
   const [inputs, setInputs] = useState<string[]>(() => step.items.map(() => ""));
   const [checked, setChecked] = useState(false);
   const correctCount = inputs.filter((v, i) => matchesAnswer(v, step.items[i])).length;
@@ -414,13 +433,16 @@ function TypeFillStepView({ step, onNext }: { step: TypeFillStep; onNext: (score
   // the prompt text itself, e.g. "2 (be / California?) ...") must NOT also get
   // a badge, or the item would show two conflicting numbers.
   const startNumber = step.startNumber;
+  const passage = loc(step.passage ?? "", step.passageEn, lang);
 
   return (
     <div className="flex flex-1 flex-col p-4">
-      <div className="mb-3 text-[13px] leading-relaxed text-neutral-700">{renderRich(step.instructions)}</div>
-      {step.passage && (
+      <div className="mb-3 text-[13px] leading-relaxed text-neutral-700">
+        {renderRich(loc(step.instructions, step.instructionsEn, lang))}
+      </div>
+      {passage && (
         <div className="mb-4 flex flex-col gap-1 rounded-md bg-surface p-3 text-[13px] leading-relaxed">
-          {step.passage.split("\n").map((line, k) => (
+          {passage.split("\n").map((line, k) => (
             <p key={k}>{renderRich(line)}</p>
           ))}
         </div>
@@ -445,11 +467,11 @@ function TypeFillStepView({ step, onNext }: { step: TypeFillStep; onNext: (score
                   next[i] = e.target.value;
                   setInputs(next);
                 }}
-                placeholder="Điền câu trả lời"
+                placeholder={t("grammar.answerPlaceholder")}
               />
               {bad && (
                 <div className="mt-1 text-[12px] text-accent-700">
-                  Đáp án: <span className="font-extrabold">{it.answer}</span>
+                  {t("grammar.answerLabel")} <span className="font-extrabold">{it.answer}</span>
                 </div>
               )}
             </div>
@@ -458,9 +480,9 @@ function TypeFillStepView({ step, onNext }: { step: TypeFillStep; onNext: (score
       </div>
       {checked && (
         <div className="mb-3 bg-accent-100 px-4 py-3 text-[13px] leading-relaxed text-accent-800">
-          <span className="label-xs mb-0.5 block">Kết quả</span>
+          <span className="label-xs mb-0.5 block">{t("grammar.result")}</span>
           <span className="font-extrabold">
-            {correctCount}/{step.items.length} đúng
+            {t("grammar.scoreCorrect", { correct: correctCount, total: step.items.length })}
           </span>
         </div>
       )}
@@ -468,7 +490,7 @@ function TypeFillStepView({ step, onNext }: { step: TypeFillStep; onNext: (score
         <ContinueButton onClick={() => onNext({ correct: correctCount, total: step.items.length })} />
       ) : (
         <button className="btn btn-primary btn-block mt-auto px-4 py-3" onClick={() => setChecked(true)}>
-          Kiểm tra
+          {t("grammar.check")}
         </button>
       )}
     </div>
@@ -482,6 +504,7 @@ function TypeFillStepView({ step, onNext }: { step: TypeFillStep; onNext: (score
  * awarded only when both halves are right, so guessing "sai" and typing
  * anything doesn't earn credit. */
 function JudgeCorrectStepView({ step, onNext }: { step: JudgeCorrectStep; onNext: (score?: Score) => void }) {
+  const { lang, t } = useUiLang();
   const [verdicts, setVerdicts] = useState<(boolean | null)[]>(() => step.items.map(() => null));
   const [fixes, setFixes] = useState<string[]>(() => step.items.map(() => ""));
   const [checked, setChecked] = useState(false);
@@ -498,7 +521,9 @@ function JudgeCorrectStepView({ step, onNext }: { step: JudgeCorrectStep; onNext
 
   return (
     <div className="flex flex-1 flex-col p-4">
-      <div className="mb-3 text-[13px] leading-relaxed text-neutral-700">{renderRich(step.instructions)}</div>
+      <div className="mb-3 text-[13px] leading-relaxed text-neutral-700">
+        {renderRich(loc(step.instructions, step.instructionsEn, lang))}
+      </div>
       <div className="flex flex-col gap-4">
         {step.items.map((it, i) => {
           const parts = it.sentence.split(it.underlined);
@@ -513,8 +538,8 @@ function JudgeCorrectStepView({ step, onNext }: { step: JudgeCorrectStep; onNext
               </div>
               <div className="mt-1.5 flex flex-wrap gap-1.5">
                 {[
-                  { label: "Đúng rồi", value: false },
-                  { label: "Cần sửa", value: true },
+                  { label: t("grammar.judgeOk"), value: false },
+                  { label: t("grammar.judgeFix"), value: true },
                 ].map((opt) => {
                   const picked = verdicts[i] === opt.value;
                   return (
@@ -548,18 +573,16 @@ function JudgeCorrectStepView({ step, onNext }: { step: JudgeCorrectStep; onNext
                     next[i] = e.target.value;
                     setFixes(next);
                   }}
-                  placeholder={`Sửa "${it.underlined}" thành...`}
+                  placeholder={t("grammar.fixPlaceholder", { text: it.underlined })}
                 />
               )}
               {bad && (
                 <div className="mt-1 text-[12px] text-accent-700">
                   {it.ok ? (
-                    <>
-                      Câu này <span className="font-extrabold">đúng rồi</span>.
-                    </>
+                    t("grammar.alreadyCorrect")
                   ) : (
                     <>
-                      Đáp án: <span className="font-extrabold">{it.correction}</span>
+                      {t("grammar.answerLabel")} <span className="font-extrabold">{it.correction}</span>
                     </>
                   )}
                 </div>
@@ -570,9 +593,9 @@ function JudgeCorrectStepView({ step, onNext }: { step: JudgeCorrectStep; onNext
       </div>
       {checked && (
         <div className="mt-4 mb-3 bg-accent-100 px-4 py-3 text-[13px] leading-relaxed text-accent-800">
-          <span className="label-xs mb-0.5 block">Kết quả</span>
+          <span className="label-xs mb-0.5 block">{t("grammar.result")}</span>
           <span className="font-extrabold">
-            {correctCount}/{step.items.length} đúng
+            {t("grammar.scoreCorrect", { correct: correctCount, total: step.items.length })}
           </span>
         </div>
       )}
@@ -584,7 +607,7 @@ function JudgeCorrectStepView({ step, onNext }: { step: JudgeCorrectStep; onNext
           disabled={!allAnswered}
           onClick={() => setChecked(true)}
         >
-          Kiểm tra
+          {t("grammar.check")}
         </button>
       )}
     </div>
@@ -604,6 +627,7 @@ function AiPracticeStepView({
   itemKey: string;
   onNext: (score?: Score) => void;
 }) {
+  const { lang, t } = useUiLang();
   const { appendMessages, getConvos } = useAiConvoStore(MODULE_KEY);
   const [sentence, setSentence] = useState("");
   const [loading, setLoading] = useState(false);
@@ -642,28 +666,30 @@ function AiPracticeStepView({
   }
 
   const footerContent = result ? (
-    <ContinueButton onClick={() => onNext()} label="Hoàn thành unit" />
+    <ContinueButton onClick={() => onNext()} label={t("grammar.completeUnit")} />
   ) : (
     <button
       className="btn btn-primary btn-block px-4 py-3 disabled:opacity-40"
       disabled={!sentence.trim() || loading}
       onClick={submit}
     >
-      {loading ? "Đang chấm..." : "Nộp câu cho AI"}
+      {loading ? t("grammar.grading") : t("grammar.submitToAi")}
     </button>
   );
   useActionBar(footerContent);
 
   return (
     <div className="flex flex-1 flex-col p-4">
-      <div className="mb-3 text-[13px] leading-relaxed text-neutral-700">{renderRich(step.instructions)}</div>
+      <div className="mb-3 text-[13px] leading-relaxed text-neutral-700">
+        {renderRich(loc(step.instructions, step.instructionsEn, lang))}
+      </div>
       <textarea
         className="input min-h-[90px] w-full resize-none"
         value={sentence}
         disabled={!!result}
         onChange={(e) => setSentence(e.target.value)}
         onInput={autoGrow}
-        placeholder="Viết câu của bạn ở đây..."
+        placeholder={t("grammar.writeSentencePlaceholder")}
       />
       {(loading || !!error || result != null) && (
         <div className="mt-3">
@@ -679,17 +705,20 @@ function AiPracticeStepView({
 
 // ---------- Wizard shell ----------
 
-const STEP_KIND_LABELS: Record<GrammarUnitStep["kind"], string> = {
-  rule: "Học",
-  fill_mc: "Thực hành",
-  type_fill: "Thực hành",
-  judge_correct: "Thực hành",
-  match_pairs: "Thực hành",
-  ai_practice: "Luyện AI",
-};
+function stepKindLabel(kind: GrammarUnitStep["kind"], t: TranslateFn): string {
+  switch (kind) {
+    case "rule":
+      return t("grammar.stepKind.rule");
+    case "ai_practice":
+      return t("grammar.stepKind.aiPractice");
+    default:
+      return t("grammar.stepKind.practice");
+  }
+}
 
 export function UnitClient({ slug }: { slug: string }) {
   const router = useRouter();
+  const { lang, t } = useUiLang();
   const { grade } = useProgress();
   const { isUnlocked } = useSubscriptionStore();
   const unit = useMemo(() => getGrammarUnit(slug), [slug]);
@@ -710,9 +739,9 @@ export function UnitClient({ slug }: { slug: string }) {
   if (!unit) {
     return (
       <div className="p-4">
-        <p className="text-[13px] text-neutral-600">Không tìm thấy unit này.</p>
+        <p className="text-[13px] text-neutral-600">{t("grammar.unitNotFound")}</p>
         <button className="btn btn-ghost mt-3" onClick={() => router.push("/modules/english-grammar-in-use")}>
-          Tất cả unit
+          {t("grammar.allUnits")}
         </button>
       </div>
     );
@@ -752,15 +781,15 @@ export function UnitClient({ slug }: { slug: string }) {
 
   if (finished) {
     const pct = tally.total ? Math.round((tally.correct / tally.total) * 100) : 100;
-    const sub = pct >= 90 ? "Xuất sắc." : pct >= 70 ? "Khá tốt." : "Nên xem lại quy tắc.";
+    const sub = pct >= 90 ? t("grammar.scoreExcellent") : pct >= 70 ? t("grammar.scoreGood") : t("grammar.scoreReview");
     return (
       <div className="flex min-h-screen flex-col">
         <div className="divider-b px-4 pt-8 pb-6">
-          <div className="label-xs text-accent">Đã hoàn thành unit</div>
+          <div className="label-xs text-accent">{t("grammar.unitComplete")}</div>
           <div className="mt-2 text-[30px] leading-tight font-extrabold">{unit.title}</div>
           <div className="mt-3 text-[64px] leading-[0.95] font-extrabold tracking-tight">{pct}%</div>
           <div className="mt-2 text-[13px] text-neutral-600">
-            {sub} {tally.correct}/{tally.total} câu đúng trong các bài thực hành.
+            {sub} {t("grammar.correctInPractice", { correct: tally.correct, total: tally.total })}
           </div>
         </div>
         <div className="flex gap-[2px] p-4">
@@ -768,10 +797,10 @@ export function UnitClient({ slug }: { slug: string }) {
             className="btn btn-secondary flex-1 justify-center px-4 py-3"
             onClick={() => router.push("/modules/english-grammar-in-use")}
           >
-            Tất cả unit
+            {t("grammar.allUnits")}
           </button>
           <button className="btn btn-primary flex-1 justify-center px-4 py-3" onClick={restart}>
-            Làm lại
+            {t("grammar.retry")}
           </button>
         </div>
       </div>
@@ -792,7 +821,7 @@ export function UnitClient({ slug }: { slug: string }) {
           </div>
           <div className="px-4 pt-3">
             <span className="label-xs block text-accent">
-              Unit {unit.unit} · {unit.title} — {STEP_KIND_LABELS[step.kind]}
+              Unit {unit.unit} · {unit.title} · {stepKindLabel(step.kind, t)}
             </span>
           </div>
           <div className="flex items-center justify-between gap-3 px-4 pt-2">
@@ -800,12 +829,12 @@ export function UnitClient({ slug }: { slug: string }) {
               className="btn btn-ghost px-0 text-[11px]"
               onClick={() => router.push("/modules/english-grammar-in-use")}
             >
-              Thoát
+              {t("grammar.exit")}
             </button>
             <button
               className="flex items-center gap-1 text-[11px] tabular-nums text-neutral-600 hover:text-accent"
               onClick={() => setShowStepList(true)}
-              aria-label="Danh sách các phần trong unit"
+              aria-label={t("grammar.stepListAria")}
             >
               <ListIcon />
               {stepIndex + 1}/{steps.length}
@@ -818,9 +847,9 @@ export function UnitClient({ slug }: { slug: string }) {
         <div className="fixed inset-0 z-[60] bg-bg">
           <div className="mx-auto flex h-full max-w-[480px] flex-col lg:max-w-[1040px]">
             <div className="divider-b flex items-center justify-between px-4 py-3">
-              <span className="text-[16px] font-extrabold">Các phần trong unit</span>
+              <span className="text-[16px] font-extrabold">{t("grammar.stepListTitle")}</span>
               <button className="btn btn-ghost" onClick={() => setShowStepList(false)}>
-                Đóng
+                {t("grammar.close")}
               </button>
             </div>
             <div className="flex-1 overflow-y-auto">
@@ -838,8 +867,8 @@ export function UnitClient({ slug }: { slug: string }) {
                   >
                     <span className="label-xs w-6 flex-none text-neutral-600">{i + 1}</span>
                     <span className="flex-1">
-                      <span className="block text-[14px] font-extrabold">{s.title}</span>
-                      <span className="label-xs mt-0.5 block text-neutral-600">{STEP_KIND_LABELS[s.kind]}</span>
+                      <span className="block text-[14px] font-extrabold">{loc(s.title, s.titleEn, lang)}</span>
+                      <span className="label-xs mt-0.5 block text-neutral-600">{stepKindLabel(s.kind, t)}</span>
                     </span>
                     {done && (
                       <span className="label-xs flex-none text-accent">

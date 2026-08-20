@@ -27,6 +27,9 @@ export interface RuleTable {
 export interface RuleBlock {
   label?: string; // "A", "B", "C" ... matching the book's lettered sections
   heading?: string;
+  /** English counterpart of `heading` (heading is authored Vietnamese-first,
+   * same convention as title/instructions elsewhere in this file). */
+  headingEn?: string;
   /** A short standalone lead-in line before the body paragraphs, e.g. "Study
    * this example situation:" — rendered on its own line instead of running
    * into the scenario text that follows it. */
@@ -56,6 +59,10 @@ export interface RuleBlock {
 export interface RuleStep {
   kind: "rule";
   title: string;
+  /** English counterpart of `title`, shown when the UI language is English.
+   * `title` itself stays the Vietnamese default (this module was authored
+   * Vietnamese-first) — omit only for units not yet given an English pass. */
+  titleEn?: string;
   blocks: RuleBlock[];
 }
 
@@ -69,10 +76,15 @@ export interface FillMcItem {
 export interface FillMcStep {
   kind: "fill_mc";
   title: string;
+  titleEn?: string;
   instructions: string;
+  /** English counterpart of `instructions`. */
+  instructionsEn?: string;
   /** Same role as on TypeFillStep: the word bank or worked example the book
    * prints once above the whole exercise. */
   passage?: string;
+  /** English counterpart of `passage`. */
+  passageEn?: string;
   items: FillMcItem[];
 }
 
@@ -89,10 +101,15 @@ export interface TypeFillItem {
 export interface TypeFillStep {
   kind: "type_fill";
   title: string;
+  titleEn?: string;
   instructions: string;
+  /** English counterpart of `instructions`. */
+  instructionsEn?: string;
   /** Shared context shown above the items (a short reading passage, a list of
    * verbs to choose from, a dialogue setup) when the book's exercise has one. */
   passage?: string;
+  /** English counterpart of `passage`. */
+  passageEn?: string;
   /** The book's own item number for items[0]. Most exercises start at 1, but
    * when the first one or two items are given as a worked example (moved into
    * `passage` instead of `items`), the real items pick up numbering partway
@@ -119,14 +136,18 @@ export interface JudgeCorrectItem {
 export interface JudgeCorrectStep {
   kind: "judge_correct";
   title: string;
+  titleEn?: string;
   instructions: string;
+  instructionsEn?: string;
   items: JudgeCorrectItem[];
 }
 
 export interface AiPracticeStep {
   kind: "ai_practice";
   title: string;
+  titleEn?: string;
   instructions: string;
+  instructionsEn?: string;
   ruleSummary: string; // short EN description of the grammar point, sent to the AI for grading context
 }
 
@@ -140,7 +161,9 @@ export interface AiPracticeStep {
 export interface MatchPairsStep {
   kind: "match_pairs";
   title: string;
+  titleEn?: string;
   instructions: string;
+  instructionsEn?: string;
   left: string[];
   right: string[];
   answers: string[];
@@ -173,10 +196,12 @@ const UNIT_1_PRESENT_CONTINUOUS: GrammarUnit = {
     {
       "kind": "rule",
       "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
       "blocks": [
         {
           "label": "A",
           "heading": "Cách thành lập: am/is/are + -ing",
+          "headingEn": "Formation: am/is/are + -ing",
           "intro": "Study this example situation:",
           "introVi": "Hãy xem tình huống ví dụ sau:",
           "body": "Sarah is in her car. She is on her way to work. She's **driving** to work.\n\nThis means she is driving *now*, at the time of speaking. The action is not finished.\n\n**am/is/are + -ing** is the *present continuous*:",
@@ -226,6 +251,7 @@ const UNIT_1_PRESENT_CONTINUOUS: GrammarUnit = {
         {
           "label": "B",
           "heading": "Hành động đang diễn ra, chưa kết thúc",
+          "headingEn": "An action in progress, not yet finished",
           "body": "**I am doing** something means I started doing it and I haven't finished it: I'm in the middle of doing it.\n\nSometimes the action is not happening at the exact time of speaking. For example, Steve is talking to a friend on the phone and says: '**I'm reading** a really good book at the moment.'\n\nSteve is *not* reading the book at the time of speaking. He means that he has started reading the book but has not finished it yet, he is in the middle of reading it.",
           "bodyVi": "I am doing something (tôi đang làm gì đó) có nghĩa là tôi đã bắt đầu làm việc đó và chưa xong: tôi đang làm việc đó giữa chừng.\n\nĐôi khi hành động không diễn ra ngay tại thời điểm nói. Ví dụ, Steve đang nói chuyện điện thoại với một người bạn và nói: 'Tôi đang đọc một cuốn sách rất hay.'\n\nSteve không đang đọc sách ngay lúc nói câu đó. Anh ấy muốn nói rằng anh ấy đã bắt đầu đọc cuốn sách nhưng chưa đọc xong, anh ấy đang đọc nó giữa chừng.",
           "examples": [
@@ -266,6 +292,7 @@ const UNIT_1_PRESENT_CONTINUOUS: GrammarUnit = {
         {
           "label": "C",
           "heading": "Dùng với today / this week / this year",
+          "headingEn": "Used with today / this week / this year",
           "body": "You can use the present continuous with **today**, **this week**, **this year** and other periods around now.",
           "bodyVi": "Bạn có thể dùng thì hiện tại tiếp diễn với today (hôm nay), this week (tuần này), this year (năm nay) và các khoảng thời gian khác quanh hiện tại.",
           "examples": [
@@ -283,6 +310,7 @@ const UNIT_1_PRESENT_CONTINUOUS: GrammarUnit = {
         {
           "label": "D",
           "heading": "Diễn tả sự thay đổi đang xảy ra",
+          "headingEn": "Describing a change that is happening",
           "body": "We use the present continuous when we talk about a change that has started to happen.\n\nWe often use these verbs in this way:",
           "bodyVi": "Chúng ta dùng thì hiện tại tiếp diễn khi nói về một sự thay đổi đã bắt đầu xảy ra.\n\nChúng ta thường dùng những động từ này theo cách đó:",
           "wordList": [
@@ -320,7 +348,9 @@ const UNIT_1_PRESENT_CONTINUOUS: GrammarUnit = {
     {
       "kind": "match_pairs",
       "title": "1.2 · Nối câu cho phù hợp",
+      "titleEn": "1.2 · Match the sentences",
       "instructions": "Các câu bên phải nối tiếp ý của các câu bên trái. Chạm một câu bên trái, sau đó chạm câu phù hợp bên phải.",
+      "instructionsEn": "The sentences on the right follow those on the left. Tap a sentence on the left, then tap the one on the right that goes with it.",
       "left": [
         "Please don't make so much noise.",
         "We need to leave soon.",
@@ -355,8 +385,11 @@ const UNIT_1_PRESENT_CONTINUOUS: GrammarUnit = {
     {
       "kind": "type_fill",
       "title": "1.3 · Viết câu hỏi ở thì hiện tại tiếp diễn",
+      "titleEn": "1.3 · Write questions in the present continuous",
       "instructions": "Viết câu hỏi bằng thì hiện tại tiếp diễn, dựa vào gợi ý trong ngoặc.",
+      "instructionsEn": "Write questions using the present continuous, based on the words in brackets.",
       "passage": "Ví dụ: 1 What's all that noise? **What's happening?**",
+      "passageEn": "Example: 1 What's all that noise? **What's happening?**",
       "startNumber": 2,
       "items": [
         {
@@ -407,8 +440,11 @@ const UNIT_1_PRESENT_CONTINUOUS: GrammarUnit = {
     {
       "kind": "type_fill",
       "title": "1.4 · Chia động từ ở dạng khẳng định hoặc phủ định",
+      "titleEn": "1.4 · Put the verb into the positive or negative form",
       "instructions": "Chia động từ trong ngoặc ở thì hiện tại tiếp diễn, dạng khẳng định (**I'm doing** etc.) hoặc phủ định (**I'm not doing** etc.).",
+      "instructionsEn": "Put the verb in brackets into the present continuous, positive (**I'm doing** etc.) or negative (**I'm not doing** etc.).",
       "passage": "Ví dụ:\n1 Please don't make so much noise. **I'm trying** (I / try) to work.\n2 Let's go out now. **It isn't raining** (it / rain) any more.",
+      "passageEn": "Example:\n1 Please don't make so much noise. **I'm trying** (I / try) to work.\n2 Let's go out now. **It isn't raining** (it / rain) any more.",
       "startNumber": 3,
       "items": [
         {
@@ -503,7 +539,9 @@ const UNIT_1_PRESENT_CONTINUOUS: GrammarUnit = {
     {
       "kind": "ai_practice",
       "title": "Luyện với AI",
+      "titleEn": "Practice with AI",
       "instructions": "Hãy viết 2-3 câu tiếng Anh dùng thì hiện tại tiếp diễn (**am/is/are + V-ing**) để nói về việc bạn đang làm ngay lúc này, việc bạn đang làm dở trong thời gian gần đây, hoặc một thay đổi đang diễn ra.",
+      "instructionsEn": "Write 2-3 English sentences using the present continuous (**am/is/are + V-ing**) to talk about something you are doing right now, something you are in the middle of doing recently, or a change that is happening.",
       "ruleSummary": "The present continuous is formed with am/is/are + the -ing form of the verb (I'm driving, he's working, they aren't speaking). It describes an action happening now at the time of speaking, or an unfinished action the speaker is in the middle of even if it is not happening at this exact moment (I'm reading a really good book at the moment). It is also used with periods around now such as today, this week and this year (You're working hard today), and to describe changes in progress with verbs like get, become, change, improve, start, increase, rise, fall and grow (The population of the world is increasing very fast). A correct student sentence must use am/is/are plus an -ing form, keep subject and auxiliary in agreement, form negatives and questions with the auxiliary (I'm not listening, Are you enjoying it?), and express one of these meanings rather than a habit or general fact, which would need the present simple."
     }
   ]

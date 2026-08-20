@@ -40,6 +40,18 @@ function cpvSentenceCheck(payload: Record<string, unknown>): PromptResult {
   };
 }
 
+function grammarSentenceCheck(payload: Record<string, unknown>): PromptResult {
+  const title = payload.title as string;
+  const ruleSummary = payload.ruleSummary as string;
+  const sentence = payload.sentence as string;
+
+  return {
+    systemPrompt: "You are an English teacher helping a Vietnamese student practice a specific grammar point. Be encouraging." + feedbackLangNote(payload),
+    userMessage: "Grammar point: \"" + title + "\"\nRule: \"" + ruleSummary + "\"\n\nStudent's sentence: \"" + sentence + "\"\n\nEvaluate whether the sentence correctly uses this grammar point (not just whether it's grammatical in general).\n\nRespond in JSON:\n{\n  \"correct\": boolean,\n  \"grammarOk\": boolean,\n  \"naturalOk\": boolean,\n  \"feedback\": \"brief encouraging feedback, mention if the grammar point itself was used correctly\",\n  \"correction\": \"corrected sentence or null\",\n  \"tip\": \"quick tip or null\",\n  \"alternative\": \"alternative example sentence using the same rule, or null\"\n}",
+    temperature: 0.3,
+  };
+}
+
 function cpvParaphraseGenerate(payload: Record<string, unknown>): PromptResult {
   const term = payload.term as string;
   const en = payload.en as string;
@@ -500,6 +512,8 @@ export function buildPrompt(
         return cieltsVocabSentence(payload);
       case "cielts_vocab_paragraph":
         return cieltsVocabParagraph(payload);
+      case "grammar_sentence_check":
+        return grammarSentenceCheck(payload);
       default:
         throw new Error(`Unknown intent: ${intent}`);
     }

@@ -22,6 +22,17 @@ These apply to every AI-practice feature (collocations/phrasal-verbs, Cambridge 
 - Group E (single-preposition verbs) is exempt from this minimum: most of them genuinely have only 1-3 natural preposition pairings, so a short list there is correct content, not a gap.
 - Match the existing style: `en` is a short dictionary-style definition (5-12 words), `vi` is a natural Vietnamese meaning (not a literal word-by-word gloss), `ex` is one natural everyday example sentence.
 
+## English Grammar in Use module (145 units, incremental)
+
+`src/data/english-grammar-in-use.ts` digitizes Raymond Murphy's "English Grammar in Use" (5th ed., `docs/English_Grammar_in_Use_Intermediate_2019_5th-Ed.pdf`, 145 units). Only a handful of units ship so far; the rest get added incrementally, and every new unit must follow the shape the first five established:
+
+- **Step order is always** `rule` → 1-2 auto-graded practice steps (`fill_mc` and/or `type_fill`) → `ai_practice`. That mirrors the book's own left-page-explanation / right-page-exercises layout, which is the whole point of this module: học rồi mới thực hành.
+- `rule` blocks keep the book's lettered sections (`label: "A" | "B" | ...`) so a learner can cross-reference the physical book. Example sentences come from the book, with the book's own parenthetical corrections carried in `note` (e.g. `note: "not I try"`).
+- **Skip picture-dependent exercises.** Many exercises say "look at the pictures" and cannot be answered from text alone; digitize only text-only exercises rather than inventing substitutes.
+- `type_fill` answers are checked with exact matching via `norm()`, so an answer must stay a short span (a verb form, a few words) — never a full free-form sentence. Anything open-ended belongs in the `ai_practice` step instead.
+- `ai_practice` sends `{ title, ruleSummary, sentence }` to the `grammar_sentence_check` intent; `ruleSummary` is English prose written as grading context for the model (what counts as correct use of THIS rule), not learner-facing copy. XP follows the light-weight per-item convention: 10 correct / 2 incorrect.
+- Extraction from the PDF is done with `pdftotext -layout` (the only PDF tool available here; the Read tool's PDF rendering needs poppler's `pdftoppm`, which isn't installed). The layout-extracted text has jumbled columns, so it needs reconstruction, not a raw paste.
+
 ## Gamification
 - Every learner-facing AI activity that produces an evaluation must award XP via `addGlobalXP()` (`@/lib/global-score`) — no exercise should go unrewarded.
 - Convention: 10 XP per correct item / 2 XP per incorrect item for granular per-sentence exercises (see `submitTranslateBatch`). For a whole-session task (e.g. finishing a full conversation, not just one sentence), scale up modestly — 20/8 is the established pair (see `endAndFeedback` in `AiSentencePractice.tsx` / `UnitClient.tsx`).

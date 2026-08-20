@@ -9,6 +9,7 @@ export const FREE_CAMBRIDGE_UNIT = 1;
 export const FREE_LISTEN_LESSON_SLUG = "accidents";
 export const FREE_VERB = "do";
 export const FREE_IDIOM_UNIT = 1;
+export const FREE_GRAMMAR_UNIT = 1;
 
 export function isCambridgeUnitLocked(unit: number, isUnlocked: boolean): boolean {
   return !isUnlocked && unit !== FREE_CAMBRIDGE_UNIT;
@@ -24,4 +25,8 @@ export function isVerbLocked(verb: string, isUnlocked: boolean): boolean {
 
 export function isIdiomUnitLocked(unit: number, isUnlocked: boolean): boolean {
   return !isUnlocked && unit !== FREE_IDIOM_UNIT;
+}
+
+export function isGrammarUnitLocked(unit: number, isUnlocked: boolean): boolean {
+  return !isUnlocked && unit !== FREE_GRAMMAR_UNIT;
 }

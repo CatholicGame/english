@@ -251,7 +251,7 @@ export function AdminDashboard({
   }
 
   return (
-    <div className="mx-auto max-w-[1100px] px-4 py-8">
+    <div className="mx-auto w-full max-w-[1100px] px-4 py-8">
       <div className="divider-b sticky top-12 z-30 flex justify-start gap-1 bg-bg">
         {([
           { id: "subscriptions", label: "Subscription" },

@@ -9,6 +9,7 @@ export interface VerbItem {
   en: string;
   vi: string;
   ex: string;
+  ex_vi?: string;
 }
 
 export interface Verb {

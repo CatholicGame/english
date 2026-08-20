@@ -350,6 +350,7 @@ export function RunClient() {
                 <span className="mt-1 block text-[13px] leading-relaxed text-neutral-600">{q.item.vi}</span>
                 <span className="mt-4 block border-l-2 border-[color:var(--color-divider)] pl-3 text-[13px] leading-relaxed">
                   {q.item.ex}
+                  {q.item.ex_vi && <span className="mt-0.5 block text-neutral-500">{q.item.ex_vi}</span>}
                 </span>
               </span>
             ) : (

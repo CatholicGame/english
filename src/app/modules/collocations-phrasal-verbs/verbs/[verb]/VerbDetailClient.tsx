@@ -187,6 +187,7 @@ export function VerbDetailClient({ slug }: { slug: string }) {
               <div className="mt-0.5 text-[12px] leading-relaxed text-neutral-600">{it.vi}</div>
               <div className="mt-2 border-l-2 border-[color:var(--color-divider)] pl-3 text-[12px] leading-relaxed text-neutral-700">
                 {it.ex}
+                {it.ex_vi && <div className="mt-0.5 text-neutral-500">{it.ex_vi}</div>}
               </div>
               <NotesList moduleKey="collocations-phrasal-verbs" itemKey={`${verb.verb}::${it.term}`} />
               <AiSection item={it} />

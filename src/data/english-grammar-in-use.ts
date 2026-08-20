@@ -556,114 +556,179 @@ const UNIT_2_PRESENT_SIMPLE: GrammarUnit = {
     {
       "kind": "rule",
       "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
       "blocks": [
         {
           "label": "A",
           "heading": "Dạng thì hiện tại đơn",
-          "body": "Study this example situation. Alex is a bus driver, but now he is in bed asleep. He is not driving a bus, because he is asleep. But we can still say: He drives a bus. He is a bus driver. Forms like drive(s), work(s), do(es) are the present simple. With I, we, you and they the verb has no ending: drive, work, do. With he, she and it the verb takes -s or -es: drives, works, does.",
+          "headingEn": "Formation of the present simple",
+          "intro": "Study this example situation:",
+          "introVi": "Hãy xem tình huống ví dụ sau:",
+          "body": "Alex is a bus driver, but now he is in bed asleep. He is **not driving** a bus. (He is asleep.)\n\nbut He **drives** a bus. He is a bus driver.\n\n**drive(s)**, **work(s)**, **do(es)** etc. is the *present simple*:",
+          "bodyVi": "Alex là lái xe buýt, nhưng bây giờ anh ấy đang ngủ trên giường. Anh ấy không đang lái xe buýt. (Anh ấy đang ngủ.)\n\nnhưng anh ấy lái xe buýt. Anh ấy là lái xe buýt.\n\ndrive(s), work(s), do(es) v.v. là thì hiện tại đơn:",
+          "table": {
+            "rows": [
+              [
+                "I/we/you/they",
+                "**drive** / **work** / **do**"
+              ],
+              [
+                "he/she/it",
+                "**drives** / **works** / **does**"
+              ]
+            ]
+          },
           "examples": [
             {
-              "en": "He is not driving a bus.",
-              "note": "He is asleep."
+              "en": "He is **not driving** a bus.",
+              "note": "He is asleep.",
+              "vi": "Anh ấy không đang lái xe buýt. (Anh ấy đang ngủ.)"
             },
             {
-              "en": "He drives a bus. He is a bus driver."
-            },
-            {
-              "en": "I/we/you/they drive/work/do"
-            },
-            {
-              "en": "he/she/it drives/works/does"
+              "en": "He **drives** a bus. He is a bus driver.",
+              "vi": "Anh ấy lái xe buýt. Anh ấy là lái xe buýt."
             }
           ]
         },
         {
           "label": "B",
           "heading": "Sự việc chung, lặp đi lặp lại, luôn đúng",
-          "body": "We use the present simple to talk about things in general. We use it to say that something happens all the time or repeatedly, or that something is true in general. Remember the -s ending in the third person singular: I work but he works, you go but it goes, I have but he has, they teach but my sister teaches. For the spelling of -s or -es, see Appendix 6.",
+          "headingEn": "General, repeated, and always-true facts",
+          "body": "We use the *present simple* to talk about things in general. We use it to say that something happens all the time or repeatedly, or that something is true in general.\n\nRemember the **-s** ending in the third person singular:",
+          "bodyVi": "Chúng ta dùng thì hiện tại đơn để nói về những sự việc chung. Chúng ta dùng nó để nói rằng điều gì đó xảy ra liên tục hoặc lặp đi lặp lại, hoặc điều gì đó đúng nói chung.\n\nHãy nhớ thêm -s ở ngôi thứ ba số ít:",
+          "table": {
+            "rows": [
+              [
+                "I **work**",
+                "he **works**"
+              ],
+              [
+                "you **go**",
+                "it **goes**"
+              ],
+              [
+                "I **have**",
+                "he **has**"
+              ],
+              [
+                "they **teach**",
+                "my sister **teaches**"
+              ]
+            ]
+          },
           "examples": [
             {
-              "en": "Nurses look after patients in hospitals."
+              "en": "Nurses **look after** patients in hospitals.",
+              "vi": "Y tá chăm sóc bệnh nhân trong bệnh viện."
             },
             {
-              "en": "I usually go away at weekends."
+              "en": "I usually **go away** at weekends.",
+              "vi": "Tôi thường đi đâu đó vào cuối tuần."
             },
             {
-              "en": "The earth goes round the sun."
+              "en": "The earth **goes round** the sun.",
+              "vi": "Trái đất quay quanh mặt trời."
             },
             {
-              "en": "The cafe opens at 7.30 in the morning."
-            },
-            {
-              "en": "I work but he works."
-            },
-            {
-              "en": "They teach but my sister teaches."
-            },
-            {
-              "en": "You go but it goes. I have but he has."
+              "en": "The cafe **opens** at 7.30 in the morning.",
+              "vi": "Quán cà phê mở cửa lúc 7 giờ 30 sáng."
             }
           ]
         },
         {
           "label": "C",
           "heading": "Câu hỏi và câu phủ định với do/does",
-          "body": "We use do and does to make questions and negative sentences. In questions: do I/we/you/they work? does he/she/it drive? In negatives: I/we/you/they don't work; he/she/it doesn't drive. Note that after do and does the main verb has no -s ending. In some examples do is also the main verb, so we get do you do and doesn't do.",
+          "headingEn": "Questions and negatives with do/does",
+          "body": "We use **do**/**does** to make questions and negative sentences:",
+          "bodyVi": "Chúng ta dùng do/does để tạo câu hỏi và câu phủ định:",
+          "table": {
+            "rows": [
+              [
+                "**Do** I/we/you/they **work**?",
+                "I/we/you/they **don't work**."
+              ],
+              [
+                "**Does** he/she/it **drive**?",
+                "He/she/it **doesn't drive**."
+              ]
+            ]
+          },
           "examples": [
             {
-              "en": "I come from Canada. Where do you come from?"
+              "en": "I come from Canada. Where **do** you **come** from?",
+              "vi": "Tôi đến từ Canada. Bạn đến từ đâu?"
             },
             {
-              "en": "I don't go away very often."
+              "en": "I **don't go** away very often.",
+              "vi": "Tôi không đi đâu thường xuyên."
             },
             {
-              "en": "What does this word mean?",
-              "note": "not What means this word?"
+              "en": "What **does** this word **mean**?",
+              "note": "not What means this word?",
+              "vi": "Từ này có nghĩa là gì?"
             },
             {
-              "en": "Rice doesn't grow in cold climates."
+              "en": "Rice **doesn't grow** in cold climates.",
+              "vi": "Lúa gạo không mọc ở vùng khí hậu lạnh."
             },
             {
-              "en": "'What do you do?' 'I work in a shop.'"
+              "en": "'What **do** you **do**?' 'I work in a shop.'",
+              "note": "do is also the main verb here",
+              "vi": "'Bạn làm nghề gì?' 'Tôi làm việc trong một cửa hàng.'"
             },
             {
-              "en": "He's always so lazy. He doesn't do anything to help."
+              "en": "He's always so lazy. He **doesn't do** anything to help.",
+              "vi": "Anh ấy lúc nào cũng lười biếng như vậy. Anh ấy không làm gì để giúp cả."
             }
           ]
         },
         {
           "label": "D",
           "heading": "Nói về mức độ thường xuyên",
-          "body": "We use the present simple to say how often we do things. It is often used with expressions such as every morning, very often, two or three times a year, and with adverbs of frequency such as usually.",
+          "headingEn": "Saying how often we do things",
+          "body": "We use the present simple to say how often we do things:",
+          "bodyVi": "Chúng ta dùng thì hiện tại đơn để nói mức độ thường xuyên chúng ta làm một việc gì đó:",
           "examples": [
             {
-              "en": "I get up at 8 o'clock every morning."
+              "en": "I **get up** at 8 o'clock **every morning**.",
+              "vi": "Tôi dậy lúc 8 giờ mỗi sáng."
             },
             {
-              "en": "How often do you go to the dentist?"
+              "en": "**How often** do you **go** to the dentist?",
+              "vi": "Bạn đi khám nha sĩ bao lâu một lần?"
             },
             {
-              "en": "Julie doesn't drink tea very often."
+              "en": "Julie **doesn't drink** tea **very often**.",
+              "vi": "Julie không uống trà thường xuyên."
             },
             {
-              "en": "Robert usually goes away two or three times a year."
+              "en": "Robert **usually goes away** two or three times a year.",
+              "vi": "Robert thường đi đâu đó hai hoặc ba lần một năm."
             }
           ]
         },
         {
           "label": "E",
           "heading": "I promise / I apologise và các động từ tương tự",
-          "body": "Sometimes we do things by saying something. For example, when you promise to do something, you can say I promise; when you suggest something, you can say I suggest. In these cases we use the present simple, not the present continuous. In the same way we say: I apologise, I advise, I insist, I agree, I refuse, and so on.",
+          "headingEn": "I promise / I apologise and similar verbs",
+          "body": "Sometimes we do things by saying something. For example, when you promise to do something, you can say **I promise**; when you suggest something, you can say **I suggest**. In these cases we use the *present simple*, not the *present continuous*.\n\nIn the same way we also say:",
+          "bodyVi": "Đôi khi chúng ta làm một việc gì đó bằng cách nói ra điều đó. Ví dụ, khi bạn hứa làm việc gì, bạn có thể nói I promise; khi bạn gợi ý điều gì, bạn có thể nói I suggest. Trong những trường hợp này chúng ta dùng thì hiện tại đơn, không dùng thì hiện tại tiếp diễn.\n\nTương tự như vậy chúng ta cũng nói:",
+          "wordList": [
+            "I apologise",
+            "I advise",
+            "I insist",
+            "I agree",
+            "I refuse"
+          ],
           "examples": [
             {
-              "en": "I promise I won't be late.",
-              "note": "not I'm promising"
+              "en": "**I promise** I won't be late.",
+              "note": "not I'm promising",
+              "vi": "Tôi hứa tôi sẽ không đến muộn."
             },
             {
-              "en": "'What do you suggest I do?' 'I suggest that you ...'"
-            },
-            {
-              "en": "I apologise ... / I advise ... / I insist ... / I agree ... / I refuse ..."
+              "en": "'What do you suggest I do?' '**I suggest** that you ...'",
+              "vi": "'Bạn gợi ý tôi nên làm gì?' 'Tôi gợi ý là bạn nên...'"
             }
           ]
         }
@@ -672,8 +737,11 @@ const UNIT_2_PRESENT_SIMPLE: GrammarUnit = {
     {
       "kind": "type_fill",
       "title": "2.1 · Hoàn thành câu với động từ cho sẵn",
+      "titleEn": "2.1 · Complete the sentences with the given verbs",
       "instructions": "Hoàn thành các câu bằng cách dùng những động từ sau, chia ở dạng đúng của thì hiện tại đơn. Ví dụ: Tanya speaks German very well.",
+      "instructionsEn": "Complete the sentences using the following verbs, in the correct form of the present simple. Example: Tanya speaks German very well.",
       "passage": "Word bank: cause(s), close(s), connect(s), go(es), live(s), speak(s), take(s)",
+      "passageEn": "Word bank: cause(s), close(s), connect(s), go(es), live(s), speak(s), take(s)",
       "items": [
         {
           "prompt": "Ben and Jack ___ to the same school.",
@@ -704,7 +772,9 @@ const UNIT_2_PRESENT_SIMPLE: GrammarUnit = {
     {
       "kind": "type_fill",
       "title": "2.2 · Chia động từ ở dạng đúng",
+      "titleEn": "2.2 · Put the verb into the correct form",
       "instructions": "Đặt động từ trong ngoặc vào dạng đúng của thì hiện tại đơn (khẳng định, phủ định hoặc nghi vấn). Ví dụ: Julia doesn't drink (not / drink) tea very often.",
+      "instructionsEn": "Put the verb in brackets into the correct form of the present simple (positive, negative or question). Example: Julia doesn't drink (not / drink) tea very often.",
       "items": [
         {
           "prompt": "What time ___ (the banks / close) here?",
@@ -749,8 +819,11 @@ const UNIT_2_PRESENT_SIMPLE: GrammarUnit = {
     {
       "kind": "type_fill",
       "title": "2.3 · Hoàn thành câu, có khi cần dạng phủ định",
+      "titleEn": "2.3 · Complete the sentences, sometimes using the negative",
       "instructions": "Hoàn thành các câu bằng những động từ sau. Đôi khi bạn cần dùng dạng phủ định. Ví dụ: The earth goes round the sun. / Rice doesn't grow in cold climates.",
+      "instructionsEn": "Complete the sentences using the following verbs. Sometimes you need the negative form. Example: The earth goes round the sun. / Rice doesn't grow in cold climates.",
       "passage": "Word bank: believe, eat, flow, go, grow, make, rise, tell, translate",
+      "passageEn": "Word bank: believe, eat, flow, go, grow, make, rise, tell, translate",
       "items": [
         {
           "prompt": "The sun ___ in the east.",
@@ -794,7 +867,9 @@ const UNIT_2_PRESENT_SIMPLE: GrammarUnit = {
     {
       "kind": "type_fill",
       "title": "2.4 · Viết câu hỏi",
+      "titleEn": "2.4 · Write questions",
       "instructions": "Bạn hỏi Lisa về bản thân cô ấy và gia đình cô ấy. Hãy viết câu hỏi. Ví dụ: Bạn biết Lisa chơi tennis và muốn biết cô ấy chơi bao lâu một lần: How often do you play tennis?",
+      "instructionsEn": "You ask Lisa about herself and her family. Write the questions. Example: You know that Lisa plays tennis and want to know how often. Ask her: How often do you play tennis?",
       "items": [
         {
           "prompt": "Perhaps Lisa's sister plays tennis too. You want to know. Ask Lisa. ___ your sister ___ ?",
@@ -827,8 +902,11 @@ const UNIT_2_PRESENT_SIMPLE: GrammarUnit = {
     {
       "kind": "type_fill",
       "title": "2.5 · Hoàn thành câu với I promise / I apologise ...",
+      "titleEn": "2.5 · Complete the sentences with I promise / I apologise ...",
       "instructions": "Hoàn thành các câu bằng những cụm sau. Ví dụ: Mr Evans is not in the office today. I suggest you try calling him tomorrow.",
+      "instructionsEn": "Complete the sentences using the following phrases. Example: Mr Evans is not in the office today. I suggest you try calling him tomorrow.",
       "passage": "Word bank: I agree, I apologise, I insist, I promise, I recommend, I suggest",
+      "passageEn": "Word bank: I agree, I apologise, I insist, I promise, I recommend, I suggest",
       "items": [
         {
           "prompt": "I won't tell anybody what you said. ___ .",
@@ -858,7 +936,9 @@ const UNIT_2_PRESENT_SIMPLE: GrammarUnit = {
     {
       "kind": "ai_practice",
       "title": "Luyện với AI",
+      "titleEn": "Practice with AI",
       "instructions": "Hãy viết 2-3 câu tiếng Anh ở thì hiện tại đơn để nói về thói quen, việc bạn làm thường xuyên hoặc một sự thật chung, nhớ thêm -s/-es với he/she/it và dùng do/does cho câu hỏi và câu phủ định.",
+      "instructionsEn": "Write 2-3 English sentences in the present simple to talk about a habit, something you do regularly, or a general fact. Remember to add -s/-es for he/she/it and use do/does for questions and negatives.",
       "ruleSummary": "The present simple (I do / he does) is used for things in general: actions that happen all the time or repeatedly, habits and routines, how often we do things, and facts that are true in general. The base form is used with I, we, you and they, while he, she and it take an -s or -es ending (he works, she teaches, it goes, he has). Questions and negatives are formed with do/does plus the base form, with no -s on the main verb (Where do you come from? What does this word mean? Rice doesn't grow in cold climates.). The present simple is also used for performative verbs where saying something is doing it: I promise, I suggest, I apologise, I advise, I insist, I agree, I refuse (not I'm promising). A correct student sentence should use present simple forms with accurate third-person -s agreement and correct do/does word order, and should express a habit, routine, frequency, general truth or a performative statement rather than an action happening right now."
     }
   ]
@@ -873,106 +953,135 @@ const UNIT_3_PRESENT_CONTINUOUS_AND_SIMPLE_1: GrammarUnit = {
     {
       "kind": "rule",
       "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
       "blocks": [
         {
           "label": "A",
-          "heading": "Present continuous vs present simple: cach dung co ban",
-          "body": "We use the present continuous (I am doing) for things happening at or around the time of speaking. The action is not complete. We use the present simple (I do) for things in general, or things that happen repeatedly. We also use the continuous for temporary situations, things that continue only for a short time, and the simple for permanent situations, things that continue for a long time. See Unit 1 for more information about the present continuous and Unit 2 for the present simple.",
+          "heading": "Present continuous vs present simple: cách dùng cơ bản",
+          "headingEn": "Present continuous vs present simple: the basic use",
+          "intro": "Compare:",
+          "introVi": "So sánh:",
+          "body": "We use the *present continuous* (**I am doing**) for things happening at or around the time of speaking. The action is not complete.\n\nWe use the *present simple* (**I do**) for things in general, or things that happen repeatedly.\n\nWe also use the continuous for temporary situations, things that continue only for a short time, and the simple for permanent situations, things that continue for a long time.\n\nSee Unit 1 for more information about the *present continuous* and Unit 2 for the *present simple*.",
+          "bodyVi": "Chúng ta dùng *hiện tại tiếp diễn* (**I am doing**) cho những việc đang xảy ra tại hoặc quanh thời điểm nói. Hành động đó chưa hoàn thành.\n\nChúng ta dùng *hiện tại đơn* (**I do**) cho những việc nói chung, hoặc những việc xảy ra lặp đi lặp lại.\n\nChúng ta cũng dùng thể tiếp diễn cho các tình huống tạm thời, những việc chỉ tiếp diễn trong thời gian ngắn, và thể đơn cho các tình huống lâu dài, những việc tiếp diễn trong thời gian dài.\n\nXem Unit 1 để biết thêm về *hiện tại tiếp diễn* và Unit 2 để biết thêm về *hiện tại đơn*.",
           "examples": [
             {
-              "en": "The water is boiling. Be careful.",
-              "note": "continuous: happening now"
+              "en": "The water **is boiling**. Be careful.",
+              "note": "continuous: happening now",
+              "vi": "Nước đang sôi. Cẩn thận đấy."
             },
             {
-              "en": "Water boils at 100 degrees Celsius.",
-              "note": "simple: a general fact"
+              "en": "Water **boils** at 100 degrees Celsius.",
+              "note": "simple: a general fact",
+              "vi": "Nước sôi ở 100 độ C."
             },
             {
-              "en": "Listen to those people. What language are they speaking?",
-              "note": "continuous: happening now"
+              "en": "Listen to those people. What language **are they speaking**?",
+              "note": "continuous: happening now",
+              "vi": "Nghe những người đó xem. Họ đang nói ngôn ngữ gì vậy?"
             },
             {
-              "en": "Excuse me, do you speak English?",
-              "note": "simple: in general"
+              "en": "Excuse me, **do you speak** English?",
+              "note": "simple: in general",
+              "vi": "Xin lỗi, bạn có nói được tiếng Anh không?"
             },
             {
-              "en": "Let's go out. It isn't raining now.",
-              "note": "continuous: at the time of speaking"
+              "en": "Let's go out. It **isn't raining** *now*.",
+              "note": "continuous: at the time of speaking",
+              "vi": "Đi ra ngoài thôi. Bây giờ trời không mưa."
             },
             {
-              "en": "It doesn't rain very much in summer.",
-              "note": "simple: in general"
+              "en": "It **doesn't rain** very much in summer.",
+              "note": "simple: in general",
+              "vi": "Mùa hè trời không mưa nhiều."
             },
             {
-              "en": "'I'm busy.' 'What are you doing?'",
-              "note": "continuous: now"
+              "en": "'I'm busy.' 'What **are you doing**?'",
+              "note": "continuous: now",
+              "vi": "'Tôi đang bận.' 'Bạn đang làm gì vậy?'"
             },
             {
-              "en": "What do you usually do at weekends?",
-              "note": "simple: repeated action"
+              "en": "What **do you usually do** at weekends?",
+              "note": "simple: repeated action",
+              "vi": "Bạn thường làm gì vào cuối tuần?"
             },
             {
-              "en": "I'm getting hungry. Let's go and eat.",
-              "note": "continuous: around now"
+              "en": "I**'m getting** hungry. Let's go and eat.",
+              "note": "continuous: around now",
+              "vi": "Tôi đang thấy đói. Đi ăn thôi."
             },
             {
-              "en": "I always get hungry in the afternoon.",
-              "note": "simple: happens repeatedly"
+              "en": "I always **get** hungry in the afternoon.",
+              "note": "simple: happens repeatedly",
+              "vi": "Tôi luôn cảm thấy đói vào buổi chiều."
             },
             {
-              "en": "Kate wants to work in Italy, so she's learning Italian.",
-              "note": "continuous: around the time of speaking"
+              "en": "Kate wants to work in Italy, so she**'s learning** Italian.",
+              "note": "continuous: around the time of speaking",
+              "vi": "Kate muốn làm việc ở Ý, vì vậy cô ấy đang học tiếng Ý."
             },
             {
-              "en": "Most people learn to swim when they are children.",
-              "note": "simple: in general"
+              "en": "Most people **learn** to swim when they are children.",
+              "note": "simple: in general",
+              "vi": "Hầu hết mọi người học bơi khi còn nhỏ."
             },
             {
-              "en": "The population of the world is increasing very fast.",
-              "note": "continuous: changing around now"
+              "en": "The population of the world **is increasing** very fast.",
+              "note": "continuous: changing around now",
+              "vi": "Dân số thế giới đang tăng rất nhanh."
             },
             {
-              "en": "Every day the population of the world increases by about 200,000 people.",
-              "note": "simple: repeated"
+              "en": "Every day the population of the world **increases** by about 200,000 people.",
+              "note": "simple: repeated",
+              "vi": "Mỗi ngày dân số thế giới tăng thêm khoảng 200.000 người."
             },
             {
-              "en": "I'm living with some friends until I find a place of my own.",
-              "note": "continuous: a temporary situation"
+              "en": "I**'m living** with some friends until I find a place of my own.",
+              "note": "continuous: a temporary situation",
+              "vi": "Tôi đang sống cùng vài người bạn cho đến khi tìm được chỗ ở riêng."
             },
             {
-              "en": "My parents live in London. They have lived there all their lives.",
-              "note": "simple: a permanent situation"
+              "en": "My parents **live** in London. They have lived there all their lives.",
+              "note": "simple: a permanent situation",
+              "vi": "Bố mẹ tôi sống ở London. Họ đã sống ở đó suốt cả cuộc đời."
             },
             {
-              "en": "a: You're working hard today. b: Yes, I have a lot to do.",
-              "note": "continuous: temporary, today only"
+              "en": "a: You**'re working** hard today. b: Yes, I have a lot to do.",
+              "note": "continuous: temporary, today only",
+              "vi": "a: Hôm nay bạn làm việc chăm chỉ đấy. b: Vâng, tôi có nhiều việc phải làm."
             },
             {
-              "en": "Joe isn't lazy. He works hard most of the time.",
-              "note": "simple: permanent, in general"
+              "en": "Joe isn't lazy. He **works** hard most of the time.",
+              "note": "simple: permanent, in general",
+              "vi": "Joe không lười đâu. Anh ấy làm việc chăm chỉ hầu hết thời gian."
             }
           ]
         },
         {
           "label": "B",
-          "heading": "I always do va I'm always doing",
-          "body": "I always do something means I do it every time. I'm always doing something means that I do it too often, or more often than normal. It is usually a way of complaining or of saying that something is annoying or surprising.",
+          "heading": "I always do và I'm always doing",
+          "headingEn": "I always do and I'm always doing",
+          "body": "**I always do** something means I do it every time.\n\n**I'm always doing** something means that I do it too often, or more often than normal. It is usually a way of complaining or of saying that something is annoying or surprising.",
+          "bodyVi": "**I always do** something nghĩa là tôi làm việc đó mỗi lần, lần nào cũng vậy.\n\n**I'm always doing** something nghĩa là tôi làm việc đó quá thường xuyên, hoặc thường xuyên hơn mức bình thường. Đây thường là cách để phàn nàn hoặc nói rằng điều gì đó gây khó chịu hay bất ngờ.",
           "examples": [
             {
-              "en": "I always go to work by car.",
-              "note": "not I'm always going"
+              "en": "**I always go** to work by car.",
+              "note": "not I'm always going",
+              "vi": "Tôi luôn đi làm bằng ô tô."
             },
             {
-              "en": "I've lost my keys again. I'm always losing them.",
-              "note": "= I lose them too often, or more often than normal"
+              "en": "I've lost my keys again. I**'m always losing** them.",
+              "note": "= I lose them too often, or more often than normal",
+              "vi": "Tôi lại làm mất chìa khóa nữa rồi. Tôi cứ hay làm mất chúng."
             },
             {
-              "en": "Paul is never satisfied. He's always complaining.",
-              "note": "= he complains too much"
+              "en": "Paul is never satisfied. He**'s always complaining**.",
+              "note": "= he complains too much",
+              "vi": "Paul chẳng bao giờ hài lòng. Anh ấy cứ phàn nàn suốt."
             },
             {
-              "en": "You're always looking at your phone. Don't you have anything else to do?",
-              "note": "= you look at it too often"
+              "en": "You**'re always looking** at your phone. Don't you have anything else to do?",
+              "note": "= you look at it too often",
+              "vi": "Bạn cứ nhìn điện thoại suốt vậy. Bạn không có việc gì khác để làm sao?"
             }
           ]
         }
@@ -981,7 +1090,9 @@ const UNIT_3_PRESENT_CONTINUOUS_AND_SIMPLE_1: GrammarUnit = {
     {
       "kind": "judge_correct",
       "title": "3.1 · Động từ gạch chân đúng hay sai?",
+      "titleEn": "3.1 · Are the underlined verbs right or wrong?",
       "instructions": "Các động từ được gạch chân đã dùng đúng chưa? Nếu đúng thì chọn Đúng rồi, nếu sai thì chọn Cần sửa và viết lại cho đúng.",
+      "instructionsEn": "Are the underlined verbs used correctly? If they are, choose Correct; if not, choose Needs fixing and write the correct form.",
       "items": [
         {
           "sentence": "Water boils at 100 degrees Celsius.",
@@ -1061,8 +1172,11 @@ const UNIT_3_PRESENT_CONTINUOUS_AND_SIMPLE_1: GrammarUnit = {
     {
       "kind": "type_fill",
       "title": "3.2 · Chia động từ: tiếp diễn hay đơn (cặp câu a/b)",
+      "titleEn": "3.2 · Put the verb into the correct form: continuous or simple (sentence pairs a/b)",
       "instructions": "Đặt động từ vào đúng dạng, hiện tại tiếp diễn hoặc hiện tại đơn. Chú ý sự khác nhau giữa câu a và câu b trong từng cặp.",
-      "passage": "Ví dụ trong sách: 1 a I usually get (I / usually / get) hungry in the afternoon. b I'm getting (I / get) hungry. Let's go and eat something.",
+      "instructionsEn": "Put the verb into the correct form, present continuous or present simple. Pay attention to the difference between sentence a and sentence b in each pair.",
+      "passage": "Ví dụ trong sách: 1 a I usually **get** (I / usually / get) hungry in the afternoon. b I**'m getting** (I / get) hungry. Let's go and eat something.",
+      "passageEn": "Example from the book: 1 a I usually **get** (I / usually / get) hungry in the afternoon. b I**'m getting** (I / get) hungry. Let's go and eat something.",
       "items": [
         {
           "prompt": "2 a '___ (you / listen) to the radio?' 'No, you can turn it off.'",
@@ -1110,8 +1224,11 @@ const UNIT_3_PRESENT_CONTINUOUS_AND_SIMPLE_1: GrammarUnit = {
     {
       "kind": "type_fill",
       "title": "3.3 · Chia động từ: tiếp diễn hay đơn",
+      "titleEn": "3.3 · Put the verb into the correct form: continuous or simple",
       "instructions": "Đặt động từ trong ngoặc vào đúng dạng, hiện tại tiếp diễn hoặc hiện tại đơn.",
-      "passage": "Ví dụ trong sách: 1 Why are all these people here? What's happening (What / happen)?",
+      "instructionsEn": "Put the verb in brackets into the correct form, present continuous or present simple.",
+      "passage": "Ví dụ trong sách: 1 Why are all these people here? What**'s happening** (What / happen)?",
+      "passageEn": "Example from the book: 1 Why are all these people here? What**'s happening** (What / happen)?",
       "items": [
         {
           "prompt": "2 Julia is good at languages. ___ (She / speak) four languages very well.",
@@ -1190,8 +1307,11 @@ const UNIT_3_PRESENT_CONTINUOUS_AND_SIMPLE_1: GrammarUnit = {
     {
       "kind": "type_fill",
       "title": "3.4 · Hoàn thành câu của B với always + -ing",
+      "titleEn": "3.4 · Complete B's sentences with always + -ing",
       "instructions": "Hoàn thành câu của người B. Dùng always cùng với động từ ở dạng -ing để nói rằng việc đó xảy ra quá thường xuyên.",
-      "passage": "Ví dụ trong sách: 1 a: I've lost my keys again. b: Not again! You're always losing your keys.",
+      "instructionsEn": "Complete B's sentences. Use always with the -ing form of the verb to say that something happens too often.",
+      "passage": "Ví dụ trong sách: 1 a: I've lost my keys again. b: Not again! You**'re always losing** your keys.",
+      "passageEn": "Example from the book: 1 a: I've lost my keys again. b: Not again! You**'re always losing** your keys.",
       "items": [
         {
           "prompt": "2 a: The car has broken down again. b: That car is useless. It ___.",
@@ -1202,9 +1322,9 @@ const UNIT_3_PRESENT_CONTINUOUS_AND_SIMPLE_1: GrammarUnit = {
         },
         {
           "prompt": "3 a: Look! You've made the same mistake again. b: Oh no, not again! I ___.",
-          "answer": "'m always making the same mistake",
+          "answer": "am always making the same mistake",
           "accept": [
-            "am always making the same mistake",
+            "'m always making the same mistake",
             "'m always making that mistake",
             "am always making that mistake",
             "'m always making mistakes",
@@ -1225,7 +1345,9 @@ const UNIT_3_PRESENT_CONTINUOUS_AND_SIMPLE_1: GrammarUnit = {
     {
       "kind": "ai_practice",
       "title": "Luyện với AI",
+      "titleEn": "Practice with AI",
       "instructions": "Hãy viết 2-3 câu tiếng Anh về chính bạn: dùng hiện tại tiếp diễn cho việc đang xảy ra lúc này hoặc tình huống tạm thời, hiện tại đơn cho thói quen hay sự thật chung, và có thể thêm một câu với always + V-ing để phàn nàn về việc gì đó xảy ra quá thường xuyên.",
+      "instructionsEn": "Write 2-3 English sentences about yourself: use the present continuous for something happening right now or a temporary situation, the present simple for a habit or general fact, and you can add a sentence with always + V-ing to complain about something that happens too often.",
       "ruleSummary": "The present continuous (I am doing) is used for actions happening at or around the moment of speaking and for temporary situations, while the present simple (I do) is used for general truths, permanent situations, and things that happen repeatedly. A correct sentence therefore matches the form to the meaning: continuous for the incomplete, in-progress or short-term (\"The water is boiling\", \"I'm living with friends until I find a place\"), simple for the habitual or permanent (\"Water boils at 100 degrees Celsius\", \"My parents live in London\"). Note the special contrast between I always do something, which means every time, and I'm always doing something, which means it happens too often or more often than normal and usually carries a note of complaint. When judging a student's sentence, check that the time reference and the verb form agree, that the continuous is formed with am/is/are plus -ing, and that the simple has correct third-person -s and do/does in questions and negatives."
     }
   ]
@@ -1240,99 +1362,146 @@ const UNIT_4_PRESENT_CONTINUOUS_AND_SIMPLE_2: GrammarUnit = {
     {
       "kind": "rule",
       "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
       "blocks": [
         {
           "label": "A",
-          "heading": "Verbs not normally used in the continuous",
-          "body": "We use continuous forms (I'm waiting, it's raining etc.) for actions and happenings that have started but not finished. Some verbs, for example know and like, are not normally used in this way. We don't say I am knowing or they are liking. We say I know, they like. The following verbs are not normally used in the present continuous: like, want, need, prefer; know, realise, understand, recognise; believe, suppose, remember, mean; belong, fit, contain, consist, seem.",
+          "heading": "Động từ không dùng ở dạng tiếp diễn",
+          "headingEn": "Verbs not normally used in the continuous",
+          "body": "We use continuous forms (**I'm waiting**, **it's raining** etc.) for actions and happenings that have started but not finished.\n\nSome verbs, for example *know* and *like*, are not normally used in this way. We don't say *I am knowing* or *they are liking*. We say *I know*, *they like*.\n\nThe following verbs are not normally used in the present continuous:",
+          "bodyVi": "Chúng ta dùng các dạng tiếp diễn (**I'm waiting**, **it's raining** ...) để nói về hành động, sự việc đã bắt đầu nhưng chưa kết thúc.\n\nMột số động từ, ví dụ *know* và *like*, thường không được dùng theo cách này. Chúng ta không nói *I am knowing* hay *they are liking*. Chúng ta nói *I know*, *they like*.\n\nCác động từ sau thường không được dùng ở thì hiện tại tiếp diễn:",
+          "wordList": [
+            "like",
+            "want",
+            "need",
+            "prefer",
+            "know",
+            "realise",
+            "understand",
+            "recognise",
+            "believe",
+            "suppose",
+            "remember",
+            "mean",
+            "belong",
+            "fit",
+            "contain",
+            "consist",
+            "seem"
+          ],
           "examples": [
             {
-              "en": "I'm hungry. I want something to eat.",
-              "note": "not I'm wanting"
+              "en": "I'm hungry. I **want** something to eat.",
+              "note": "not I'm wanting",
+              "vi": "Tôi đang đói. Tôi muốn ăn gì đó."
             },
             {
-              "en": "Do you understand what I mean?"
+              "en": "Do you **understand** what I **mean**?",
+              "vi": "Bạn có hiểu ý tôi muốn nói không?"
             },
             {
-              "en": "Anna doesn't seem very happy right now."
+              "en": "Anna doesn't **seem** very happy right *now*.",
+              "vi": "Anna có vẻ không vui lắm ngay *bây giờ*."
             }
           ]
         },
         {
           "label": "B",
-          "heading": "think",
-          "body": "When think means believe or have an opinion, we do not use the continuous. When think means consider, the continuous is possible.",
+          "heading": "Động từ think",
+          "headingEn": "think",
+          "body": "When *think* means *believe* or have an opinion, we do not use the continuous.\n\nWhen *think* means *consider*, the continuous is possible.",
+          "bodyVi": "Khi *think* mang nghĩa *believe* (tin rằng) hoặc để nêu quan điểm, chúng ta không dùng thể tiếp diễn.\n\nKhi *think* mang nghĩa *consider* (xem xét, cân nhắc), thể tiếp diễn có thể dùng được.",
           "examples": [
             {
-              "en": "I think Mary is Canadian, but I'm not sure.",
-              "note": "not I'm thinking"
+              "en": "I **think** Mary is Canadian, but I'm not sure.",
+              "note": "not I'm thinking",
+              "vi": "Tôi nghĩ Mary là người Canada, nhưng tôi không chắc."
             },
             {
-              "en": "What do you think of my idea?",
-              "note": "= what is your opinion?"
+              "en": "What do you **think** of my idea?",
+              "note": "= what is your opinion?",
+              "vi": "Bạn nghĩ thế nào về ý tưởng của tôi?"
             },
             {
-              "en": "I'm thinking about what happened. I often think about it."
+              "en": "I**'m thinking** about what happened. I often **think** about it.",
+              "vi": "Tôi đang suy nghĩ về việc đã xảy ra. Tôi thường nghĩ về nó."
             },
             {
-              "en": "Nicky is thinking of giving up her job.",
-              "note": "= she is considering it"
+              "en": "Nicky **is thinking** of giving up her job.",
+              "note": "= she is considering it",
+              "vi": "Nicky đang cân nhắc việc bỏ công việc của mình."
             }
           ]
         },
         {
           "label": "C",
-          "heading": "see hear smell taste look feel",
-          "body": "We normally use the present simple, not the continuous, with see, hear, smell and taste. You can use either the present simple or the present continuous to say how somebody looks or feels now, but not for something that is generally true.",
+          "heading": "Các động từ see, hear, smell, taste, look, feel",
+          "headingEn": "see, hear, smell, taste, look, feel",
+          "body": "We normally use the present simple, not the continuous, with *see*, *hear*, *smell* and *taste*.\n\nYou can use either the present simple or the present continuous to say how somebody looks or feels *now*, but not for something that is generally true.",
+          "bodyVi": "Chúng ta thường dùng thì hiện tại đơn, không dùng thể tiếp diễn, với *see*, *hear*, *smell* và *taste*.\n\nBạn có thể dùng thì hiện tại đơn hoặc hiện tại tiếp diễn để nói ai đó trông như thế nào hoặc cảm thấy thế nào ngay *bây giờ*, nhưng không dùng thể tiếp diễn cho điều gì đúng nói chung.",
           "examples": [
             {
-              "en": "Do you see that man over there?",
-              "note": "not are you seeing"
+              "en": "Do you **see** that man over there?",
+              "note": "not are you seeing",
+              "vi": "Bạn có thấy người đàn ông đằng kia không?"
             },
             {
-              "en": "The room smells. Let's open a window."
+              "en": "The room **smells**. Let's open a window.",
+              "vi": "Phòng này có mùi. Mở cửa sổ ra đi."
             },
             {
-              "en": "This soup doesn't taste very good."
+              "en": "This soup doesn't **taste** very good.",
+              "vi": "Món súp này không ngon lắm."
             },
             {
-              "en": "You look well today. or You're looking well today."
+              "en": "You **look** well today. or You**'re looking** well today.",
+              "vi": "Hôm nay bạn trông khỏe đấy. hoặc Hôm nay bạn đang trông khỏe đấy."
             },
             {
-              "en": "How do you feel now? or How are you feeling now?"
+              "en": "How do you **feel** now? or How **are** you **feeling** now?",
+              "vi": "Bây giờ bạn cảm thấy thế nào? hoặc Bây giờ bạn đang cảm thấy thế nào?"
             },
             {
-              "en": "I usually feel tired in the morning.",
-              "note": "not I'm usually feeling"
+              "en": "I usually **feel** tired in the morning.",
+              "note": "not I'm usually feeling",
+              "vi": "Tôi thường cảm thấy mệt vào buổi sáng."
             }
           ]
         },
         {
           "label": "D",
-          "heading": "am/is/are being",
-          "body": "You can say he's being ... , you're being ... etc. to say how somebody is behaving now. Compare this with the simple form, which describes what a person is like generally, not only now. We use am/is/are being to say how a person is behaving, that is, doing something they can control, at the moment. It is not usually possible in other situations.",
+          "heading": "Cách dùng am/is/are being",
+          "headingEn": "am/is/are being",
+          "body": "You can say **he's being** ..., **you're being** ... etc. to say how somebody is behaving *now*.\n\nCompare this with the simple form, which describes what a person is like generally, not only *now*.\n\nWe use **am/is/are being** to say how a person is behaving, that is, doing something they can control, at the moment. It is not usually possible in other situations.",
+          "bodyVi": "Bạn có thể nói **he's being** ..., **you're being** ... để nói về cách ai đó đang cư xử ngay *bây giờ*.\n\nSo sánh với dạng đơn, diễn tả một người nói chung là như thế nào, không chỉ ngay bây giờ.\n\nChúng ta dùng **am/is/are being** để nói cách một người đang cư xử, tức là đang làm điều họ có thể kiểm soát, vào lúc này. Cách dùng này thường không áp dụng được trong các trường hợp khác.",
           "examples": [
             {
-              "en": "I can't understand why he's being so selfish. He isn't usually like that.",
-              "note": "being selfish = behaving selfishly now"
+              "en": "I can't understand why he**'s being** so selfish. He isn't usually like that.",
+              "note": "being selfish = behaving selfishly now",
+              "vi": "Tôi không hiểu sao anh ấy lại đang ích kỷ như vậy. Anh ấy thường không như thế."
             },
             {
-              "en": "'The path is icy. Don't slip.' 'Don't worry. I'm being very careful.'"
+              "en": "'The path is icy. Don't slip.' 'Don't worry. I**'m being** very careful.'",
+              "vi": "'Đường trơn đấy. Đừng trượt ngã.' 'Đừng lo. Tôi đang rất cẩn thận.'"
             },
             {
-              "en": "He never thinks about other people. He's very selfish.",
-              "note": "= he is selfish generally, not only now"
+              "en": "He never thinks about other people. He**'s** very selfish.",
+              "note": "= he is selfish generally, not only now",
+              "vi": "Anh ấy chẳng bao giờ nghĩ tới người khác. Anh ấy rất ích kỷ."
             },
             {
-              "en": "I don't like to take risks. I'm a very careful person."
+              "en": "I don't like to take risks. I**'m** a very careful person.",
+              "vi": "Tôi không thích liều lĩnh. Tôi là người rất cẩn thận."
             },
             {
-              "en": "Sam is ill.",
-              "note": "not is being ill"
+              "en": "Sam **is** ill.",
+              "note": "not is being ill",
+              "vi": "Sam đang bị ốm."
             },
             {
-              "en": "Are you tired?",
-              "note": "not are you being tired"
+              "en": "**Are** you tired?",
+              "note": "not are you being tired",
+              "vi": "Bạn có mệt không?"
             }
           ]
         }
@@ -1341,7 +1510,9 @@ const UNIT_4_PRESENT_CONTINUOUS_AND_SIMPLE_2: GrammarUnit = {
     {
       "kind": "type_fill",
       "title": "4.1 · Chia động từ: tiếp diễn hay đơn",
+      "titleEn": "4.1 · Put the verb into the correct form, present continuous or present simple",
       "instructions": "Chia động từ trong ngoặc sang dạng đúng: hiện tại tiếp diễn hoặc hiện tại đơn. Ví dụ: Are you hungry? Do you want (you / want) something to eat?",
+      "instructionsEn": "Put the verb in brackets into the correct form: present continuous or present simple. Example: Are you hungry? Do you want (you / want) something to eat?",
       "items": [
         {
           "prompt": "Alan says he's 90 years old, but nobody ___ (believe) him.",
@@ -1404,8 +1575,11 @@ const UNIT_4_PRESENT_CONTINUOUS_AND_SIMPLE_2: GrammarUnit = {
     {
       "kind": "type_fill",
       "title": "4.2 · Dùng từ trong ngoặc để viết câu",
+      "titleEn": "4.2 · Use the words in brackets to make sentences",
       "instructions": "Dùng các từ trong ngoặc để viết thành câu hoàn chỉnh, chọn hiện tại đơn hoặc hiện tại tiếp diễn cho phù hợp với tình huống. Ví dụ 1: (you / not / seem / very happy today) là You don't seem very happy today.",
+      "instructionsEn": "Use the words in brackets to write complete sentences, choosing the present simple or present continuous to fit the situation. Example 1: (you / not / seem / very happy today) is You don't seem very happy today.",
       "passage": "Mỗi tình huống là một đoạn hội thoại ngắn. Hãy viết câu cho phần được cho trong ngoặc.",
+      "passageEn": "Each situation is a short conversation. Write the sentence for the part given in brackets.",
       "items": [
         {
           "prompt": "A: Are you OK? You look worried. B: ___ (I / think)",
@@ -1441,7 +1615,9 @@ const UNIT_4_PRESENT_CONTINUOUS_AND_SIMPLE_2: GrammarUnit = {
     {
       "kind": "judge_correct",
       "title": "4.3 · Động từ gạch chân đúng hay sai?",
+      "titleEn": "4.3 · Are the underlined verbs OK or wrong?",
       "instructions": "Các động từ được gạch chân có đúng không? Nếu sai, hãy sửa lại. Ví dụ: It's not true. I'm not believing it. sửa thành I don't believe it.",
+      "instructionsEn": "Are the underlined verbs OK? Correct them where necessary. Example: It's not true. I'm not believing it. corrected to I don't believe it.",
       "items": [
         {
           "sentence": "Nicky is thinking of giving up her job.",
@@ -1492,7 +1668,9 @@ const UNIT_4_PRESENT_CONTINUOUS_AND_SIMPLE_2: GrammarUnit = {
     {
       "kind": "type_fill",
       "title": "4.4 · is/are being hay is/are",
+      "titleEn": "4.4 · is/are being or is/are",
       "instructions": "Hoàn thành câu. Dùng is/are being (tiếp diễn) hoặc is/are (đơn). Ví dụ: I can't understand why he's being so selfish. He isn't usually like that.",
+      "instructionsEn": "Complete the sentences. Use is/are being (continuous) or is/are (simple). Example: I can't understand why he's being so selfish. He isn't usually like that.",
       "items": [
         {
           "prompt": "You'll like Sophie when you meet her. She ___ very nice.",
@@ -1528,7 +1706,9 @@ const UNIT_4_PRESENT_CONTINUOUS_AND_SIMPLE_2: GrammarUnit = {
     {
       "kind": "ai_practice",
       "title": "Luyện với AI",
+      "titleEn": "Practice with AI",
       "instructions": "Hãy viết 2-3 câu tiếng Anh dùng đúng điểm ngữ pháp này: một câu với động từ chỉ trạng thái (want, know, believe, seem, belong, fit...) ở hiện tại đơn, và một câu dùng hiện tại tiếp diễn cho hành động đang diễn ra hoặc dùng is/are being để nói về cách ai đó đang cư xử lúc này.",
+      "instructionsEn": "Write 2-3 English sentences using this grammar point correctly: one sentence with a state verb (want, know, believe, seem, belong, fit, etc.) in the present simple, and one sentence using the present continuous for an action in progress or is/are being to talk about how someone is behaving right now.",
       "ruleSummary": "This unit contrasts the present continuous with the present simple for state verbs. Verbs describing states rather than actions (like, want, need, prefer, know, realise, understand, recognise, believe, suppose, remember, mean, belong, fit, contain, consist, seem) are normally used in the present simple, not the continuous. Think and look/feel are special: think in the continuous means considering something (I'm thinking of moving), while think in the simple means having an opinion (I think it's true); see, hear, smell and taste normally take the simple, but look and feel about how someone appears or feels now allow either form. Finally, am/is/are being describes how a person is behaving at this moment (He's being selfish means behaving selfishly now) as opposed to is/are for a general characteristic or a state the person cannot control (He is selfish; Sam is ill, not is being ill). A student's sentence uses this point correctly if a state verb appears in the simple form, or if a continuous form is used for a genuine ongoing action or for controllable behaviour right now."
     }
   ]
@@ -1543,104 +1723,151 @@ const UNIT_5_PAST_SIMPLE: GrammarUnit = {
     {
       "kind": "rule",
       "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
       "blocks": [
         {
           "label": "A",
           "heading": "Quá khứ đơn dùng cho hành động đã kết thúc trong quá khứ",
-          "body": "Study this example. Wolfgang Amadeus Mozart was an Austrian musician and composer. He lived from 1756 to 1791. He started composing at the age of five and wrote more than 600 pieces of music. He was only 35 years old when he died. The forms lived, started, wrote, was and died are all past simple. We use the past simple to talk about actions and situations that finished at a definite time in the past.",
+          "headingEn": "Past simple for actions that finished in the past",
+          "intro": "Study this example:",
+          "introVi": "Hãy xem ví dụ sau:",
+          "body": "Wolfgang Amadeus Mozart was an Austrian musician and composer. He **lived** from 1756 to 1791. He **started** composing at the age of five and **wrote** more than 600 pieces of music. He **was** only 35 years old when he **died**.\n\nThe forms **lived**, **started**, **wrote**, **was** and **died** are all *past simple*. We use the past simple to talk about actions and situations that finished at a definite time in the past.",
+          "bodyVi": "Wolfgang Amadeus Mozart là một nhạc sĩ và nhà soạn nhạc người Áo. Ông **sống** từ năm 1756 đến 1791. Ông **bắt đầu** soạn nhạc từ khi mới năm tuổi và đã **viết** hơn 600 tác phẩm âm nhạc. Ông chỉ mới 35 tuổi khi ông **qua đời**.\n\nCác dạng **lived**, **started**, **wrote**, **was** và **died** đều là *quá khứ đơn*. Chúng ta dùng quá khứ đơn để nói về những hành động và tình huống đã kết thúc tại một thời điểm xác định trong quá khứ.",
           "examples": [
             {
-              "en": "He lived from 1756 to 1791."
+              "en": "He **lived** from 1756 to 1791.",
+              "vi": "Ông sống từ năm 1756 đến 1791."
             },
             {
-              "en": "He started composing at the age of five and wrote more than 600 pieces of music."
+              "en": "He **started** composing at the age of five and **wrote** more than 600 pieces of music.",
+              "vi": "Ông bắt đầu soạn nhạc từ khi mới năm tuổi và đã viết hơn 600 tác phẩm âm nhạc."
             },
             {
-              "en": "He was only 35 years old when he died."
+              "en": "He **was** only 35 years old when he **died**.",
+              "vi": "Ông chỉ mới 35 tuổi khi ông qua đời."
             }
           ]
         },
         {
           "label": "B",
           "heading": "Động từ có quy tắc (-ed) và động từ bất quy tắc",
-          "body": "Very often the past simple ends in -ed. These are regular verbs (work - worked, invite - invited, decide - decided, stop - stopped, pass - passed, study - studied). For spelling rules such as stopped and studied, see Appendix 6. But many verbs are irregular: the past simple does not end in -ed. For example write - wrote, see - saw, go - went, shut - shut (no change). For a list of irregular verbs, see Appendix 1.",
+          "headingEn": "Regular (-ed) and irregular verbs",
+          "body": "Very often the past simple ends in **-ed**. These are regular verbs. For spelling rules such as **stopped** and **studied**, see Appendix 6.\n\nBut many verbs are irregular: the past simple does not end in -ed. For a list of irregular verbs, see Appendix 1.",
+          "bodyVi": "Quá khứ đơn thường tận cùng bằng **-ed**. Đây là các động từ có quy tắc. Về các quy tắc chính tả như **stopped** và **studied**, xem Phụ lục 6.\n\nNhưng nhiều động từ là bất quy tắc: quá khứ đơn của chúng không tận cùng bằng -ed. Xem danh sách động từ bất quy tắc ở Phụ lục 1.",
+          "table": {
+            "rows": [
+              ["work", "**worked**"],
+              ["invite", "**invited**"],
+              ["decide", "**decided**"],
+              ["stop", "**stopped**"],
+              ["pass", "**passed**"],
+              ["study", "**studied**"],
+              ["write", "**wrote**"],
+              ["see", "**saw**"],
+              ["go", "**went**"],
+              ["shut", "**shut** (no change)"]
+            ]
+          },
           "examples": [
             {
-              "en": "I work in a travel agency now. Before that I worked in a department store."
+              "en": "I work in a travel agency now. Before that I **worked** in a department store.",
+              "vi": "Bây giờ tôi làm việc ở một công ty du lịch. Trước đó tôi đã làm việc ở một cửa hàng bách hóa."
             },
             {
-              "en": "They invited us to their party, but we decided not to go."
+              "en": "They **invited** us to their party, but we **decided** not to go.",
+              "vi": "Họ đã mời chúng tôi đến dự tiệc của họ, nhưng chúng tôi đã quyết định không đi."
             },
             {
-              "en": "The police stopped me on my way home last night."
+              "en": "The police **stopped** me on my way home last night.",
+              "vi": "Cảnh sát đã chặn tôi lại trên đường về nhà tối qua."
             },
             {
-              "en": "Laura passed her exam because she studied very hard."
+              "en": "Laura **passed** her exam because she **studied** very hard.",
+              "vi": "Laura đã đậu kỳ thi vì cô ấy đã học rất chăm chỉ."
             },
             {
-              "en": "Mozart wrote more than 600 pieces of music.",
-              "note": "write - wrote"
+              "en": "Mozart **wrote** more than 600 pieces of music.",
+              "note": "write - wrote",
+              "vi": "Mozart đã viết hơn 600 tác phẩm âm nhạc."
             },
             {
-              "en": "We saw Alice in town a few days ago.",
-              "note": "see - saw"
+              "en": "We **saw** Alice in town a few days ago.",
+              "note": "see - saw",
+              "vi": "Chúng tôi đã gặp Alice trong thành phố vài ngày trước."
             },
             {
-              "en": "I went to the cinema three times last week.",
-              "note": "go - went"
+              "en": "I **went** to the cinema three times last week.",
+              "note": "go - went",
+              "vi": "Tôi đã đi xem phim ba lần vào tuần trước."
             },
             {
-              "en": "It was cold, so I shut the window.",
-              "note": "shut - shut"
+              "en": "It was cold, so I **shut** the window.",
+              "note": "shut - shut",
+              "vi": "Trời lạnh, nên tôi đã đóng cửa sổ lại."
             }
           ]
         },
         {
           "label": "C",
           "heading": "Câu hỏi và câu phủ định: did / didn't + nguyên thể",
-          "body": "In questions and negative sentences we use did / didn't + infinitive (enjoy / see / go etc.), not the past form: did you enjoy?, did she see?, did they go?, I didn't enjoy, she didn't see, they didn't go. Sometimes do is the main verb in the sentence, so we get did you do? and I didn't do.",
+          "headingEn": "Questions and negatives: did / didn't + infinitive",
+          "body": "In questions and negative sentences we use **did / didn't** + infinitive (enjoy / see / go etc.), not the past form: *did you enjoy?*, *did she see?*, *did they go?*, I **didn't enjoy**, she **didn't see**, they **didn't go**.\n\nSometimes **do** is the main verb in the sentence, so we get *did you do?* and I **didn't do**.",
+          "bodyVi": "Trong câu hỏi và câu phủ định, chúng ta dùng **did / didn't** + động từ nguyên thể (enjoy / see / go...), không dùng dạng quá khứ: *did you enjoy?*, *did she see?*, *did they go?*, tôi **didn't enjoy**, cô ấy **didn't see**, họ **didn't go**.\n\nĐôi khi **do** chính là động từ chính trong câu, nên ta có *did you do?* và tôi **didn't do**.",
           "examples": [
             {
-              "en": "I enjoyed the party a lot. Did you enjoy it?"
+              "en": "I **enjoyed** the party a lot. **Did** you **enjoy** it?",
+              "vi": "Tôi đã rất thích buổi tiệc đó. Bạn có thích nó không?"
             },
             {
-              "en": "How many people did they invite to the wedding?"
+              "en": "How many people **did** they **invite** to the wedding?",
+              "vi": "Họ đã mời bao nhiêu người đến đám cưới?"
             },
             {
-              "en": "I didn't buy anything because I didn't have any money."
+              "en": "I **didn't buy** anything because I **didn't have** any money.",
+              "vi": "Tôi không mua gì cả vì tôi không có tiền."
             },
             {
-              "en": "'Did you go out?' 'No, I didn't.'"
+              "en": "'**Did** you **go** out?' 'No, I **didn't**.'",
+              "vi": "'Bạn có ra ngoài không?' 'Không, tôi không có.'"
             },
             {
-              "en": "What did you do at the weekend?",
-              "note": "not What did you at the weekend?"
+              "en": "What **did** you **do** at the weekend?",
+              "note": "not What did you at the weekend?",
+              "vi": "Bạn đã làm gì vào cuối tuần?"
             },
             {
-              "en": "I didn't do anything.",
-              "note": "not I didn't anything"
+              "en": "I **didn't do** anything.",
+              "note": "not I didn't anything",
+              "vi": "Tôi không làm gì cả."
             }
           ]
         },
         {
           "label": "D",
           "heading": "Quá khứ của be: was / were",
-          "body": "The past of am / is / are is was / were. I/he/she/it was, wasn't; we/you/they were, weren't. Questions: was I/he/she/it? and were we/you/they? Note that we do not use did with was and were.",
+          "headingEn": "The past of be: was / were",
+          "body": "The past of **am / is / are** is **was / were**.\n\n**I/he/she/it was, wasn't**; **we/you/they were, weren't**. Questions: **was I/he/she/it?** and **were we/you/they?**\n\nNote that we do not use *did* with **was** and **were**.",
+          "bodyVi": "Quá khứ của **am / is / are** là **was / were**.\n\n**I/he/she/it was, wasn't**; **we/you/they were, weren't**. Câu hỏi: **was I/he/she/it?** và **were we/you/they?**\n\nLưu ý là chúng ta không dùng *did* với **was** và **were**.",
           "examples": [
             {
-              "en": "I was annoyed because they were late."
+              "en": "I **was** annoyed because they **were** late.",
+              "vi": "Tôi đã bực vì họ đến muộn."
             },
             {
-              "en": "Was the weather good when you were on holiday?"
+              "en": "**Was** the weather good when you **were** on holiday?",
+              "vi": "Thời tiết có tốt không khi bạn đi nghỉ?"
             },
             {
-              "en": "They weren't able to come because they were so busy."
+              "en": "They **weren't** able to come because they **were** so busy.",
+              "vi": "Họ không thể đến vì họ quá bận."
             },
             {
-              "en": "I wasn't hungry, so I didn't eat anything."
+              "en": "I **wasn't** hungry, so I **didn't eat** anything.",
+              "vi": "Tôi không đói, nên tôi không ăn gì cả."
             },
             {
-              "en": "Did you go out last night or were you too tired?"
+              "en": "**Did** you go out last night or **were** you too tired?",
+              "vi": "Bạn có ra ngoài tối qua không, hay bạn quá mệt?"
             }
           ]
         }
@@ -1649,8 +1876,12 @@ const UNIT_5_PAST_SIMPLE: GrammarUnit = {
     {
       "kind": "type_fill",
       "title": "5.1 · Laura đã làm gì hôm qua",
+      "titleEn": "5.1 · What Laura did yesterday",
       "instructions": "Đọc lời Laura kể về một ngày làm việc điển hình. Hôm qua là một ngày làm việc điển hình của Laura. Viết những việc cô ấy đã làm hoặc đã không làm hôm qua, dùng thì quá khứ đơn.",
+      "instructionsEn": "Read what Laura says about a typical working day. Yesterday was a typical working day for Laura. Write what she did or didn't do yesterday, using the past simple.",
       "passage": "LAURA: I usually get up at 7 o'clock and have a big breakfast. I walk to work, which takes me about half an hour. I start work at 8.45. I never have lunch. I finish work at 5 o'clock. I'm always tired when I get home. I usually cook a meal in the evening. I don't usually go out. I go to bed at about 11 o'clock, and I always sleep well.\n\nVí dụ: 1 She got up at 7 o'clock.",
+      "passageEn": "LAURA: I usually get up at 7 o'clock and have a big breakfast. I walk to work, which takes me about half an hour. I start work at 8.45. I never have lunch. I finish work at 5 o'clock. I'm always tired when I get home. I usually cook a meal in the evening. I don't usually go out. I go to bed at about 11 o'clock, and I always sleep well.\n\nExample: 1 She got up at 7 o'clock.",
+      "startNumber": 2,
       "items": [
         {
           "prompt": "She ___ a big breakfast.",
@@ -1722,8 +1953,12 @@ const UNIT_5_PAST_SIMPLE: GrammarUnit = {
     {
       "kind": "type_fill",
       "title": "5.2 · Hoàn thành câu với động từ cho sẵn",
+      "titleEn": "5.2 · Complete the sentences with the given verbs",
       "instructions": "Hoàn thành các câu sau, dùng những động từ trong khung ở dạng quá khứ đơn đúng.",
+      "instructionsEn": "Complete the following sentences, using the verbs in the box in the correct past simple form.",
       "passage": "buy   catch   cost   fall   hurt   sell   spend   teach   throw   write\n\nVí dụ: 1 Mozart wrote more than 600 pieces of music.",
+      "passageEn": "buy   catch   cost   fall   hurt   sell   spend   teach   throw   write\n\nExample: 1 Mozart wrote more than 600 pieces of music.",
+      "startNumber": 2,
       "items": [
         {
           "prompt": "'How did you learn to drive?' 'My father ___ me.'",
@@ -1766,8 +2001,12 @@ const UNIT_5_PAST_SIMPLE: GrammarUnit = {
     {
       "kind": "type_fill",
       "title": "5.3 · Viết câu hỏi về kỳ nghỉ của James",
+      "titleEn": "5.3 · Write questions about James's holiday",
       "instructions": "Bạn hỏi James về kỳ nghỉ của anh ấy ở Mỹ. Dựa vào câu trả lời của James, viết câu hỏi của bạn ở thì quá khứ đơn.",
+      "instructionsEn": "You ask James about his holiday in the US. Based on James's answers, write your questions in the past simple.",
       "passage": "Ví dụ:\nYOU: Where did you go?\nJAMES: To the US. We went on a trip from San Francisco to Denver.",
+      "passageEn": "Example:\nYOU: Where did you go?\nJAMES: To the US. We went on a trip from San Francisco to Denver.",
+      "startNumber": 2,
       "items": [
         {
           "prompt": "YOU: How ___ ? By car? / JAMES: Yes, we hired a car in San Francisco.",
@@ -1812,8 +2051,12 @@ const UNIT_5_PAST_SIMPLE: GrammarUnit = {
     {
       "kind": "type_fill",
       "title": "5.4 · Dạng khẳng định hay phủ định",
+      "titleEn": "5.4 · Positive or negative form",
       "instructions": "Hoàn thành các câu. Chia động từ trong ngoặc ở thì quá khứ đơn, dạng khẳng định hoặc phủ định cho phù hợp.",
+      "instructionsEn": "Complete the sentences. Put the verb in brackets into the past simple, positive or negative form as appropriate.",
       "passage": "Ví dụ:\n1 It was warm, so I took off my coat. (take)\n2 The film wasn't very good. I didn't enjoy it much. (enjoy)",
+      "passageEn": "Example:\n1 It was warm, so I took off my coat. (take)\n2 The film wasn't very good. I didn't enjoy it much. (enjoy)",
+      "startNumber": 3,
       "items": [
         {
           "prompt": "I knew Sarah was busy, so I ___ her. (disturb)",
@@ -1867,7 +2110,9 @@ const UNIT_5_PAST_SIMPLE: GrammarUnit = {
     {
       "kind": "ai_practice",
       "title": "Luyện với AI",
+      "titleEn": "Practice with AI",
       "instructions": "Hãy viết 2-3 câu tiếng Anh kể về những việc bạn đã làm hoặc đã không làm hôm qua, dùng thì quá khứ đơn (gồm ít nhất một câu phủ định với didn't hoặc một câu dùng was/were).",
+      "instructionsEn": "Write 2-3 English sentences about what you did or didn't do yesterday, using the past simple (including at least one negative sentence with didn't or one sentence using was/were).",
       "ruleSummary": "The past simple describes actions and situations that started and finished at a definite time in the past. Regular verbs add -ed (worked, invited, stopped, studied), while many common verbs are irregular and must be learned (write - wrote, see - saw, go - went, shut - shut). Questions and negatives use did / didn't plus the infinitive, never the past form: Did you enjoy it?, I didn't buy anything, What did you do?. The verb be is the exception: its past is was / wasn't (I/he/she/it) and were / weren't (we/you/they), used without did, as in Was the weather good? and They weren't able to come."
     }
   ]
@@ -1882,341 +2127,240 @@ const UNIT_6_PAST_CONTINUOUS: GrammarUnit = {
     {
       "kind": "rule",
       "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
       "blocks": [
         {
           "label": "A",
           "heading": "Cách thành lập: was/were + -ing",
-          "body": "Study this example situation. Yesterday Karen and Joe played tennis. They started at 10 o'clock and finished at 11.30. So, at 10.30 they were playing tennis. \"They were playing\" means they were in the middle of playing; they had not finished. was/were + -ing is the past continuous: I/he/she/it was playing, we/you/they were playing (doing, working etc.).",
+          "headingEn": "Formation: was/were + -ing",
+          "intro": "Study this example situation:",
+          "introVi": "Hãy xem tình huống ví dụ sau:",
+          "body": "Yesterday Karen and Joe played tennis. They started at 10 o'clock and finished at 11.30. So, at 10.30 they **were playing** tennis.\n\n\"They **were playing**\" means they were in the middle of playing; they had not finished.\n\n**was/were + -ing** is the *past continuous*:",
+          "bodyVi": "Hôm qua Karen và Joe chơi tennis. Họ bắt đầu lúc 10 giờ và kết thúc lúc 11 giờ 30. Vậy, vào lúc 10 giờ 30 họ đang chơi tennis.\n\n\"Họ đang chơi\" có nghĩa là họ đang chơi giữa chừng, họ chưa chơi xong.\n\nwas/were + -ing là thì quá khứ tiếp diễn:",
+          "table": {
+            "rows": [
+              [
+                "I/he/she/it",
+                "**was** playing"
+              ],
+              [
+                "we/you/they",
+                "**were** playing (doing, working etc.)"
+              ]
+            ]
+          },
           "examples": [
             {
               "en": "Yesterday Karen and Joe played tennis. They started at 10 o'clock and finished at 11.30.",
-              "note": "past simple: the complete action"
+              "note": "past simple: the complete action",
+              "vi": "Hôm qua Karen và Joe chơi tennis. Họ bắt đầu lúc 10 giờ và kết thúc lúc 11 giờ 30."
             },
             {
-              "en": "At 10.30 they were playing tennis.",
-              "note": "= they were in the middle of playing, they had not finished"
+              "en": "At 10.30 they **were playing** tennis.",
+              "note": "= they were in the middle of playing, they had not finished",
+              "vi": "Vào lúc 10 giờ 30 họ đang chơi tennis."
             },
             {
-              "en": "he / she / it was playing",
-              "note": "was + -ing"
+              "en": "he/she/it **was playing**",
+              "note": "was + -ing",
+              "vi": "anh ấy/cô ấy/nó đang chơi"
             },
             {
-              "en": "we / you / they were doing",
-              "note": "were + -ing"
+              "en": "we/you/they **were doing**",
+              "note": "were + -ing",
+              "vi": "chúng tôi/bạn/họ đang làm"
             }
           ]
         },
         {
           "label": "B",
           "heading": "Nghĩa: đang ở giữa một hành động trong quá khứ",
-          "body": "I was doing something means I was in the middle of doing it at a certain time. The action or situation started before this time, but had not finished. So the order is: I started doing, I was doing, I finished doing, and the time we are talking about is somewhere in the middle.",
+          "headingEn": "Meaning: in the middle of a past action",
+          "body": "**I was doing** something means I was in the middle of doing it at a certain time. The action or situation started before this time, but had not finished.\n\nSo the order is: I started doing, I **was doing**, I finished doing, and the time we are talking about is somewhere in the middle.",
+          "bodyVi": "I was doing something (tôi đang làm gì đó) có nghĩa là tôi đang làm việc đó giữa chừng vào một thời điểm nhất định. Hành động hoặc tình huống đã bắt đầu trước thời điểm đó nhưng chưa kết thúc.\n\nVậy trình tự là: tôi bắt đầu làm, tôi đang làm, tôi làm xong, và thời điểm chúng ta đang nói tới nằm ở giữa quá trình đó.",
           "examples": [
             {
-              "en": "This time last year I was living in Hong Kong."
+              "en": "This time last year I **was living** in Hong Kong.",
+              "vi": "Vào thời điểm này năm ngoái, tôi đang sống ở Hồng Kông."
             },
             {
-              "en": "What were you doing at 10 o'clock last night?"
+              "en": "What **were** you **doing** at 10 o'clock last night?",
+              "vi": "Bạn đang làm gì vào lúc 10 giờ tối hôm qua?"
             },
             {
-              "en": "I waved to Helen, but she wasn't looking."
+              "en": "I waved to Helen, but she **wasn't looking**.",
+              "vi": "Tôi vẫy tay chào Helen, nhưng cô ấy không nhìn."
             }
           ]
         },
         {
           "label": "C",
           "heading": "So sánh I was doing và I did",
-          "body": "Compare I was doing (past continuous) and I did (past simple). I was doing means we are in the middle of an action, not necessarily finished. I did means a complete action.",
+          "headingEn": "Compare I was doing and I did",
+          "intro": "Compare **I was doing** (*past continuous*) and **I did** (*past simple*):",
+          "introVi": "So sánh I was doing (*quá khứ tiếp diễn*) và I did (*quá khứ đơn*):",
+          "body": "**I was doing** (= in the middle of an action) is different from **I did** (= a complete action).",
+          "bodyVi": "I was doing (đang làm giữa chừng) khác với I did (đã làm xong, một hành động hoàn tất).",
           "examples": [
             {
-              "en": "We were walking home when I met Dan.",
-              "note": "in the middle of walking home"
+              "en": "We **were walking** home when I met Dan.",
+              "note": "in the middle of walking home",
+              "vi": "Chúng tôi đang đi bộ về nhà thì tôi gặp Dan."
             },
             {
               "en": "We walked home after the party last night.",
-              "note": "= all the way, completely"
+              "note": "= all the way, completely",
+              "vi": "Chúng tôi đã đi bộ về nhà sau buổi tiệc tối qua."
             },
             {
-              "en": "Kate was watching TV when we arrived.",
-              "note": "she had already started before we arrived"
+              "en": "Kate **was watching** TV when we arrived.",
+              "note": "she had already started before we arrived",
+              "vi": "Kate đang xem TV khi chúng tôi đến."
             },
             {
               "en": "Kate watched TV a lot when she was ill last year.",
-              "note": "past simple: complete action"
+              "note": "past simple: complete action",
+              "vi": "Kate đã xem TV rất nhiều khi cô ấy bị bệnh năm ngoái."
             }
           ]
         },
         {
           "label": "D",
           "heading": "Một việc xảy ra giữa lúc việc khác đang diễn ra",
-          "body": "You can say that something happened (past simple) in the middle of something else (past continuous). But we use the past simple to say that one thing happened after another. Compare: \"When Karen arrived, we were having dinner\" means we had already started before she arrived, while \"When Karen arrived, we had dinner\" means Karen arrived, and then we had dinner.",
+          "headingEn": "One thing happening in the middle of another",
+          "body": "You can say that something happened (past simple) in the middle of something else (past continuous).\n\nBut we use the past simple to say that one thing happened after another.\n\nCompare:",
+          "bodyVi": "Bạn có thể nói rằng một việc gì đó đã xảy ra (quá khứ đơn) ngay giữa lúc một việc khác đang diễn ra (quá khứ tiếp diễn).\n\nNhưng chúng ta dùng quá khứ đơn để nói rằng việc này xảy ra rồi mới đến việc kia, lần lượt.\n\nSo sánh:",
           "examples": [
             {
-              "en": "Matt phoned while we were having dinner."
+              "en": "Matt phoned while we **were having** dinner.",
+              "vi": "Matt gọi điện khi chúng tôi đang ăn tối."
             },
             {
-              "en": "It was raining when I got up."
+              "en": "It **was raining** when I got up.",
+              "vi": "Trời đang mưa khi tôi ngủ dậy."
             },
             {
-              "en": "I saw you in the park yesterday. You were sitting on the grass and reading a book."
+              "en": "I saw you in the park yesterday. You **were sitting** on the grass and reading a book.",
+              "vi": "Tôi thấy bạn ở công viên hôm qua. Bạn đang ngồi trên cỏ và đọc sách."
             },
             {
-              "en": "I hurt my back while I was working in the garden."
+              "en": "I hurt my back while I **was working** in the garden.",
+              "vi": "Tôi bị đau lưng khi đang làm việc trong vườn."
             },
             {
-              "en": "I was walking along the road when I saw Dan. So I stopped, and we talked for a while.",
-              "note": "past simple for one thing after another"
+              "en": "I **was walking** along the road when I saw Dan. So I stopped, and we talked for a while.",
+              "note": "past simple for one thing after another",
+              "vi": "Tôi đang đi bộ trên đường thì tôi thấy Dan. Vì vậy tôi dừng lại, và chúng tôi nói chuyện một lúc."
             },
             {
-              "en": "When Karen arrived, we were having dinner.",
-              "note": "= we had already started before she arrived"
+              "en": "When Karen arrived, we **were having** dinner.",
+              "note": "= we had already started before she arrived",
+              "vi": "Khi Karen đến, chúng tôi đang ăn tối."
             },
             {
               "en": "When Karen arrived, we had dinner.",
-              "note": "= Karen arrived, and then we had dinner"
+              "note": "= Karen arrived, and then we had dinner",
+              "vi": "Khi Karen đến, chúng tôi mới ăn tối."
             }
           ]
         },
         {
           "label": "E",
           "heading": "Động từ không dùng ở thể tiếp diễn",
-          "body": "Some verbs (for example, know and want) are not normally used in continuous forms (is + -ing, was + -ing etc.). See Unit 4A for a list of these verbs.",
+          "headingEn": "Verbs not used in the continuous",
+          "body": "Some verbs (for example, *know* and *want*) are not normally used in continuous forms (is + -ing, **was** + **-ing** etc.). See Unit 4A for a list of these verbs.",
+          "bodyVi": "Một số động từ (ví dụ *know* và *want*) thường không dùng ở thể tiếp diễn (is + -ing, **was** + **-ing**, v.v.). Xem Unit 4A để biết danh sách các động từ này.",
           "examples": [
             {
               "en": "We were good friends. We knew each other well.",
-              "note": "not we were knowing"
+              "note": "not we were knowing",
+              "vi": "Chúng tôi là những người bạn tốt. Chúng tôi biết rõ về nhau."
             },
             {
-              "en": "I was enjoying the party, but Chris wanted to go home.",
-              "note": "not was wanting"
+              "en": "I **was enjoying** the party, but Chris wanted to go home.",
+              "note": "not was wanting",
+              "vi": "Tôi đang thích thú với buổi tiệc, nhưng Chris muốn về nhà."
             }
           ]
         }
       ]
     },
     {
-      "kind": "fill_mc",
+      "kind": "match_pairs",
       "title": "6.1 · Chọn cụm động từ đúng",
-      "instructions": "Hoàn thành các câu. Chọn một cụm trong khung cho mỗi chỗ trống.",
-      "passage": "Khung từ: was looking / was wearing / wasn't listening / weren't looking / was snowing / was working / were sitting / were you going.\nVí dụ mẫu: Today Helen is wearing a skirt. Yesterday she was wearing trousers.",
-      "items": [
-        {
-          "before": "\"What did he say?\" \"I don't know. I",
-          "after": ".\"",
-          "options": [
-            "was looking",
-            "was wearing",
-            "wasn't listening",
-            "weren't looking",
-            "was snowing",
-            "was working",
-            "were sitting",
-            "were you going"
-          ],
-          "answer": "wasn't listening"
-        },
-        {
-          "before": "We",
-          "after": "at the back of the theatre. We couldn't hear very well.",
-          "options": [
-            "was looking",
-            "was wearing",
-            "wasn't listening",
-            "weren't looking",
-            "was snowing",
-            "was working",
-            "were sitting",
-            "were you going"
-          ],
-          "answer": "were sitting"
-        },
-        {
-          "before": "This time last year Steve",
-          "after": "on a farm.",
-          "options": [
-            "was looking",
-            "was wearing",
-            "wasn't listening",
-            "weren't looking",
-            "was snowing",
-            "was working",
-            "were sitting",
-            "were you going"
-          ],
-          "answer": "was working"
-        },
-        {
-          "before": "They didn't see me. They",
-          "after": "in my direction.",
-          "options": [
-            "was looking",
-            "was wearing",
-            "wasn't listening",
-            "weren't looking",
-            "was snowing",
-            "was working",
-            "were sitting",
-            "were you going"
-          ],
-          "answer": "weren't looking"
-        },
-        {
-          "before": "The weather was bad. It was very cold and it",
-          "after": ".",
-          "options": [
-            "was looking",
-            "was wearing",
-            "wasn't listening",
-            "weren't looking",
-            "was snowing",
-            "was working",
-            "were sitting",
-            "were you going"
-          ],
-          "answer": "was snowing"
-        },
-        {
-          "before": "I saw you in your car. Where",
-          "after": "?",
-          "options": [
-            "was looking",
-            "was wearing",
-            "wasn't listening",
-            "weren't looking",
-            "was snowing",
-            "was working",
-            "were sitting",
-            "were you going"
-          ],
-          "answer": "were you going"
-        },
-        {
-          "before": "I saw Kate a few minutes ago. She",
-          "after": "for you.",
-          "options": [
-            "was looking",
-            "was wearing",
-            "wasn't listening",
-            "weren't looking",
-            "was snowing",
-            "was working",
-            "were sitting",
-            "were you going"
-          ],
-          "answer": "was looking"
-        }
+      "titleEn": "6.1 · Choose the correct verb phrase",
+      "instructions": "Câu 1 đã có mẫu: Yesterday she was wearing trousers. Chạm một câu bên trái, sau đó chạm cụm động từ phù hợp bên phải để hoàn thành câu đó.",
+      "instructionsEn": "Sentence 1 is already done as an example: Yesterday she was wearing trousers. Tap a sentence on the left, then tap the verb phrase on the right that completes it.",
+      "left": [
+        "\"What did he say?\" \"I don't know. I ___.\"",
+        "We ___ at the back of the theatre. We couldn't hear very well.",
+        "This time last year Steve ___ on a farm.",
+        "They didn't see me. They ___ in my direction.",
+        "The weather was bad. It was very cold and it ___.",
+        "I saw you in your car. Where ___?",
+        "I saw Kate a few minutes ago. She ___ for you."
+      ],
+      "right": [
+        "was looking",
+        "wasn't listening",
+        "weren't looking",
+        "was snowing",
+        "was working",
+        "were sitting",
+        "were you going"
+      ],
+      "answers": [
+        "wasn't listening",
+        "were sitting",
+        "was working",
+        "weren't looking",
+        "was snowing",
+        "were you going",
+        "was looking"
       ]
     },
     {
-      "kind": "fill_mc",
+      "kind": "match_pairs",
       "title": "6.2 · Nối hai vế câu",
-      "instructions": "Vế nào đi với vế nào? Chọn phần kết thúc phù hợp cho mỗi câu.",
-      "passage": "Các phần kết thúc: a when she was living in Rome. b she was working in a clothes shop. c when I was driving home. d but nobody was watching it. e while we were watching a film. f my friends were waiting for me. g because he wasn't feeling well.",
-      "items": [
-        {
-          "before": "When I got to the cafe",
-          "after": "",
-          "options": [
-            "when she was living in Rome.",
-            "she was working in a clothes shop.",
-            "when I was driving home.",
-            "but nobody was watching it.",
-            "while we were watching a film.",
-            "my friends were waiting for me.",
-            "because he wasn't feeling well."
-          ],
-          "answer": "my friends were waiting for me."
-        },
-        {
-          "before": "We fell asleep",
-          "after": "",
-          "options": [
-            "when she was living in Rome.",
-            "she was working in a clothes shop.",
-            "when I was driving home.",
-            "but nobody was watching it.",
-            "while we were watching a film.",
-            "my friends were waiting for me.",
-            "because he wasn't feeling well."
-          ],
-          "answer": "while we were watching a film."
-        },
-        {
-          "before": "Amy learnt Italian",
-          "after": "",
-          "options": [
-            "when she was living in Rome.",
-            "she was working in a clothes shop.",
-            "when I was driving home.",
-            "but nobody was watching it.",
-            "while we were watching a film.",
-            "my friends were waiting for me.",
-            "because he wasn't feeling well."
-          ],
-          "answer": "when she was living in Rome."
-        },
-        {
-          "before": "Tom didn't come out with us",
-          "after": "",
-          "options": [
-            "when she was living in Rome.",
-            "she was working in a clothes shop.",
-            "when I was driving home.",
-            "but nobody was watching it.",
-            "while we were watching a film.",
-            "my friends were waiting for me.",
-            "because he wasn't feeling well."
-          ],
-          "answer": "because he wasn't feeling well."
-        },
-        {
-          "before": "The car began to make a strange noise",
-          "after": "",
-          "options": [
-            "when she was living in Rome.",
-            "she was working in a clothes shop.",
-            "when I was driving home.",
-            "but nobody was watching it.",
-            "while we were watching a film.",
-            "my friends were waiting for me.",
-            "because he wasn't feeling well."
-          ],
-          "answer": "when I was driving home."
-        },
-        {
-          "before": "The TV was on",
-          "after": "",
-          "options": [
-            "when she was living in Rome.",
-            "she was working in a clothes shop.",
-            "when I was driving home.",
-            "but nobody was watching it.",
-            "while we were watching a film.",
-            "my friends were waiting for me.",
-            "because he wasn't feeling well."
-          ],
-          "answer": "but nobody was watching it."
-        },
-        {
-          "before": "When I first met Jessica",
-          "after": "",
-          "options": [
-            "when she was living in Rome.",
-            "she was working in a clothes shop.",
-            "when I was driving home.",
-            "but nobody was watching it.",
-            "while we were watching a film.",
-            "my friends were waiting for me.",
-            "because he wasn't feeling well."
-          ],
-          "answer": "she was working in a clothes shop."
-        }
+      "titleEn": "6.2 · Match the two halves of each sentence",
+      "instructions": "Vế nào đi với vế nào? Chạm một vế câu bên trái, sau đó chạm phần kết thúc phù hợp bên phải.",
+      "instructionsEn": "Which goes with which? Tap a sentence half on the left, then tap the ending on the right that goes with it.",
+      "left": [
+        "When I got to the cafe",
+        "We fell asleep",
+        "Amy learnt Italian",
+        "Tom didn't come out with us",
+        "The car began to make a strange noise",
+        "The TV was on",
+        "When I first met Jessica"
+      ],
+      "right": [
+        "when she was living in Rome.",
+        "she was working in a clothes shop.",
+        "when I was driving home.",
+        "but nobody was watching it.",
+        "while we were watching a film.",
+        "my friends were waiting for me.",
+        "because he wasn't feeling well."
+      ],
+      "answers": [
+        "my friends were waiting for me.",
+        "while we were watching a film.",
+        "when she was living in Rome.",
+        "because he wasn't feeling well.",
+        "when I was driving home.",
+        "but nobody was watching it.",
+        "she was working in a clothes shop."
       ]
     },
     {
       "kind": "type_fill",
       "title": "6.3 · Hai mẩu chuyện ngắn",
+      "titleEn": "6.3 · Two short stories",
       "instructions": "Chia động từ trong ngoặc ở thì quá khứ tiếp diễn hoặc quá khứ đơn. Mỗi câu chỉ điền vào chỗ trống được đánh dấu.",
+      "instructionsEn": "Put the verb in brackets into the past continuous or the past simple. Each sentence has just one blank to fill in.",
       "passage": "Mẩu chuyện 1: gặp Sue ngoài phố. Mẩu chuyện 2: đạp xe về nhà và một người đàn ông bước ra đường.",
+      "passageEn": "Story 1: seeing Sue in town. Story 2: cycling home when a man stepped out into the road.",
       "items": [
         {
           "prompt": "I ___ (see) Sue in town yesterday, but she didn't see me. She was looking the other way.",
@@ -2261,8 +2405,11 @@ const UNIT_6_PAST_CONTINUOUS: GrammarUnit = {
     {
       "kind": "type_fill",
       "title": "6.4 · Quá khứ tiếp diễn hay quá khứ đơn",
+      "titleEn": "6.4 · Past continuous or past simple",
       "instructions": "Chia động từ trong ngoặc ở thì quá khứ tiếp diễn hoặc quá khứ đơn. Mỗi câu chỉ điền vào chỗ trống được đánh dấu.",
+      "instructionsEn": "Put the verb in brackets into the past continuous or the past simple. Each sentence has just one blank to fill in.",
       "passage": "Ví dụ mẫu: Jenny was waiting (wait) for me when I arrived (arrive).",
+      "passageEn": "Example: Jenny **was waiting** (wait) for me when I **arrived** (arrive).",
       "items": [
         {
           "prompt": "\"What ___ (you / do) at this time yesterday?\" \"I was asleep.\"",
@@ -2354,7 +2501,9 @@ const UNIT_6_PAST_CONTINUOUS: GrammarUnit = {
     {
       "kind": "ai_practice",
       "title": "Luyện với AI",
-      "instructions": "Hãy viết 2 đến 3 câu tiếng Anh dùng thì quá khứ tiếp diễn (was/were + V-ing) để kể một việc đang diễn ra trong quá khứ thì có việc khác xảy ra chen vào, ví dụ: I was cooking dinner when the phone rang.",
+      "titleEn": "Practice with AI",
+      "instructions": "Hãy viết 2 đến 3 câu tiếng Anh dùng thì quá khứ tiếp diễn (**was/were + V-ing**) để kể một việc đang diễn ra trong quá khứ thì có việc khác xảy ra chen vào, ví dụ: I was cooking dinner when the phone rang.",
+      "instructionsEn": "Write 2 to 3 English sentences using the past continuous (**was/were + V-ing**) to describe something that was happening in the past when another event interrupted it, for example: I was cooking dinner when the phone rang.",
       "ruleSummary": "The past continuous is was/were + -ing and describes an action that was in progress at a point in the past: it had started before that time but had not finished (This time last year I was living in Hong Kong. What were you doing at 10 o'clock last night?). It contrasts with the past simple, which presents a complete action (We were walking home when I met Dan versus We walked home after the party). Very often the two combine: the past simple event happens in the middle of the ongoing past continuous action (It was raining when I got up; Matt phoned while we were having dinner), while two past simple verbs mean one thing happened after another. A correct student sentence should therefore use was/were plus an -ing form for the background or interrupted action, agree the auxiliary with the subject (was for I/he/she/it, were for we/you/they), and should not put stative verbs such as know, want, like, need or believe into the continuous form."
     }
   ]
@@ -2369,107 +2518,147 @@ const UNIT_7_PRESENT_PERFECT_1: GrammarUnit = {
     {
       "kind": "rule",
       "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
       "blocks": [
         {
           "label": "A",
           "heading": "Cấu tạo hiện tại hoàn thành (have/has + past participle)",
-          "body": "Study this example situation: Tom can't find his key. He has lost it. He lost it and he doesn't have it now. Have lost / has lost is the present perfect simple. The present perfect simple is have/has + past participle: I/we/they/you have (I've etc.) and he/she/it has (he's etc.) + finished / lost / done / been etc. The past participle often ends in -ed (finished, decided etc.), but many verbs are irregular (lost, done, written etc.). For a list of irregular verbs, see Appendix 1.",
+          "headingEn": "Formation: have/has + past participle",
+          "intro": "Study this example situation:",
+          "introVi": "Hãy xem tình huống ví dụ sau:",
+          "body": "Tom can't find his key. He**'s lost** his key. (= He **has lost** his key.)\n\n**has lost** his key = he lost it and he doesn't have it now.\n\n**have lost** / **has lost** is the *present perfect simple*.\n\nThe present perfect simple is **have/has + past participle**. The past participle often ends in *-ed* (finished, decided etc.), but many verbs are irregular (lost, done, written etc.).\n\nFor a list of irregular verbs, see Appendix 1.",
+          "bodyVi": "Tom không tìm thấy chìa khóa của mình. Anh ấy **đã làm mất** chìa khóa. (= Anh ấy **đã làm mất** chìa khóa của mình.)\n\n**đã làm mất** chìa khóa có nghĩa là anh ấy làm mất nó và giờ không có nó nữa.\n\n**have lost** / **has lost** là *thì hiện tại hoàn thành đơn*.\n\nThì hiện tại hoàn thành đơn được tạo thành bởi **have/has + phân từ hai (past participle)**. Phân từ hai thường có đuôi *-ed* (finished, decided,...), nhưng nhiều động từ có dạng bất quy tắc (lost, done, written,...).\n\nXem danh sách động từ bất quy tắc ở Phụ lục 1.",
+          "table": {
+            "rows": [
+              [
+                "I/we/they/you",
+                "**have** (**I've** etc.)",
+                "finished / lost / done / been etc."
+              ],
+              [
+                "he/she/it",
+                "**has** (**he's** etc.)",
+                "finished / lost / done / been etc."
+              ]
+            ]
+          },
           "examples": [
             {
-              "en": "I've lost my key."
+              "en": "I**'ve lost** my key.",
+              "vi": "Tôi **đã làm mất** chìa khóa của mình."
             },
             {
-              "en": "He's lost his key.",
-              "note": "= He has lost ..."
-            },
-            {
-              "en": "he has lost his key",
-              "note": "= he lost it and he doesn't have it now"
+              "en": "He**'s lost** his key.",
+              "note": "= He **has lost** ...",
+              "vi": "Anh ấy **đã làm mất** chìa khóa của mình."
             }
           ]
         },
         {
           "label": "B",
           "heading": "Việc mới xảy ra và kết quả ở hiện tại; gone to / been to",
-          "body": "When we say 'something has happened', this is usually new information. When we use the present perfect, there is a connection with now: the action in the past has a result now. Compare gone (to) and been (to): has gone to means the person is there now or on the way there, while has been to means the person has now come back.",
+          "headingEn": "New information with a result now; gone to / been to",
+          "body": "When we say 'something has happened', this is usually **new information**.\n\nWhen we use the present perfect, there is a connection with *now*: the action in the past has a result now.\n\nCompare **gone (to)** and **been (to)**: **has gone to** means the person is there now or on the way there, while **has been to** means the person has now come back.",
+          "bodyVi": "Khi ta nói 'something has happened' (điều gì đó vừa xảy ra), đây thường là **thông tin mới**.\n\nKhi dùng thì hiện tại hoàn thành, có một sự liên kết với *hiện tại*: hành động trong quá khứ có một kết quả ở hiện tại.\n\nSo sánh **gone (to)** và **been (to)**: **has gone to** có nghĩa là người đó đang ở đó hoặc đang trên đường đến đó, còn **has been to** có nghĩa là người đó đã trở về rồi.",
           "examples": [
             {
-              "en": "Ow! I've cut my finger."
+              "en": "Ow! I**'ve cut** my finger.",
+              "vi": "Ối! Tôi **vừa bị cắt** vào ngón tay."
             },
             {
-              "en": "The road is closed. There's been an accident.",
-              "note": "= There has been ..."
+              "en": "The road is closed. There**'s been** an accident.",
+              "note": "= There has been ...",
+              "vi": "Con đường bị chặn. **Vừa xảy ra** một vụ tai nạn."
             },
             {
-              "en": "Police have arrested two men in connection with the robbery."
+              "en": "Police **have arrested** two men in connection with the robbery.",
+              "vi": "Cảnh sát **đã bắt giữ** hai người đàn ông liên quan đến vụ trộm."
             },
             {
-              "en": "Tom has lost his key.",
-              "note": "= he doesn't have it now"
+              "en": "Tom **has lost** his key.",
+              "note": "= he doesn't have it now",
+              "vi": "Tom **đã làm mất** chìa khóa của mình."
             },
             {
-              "en": "He told me his name, but I've forgotten it.",
-              "note": "= I can't remember it now"
+              "en": "He told me his name, but I**'ve forgotten** it.",
+              "note": "= I can't remember it now",
+              "vi": "Anh ấy đã nói tên cho tôi, nhưng tôi **đã quên** rồi."
             },
             {
-              "en": "Sally is still here. She hasn't gone out.",
-              "note": "= she is here now"
+              "en": "Sally is still here. She **hasn't gone** out.",
+              "note": "= she is here now",
+              "vi": "Sally vẫn còn ở đây. Cô ấy **chưa đi** ra ngoài."
             },
             {
-              "en": "I can't find my bag. Have you seen it?",
-              "note": "= do you know where it is now?"
+              "en": "I can't find my bag. **Have** you **seen** it?",
+              "note": "= do you know where it is now?",
+              "vi": "Tôi không tìm thấy túi của mình. Bạn **có thấy** nó không?"
             },
             {
-              "en": "James is on holiday. He has gone to Italy.",
-              "note": "= he is there now or on his way there"
+              "en": "James is on holiday. He **has gone** to Italy.",
+              "note": "= he is there now or on his way there",
+              "vi": "James đang đi nghỉ. Anh ấy **đã đi** đến Ý."
             },
             {
-              "en": "Amy is back home now. She has been to Italy.",
-              "note": "= she has now come back"
+              "en": "Amy is back home now. She **has been** to Italy.",
+              "note": "= she has now come back",
+              "vi": "Amy đã về nhà rồi. Cô ấy **đã từng đi** Ý."
             }
           ]
         },
         {
           "label": "C",
           "heading": "just, already và yet",
-          "body": "You can use the present perfect with just, already and yet. Just = a short time ago. Already = sooner than expected. Yet = until now; we use yet to show that we are expecting something to happen, and we use yet in questions and negative sentences.",
+          "headingEn": "just, already and yet",
+          "body": "You can use the present perfect with **just**, **already** and **yet**.\n\n*Just* = a short time ago.\n\n*Already* = sooner than expected.\n\n*Yet* = until now; we use *yet* to show that we are expecting something to happen, and we use *yet* in questions and negative sentences.",
+          "bodyVi": "Bạn có thể dùng thì hiện tại hoàn thành với **just**, **already** và **yet**.\n\n*Just* = mới vừa (một lúc trước).\n\n*Already* = đã ... rồi (sớm hơn dự kiến).\n\n*Yet* = cho đến giờ (vẫn chưa); ta dùng *yet* để cho thấy ta đang chờ điều gì đó xảy ra, và ta dùng *yet* trong câu hỏi và câu phủ định.",
           "examples": [
             {
-              "en": "'Are you hungry?' 'No, I've just had lunch.'",
-              "note": "just = a short time ago"
+              "en": "'Are you hungry?' 'No, I**'ve just had** lunch.'",
+              "note": "just = a short time ago",
+              "vi": "'Bạn có đói không?' 'Không, tôi **vừa mới ăn** trưa xong.'"
             },
             {
-              "en": "Hello. Have you just arrived?"
+              "en": "Hello. **Have** you **just arrived**?",
+              "vi": "Xin chào. Bạn **vừa mới đến** phải không?"
             },
             {
-              "en": "'Don't forget to pay the bill.' 'I've already paid it.'",
-              "note": "already = sooner than expected"
+              "en": "'Don't forget to pay the bill.' 'I**'ve already paid** it.'",
+              "note": "already = sooner than expected",
+              "vi": "'Đừng quên trả tiền hóa đơn nhé.' 'Tôi **đã trả** rồi.'"
             },
             {
-              "en": "'What time is Mark leaving?' 'He's already left.'"
+              "en": "'What time is Mark leaving?' 'He**'s already left**.'",
+              "vi": "'Mấy giờ Mark đi vậy?' 'Anh ấy **đã đi** rồi.'"
             },
             {
-              "en": "Has it stopped raining yet?",
-              "note": "yet = until now, in questions"
+              "en": "**Has** it **stopped raining** yet?",
+              "note": "yet = until now, in questions",
+              "vi": "Trời **đã hết mưa** chưa?"
             },
             {
-              "en": "I've written the email, but I haven't sent it yet.",
-              "note": "yet in negative sentences"
+              "en": "I**'ve written** the email, but I **haven't sent** it yet.",
+              "note": "yet in negative sentences",
+              "vi": "Tôi **đã viết** email rồi, nhưng tôi **chưa gửi** nó."
             }
           ]
         },
         {
           "label": "D",
           "heading": "Có thể dùng quá khứ đơn thay thế",
-          "body": "You can also use the past simple (did, went, had etc.) in the examples on this page. So both the present perfect and the past simple are possible in these situations.",
+          "headingEn": "The past simple is also possible",
+          "body": "You can also use the **past simple** (did, went, had etc.) in the examples on this page. So both the *present perfect* and the *past simple* are possible in these situations.",
+          "bodyVi": "Bạn cũng có thể dùng **thì quá khứ đơn** (did, went, had,...) trong các ví dụ ở trang này. Vì vậy cả *hiện tại hoàn thành* và *quá khứ đơn* đều có thể dùng trong các tình huống này.",
           "examples": [
             {
-              "en": "Ben isn't here. He's gone out.",
-              "note": "or He went out."
+              "en": "Ben isn't here. He**'s gone** out.",
+              "note": "or He went out.",
+              "vi": "Ben không có ở đây. Anh ấy **đã đi ra ngoài**."
             },
             {
-              "en": "'Are you hungry?' 'No, I've just had lunch.'",
-              "note": "or 'No, I just had lunch.'"
+              "en": "'Are you hungry?' 'No, I**'ve just had** lunch.'",
+              "note": "or 'No, I just had lunch.'",
+              "vi": "'Bạn có đói không?' 'Không, tôi **vừa mới ăn** trưa xong.'"
             }
           ]
         }
@@ -2478,8 +2667,11 @@ const UNIT_7_PRESENT_PERFECT_1: GrammarUnit = {
     {
       "kind": "type_fill",
       "title": "7.1 · Hoàn thành câu với hiện tại hoàn thành",
+      "titleEn": "7.1 · Complete the sentences using the present perfect",
       "instructions": "Đọc các tình huống và hoàn thành câu bằng thì hiện tại hoàn thành. Chọn động từ trong danh sách cho sẵn. Ví dụ: Tom is looking for his key. He can't find it. Tom has lost his key.",
+      "instructionsEn": "Read the situations and complete the sentences using the present perfect. Choose a verb from the list given. Example: Tom is looking for his key. He can't find it. Tom has lost his key.",
       "passage": "Chọn từ các động từ sau: break, disappear, go up, grow, improve, lose, shrink, stop",
+      "passageEn": "Choose from these verbs: break, disappear, go up, grow, improve, lose, shrink, stop",
       "items": [
         {
           "prompt": "Maria's English wasn't very good. Now it is better. Her English ___.",
@@ -2537,7 +2729,9 @@ const UNIT_7_PRESENT_PERFECT_1: GrammarUnit = {
     {
       "kind": "fill_mc",
       "title": "7.2 · Chọn been hoặc gone",
+      "titleEn": "7.2 · Choose been or gone",
       "instructions": "Điền been hoặc gone vào chỗ trống. Ví dụ: My parents are on holiday. They've gone to Italy.",
+      "instructionsEn": "Put in been or gone. Example: My parents are on holiday. They've gone to Italy.",
       "items": [
         {
           "before": "Hello! I've just",
@@ -2580,7 +2774,9 @@ const UNIT_7_PRESENT_PERFECT_1: GrammarUnit = {
     {
       "kind": "type_fill",
       "title": "7.3 · Viết dạng hiện tại hoàn thành từ gợi ý",
+      "titleEn": "7.3 · Complete the sentences using the present perfect",
       "instructions": "Hoàn thành các câu bằng thì hiện tại hoàn thành, dùng các từ trong ngoặc. Ví dụ: Sally is still here. She hasn't gone (she / not / go) out.",
+      "instructionsEn": "Complete the sentences using the present perfect, with the words in brackets. Example: Sally is still here. She hasn't gone (she / not / go) out.",
       "items": [
         {
           "prompt": "I can't find my bag. ___ (you / see / it) anywhere?",
@@ -2652,7 +2848,9 @@ const UNIT_7_PRESENT_PERFECT_1: GrammarUnit = {
     {
       "kind": "type_fill",
       "title": "7.4 · Viết câu với just, already hoặc yet",
+      "titleEn": "7.4 · Write sentences with just, already or yet",
       "instructions": "Đọc các tình huống và viết câu dùng just, already hoặc yet, với động từ cho trong ngoặc. Ví dụ: 'Would you like something to eat?' You say: No thank you. I've just had lunch. (have lunch)",
+      "instructionsEn": "Read the situations and write sentences using just, already or yet, with the verb given in brackets. Example: 'Would you like something to eat?' You say: No thank you. I've just had lunch. (have lunch)",
       "items": [
         {
           "prompt": "Joe goes out. Five minutes later, the phone rings and the caller says, 'Can I speak to Joe?' You say: I'm afraid ___. (go out)",
@@ -2708,7 +2906,9 @@ const UNIT_7_PRESENT_PERFECT_1: GrammarUnit = {
     {
       "kind": "ai_practice",
       "title": "Luyện với AI",
+      "titleEn": "Practice with AI",
       "instructions": "Hãy viết 2-3 câu tiếng Anh dùng thì hiện tại hoàn thành (have/has + past participle) để nói về việc vừa xảy ra và còn ảnh hưởng tới hiện tại, có thể dùng thêm just, already hoặc yet.",
+      "instructionsEn": "Write 2-3 English sentences using the present perfect (have/has + past participle) to talk about something that has just happened and still has an effect now, optionally using just, already or yet.",
       "ruleSummary": "The present perfect simple is have/has + past participle (I have finished, she has lost). It reports something that happened in the past but has a connection with now, usually because the past action has a present result or because the information is new (I've cut my finger; Tom has lost his key, so he doesn't have it now). Note the contrast between has gone to (the person is still away) and has been to (the person has come back). It is often used with just (a short time ago), already (sooner than expected) and yet (until now, only in questions and negatives, normally at the end of the sentence). A correct student sentence must use have/has plus a correct past participle, agree the auxiliary with the subject, and describe a situation with present relevance rather than a finished past time reference such as yesterday or last year."
     }
   ]
@@ -2723,101 +2923,133 @@ const UNIT_8_PRESENT_PERFECT_2: GrammarUnit = {
     {
       "kind": "rule",
       "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
       "blocks": [
         {
           "label": "A",
-          "heading": "A period continuing from the past until now",
-          "body": "When we talk about a period of time that continues from the past until now, we use the present perfect (have been, have travelled etc.). In the example conversation, Dave and Jane talk about the places Jane has visited in her life, and a person's life is a period that continues until now. Note that been (to) means visited.",
+          "heading": "Khoảng thời gian kéo dài từ quá khứ đến hiện tại",
+          "headingEn": "A period continuing from the past until now",
+          "intro": "Study this example conversation:",
+          "introVi": "Hãy xem đoạn hội thoại ví dụ sau:",
+          "body": "When we talk about a period of time that continues from the past until now, we use the *present perfect* (**have been** / **have travelled** etc.). Here, Dave and Jane are talking about the places Jane has visited in her life, which is a period that continues until now.\n\nIn the same way we say:\n\n**been (to)** means *visited*:",
+          "bodyVi": "Khi nói về một khoảng thời gian kéo dài từ quá khứ đến hiện tại, chúng ta dùng *thì hiện tại hoàn thành* (**have been** / **have travelled**, v.v.). Ở đây, Dave và Jane đang nói về những nơi Jane đã từng đến trong đời, và cuộc đời một người là khoảng thời gian kéo dài đến hiện tại.\n\nTheo cách tương tự, chúng ta nói:\n\n**been (to)** có nghĩa là *đã đến, đã từng đến*:",
           "examples": [
             {
-              "en": "Have you travelled a lot, Jane? Yes, I've been to lots of places.",
-              "note": "Jane's life = a period until now"
+              "en": "**Have** you **travelled** a lot, Jane? Yes, I**'ve been** to lots of places.",
+              "note": "Jane's life = a period until now",
+              "vi": "Bạn đã đi du lịch nhiều chưa, Jane? Vâng, tôi đã từng đến rất nhiều nơi."
             },
             {
-              "en": "Really? Have you ever been to China? Yes, I've been to China twice."
+              "en": "**Have** you ever **been** to China? Yes, I**'ve been** to China twice.",
+              "vi": "Bạn đã bao giờ đến Trung Quốc chưa? Vâng, tôi đã đến Trung Quốc hai lần."
             },
             {
-              "en": "What about India? No, I haven't been to India."
+              "en": "What about India? No, I **haven't been** to India.",
+              "vi": "Còn Ấn Độ thì sao? Chưa, tôi chưa từng đến Ấn Độ."
             },
             {
-              "en": "Have you ever eaten caviar?"
+              "en": "**Have** you ever **eaten** caviar?",
+              "vi": "Bạn đã bao giờ ăn trứng cá caviar chưa?"
             },
             {
-              "en": "We've never had a car."
+              "en": "We**'ve** never **had** a car.",
+              "vi": "Chúng tôi chưa từng có ô tô bao giờ."
             },
             {
-              "en": "I don't know what the film is about. I haven't seen it."
+              "en": "I don't know what the film is about. I **haven't seen** it.",
+              "vi": "Tôi không biết bộ phim đó nói về gì. Tôi chưa xem nó."
             },
             {
-              "en": "Susan really loves that book. She's read it three times.",
-              "note": "She's = She has"
+              "en": "Susan really loves that book. She**'s read** it three times.",
+              "note": "She's = She has",
+              "vi": "Susan rất thích cuốn sách đó. Cô ấy đã đọc nó ba lần."
             },
             {
-              "en": "It's a really boring movie. It's the most boring movie I've ever seen."
+              "en": "It's a really boring movie. It's the most boring movie I**'ve** ever **seen**.",
+              "vi": "Đó là một bộ phim thực sự chán. Đó là bộ phim chán nhất mà tôi từng xem."
             },
             {
-              "en": "I've never been to Canada. Have you been there?",
-              "note": "been (to) = visited"
+              "en": "I**'ve** never **been** to Canada. Have you been there?",
+              "note": "been (to) = visited",
+              "vi": "Tôi chưa từng đến Canada bao giờ. Bạn đã đến đó chưa?"
             }
           ]
         },
         {
           "label": "B",
-          "heading": "recently, so far, today, this year: unfinished periods",
-          "body": "We also use the present perfect when the speaker is talking about a period that continues until now, with expressions such as recently, in the last few days, so far and since I arrived. In the same way we use the present perfect with today, this evening, this year etc. when these periods are not finished at the time of speaking.",
+          "heading": "Các mốc thời gian chưa kết thúc: recently, so far, today, this year",
+          "headingEn": "recently, so far, today, this year: unfinished periods",
+          "body": "In the following examples too, the speakers are talking about a period that continues until now (**recently**, **in the last few days**, **so far**, **since I arrived** etc.):\n\nIn the same way we use the *present perfect* with **today**, **this evening**, **this year** etc. when these periods are not finished at the time of speaking:",
+          "bodyVi": "Trong các ví dụ sau, người nói cũng đang nhắc đến một khoảng thời gian kéo dài đến hiện tại (**recently** [gần đây], **in the last few days** [trong vài ngày qua], **so far** [cho đến nay], **since I arrived** [từ khi tôi đến], v.v.):\n\nTheo cách tương tự, chúng ta dùng *thì hiện tại hoàn thành* với **today** (hôm nay), **this evening** (tối nay), **this year** (năm nay), v.v. khi những khoảng thời gian này chưa kết thúc tại thời điểm nói:",
           "examples": [
             {
-              "en": "Have you heard anything from Ben recently?"
+              "en": "**Have** you **heard** anything from Ben **recently**?",
+              "vi": "Gần đây bạn có nghe được tin gì từ Ben không?"
             },
             {
-              "en": "I've met a lot of people in the last few days."
+              "en": "I**'ve met** a lot of people **in the last few days**.",
+              "vi": "Tôi đã gặp rất nhiều người trong vài ngày qua."
             },
             {
-              "en": "Everything is going well. There haven't been any problems so far."
+              "en": "Everything is going well. There **haven't been** any problems **so far**.",
+              "vi": "Mọi thứ đều đang diễn ra tốt đẹp. Cho đến nay chưa có vấn đề gì cả."
             },
             {
-              "en": "The weather is bad here. It's rained every day since I arrived.",
-              "note": "It's = It has; since I arrived = from when I arrived until now"
+              "en": "The weather is bad here. It**'s rained** every day **since I arrived**.",
+              "note": "It's = It has; since I arrived = from when I arrived until now",
+              "vi": "Ở đây thời tiết rất xấu. Ngày nào cũng mưa từ khi tôi đến đây."
             },
             {
-              "en": "It's good to see you again. We haven't seen each other for a long time."
+              "en": "It's good to see you again. We **haven't seen** each other for a long time.",
+              "vi": "Gặp lại bạn thật vui. Chúng ta đã không gặp nhau một thời gian dài rồi."
             },
             {
-              "en": "I've drunk four cups of coffee today.",
-              "note": "today is not finished"
+              "en": "I**'ve drunk** four cups of coffee **today**.",
+              "note": "today is not finished",
+              "vi": "Hôm nay tôi đã uống bốn cốc cà phê."
             },
             {
-              "en": "Have you had a holiday this year?"
+              "en": "**Have** you **had** a holiday **this year**?",
+              "vi": "Năm nay bạn đã đi nghỉ chưa?"
             },
             {
-              "en": "I haven't seen Tom this morning. Have you?"
+              "en": "I **haven't seen** Tom **this morning**. Have you?",
+              "vi": "Sáng nay tôi chưa gặp Tom. Bạn có gặp không?"
             }
           ]
         },
         {
           "label": "C",
-          "heading": "It's the first time something has happened",
-          "body": "We say It's the (first) time something has happened. For example, if Don is having his first driving lesson, we can say It's the first time he has driven a car, or He hasn't driven a car before, or He has never driven a car before. We use the present perfect here, not the present simple.",
+          "heading": "Cấu trúc It's the first time ... has happened",
+          "headingEn": "It's the first time something has happened",
+          "body": "We say **It's the (first) time** something **has happened**. For example, Don is having a driving lesson. It's his first lesson. We can say:\n\nIn the same way we say:",
+          "bodyVi": "Chúng ta nói **It's the (first) time** (đây là lần đầu tiên) một điều gì đó **has happened** (đã xảy ra). Ví dụ, Don đang học lái xe. Đây là buổi học lái đầu tiên của anh ấy. Chúng ta có thể nói:\n\nTheo cách tương tự, chúng ta nói:",
           "examples": [
             {
-              "en": "It's the first time he has driven a car.",
-              "note": "not It's the first time he drives a car"
+              "en": "It**'s the first time** he **has driven** a car.",
+              "note": "not It's the first time he drives a car",
+              "vi": "Đây là lần đầu tiên anh ấy lái ô tô."
             },
             {
-              "en": "He hasn't driven a car before."
+              "en": "He **hasn't driven** a car before.",
+              "vi": "Anh ấy chưa lái ô tô bao giờ trước đây."
             },
             {
-              "en": "He has never driven a car before."
+              "en": "He **has** never **driven** a car before.",
+              "vi": "Anh ấy chưa từng lái ô tô bao giờ."
             },
             {
-              "en": "This is the first time I've driven a car."
+              "en": "This **is the first time** I**'ve driven** a car.",
+              "vi": "Đây là lần đầu tiên tôi lái ô tô."
             },
             {
-              "en": "Sarah has lost her passport again. This is the second time this has happened.",
-              "note": "not this happens"
+              "en": "Sarah **has lost** her passport again. **This is the second time** this **has happened**.",
+              "note": "not this happens",
+              "vi": "Sarah lại làm mất hộ chiếu nữa rồi. Đây là lần thứ hai điều này xảy ra."
             },
             {
-              "en": "Andy is phoning his girlfriend again. It's the third time he's phoned her this evening."
+              "en": "Andy is phoning his girlfriend again. It**'s the third time** he**'s phoned** her this evening.",
+              "vi": "Andy lại đang gọi điện cho bạn gái. Đây là lần thứ ba tối nay anh ấy gọi cho cô ấy."
             }
           ]
         }
@@ -2826,8 +3058,11 @@ const UNIT_8_PRESENT_PERFECT_2: GrammarUnit = {
     {
       "kind": "type_fill",
       "title": "8.1 · Đặt câu hỏi với ever",
+      "titleEn": "8.1 · Write questions with ever",
       "instructions": "Bạn hỏi mọi người về những việc họ đã từng làm. Viết câu hỏi đầy đủ với ever, dùng thì hiện tại hoàn thành.",
+      "instructionsEn": "You are asking people about things they have done. Write full questions with ever, using the present perfect.",
       "passage": "Ví dụ: 1 (ride / horse?) Have you ever ridden a horse?",
+      "passageEn": "Example: 1 (ride / horse?) Have you ever ridden a horse?",
       "items": [
         {
           "prompt": "2 (be / California?) ___",
@@ -2865,8 +3100,11 @@ const UNIT_8_PRESENT_PERFECT_2: GrammarUnit = {
     {
       "kind": "type_fill",
       "title": "8.2 · Hoàn thành câu trả lời của B",
+      "titleEn": "8.2 · Complete B's answers",
       "instructions": "Hoàn thành câu trả lời của B. Một số câu ở dạng khẳng định, một số ở dạng phủ định. Dùng các động từ trong khung, chia ở thì hiện tại hoàn thành.",
+      "instructionsEn": "Complete B's answers. Some sentences are positive and some are negative. Use the verbs in the box, in the present perfect.",
       "passage": "Động từ dùng cho bài này: be, be, eat, happen, have, have, meet, play, read, see, try\n\nVí dụ: 1 A: What's Mark's sister like? B: I've no idea. I've never met her.",
+      "passageEn": "Verbs to use for this exercise: be, be, eat, happen, have, have, meet, play, read, see, try\n\nExample: 1 A: What's Mark's sister like? B: I've no idea. I've never met her.",
       "items": [
         {
           "prompt": "2 A: Is everything going well? B: Yes, we ___ any problems so far.",
@@ -2955,8 +3193,11 @@ const UNIT_8_PRESENT_PERFECT_2: GrammarUnit = {
     {
       "kind": "type_fill",
       "title": "8.4 · Đọc tình huống và hoàn thành câu",
+      "titleEn": "8.4 · Read the situations and complete the sentences",
       "instructions": "Đọc các tình huống rồi hoàn thành câu bằng thì hiện tại hoàn thành (It's the first time ... / ... hasn't ... before).",
+      "instructionsEn": "Read the situations and complete the sentences using the present perfect (It's the first time ... / ... hasn't ... before).",
       "passage": "Ví dụ: 1 Jack is driving a car for the first time. He's very nervous and not sure what to do. It's the first time he's driven a car.",
+      "passageEn": "Example: 1 Jack is driving a car for the first time. He's very nervous and not sure what to do. It's the first time he's driven a car.",
       "items": [
         {
           "prompt": "2 Some children at the zoo are looking at a giraffe. They've never seen one before. It's the first time ___ a giraffe.",
@@ -3007,7 +3248,9 @@ const UNIT_8_PRESENT_PERFECT_2: GrammarUnit = {
     {
       "kind": "ai_practice",
       "title": "Luyện với AI",
-      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng thì hiện tại hoàn thành cho khoảng thời gian kéo dài đến hiện tại: nói về trải nghiệm trong đời bạn (I've been to ... / I've never eaten ...), về hôm nay hoặc tuần này (I haven't seen him today), hoặc dùng mẫu It's the first time I've ...",
+      "titleEn": "Practice with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng thì hiện tại hoàn thành cho khoảng thời gian kéo dài đến hiện tại: nói về trải nghiệm trong đời bạn (I've been to ... / I've never eaten ...), về những điều bạn chưa làm hôm nay, tuần này, gần đây hoặc từ lâu rồi (I haven't used a computer today. I haven't travelled by bus for ages.), hoặc dùng mẫu It's the first time I've ...",
+      "instructionsEn": "Write 2-3 English sentences using the present perfect for a period of time that continues until now: talk about a life experience (I've been to ... / I've never eaten ...), about something you haven't done today, this week, recently or for ages (I haven't used a computer today. I haven't travelled by bus for ages.), or use the pattern It's the first time I've ...",
       "ruleSummary": "This unit practises the present perfect (have/has + past participle) for a period of time that continues from the past until now. It covers life experience, often with ever or never (Have you ever been to China? I've never had a car. It's the most boring film I've ever seen), where been to means visited; unfinished time periods such as recently, in the last few days, so far, since I arrived, today, this evening and this year (I've drunk four cups of coffee today. There haven't been any problems so far); and the pattern It's the (first/second/third) time something has happened, where the present perfect is required, not the present simple (It's the first time he has driven a car, not he drives; This is the second time this has happened, not happens). A correct student sentence must use have/has plus a correct past participle, must refer to a period that includes the present moment (not a finished past time such as yesterday or last year), and must form negatives and questions with haven't/hasn't and Have/Has."
     }
   ]
@@ -3022,85 +3265,129 @@ const UNIT_9_PRESENT_PERFECT_CONTINUOUS: GrammarUnit = {
     {
       "kind": "rule",
       "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
       "blocks": [
         {
           "label": "A",
-          "heading": "have/has been + -ing: an activity that has just stopped",
-          "body": "have/has been + -ing is the present perfect continuous (I/we/they/you have been doing; he/she/it has been doing). We use it for an activity that has recently stopped or has just stopped. The ground being wet even though it isn't raining now is a typical example: something happened over a period leading up to now.",
+          "heading": "have/has been + -ing: hành động vừa mới kết thúc",
+          "headingEn": "have/has been + -ing: an activity that has just stopped",
+          "intro": "Study this example situation:",
+          "introVi": "Hãy xem tình huống ví dụ sau:",
+          "body": "**have/has been + -ing** is the *present perfect continuous*.\n\nWe use it for an activity that has recently stopped or has just stopped. The ground being wet even though it isn't raining *now* is a typical example: something happened over a period leading up to now.",
+          "bodyVi": "**have/has been + -ing** là thì *hiện tại hoàn thành tiếp diễn*.\n\nChúng ta dùng thì này cho một hoạt động vừa mới dừng lại hoặc đã dừng lại gần đây. Mặt đất bị ướt dù trời hiện *không* mưa là một ví dụ điển hình: một việc gì đó đã xảy ra trong suốt một khoảng thời gian dẫn đến hiện tại.",
+          "table": {
+            "rows": [
+              [
+                "I/we/they/you",
+                "**have** (= **I've**, **we've**, **they've**, **you've**)",
+                "**been doing**"
+              ],
+              [
+                "he/she/it",
+                "**has** (= **he's**, **she's**, **it's**)",
+                "**been working**, **learning** etc."
+              ]
+            ]
+          },
           "examples": [
             {
-              "en": "Is it raining? No, but the ground is wet. It's been raining.",
-              "note": "It's been = It has been"
+              "en": "Is it raining? No, but the ground is wet. It**'s been raining**.",
+              "note": "It's been = It has been",
+              "vi": "Trời có đang mưa không? Không, nhưng mặt đất thì ướt. Trời vừa mưa xong."
             },
             {
-              "en": "Why are you out of breath? Have you been running?"
+              "en": "Why are you out of breath? **Have** you **been running**?",
+              "vi": "Sao bạn lại thở hổn hển vậy? Bạn vừa chạy à?"
             },
             {
-              "en": "Paul is very tired. He's been working hard."
+              "en": "Paul is very tired. He**'s been working** hard.",
+              "vi": "Paul rất mệt. Anh ấy đã làm việc vất vả suốt thời gian qua."
             },
             {
-              "en": "Why are you so tired? What have you been doing?"
+              "en": "Why are you so tired? What **have** you **been doing**?",
+              "vi": "Sao bạn mệt vậy? Bạn đã làm gì thế?"
             },
             {
-              "en": "I've been talking to Amanda and she agrees with me."
+              "en": "I**'ve been talking** to Amanda and she agrees with me.",
+              "vi": "Tôi vừa nói chuyện với Amanda xong và cô ấy đồng ý với tôi."
             },
             {
-              "en": "Where have you been? I've been looking for you."
+              "en": "Where have you been? I**'ve been looking** for you.",
+              "vi": "Bạn đã đi đâu vậy? Tôi tìm bạn nãy giờ đấy."
             }
           ]
         },
         {
           "label": "B",
-          "heading": "how long, for, since: an activity that is still happening",
-          "body": "We also use the present perfect continuous, especially with how long, for and since, when the activity is still happening now or has only just stopped. It can describe a single continuing activity or something repeated over a period.",
+          "heading": "how long, for, since: hành động vẫn đang tiếp diễn",
+          "headingEn": "how long, for, since: an activity that is still happening",
+          "intro": "Study this example situation:",
+          "introVi": "Hãy xem tình huống ví dụ sau:",
+          "body": "We also use the present perfect continuous, especially with **how long**, *for* and *since*, when the activity is still happening now or has only just stopped.\n\nIt can also describe something repeated over a period up to now.",
+          "bodyVi": "Chúng ta cũng dùng thì hiện tại hoàn thành tiếp diễn, đặc biệt với how long, for và since, khi hoạt động vẫn đang diễn ra hoặc vừa mới dừng lại.\n\nNó cũng có thể diễn tả một việc được lặp lại trong suốt một khoảng thời gian tính đến hiện tại.",
           "examples": [
             {
-              "en": "It began raining two hours ago and it is still raining. How long has it been raining? It's been raining for two hours."
+              "en": "It began raining two hours ago and it is still raining. How long **has** it **been raining**? It**'s been raining** for two hours.",
+              "vi": "Trời bắt đầu mưa từ hai giờ trước và đến giờ vẫn còn mưa. Trời đã mưa được bao lâu rồi? Trời đã mưa được hai giờ rồi."
             },
             {
-              "en": "How long have you been learning English?",
-              "note": "you're still learning English"
+              "en": "How long **have** you **been learning** English?",
+              "note": "you're still learning English",
+              "vi": "Bạn đã học tiếng Anh được bao lâu rồi?"
             },
             {
-              "en": "Ben is watching TV. He's been watching TV all day."
+              "en": "Ben is watching TV. He**'s been watching** TV all day.",
+              "vi": "Ben đang xem TV. Anh ấy đã xem TV cả ngày rồi."
             },
             {
-              "en": "Where have you been? I've been looking for you for the last half hour."
+              "en": "Where have you been? I**'ve been looking** for you for the last half hour.",
+              "vi": "Bạn đã đi đâu vậy? Tôi đã tìm bạn suốt nửa giờ qua."
             },
             {
-              "en": "Chris hasn't been feeling well recently."
+              "en": "Chris **hasn't been feeling** well recently.",
+              "vi": "Gần đây Chris không cảm thấy khỏe."
             },
             {
-              "en": "Silvia is a very good tennis player. She's been playing since she was eight.",
-              "note": "a repeated action"
+              "en": "Silvia is a very good tennis player. She**'s been playing** since she was eight.",
+              "note": "a repeated action",
+              "vi": "Silvia là một tay vợt tennis rất giỏi. Cô ấy đã chơi tennis từ khi tám tuổi."
             },
             {
-              "en": "Every morning they meet in the same cafe. They've been going there for years."
+              "en": "Every morning they meet in the same cafe. They**'ve been going** there for years.",
+              "vi": "Mỗi sáng họ đều gặp nhau ở cùng một quán cà phê. Họ đã đến đó nhiều năm rồi."
             }
           ]
         },
         {
           "label": "C",
-          "heading": "I am doing vs I have been doing",
-          "body": "Compare the present continuous (I am doing), which describes what is happening right now, with the present perfect continuous (I have been doing), which looks back at an activity over a period up to now.",
+          "heading": "So sánh I am doing và I have been doing",
+          "headingEn": "I am doing vs I have been doing",
+          "body": "Compare the present continuous (*I am doing*), which describes what is happening right now, with the present perfect continuous (**I have been doing**), which looks back at an activity over a period up to now.",
+          "bodyVi": "So sánh thì hiện tại tiếp diễn (*I am doing*), diễn tả điều đang xảy ra ngay lúc này, với thì hiện tại hoàn thành tiếp diễn (**I have been doing**), nhìn lại một hoạt động trong suốt một khoảng thời gian tính đến hiện tại.",
           "examples": [
             {
-              "en": "Don't disturb me now. I'm working."
+              "en": "Don't disturb me *now*. I'm working.",
+              "vi": "Đừng làm phiền tôi bây giờ. Tôi đang làm việc."
             },
             {
-              "en": "I've been working hard. Now I'm going to have a break."
+              "en": "I**'ve been working** hard. Now I'm going to have a break.",
+              "vi": "Tôi đã làm việc vất vả suốt thời gian qua. Giờ tôi sẽ nghỉ một chút."
             },
             {
-              "en": "We need an umbrella. It's raining."
+              "en": "We need an umbrella. It's raining.",
+              "vi": "Chúng ta cần một cái dù. Trời đang mưa."
             },
             {
-              "en": "The ground is wet. It's been raining."
+              "en": "The ground is wet. It**'s been raining**.",
+              "vi": "Mặt đất bị ướt. Trời đã mưa."
             },
             {
-              "en": "Hurry up! We're waiting."
+              "en": "Hurry up! We're waiting.",
+              "vi": "Nhanh lên! Chúng tôi đang đợi đây."
             },
             {
-              "en": "We've been waiting for an hour."
+              "en": "We**'ve been waiting** for an hour.",
+              "vi": "Chúng tôi đã đợi suốt một giờ rồi."
             }
           ]
         }
@@ -3109,8 +3396,11 @@ const UNIT_9_PRESENT_PERFECT_CONTINUOUS: GrammarUnit = {
     {
       "kind": "type_fill",
       "title": "9.2 · Viết câu hỏi cho từng tình huống",
+      "titleEn": "9.2 · Write a question for each situation",
       "instructions": "Viết một câu hỏi cho mỗi tình huống, dùng thì hiện tại hoàn thành tiếp diễn (have/has been + -ing).",
+      "instructionsEn": "Write a question for each situation, using the present perfect continuous (have/has been + -ing).",
       "passage": "Ví dụ: 1 You meet Kate as she is leaving the swimming pool. Hi, Kate. (you / swim?) Have you been swimming?",
+      "passageEn": "Example: 1 You meet Kate as she is leaving the swimming pool. Hi, Kate. (you / swim?) Have you been swimming?",
       "items": [
         {
           "prompt": "2 You have arrived a little late to meet Ben who is waiting for you. You say: (you / wait / long?) ___",
@@ -3133,8 +3423,11 @@ const UNIT_9_PRESENT_PERFECT_CONTINUOUS: GrammarUnit = {
     {
       "kind": "type_fill",
       "title": "9.3 · Đọc tình huống và hoàn thành câu",
+      "titleEn": "9.3 · Read the situations and complete the sentences",
       "instructions": "Đọc tình huống rồi hoàn thành câu bằng thì hiện tại hoàn thành tiếp diễn (have/has been + -ing).",
+      "instructionsEn": "Read the situation, then complete the sentence using the present perfect continuous (have/has been + -ing).",
       "passage": "Ví dụ: 1 It's raining. The rain started two hours ago. It's been raining for two hours.",
+      "passageEn": "Example: 1 It's raining. The rain started two hours ago. It's been raining for two hours.",
       "items": [
         {
           "prompt": "2 We are waiting for the bus. We started waiting 20 minutes ago. We ___ for 20 minutes.",
@@ -3172,8 +3465,11 @@ const UNIT_9_PRESENT_PERFECT_CONTINUOUS: GrammarUnit = {
     {
       "kind": "type_fill",
       "title": "9.4 · Chọn hiện tại tiếp diễn hay hiện tại hoàn thành tiếp diễn",
+      "titleEn": "9.4 · Choose the present continuous or the present perfect continuous",
       "instructions": "Chia động từ trong ngoặc ở thì hiện tại tiếp diễn (am/is/are + -ing) hoặc hiện tại hoàn thành tiếp diễn (have/has been + -ing).",
+      "instructionsEn": "Put the verb in brackets into the present continuous (am/is/are + -ing) or the present perfect continuous (have/has been + -ing).",
       "passage": "Ví dụ: 1 Maria has been learning (Maria / learn) English for two years.",
+      "passageEn": "Example: 1 Maria has been learning (Maria / learn) English for two years.",
       "items": [
         {
           "prompt": "2 Hi, Tom. ___ (I / look) for you. I need to ask you something.",
@@ -3233,7 +3529,9 @@ const UNIT_9_PRESENT_PERFECT_CONTINUOUS: GrammarUnit = {
     {
       "kind": "ai_practice",
       "title": "Luyện với AI",
+      "titleEn": "Practice with AI",
       "instructions": "Hãy viết 2-3 câu tiếng Anh dùng thì hiện tại hoàn thành tiếp diễn (have/has been + -ing) để nói về một hoạt động vừa mới kết thúc, hoặc dùng how long/for/since để nói hoạt động đó đã kéo dài bao lâu.",
+      "instructionsEn": "Write 2-3 English sentences using the present perfect continuous (have/has been + -ing) to talk about an activity that has just finished, or use how long/for/since to say how long that activity has been going on.",
       "ruleSummary": "This unit practises the present perfect continuous (have/has been + -ing). It is used for an activity that has recently stopped or has just stopped, often explaining a present result (Why are you out of breath? Have you been running? The ground is wet. It's been raining.), and for an activity that is still happening now, especially with how long, for and since (How long have you been learning English? They've been playing tennis since 2 o'clock.), or for a repeated action over a period (She's been playing since she was eight.). Compare it with the present continuous (I am doing), which simply describes what is happening right now with no sense of an activity carried on over a period up to now. A correct student sentence must use have/has been plus the -ing form of the verb, and should refer to an activity, not a state verb such as know or have, which do not normally take the continuous."
     }
   ]
@@ -3248,100 +3546,134 @@ const UNIT_10_PRESENT_PERFECT_CONTINUOUS_AND_SIMPLE: GrammarUnit = {
     {
       "kind": "rule",
       "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
       "blocks": [
         {
           "label": "A",
-          "heading": "has been painting vs has painted: activity vs result",
-          "body": "Compare has been painting (present perfect continuous), which focuses on the activity itself without saying whether it is finished, and has painted (present perfect simple), which focuses on the result of a completed action. Kate having paint on her clothes tells us about the activity; the bedroom now being yellow tells us about the finished result.",
+          "heading": "So sánh has been painting và has painted: hoạt động và kết quả",
+          "headingEn": "has been painting vs has painted: activity vs result",
+          "intro": "Compare these two situations:",
+          "introVi": "Hãy so sánh hai tình huống sau:",
+          "body": "**has been painting** is the *present perfect continuous*. We are thinking of the activity: it does not matter whether it has been finished or not. In this example, the activity (painting the bedroom) has not been finished.\n\n**has painted** is the *present perfect simple*. Here, the important thing is that something has been finished. **She has painted** her bedroom is a completed action: we are thinking about the result of the activity (the painted bedroom), not the activity itself.",
+          "bodyVi": "**has been painting** là thì hiện tại hoàn thành tiếp diễn. Chúng ta đang nghĩ đến hoạt động: không quan trọng việc đó đã hoàn thành hay chưa. Trong ví dụ này, hoạt động (sơn phòng ngủ) vẫn chưa hoàn thành.\n\n**has painted** là thì hiện tại hoàn thành đơn. Ở đây, điều quan trọng là một việc gì đó đã hoàn thành. Câu **She has painted** her bedroom (Cô ấy đã sơn xong phòng ngủ) là một hành động đã hoàn tất: chúng ta đang nghĩ đến kết quả của hoạt động đó (căn phòng đã được sơn), không phải hoạt động bản thân nó.",
           "examples": [
             {
-              "en": "There is paint on Kate's clothes. She has been painting her bedroom.",
-              "note": "the activity, not necessarily finished"
+              "en": "There is paint on Kate's clothes. She **has been painting** her bedroom.",
+              "note": "the activity, not necessarily finished",
+              "vi": "Có sơn dính trên áo của Kate. Cô ấy đang sơn phòng ngủ của mình."
             },
             {
-              "en": "The bedroom was green. Now it is yellow. She has painted her bedroom.",
-              "note": "the finished result"
+              "en": "The bedroom was green. Now it is yellow. She **has painted** her bedroom.",
+              "note": "the finished result",
+              "vi": "Phòng ngủ trước đây màu xanh. Giờ nó màu vàng. Cô ấy đã sơn xong phòng ngủ của mình."
             }
           ]
         },
         {
           "label": "B",
-          "heading": "Explaining a present state vs reporting a completed action",
-          "body": "The present perfect continuous often explains a present state (dirty hands, eating too much) by pointing at the activity itself; the present perfect simple reports that something has been completed.",
+          "heading": "Diễn tả trạng thái hiện tại và báo cáo một hành động đã hoàn thành",
+          "headingEn": "Explaining a present state vs reporting a completed action",
+          "intro": "Compare these examples:",
+          "introVi": "Hãy so sánh các ví dụ sau:",
+          "body": "The *present perfect continuous* often explains a present state, by pointing at the activity itself and not saying whether it is finished.\n\nThe *present perfect simple* reports that something has been completed.",
+          "bodyVi": "Thì hiện tại hoàn thành tiếp diễn thường diễn tả một trạng thái hiện tại, bằng cách nhấn vào hoạt động mà không nói rõ hoạt động đó đã kết thúc hay chưa.\n\nThì hiện tại hoàn thành đơn báo rằng một việc gì đó đã hoàn thành.",
           "examples": [
             {
-              "en": "My hands are very dirty. I've been repairing my bike."
+              "en": "My hands are very dirty. I**'ve been repairing** my bike.",
+              "vi": "Tay tôi bẩn lắm. Tôi đang sửa xe đạp của mình."
             },
             {
-              "en": "My bike is OK again now. I've repaired it.",
-              "note": "= I've finished repairing it"
+              "en": "My bike is OK again now. I**'ve repaired** it.",
+              "note": "= I've finished repairing it",
+              "vi": "Xe đạp của tôi lại ổn rồi. Tôi đã sửa xong nó."
             },
             {
-              "en": "Joe has been eating too much recently. He should eat less."
+              "en": "Joe **has been eating** too much recently. He should eat less.",
+              "vi": "Gần đây Joe ăn quá nhiều. Anh ấy nên ăn ít lại."
             },
             {
-              "en": "Somebody has eaten all the chocolates. The box is empty."
+              "en": "Somebody **has eaten** all the chocolates. The box is empty.",
+              "vi": "Ai đó đã ăn hết sạch số sô cô la. Cái hộp trống rồi."
             },
             {
-              "en": "It's nice to see you again. What have you been doing since we last met?"
+              "en": "It's nice to see you again. What **have** you **been doing** since we last met?",
+              "vi": "Gặp lại bạn thật vui. Từ lần gặp trước tới giờ bạn đã làm gì rồi?"
             },
             {
-              "en": "Where's the book I gave you? What have you done with it?"
+              "en": "Where's the book I gave you? What **have** you **done** with it?",
+              "vi": "Cuốn sách tôi đưa bạn đâu rồi? Bạn đã làm gì với nó?"
             },
             {
-              "en": "Where have you been? Have you been playing tennis?"
+              "en": "Where **have** you **been**? **Have** you **been playing** tennis?",
+              "vi": "Bạn vừa ở đâu vậy? Bạn có phải vừa chơi tennis không?"
             },
             {
-              "en": "Have you ever played tennis?"
+              "en": "**Have** you ever **played** tennis?",
+              "vi": "Bạn đã từng chơi tennis chưa?"
             }
           ]
         },
         {
           "label": "C",
-          "heading": "how long vs how much/how many/how many times",
-          "body": "We use the continuous to say how long something has been happening, when it is still going on. We use the simple to say how much, how many or how many times, for completed actions.",
+          "heading": "how long so với how much/how many/how many times",
+          "headingEn": "how long vs how much/how many/how many times",
+          "body": "We use the continuous to say *how long* something has been happening, when it is still going on.\n\nWe use the simple to say *how much*, *how many* or *how many times*, for completed actions.",
+          "bodyVi": "Chúng ta dùng thể tiếp diễn để nói *bao lâu* một việc gì đó đã diễn ra, khi việc đó vẫn còn đang xảy ra.\n\nChúng ta dùng thể đơn để nói *bao nhiêu*, *bao nhiêu cái* hoặc *bao nhiêu lần*, cho những hành động đã hoàn thành.",
           "examples": [
             {
-              "en": "How long have you been reading that book?"
+              "en": "*How long* **have you been reading** that book?",
+              "vi": "Bạn đã đọc cuốn sách đó bao lâu rồi?"
             },
             {
-              "en": "Amy is writing emails. She's been writing emails all morning."
+              "en": "Amy is writing emails. She**'s been writing** emails all morning.",
+              "vi": "Amy đang viết email. Cô ấy đã viết email suốt cả buổi sáng."
             },
             {
-              "en": "They've been playing tennis since 2 o'clock."
+              "en": "They**'ve been playing** tennis since 2 o'clock.",
+              "vi": "Họ đã chơi tennis từ 2 giờ rồi."
             },
             {
-              "en": "I'm learning Arabic, but I haven't been learning it very long."
+              "en": "I'm learning Arabic, but I **haven't been learning** it very long.",
+              "vi": "Tôi đang học tiếng Ả Rập, nhưng tôi mới học nó không lâu."
             },
             {
-              "en": "How many pages of that book have you read?"
+              "en": "*How many* pages of that book **have you read**?",
+              "vi": "Bạn đã đọc bao nhiêu trang của cuốn sách đó?"
             },
             {
-              "en": "Amy has sent lots of emails this morning."
+              "en": "Amy **has sent** lots of emails this morning.",
+              "vi": "Amy đã gửi rất nhiều email sáng nay."
             },
             {
-              "en": "They've played tennis three times this week."
+              "en": "They**'ve played** tennis three times this week.",
+              "vi": "Họ đã chơi tennis ba lần trong tuần này."
             },
             {
-              "en": "I'm learning Arabic, but I haven't learnt very much yet."
+              "en": "I'm learning Arabic, but I **haven't learnt** very much yet.",
+              "vi": "Tôi đang học tiếng Ả Rập, nhưng tôi chưa học được nhiều lắm."
             }
           ]
         },
         {
           "label": "D",
-          "heading": "Verbs not normally used in the continuous",
-          "body": "Some verbs, for example know, are not normally used in continuous forms (be + -ing). For a list of these verbs, see Unit 4A; for have, see Unit 17. Note that want and mean can be used in the present perfect continuous.",
+          "heading": "Động từ không dùng ở dạng tiếp diễn",
+          "headingEn": "Verbs not normally used in the continuous",
+          "body": "Some verbs, for example *know*, are not normally used in continuous forms (**be + -ing**). For a list of these verbs, see Unit 4A; for *have*, see Unit 17.\n\nNote that *want* and *mean* can be used in the *present perfect continuous* (**have/has been + -ing**).",
+          "bodyVi": "Một số động từ, ví dụ *know* (biết), thường không được dùng ở dạng tiếp diễn (**be + -ing**). Để xem danh sách các động từ này, xem Unit 4A; với *have*, xem Unit 17.\n\nLưu ý rằng *want* và *mean* có thể dùng ở thì hiện tại hoàn thành tiếp diễn (**have/has been + -ing**).",
           "examples": [
             {
-              "en": "I've known about the problem for a long time.",
-              "note": "not I've been knowing"
+              "en": "I**'ve known** about the problem for a long time.",
+              "note": "not **I've been knowing**",
+              "vi": "Tôi đã biết vấn đề này từ lâu rồi."
             },
             {
-              "en": "How long have you had that camera?",
-              "note": "not have you been having"
+              "en": "How long **have you had** that camera?",
+              "note": "not **have you been having**",
+              "vi": "Bạn đã có cái máy ảnh đó bao lâu rồi?"
             },
             {
-              "en": "I've been meaning to phone Anna, but I keep forgetting."
+              "en": "I**'ve been meaning** to phone Anna, but I keep forgetting.",
+              "vi": "Tôi đã định gọi điện cho Anna, nhưng tôi cứ quên mãi."
             }
           ]
         }
@@ -3350,8 +3682,11 @@ const UNIT_10_PRESENT_PERFECT_CONTINUOUS_AND_SIMPLE: GrammarUnit = {
     {
       "kind": "type_fill",
       "title": "10.1 · Đọc tình huống và hoàn thành câu",
+      "titleEn": "10.1 · Read the situation and complete the sentences",
       "instructions": "Đọc tình huống rồi hoàn thành các câu bằng động từ trong ngoặc, chia ở thì hiện tại hoàn thành tiếp diễn hoặc hiện tại hoàn thành đơn.",
+      "instructionsEn": "Read the situation, then complete the sentences using the verbs in brackets, in the present perfect continuous or present perfect simple.",
       "passage": "Ví dụ: 1 Tom started reading a book two hours ago. He is still reading it and now he is on page 53. He has been reading for two hours. (read) He has read 53 pages so far. (read)",
+      "passageEn": "Example: 1 Tom started reading a book two hours ago. He is still reading it and now he is on page 53. He has been reading for two hours. (read) He has read 53 pages so far. (read)",
       "items": [
         {
           "prompt": "2a Rachel is from Australia. She is travelling round Europe. She began her trip three months ago. She ___ for three months. (travel)",
@@ -3402,8 +3737,11 @@ const UNIT_10_PRESENT_PERFECT_CONTINUOUS_AND_SIMPLE: GrammarUnit = {
     {
       "kind": "type_fill",
       "title": "10.2 · Đặt câu hỏi với hiện tại hoàn thành đơn hoặc tiếp diễn",
+      "titleEn": "10.2 · Ask questions using the present perfect simple or continuous",
       "instructions": "Đặt câu hỏi bằng các từ trong ngoặc, dùng thì hiện tại hoàn thành đơn (have/has done) hoặc tiếp diễn (have/has been doing).",
+      "instructionsEn": "Ask questions using the words in brackets, using the present perfect simple (have/has done) or continuous (have/has been doing).",
       "passage": "Ví dụ: 1 You have a friend who is learning Arabic. You ask: (how long / learn / Arabic?) How long have you been learning Arabic?",
+      "passageEn": "Example: 1 You have a friend who is learning Arabic. You ask: (how long / learn / Arabic?) How long have you been learning Arabic?",
       "items": [
         {
           "prompt": "2 You have just arrived to meet a friend. She is waiting for you. You ask: (wait / long?) ___",
@@ -3442,8 +3780,11 @@ const UNIT_10_PRESENT_PERFECT_CONTINUOUS_AND_SIMPLE: GrammarUnit = {
     {
       "kind": "type_fill",
       "title": "10.3 · Chia động từ ở thì hiện tại hoàn thành đơn hoặc tiếp diễn",
+      "titleEn": "10.3 · Put the verb into the present perfect simple or continuous",
       "instructions": "Chia động từ trong ngoặc ở thì hiện tại hoàn thành đơn (have/has done) hoặc tiếp diễn (have/has been doing).",
+      "instructionsEn": "Put the verb in brackets into the present perfect simple (have/has done) or continuous (have/has been doing).",
       "passage": "Ví dụ: 1 Where have you been? Have you been playing (you / play) tennis?",
+      "passageEn": "Example: 1 Where have you been? Have you been playing (you / play) tennis?",
       "items": [
         {
           "prompt": "2 Look! ___ (somebody / break) that window.",
@@ -3553,7 +3894,9 @@ const UNIT_10_PRESENT_PERFECT_CONTINUOUS_AND_SIMPLE: GrammarUnit = {
     {
       "kind": "ai_practice",
       "title": "Luyện với AI",
+      "titleEn": "Practice with AI",
       "instructions": "Hãy viết 2-3 câu tiếng Anh so sánh hiện tại hoàn thành tiếp diễn (I've been doing, nhấn mạnh hoạt động) với hiện tại hoàn thành đơn (I've done, nhấn mạnh kết quả), ví dụ về một việc bạn đang làm và một việc bạn đã hoàn thành.",
+      "instructionsEn": "Write 2-3 English sentences comparing the present perfect continuous (I've been doing, emphasizing the activity) with the present perfect simple (I've done, emphasizing the result), for example about something you are doing and something you have finished.",
       "ruleSummary": "This unit contrasts the present perfect continuous (have/has been + -ing) with the present perfect simple (have/has + past participle). The continuous focuses on the activity itself, regardless of whether it is finished (She has been painting her bedroom), often explaining a present state (My hands are dirty. I've been repairing my bike.). The simple focuses on the result of a completed action (She has painted her bedroom. My bike is OK now, I've repaired it.). Use the continuous with how long to ask about an activity still going on (How long have you been reading that book?), and the simple with how much, how many or how many times for completed actions (How many pages have you read? They've played tennis three times this week.). Some verbs, especially state verbs like know and have, are not normally used in the continuous. A correct student sentence should use the continuous when describing an ongoing or repeated activity without regard to completion, and the simple when reporting a finished result or a quantity."
     }
   ]
@@ -3568,93 +3911,121 @@ const UNIT_11_HOW_LONG_HAVE_YOU_BEEN: GrammarUnit = {
     {
       "kind": "rule",
       "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
       "blocks": [
         {
           "label": "A",
-          "heading": "How long have they been married? (not How long are they married?)",
-          "body": "We use the present perfect, not the present simple, to ask how long something that began in the past has continued up to now, even though we use the present simple to describe the situation itself. Dan and Kate are married (present), but we ask How long have they been married? and say They have been married for 20 years, not How long are they married? or They are married for 20 years.",
+          "heading": "Dùng hiện tại hoàn thành, không dùng hiện tại đơn, để hỏi \"bao lâu\"",
+          "headingEn": "How long have they been married? (not How long are they married?)",
+          "intro": "Study this example situation:",
+          "introVi": "Hãy xem tình huống ví dụ sau:",
+          "body": "We use the **present perfect**, not the present simple, to ask how long something that began in the past has continued up to now, even though we use the present simple to describe the situation itself.\n\nDan and Kate are married (present), but we ask **How long have they been married?** and say **They have been married for 20 years**, not How long are they married? or They are married for 20 years.",
+          "bodyVi": "Chúng ta dùng **thì hiện tại hoàn thành**, không dùng hiện tại đơn, để hỏi một việc bắt đầu trong quá khứ đã tiếp diễn đến bây giờ được bao lâu rồi, mặc dù chúng ta dùng hiện tại đơn để miêu tả chính tình huống đó.\n\nDan và Kate đã kết hôn (hiện tại), nhưng chúng ta hỏi **How long have they been married?** và nói **They have been married for 20 years**, không nói How long are they married? hay They are married for 20 years.",
           "examples": [
             {
-              "en": "They have been married for 20 years."
+              "en": "They **have been married** for 20 years.",
+              "vi": "Họ đã kết hôn được 20 năm."
             },
             {
-              "en": "How long have they been married?",
-              "note": "not How long are they married?"
+              "en": "**How long have they been married?**",
+              "note": "not How long are they married?",
+              "vi": "Họ đã kết hôn được bao lâu rồi?"
             },
             {
-              "en": "Paul is in hospital. He's been in hospital since Monday.",
-              "note": "not Paul is in hospital since Monday"
+              "en": "Paul is in hospital. He**'s been** in hospital since Monday.",
+              "note": "not Paul is in hospital since Monday",
+              "vi": "Paul đang nằm viện. Anh ấy đã nằm viện từ hôm thứ Hai."
             },
             {
-              "en": "We know each other very well. We've known each other for a long time.",
-              "note": "not We know each other for a long time"
+              "en": "We know each other very well. We**'ve known** each other for a long time.",
+              "note": "not We know each other for a long time",
+              "vi": "Chúng tôi biết nhau rất rõ. Chúng tôi đã biết nhau từ lâu rồi."
             },
             {
-              "en": "Do they have a car? How long have they had their car?"
+              "en": "Do they have a car? How long **have they had** their car?",
+              "vi": "Họ có ô tô không? Họ đã có chiếc ô tô đó bao lâu rồi?"
             },
             {
-              "en": "She's waiting for somebody. She hasn't been waiting very long."
+              "en": "She's waiting for somebody. She **hasn't been waiting** very long.",
+              "vi": "Cô ấy đang chờ ai đó. Cô ấy chưa chờ lâu đâu."
             }
           ]
         },
         {
           "label": "B",
-          "heading": "I've known / I've been learning: simple vs continuous with how long",
-          "body": "I've known, I've had and I've lived are present perfect simple; I've been learning and I've been waiting are present perfect continuous. When we ask or say how long, the continuous is more usual (see Unit 10), but some verbs, for example know and like, are not normally used in the continuous. See also Units 4A and 10C; for have, see Unit 17.",
+          "heading": "I've known hay I've been learning: hoàn thành đơn hay tiếp diễn khi hỏi \"bao lâu\"",
+          "headingEn": "I've known / I've been learning: simple vs continuous with how long",
+          "body": "**I've known**, **I've had** and **I've lived** are present perfect simple; **I've been learning** and **I've been waiting** are present perfect continuous. When we ask or say *how long*, the continuous is more usual (see Unit 10), but some verbs, for example *know* and *like*, are not normally used in the continuous.\n\nSee also Units 4A and 10C. For **have**, see Unit 17.",
+          "bodyVi": "**I've known**, **I've had** và **I've lived** là hiện tại hoàn thành đơn; **I've been learning** và **I've been waiting** là hiện tại hoàn thành tiếp diễn. Khi hỏi hoặc nói *how long* (bao lâu), dạng tiếp diễn thường được dùng hơn (xem Unit 10), nhưng một số động từ, ví dụ *know* và *like*, thường không dùng ở dạng tiếp diễn.\n\nXem thêm Unit 4A và 10C. Với **have**, xem Unit 17.",
           "examples": [
             {
-              "en": "I've been learning English since January."
+              "en": "I**'ve been learning** English since January.",
+              "vi": "Tôi đã học tiếng Anh từ tháng Một."
             },
             {
-              "en": "It's been raining all morning."
+              "en": "It**'s been raining** all morning.",
+              "vi": "Trời đã mưa suốt cả buổi sáng."
             },
             {
-              "en": "Richard has been doing the same job for 20 years."
+              "en": "Richard **has been doing** the same job for 20 years.",
+              "vi": "Richard đã làm công việc đó suốt 20 năm."
             },
             {
-              "en": "'How long have you been driving?' 'Since I was 17.'"
+              "en": "'How long **have you been driving**?' 'Since I was 17.'",
+              "vi": "'Bạn đã lái xe được bao lâu rồi?' 'Từ khi tôi 17 tuổi.'"
             },
             {
-              "en": "How long have you known Jane?",
-              "note": "not have you been knowing"
+              "en": "How long **have you known** Jane?",
+              "note": "not have you been knowing",
+              "vi": "Bạn đã biết Jane bao lâu rồi?"
             },
             {
-              "en": "I've had these shoes for ages.",
-              "note": "not I've been having"
+              "en": "I**'ve had** these shoes for ages.",
+              "note": "not I've been having",
+              "vi": "Tôi đã có đôi giày này từ lâu rồi."
             }
           ]
         },
         {
           "label": "C",
-          "heading": "live and work: either form; always: simple only",
-          "body": "You can use either the continuous or the simple with live and work. But we use the simple (have lived etc.), not the continuous, with always.",
+          "heading": "live và work: dùng dạng nào cũng được; always: chỉ dùng dạng đơn",
+          "headingEn": "live and work: either form; always: simple only",
+          "body": "You can use either the continuous or the simple with *live* and *work*.\n\nBut we use the simple (**have lived** etc.), not the continuous, with *always*.",
+          "bodyVi": "Bạn có thể dùng dạng tiếp diễn hoặc dạng đơn với *live* (sống) và *work* (làm việc), cách nào cũng được.\n\nNhưng với *always* (luôn luôn), chúng ta dùng dạng đơn (**have lived** v.v.), không dùng dạng tiếp diễn.",
           "examples": [
             {
-              "en": "Julia has been living in this house for a long time.",
-              "note": "or Julia has lived ..."
+              "en": "Julia **has been living** in this house for a long time.",
+              "note": "or Julia has lived ...",
+              "vi": "Julia đã sống trong căn nhà này từ lâu rồi."
             },
             {
-              "en": "How long have you been working here?",
-              "note": "or How long have you worked here?"
+              "en": "How long **have you been working** here?",
+              "note": "or How long have you worked here?",
+              "vi": "Bạn đã làm việc ở đây bao lâu rồi?"
             },
             {
-              "en": "I've always lived in the country.",
-              "note": "not I've always been living"
+              "en": "I**'ve always lived** in the country.",
+              "note": "not I've always been living",
+              "vi": "Tôi luôn sống ở vùng nông thôn."
             }
           ]
         },
         {
           "label": "D",
-          "heading": "I haven't (done something) since/for ...",
-          "body": "We use the present perfect simple, not the continuous, to say I haven't (done something) since/for a period, meaning the last time it happened was that long ago.",
+          "heading": "I haven't (làm gì) since/for ...: dùng hiện tại hoàn thành đơn",
+          "headingEn": "I haven't (done something) since/for ...",
+          "body": "We use the *present perfect simple*, not the continuous, to say **I haven't (done something) since/for** a period, meaning the last time it happened was that long ago.",
+          "bodyVi": "Chúng ta dùng *hiện tại hoàn thành đơn*, không dùng dạng tiếp diễn, để nói **I haven't (làm gì) since/for** một khoảng thời gian, nghĩa là lần cuối việc đó xảy ra là từ khoảng thời gian đó trước đây.",
           "examples": [
             {
-              "en": "I haven't seen Tom since Monday.",
-              "note": "= Monday was the last time I saw him"
+              "en": "I **haven't seen** Tom since Monday.",
+              "note": "= Monday was the last time I saw him",
+              "vi": "Tôi chưa gặp Tom từ hôm thứ Hai."
             },
             {
-              "en": "Sarah hasn't phoned for ages.",
-              "note": "= the last time she phoned was ages ago"
+              "en": "Sarah **hasn't phoned** for ages.",
+              "note": "= the last time she phoned was ages ago",
+              "vi": "Sarah chưa gọi điện đã lâu rồi."
             }
           ]
         }
@@ -3663,8 +4034,11 @@ const UNIT_11_HOW_LONG_HAVE_YOU_BEEN: GrammarUnit = {
     {
       "kind": "fill_mc",
       "title": "11.1 · Chọn câu đúng",
+      "titleEn": "11.1 · Choose the correct sentence",
       "instructions": "Chọn cách diễn đạt đúng trong mỗi cặp.",
+      "instructionsEn": "Choose the correct wording in each pair.",
       "passage": "Ví dụ: 1 Ben is a friend of mine. I know / I've known him very well. (I know is correct)",
+      "passageEn": "Example: 1 Ben is a friend of mine. I know / I've known him very well. (I know is correct)",
       "items": [
         {
           "before": "I like your house. How long",
@@ -3752,8 +4126,11 @@ const UNIT_11_HOW_LONG_HAVE_YOU_BEEN: GrammarUnit = {
     {
       "kind": "type_fill",
       "title": "11.2 · Đọc tình huống và viết câu hỏi",
+      "titleEn": "11.2 · Read the situations and write questions",
       "instructions": "Đọc tình huống rồi viết câu hỏi bằng các từ trong ngoặc, dùng how long have/has ...",
+      "instructionsEn": "Read the situation and write a question using the words in brackets, with how long have/has ...",
       "passage": "Ví dụ: 1 A friend tells you that Paul is in hospital. You ask him: (how long / Paul / hospital?) How long has Paul been in hospital?",
+      "passageEn": "Example: 1 A friend tells you that Paul is in hospital. You ask him: (how long / Paul / hospital?) How long has Paul been in hospital?",
       "items": [
         {
           "prompt": "2 You know that Jane is a good friend of Katherine's. You ask Jane: (how long / you / know / Katherine?) ___",
@@ -3787,8 +4164,11 @@ const UNIT_11_HOW_LONG_HAVE_YOU_BEEN: GrammarUnit = {
     {
       "kind": "type_fill",
       "title": "11.3 · Hoàn thành câu trả lời của B",
+      "titleEn": "11.3 · Complete B's answers",
       "instructions": "Hoàn thành câu trả lời của B, dùng thì hiện tại hoàn thành đơn hoặc tiếp diễn.",
+      "instructionsEn": "Complete B's answers, using the present perfect simple or continuous.",
       "passage": "Ví dụ: 1 A: Paul is in hospital, isn't he? B: Yes, he has been in hospital since Monday.",
+      "passageEn": "Example: 1 A: Paul is in hospital, isn't he? B: Yes, he has been in hospital since Monday.",
       "items": [
         {
           "prompt": "2 A: Do you see Lisa very often? B: No, I ___ her for three months.",
@@ -3895,7 +4275,9 @@ const UNIT_11_HOW_LONG_HAVE_YOU_BEEN: GrammarUnit = {
     {
       "kind": "ai_practice",
       "title": "Luyện với AI",
+      "titleEn": "Practice with AI",
       "instructions": "Hãy viết 2-3 câu tiếng Anh dùng how long have/has ... been ...? để hỏi về khoảng thời gian một việc đã diễn ra, và trả lời bằng have/has been + for/since.",
+      "instructionsEn": "Write 2-3 English sentences using how long have/has ... been ...? to ask how long something has continued, and answer using have/has been + for/since.",
       "ruleSummary": "This unit practises asking and answering how long something has continued up to now, using the present perfect rather than the present simple: How long have they been married? They have been married for 20 years (not How long are they married? / They are married for 20 years). I've known, I've had and I've lived are present perfect simple; I've been learning and I've been waiting are present perfect continuous, and the continuous is more usual with how long, except for state verbs such as know, like, have, which stay simple. Live and work can take either form, but always is only used with the simple (I've always lived in the country, not I've always been living). We also use the present perfect simple, not the continuous, in the pattern I haven't (done something) since/for ... (I haven't seen Tom since Monday). A correct student sentence should use the present perfect, simple or continuous matching the verb, rather than the present simple, whenever the sentence describes something continuing up to now, and must use since plus a starting point or for plus a length of time correctly."
     }
   ]
@@ -3910,87 +4292,133 @@ const UNIT_12_FOR_AND_SINCE: GrammarUnit = {
     {
       "kind": "rule",
       "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
       "blocks": [
         {
           "label": "A",
-          "heading": "for a period of time; since the start of a period",
-          "body": "We use for and since to say how long something has been happening. We use for + a period of time (for two hours, for a week, for ages, for 50 years); we use since + the start of a period (since 8 o'clock, since Monday, since 2001). Note that we say for six months, not since six months.",
+          "heading": "for + khoảng thời gian; since + thời điểm bắt đầu",
+          "headingEn": "for a period of time; since the start of a period",
+          "intro": "We use for and since to say how long something has been happening.",
+          "introVi": "Chúng ta dùng for và since để nói một việc đã diễn ra được bao lâu.",
+          "body": "We use **for** + a period of time (**for** two hours, **for** a week, **for** ages, **for** 50 years); we use **since** + the start of a period (**since** 8 o'clock, **since** Monday, **since** 2001). Note that we say **for** six months, not **since** six months.",
+          "bodyVi": "Chúng ta dùng **for** + một khoảng thời gian (**for** two hours, **for** a week, **for** ages, **for** 50 years); dùng **since** + thời điểm bắt đầu (**since** 8 o'clock, **since** Monday, **since** 2001). Lưu ý là chúng ta nói **for** six months, không nói **since** six months.",
+          "table": {
+            "headers": [
+              "for",
+              "since"
+            ],
+            "rows": [
+              [
+                "two hours, 20 minutes, five days",
+                "8 o'clock, Monday, 12 May"
+              ],
+              [
+                "a week, ages, years",
+                "April, 2001, Christmas"
+              ],
+              [
+                "a long time, six months, 50 years",
+                "lunchtime, we arrived, I got up"
+              ]
+            ]
+          },
           "examples": [
             {
-              "en": "Sally has been working here for six months.",
-              "note": "not since six months"
+              "en": "Sally has been working here **for** six months.",
+              "note": "not since six months",
+              "vi": "Sally đã làm việc ở đây được sáu tháng rồi."
             },
             {
-              "en": "Sally has been working here since April.",
-              "note": "= from April until now"
+              "en": "Sally has been working here **since** April.",
+              "note": "= from April until now",
+              "vi": "Sally đã làm việc ở đây từ tháng Tư đến giờ."
             },
             {
-              "en": "I haven't seen Tom for three days."
+              "en": "I haven't seen Tom **for** three days.",
+              "vi": "Tôi đã không gặp Tom được ba ngày rồi."
             },
             {
-              "en": "I haven't seen Tom since Monday."
+              "en": "I haven't seen Tom **since** Monday.",
+              "vi": "Tôi không gặp Tom từ thứ Hai đến giờ."
             }
           ]
         },
         {
           "label": "B",
-          "heading": "leaving out for; in instead of for; not for all ...",
-          "body": "We often leave out for, but not usually in negative sentences. You can use in instead of for in negative sentences (I haven't ... etc.). We do not use for before all ... (all day, all my life etc.).",
+          "heading": "Bỏ for; dùng in thay cho for; không dùng for với all ...",
+          "headingEn": "Leaving out for; using in instead of for; not for all ...",
+          "body": "We often leave out **for**, but not usually in negative sentences.\n\nYou can use **in** instead of **for** in negative sentences (I haven't ... etc.).\n\nWe do not use **for** before *all* ... (all day, all my life etc.).",
+          "bodyVi": "Chúng ta thường bỏ **for**, nhưng thường không bỏ trong câu phủ định.\n\nBạn có thể dùng **in** thay cho **for** trong câu phủ định (I haven't ... v.v.).\n\nChúng ta không dùng **for** trước *all* ... (all day, all my life v.v.).",
           "examples": [
             {
-              "en": "They've been married for ten years.",
-              "note": "or They've been married ten years"
+              "en": "They've been married **for** ten years.",
+              "note": "or They've been married ten years",
+              "vi": "Họ đã kết hôn được mười năm rồi."
             },
             {
-              "en": "They haven't had a holiday for ten years.",
-              "note": "you need for here"
+              "en": "They haven't had a holiday **for** ten years.",
+              "note": "you need for here",
+              "vi": "Đã mười năm rồi họ không đi nghỉ."
             },
             {
-              "en": "They haven't had a holiday in ten years.",
-              "note": "= for ten years"
+              "en": "They haven't had a holiday **in** ten years.",
+              "note": "= for ten years",
+              "vi": "Đã mười năm rồi họ không đi nghỉ."
             },
             {
-              "en": "I've lived here all my life.",
-              "note": "not for all my life"
+              "en": "I've lived here *all* my life.",
+              "note": "not for all my life",
+              "vi": "Tôi đã sống ở đây suốt cả đời."
             }
           ]
         },
         {
           "label": "C",
-          "heading": "When ...? (+ past simple) vs How long ...? (+ present perfect)",
-          "body": "Compare When ...? with the past simple, which asks about a point in time, and How long ...? with the present perfect, which asks about a duration up to now.",
+          "heading": "When...? (+ quá khứ đơn) so với How long...? (+ hiện tại hoàn thành)",
+          "headingEn": "When ...? (+ past simple) vs How long ...? (+ present perfect)",
+          "body": "Compare **When ...?** with the *past simple*, which asks about a point in time, and **How long ...?** with the *present perfect*, which asks about a duration up to now.",
+          "bodyVi": "So sánh **When ...?** dùng với *quá khứ đơn* (past simple), hỏi về một điểm thời gian cụ thể, và **How long ...?** dùng với *hiện tại hoàn thành* (present perfect), hỏi về một khoảng thời gian kéo dài đến hiện tại.",
           "examples": [
             {
-              "en": "When did it start raining? It started raining an hour ago / at 1 o'clock."
+              "en": "**When** did it start raining? It started raining an hour ago / at 1 o'clock.",
+              "vi": "Trời bắt đầu mưa khi nào? Trời bắt đầu mưa một giờ trước / lúc 1 giờ."
             },
             {
-              "en": "How long has it been raining? It's been raining for an hour / since 1 o'clock."
+              "en": "**How long** has it been raining? It's been raining **for** an hour / **since** 1 o'clock.",
+              "vi": "Trời đã mưa được bao lâu rồi? Trời đã mưa được một giờ / từ lúc 1 giờ."
             },
             {
-              "en": "When did Joe and Kate first meet? They first met a long time ago / at school / when they were at school."
+              "en": "**When** did Joe and Kate first meet? They first met a long time ago / at school / when they were at school.",
+              "vi": "Joe và Kate gặp nhau lần đầu khi nào? Họ gặp nhau lần đầu từ lâu rồi / ở trường / khi họ còn học ở trường."
             },
             {
-              "en": "How long have they known each other? They've known each other for a long time / at school / since they were at school.",
-              "note": "since they were at school"
+              "en": "**How long** have they known each other? They've known each other **for** a long time / at school / **since** they were at school.",
+              "note": "since they were at school",
+              "vi": "Họ đã biết nhau được bao lâu rồi? Họ đã biết nhau từ lâu rồi / từ khi ở trường / từ khi họ còn học ở trường."
             }
           ]
         },
         {
           "label": "D",
-          "heading": "it's (been) ... since something happened",
-          "body": "We say it's (= it is) or it's been (= it has been) a long time / six months etc. since something happened.",
+          "heading": "it's (been) ... since + việc đã xảy ra",
+          "headingEn": "it's (been) ... since something happened",
+          "body": "We say **it's** (= it is) or **it's been** (= it has been) a long time / six months etc. **since** something happened.",
+          "bodyVi": "Chúng ta nói **it's** (= it is) hoặc **it's been** (= it has been) a long time / six months v.v. **since** một việc gì đó xảy ra.",
           "examples": [
             {
-              "en": "It's two years since I last saw Joe.",
-              "note": "or It's been two years since ...; = I haven't seen Joe for two years"
+              "en": "**It's** two years **since** I last saw Joe.",
+              "note": "or It's been two years since ...; = I haven't seen Joe for two years",
+              "vi": "Đã hai năm rồi từ khi tôi gặp Joe lần cuối."
             },
             {
-              "en": "It's ages since we went to the cinema.",
-              "note": "or It's been ages since ...; = We haven't been to the cinema for ages"
+              "en": "**It's** ages **since** we went to the cinema.",
+              "note": "or It's been ages since ...; = We haven't been to the cinema for ages",
+              "vi": "Đã lâu lắm rồi từ khi chúng tôi đi xem phim."
             },
             {
-              "en": "How long is it since Mrs Hill died?",
-              "note": "or How long has it been since ...?; = when did she die?"
+              "en": "**How long** is it **since** Mrs Hill died?",
+              "note": "or How long has it been since ...?; = when did she die?",
+              "vi": "Đã bao lâu rồi từ khi bà Hill qua đời?"
             }
           ]
         }
@@ -3999,8 +4427,11 @@ const UNIT_12_FOR_AND_SINCE: GrammarUnit = {
     {
       "kind": "fill_mc",
       "title": "12.1 · Chọn for hoặc since",
+      "titleEn": "12.1 · Choose for or since",
       "instructions": "Chọn for hoặc since cho mỗi câu.",
+      "instructionsEn": "Write for or since for each sentence.",
       "passage": "Ví dụ: 1 It's been raining since lunchtime.",
+      "passageEn": "Example: 1 It's been raining since lunchtime.",
       "items": [
         {
           "before": "Paul has lived in Brazil",
@@ -4070,8 +4501,11 @@ const UNIT_12_FOR_AND_SINCE: GrammarUnit = {
     {
       "kind": "fill_mc",
       "title": "12.2 · Chọn câu hỏi đúng cho câu trả lời",
+      "titleEn": "12.2 · Choose the right question for the answer",
       "instructions": "Đọc câu trả lời rồi chọn câu hỏi đúng.",
+      "instructionsEn": "Look at each answer and choose the right question.",
       "passage": "Ví dụ: 1 Answer: Ten years ago. Question: When did they get married? (correct, not How long have they been married?)",
+      "passageEn": "Example: 1 Answer: Ten years ago. Question: When did they get married? (correct, not How long have they been married?)",
       "items": [
         {
           "before": "Answer: About five years.",
@@ -4123,8 +4557,11 @@ const UNIT_12_FOR_AND_SINCE: GrammarUnit = {
     {
       "kind": "type_fill",
       "title": "12.3 · Đọc tình huống và hoàn thành câu",
+      "titleEn": "12.3 · Read the situations and complete the sentences",
       "instructions": "Đọc tình huống rồi hoàn thành câu.",
+      "instructionsEn": "Read the situations and complete the sentences.",
       "passage": "Ví dụ: 1 It's raining. It's been raining since lunchtime. It started raining at lunchtime.\n2 Ann and Jess are friends. They first met years ago. They've known each other for years.",
+      "passageEn": "Example: 1 It's raining. It's been raining since lunchtime. It started raining at lunchtime.\n2 Ann and Jess are friends. They first met years ago. They've known each other for years.",
       "items": [
         {
           "prompt": "3 Mark is unwell. He became ill on Sunday. He has ___ Sunday.",
@@ -4158,8 +4595,11 @@ const UNIT_12_FOR_AND_SINCE: GrammarUnit = {
     {
       "kind": "type_fill",
       "title": "12.4 · Hoàn thành câu trả lời của B",
+      "titleEn": "12.4 · Complete B's sentences",
       "instructions": "Hoàn thành câu trả lời của B. Sau đó viết lại câu trả lời đó theo mẫu It's ... since ....",
+      "instructionsEn": "Complete B's sentences. Then write B's answers again using the pattern It's ... since ....",
       "passage": "Ví dụ: 1 A: Do you often go on holiday? B: No, I haven't had a holiday for five years.\n5 (viết lại câu 1) No, it's five years since I last had a holiday.",
+      "passageEn": "Example: 1 A: Do you often go on holiday? B: No, I haven't had a holiday for five years.\n5 (rewrite of 1) No, it's five years since I last had a holiday.",
       "items": [
         {
           "prompt": "2 A: Have you seen Lisa recently? B: No, I ___ about a month.",
@@ -4190,7 +4630,9 @@ const UNIT_12_FOR_AND_SINCE: GrammarUnit = {
     {
       "kind": "ai_practice",
       "title": "Luyện với AI",
+      "titleEn": "Practice with AI",
       "instructions": "Hãy viết 2-3 câu tiếng Anh dùng for hoặc since để nói một việc đã kéo dài bao lâu, hoặc dùng how long ...? để hỏi, so sánh với khi nào việc đó bắt đầu (when ...?).",
+      "instructionsEn": "Write 2-3 English sentences using for or since to say how long something has been happening, or use how long ...? to ask, comparing it with when the thing started (when ...?).",
       "ruleSummary": "This unit practises for (a period of time: for two hours, for ten years) and since (the start of a period: since 8 o'clock, since Monday), always with the present perfect, to say how long something has been happening (not since six months, but since April). For is often left out except in negative sentences (They've been married ten years, but They haven't had a holiday for ten years), and for + all ... (all day, all my life) is never used. Compare When ...? with the past simple, which asks about a point in time (When did it start raining? It started raining an hour ago.), with How long ...? with the present perfect, which asks about a duration up to now (How long has it been raining? It's been raining for an hour.). Also practises it's / it's been + a period + since something happened (It's two years since I last saw Joe = I haven't seen Joe for two years). A correct student sentence must pair for with a length of time and since with a starting point, and must use the present perfect, not the present simple, whenever for/since expresses a duration up to now."
     }
   ]
@@ -4205,75 +4647,95 @@ const UNIT_13_PRESENT_PERFECT_AND_PAST_1: GrammarUnit = {
     {
       "kind": "rule",
       "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
       "blocks": [
         {
           "label": "A",
-          "heading": "Tom has lost his key (now) vs Tom lost his key (only about the past)",
-          "body": "The present perfect (something has happened) is a present tense: it tells us about the situation now. Tom has lost his key means he doesn't have his key now. The past simple (something happened) tells us only about the past; if somebody says Tom lost his key, we don't know whether he has the key now or not, only that he lost it at some time in the past.",
+          "heading": "Tom has lost his key (hiện tại) so với Tom lost his key (chỉ nói về quá khứ)",
+          "headingEn": "Tom has lost his key (now) vs Tom lost his key (only about the past)",
+          "body": "The *present perfect* (something **has happened**) is a present tense: it tells us about the situation now. Tom **has lost** his key means he doesn't have his key now.\n\nThe *past simple* (something **happened**) tells us only about the past; if somebody says Tom **lost** his key, we don't know whether he has the key now or not, only that he **lost** it at some time in the past.",
+          "bodyVi": "Hiện tại hoàn thành (something has happened) là một thời hiện tại: nó cho biết về tình huống ở hiện tại. Câu 'Tom has lost his key' (Tom đã mất chìa khóa) có nghĩa là anh ấy không có chìa khóa vào lúc này.\n\nQuá khứ đơn (something happened) chỉ cho biết về quá khứ; nếu ai đó nói Tom lost his key (Tom đã mất chìa khóa), chúng ta không biết liệu anh ấy có chìa khóa lúc này hay không, chỉ biết rằng anh ấy đã mất nó vào một thời điểm nào đó trong quá khứ.",
           "examples": [
             {
-              "en": "They've gone away. They'll be back on Friday.",
-              "note": "they are away now"
+              "en": "They**'ve gone** away. They'll be back on Friday.",
+              "note": "they are away now",
+              "vi": "Họ đã đi rồi. Họ sẽ về vào thứ Sáu."
             },
             {
-              "en": "They went away, but I think they're back at home now.",
-              "note": "not They've gone away"
+              "en": "They **went** away, but I think they're back at home now.",
+              "note": "not They've gone away",
+              "vi": "Họ đã đi, nhưng tôi nghĩ giờ họ đã về nhà rồi."
             },
             {
-              "en": "It has stopped raining now, so we don't need the umbrella.",
-              "note": "it isn't raining now"
+              "en": "It **has stopped** raining now, so we don't need the umbrella.",
+              "note": "it isn't raining now",
+              "vi": "Trời đã tạnh mưa rồi, nên chúng ta không cần ô nữa."
             },
             {
-              "en": "It stopped raining for a while, but now it's raining again.",
-              "note": "not It has stopped"
+              "en": "It **stopped** raining for a while, but now it's raining again.",
+              "note": "not It has stopped",
+              "vi": "Trời đã tạnh mưa một lúc, nhưng giờ lại mưa tiếp."
             }
           ]
         },
         {
           "label": "B",
-          "heading": "New or recent happenings vs things that are not recent or new",
-          "body": "You can use the present perfect for new or recent happenings, and usually the past simple works too. But use the past simple, not the present perfect, for things that are not recent or new, such as historical facts.",
+          "heading": "Tin tức mới hoặc gần đây, so với việc không còn mới hay gần đây",
+          "headingEn": "New or recent happenings vs things that are not recent or new",
+          "body": "You can use the *present perfect* for new or recent happenings, and usually the *past simple* works too.\n\nBut use the *past simple*, not the *present perfect*, for things that are not recent or new, such as historical facts.",
+          "bodyVi": "Bạn có thể dùng hiện tại hoàn thành cho những việc mới xảy ra hoặc gần đây, và thường thì quá khứ đơn cũng dùng được.\n\nNhưng hãy dùng quá khứ đơn, không dùng hiện tại hoàn thành, cho những việc không còn mới hay gần đây, chẳng hạn như các sự kiện lịch sử.",
           "examples": [
             {
-              "en": "I've repaired the washing machine. It's working OK now."
+              "en": "I**'ve repaired** the washing machine. It's working OK now.",
+              "vi": "Tôi đã sửa xong máy giặt rồi. Giờ nó hoạt động tốt."
             },
             {
-              "en": "'Hannah has had a baby! It's a boy.' 'That's great news.'"
+              "en": "'Hannah **has had** a baby! It's a boy.' 'That's great news.'",
+              "vi": "'Hannah mới sinh con rồi! Là con trai.' 'Tin tuyệt quá.'"
             },
             {
-              "en": "I repaired the washing machine. It's working OK now.",
-              "note": "past simple also possible here"
+              "en": "I **repaired** the washing machine. It's working OK now.",
+              "note": "past simple also possible here",
+              "vi": "Tôi đã sửa máy giặt. Giờ nó hoạt động tốt."
             },
             {
-              "en": "Mozart was a composer. He wrote more than 600 pieces of music.",
-              "note": "not has been ... has written"
+              "en": "Mozart **was** a composer. He **wrote** more than 600 pieces of music.",
+              "note": "not has been ... has written",
+              "vi": "Mozart là một nhà soạn nhạc. Ông đã viết hơn 600 tác phẩm âm nhạc."
             },
             {
-              "en": "My mother grew up in Italy.",
-              "note": "not has grown"
+              "en": "My mother **grew up** in Italy.",
+              "note": "not has grown",
+              "vi": "Mẹ tôi đã lớn lên ở Ý."
             },
             {
-              "en": "Somebody has invented a new type of washing machine.",
-              "note": "new information"
+              "en": "Somebody **has invented** a new type of washing machine.",
+              "note": "new information",
+              "vi": "Ai đó đã phát minh ra một loại máy giặt mới."
             },
             {
-              "en": "Who invented the telephone?",
-              "note": "not has invented"
+              "en": "Who **invented** the telephone?",
+              "note": "not has invented",
+              "vi": "Ai đã phát minh ra điện thoại?"
             }
           ]
         },
         {
           "label": "C",
-          "heading": "Give new information with the present perfect, continue with the past simple",
-          "body": "We use the present perfect to give new information, but if we continue to talk about it, we normally switch to the past simple.",
+          "heading": "Đưa tin mới bằng hiện tại hoàn thành, rồi tiếp tục kể bằng quá khứ đơn",
+          "headingEn": "Give new information with the present perfect, continue with the past simple",
+          "body": "We use the *present perfect* to give new information, but if we continue to talk about it, we normally switch to the *past simple*.",
+          "bodyVi": "Chúng ta dùng hiện tại hoàn thành để đưa ra thông tin mới, nhưng nếu tiếp tục nói về việc đó, chúng ta thường chuyển sang dùng quá khứ đơn.",
           "examples": [
             {
-              "en": "'Ow! I've burnt myself.' 'How did you do that?' 'I picked up a hot dish.'",
-              "note": "not have you done ... have picked"
+              "en": "'Ow! I**'ve burnt** myself.' 'How **did** you **do** that?' 'I **picked up** a hot dish.'",
+              "note": "not have you done ... have picked",
+              "vi": "'Ui! Tôi bị bỏng rồi.' 'Sao lại bị vậy?' 'Tôi vừa cầm một cái đĩa nóng.'"
             },
             {
-              "en": "'Look! Somebody has spilt something on the sofa.' 'Well, it wasn't me. I didn't do it.'",
-              "note": "not hasn't been ... haven't done"
+              "en": "'Look! Somebody **has spilt** something on the sofa.' 'Well, it **wasn't** me. I **didn't do** it.'",
+              "note": "not hasn't been ... haven't done",
+              "vi": "'Nhìn này! Ai đó làm đổ thứ gì đó lên ghế sofa.' 'Không phải tôi đâu. Tôi không làm việc đó.'"
             }
           ]
         }
@@ -4282,8 +4744,11 @@ const UNIT_13_PRESENT_PERFECT_AND_PAST_1: GrammarUnit = {
     {
       "kind": "type_fill",
       "title": "13.1 · Hoàn thành câu bằng hiện tại hoàn thành hoặc quá khứ đơn",
+      "titleEn": "13.1 · Complete the sentences using the present perfect or past simple",
       "instructions": "Hoàn thành các câu, dùng thì hiện tại hoàn thành nếu có thể, nếu không thì dùng quá khứ đơn.",
-      "passage": "Ví dụ: 1 I can't get in. I've lost (lose) my key.",
+      "instructionsEn": "Complete the sentences. Use the present perfect where possible. Otherwise use the past simple.",
+      "passage": "Ví dụ: 1 I can't get in. **I've lost** (lose) my key.",
+      "passageEn": "Example: 1 I can't get in. **I've lost** (lose) my key.",
       "items": [
         {
           "prompt": "2 The office is empty now. Everybody ___ home. (go)",
@@ -4305,9 +4770,9 @@ const UNIT_13_PRESENT_PERFECT_AND_PAST_1: GrammarUnit = {
         },
         {
           "prompt": "5 Are you OK? Yes, I ___ a headache, but it's OK now. (have)",
-          "answer": "'ve had",
+          "answer": "have had",
           "accept": [
-            "have had"
+            "'ve had"
           ]
         },
         {
@@ -4319,7 +4784,9 @@ const UNIT_13_PRESENT_PERFECT_AND_PAST_1: GrammarUnit = {
     {
       "kind": "judge_correct",
       "title": "13.2 · Phần gạch chân đúng hay cần sửa?",
+      "titleEn": "13.2 · Are the underlined parts correct or do they need fixing?",
       "instructions": "Phần gạch chân trong mỗi câu đã đúng chưa? Sửa lại nếu cần.",
+      "instructionsEn": "Are the underlined parts of these sentences OK? Correct them where necessary.",
       "items": [
         {
           "sentence": "Did you hear about Sophie? She's given up her job.",
@@ -4385,8 +4852,11 @@ const UNIT_13_PRESENT_PERFECT_AND_PAST_1: GrammarUnit = {
     {
       "kind": "type_fill",
       "title": "13.3 · Chia động từ ở thì hiện tại hoàn thành hoặc quá khứ đơn",
+      "titleEn": "13.3 · Put the verb into the present perfect or past simple",
       "instructions": "Chia động từ trong ngoặc ở thì hiện tại hoàn thành hoặc quá khứ đơn.",
-      "passage": "Ví dụ: 1 It stopped raining for a while, but now it's raining again. (it / stop)\n2 The town where I live is very different now. It has changed a lot. (it / change)",
+      "instructionsEn": "Put the verb in brackets into the present perfect or past simple.",
+      "passage": "Ví dụ: 1 It **stopped** raining for a while, but now it's raining again. (it / stop)\n2 The town where I live is very different now. It **has changed** a lot. (it / change)",
+      "passageEn": "Example: 1 It **stopped** raining for a while, but now it's raining again. (it / stop)\n2 The town where I live is very different now. It **has changed** a lot. (it / change)",
       "items": [
         {
           "prompt": "3 I studied German at school, but ___ most of it now. (I / forget)",
@@ -4453,7 +4923,9 @@ const UNIT_13_PRESENT_PERFECT_AND_PAST_1: GrammarUnit = {
     {
       "kind": "ai_practice",
       "title": "Luyện với AI",
-      "instructions": "Hãy viết 2-3 câu tiếng Anh: một câu dùng thì hiện tại hoàn thành để đưa ra một tin mới hoặc gần đây, và một câu tiếp theo dùng thì quá khứ đơn để kể tiếp chi tiết về việc đó, giống ví dụ: I've burnt myself. How did you do that? I picked up a hot dish.",
+      "titleEn": "Practice with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh: một câu dùng thì hiện tại hoàn thành để đưa ra một tin mới hoặc gần đây, và một câu tiếp theo dùng thì quá khứ đơn để kể tiếp chi tiết về việc đó, giống ví dụ: **I've burnt** myself. How **did** you **do** that? I **picked up** a hot dish.",
+      "instructionsEn": "Write 2-3 English sentences: one sentence using the present perfect to give a piece of new or recent news, and a following sentence using the past simple to continue with details about it, like the example: **I've burnt** myself. How **did** you **do** that? I **picked up** a hot dish.",
       "ruleSummary": "This unit practises choosing between the present perfect (has/have done) and the past simple (did) when there is no explicit finished-time marker. The present perfect is a present tense: it tells us about the situation now (Tom has lost his key = he doesn't have it now), and is typical for new or recent news (I've repaired the washing machine. Hannah has had a baby!). The past simple only tells us about the past and is required for things that are not recent or new, especially historical facts (Mozart was a composer, not has been; Who invented the telephone?, not has invented). A key pattern: we use the present perfect to give new information, but once we continue talking about the same event, we switch to the past simple (I've burnt myself. How did you do that? I picked up a hot dish, not have you done / have picked). A correct student sentence must use the present perfect only for something that is new, recent, or still relevant right now, and the past simple once the same event is being discussed further or when it is a finished, non-recent fact."
     }
   ]
@@ -4468,88 +4940,113 @@ const UNIT_14_PRESENT_PERFECT_AND_PAST_2: GrammarUnit = {
     {
       "kind": "rule",
       "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
       "blocks": [
         {
           "label": "A",
-          "heading": "Do not use the present perfect for a finished time",
-          "body": "We do not use the present perfect (I have done) when we talk about a finished time (for example, yesterday, last year, ten minutes ago etc.); we use a past tense. We also use the past, not the present perfect, to ask When ...? or What time ...?",
+          "heading": "Không dùng hiện tại hoàn thành cho thời gian đã kết thúc",
+          "headingEn": "Do not use the present perfect for a finished time",
+          "body": "We do not use the present perfect (**have done**) when we talk about a finished time (for example, **yesterday**, **last year**, **ten minutes ago** etc.); we use a past tense.\n\nWe also use the past, not the present perfect, to ask When ...? or What time ...?",
+          "bodyVi": "Chúng ta không dùng thì hiện tại hoàn thành (**have done**) khi nói về một thời điểm đã kết thúc (ví dụ: **hôm qua**, **năm ngoái**, **mười phút trước**...); chúng ta dùng thì quá khứ đơn.\n\nChúng ta cũng dùng thì quá khứ, không dùng thì hiện tại hoàn thành, để hỏi When ...? hoặc What time ...?",
           "examples": [
             {
-              "en": "It was very cold yesterday.",
-              "note": "not has been"
+              "en": "It **was** very cold **yesterday**.",
+              "note": "not has been",
+              "vi": "**Hôm qua** trời rất lạnh."
             },
             {
-              "en": "Paul and Lucy arrived ten minutes ago.",
-              "note": "not have arrived"
+              "en": "Paul and Lucy **arrived** **ten minutes ago**.",
+              "note": "not have arrived",
+              "vi": "Paul và Lucy đã đến **mười phút trước**."
             },
             {
-              "en": "Did you eat a lot of sweets when you were a child?",
-              "note": "not have you eaten"
+              "en": "**Did** you **eat** a lot of sweets when you were a child?",
+              "note": "not have you eaten",
+              "vi": "Hồi nhỏ bạn có ăn nhiều đồ ngọt không?"
             },
             {
-              "en": "I got home late last night. I was very tired and went straight to bed."
+              "en": "I **got** home late **last night**. I **was** very tired and **went** straight to bed.",
+              "vi": "Tôi về nhà muộn **đêm qua**. Tôi rất mệt và đã đi ngủ ngay."
             },
             {
-              "en": "When did your friends arrive?",
-              "note": "not have ... arrived"
+              "en": "When **did** your friends **arrive**?",
+              "note": "not have ... arrived",
+              "vi": "Bạn của bạn đã đến khi nào?"
             },
             {
-              "en": "What time did you finish work?"
+              "en": "What time **did** you **finish** work?",
+              "vi": "Bạn đã xong việc lúc mấy giờ?"
             },
             {
-              "en": "Tom has lost his key. He can't get into the house.",
-              "note": "compare: Tom lost his key yesterday. He couldn't get into the house."
+              "en": "Tom **has lost** his key. He can't get into the house.",
+              "note": "compare: Tom lost his key yesterday. He couldn't get into the house.",
+              "vi": "Tom **đã làm mất** chìa khóa của anh ấy. Anh ấy không vào được nhà."
             },
             {
-              "en": "Is Carla here or has she left?",
-              "note": "compare: When did Carla leave?"
+              "en": "Is Carla here or **has** she **left**?",
+              "note": "compare: When did Carla leave?",
+              "vi": "Carla có ở đây không hay là cô ấy **đã đi** rồi?"
             }
           ]
         },
         {
           "label": "B",
-          "heading": "Unfinished period (present perfect) vs finished period (past simple)",
-          "body": "We use the present perfect for a period of time that continues until now, for example today, this week, since 2010. We use the past simple for a finished time in the past, for example yesterday, last week, from 2010 to 2014.",
+          "heading": "Giai đoạn chưa kết thúc (hiện tại hoàn thành) và giai đoạn đã kết thúc (quá khứ đơn)",
+          "headingEn": "Unfinished period (present perfect) vs finished period (past simple)",
+          "intro": "Compare:",
+          "introVi": "So sánh:",
+          "body": "We use the *present perfect* for a period of time that continues until now, for example **today**, **this week**, **since 2010**.\n\nWe use the *past simple* for a finished time in the past, for example **yesterday**, **last week**, **from 2010 to 2014**.",
+          "bodyVi": "Chúng ta dùng thì *hiện tại hoàn thành* cho một khoảng thời gian kéo dài đến hiện tại, ví dụ **hôm nay**, **tuần này**, **từ năm 2010**.\n\nChúng ta dùng thì *quá khứ đơn* cho một thời điểm đã kết thúc trong quá khứ, ví dụ **hôm qua**, **tuần trước**, **từ 2010 đến 2014**.",
           "examples": [
             {
-              "en": "I've done a lot of work today.",
-              "note": "compare: I did a lot of work yesterday."
+              "en": "I**'ve done** a lot of work **today**.",
+              "note": "compare: I did a lot of work yesterday.",
+              "vi": "Tôi **đã làm** được nhiều việc **hôm nay**."
             },
             {
-              "en": "It hasn't rained this week.",
-              "note": "compare: It didn't rain last week."
+              "en": "It **hasn't rained** **this week**.",
+              "note": "compare: It didn't rain last week.",
+              "vi": "**Tuần này** trời **không mưa**."
             },
             {
-              "en": "Have you seen Anna this morning?",
-              "note": "it is still morning now; compare: Did you see Anna this morning? (it is now afternoon or evening)"
+              "en": "**Have** you **seen** Anna **this morning**?",
+              "note": "it is still morning now; compare: Did you see Anna this morning? (it is now afternoon or evening)",
+              "vi": "**Sáng nay** bạn có gặp Anna không?"
             },
             {
-              "en": "Have you seen Ben recently?",
-              "note": "in the last few days or weeks; compare: Did you see Ben on Sunday?"
+              "en": "**Have** you **seen** Ben **recently**?",
+              "note": "in the last few days or weeks; compare: Did you see Ben on Sunday?",
+              "vi": "**Gần đây** bạn có gặp Ben không?"
             },
             {
-              "en": "I've been working here since 2010.",
-              "note": "I still work here now; compare: I worked here from 2010 to 2014. (I don't work here now)"
+              "en": "I**'ve been working** here **since 2010**.",
+              "note": "I still work here now; compare: I worked here from 2010 to 2014. (I don't work here now)",
+              "vi": "Tôi **đã làm việc** ở đây **từ năm 2010**."
             },
             {
-              "en": "I don't know where Lisa is. I haven't seen her.",
-              "note": "= I haven't seen her recently; compare: Was Lisa at the party on Sunday? I don't think so. I didn't see her."
+              "en": "I don't know where Lisa is. I **haven't seen** her.",
+              "note": "= I haven't seen her recently; compare: Was Lisa at the party on Sunday? I don't think so. I didn't see her.",
+              "vi": "Tôi không biết Lisa ở đâu. Tôi **không gặp** cô ấy."
             },
             {
-              "en": "We've been waiting for an hour.",
-              "note": "we are still waiting now; compare: We waited (or were waiting) for an hour. (we are no longer waiting)"
+              "en": "We**'ve been waiting** for an hour.",
+              "note": "we are still waiting now; compare: We waited (or were waiting) for an hour. (we are no longer waiting)",
+              "vi": "Chúng tôi **đã đợi** một giờ rồi."
             },
             {
-              "en": "Jack lives in Los Angeles. He has lived there for seven years.",
-              "note": "compare: Jack lived in New York for ten years. Now he lives in Los Angeles."
+              "en": "Jack lives in Los Angeles. He **has lived** there for seven years.",
+              "note": "compare: Jack lived in New York for ten years. Now he lives in Los Angeles.",
+              "vi": "Jack sống ở Los Angeles. Anh ấy **đã sống** ở đó bảy năm."
             },
             {
-              "en": "I've never ridden a horse.",
-              "note": "in my life; compare: I never rode a bike when I was a child."
+              "en": "I**'ve never ridden** a horse.",
+              "note": "in my life; compare: I never rode a bike when I was a child.",
+              "vi": "Tôi **chưa từng cưỡi** ngựa bao giờ."
             },
             {
-              "en": "It's been a really good holiday. I've really enjoyed it.",
-              "note": "said on the last day of the holiday; compare: It was a really good holiday. I really enjoyed it. (said after coming back)"
+              "en": "It**'s been** a really good holiday. I**'ve really enjoyed** it.",
+              "note": "said on the last day of the holiday; compare: It was a really good holiday. I really enjoyed it. (said after coming back)",
+              "vi": "Đây **đã là** một kỳ nghỉ rất tuyệt. Tôi **đã rất thích** nó."
             }
           ]
         }
@@ -4558,7 +5055,9 @@ const UNIT_14_PRESENT_PERFECT_AND_PAST_2: GrammarUnit = {
     {
       "kind": "judge_correct",
       "title": "14.1 · Phần gạch chân đúng hay cần sửa?",
+      "titleEn": "14.1 · Are the underlined parts OK?",
       "instructions": "Phần gạch chân trong mỗi câu đã đúng chưa? Sửa lại nếu cần.",
+      "instructionsEn": "Are the underlined parts of these sentences OK? Correct them where necessary.",
       "items": [
         {
           "sentence": "I've lost my key. I can't find it anywhere.",
@@ -4620,8 +5119,11 @@ const UNIT_14_PRESENT_PERFECT_AND_PAST_2: GrammarUnit = {
     {
       "kind": "type_fill",
       "title": "14.2 · Đặt câu từ các từ trong ngoặc",
+      "titleEn": "14.2 · Make sentences from the words in brackets",
       "instructions": "Đặt câu từ các từ trong ngoặc, dùng thì hiện tại hoàn thành hoặc quá khứ đơn.",
+      "instructionsEn": "Make sentences from the words in brackets. Use the present perfect or past simple.",
       "passage": "Ví dụ: 1 (it / not / rain / this week) It hasn't rained this week.",
+      "passageEn": "Example: 1 (it / not / rain / this week) It hasn't rained this week.",
       "items": [
         {
           "prompt": "2 (the weather / be / cold / recently) The weather ___",
@@ -4659,8 +5161,11 @@ const UNIT_14_PRESENT_PERFECT_AND_PAST_2: GrammarUnit = {
     {
       "kind": "type_fill",
       "title": "14.3 · Chia động từ ở thì hiện tại hoàn thành hoặc quá khứ đơn",
+      "titleEn": "14.3 · Put the verbs into the present perfect or past simple",
       "instructions": "Chia động từ trong ngoặc ở thì hiện tại hoàn thành hoặc quá khứ đơn.",
+      "instructionsEn": "Put the verb in brackets into the present perfect or past simple.",
       "passage": "Ví dụ: 1 I haven't been (I / not / be) to Canada, but I'd like to go there.\n2 Paul and Lucy arrived (arrive) about ten minutes ago.",
+      "passageEn": "Example: 1 I haven't been (I / not / be) to Canada, but I'd like to go there.\n2 Paul and Lucy arrived (arrive) about ten minutes ago.",
       "items": [
         {
           "prompt": "3 I'm tired. ___ well last night. (I / not / sleep)",
@@ -4747,7 +5252,9 @@ const UNIT_14_PRESENT_PERFECT_AND_PAST_2: GrammarUnit = {
     {
       "kind": "ai_practice",
       "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
       "instructions": "Hãy viết 2-3 câu tiếng Anh so sánh thì hiện tại hoàn thành (cho khoảng thời gian chưa kết thúc như today, this week) với quá khứ đơn (cho khoảng thời gian đã kết thúc như yesterday, last week), ví dụ: It hasn't rained this week. / It didn't rain last week.",
+      "instructionsEn": "Write 2-3 English sentences comparing the present perfect (for an unfinished period such as today, this week) with the past simple (for a finished period such as yesterday, last week), for example: It hasn't rained this week. / It didn't rain last week.",
       "ruleSummary": "This unit practises the present perfect (have/has done) for an unfinished period continuing until now (today, this week, since 2010) versus the past simple (did) for a finished time in the past (yesterday, last week, from 2010 to 2014). The present perfect is never used with a finished-time expression such as yesterday, last year or ten minutes ago (It was very cold yesterday, not has been; Paul and Lucy arrived ten minutes ago, not have arrived), and When ...? or What time ...? are always followed by the past simple, never the present perfect. A correct student sentence must use the present perfect only when the time period referred to is still open (today, this week, since a point that continues to now) and the past simple whenever a specific finished time is named or implied, including with When ...? and What time ...? questions."
     }
   ]

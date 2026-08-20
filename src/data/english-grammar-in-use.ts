@@ -10,6 +10,10 @@ export type GrammarItemType = "fill_mc" | "type_fill" | "judge_correct" | "match
 export interface GrammarExample {
   en: string;
   note?: string;
+  /** Vietnamese translation of `en`, shown only when the UI language is
+   * Vietnamese (never mixed in for an English UI). Every example should have
+   * one — this is a learner aid, not optional polish. */
+  vi?: string;
 }
 
 /** A short conjugation/reference grid the book prints as a table (e.g. the
@@ -27,12 +31,21 @@ export interface RuleBlock {
    * this example situation:" — rendered on its own line instead of running
    * into the scenario text that follows it. */
   intro?: string;
+  /** Vietnamese translation of `intro`, shown only when the UI language is
+   * Vietnamese. */
+  introVi?: string;
   /** One or more paragraphs, separated by a blank line ("\n\n"). Keep each
    * paragraph to the same short chunk of explanation the book itself breaks
    * onto its own line — don't run everything into a single dense paragraph. */
   body: string;
+  /** Vietnamese translation of `body`, with the SAME number of "\n\n"
+   * paragraphs in the same order, so each Vietnamese paragraph lines up with
+   * its English counterpart. Shown only when the UI language is Vietnamese;
+   * an English UI must render `body` alone with no Vietnamese mixed in. */
+  bodyVi?: string;
   /** A verb-form grid the book shows as a table (see RuleTable). Omit unless
-   * the block genuinely has one. */
+   * the block genuinely has one. Not translated: the cells are the target
+   * grammar forms themselves (am/is/are, -ing forms), not prose. */
   table?: RuleTable;
   /** A short word list the book prints as a word bank (e.g. getting, becoming,
    * changing ...), shown as wrapped tags instead of a comma-separated sentence. */
@@ -165,7 +178,9 @@ const UNIT_1_PRESENT_CONTINUOUS: GrammarUnit = {
           "label": "A",
           "heading": "Cách thành lập: am/is/are + -ing",
           "intro": "Study this example situation:",
+          "introVi": "Hãy xem tình huống ví dụ sau:",
           "body": "Sarah is in her car. She is on her way to work. She's **driving** to work.\n\nThis means she is driving *now*, at the time of speaking. The action is not finished.\n\n**am/is/are + -ing** is the *present continuous*:",
+          "bodyVi": "Sarah đang ở trong xe. Cô ấy đang trên đường đi làm. Cô ấy đang lái xe đi làm.\n\nĐiều này có nghĩa là cô ấy đang lái xe ngay bây giờ, vào lúc nói. Hành động chưa kết thúc.\n\nam/is/are + -ing là thì hiện tại tiếp diễn:",
           "table": {
             "rows": [
               [
@@ -188,19 +203,23 @@ const UNIT_1_PRESENT_CONTINUOUS: GrammarUnit = {
           "examples": [
             {
               "en": "She's **driving** to work.",
-              "note": "= She **is driving** ..."
+              "note": "= She **is driving** ...",
+              "vi": "Cô ấy đang lái xe đi làm."
             },
             {
               "en": "I **am driving**.",
-              "note": "I am = I'm"
+              "note": "I am = I'm",
+              "vi": "Tôi đang lái xe."
             },
             {
               "en": "He **is working**.",
-              "note": "he is = he's"
+              "note": "he is = he's",
+              "vi": "Anh ấy đang làm việc."
             },
             {
               "en": "They **are doing** it.",
-              "note": "they are = they're"
+              "note": "they are = they're",
+              "vi": "Họ đang làm việc đó."
             }
           ]
         },
@@ -208,31 +227,39 @@ const UNIT_1_PRESENT_CONTINUOUS: GrammarUnit = {
           "label": "B",
           "heading": "Hành động đang diễn ra, chưa kết thúc",
           "body": "**I am doing** something means I started doing it and I haven't finished it: I'm in the middle of doing it.\n\nSometimes the action is not happening at the exact time of speaking. For example, Steve is talking to a friend on the phone and says: '**I'm reading** a really good book at the moment.'\n\nSteve is *not* reading the book at the time of speaking. He means that he has started reading the book but has not finished it yet, he is in the middle of reading it.",
+          "bodyVi": "I am doing something (tôi đang làm gì đó) có nghĩa là tôi đã bắt đầu làm việc đó và chưa xong: tôi đang làm việc đó giữa chừng.\n\nĐôi khi hành động không diễn ra ngay tại thời điểm nói. Ví dụ, Steve đang nói chuyện điện thoại với một người bạn và nói: 'Tôi đang đọc một cuốn sách rất hay.'\n\nSteve không đang đọc sách ngay lúc nói câu đó. Anh ấy muốn nói rằng anh ấy đã bắt đầu đọc cuốn sách nhưng chưa đọc xong, anh ấy đang đọc nó giữa chừng.",
           "examples": [
             {
               "en": "Please don't make so much noise. I**'m trying** to work.",
-              "note": "not I try"
+              "note": "not I try",
+              "vi": "Đừng gây ồn quá vậy. Tôi đang cố gắng làm việc."
             },
             {
               "en": "'Where's Mark?' 'He**'s having** a shower.'",
-              "note": "not He has a shower"
+              "note": "not He has a shower",
+              "vi": "'Mark đâu rồi?' 'Anh ấy đang tắm.'"
             },
             {
               "en": "Let's go out now. It **isn't raining** any more.",
-              "note": "not It doesn't rain"
+              "note": "not It doesn't rain",
+              "vi": "Đi ra ngoài thôi. Trời không còn mưa nữa."
             },
             {
-              "en": "How's your new job? **Are** you **enjoying** it?"
+              "en": "How's your new job? **Are** you **enjoying** it?",
+              "vi": "Công việc mới của bạn thế nào? Bạn có thích nó không?"
             },
             {
-              "en": "What's all that noise? What**'s going** on? or What**'s happening**?"
+              "en": "What's all that noise? What**'s going** on? or What**'s happening**?",
+              "vi": "Tiếng ồn đó là gì vậy? Chuyện gì đang xảy ra vậy?"
             },
             {
               "en": "Kate wants to work in Italy, so she**'s learning** Italian.",
-              "note": "but perhaps she isn't learning Italian at the time of speaking"
+              "note": "but perhaps she isn't learning Italian at the time of speaking",
+              "vi": "Kate muốn làm việc ở Ý, nên cô ấy đang học tiếng Ý."
             },
             {
-              "en": "Some friends of mine **are building** their own house. They hope to finish it next summer."
+              "en": "Some friends of mine **are building** their own house. They hope to finish it next summer.",
+              "vi": "Vài người bạn của tôi đang xây nhà riêng. Họ hy vọng sẽ hoàn thành vào mùa hè tới."
             }
           ]
         },
@@ -240,13 +267,16 @@ const UNIT_1_PRESENT_CONTINUOUS: GrammarUnit = {
           "label": "C",
           "heading": "Dùng với today / this week / this year",
           "body": "You can use the present continuous with **today**, **this week**, **this year** and other periods around now.",
+          "bodyVi": "Bạn có thể dùng thì hiện tại tiếp diễn với today (hôm nay), this week (tuần này), this year (năm nay) và các khoảng thời gian khác quanh hiện tại.",
           "examples": [
             {
               "en": "A: You**'re working** hard **today**. B: Yes, I have a lot to do.",
-              "note": "not You work hard today"
+              "note": "not You work hard today",
+              "vi": "A: Hôm nay bạn làm việc chăm chỉ đấy. B: Vâng, tôi có nhiều việc phải làm."
             },
             {
-              "en": "The company I work for **isn't doing** so well **this year**."
+              "en": "The company I work for **isn't doing** so well **this year**.",
+              "vi": "Công ty tôi làm năm nay kinh doanh không tốt lắm."
             }
           ]
         },
@@ -254,6 +284,7 @@ const UNIT_1_PRESENT_CONTINUOUS: GrammarUnit = {
           "label": "D",
           "heading": "Diễn tả sự thay đổi đang xảy ra",
           "body": "We use the present continuous when we talk about a change that has started to happen.\n\nWe often use these verbs in this way:",
+          "bodyVi": "Chúng ta dùng thì hiện tại tiếp diễn khi nói về một sự thay đổi đã bắt đầu xảy ra.\n\nChúng ta thường dùng những động từ này theo cách đó:",
           "wordList": [
             "getting",
             "becoming",
@@ -269,15 +300,18 @@ const UNIT_1_PRESENT_CONTINUOUS: GrammarUnit = {
           "examples": [
             {
               "en": "**Is** your English **getting** better?",
-              "note": "not Does your English get better"
+              "note": "not Does your English get better",
+              "vi": "Tiếng Anh của bạn có đang tốt hơn không?"
             },
             {
               "en": "The population of the world **is increasing** very fast.",
-              "note": "not increases"
+              "note": "not increases",
+              "vi": "Dân số thế giới đang tăng rất nhanh."
             },
             {
               "en": "At first I didn't like my job, but I**'m starting** to enjoy it now.",
-              "note": "not I start"
+              "note": "not I start",
+              "vi": "Ban đầu tôi không thích công việc của mình, nhưng giờ tôi đang bắt đầu thấy thích nó."
             }
           ]
         }

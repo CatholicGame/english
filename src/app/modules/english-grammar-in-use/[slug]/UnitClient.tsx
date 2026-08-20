@@ -20,6 +20,7 @@ import { useAiConvoStore } from "@/lib/use-ai-convo-store";
 import { addGlobalXP } from "@/lib/global-score";
 import { AiFeedback } from "@/components/AiFeedback";
 import { currentAiLang } from "@/lib/ai-lang-prefs";
+import { useUiLang } from "@/lib/i18n";
 import { useSubscriptionStore } from "@/lib/use-subscription-store";
 import { isGrammarUnitLocked } from "@/lib/content-access";
 import { ProPaywallNotice } from "@/components/ProPaywallNotice";
@@ -138,6 +139,11 @@ function RuleTableView({ table }: { table: RuleTable }) {
 }
 
 function RuleBlockView({ block: b }: { block: RuleBlock }) {
+  const { lang } = useUiLang();
+  const showVi = lang !== "en";
+  const bodyParas = b.body.split("\n\n");
+  const bodyParasVi = b.bodyVi?.split("\n\n");
+
   return (
     <div className="overflow-hidden rounded-lg bg-surface">
       {(b.label || b.heading) && (
@@ -151,10 +157,18 @@ function RuleBlockView({ block: b }: { block: RuleBlock }) {
         </div>
       )}
       <div className="p-3">
-        {b.intro && <p className="mb-1.5 text-[12.5px] font-bold text-neutral-500">{b.intro}</p>}
-        {b.body.split("\n\n").map((para, k) => (
+        {b.intro && (
+          <p className="mb-1.5 text-[12.5px] font-bold text-neutral-500">
+            {b.intro}
+            {showVi && b.introVi && <span className="ml-1.5 font-normal">({b.introVi})</span>}
+          </p>
+        )}
+        {bodyParas.map((para, k) => (
           <p key={k} className={`text-[13.5px] leading-relaxed text-neutral-700 ${k > 0 ? "mt-2" : ""}`}>
             {renderRich(para)}
+            {showVi && bodyParasVi?.[k] && (
+              <span className="mt-0.5 block text-[12.5px] text-neutral-500 italic">{renderRich(bodyParasVi[k])}</span>
+            )}
           </p>
         ))}
         {b.table && <RuleTableView table={b.table} />}
@@ -175,8 +189,11 @@ function RuleBlockView({ block: b }: { block: RuleBlock }) {
           <ul className="mt-2.5 flex flex-col gap-1.5">
             {b.examples.map((ex, j) => (
               <li key={j} className="border-l-2 border-neutral-300 pl-2.5 text-[13.5px]">
-                {renderRich(ex.en)}
-                {ex.note && <span className="ml-1.5 text-neutral-500">({renderRich(ex.note)})</span>}
+                <div>
+                  {renderRich(ex.en)}
+                  {ex.note && <span className="ml-1.5 text-neutral-500">({renderRich(ex.note)})</span>}
+                </div>
+                {showVi && ex.vi && <div className="mt-0.5 text-[12.5px] text-neutral-500 italic">{renderRich(ex.vi)}</div>}
               </li>
             ))}
           </ul>

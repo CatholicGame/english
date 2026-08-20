@@ -146,6 +146,9 @@ export function AiSentencePractice({ item, moduleKey, showItemInfo = true }: { i
       const enriched = { ...d, items, xpEarned };
       setBatchResult(enriched);
       addGlobalXP(xpEarned);
+      // cid is always null here (translate mode never sets it), so every submit,
+      // including a retry of the same 5 sentences, lands in its own new
+      // conversation record rather than overwriting the previous attempt.
       appendMessages(ik, il, cid, "cpv_translate", [
         { role: "user", content: "Submitted 5 translations", timestamp: Date.now() },
         { role: "assistant", content: JSON.stringify(enriched), timestamp: Date.now() },
@@ -153,6 +156,14 @@ export function AiSentencePractice({ item, moduleKey, showItemInfo = true }: { i
       clearDraft(translateDraftKey);
     }
   }, [viSentences, translations, item, ik, il, cid, appendMessages, translateDraftKey]);
+
+  // Retry the SAME 5 sentences (as opposed to "New set", which generates a fresh
+  // batch): keeps the learner's previous answers editable so they can fix what
+  // was wrong, then resubmit for a fresh AI review saved as its own history record.
+  const retryTranslateBatch = useCallback(() => {
+    setBatchResult(null);
+    setCid(null);
+  }, []);
 
   const quizSavedRef = useRef(false);
   const lq = useCallback(async () => {
@@ -367,7 +378,12 @@ export function AiSentencePractice({ item, moduleKey, showItemInfo = true }: { i
         </button>
       );
     } else {
-      footerContent = <button className="btn btn-ghost btn-block text-[12px]" onClick={loadTranslate} disabled={loading}>New set</button>;
+      footerContent = (
+        <div className="flex gap-2">
+          <button className="btn btn-secondary flex-1 text-[12px]" onClick={retryTranslateBatch} disabled={loading}>Try Again</button>
+          <button className="btn btn-ghost flex-1 text-[12px]" onClick={loadTranslate} disabled={loading}>New Set</button>
+        </div>
+      );
     }
   } else if (mode === "quiz") {
     footerContent = !qz ? (

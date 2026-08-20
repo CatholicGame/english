@@ -5,7 +5,7 @@
 // exercise from the book is digitized; only exercises whose answers can't be
 // derived without seeing the book's illustration are left out.
 
-export type GrammarItemType = "fill_mc" | "type_fill" | "judge_correct";
+export type GrammarItemType = "fill_mc" | "type_fill" | "judge_correct" | "match_pairs";
 
 export interface GrammarExample {
   en: string;
@@ -111,7 +111,23 @@ export interface AiPracticeStep {
   ruleSummary: string; // short EN description of the grammar point, sent to the AI for grading context
 }
 
-export type GrammarUnitStep = RuleStep | FillMcStep | TypeFillStep | JudgeCorrectStep | AiPracticeStep;
+/** The book's "the sentences on the right follow those on the left, which
+ * goes with which?" exercise: a numbered left column and a lettered right
+ * column, printed in independent (non-corresponding) orders. `left` and
+ * `right` are each shown in the book's own printed order; `answers[i]` is the
+ * exact string from `right` that pairs with `left[i]`. Rendered as a
+ * tap-left-then-tap-right matching UI, not as fill_mc's repeated-option-list
+ * (which duplicates the whole option pool under every single item). */
+export interface MatchPairsStep {
+  kind: "match_pairs";
+  title: string;
+  instructions: string;
+  left: string[];
+  right: string[];
+  answers: string[];
+}
+
+export type GrammarUnitStep = RuleStep | FillMcStep | TypeFillStep | JudgeCorrectStep | MatchPairsStep | AiPracticeStep;
 
 export interface GrammarUnitMeta {
   unit: number;
@@ -262,130 +278,38 @@ const UNIT_1_PRESENT_CONTINUOUS: GrammarUnit = {
       ]
     },
     {
-      "kind": "fill_mc",
+      "kind": "match_pairs",
       "title": "1.2 · Nối câu cho phù hợp",
-      "instructions": "Các câu bên phải nối tiếp ý của các câu bên trái. Chọn câu phù hợp với mỗi câu cho sẵn.",
-      "items": [
-        {
-          "before": "Please don't make so much noise.",
-          "after": "",
-          "options": [
-            "I'm getting hungry.",
-            "They're lying.",
-            "It's starting to rain.",
-            "They're trying to sell it.",
-            "It's getting late.",
-            "I'm trying to work.",
-            "I'm staying with friends.",
-            "The company is losing money."
-          ],
-          "answer": "I'm trying to work."
-        },
-        {
-          "before": "We need to leave soon.",
-          "after": "",
-          "options": [
-            "I'm getting hungry.",
-            "They're lying.",
-            "It's starting to rain.",
-            "They're trying to sell it.",
-            "It's getting late.",
-            "I'm trying to work.",
-            "I'm staying with friends.",
-            "The company is losing money."
-          ],
-          "answer": "It's getting late."
-        },
-        {
-          "before": "I don't have anywhere to live right now.",
-          "after": "",
-          "options": [
-            "I'm getting hungry.",
-            "They're lying.",
-            "It's starting to rain.",
-            "They're trying to sell it.",
-            "It's getting late.",
-            "I'm trying to work.",
-            "I'm staying with friends.",
-            "The company is losing money."
-          ],
-          "answer": "I'm staying with friends."
-        },
-        {
-          "before": "I need to eat something soon.",
-          "after": "",
-          "options": [
-            "I'm getting hungry.",
-            "They're lying.",
-            "It's starting to rain.",
-            "They're trying to sell it.",
-            "It's getting late.",
-            "I'm trying to work.",
-            "I'm staying with friends.",
-            "The company is losing money."
-          ],
-          "answer": "I'm getting hungry."
-        },
-        {
-          "before": "They don't need their car any more.",
-          "after": "",
-          "options": [
-            "I'm getting hungry.",
-            "They're lying.",
-            "It's starting to rain.",
-            "They're trying to sell it.",
-            "It's getting late.",
-            "I'm trying to work.",
-            "I'm staying with friends.",
-            "The company is losing money."
-          ],
-          "answer": "They're trying to sell it."
-        },
-        {
-          "before": "Things are not so good at work.",
-          "after": "",
-          "options": [
-            "I'm getting hungry.",
-            "They're lying.",
-            "It's starting to rain.",
-            "They're trying to sell it.",
-            "It's getting late.",
-            "I'm trying to work.",
-            "I'm staying with friends.",
-            "The company is losing money."
-          ],
-          "answer": "The company is losing money."
-        },
-        {
-          "before": "It isn't true what they say.",
-          "after": "",
-          "options": [
-            "I'm getting hungry.",
-            "They're lying.",
-            "It's starting to rain.",
-            "They're trying to sell it.",
-            "It's getting late.",
-            "I'm trying to work.",
-            "I'm staying with friends.",
-            "The company is losing money."
-          ],
-          "answer": "They're lying."
-        },
-        {
-          "before": "We're going to get wet.",
-          "after": "",
-          "options": [
-            "I'm getting hungry.",
-            "They're lying.",
-            "It's starting to rain.",
-            "They're trying to sell it.",
-            "It's getting late.",
-            "I'm trying to work.",
-            "I'm staying with friends.",
-            "The company is losing money."
-          ],
-          "answer": "It's starting to rain."
-        }
+      "instructions": "Các câu bên phải nối tiếp ý của các câu bên trái. Chạm một câu bên trái, sau đó chạm câu phù hợp bên phải.",
+      "left": [
+        "Please don't make so much noise.",
+        "We need to leave soon.",
+        "I don't have anywhere to live right now.",
+        "I need to eat something soon.",
+        "They don't need their car any more.",
+        "Things are not so good at work.",
+        "It isn't true what they say.",
+        "We're going to get wet."
+      ],
+      "right": [
+        "I'm getting hungry.",
+        "They're lying.",
+        "It's starting to rain.",
+        "They're trying to sell it.",
+        "It's getting late.",
+        "I'm trying to work.",
+        "I'm staying with friends.",
+        "The company is losing money."
+      ],
+      "answers": [
+        "I'm trying to work.",
+        "It's getting late.",
+        "I'm staying with friends.",
+        "I'm getting hungry.",
+        "They're trying to sell it.",
+        "The company is losing money.",
+        "They're lying.",
+        "It's starting to rain."
       ]
     },
     {

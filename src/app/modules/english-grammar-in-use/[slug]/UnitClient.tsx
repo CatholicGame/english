@@ -7,6 +7,7 @@ import {
   type AiPracticeStep,
   type FillMcStep,
   type JudgeCorrectStep,
+  type MatchPairsStep,
   type RuleBlock,
   type RuleStep,
   type RuleTable,
@@ -25,6 +26,8 @@ import { ProPaywallNotice } from "@/components/ProPaywallNotice";
 import { ActionBarScreen, useActionBar } from "@/components/ActionBar";
 
 const MODULE_KEY = "english-grammar-in-use";
+
+const QUIZ_LETTERS_LOWER = "abcdefghij".split("");
 
 interface Score {
   correct: number;
@@ -270,6 +273,100 @@ function FillMcStepView({ step, onNext }: { step: FillMcStep; onNext: (score?: S
         >
           Kiểm tra
         </button>
+      )}
+    </div>
+  );
+}
+
+// ---------- Match pairs (two columns, tap to connect) ----------
+
+interface PairSel {
+  side: "l" | "r";
+  index: number;
+}
+
+function MatchPairsStepView({ step, onNext }: { step: MatchPairsStep; onNext: (score?: Score) => void }) {
+  const [sel, setSel] = useState<PairSel | null>(null);
+  const [doneLeft, setDoneLeft] = useState<Record<number, number>>({});
+  const [wrong, setWrong] = useState<{ l: number; r: number } | null>(null);
+  const [mistakes, setMistakes] = useState(0);
+  const matchedRight = new Set(Object.values(doneLeft));
+  const allDone = Object.keys(doneLeft).length === step.left.length;
+
+  function pick(side: "l" | "r", index: number) {
+    if (wrong) return;
+    if (side === "l" && doneLeft[index] !== undefined) return;
+    if (side === "r" && matchedRight.has(index)) return;
+    if (!sel || sel.side === side) {
+      setSel({ side, index });
+      return;
+    }
+    const leftIndex = side === "l" ? index : sel.index;
+    const rightIndex = side === "r" ? index : sel.index;
+    const correct = step.answers[leftIndex] === step.right[rightIndex];
+    setSel(null);
+    if (correct) {
+      setDoneLeft((prev) => ({ ...prev, [leftIndex]: rightIndex }));
+    } else {
+      setMistakes((m) => m + 1);
+      setWrong({ l: leftIndex, r: rightIndex });
+      setTimeout(() => setWrong(null), 650);
+    }
+  }
+
+  function styleFor(side: "l" | "r", index: number) {
+    const isDone = side === "l" ? doneLeft[index] !== undefined : matchedRight.has(index);
+    const isWrong = wrong && (side === "l" ? wrong.l === index : wrong.r === index);
+    const isSel = sel?.side === side && sel.index === index;
+    if (isDone) return { borderColor: "var(--color-text)", background: "var(--color-text)", color: "var(--color-bg)" };
+    if (isWrong) return { borderColor: "var(--color-accent)", background: "var(--color-accent-100)", color: "var(--color-accent-800)" };
+    if (isSel) return { borderColor: "var(--color-accent)", background: "var(--color-accent)", color: "var(--color-bg)" };
+    return { borderColor: "var(--color-divider)", background: "var(--color-surface)", color: "var(--color-text)" };
+  }
+
+  return (
+    <div className="flex flex-1 flex-col p-4 lg:mx-auto lg:w-full lg:max-w-[640px]">
+      <div className="mb-3 text-[13px] text-neutral-700">{step.instructions}</div>
+      <div className="grid grid-cols-2 gap-2.5">
+        <div className="flex flex-col gap-1.5">
+          {step.left.map((text, i) => (
+            <button
+              key={i}
+              disabled={doneLeft[i] !== undefined}
+              style={styleFor("l", i)}
+              className="border px-2.5 py-2 text-left text-[12.5px] leading-snug"
+              onClick={() => pick("l", i)}
+            >
+              <span className="mr-1.5 opacity-60">{i + 1}</span>
+              {text}
+            </button>
+          ))}
+        </div>
+        <div className="flex flex-col gap-1.5">
+          {step.right.map((text, i) => (
+            <button
+              key={i}
+              disabled={matchedRight.has(i)}
+              style={styleFor("r", i)}
+              className="border px-2.5 py-2 text-left text-[12.5px] leading-snug"
+              onClick={() => pick("r", i)}
+            >
+              <span className="mr-1.5 opacity-60">{QUIZ_LETTERS_LOWER[i]}</span>
+              {text}
+            </button>
+          ))}
+        </div>
+      </div>
+      {allDone && (
+        <div className="mt-3 bg-accent-100 px-4 py-3 text-[13px] leading-relaxed text-accent-800">
+          <span className="label-xs mb-0.5 block">Kết quả</span>
+          <span className="font-extrabold">
+            {step.left.length}/{step.left.length + mistakes} lần chạm đúng
+          </span>
+        </div>
+      )}
+      {allDone && (
+        <ContinueButton onClick={() => onNext({ correct: step.left.length, total: step.left.length + mistakes })} />
       )}
     </div>
   );
@@ -554,6 +651,7 @@ const STEP_KIND_LABELS: Record<GrammarUnitStep["kind"], string> = {
   fill_mc: "Thực hành",
   type_fill: "Thực hành",
   judge_correct: "Thực hành",
+  match_pairs: "Thực hành",
   ai_practice: "Luyện AI",
 };
 
@@ -728,6 +826,7 @@ export function UnitClient({ slug }: { slug: string }) {
         {step.kind === "fill_mc" && <FillMcStepView key={stepIndex} step={step} onNext={handleNext} />}
         {step.kind === "type_fill" && <TypeFillStepView key={stepIndex} step={step} onNext={handleNext} />}
         {step.kind === "judge_correct" && <JudgeCorrectStepView key={stepIndex} step={step} onNext={handleNext} />}
+        {step.kind === "match_pairs" && <MatchPairsStepView key={stepIndex} step={step} onNext={handleNext} />}
         {step.kind === "ai_practice" && (
           <AiPracticeStepView key={stepIndex} step={step} unitTitle={unit.title} itemKey={unit.slug} onNext={handleNext} />
         )}

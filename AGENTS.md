@@ -14,6 +14,14 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 These apply to every AI-practice feature (collocations/phrasal-verbs, Cambridge IELTS advanced, and any future module) — follow them by default, don't wait to be asked.
 
+## Collocations & Phrasal Verbs content depth
+
+`src/data/basic-verbs.ts` (source of truth: `content/topics/01-collocations-phrasal-verbs/basic-verbs.md`, edit both by hand, there is no generator script wired into the build) lists each core verb's collocations and phrasal verbs. Learners notice when a common verb's list feels thin next to how many real collocations it actually has (e.g. DO originally shipped with only 6 collocations when 15+ common ones exist).
+
+- For every verb in groups A-D (the real action verbs, not the single-preposition group E verbs like `depend on`/`care about`): aim for at least 8 collocations and 5 phrasal verbs, using only real, commonly-used, natural phrases a native speaker would actually recognize. Never pad the count with invented, rare, or textbook-stiff phrases just to hit the number, if a verb genuinely doesn't support that many, list fewer.
+- Group E (single-preposition verbs) is exempt from this minimum: most of them genuinely have only 1-3 natural preposition pairings, so a short list there is correct content, not a gap.
+- Match the existing style: `en` is a short dictionary-style definition (5-12 words), `vi` is a natural Vietnamese meaning (not a literal word-by-word gloss), `ex` is one natural everyday example sentence.
+
 ## Gamification
 - Every learner-facing AI activity that produces an evaluation must award XP via `addGlobalXP()` (`@/lib/global-score`) — no exercise should go unrewarded.
 - Convention: 10 XP per correct item / 2 XP per incorrect item for granular per-sentence exercises (see `submitTranslateBatch`). For a whole-session task (e.g. finishing a full conversation, not just one sentence), scale up modestly — 20/8 is the established pair (see `endAndFeedback` in `AiSentencePractice.tsx` / `UnitClient.tsx`).

@@ -77,6 +77,76 @@ export const VERBS: Verb[] = [
         "ex": "Could you do me a favor and open the door?"
       },
       {
+        "term": "do exercise",
+        "type": "collocation",
+        "en": "to do physical activity to stay fit",
+        "vi": "tập thể dục",
+        "ex": "She does exercise every morning before work."
+      },
+      {
+        "term": "do yoga",
+        "type": "collocation",
+        "en": "to practice yoga",
+        "vi": "tập yoga",
+        "ex": "He does yoga twice a week to relax."
+      },
+      {
+        "term": "do research",
+        "type": "collocation",
+        "en": "to study a subject carefully to find information",
+        "vi": "nghiên cứu",
+        "ex": "The team did research before launching the product."
+      },
+      {
+        "term": "do your best",
+        "type": "collocation",
+        "en": "to try as hard as you can",
+        "vi": "cố gắng hết sức",
+        "ex": "Just do your best on the exam, that's all we ask."
+      },
+      {
+        "term": "do harm",
+        "type": "collocation",
+        "en": "to cause injury or negative effects",
+        "vi": "gây hại",
+        "ex": "Too much sun can do harm to your skin."
+      },
+      {
+        "term": "do damage",
+        "type": "collocation",
+        "en": "to cause destruction to something",
+        "vi": "gây thiệt hại, gây tổn hại",
+        "ex": "The storm did serious damage to the roof."
+      },
+      {
+        "term": "do makeup",
+        "type": "collocation",
+        "en": "to apply cosmetics to the face",
+        "vi": "trang điểm",
+        "ex": "It takes her twenty minutes to do her makeup."
+      },
+      {
+        "term": "do hair",
+        "type": "collocation",
+        "en": "to style or arrange someone's hair",
+        "vi": "làm tóc",
+        "ex": "She's getting her hair done for the wedding."
+      },
+      {
+        "term": "do paperwork",
+        "type": "collocation",
+        "en": "to complete official documents and forms",
+        "vi": "làm giấy tờ",
+        "ex": "He spent the afternoon doing paperwork at the office."
+      },
+      {
+        "term": "do time",
+        "type": "collocation",
+        "en": "to spend time in prison",
+        "vi": "ngồi tù",
+        "ex": "He did five years' time for fraud."
+      },
+      {
         "term": "do away with",
         "type": "phrasal_verb",
         "en": "to get rid of something",
@@ -155,6 +225,27 @@ export const VERBS: Verb[] = [
         "ex": "He made an effort to arrive on time."
       },
       {
+        "term": "make a difference",
+        "type": "collocation",
+        "en": "to have a noticeable effect on a situation",
+        "vi": "tạo ra sự khác biệt, có tác động rõ rệt",
+        "ex": "Recycling one bottle won't make a difference, but everyone doing it will."
+      },
+      {
+        "term": "make sense",
+        "type": "collocation",
+        "en": "to be logical, clear, or understandable",
+        "vi": "hợp lý, dễ hiểu",
+        "ex": "Can you explain that again? It doesn't make sense to me."
+      },
+      {
+        "term": "make a living",
+        "type": "collocation",
+        "en": "to earn enough money to support yourself",
+        "vi": "kiếm sống",
+        "ex": "She makes a living as a freelance translator."
+      },
+      {
         "term": "make up",
         "type": "phrasal_verb",
         "en": "to invent a story; to reconcile after a fight",
@@ -181,6 +272,13 @@ export const VERBS: Verb[] = [
         "en": "to steal and run away with something",
         "vi": "lấy trộm rồi bỏ chạy",
         "ex": "The thief made off with her purse."
+      },
+      {
+        "term": "make do",
+        "type": "phrasal_verb",
+        "en": "to manage with what's available even if it's not ideal",
+        "vi": "xoay xở, tạm dùng những gì có sẵn",
+        "ex": "We didn't have a proper table, so we made do with a cardboard box."
       }
     ]
   },
@@ -233,6 +331,27 @@ export const VERBS: Verb[] = [
         "ex": "We had a chat over coffee."
       },
       {
+        "term": "have a party",
+        "type": "collocation",
+        "en": "to host a social gathering for celebration",
+        "vi": "tổ chức tiệc",
+        "ex": "We're having a party this Saturday, you should come."
+      },
+      {
+        "term": "have an argument",
+        "type": "collocation",
+        "en": "to disagree with someone in a heated way",
+        "vi": "cãi nhau, tranh cãi",
+        "ex": "My roommate and I had an argument about the rent."
+      },
+      {
+        "term": "have a word with someone",
+        "type": "collocation",
+        "en": "to speak briefly with someone, often about a problem",
+        "vi": "nói chuyện riêng với ai đó, thường để nhắc nhở",
+        "ex": "The manager wants to have a word with you after the meeting."
+      },
+      {
         "term": "have on",
         "type": "phrasal_verb",
         "en": "to be wearing something; to trick someone (informal)",
@@ -252,6 +371,20 @@ export const VERBS: Verb[] = [
         "en": "to be related or connected to",
         "vi": "liên quan đến",
         "ex": "This problem has to do with the software update."
+      },
+      {
+        "term": "have someone over",
+        "type": "phrasal_verb",
+        "en": "to invite someone to your home as a guest",
+        "vi": "mời ai đó đến nhà chơi",
+        "ex": "We're having some friends over for dinner tonight."
+      },
+      {
+        "term": "have something in",
+        "type": "phrasal_verb",
+        "en": "to keep a supply of something at home",
+        "vi": "có sẵn đồ gì đó trong nhà",
+        "ex": "Do we have any milk in, or should I grab some on the way home?"
       }
     ]
   },
@@ -295,6 +428,34 @@ export const VERBS: Verb[] = [
         "en": "to happen",
         "vi": "diễn ra",
         "ex": "The meeting will take place next Monday."
+      },
+      {
+        "term": "take a photo",
+        "type": "collocation",
+        "en": "to capture an image with a camera",
+        "vi": "chụp ảnh",
+        "ex": "Can you take a photo of us in front of the fountain?"
+      },
+      {
+        "term": "take advantage of",
+        "type": "collocation",
+        "en": "to make good use of an opportunity",
+        "vi": "tận dụng",
+        "ex": "You should take advantage of the free trial while it lasts."
+      },
+      {
+        "term": "take responsibility for",
+        "type": "collocation",
+        "en": "to accept that something is your duty or fault",
+        "vi": "chịu trách nhiệm về",
+        "ex": "He finally took responsibility for the mistake."
+      },
+      {
+        "term": "take turns",
+        "type": "collocation",
+        "en": "to do something one after another in order",
+        "vi": "thay phiên nhau",
+        "ex": "The kids took turns riding the bike."
       },
       {
         "term": "take off",
@@ -382,6 +543,34 @@ export const VERBS: Verb[] = [
         "ex": "Could you give me a hand with these bags?"
       },
       {
+        "term": "give an example",
+        "type": "collocation",
+        "en": "to mention a specific case to illustrate something",
+        "vi": "đưa ra ví dụ",
+        "ex": "Can you give an example of what you mean?"
+      },
+      {
+        "term": "give directions",
+        "type": "collocation",
+        "en": "to tell someone how to get somewhere",
+        "vi": "chỉ đường",
+        "ex": "A stranger gave me directions to the train station."
+      },
+      {
+        "term": "give someone a chance",
+        "type": "collocation",
+        "en": "to allow someone the opportunity to try or improve",
+        "vi": "cho ai đó một cơ hội",
+        "ex": "Just give him a chance, he's new to the job."
+      },
+      {
+        "term": "give feedback",
+        "type": "collocation",
+        "en": "to share your opinion on someone's work or performance",
+        "vi": "đưa ra nhận xét, góp ý",
+        "ex": "The teacher gave feedback on our essays."
+      },
+      {
         "term": "give up",
         "type": "phrasal_verb",
         "en": "to stop trying; to quit a habit",
@@ -458,6 +647,41 @@ export const VERBS: Verb[] = [
         "en": "to invest in something",
         "vi": "đầu tư tiền vào",
         "ex": "They put money into renewable energy."
+      },
+      {
+        "term": "put the blame on",
+        "type": "collocation",
+        "en": "to say someone or something caused a problem",
+        "vi": "đổ lỗi cho",
+        "ex": "Don't put the blame on me, it wasn't my fault."
+      },
+      {
+        "term": "put trust in",
+        "type": "collocation",
+        "en": "to believe someone or something is reliable",
+        "vi": "đặt niềm tin vào",
+        "ex": "You have to put trust in your team."
+      },
+      {
+        "term": "put a limit on",
+        "type": "collocation",
+        "en": "to set a maximum amount or restriction",
+        "vi": "giới hạn, đặt mức tối đa",
+        "ex": "The bank put a limit on how much you can withdraw daily."
+      },
+      {
+        "term": "put a smile on someone's face",
+        "type": "collocation",
+        "en": "to make someone happy",
+        "vi": "làm ai đó vui, khiến ai đó mỉm cười",
+        "ex": "Her surprise visit put a smile on his face."
+      },
+      {
+        "term": "put effort into",
+        "type": "collocation",
+        "en": "to work hard on something",
+        "vi": "đầu tư công sức vào",
+        "ex": "She put a lot of effort into planning the wedding."
       },
       {
         "term": "put off",
@@ -545,6 +769,41 @@ export const VERBS: Verb[] = [
         "ex": "He paid the price for being careless."
       },
       {
+        "term": "pay respects",
+        "type": "collocation",
+        "en": "to show honor or sympathy, often at a funeral",
+        "vi": "bày tỏ lòng kính trọng, viếng thăm",
+        "ex": "Hundreds of people came to pay their respects."
+      },
+      {
+        "term": "pay a fine",
+        "type": "collocation",
+        "en": "to give money as a penalty for breaking a rule",
+        "vi": "nộp phạt",
+        "ex": "I had to pay a fine for parking in the wrong spot."
+      },
+      {
+        "term": "pay tribute to",
+        "type": "collocation",
+        "en": "to publicly express admiration or respect for someone",
+        "vi": "tôn vinh, bày tỏ sự kính trọng đối với",
+        "ex": "The concert paid tribute to the late singer."
+      },
+      {
+        "term": "pay in cash",
+        "type": "collocation",
+        "en": "to pay using paper money and coins, not a card",
+        "vi": "trả bằng tiền mặt",
+        "ex": "Can I pay in cash instead of by card?"
+      },
+      {
+        "term": "pay your dues",
+        "type": "collocation",
+        "en": "to earn respect or success through hard work over time",
+        "vi": "trải qua khó khăn để xứng đáng có được thành công",
+        "ex": "He paid his dues working night shifts before getting promoted."
+      },
+      {
         "term": "pay back",
         "type": "phrasal_verb",
         "en": "to return money owed; to get revenge",
@@ -571,6 +830,13 @@ export const VERBS: Verb[] = [
         "en": "to pay money owed, often reluctantly",
         "vi": "trả hết (nợ), miễn cưỡng",
         "ex": "He was forced to pay up after losing the bet."
+      },
+      {
+        "term": "pay out",
+        "type": "phrasal_verb",
+        "en": "to give a large sum of money, often from insurance",
+        "vi": "chi trả một khoản tiền lớn, thường từ bảo hiểm",
+        "ex": "The insurance company paid out $10,000 after the accident."
       }
     ]
   },
@@ -602,6 +868,48 @@ export const VERBS: Verb[] = [
         "ex": "She threw a fit when she heard the news."
       },
       {
+        "term": "throw a tantrum",
+        "type": "collocation",
+        "en": "to have a sudden burst of anger or frustration",
+        "vi": "nổi cơn thịnh nộ, ăn vạ",
+        "ex": "The toddler threw a tantrum in the middle of the store."
+      },
+      {
+        "term": "throw a curveball",
+        "type": "collocation",
+        "en": "to surprise someone with something unexpected and tricky",
+        "vi": "gây bất ngờ, đưa ra tình huống khó lường",
+        "ex": "The interviewer threw me a curveball with that last question."
+      },
+      {
+        "term": "throw caution to the wind",
+        "type": "collocation",
+        "en": "to act boldly without worrying about the risk",
+        "vi": "bất chấp rủi ro, liều lĩnh hành động",
+        "ex": "She threw caution to the wind and quit her job to travel."
+      },
+      {
+        "term": "throw light on",
+        "type": "collocation",
+        "en": "to help explain or clarify something confusing",
+        "vi": "làm sáng tỏ, giúp giải thích rõ hơn",
+        "ex": "The new evidence threw light on what really happened."
+      },
+      {
+        "term": "throw a glance",
+        "type": "collocation",
+        "en": "to look quickly at someone or something",
+        "vi": "liếc nhìn nhanh",
+        "ex": "She threw a glance at her phone during the meeting."
+      },
+      {
+        "term": "throw your weight around",
+        "type": "collocation",
+        "en": "to use your authority in a bossy or aggressive way",
+        "vi": "ra oai, lạm dụng quyền lực",
+        "ex": "He's always throwing his weight around since he got promoted."
+      },
+      {
         "term": "throw away",
         "type": "phrasal_verb",
         "en": "to discard something",
@@ -628,6 +936,13 @@ export const VERBS: Verb[] = [
         "en": "to add something extra for free",
         "vi": "tặng kèm thêm",
         "ex": "The shop threw in a free charger with the phone."
+      },
+      {
+        "term": "throw off",
+        "type": "phrasal_verb",
+        "en": "to confuse or disrupt someone's focus or plan",
+        "vi": "làm rối, làm mất tập trung",
+        "ex": "The loud noise threw off my concentration."
       }
     ]
   },
@@ -664,6 +979,34 @@ export const VERBS: Verb[] = [
         "en": "to fail or develop problems",
         "vi": "gặp trục trặc, đi sai hướng",
         "ex": "Something went wrong with the printer."
+      },
+      {
+        "term": "go missing",
+        "type": "collocation",
+        "en": "to disappear or become impossible to find",
+        "vi": "biến mất, không rõ tung tích",
+        "ex": "Her cat went missing three days ago and still hasn't come home."
+      },
+      {
+        "term": "go viral",
+        "type": "collocation",
+        "en": "to spread quickly online through many shares",
+        "vi": "lan truyền nhanh trên mạng",
+        "ex": "The video went viral overnight, getting ten million views."
+      },
+      {
+        "term": "go bald",
+        "type": "collocation",
+        "en": "to lose the hair on your head",
+        "vi": "bị hói đầu",
+        "ex": "My dad started going bald in his late twenties."
+      },
+      {
+        "term": "go bad",
+        "type": "collocation",
+        "en": "to spoil and become unfit to eat",
+        "vi": "bị hỏng, ôi thiu",
+        "ex": "Throw out the milk, it's gone bad."
       },
       {
         "term": "go on",
@@ -744,6 +1087,34 @@ export const VERBS: Verb[] = [
         "ex": "She came to terms with the loss."
       },
       {
+        "term": "come into play",
+        "type": "collocation",
+        "en": "to start to have an effect or role",
+        "vi": "bắt đầu có tác động, phát huy vai trò",
+        "ex": "Experience really comes into play once things get stressful."
+      },
+      {
+        "term": "come to a conclusion",
+        "type": "collocation",
+        "en": "to reach a final decision after thinking it over",
+        "vi": "đi đến kết luận",
+        "ex": "After hours of debate, the jury finally came to a conclusion."
+      },
+      {
+        "term": "come as no surprise",
+        "type": "collocation",
+        "en": "to be exactly what you expected",
+        "vi": "không có gì bất ngờ, đúng như dự đoán",
+        "ex": "His resignation came as no surprise to anyone in the office."
+      },
+      {
+        "term": "come to mind",
+        "type": "collocation",
+        "en": "to be the thing you think of first",
+        "vi": "chợt nghĩ đến, nảy ra trong đầu",
+        "ex": "When I think of Vietnam, street food is the first thing that comes to mind."
+      },
+      {
         "term": "come across",
         "type": "phrasal_verb",
         "en": "to find by chance; to seem/appear",
@@ -815,6 +1186,41 @@ export const VERBS: Verb[] = [
         "ex": "The report brought attention to the issue."
       },
       {
+        "term": "bring shame on",
+        "type": "collocation",
+        "en": "to cause someone or something to lose respect",
+        "vi": "làm mất mặt, gây ô nhục cho",
+        "ex": "The scandal brought shame on the whole family."
+      },
+      {
+        "term": "bring joy",
+        "type": "collocation",
+        "en": "to make someone feel happy",
+        "vi": "mang lại niềm vui",
+        "ex": "Watching her kids grow up brings her so much joy."
+      },
+      {
+        "term": "bring hope",
+        "type": "collocation",
+        "en": "to give people a reason to feel positive",
+        "vi": "mang lại hy vọng",
+        "ex": "The new treatment brings hope to thousands of patients."
+      },
+      {
+        "term": "bring balance",
+        "type": "collocation",
+        "en": "to make different parts of something more equal or stable",
+        "vi": "mang lại sự cân bằng",
+        "ex": "Yoga helps bring balance to a hectic schedule."
+      },
+      {
+        "term": "bring relief",
+        "type": "collocation",
+        "en": "to reduce pain, worry, or difficulty",
+        "vi": "mang lại sự nhẹ nhõm, giảm bớt căng thẳng",
+        "ex": "The rain finally brought relief after weeks of drought."
+      },
+      {
         "term": "bring up",
         "type": "phrasal_verb",
         "en": "to raise a child; to mention a topic",
@@ -879,6 +1285,41 @@ export const VERBS: Verb[] = [
         "ex": "Managers carry a lot of responsibility."
       },
       {
+        "term": "carry a grudge",
+        "type": "collocation",
+        "en": "to keep feeling angry about something for a long time",
+        "vi": "để bụng, giữ mối hận",
+        "ex": "He's still carrying a grudge over something that happened years ago."
+      },
+      {
+        "term": "carry a tune",
+        "type": "collocation",
+        "en": "to sing in the correct pitch",
+        "vi": "hát đúng nhạc, hát có giai điệu",
+        "ex": "I love singing, but I honestly can't carry a tune."
+      },
+      {
+        "term": "carry conviction",
+        "type": "collocation",
+        "en": "to sound believable and sincere",
+        "vi": "nghe có sức thuyết phục",
+        "ex": "Her apology didn't really carry conviction."
+      },
+      {
+        "term": "carry insurance",
+        "type": "collocation",
+        "en": "to have an insurance policy that covers something",
+        "vi": "có bảo hiểm",
+        "ex": "The company requires every driver to carry insurance."
+      },
+      {
+        "term": "carry a disease",
+        "type": "collocation",
+        "en": "to have a disease that can be passed to others",
+        "vi": "mang mầm bệnh",
+        "ex": "Mosquitoes can carry diseases like dengue fever."
+      },
+      {
         "term": "carry on",
         "type": "phrasal_verb",
         "en": "to continue doing something",
@@ -905,6 +1346,13 @@ export const VERBS: Verb[] = [
         "en": "to have something with you wherever you go",
         "vi": "mang theo bên mình",
         "ex": "She always carries around a bottle of water."
+      },
+      {
+        "term": "carry off",
+        "type": "phrasal_verb",
+        "en": "to do something difficult successfully",
+        "vi": "thực hiện thành công một việc khó",
+        "ex": "It was a bold outfit, but she carried it off perfectly."
       }
     ]
   },
@@ -941,6 +1389,34 @@ export const VERBS: Verb[] = [
         "en": "to do small tasks/chores",
         "vi": "chạy việc vặt",
         "ex": "I need to run some errands this afternoon."
+      },
+      {
+        "term": "run a fever",
+        "type": "collocation",
+        "en": "to have a body temperature higher than normal",
+        "vi": "bị sốt",
+        "ex": "He's running a fever, so keep him home from school."
+      },
+      {
+        "term": "run a marathon",
+        "type": "collocation",
+        "en": "to compete in a long-distance running race",
+        "vi": "chạy marathon",
+        "ex": "She's training to run her first marathon next spring."
+      },
+      {
+        "term": "run low on",
+        "type": "collocation",
+        "en": "to be close to using up all of something",
+        "vi": "sắp hết, cạn dần",
+        "ex": "We're running low on coffee, can you grab some?"
+      },
+      {
+        "term": "run smoothly",
+        "type": "collocation",
+        "en": "to happen without problems or delays",
+        "vi": "diễn ra suôn sẻ",
+        "ex": "The event ran smoothly thanks to careful planning."
       },
       {
         "term": "run out of",
@@ -1007,6 +1483,41 @@ export const VERBS: Verb[] = [
         "ex": "Technology moves fast these days."
       },
       {
+        "term": "move abroad",
+        "type": "collocation",
+        "en": "to relocate to live in another country",
+        "vi": "chuyển ra nước ngoài sinh sống",
+        "ex": "They decided to move abroad for better job opportunities."
+      },
+      {
+        "term": "move online",
+        "type": "collocation",
+        "en": "to shift an activity so it happens on the internet",
+        "vi": "chuyển sang hình thức trực tuyến",
+        "ex": "Most classes moved online during the pandemic."
+      },
+      {
+        "term": "move closer",
+        "type": "collocation",
+        "en": "to get nearer to something, physically or figuratively",
+        "vi": "tiến lại gần hơn, đến gần hơn",
+        "ex": "The two sides are finally moving closer to an agreement."
+      },
+      {
+        "term": "move sideways",
+        "type": "collocation",
+        "en": "to change to a similar position rather than a better one",
+        "vi": "chuyển ngang, không thăng tiến",
+        "ex": "He moved sideways into a similar role instead of getting promoted."
+      },
+      {
+        "term": "move backward",
+        "type": "collocation",
+        "en": "to go in the reverse direction, or lose progress",
+        "vi": "lùi lại, thụt lùi",
+        "ex": "The economy moved backward after the crisis."
+      },
+      {
         "term": "move in",
         "type": "phrasal_verb",
         "en": "to start living in a new home",
@@ -1026,6 +1537,20 @@ export const VERBS: Verb[] = [
         "en": "to progress to a new stage; to stop dwelling on something",
         "vi": "tiến bước, chuyển sang giai đoạn mới",
         "ex": "It's time to move on from the past."
+      },
+      {
+        "term": "move away",
+        "type": "phrasal_verb",
+        "en": "to relocate to live somewhere else, usually farther away",
+        "vi": "chuyển đi nơi khác, dọn đi xa",
+        "ex": "Most of my old friends have moved away from the city."
+      },
+      {
+        "term": "move over",
+        "type": "phrasal_verb",
+        "en": "to shift position to make room for someone",
+        "vi": "dịch sang một bên, nhường chỗ",
+        "ex": "Can you move over so I can sit down too?"
       }
     ]
   },
@@ -1057,6 +1582,41 @@ export const VERBS: Verb[] = [
         "ex": "Let's just drop the subject, please."
       },
       {
+        "term": "drop a bombshell",
+        "type": "collocation",
+        "en": "to suddenly announce shocking news",
+        "vi": "tung ra tin gây sốc",
+        "ex": "She dropped a bombshell when she announced she was quitting."
+      },
+      {
+        "term": "drop charges",
+        "type": "collocation",
+        "en": "to officially withdraw a legal accusation",
+        "vi": "rút đơn kiện, bãi bỏ cáo buộc",
+        "ex": "The victim asked police to drop the charges."
+      },
+      {
+        "term": "drop a call",
+        "type": "collocation",
+        "en": "to have a phone call disconnect unexpectedly",
+        "vi": "bị rớt cuộc gọi",
+        "ex": "The signal here is so bad, calls drop all the time."
+      },
+      {
+        "term": "drop the ball",
+        "type": "collocation",
+        "en": "to fail to do something you were responsible for",
+        "vi": "làm hỏng việc, lơ là trách nhiệm",
+        "ex": "The team dropped the ball on the delivery deadline."
+      },
+      {
+        "term": "drop weight",
+        "type": "collocation",
+        "en": "to lose body weight, usually on purpose",
+        "vi": "giảm cân",
+        "ex": "He's been running every morning to drop some weight."
+      },
+      {
         "term": "drop off",
         "type": "phrasal_verb",
         "en": "to leave someone/something somewhere; to fall asleep; to decrease",
@@ -1076,6 +1636,20 @@ export const VERBS: Verb[] = [
         "en": "to quit school or a program before finishing",
         "vi": "bỏ học, bỏ cuộc giữa chừng",
         "ex": "He dropped out of college in his second year."
+      },
+      {
+        "term": "drop in",
+        "type": "phrasal_verb",
+        "en": "to visit someone briefly and often without planning ahead",
+        "vi": "ghé qua thăm bất chợt",
+        "ex": "Feel free to drop in whenever you're in the neighborhood."
+      },
+      {
+        "term": "drop back",
+        "type": "phrasal_verb",
+        "en": "to move to a position further behind",
+        "vi": "tụt lại phía sau",
+        "ex": "She dropped back to third place in the final lap."
       }
     ]
   },
@@ -1107,6 +1681,41 @@ export const VERBS: Verb[] = [
         "ex": "He pulled some strings to get the job."
       },
       {
+        "term": "pull an all-nighter",
+        "type": "collocation",
+        "en": "to stay awake all night to finish work or study",
+        "vi": "thức trắng đêm để làm việc hoặc học bài",
+        "ex": "I pulled an all-nighter to finish the report before the deadline."
+      },
+      {
+        "term": "pull a prank",
+        "type": "collocation",
+        "en": "to play a trick on someone as a joke",
+        "vi": "chơi khăm, chơi trò đùa",
+        "ex": "The kids pulled a prank on their teacher last April Fools' Day."
+      },
+      {
+        "term": "pull rank",
+        "type": "collocation",
+        "en": "to use your higher position to force someone to obey",
+        "vi": "dùng chức quyền để áp đặt",
+        "ex": "The manager pulled rank to get his way in the meeting."
+      },
+      {
+        "term": "pull the trigger",
+        "type": "collocation",
+        "en": "to finally decide to take action on something",
+        "vi": "quyết định hành động, ra quyết định cuối cùng",
+        "ex": "We've talked about it for months, it's time to pull the trigger."
+      },
+      {
+        "term": "pull a face",
+        "type": "collocation",
+        "en": "to make a facial expression showing dislike or displeasure",
+        "vi": "nhăn mặt tỏ vẻ khó chịu",
+        "ex": "She pulled a face when she tasted the bitter medicine."
+      },
+      {
         "term": "pull over",
         "type": "phrasal_verb",
         "en": "to move a vehicle to the side of the road",
@@ -1133,6 +1742,13 @@ export const VERBS: Verb[] = [
         "en": "to survive or recover from a difficult situation",
         "vi": "vượt qua (khó khăn, bệnh tật)",
         "ex": "The doctors think he will pull through."
+      },
+      {
+        "term": "pull up",
+        "type": "phrasal_verb",
+        "en": "to stop a vehicle, or open something on a screen",
+        "vi": "dừng xe lại, hoặc mở lên xem trên màn hình",
+        "ex": "The taxi pulled up right in front of the hotel."
       }
     ]
   },
@@ -1157,6 +1773,48 @@ export const VERBS: Verb[] = [
         "ex": "Activists are pushing for change in the law."
       },
       {
+        "term": "push your luck",
+        "type": "collocation",
+        "en": "to risk losing what you've gained by asking for more",
+        "vi": "làm quá, thử thách vận may",
+        "ex": "You got away with it once, don't push your luck."
+      },
+      {
+        "term": "push the boundaries",
+        "type": "collocation",
+        "en": "to test the limits of what is normal or accepted",
+        "vi": "phá vỡ giới hạn, thử thách những chuẩn mực cũ",
+        "ex": "The designer is known for pushing the boundaries of fashion."
+      },
+      {
+        "term": "push the envelope",
+        "type": "collocation",
+        "en": "to try new and daring approaches beyond the usual limits",
+        "vi": "vượt qua giới hạn thông thường, đột phá",
+        "ex": "The film really pushes the envelope with its special effects."
+      },
+      {
+        "term": "push an agenda",
+        "type": "collocation",
+        "en": "to try to promote your own plan or interests",
+        "vi": "cố đẩy mạnh một mục đích riêng",
+        "ex": "Critics say the politician is just pushing his own agenda."
+      },
+      {
+        "term": "push a product",
+        "type": "collocation",
+        "en": "to actively promote and try to sell something",
+        "vi": "đẩy mạnh quảng bá, cố bán một sản phẩm",
+        "ex": "The company is pushing this new phone hard in ads."
+      },
+      {
+        "term": "push yourself",
+        "type": "collocation",
+        "en": "to make yourself work harder than feels comfortable",
+        "vi": "cố gắng vượt qua giới hạn bản thân",
+        "ex": "You need to push yourself if you want to improve."
+      },
+      {
         "term": "push ahead",
         "type": "phrasal_verb",
         "en": "to continue with a plan despite difficulty",
@@ -1176,6 +1834,20 @@ export const VERBS: Verb[] = [
         "en": "to ignore or dismiss something/someone",
         "vi": "gạt sang một bên",
         "ex": "He pushed aside his doubts and signed the contract."
+      },
+      {
+        "term": "push back",
+        "type": "phrasal_verb",
+        "en": "to resist or express disagreement with a plan",
+        "vi": "phản đối, không đồng tình",
+        "ex": "Staff pushed back against the new overtime policy."
+      },
+      {
+        "term": "push on",
+        "type": "phrasal_verb",
+        "en": "to keep going despite difficulty",
+        "vi": "tiếp tục cố gắng dù khó khăn",
+        "ex": "Even exhausted, the climbers pushed on to the summit."
       }
     ]
   },
@@ -1207,6 +1879,41 @@ export const VERBS: Verb[] = [
         "ex": "We played cards to pass the time."
       },
       {
+        "term": "pass judgment",
+        "type": "collocation",
+        "en": "to criticize or form an opinion about someone",
+        "vi": "phán xét, đánh giá người khác",
+        "ex": "Try not to pass judgment before you know the full story."
+      },
+      {
+        "term": "pass the buck",
+        "type": "collocation",
+        "en": "to shift blame or responsibility onto someone else",
+        "vi": "đùn đẩy trách nhiệm",
+        "ex": "Stop passing the buck and just admit your mistake."
+      },
+      {
+        "term": "pass inspection",
+        "type": "collocation",
+        "en": "to meet the required standard in an official check",
+        "vi": "vượt qua đợt kiểm tra, đạt chuẩn",
+        "ex": "The old building failed to pass inspection twice."
+      },
+      {
+        "term": "pass a bill",
+        "type": "collocation",
+        "en": "to officially approve a proposed law",
+        "vi": "thông qua dự luật",
+        "ex": "Congress passed the bill after months of debate."
+      },
+      {
+        "term": "pass a message",
+        "type": "collocation",
+        "en": "to give information from one person to another",
+        "vi": "chuyển lời nhắn",
+        "ex": "Can you pass a message to him for me?"
+      },
+      {
         "term": "pass away",
         "type": "phrasal_verb",
         "en": "to die (polite way of saying)",
@@ -1233,6 +1940,13 @@ export const VERBS: Verb[] = [
         "en": "to faint; to distribute something",
         "vi": "ngất xỉu; phát ra",
         "ex": "She passed out from the heat."
+      },
+      {
+        "term": "pass up",
+        "type": "phrasal_verb",
+        "en": "to decide not to take an opportunity",
+        "vi": "bỏ lỡ cơ hội, từ chối",
+        "ex": "I couldn't pass up such a great job offer."
       }
     ]
   },
@@ -1262,6 +1976,41 @@ export const VERBS: Verb[] = [
         "en": "to suddenly stop talking",
         "vi": "im lặng đột ngột",
         "ex": "The room fell silent when she entered."
+      },
+      {
+        "term": "fall short",
+        "type": "collocation",
+        "en": "to fail to reach a required standard or amount",
+        "vi": "không đạt yêu cầu, chưa đủ",
+        "ex": "Sales fell short of the target this quarter."
+      },
+      {
+        "term": "fall into place",
+        "type": "collocation",
+        "en": "for things to become organized or make sense",
+        "vi": "đâu vào đấy, ổn thỏa dần",
+        "ex": "Once she got the job, everything else fell into place."
+      },
+      {
+        "term": "fall flat",
+        "type": "collocation",
+        "en": "to fail to get the reaction you hoped for",
+        "vi": "thất bại, không gây được ấn tượng",
+        "ex": "His joke fell flat and nobody laughed."
+      },
+      {
+        "term": "fall victim to",
+        "type": "collocation",
+        "en": "to be harmed or affected by something",
+        "vi": "trở thành nạn nhân của",
+        "ex": "Many small shops fell victim to the economic downturn."
+      },
+      {
+        "term": "fall from grace",
+        "type": "collocation",
+        "en": "to lose the respect or status you once had",
+        "vi": "sa cơ, mất uy tín",
+        "ex": "The star's fall from grace was all over the news."
       },
       {
         "term": "fall apart",
@@ -1333,6 +2082,34 @@ export const VERBS: Verb[] = [
         "en": "to contact someone",
         "vi": "liên lạc",
         "ex": "Please get in touch if you have questions."
+      },
+      {
+        "term": "get a haircut",
+        "type": "collocation",
+        "en": "to have someone cut your hair",
+        "vi": "đi cắt tóc",
+        "ex": "I need to get a haircut before the interview."
+      },
+      {
+        "term": "get a raise",
+        "type": "collocation",
+        "en": "to receive an increase in your salary",
+        "vi": "được tăng lương",
+        "ex": "She finally got a raise after three years at the company."
+      },
+      {
+        "term": "get a chance",
+        "type": "collocation",
+        "en": "to have an opportunity to do something",
+        "vi": "có được cơ hội",
+        "ex": "I never got a chance to say goodbye."
+      },
+      {
+        "term": "get the hang of",
+        "type": "collocation",
+        "en": "to learn how to do something well",
+        "vi": "nắm được cách làm, quen với việc gì",
+        "ex": "It took me weeks to get the hang of the new software."
       },
       {
         "term": "get up",
@@ -1427,6 +2204,34 @@ export const VERBS: Verb[] = [
         "ex": "Can you keep an eye on my bag?"
       },
       {
+        "term": "keep a diary",
+        "type": "collocation",
+        "en": "to regularly write down your thoughts or daily events",
+        "vi": "viết nhật ký đều đặn",
+        "ex": "She's kept a diary since she was a teenager."
+      },
+      {
+        "term": "keep a low profile",
+        "type": "collocation",
+        "en": "to avoid drawing attention to yourself",
+        "vi": "giữ kín tiếng, tránh gây chú ý",
+        "ex": "After the scandal, he kept a low profile for months."
+      },
+      {
+        "term": "keep track of",
+        "type": "collocation",
+        "en": "to stay informed about the status of something",
+        "vi": "theo dõi, nắm rõ tình hình",
+        "ex": "It's hard to keep track of all these passwords."
+      },
+      {
+        "term": "keep tabs on",
+        "type": "collocation",
+        "en": "to watch someone or something closely",
+        "vi": "theo dõi sát sao",
+        "ex": "Her parents keep tabs on her location through an app."
+      },
+      {
         "term": "keep up",
         "type": "phrasal_verb",
         "en": "to maintain the same pace/level",
@@ -1489,6 +2294,41 @@ export const VERBS: Verb[] = [
         "en": "to have a job/role",
         "vi": "giữ một vị trí (công việc)",
         "ex": "He holds a senior position in the firm."
+      },
+      {
+        "term": "hold a grudge",
+        "type": "collocation",
+        "en": "to stay angry about something from the past",
+        "vi": "để bụng, giữ mối hận trong lòng",
+        "ex": "He's still holding a grudge over that old argument."
+      },
+      {
+        "term": "hold your breath",
+        "type": "collocation",
+        "en": "to stop breathing briefly, usually from anticipation",
+        "vi": "nín thở",
+        "ex": "We held our breath as the results were announced."
+      },
+      {
+        "term": "hold hands",
+        "type": "collocation",
+        "en": "to grasp someone's hand affectionately",
+        "vi": "nắm tay nhau",
+        "ex": "They walked along the beach holding hands."
+      },
+      {
+        "term": "hold a conversation",
+        "type": "collocation",
+        "en": "to be able to talk with someone",
+        "vi": "trò chuyện, duy trì được cuộc nói chuyện",
+        "ex": "He was too nervous to hold a conversation with her."
+      },
+      {
+        "term": "hold a party",
+        "type": "collocation",
+        "en": "to organize and host a party",
+        "vi": "tổ chức một bữa tiệc",
+        "ex": "We're holding a party for her birthday this weekend."
       },
       {
         "term": "hold on",
@@ -1562,6 +2402,34 @@ export const VERBS: Verb[] = [
         "ex": "He told a joke to break the ice."
       },
       {
+        "term": "break a habit",
+        "type": "collocation",
+        "en": "to stop doing something you do regularly",
+        "vi": "bỏ một thói quen",
+        "ex": "It's hard to break a habit you've had for years."
+      },
+      {
+        "term": "break a leg",
+        "type": "collocation",
+        "en": "used to wish someone good luck",
+        "vi": "chúc may mắn (thường trước buổi biểu diễn)",
+        "ex": "Break a leg out there tonight!"
+      },
+      {
+        "term": "break a sweat",
+        "type": "collocation",
+        "en": "to start sweating, or to make much effort",
+        "vi": "đổ mồ hôi, tốn sức",
+        "ex": "He finished the run without even breaking a sweat."
+      },
+      {
+        "term": "break the news",
+        "type": "collocation",
+        "en": "to be the first to tell someone something serious",
+        "vi": "báo tin (thường là tin quan trọng hoặc không vui)",
+        "ex": "Someone had to break the news to her gently."
+      },
+      {
         "term": "break down",
         "type": "phrasal_verb",
         "en": "to stop working (machine); to become very upset",
@@ -1624,6 +2492,41 @@ export const VERBS: Verb[] = [
         "en": "to deliberately ignore something wrong",
         "vi": "làm ngơ trước điều sai trái",
         "ex": "Management turned a blind eye to the problem."
+      },
+      {
+        "term": "turn heads",
+        "type": "collocation",
+        "en": "to attract a lot of attention",
+        "vi": "thu hút mọi ánh nhìn",
+        "ex": "Her red dress turned heads at the party."
+      },
+      {
+        "term": "turn the tables",
+        "type": "collocation",
+        "en": "to reverse a situation to your advantage",
+        "vi": "lật ngược tình thế",
+        "ex": "The underdog team turned the tables in the second half."
+      },
+      {
+        "term": "turn a deaf ear",
+        "type": "collocation",
+        "en": "to ignore what someone is saying",
+        "vi": "làm ngơ, phớt lờ",
+        "ex": "He turned a deaf ear to all the complaints."
+      },
+      {
+        "term": "turn your back on",
+        "type": "collocation",
+        "en": "to abandon or refuse to help someone",
+        "vi": "quay lưng, bỏ mặc ai đó",
+        "ex": "She felt like her friends had turned their backs on her."
+      },
+      {
+        "term": "turn a certain age",
+        "type": "collocation",
+        "en": "to reach a particular age",
+        "vi": "bước sang tuổi nào đó",
+        "ex": "He's turning 30 next month and dreading it."
       },
       {
         "term": "turn on",
@@ -1697,6 +2600,41 @@ export const VERBS: Verb[] = [
         "ex": "They cut a deal to end the dispute."
       },
       {
+        "term": "cut ties",
+        "type": "collocation",
+        "en": "to end a relationship or connection with someone",
+        "vi": "cắt đứt quan hệ",
+        "ex": "She decided to cut ties with her toxic ex."
+      },
+      {
+        "term": "cut prices",
+        "type": "collocation",
+        "en": "to reduce the cost of goods or services",
+        "vi": "giảm giá",
+        "ex": "The store cut prices to attract more customers."
+      },
+      {
+        "term": "cut class",
+        "type": "collocation",
+        "en": "to skip a class without permission",
+        "vi": "trốn học",
+        "ex": "He got in trouble for cutting class twice this week."
+      },
+      {
+        "term": "cut your losses",
+        "type": "collocation",
+        "en": "to stop an unprofitable action before it worsens",
+        "vi": "dừng lại trước khi thiệt hại thêm",
+        "ex": "It's better to cut your losses and sell the stock now."
+      },
+      {
+        "term": "cut a long story short",
+        "type": "collocation",
+        "en": "to summarize something by skipping the details",
+        "vi": "nói ngắn gọn thì",
+        "ex": "To cut a long story short, we missed the flight."
+      },
+      {
         "term": "cut down",
         "type": "phrasal_verb",
         "en": "to reduce the amount of something; to fell (a tree)",
@@ -1723,6 +2661,13 @@ export const VERBS: Verb[] = [
         "en": "to remove something; to stop doing something (informal)",
         "vi": "loại bỏ; ngừng làm gì đó",
         "ex": "You should cut out junk food."
+      },
+      {
+        "term": "cut in",
+        "type": "phrasal_verb",
+        "en": "to interrupt someone, or merge abruptly into traffic",
+        "vi": "chen ngang (khi nói chuyện hoặc lái xe)",
+        "ex": "He kept cutting in before I could finish my sentence."
       }
     ]
   },
@@ -1754,6 +2699,41 @@ export const VERBS: Verb[] = [
         "ex": "He will stand trial next month."
       },
       {
+        "term": "stand still",
+        "type": "collocation",
+        "en": "to not move at all",
+        "vi": "đứng yên",
+        "ex": "The kids couldn't stand still during the photo."
+      },
+      {
+        "term": "stand your ground",
+        "type": "collocation",
+        "en": "to refuse to change your position",
+        "vi": "giữ vững lập trường",
+        "ex": "She stood her ground even when everyone disagreed."
+      },
+      {
+        "term": "stand corrected",
+        "type": "collocation",
+        "en": "to admit that you were wrong about something",
+        "vi": "thừa nhận là mình sai",
+        "ex": "Okay, I stand corrected, you were right about the date."
+      },
+      {
+        "term": "stand the test of time",
+        "type": "collocation",
+        "en": "to remain valid or respected over time",
+        "vi": "trường tồn với thời gian",
+        "ex": "This design has really stood the test of time."
+      },
+      {
+        "term": "stand guard",
+        "type": "collocation",
+        "en": "to watch over something in order to protect it",
+        "vi": "đứng canh gác",
+        "ex": "Two soldiers stood guard outside the building."
+      },
+      {
         "term": "stand up",
         "type": "phrasal_verb",
         "en": "to rise to a standing position; (stand up for) to defend",
@@ -1780,6 +2760,13 @@ export const VERBS: Verb[] = [
         "en": "to be noticeably better or different",
         "vi": "nổi bật",
         "ex": "Her work really stands out from the rest."
+      },
+      {
+        "term": "stand up for",
+        "type": "phrasal_verb",
+        "en": "to defend or support someone or something",
+        "vi": "bênh vực, bảo vệ",
+        "ex": "You should stand up for what you believe in."
       }
     ]
   },
@@ -1809,6 +2796,41 @@ export const VERBS: Verb[] = [
         "en": "to stop working for the day",
         "vi": "ngừng làm việc, kết thúc ngày",
         "ex": "Let's call it a day and go home."
+      },
+      {
+        "term": "call the shots",
+        "type": "collocation",
+        "en": "to be the person who makes the decisions",
+        "vi": "người ra quyết định, làm chủ tình hình",
+        "ex": "As the project lead, she calls the shots on hiring."
+      },
+      {
+        "term": "call in sick",
+        "type": "collocation",
+        "en": "to phone your workplace to say you're too ill to work",
+        "vi": "gọi điện xin nghỉ ốm",
+        "ex": "He called in sick and stayed home all day."
+      },
+      {
+        "term": "call a taxi",
+        "type": "collocation",
+        "en": "to phone for a taxi to come and pick you up",
+        "vi": "gọi taxi",
+        "ex": "Let's call a taxi, it's raining too hard to walk."
+      },
+      {
+        "term": "call someone's bluff",
+        "type": "collocation",
+        "en": "to challenge someone to act on a claim you doubt is true",
+        "vi": "thách ai đó chứng minh lời nói của mình",
+        "ex": "She called his bluff and he backed down immediately."
+      },
+      {
+        "term": "call a spade a spade",
+        "type": "collocation",
+        "en": "to speak about something honestly and directly",
+        "vi": "nói thẳng, gọi đúng bản chất sự việc",
+        "ex": "I like her because she calls a spade a spade."
       },
       {
         "term": "call off",
@@ -1866,6 +2888,48 @@ export const VERBS: Verb[] = [
         "en": "to stay positive",
         "vi": "nhìn vào mặt tích cực",
         "ex": "Even in hard times, try to look on the bright side."
+      },
+      {
+        "term": "look someone in the eye",
+        "type": "collocation",
+        "en": "to look directly into someone's eyes",
+        "vi": "nhìn thẳng vào mắt ai đó",
+        "ex": "He looked her in the eye and apologized."
+      },
+      {
+        "term": "by the look of it",
+        "type": "collocation",
+        "en": "based on how something appears right now",
+        "vi": "nhìn có vẻ như, xem chừng",
+        "ex": "By the look of it, we're going to be late."
+      },
+      {
+        "term": "give someone a look",
+        "type": "collocation",
+        "en": "to look at someone in a way that shows disapproval",
+        "vi": "liếc nhìn ai đó với ý không hài lòng",
+        "ex": "She gave him a look when he interrupted her."
+      },
+      {
+        "term": "a dirty look",
+        "type": "collocation",
+        "en": "an angry or disapproving look given to someone",
+        "vi": "cái nhìn khó chịu, ánh mắt hằn học",
+        "ex": "The waiter gave us a dirty look for arriving late."
+      },
+      {
+        "term": "look-alike",
+        "type": "collocation",
+        "en": "a person who looks very similar to someone else",
+        "vi": "người trông giống hệt người khác",
+        "ex": "That actor is a total look-alike for the president."
+      },
+      {
+        "term": "on the lookout for",
+        "type": "collocation",
+        "en": "watching carefully to find or notice something",
+        "vi": "để ý tìm kiếm điều gì đó",
+        "ex": "We're always on the lookout for new talent."
       },
       {
         "term": "look after",
@@ -1932,6 +2996,48 @@ export const VERBS: Verb[] = [
         "ex": "It's hard to pick a winner among these candidates."
       },
       {
+        "term": "pick a lock",
+        "type": "collocation",
+        "en": "to open a lock without a key, using tools",
+        "vi": "mở khóa mà không cần chìa",
+        "ex": "The burglar picked the lock and got inside."
+      },
+      {
+        "term": "pick someone's pocket",
+        "type": "collocation",
+        "en": "to steal from someone's pocket or bag without them noticing",
+        "vi": "móc túi ai đó",
+        "ex": "Tourists are warned that thieves pick pockets in this square."
+      },
+      {
+        "term": "pick and choose",
+        "type": "collocation",
+        "en": "to select only the things you like, being selective",
+        "vi": "kén chọn, lựa theo ý thích",
+        "ex": "You can't just pick and choose which rules to follow."
+      },
+      {
+        "term": "pick holes in",
+        "type": "collocation",
+        "en": "to find and point out the faults in an argument or plan",
+        "vi": "bới lỗi, tìm điểm yếu trong lập luận",
+        "ex": "Critics were quick to pick holes in the new policy."
+      },
+      {
+        "term": "take your pick",
+        "type": "collocation",
+        "en": "to choose whichever one you want from a group",
+        "vi": "tha hồ lựa chọn",
+        "ex": "There are three flavors, take your pick."
+      },
+      {
+        "term": "pick a side",
+        "type": "collocation",
+        "en": "to choose which side or team to support",
+        "vi": "chọn phe, đứng về một bên",
+        "ex": "In the argument, I refused to pick a side."
+      },
+      {
         "term": "pick up",
         "type": "phrasal_verb",
         "en": "to lift something; to collect someone; to learn casually",
@@ -1951,6 +3057,20 @@ export const VERBS: Verb[] = [
         "en": "to criticize or bully someone repeatedly",
         "vi": "bắt nạt, chọc ghẹo",
         "ex": "Stop picking on your little brother."
+      },
+      {
+        "term": "pick at",
+        "type": "phrasal_verb",
+        "en": "to eat food slowly in small amounts, without appetite",
+        "vi": "ăn uể oải, ăn từng chút một",
+        "ex": "She just picked at her salad, too nervous to eat."
+      },
+      {
+        "term": "pick off",
+        "type": "phrasal_verb",
+        "en": "to shoot, remove, or defeat targets one at a time",
+        "vi": "hạ gục hoặc loại bỏ từng cái một",
+        "ex": "The sniper picked off the targets one by one."
       }
     ]
   },
@@ -1987,6 +3107,34 @@ export const VERBS: Verb[] = [
         "en": "to arrange plates/cutlery for a meal",
         "vi": "dọn bàn ăn",
         "ex": "Can you set the table for dinner?"
+      },
+      {
+        "term": "set a deadline",
+        "type": "collocation",
+        "en": "to fix a date by which something must be done",
+        "vi": "đặt hạn chót",
+        "ex": "The manager set a deadline for the report."
+      },
+      {
+        "term": "set the tone",
+        "type": "collocation",
+        "en": "to establish the general mood or attitude of something",
+        "vi": "tạo tông, định hướng không khí chung",
+        "ex": "Her opening speech set the tone for the whole event."
+      },
+      {
+        "term": "set a trend",
+        "type": "collocation",
+        "en": "to start a style or activity that others copy",
+        "vi": "khởi xướng một xu hướng",
+        "ex": "The brand set a trend that everyone followed that year."
+      },
+      {
+        "term": "set foot in",
+        "type": "collocation",
+        "en": "to enter a place, often for the first time",
+        "vi": "đặt chân đến",
+        "ex": "It was the first time she'd set foot in Japan."
       },
       {
         "term": "set up",
@@ -2053,6 +3201,41 @@ export const VERBS: Verb[] = [
         "ex": "It's hard to find the time to exercise."
       },
       {
+        "term": "find a way",
+        "type": "collocation",
+        "en": "to discover a method to do or achieve something",
+        "vi": "tìm ra cách",
+        "ex": "We'll find a way to fix this, don't worry."
+      },
+      {
+        "term": "find common ground",
+        "type": "collocation",
+        "en": "to discover shared interests or opinions with someone",
+        "vi": "tìm điểm chung",
+        "ex": "The two sides finally found common ground on pricing."
+      },
+      {
+        "term": "find your feet",
+        "type": "collocation",
+        "en": "to become confident and comfortable in a new situation",
+        "vi": "quen dần, bắt nhịp với hoàn cảnh mới",
+        "ex": "It took her a month to find her feet at the new job."
+      },
+      {
+        "term": "find peace",
+        "type": "collocation",
+        "en": "to reach a calm, settled state of mind",
+        "vi": "tìm được sự bình yên",
+        "ex": "He finally found peace after years of struggle."
+      },
+      {
+        "term": "find your voice",
+        "type": "collocation",
+        "en": "to gain the confidence to express your own opinions",
+        "vi": "tìm được tiếng nói và sự tự tin của bản thân",
+        "ex": "She found her voice after joining the debate club."
+      },
+      {
         "term": "find out",
         "type": "phrasal_verb",
         "en": "to discover information",
@@ -2065,6 +3248,20 @@ export const VERBS: Verb[] = [
         "en": "to realize you are in a particular situation/place",
         "vi": "nhận ra mình đang ở tình huống/nơi nào",
         "ex": "She found herself lost in the old town."
+      },
+      {
+        "term": "find for",
+        "type": "phrasal_verb",
+        "en": "(in court) to give a legal decision in favor of someone",
+        "vi": "(tòa án) xử thắng cho một bên",
+        "ex": "The jury found for the plaintiff."
+      },
+      {
+        "term": "find against",
+        "type": "phrasal_verb",
+        "en": "(in court) to give a legal decision against someone",
+        "vi": "(tòa án) xử thua cho một bên",
+        "ex": "The judge found against the company in the lawsuit."
       }
     ]
   },
@@ -2094,6 +3291,41 @@ export const VERBS: Verb[] = [
         "en": "to do your job at home instead of an office",
         "vi": "làm việc tại nhà",
         "ex": "Many employees now work from home."
+      },
+      {
+        "term": "work part-time",
+        "type": "collocation",
+        "en": "to work fewer than the standard full-time hours",
+        "vi": "làm việc bán thời gian",
+        "ex": "She works part-time while finishing her degree."
+      },
+      {
+        "term": "work shifts",
+        "type": "collocation",
+        "en": "to work according to a rotating schedule, such as nights",
+        "vi": "làm việc theo ca",
+        "ex": "Nurses often have to work night shifts."
+      },
+      {
+        "term": "work wonders",
+        "type": "collocation",
+        "en": "to have a surprisingly positive effect",
+        "vi": "mang lại hiệu quả bất ngờ, rất hiệu nghiệm",
+        "ex": "This cream works wonders on dry skin."
+      },
+      {
+        "term": "work your way up",
+        "type": "collocation",
+        "en": "to gradually advance to a higher position through effort",
+        "vi": "dần thăng tiến nhờ nỗ lực",
+        "ex": "He worked his way up from intern to manager."
+      },
+      {
+        "term": "work long hours",
+        "type": "collocation",
+        "en": "to spend many hours at your job each day",
+        "vi": "làm việc nhiều giờ, làm việc quá tải",
+        "ex": "Doctors often work long hours during residency."
       },
       {
         "term": "work out",
@@ -2153,6 +3385,48 @@ export const VERBS: Verb[] = [
         "ex": "I check my email every morning."
       },
       {
+        "term": "check the weather",
+        "type": "collocation",
+        "en": "to look up the weather forecast",
+        "vi": "xem dự báo thời tiết",
+        "ex": "I always check the weather before packing for a trip."
+      },
+      {
+        "term": "check your balance",
+        "type": "collocation",
+        "en": "to look at how much money is in your account",
+        "vi": "kiểm tra số dư tài khoản",
+        "ex": "She checked her balance before making the purchase."
+      },
+      {
+        "term": "check your blood pressure",
+        "type": "collocation",
+        "en": "to measure and monitor your blood pressure",
+        "vi": "đo huyết áp",
+        "ex": "The nurse checked his blood pressure before the appointment."
+      },
+      {
+        "term": "check the score",
+        "type": "collocation",
+        "en": "to look up the current result of a game or match",
+        "vi": "xem tỷ số",
+        "ex": "He kept checking the score during the meeting."
+      },
+      {
+        "term": "check your work",
+        "type": "collocation",
+        "en": "to review something you've done to catch mistakes",
+        "vi": "kiểm tra lại bài làm của mình",
+        "ex": "Always check your work before submitting the exam."
+      },
+      {
+        "term": "double-check",
+        "type": "collocation",
+        "en": "to check something again to be completely sure",
+        "vi": "kiểm tra lại lần nữa cho chắc chắn",
+        "ex": "Let me double-check the address before we leave."
+      },
+      {
         "term": "check in",
         "type": "phrasal_verb",
         "en": "to register at a hotel/airport",
@@ -2172,6 +3446,20 @@ export const VERBS: Verb[] = [
         "en": "to make sure someone/something is okay",
         "vi": "kiểm tra tình trạng của ai/cái gì",
         "ex": "I'll check on the kids before I leave."
+      },
+      {
+        "term": "check off",
+        "type": "phrasal_verb",
+        "en": "to mark an item on a list as done",
+        "vi": "đánh dấu đã hoàn thành trong danh sách",
+        "ex": "She checked off each task as she finished it."
+      },
+      {
+        "term": "check into",
+        "type": "phrasal_verb",
+        "en": "to look into or investigate something",
+        "vi": "tìm hiểu, điều tra việc gì đó",
+        "ex": "I'll check into the delivery delay and get back to you."
       }
     ]
   },
@@ -2196,6 +3484,48 @@ export const VERBS: Verb[] = [
         "ex": "She filled the role of team leader well."
       },
       {
+        "term": "fill a gap",
+        "type": "collocation",
+        "en": "to provide something that was missing or needed",
+        "vi": "lấp đầy khoảng trống, đáp ứng nhu cầu còn thiếu",
+        "ex": "The new hire fills a gap in our marketing team."
+      },
+      {
+        "term": "fill an order",
+        "type": "collocation",
+        "en": "to prepare and supply the items a customer requested",
+        "vi": "hoàn tất đơn hàng",
+        "ex": "The warehouse filled the order within two days."
+      },
+      {
+        "term": "fill a prescription",
+        "type": "collocation",
+        "en": "to prepare and provide medicine as a doctor ordered",
+        "vi": "lấy thuốc theo đơn bác sĩ",
+        "ex": "She stopped at the pharmacy to fill her prescription."
+      },
+      {
+        "term": "fill a need",
+        "type": "collocation",
+        "en": "to provide something that solves a real problem",
+        "vi": "đáp ứng một nhu cầu",
+        "ex": "This app fills a need for busy parents."
+      },
+      {
+        "term": "fill your schedule",
+        "type": "collocation",
+        "en": "to book up all your available time with tasks",
+        "vi": "lấp đầy lịch trình",
+        "ex": "Her schedule is completely filled for the week."
+      },
+      {
+        "term": "fill the room",
+        "type": "collocation",
+        "en": "to spread through and occupy an entire room",
+        "vi": "lan tỏa khắp căn phòng",
+        "ex": "Laughter filled the room as soon as he started the story."
+      },
+      {
         "term": "fill in",
         "type": "phrasal_verb",
         "en": "to complete a form; to substitute for someone temporarily",
@@ -2215,6 +3545,20 @@ export const VERBS: Verb[] = [
         "en": "to make completely full",
         "vi": "đổ đầy, lấp đầy",
         "ex": "He filled up the tank before the trip."
+      },
+      {
+        "term": "fill someone in",
+        "type": "phrasal_verb",
+        "en": "to give someone the latest information about something",
+        "vi": "cập nhật thông tin cho ai đó",
+        "ex": "Can you fill me in on what happened at the meeting?"
+      },
+      {
+        "term": "fill in for",
+        "type": "phrasal_verb",
+        "en": "to temporarily do someone else's job while they're away",
+        "vi": "làm thay ai đó tạm thời",
+        "ex": "I'm filling in for Anna while she's on leave."
       }
     ]
   },
@@ -2239,6 +3583,48 @@ export const VERBS: Verb[] = [
         "ex": "Success and hard work go hand in hand."
       },
       {
+        "term": "hand-to-hand",
+        "type": "collocation",
+        "en": "close combat fought directly with physical force, not weapons",
+        "vi": "giáp lá cà, chiến đấu tay đôi",
+        "ex": "The soldiers were trained for hand-to-hand combat."
+      },
+      {
+        "term": "first-hand",
+        "type": "collocation",
+        "en": "gained through direct personal experience, not from others",
+        "vi": "trực tiếp, tận mắt trải nghiệm",
+        "ex": "She has first-hand experience with the refugee crisis."
+      },
+      {
+        "term": "hands-on",
+        "type": "collocation",
+        "en": "actively involved and practical, rather than just theoretical",
+        "vi": "thực hành trực tiếp, nhúng tay vào",
+        "ex": "The workshop is very hands-on, not just lectures."
+      },
+      {
+        "term": "hand in glove",
+        "type": "collocation",
+        "en": "working extremely closely with someone, often secretly",
+        "vi": "phối hợp ăn ý, đôi khi ám chỉ thông đồng",
+        "ex": "The two companies work hand in glove on pricing."
+      },
+      {
+        "term": "at hand",
+        "type": "collocation",
+        "en": "nearby and ready to be used when needed",
+        "vi": "sẵn có, trong tầm tay",
+        "ex": "Keep a first-aid kit at hand during the trip."
+      },
+      {
+        "term": "the upper hand",
+        "type": "collocation",
+        "en": "an advantage that lets you control a situation",
+        "vi": "thế thượng phong, ưu thế hơn",
+        "ex": "Negotiators gained the upper hand after the leak."
+      },
+      {
         "term": "hand in",
         "type": "phrasal_verb",
         "en": "to submit something (homework, resignation)",
@@ -2258,6 +3644,20 @@ export const VERBS: Verb[] = [
         "en": "to give control or possession of something to someone",
         "vi": "giao lại, chuyển giao quyền",
         "ex": "He handed over the keys to the new owner."
+      },
+      {
+        "term": "hand down",
+        "type": "phrasal_verb",
+        "en": "to pass something from one generation or authority to the next",
+        "vi": "truyền lại cho thế hệ sau; tuyên án",
+        "ex": "The recipe was handed down from her grandmother."
+      },
+      {
+        "term": "hand back",
+        "type": "phrasal_verb",
+        "en": "to return something to the person who gave it",
+        "vi": "trả lại cho ai đó",
+        "ex": "The teacher handed back our graded essays."
       }
     ]
   },
@@ -2282,6 +3682,48 @@ export const VERBS: Verb[] = [
         "ex": "I understand your point of view."
       },
       {
+        "term": "point of no return",
+        "type": "collocation",
+        "en": "the stage after which it's impossible to stop or turn back",
+        "vi": "điểm không thể quay đầu",
+        "ex": "The negotiations passed the point of no return."
+      },
+      {
+        "term": "point in time",
+        "type": "collocation",
+        "en": "a specific moment or stage in a process",
+        "vi": "thời điểm cụ thể",
+        "ex": "At this point in time, we can't confirm the launch date."
+      },
+      {
+        "term": "point of contact",
+        "type": "collocation",
+        "en": "the person you should communicate with about something",
+        "vi": "đầu mối liên hệ",
+        "ex": "She's our main point of contact for the client."
+      },
+      {
+        "term": "point of interest",
+        "type": "collocation",
+        "en": "a notable place or feature worth visiting or noticing",
+        "vi": "địa điểm hoặc nét đáng chú ý",
+        "ex": "The old lighthouse is a popular point of interest."
+      },
+      {
+        "term": "point of sale",
+        "type": "collocation",
+        "en": "the place or moment where a retail purchase happens",
+        "vi": "điểm bán hàng, thời điểm giao dịch",
+        "ex": "The discount is applied automatically at the point of sale."
+      },
+      {
+        "term": "point the finger at",
+        "type": "collocation",
+        "en": "to blame someone for something that went wrong",
+        "vi": "đổ lỗi cho ai đó",
+        "ex": "Don't point the finger at me, it wasn't my fault."
+      },
+      {
         "term": "point out",
         "type": "phrasal_verb",
         "en": "to indicate or mention something specific",
@@ -2294,6 +3736,27 @@ export const VERBS: Verb[] = [
         "en": "to indicate or suggest something",
         "vi": "cho thấy, gợi ý về",
         "ex": "The evidence points to his involvement."
+      },
+      {
+        "term": "point at",
+        "type": "phrasal_verb",
+        "en": "to aim a finger or object directly at someone or something",
+        "vi": "chỉ thẳng vào ai hoặc cái gì",
+        "ex": "It's rude to point at people."
+      },
+      {
+        "term": "point up",
+        "type": "phrasal_verb",
+        "en": "to emphasize or draw attention to something important",
+        "vi": "nhấn mạnh, làm nổi bật",
+        "ex": "The report points up the need for better funding."
+      },
+      {
+        "term": "point toward",
+        "type": "phrasal_verb",
+        "en": "to suggest or indicate something, often based on evidence",
+        "vi": "cho thấy, chỉ ra dựa trên bằng chứng",
+        "ex": "All the evidence points toward an inside job."
       }
     ]
   },
@@ -2304,11 +3767,109 @@ export const VERBS: Verb[] = [
     "def_vi": "xử lý, giải quyết",
     "items": [
       {
+        "term": "deal a blow",
+        "type": "collocation",
+        "en": "to cause harm or a serious setback to something",
+        "vi": "giáng một đòn, gây tổn hại",
+        "ex": "The lawsuit dealt a blow to the company's reputation."
+      },
+      {
+        "term": "big deal",
+        "type": "collocation",
+        "en": "something considered important or impressive, often said sarcastically",
+        "vi": "chuyện lớn, chuyện quan trọng, đôi khi mỉa mai",
+        "ex": "So you won once, big deal."
+      },
+      {
+        "term": "deal drugs",
+        "type": "collocation",
+        "en": "to sell illegal drugs",
+        "vi": "buôn bán ma túy",
+        "ex": "He was arrested for dealing drugs near the school."
+      },
+      {
+        "term": "seal the deal",
+        "type": "collocation",
+        "en": "to finalize an agreement or negotiation successfully",
+        "vi": "chốt thỏa thuận, hoàn tất giao dịch",
+        "ex": "A handshake sealed the deal between the two companies."
+      },
+      {
+        "term": "a raw deal",
+        "type": "collocation",
+        "en": "unfair treatment compared to what others receive",
+        "vi": "sự đối xử bất công, thiệt thòi",
+        "ex": "Part-time workers often get a raw deal on benefits."
+      },
+      {
+        "term": "a done deal",
+        "type": "collocation",
+        "en": "something already decided and impossible to change",
+        "vi": "việc đã rồi, chuyện đã chốt xong",
+        "ex": "By the time we heard, the merger was already a done deal."
+      },
+      {
+        "term": "strike a deal",
+        "type": "collocation",
+        "en": "to reach an agreement, often after negotiation",
+        "vi": "đạt được thỏa thuận sau khi thương lượng",
+        "ex": "The two countries struck a deal on trade tariffs."
+      },
+      {
+        "term": "deal breaker",
+        "type": "collocation",
+        "en": "a condition or fact that ends an agreement or relationship",
+        "vi": "yếu tố khiến mọi chuyện đổ vỡ",
+        "ex": "His constant lateness was a deal breaker for her."
+      },
+      {
+        "term": "the real deal",
+        "type": "collocation",
+        "en": "someone or something genuine and as good as claimed",
+        "vi": "hàng thật, đúng như lời đồn",
+        "ex": "After tasting the food, we knew this restaurant was the real deal."
+      },
+      {
+        "term": "package deal",
+        "type": "collocation",
+        "en": "an offer where several things are sold together as one",
+        "vi": "gói combo, trọn gói",
+        "ex": "The hotel and flights came as a package deal."
+      },
+      {
         "term": "deal with",
         "type": "phrasal_verb",
         "en": "to handle or resolve a problem or situation",
         "vi": "xử lý, giải quyết vấn đề",
         "ex": "She knows how to deal with difficult customers."
+      },
+      {
+        "term": "deal in",
+        "type": "phrasal_verb",
+        "en": "to buy and sell a particular type of goods",
+        "vi": "buôn bán loại hàng cụ thể",
+        "ex": "The shop deals in vintage furniture."
+      },
+      {
+        "term": "deal out",
+        "type": "phrasal_verb",
+        "en": "to distribute something, such as cards or punishment",
+        "vi": "phân phát, chia bài hoặc hình phạt",
+        "ex": "The judge dealt out a harsh sentence."
+      },
+      {
+        "term": "deal someone in",
+        "type": "phrasal_verb",
+        "en": "to include someone in a card game, plan, or arrangement",
+        "vi": "cho ai đó tham gia cùng, vào ván bài hoặc kế hoạch",
+        "ex": "Deal me in for the next round of poker."
+      },
+      {
+        "term": "wheel and deal",
+        "type": "phrasal_verb",
+        "en": "to negotiate shrewdly, sometimes in an unscrupulous way",
+        "vi": "lươn lẹo, xoay xở trong làm ăn hoặc chính trị",
+        "ex": "He's known for wheeling and dealing in real estate."
       }
     ]
   },

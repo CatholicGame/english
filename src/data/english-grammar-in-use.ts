@@ -80,6 +80,12 @@ export interface TypeFillStep {
   /** Shared context shown above the items (a short reading passage, a list of
    * verbs to choose from, a dialogue setup) when the book's exercise has one. */
   passage?: string;
+  /** The book's own item number for items[0]. Most exercises start at 1, but
+   * when the first one or two items are given as a worked example (moved into
+   * `passage` instead of `items`), the real items pick up numbering partway
+   * through the book's list (e.g. 3, when items 1-2 were the worked example).
+   * Omit for the default of 1. */
+  startNumber?: number;
   items: TypeFillItem[];
 }
 
@@ -315,15 +321,10 @@ const UNIT_1_PRESENT_CONTINUOUS: GrammarUnit = {
     {
       "kind": "type_fill",
       "title": "1.3 · Viết câu hỏi ở thì hiện tại tiếp diễn",
-      "instructions": "Viết câu hỏi bằng thì hiện tại tiếp diễn, dựa vào gợi ý trong ngoặc. Câu 1 đã làm mẫu.",
+      "instructions": "Viết câu hỏi bằng thì hiện tại tiếp diễn, dựa vào gợi ý trong ngoặc.",
+      "passage": "Ví dụ: 1 What's all that noise? **What's happening?**",
+      "startNumber": 2,
       "items": [
-        {
-          "prompt": "What's all that noise? ___ (what / happen?)",
-          "answer": "What's happening?",
-          "accept": [
-            "What is happening?"
-          ]
-        },
         {
           "prompt": "What's the matter? ___ (why / you / cry?)",
           "answer": "Why are you crying?",
@@ -372,7 +373,9 @@ const UNIT_1_PRESENT_CONTINUOUS: GrammarUnit = {
     {
       "kind": "type_fill",
       "title": "1.4 · Chia động từ ở dạng khẳng định hoặc phủ định",
-      "instructions": "Chia động từ trong ngoặc ở thì hiện tại tiếp diễn, dạng khẳng định (I'm doing) hoặc phủ định (I'm not doing). Hai câu đầu đã làm mẫu: 1 Please don't make so much noise. I'm trying (I / try) to work. 2 Let's go out now. It isn't raining (it / rain) any more.",
+      "instructions": "Chia động từ trong ngoặc ở thì hiện tại tiếp diễn, dạng khẳng định (**I'm doing** etc.) hoặc phủ định (**I'm not doing** etc.).",
+      "passage": "Ví dụ:\n1 Please don't make so much noise. **I'm trying** (I / try) to work.\n2 Let's go out now. **It isn't raining** (it / rain) any more.",
+      "startNumber": 3,
       "items": [
         {
           "prompt": "You can turn off the radio. ___ (I / listen) to it.",
@@ -466,7 +469,7 @@ const UNIT_1_PRESENT_CONTINUOUS: GrammarUnit = {
     {
       "kind": "ai_practice",
       "title": "Luyện với AI",
-      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng thì hiện tại tiếp diễn (am/is/are + V-ing) để nói về việc bạn đang làm ngay lúc này, việc bạn đang làm dở trong thời gian gần đây, hoặc một thay đổi đang diễn ra.",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng thì hiện tại tiếp diễn (**am/is/are + V-ing**) để nói về việc bạn đang làm ngay lúc này, việc bạn đang làm dở trong thời gian gần đây, hoặc một thay đổi đang diễn ra.",
       "ruleSummary": "The present continuous is formed with am/is/are + the -ing form of the verb (I'm driving, he's working, they aren't speaking). It describes an action happening now at the time of speaking, or an unfinished action the speaker is in the middle of even if it is not happening at this exact moment (I'm reading a really good book at the moment). It is also used with periods around now such as today, this week and this year (You're working hard today), and to describe changes in progress with verbs like get, become, change, improve, start, increase, rise, fall and grow (The population of the world is increasing very fast). A correct student sentence must use am/is/are plus an -ing form, keep subject and auxiliary in agreement, form negatives and questions with the auxiliary (I'm not listening, Are you enjoying it?), and express one of these meanings rather than a habit or general fact, which would need the present simple."
     }
   ]

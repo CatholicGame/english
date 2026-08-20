@@ -209,15 +209,19 @@ function FillMcStepView({ step, onNext }: { step: FillMcStep; onNext: (score?: S
 
   return (
     <div className="flex flex-1 flex-col p-4">
-      <div className="mb-3 text-[13px] text-neutral-700">{step.instructions}</div>
+      <div className="mb-3 text-[13px] leading-relaxed text-neutral-700">{renderRich(step.instructions)}</div>
       {step.passage && (
-        <div className="mb-4 bg-surface p-3 text-[13px] leading-relaxed whitespace-pre-line">{step.passage}</div>
+        <div className="mb-4 flex flex-col gap-1 rounded-md bg-surface p-3 text-[13px] leading-relaxed">
+          {step.passage.split("\n").map((line, k) => (
+            <p key={k}>{renderRich(line)}</p>
+          ))}
+        </div>
       )}
       <div className="lg:grid lg:grid-cols-2 lg:gap-x-6">
         {step.items.map((it, i) => (
           <div key={i} className="mb-4">
             <div className="mb-2 text-[14px] leading-relaxed">
-              {it.before} <span className="font-extrabold text-accent-700">{picked[i] ?? "____"}</span> {it.after}
+              {renderRich(it.before)} <span className="font-extrabold text-accent-700">{picked[i] ?? "____"}</span> {renderRich(it.after)}
             </div>
             <div className="flex flex-wrap gap-1.5">
               {it.options.map((o) => {
@@ -326,7 +330,7 @@ function MatchPairsStepView({ step, onNext }: { step: MatchPairsStep; onNext: (s
 
   return (
     <div className="flex flex-1 flex-col p-4 lg:mx-auto lg:w-full lg:max-w-[640px]">
-      <div className="mb-3 text-[13px] text-neutral-700">{step.instructions}</div>
+      <div className="mb-3 text-[13px] leading-relaxed text-neutral-700">{renderRich(step.instructions)}</div>
       <div className="grid grid-cols-2 gap-2.5">
         <div className="flex flex-col gap-1.5">
           {step.left.map((text, i) => (
@@ -388,12 +392,21 @@ function TypeFillStepView({ step, onNext }: { step: TypeFillStep; onNext: (score
   const [inputs, setInputs] = useState<string[]>(() => step.items.map(() => ""));
   const [checked, setChecked] = useState(false);
   const correctCount = inputs.filter((v, i) => matchesAnswer(v, step.items[i])).length;
+  // Only show a number badge when the step opts in via startNumber. Exercises
+  // authored before this (units whose prompts already bake a book number into
+  // the prompt text itself, e.g. "2 (be / California?) ...") must NOT also get
+  // a badge, or the item would show two conflicting numbers.
+  const startNumber = step.startNumber;
 
   return (
     <div className="flex flex-1 flex-col p-4">
-      <div className="mb-3 text-[13px] text-neutral-700">{step.instructions}</div>
+      <div className="mb-3 text-[13px] leading-relaxed text-neutral-700">{renderRich(step.instructions)}</div>
       {step.passage && (
-        <div className="mb-4 bg-surface p-3 text-[13px] leading-relaxed whitespace-pre-line">{step.passage}</div>
+        <div className="mb-4 flex flex-col gap-1 rounded-md bg-surface p-3 text-[13px] leading-relaxed">
+          {step.passage.split("\n").map((line, k) => (
+            <p key={k}>{renderRich(line)}</p>
+          ))}
+        </div>
       )}
       <div className="lg:grid lg:grid-cols-2 lg:gap-x-6">
         {step.items.map((it, i) => {
@@ -401,7 +414,10 @@ function TypeFillStepView({ step, onNext }: { step: TypeFillStep; onNext: (score
           const bad = checked && !ok;
           return (
             <div key={i} className="mb-3">
-              <div className="mb-1 text-[14px] leading-relaxed">{it.prompt}</div>
+              <div className="mb-1 text-[14px] leading-relaxed">
+                {startNumber != null && <span className="mr-1.5 font-extrabold text-accent">{startNumber + i}</span>}
+                {renderRich(it.prompt)}
+              </div>
               <input
                 className="input"
                 style={{ borderColor: bad ? "var(--color-accent)" : ok ? "var(--color-text)" : undefined }}
@@ -465,7 +481,7 @@ function JudgeCorrectStepView({ step, onNext }: { step: JudgeCorrectStep; onNext
 
   return (
     <div className="flex flex-1 flex-col p-4">
-      <div className="mb-3 text-[13px] text-neutral-700">{step.instructions}</div>
+      <div className="mb-3 text-[13px] leading-relaxed text-neutral-700">{renderRich(step.instructions)}</div>
       <div className="flex flex-col gap-4">
         {step.items.map((it, i) => {
           const parts = it.sentence.split(it.underlined);
@@ -623,7 +639,7 @@ function AiPracticeStepView({
 
   return (
     <div className="flex flex-1 flex-col p-4">
-      <div className="mb-3 text-[13px] text-neutral-700">{step.instructions}</div>
+      <div className="mb-3 text-[13px] leading-relaxed text-neutral-700">{renderRich(step.instructions)}</div>
       <textarea
         className="input min-h-[90px] w-full resize-none"
         value={sentence}

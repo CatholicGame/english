@@ -7,6 +7,7 @@ import { AiSentencePractice } from "@/components/AiSentencePractice";
 import { ActionBarScreen } from "@/components/ActionBar";
 import { GROUP_LABELS, VERBS } from "@/data/basic-verbs";
 import { useProgress } from "@/lib/progress-context";
+import { useUiLang } from "@/lib/i18n";
 import { lvlOf } from "@/lib/stats";
 import { speak } from "@/lib/utils";
 import { useSubscriptionStore } from "@/lib/use-subscription-store";
@@ -77,6 +78,8 @@ export function VerbDetailClient({ slug }: { slug: string }) {
   const router = useRouter();
   const { progress } = useProgress();
   const { isUnlocked } = useSubscriptionStore();
+  const { lang } = useUiLang();
+  const showVi = lang !== "en";
   const [tab, setTab] = useState<"coll" | "phr">("coll");
 
   const verb = useMemo(() => VERBS.find((v) => v.verb.toLowerCase() === slug.toLowerCase()), [slug]);
@@ -135,7 +138,7 @@ export function VerbDetailClient({ slug }: { slug: string }) {
           {verb.group} · {GROUP_LABELS[verb.group]}
         </div>
         <p className="mt-3 text-[14px] leading-relaxed">{verb.def_en}</p>
-        <p className="mt-1 text-[13px] leading-relaxed text-neutral-600">{verb.def_vi}</p>
+        {showVi && <p className="mt-1 text-[13px] leading-relaxed text-neutral-600">{verb.def_vi}</p>}
       </div>
 
       <div className="divider-b flex gap-[2px] bg-[color:var(--color-divider)]">
@@ -184,10 +187,10 @@ export function VerbDetailClient({ slug }: { slug: string }) {
                 </span>
               </div>
               <div className="mt-1 text-[13px] leading-relaxed">{it.en}</div>
-              <div className="mt-0.5 text-[12px] leading-relaxed text-neutral-600">{it.vi}</div>
+              {showVi && <div className="mt-0.5 text-[12px] leading-relaxed text-neutral-600">{it.vi}</div>}
               <div className="mt-2 border-l-2 border-[color:var(--color-divider)] pl-3 text-[12px] leading-relaxed text-neutral-700">
                 {it.ex}
-                {it.ex_vi && <div className="mt-0.5 text-neutral-500">{it.ex_vi}</div>}
+                {showVi && it.ex_vi && <div className="mt-0.5 text-neutral-500">{it.ex_vi}</div>}
               </div>
               <NotesList moduleKey="collocations-phrasal-verbs" itemKey={`${verb.verb}::${it.term}`} />
               <AiSection item={it} />

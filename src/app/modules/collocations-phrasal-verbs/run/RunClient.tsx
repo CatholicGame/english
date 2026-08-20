@@ -20,6 +20,7 @@ import {
 import { norm, speak } from "@/lib/utils";
 import { useSubscriptionStore } from "@/lib/use-subscription-store";
 import { isVerbLocked } from "@/lib/content-access";
+import { useUiLang } from "@/lib/i18n";
 
 const SESSION_LENGTH = 12;
 
@@ -67,6 +68,8 @@ export function RunClient() {
   const searchParams = useSearchParams();
   const { loaded, progress, grade } = useProgress();
   const { isUnlocked } = useSubscriptionStore();
+  const { lang } = useUiLang();
+  const showVi = lang !== "en";
   // Same rule as the Today hub: never quiz on Pro-locked verbs, even via a
   // hand-crafted verbs= param — filtering the pool here means locked items
   // simply aren't there to match against.
@@ -347,10 +350,10 @@ export function RunClient() {
               <span className="block">
                 <span className="mb-4 mt-2 block h-0.5 bg-[color:var(--color-divider)]" />
                 <span className="block text-[15px] leading-relaxed">{q.item.en}</span>
-                <span className="mt-1 block text-[13px] leading-relaxed text-neutral-600">{q.item.vi}</span>
+                {showVi && <span className="mt-1 block text-[13px] leading-relaxed text-neutral-600">{q.item.vi}</span>}
                 <span className="mt-4 block border-l-2 border-[color:var(--color-divider)] pl-3 text-[13px] leading-relaxed">
                   {q.item.ex}
-                  {q.item.ex_vi && <span className="mt-0.5 block text-neutral-500">{q.item.ex_vi}</span>}
+                  {showVi && q.item.ex_vi && <span className="mt-0.5 block text-neutral-500">{q.item.ex_vi}</span>}
                 </span>
               </span>
             ) : (

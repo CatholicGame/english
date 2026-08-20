@@ -152,28 +152,32 @@ export const VERBS: Verb[] = [
         "type": "phrasal_verb",
         "en": "to get rid of something",
         "vi": "loại bỏ, xóa bỏ",
-        "ex": "The company did away with paper contracts."
+        "ex": "The company did away with paper contracts.",
+        "ex_vi": "Công ty đã loại bỏ các hợp đồng bằng giấy."
       },
       {
         "term": "do up",
         "type": "phrasal_verb",
         "en": "to fasten or renovate something",
         "vi": "cài (khuy, dây); sửa sang lại",
-        "ex": "Do up your coat, it's cold outside."
+        "ex": "Do up your coat, it's cold outside.",
+        "ex_vi": "Cài áo khoác lại đi, ngoài trời lạnh lắm."
       },
       {
         "term": "do over",
         "type": "phrasal_verb",
         "en": "to do something again",
         "vi": "làm lại",
-        "ex": "The teacher asked him to do the essay over."
+        "ex": "The teacher asked him to do the essay over.",
+        "ex_vi": "Giáo viên yêu cầu cậu ấy làm lại bài luận."
       },
       {
         "term": "do down",
         "type": "phrasal_verb",
         "en": "to criticize someone unfairly",
         "vi": "hạ thấp, chê bai ai đó",
-        "ex": "Stop doing yourself down, you did great."
+        "ex": "Stop doing yourself down, you did great.",
+        "ex_vi": "Đừng tự hạ thấp bản thân nữa, bạn đã làm rất tốt rồi."
       }
     ]
   },
@@ -251,35 +255,40 @@ export const VERBS: Verb[] = [
         "type": "phrasal_verb",
         "en": "to invent a story; to reconcile after a fight",
         "vi": "bịa ra; làm lành",
-        "ex": "Did you make up that excuse? / They finally made up after the argument."
+        "ex": "Did you make up that excuse? / They finally made up after the argument.",
+        "ex_vi": "Cậu bịa ra cái lý do đó thật sao? / Cuối cùng họ cũng đã làm lành sau cuộc tranh cãi."
       },
       {
         "term": "make out",
         "type": "phrasal_verb",
         "en": "to see/hear something with difficulty; to understand",
         "vi": "nhìn/nghe không rõ; hiểu ra",
-        "ex": "I could barely make out his handwriting."
+        "ex": "I could barely make out his handwriting. / I couldn't quite make out what he was trying to say.",
+        "ex_vi": "Tôi hầu như không đọc rõ được chữ viết tay của anh ấy. / Tôi không hiểu rõ anh ấy đang muốn nói gì."
       },
       {
         "term": "make up for",
         "type": "phrasal_verb",
         "en": "to compensate for something",
         "vi": "bù đắp cho",
-        "ex": "He worked overtime to make up for the delay."
+        "ex": "He worked overtime to make up for the delay.",
+        "ex_vi": "Anh ấy làm thêm giờ để bù đắp cho sự chậm trễ."
       },
       {
         "term": "make off with",
         "type": "phrasal_verb",
         "en": "to steal and run away with something",
         "vi": "lấy trộm rồi bỏ chạy",
-        "ex": "The thief made off with her purse."
+        "ex": "The thief made off with her purse.",
+        "ex_vi": "Tên trộm đã lấy trộm chiếc túi của cô ấy rồi bỏ chạy."
       },
       {
         "term": "make do",
         "type": "phrasal_verb",
         "en": "to manage with what's available even if it's not ideal",
         "vi": "xoay xở, tạm dùng những gì có sẵn",
-        "ex": "We didn't have a proper table, so we made do with a cardboard box."
+        "ex": "We didn't have a proper table, so we made do with a cardboard box.",
+        "ex_vi": "Chúng tôi không có bàn tử tế nên đã tạm dùng một cái thùng carton."
       }
     ]
   },
@@ -357,35 +366,40 @@ export const VERBS: Verb[] = [
         "type": "phrasal_verb",
         "en": "to be wearing something; to trick someone (informal)",
         "vi": "đang mặc; trêu/lừa ai đó",
-        "ex": "She had on a beautiful red dress."
+        "ex": "She had on a beautiful red dress. / Stop having me on, I know you're joking.",
+        "ex_vi": "Cô ấy đang mặc một chiếc váy đỏ xinh đẹp. / Đừng trêu tôi nữa, tôi biết bạn đang đùa mà."
       },
       {
         "term": "have (something) out",
         "type": "phrasal_verb",
         "en": "to resolve a disagreement by discussing it openly",
         "vi": "nói thẳng ra để giải quyết mâu thuẫn",
-        "ex": "They decided to have it out once and for all."
+        "ex": "They decided to have it out once and for all.",
+        "ex_vi": "Họ quyết định nói thẳng ra để giải quyết dứt điểm mâu thuẫn."
       },
       {
         "term": "have to do with",
         "type": "phrasal_verb",
         "en": "to be related or connected to",
         "vi": "liên quan đến",
-        "ex": "This problem has to do with the software update."
+        "ex": "This problem has to do with the software update.",
+        "ex_vi": "Vấn đề này liên quan đến bản cập nhật phần mềm."
       },
       {
         "term": "have someone over",
         "type": "phrasal_verb",
         "en": "to invite someone to your home as a guest",
         "vi": "mời ai đó đến nhà chơi",
-        "ex": "We're having some friends over for dinner tonight."
+        "ex": "We're having some friends over for dinner tonight.",
+        "ex_vi": "Tối nay chúng tôi mời vài người bạn đến nhà ăn tối."
       },
       {
         "term": "have something in",
         "type": "phrasal_verb",
         "en": "to keep a supply of something at home",
         "vi": "có sẵn đồ gì đó trong nhà",
-        "ex": "Do we have any milk in, or should I grab some on the way home?"
+        "ex": "Do we have any milk in, or should I grab some on the way home?",
+        "ex_vi": "Nhà mình có sẵn sữa không, hay để tôi mua thêm trên đường về?"
       }
     ]
   },
@@ -463,42 +477,48 @@ export const VERBS: Verb[] = [
         "type": "phrasal_verb",
         "en": "to leave the ground (plane); to remove clothing; to become suddenly successful",
         "vi": "cất cánh; cởi (quần áo); thành công nhanh chóng",
-        "ex": "The plane took off on time."
+        "ex": "The plane took off on time. / He took off his shoes before entering the house. / Her new business really took off after the article was published.",
+        "ex_vi": "Máy bay đã cất cánh đúng giờ. / Anh ấy cởi giày trước khi bước vào nhà. / Công việc kinh doanh mới của cô ấy đã thành công nhanh chóng sau khi bài báo được đăng."
       },
       {
         "term": "take up",
         "type": "phrasal_verb",
         "en": "to start a hobby/activity; to occupy space or time",
         "vi": "bắt đầu (sở thích); chiếm (không gian/thời gian)",
-        "ex": "She took up painting last year."
+        "ex": "She took up painting last year. / All these boxes take up too much space in the room.",
+        "ex_vi": "Cô ấy bắt đầu học vẽ từ năm ngoái. / Tất cả những chiếc thùng này chiếm quá nhiều không gian trong phòng."
       },
       {
         "term": "take over",
         "type": "phrasal_verb",
         "en": "to gain control of something",
         "vi": "tiếp quản, giành quyền kiểm soát",
-        "ex": "The new manager took over the department."
+        "ex": "The new manager took over the department.",
+        "ex_vi": "Người quản lý mới đã tiếp quản bộ phận."
       },
       {
         "term": "take after",
         "type": "phrasal_verb",
         "en": "to resemble a parent/relative",
         "vi": "giống (bố/mẹ/người thân)",
-        "ex": "She takes after her mother."
+        "ex": "She takes after her mother.",
+        "ex_vi": "Cô ấy giống mẹ."
       },
       {
         "term": "take back",
         "type": "phrasal_verb",
         "en": "to retract a statement; to return something",
         "vi": "rút lại lời nói; trả lại",
-        "ex": "I take back what I said earlier."
+        "ex": "I take back what I said earlier. / She took the shoes back to the store because they didn't fit.",
+        "ex_vi": "Tôi xin rút lại điều tôi đã nói trước đó. / Cô ấy mang giày trả lại cửa hàng vì không vừa."
       },
       {
         "term": "take in",
         "type": "phrasal_verb",
         "en": "to understand fully; to deceive someone",
         "vi": "hiểu thấu; lừa gạt",
-        "ex": "It took a while for the news to take in."
+        "ex": "It took a while for the news to take in. / He was completely taken in by her false promises.",
+        "ex_vi": "Phải một lúc lâu tin tức đó mới được hiểu thấu. / Anh ấy hoàn toàn bị lừa bởi những lời hứa giả dối của cô ấy."
       }
     ]
   },
@@ -576,42 +596,48 @@ export const VERBS: Verb[] = [
         "type": "phrasal_verb",
         "en": "to stop trying; to quit a habit",
         "vi": "từ bỏ",
-        "ex": "Don't give up on your dreams."
+        "ex": "Don't give up on your dreams. / He finally gave up smoking last year.",
+        "ex_vi": "Đừng bao giờ từ bỏ ước mơ của bạn. / Cuối cùng anh ấy đã bỏ hút thuốc vào năm ngoái."
       },
       {
         "term": "give in",
         "type": "phrasal_verb",
         "en": "to finally agree after resisting",
         "vi": "nhượng bộ, đầu hàng",
-        "ex": "After hours of arguing, he gave in."
+        "ex": "After hours of arguing, he gave in.",
+        "ex_vi": "Sau nhiều giờ tranh luận, anh ấy đã nhượng bộ."
       },
       {
         "term": "give away",
         "type": "phrasal_verb",
         "en": "to give something for free; to reveal a secret",
         "vi": "cho không; tiết lộ (bí mật)",
-        "ex": "They gave away free samples."
+        "ex": "They gave away free samples. / Please don't give away the ending of the movie.",
+        "ex_vi": "Họ đã phát mẫu thử miễn phí. / Xin đừng tiết lộ đoạn kết của bộ phim."
       },
       {
         "term": "give back",
         "type": "phrasal_verb",
         "en": "to return something",
         "vi": "trả lại",
-        "ex": "Please give back the book when you're done."
+        "ex": "Please give back the book when you're done.",
+        "ex_vi": "Hãy trả lại cuốn sách khi bạn đọc xong."
       },
       {
         "term": "give out",
         "type": "phrasal_verb",
         "en": "to distribute; to stop functioning",
         "vi": "phát cho; hết, ngừng hoạt động",
-        "ex": "Volunteers gave out flyers downtown."
+        "ex": "Volunteers gave out flyers downtown. / My old laptop finally gave out after years of use.",
+        "ex_vi": "Các tình nguyện viên đã phát tờ rơi ở trung tâm thành phố. / Cái laptop cũ của tôi cuối cùng cũng hỏng sau nhiều năm sử dụng."
       },
       {
         "term": "give off",
         "type": "phrasal_verb",
         "en": "to emit (smell, heat, gas, light)",
         "vi": "tỏa ra, phát ra (mùi, nhiệt, khí)",
-        "ex": "The flowers give off a sweet scent."
+        "ex": "The flowers give off a sweet scent.",
+        "ex_vi": "Những bông hoa tỏa ra một mùi hương ngọt ngào."
       }
     ]
   },
@@ -689,49 +715,56 @@ export const VERBS: Verb[] = [
         "type": "phrasal_verb",
         "en": "to postpone something",
         "vi": "trì hoãn",
-        "ex": "Let's not put off the decision any longer."
+        "ex": "Let's not put off the decision any longer.",
+        "ex_vi": "Chúng ta đừng trì hoãn quyết định này lâu hơn nữa."
       },
       {
         "term": "put away",
         "type": "phrasal_verb",
         "en": "to store something in its place",
         "vi": "cất đi",
-        "ex": "Put away your toys before dinner."
+        "ex": "Put away your toys before dinner.",
+        "ex_vi": "Cất đồ chơi đi trước khi ăn tối."
       },
       {
         "term": "put back",
         "type": "phrasal_verb",
         "en": "to return something to its original place; to delay",
         "vi": "để trở lại chỗ cũ; hoãn lại",
-        "ex": "Please put the book back on the shelf."
+        "ex": "Please put the book back on the shelf. / The meeting has been put back to next Friday.",
+        "ex_vi": "Hãy để cuốn sách trở lại chỗ cũ trên kệ. / Cuộc họp đã bị hoãn đến thứ Sáu tuần sau."
       },
       {
         "term": "put down",
         "type": "phrasal_verb",
         "en": "to write something; to stop holding something; to belittle",
         "vi": "ghi lại; đặt xuống; hạ thấp ai đó",
-        "ex": "Put down your ideas before you forget them."
+        "ex": "Put down your ideas before you forget them. / He put down his bag and sat on the sofa. / She always puts him down in front of their friends.",
+        "ex_vi": "Hãy ghi lại những ý tưởng của bạn trước khi quên. / Anh ấy đặt túi xuống rồi ngồi vào ghế sofa. / Cô ấy luôn hạ thấp anh ấy trước mặt bạn bè."
       },
       {
         "term": "put up with",
         "type": "phrasal_verb",
         "en": "to tolerate something unpleasant",
         "vi": "chịu đựng",
-        "ex": "I can't put up with this noise anymore."
+        "ex": "I can't put up with this noise anymore.",
+        "ex_vi": "Tôi không thể chịu đựng tiếng ồn này thêm được nữa."
       },
       {
         "term": "put on",
         "type": "phrasal_verb",
         "en": "to wear something; to gain weight",
         "vi": "mặc vào; tăng cân",
-        "ex": "Put on your jacket, it's cold."
+        "ex": "Put on your jacket, it's cold. / He's put on a lot of weight since he quit exercising.",
+        "ex_vi": "Mặc áo khoác vào đi, trời lạnh lắm. / Anh ấy đã tăng khá nhiều cân từ khi bỏ tập thể dục."
       },
       {
         "term": "put out",
         "type": "phrasal_verb",
         "en": "to extinguish (fire); to publish",
         "vi": "dập tắt; công bố",
-        "ex": "Firefighters put out the blaze quickly."
+        "ex": "Firefighters put out the blaze quickly. / The band put out a new album last month.",
+        "ex_vi": "Lính cứu hỏa đã dập tắt ngọn lửa nhanh chóng. / Ban nhạc đã phát hành một album mới vào tháng trước."
       }
     ]
   },
@@ -809,35 +842,40 @@ export const VERBS: Verb[] = [
         "type": "phrasal_verb",
         "en": "to return money owed; to get revenge",
         "vi": "trả nợ; trả đũa",
-        "ex": "I need to pay back my student loan."
+        "ex": "I need to pay back my student loan. / He swore he would pay her back for the betrayal one day.",
+        "ex_vi": "Tôi cần trả nợ khoản vay sinh viên của mình. / Anh ấy thề sẽ trả đũa cô ấy vì sự phản bội này vào một ngày nào đó."
       },
       {
         "term": "pay for",
         "type": "phrasal_verb",
         "en": "to give money for something; to suffer for a mistake",
         "vi": "trả tiền cho; chịu hậu quả",
-        "ex": "He'll pay for what he did."
+        "ex": "He'll pay for what he did. / She paid for everyone's lunch today.",
+        "ex_vi": "Anh ta sẽ phải chịu hậu quả vì những gì đã làm. / Hôm nay cô ấy đã trả tiền ăn trưa cho mọi người."
       },
       {
         "term": "pay off",
         "type": "phrasal_verb",
         "en": "to fully repay a debt; to be successful/worthwhile",
         "vi": "trả hết nợ; đem lại kết quả tốt",
-        "ex": "Her hard work finally paid off."
+        "ex": "Her hard work finally paid off. / They finally paid off their mortgage after twenty years.",
+        "ex_vi": "Cuối cùng sự chăm chỉ của cô ấy đã được đền đáp. / Cuối cùng họ đã trả hết khoản vay mua nhà sau hai mươi năm."
       },
       {
         "term": "pay up",
         "type": "phrasal_verb",
         "en": "to pay money owed, often reluctantly",
         "vi": "trả hết (nợ), miễn cưỡng",
-        "ex": "He was forced to pay up after losing the bet."
+        "ex": "He was forced to pay up after losing the bet.",
+        "ex_vi": "Anh ấy buộc phải trả hết tiền sau khi thua cược."
       },
       {
         "term": "pay out",
         "type": "phrasal_verb",
         "en": "to give a large sum of money, often from insurance",
         "vi": "chi trả một khoản tiền lớn, thường từ bảo hiểm",
-        "ex": "The insurance company paid out $10,000 after the accident."
+        "ex": "The insurance company paid out $10,000 after the accident.",
+        "ex_vi": "Công ty bảo hiểm đã chi trả 10.000 đô la sau vụ tai nạn."
       }
     ]
   },
@@ -915,35 +953,40 @@ export const VERBS: Verb[] = [
         "type": "phrasal_verb",
         "en": "to discard something",
         "vi": "vứt bỏ",
-        "ex": "Don't throw away that receipt."
+        "ex": "Don't throw away that receipt.",
+        "ex_vi": "Đừng vứt bỏ cái biên lai đó."
       },
       {
         "term": "throw out",
         "type": "phrasal_verb",
         "en": "to get rid of something; to reject",
         "vi": "vứt bỏ; bác bỏ",
-        "ex": "The judge threw out the case."
+        "ex": "The judge threw out the case. / She threw out all her old clothes.",
+        "ex_vi": "Vị thẩm phán đã bác bỏ vụ án. / Cô ấy đã vứt bỏ hết quần áo cũ của mình."
       },
       {
         "term": "throw up",
         "type": "phrasal_verb",
         "en": "to vomit",
         "vi": "nôn mửa",
-        "ex": "He threw up after the rollercoaster ride."
+        "ex": "He threw up after the rollercoaster ride.",
+        "ex_vi": "Anh ấy đã nôn sau khi đi tàu lượn siêu tốc."
       },
       {
         "term": "throw in",
         "type": "phrasal_verb",
         "en": "to add something extra for free",
         "vi": "tặng kèm thêm",
-        "ex": "The shop threw in a free charger with the phone."
+        "ex": "The shop threw in a free charger with the phone.",
+        "ex_vi": "Cửa hàng đã tặng kèm một cục sạc miễn phí khi mua điện thoại."
       },
       {
         "term": "throw off",
         "type": "phrasal_verb",
         "en": "to confuse or disrupt someone's focus or plan",
         "vi": "làm rối, làm mất tập trung",
-        "ex": "The loud noise threw off my concentration."
+        "ex": "The loud noise threw off my concentration.",
+        "ex_vi": "Tiếng ồn lớn đã làm tôi mất tập trung."
       }
     ]
   },
@@ -1014,42 +1057,48 @@ export const VERBS: Verb[] = [
         "type": "phrasal_verb",
         "en": "to continue; to happen",
         "vi": "tiếp tục; xảy ra",
-        "ex": "Please go on with your story."
+        "ex": "Please go on with your story. / Something strange is going on in the office.",
+        "ex_vi": "Hãy tiếp tục kể câu chuyện của bạn đi. / Có điều gì đó kỳ lạ đang xảy ra ở văn phòng."
       },
       {
         "term": "go out",
         "type": "phrasal_verb",
         "en": "to leave home for social activity; to stop burning/shining",
         "vi": "ra ngoài (chơi, hẹn hò); tắt (lửa, đèn)",
-        "ex": "They go out for dinner every Friday."
+        "ex": "They go out for dinner every Friday. / The fire went out during the night.",
+        "ex_vi": "Họ ra ngoài ăn tối vào mỗi tối thứ Sáu. / Ngọn lửa đã tắt trong đêm."
       },
       {
         "term": "go over",
         "type": "phrasal_verb",
         "en": "to review something",
         "vi": "xem lại, ôn lại",
-        "ex": "Let's go over the report together."
+        "ex": "Let's go over the report together.",
+        "ex_vi": "Hãy cùng xem lại báo cáo."
       },
       {
         "term": "go through",
         "type": "phrasal_verb",
         "en": "to experience something difficult; to examine carefully",
         "vi": "trải qua; xem xét kỹ",
-        "ex": "She went through a difficult divorce."
+        "ex": "She went through a difficult divorce. / Please go through the contract carefully before signing.",
+        "ex_vi": "Cô ấy đã trải qua một cuộc ly hôn khó khăn. / Hãy xem xét kỹ hợp đồng trước khi ký."
       },
       {
         "term": "go ahead",
         "type": "phrasal_verb",
         "en": "to proceed with something",
         "vi": "tiến hành, cứ làm",
-        "ex": "Go ahead and start without me."
+        "ex": "Go ahead and start without me.",
+        "ex_vi": "Cứ tiến hành và bắt đầu mà không cần đợi tôi."
       },
       {
         "term": "go off",
         "type": "phrasal_verb",
         "en": "to explode/ring; to go bad (food)",
         "vi": "phát nổ, kêu (báo thức); bị hỏng (đồ ăn)",
-        "ex": "The alarm went off at 6 a.m."
+        "ex": "The alarm went off at 6 a.m. / The fish went off because it was left out too long.",
+        "ex_vi": "Chuông báo thức kêu vào lúc 6 giờ sáng. / Con cá đã bị hỏng vì để ngoài quá lâu."
       }
     ]
   },
@@ -1120,42 +1169,48 @@ export const VERBS: Verb[] = [
         "type": "phrasal_verb",
         "en": "to find by chance; to seem/appear",
         "vi": "tình cờ gặp/thấy; tạo ấn tượng",
-        "ex": "I came across an old photo yesterday."
+        "ex": "I came across an old photo yesterday. / She comes across as a bit shy at first.",
+        "ex_vi": "Tôi đã tình cờ tìm thấy một bức ảnh cũ ngày hôm qua. / Cô ấy tạo cảm giác khá nhút nhát lúc đầu."
       },
       {
         "term": "come back",
         "type": "phrasal_verb",
         "en": "to return to a place",
         "vi": "quay trở lại",
-        "ex": "She came back home after a long trip."
+        "ex": "She came back home after a long trip.",
+        "ex_vi": "Cô ấy đã trở về nhà sau một chuyến đi dài."
       },
       {
         "term": "come in",
         "type": "phrasal_verb",
         "en": "to enter a place",
         "vi": "đi vào",
-        "ex": "Come in and take a seat."
+        "ex": "Come in and take a seat.",
+        "ex_vi": "Hãy vào trong và ngồi xuống."
       },
       {
         "term": "come out",
         "type": "phrasal_verb",
         "en": "to appear/be published; to become known",
         "vi": "xuất hiện, ra mắt; lộ ra",
-        "ex": "The new movie comes out next week."
+        "ex": "The new movie comes out next week. / It later came out that he had lied about his age.",
+        "ex_vi": "Bộ phim mới sẽ ra mắt vào tuần tới. / Sau đó, sự thật lộ ra rằng anh ta đã nói dối về tuổi của mình."
       },
       {
         "term": "come up with",
         "type": "phrasal_verb",
         "en": "to think of an idea or plan",
         "vi": "nghĩ ra (ý tưởng)",
-        "ex": "She came up with a brilliant solution."
+        "ex": "She came up with a brilliant solution.",
+        "ex_vi": "Cô ấy đã nghĩ ra một giải pháp tuyệt vời."
       },
       {
         "term": "come down with",
         "type": "phrasal_verb",
         "en": "to become sick with an illness",
         "vi": "mắc bệnh (nhẹ)",
-        "ex": "I think I'm coming down with a cold."
+        "ex": "I think I'm coming down with a cold.",
+        "ex_vi": "Tôi nghĩ tôi đang bị cảm lạnh."
       }
     ]
   },
@@ -1226,35 +1281,40 @@ export const VERBS: Verb[] = [
         "type": "phrasal_verb",
         "en": "to raise a child; to mention a topic",
         "vi": "nuôi dạy; đề cập đến",
-        "ex": "She brought up an interesting point in the meeting."
+        "ex": "She brought up an interesting point in the meeting. / They brought up their children to be honest and kind.",
+        "ex_vi": "Cô ấy đã đề cập đến một điểm thú vị trong cuộc họp. / Họ nuôi dạy con cái mình trở thành người trung thực và tốt bụng."
       },
       {
         "term": "bring about",
         "type": "phrasal_verb",
         "en": "to cause something to happen",
         "vi": "gây ra, dẫn đến",
-        "ex": "The invention brought about huge changes."
+        "ex": "The invention brought about huge changes.",
+        "ex_vi": "Phát minh này đã gây ra những thay đổi lớn."
       },
       {
         "term": "bring back",
         "type": "phrasal_verb",
         "en": "to return something; to bring back memories",
         "vi": "mang trở lại; gợi nhớ lại",
-        "ex": "This song brings back happy memories."
+        "ex": "This song brings back happy memories. / Please bring back my book when you're done.",
+        "ex_vi": "Bài hát này gợi lại những kỷ niệm vui vẻ. / Hãy mang trả sách của tôi khi bạn đọc xong."
       },
       {
         "term": "bring in",
         "type": "phrasal_verb",
         "en": "to introduce something new; to earn (money)",
         "vi": "đưa vào, giới thiệu; kiếm được (tiền)",
-        "ex": "The company brought in a new policy."
+        "ex": "The company brought in a new policy. / The new product brings in a lot of revenue every month.",
+        "ex_vi": "Công ty đã đưa ra một chính sách mới. / Sản phẩm mới mang lại nhiều doanh thu mỗi tháng."
       },
       {
         "term": "bring out",
         "type": "phrasal_verb",
         "en": "to launch a product; to make a quality more noticeable",
         "vi": "cho ra mắt (sản phẩm); làm nổi bật",
-        "ex": "The brand brought out a new phone model."
+        "ex": "The brand brought out a new phone model. / This color really brings out the blue in her eyes.",
+        "ex_vi": "Thương hiệu đã cho ra mắt mẫu điện thoại mới. / Màu này thực sự làm nổi bật màu xanh trong mắt cô ấy."
       }
     ]
   },
@@ -1325,35 +1385,40 @@ export const VERBS: Verb[] = [
         "type": "phrasal_verb",
         "en": "to continue doing something",
         "vi": "tiếp tục",
-        "ex": "Please carry on with your work."
+        "ex": "Please carry on with your work.",
+        "ex_vi": "Hãy tiếp tục công việc của bạn."
       },
       {
         "term": "carry out",
         "type": "phrasal_verb",
         "en": "to perform or complete a task",
         "vi": "thực hiện (nhiệm vụ)",
-        "ex": "Scientists carried out several experiments."
+        "ex": "Scientists carried out several experiments.",
+        "ex_vi": "Các nhà khoa học đã thực hiện nhiều thí nghiệm."
       },
       {
         "term": "carry over",
         "type": "phrasal_verb",
         "en": "to postpone to a later time; to transfer",
         "vi": "chuyển sang (kỳ sau)",
-        "ex": "Unused leave can be carried over to next year."
+        "ex": "Unused leave can be carried over to next year. / You can carry over your points to a new loyalty account.",
+        "ex_vi": "Ngày nghỉ chưa dùng có thể được chuyển sang năm sau. / Bạn có thể chuyển điểm của mình sang một tài khoản tích điểm mới."
       },
       {
         "term": "carry around",
         "type": "phrasal_verb",
         "en": "to have something with you wherever you go",
         "vi": "mang theo bên mình",
-        "ex": "She always carries around a bottle of water."
+        "ex": "She always carries around a bottle of water.",
+        "ex_vi": "Cô ấy luôn mang theo một chai nước bên mình."
       },
       {
         "term": "carry off",
         "type": "phrasal_verb",
         "en": "to do something difficult successfully",
         "vi": "thực hiện thành công một việc khó",
-        "ex": "It was a bold outfit, but she carried it off perfectly."
+        "ex": "It was a bold outfit, but she carried it off perfectly.",
+        "ex_vi": "Đó là một bộ trang phục táo bạo, nhưng cô ấy đã thể hiện thành công."
       }
     ]
   },
@@ -1424,35 +1489,40 @@ export const VERBS: Verb[] = [
         "type": "phrasal_verb",
         "en": "to have no more of something",
         "vi": "hết (cái gì đó)",
-        "ex": "We ran out of milk this morning."
+        "ex": "We ran out of milk this morning.",
+        "ex_vi": "Chúng tôi đã hết sữa vào sáng nay."
       },
       {
         "term": "run into",
         "type": "phrasal_verb",
         "en": "to meet someone unexpectedly; to encounter a problem",
         "vi": "tình cờ gặp; gặp phải (vấn đề)",
-        "ex": "I ran into an old friend at the mall."
+        "ex": "I ran into an old friend at the mall. / We ran into some technical problems during the launch.",
+        "ex_vi": "Tôi đã tình cờ gặp một người bạn cũ ở trung tâm thương mại. / Chúng tôi đã gặp phải một số vấn đề kỹ thuật trong quá trình ra mắt."
       },
       {
         "term": "run away",
         "type": "phrasal_verb",
         "en": "to escape from a place",
         "vi": "bỏ trốn",
-        "ex": "The child ran away from home."
+        "ex": "The child ran away from home.",
+        "ex_vi": "Đứa trẻ đã bỏ trốn khỏi nhà."
       },
       {
         "term": "run over",
         "type": "phrasal_verb",
         "en": "to hit someone/something with a vehicle",
         "vi": "cán, tông phải",
-        "ex": "Be careful not to run over the cat."
+        "ex": "Be careful not to run over the cat.",
+        "ex_vi": "Hãy cẩn thận đừng cán phải con mèo."
       },
       {
         "term": "run through",
         "type": "phrasal_verb",
         "en": "to review or practice something quickly",
         "vi": "lướt qua, ôn lại nhanh",
-        "ex": "Let's run through the plan once more."
+        "ex": "Let's run through the plan once more.",
+        "ex_vi": "Hãy cùng ôn lại kế hoạch một lần nữa."
       }
     ]
   },
@@ -1523,35 +1593,40 @@ export const VERBS: Verb[] = [
         "type": "phrasal_verb",
         "en": "to start living in a new home",
         "vi": "dọn vào ở",
-        "ex": "They moved in together last year."
+        "ex": "They moved in together last year.",
+        "ex_vi": "Họ đã dọn vào sống chung từ năm ngoái."
       },
       {
         "term": "move out",
         "type": "phrasal_verb",
         "en": "to leave a home permanently",
         "vi": "dọn ra khỏi (nhà)",
-        "ex": "He moved out of his parents' house at 20."
+        "ex": "He moved out of his parents' house at 20.",
+        "ex_vi": "Anh ấy đã dọn ra khỏi nhà cha mẹ khi 20 tuổi."
       },
       {
         "term": "move on",
         "type": "phrasal_verb",
         "en": "to progress to a new stage; to stop dwelling on something",
         "vi": "tiến bước, chuyển sang giai đoạn mới",
-        "ex": "It's time to move on from the past."
+        "ex": "It's time to move on from the past. / After graduation, she moved on to a new job in another city.",
+        "ex_vi": "Đã đến lúc bỏ qua quá khứ và tiến về phía trước. / Sau khi tốt nghiệp, cô ấy đã chuyển sang một công việc mới ở thành phố khác."
       },
       {
         "term": "move away",
         "type": "phrasal_verb",
         "en": "to relocate to live somewhere else, usually farther away",
         "vi": "chuyển đi nơi khác, dọn đi xa",
-        "ex": "Most of my old friends have moved away from the city."
+        "ex": "Most of my old friends have moved away from the city.",
+        "ex_vi": "Hầu hết bạn bè cũ của tôi đã chuyển đi khỏi thành phố."
       },
       {
         "term": "move over",
         "type": "phrasal_verb",
         "en": "to shift position to make room for someone",
         "vi": "dịch sang một bên, nhường chỗ",
-        "ex": "Can you move over so I can sit down too?"
+        "ex": "Can you move over so I can sit down too?",
+        "ex_vi": "Bạn có thể dịch sang một bên để tôi ngồi được không?"
       }
     ]
   },
@@ -1622,35 +1697,40 @@ export const VERBS: Verb[] = [
         "type": "phrasal_verb",
         "en": "to leave someone/something somewhere; to fall asleep; to decrease",
         "vi": "thả ai đó xuống; ngủ thiếp đi; giảm dần",
-        "ex": "I'll drop off the kids at school."
+        "ex": "I'll drop off the kids at school. / He dropped off in front of the TV after dinner. / Sales have dropped off significantly this quarter.",
+        "ex_vi": "Tôi sẽ thả các con xuống trường. / Anh ấy đã ngủ thiếp đi trước tivi sau bữa tối. / Doanh số đã giảm đáng kể trong quý này."
       },
       {
         "term": "drop by",
         "type": "phrasal_verb",
         "en": "to visit briefly and informally",
         "vi": "ghé qua",
-        "ex": "Feel free to drop by anytime."
+        "ex": "Feel free to drop by anytime.",
+        "ex_vi": "Cứ ghé qua bất cứ lúc nào."
       },
       {
         "term": "drop out",
         "type": "phrasal_verb",
         "en": "to quit school or a program before finishing",
         "vi": "bỏ học, bỏ cuộc giữa chừng",
-        "ex": "He dropped out of college in his second year."
+        "ex": "He dropped out of college in his second year.",
+        "ex_vi": "Anh ấy đã bỏ học đại học vào năm thứ hai."
       },
       {
         "term": "drop in",
         "type": "phrasal_verb",
         "en": "to visit someone briefly and often without planning ahead",
         "vi": "ghé qua thăm bất chợt",
-        "ex": "Feel free to drop in whenever you're in the neighborhood."
+        "ex": "Feel free to drop in whenever you're in the neighborhood.",
+        "ex_vi": "Cứ ghé qua bất cứ khi nào bạn ở gần đây."
       },
       {
         "term": "drop back",
         "type": "phrasal_verb",
         "en": "to move to a position further behind",
         "vi": "tụt lại phía sau",
-        "ex": "She dropped back to third place in the final lap."
+        "ex": "She dropped back to third place in the final lap.",
+        "ex_vi": "Cô ấy tụt xuống vị trí thứ ba ở chặng cuối."
       }
     ]
   },
@@ -1721,35 +1801,40 @@ export const VERBS: Verb[] = [
         "type": "phrasal_verb",
         "en": "to move a vehicle to the side of the road",
         "vi": "tấp xe vào lề",
-        "ex": "The police told him to pull over."
+        "ex": "The police told him to pull over.",
+        "ex_vi": "Cảnh sát bảo anh ta tấp xe vào lề."
       },
       {
         "term": "pull out",
         "type": "phrasal_verb",
         "en": "to withdraw from something; to move a vehicle out",
         "vi": "rút lui, rút khỏi; lùi/đánh xe ra",
-        "ex": "The company pulled out of the deal."
+        "ex": "The company pulled out of the deal. / He carefully pulled out of the parking space.",
+        "ex_vi": "Công ty đã rút khỏi thỏa thuận. / Anh ấy cẩn thận lùi xe ra khỏi chỗ đậu."
       },
       {
         "term": "pull off",
         "type": "phrasal_verb",
         "en": "to succeed in doing something difficult",
         "vi": "thực hiện thành công (việc khó)",
-        "ex": "She managed to pull off a great performance."
+        "ex": "She managed to pull off a great performance.",
+        "ex_vi": "Cô ấy đã thực hiện thành công một buổi trình diễn tuyệt vời."
       },
       {
         "term": "pull through",
         "type": "phrasal_verb",
         "en": "to survive or recover from a difficult situation",
         "vi": "vượt qua (khó khăn, bệnh tật)",
-        "ex": "The doctors think he will pull through."
+        "ex": "The doctors think he will pull through.",
+        "ex_vi": "Các bác sĩ nghĩ rằng anh ấy sẽ vượt qua được."
       },
       {
         "term": "pull up",
         "type": "phrasal_verb",
         "en": "to stop a vehicle, or open something on a screen",
         "vi": "dừng xe lại, hoặc mở lên xem trên màn hình",
-        "ex": "The taxi pulled up right in front of the hotel."
+        "ex": "The taxi pulled up right in front of the hotel. / Let me pull up the document on my laptop.",
+        "ex_vi": "Chiếc taxi dừng ngay trước khách sạn. / Để tôi mở tài liệu đó lên trên laptop."
       }
     ]
   },
@@ -1820,35 +1905,40 @@ export const VERBS: Verb[] = [
         "type": "phrasal_verb",
         "en": "to continue with a plan despite difficulty",
         "vi": "tiếp tục xúc tiến",
-        "ex": "They pushed ahead with the merger."
+        "ex": "They pushed ahead with the merger.",
+        "ex_vi": "Họ tiếp tục xúc tiến việc sáp nhập."
       },
       {
         "term": "push through",
         "type": "phrasal_verb",
         "en": "to force something to be approved; to persevere",
         "vi": "thúc đẩy được thông qua; cố gắng vượt qua",
-        "ex": "The government pushed through the new law."
+        "ex": "The government pushed through the new law. / Despite her injury, she pushed through to finish the marathon.",
+        "ex_vi": "Chính phủ đã thúc đẩy thông qua luật mới. / Dù bị chấn thương, cô ấy vẫn cố gắng vượt qua để hoàn thành cuộc marathon."
       },
       {
         "term": "push aside",
         "type": "phrasal_verb",
         "en": "to ignore or dismiss something/someone",
         "vi": "gạt sang một bên",
-        "ex": "He pushed aside his doubts and signed the contract."
+        "ex": "He pushed aside his doubts and signed the contract.",
+        "ex_vi": "Anh ấy gạt bỏ những nghi ngờ của mình và ký hợp đồng."
       },
       {
         "term": "push back",
         "type": "phrasal_verb",
         "en": "to resist or express disagreement with a plan",
         "vi": "phản đối, không đồng tình",
-        "ex": "Staff pushed back against the new overtime policy."
+        "ex": "Staff pushed back against the new overtime policy.",
+        "ex_vi": "Nhân viên đã phản đối chính sách làm thêm giờ mới."
       },
       {
         "term": "push on",
         "type": "phrasal_verb",
         "en": "to keep going despite difficulty",
         "vi": "tiếp tục cố gắng dù khó khăn",
-        "ex": "Even exhausted, the climbers pushed on to the summit."
+        "ex": "Even exhausted, the climbers pushed on to the summit.",
+        "ex_vi": "Dù đã kiệt sức, những người leo núi vẫn tiếp tục tiến lên đỉnh."
       }
     ]
   },
@@ -1919,35 +2009,40 @@ export const VERBS: Verb[] = [
         "type": "phrasal_verb",
         "en": "to die (polite way of saying)",
         "vi": "qua đời",
-        "ex": "Her grandfather passed away last year."
+        "ex": "Her grandfather passed away last year.",
+        "ex_vi": "Ông của cô ấy đã qua đời năm ngoái."
       },
       {
         "term": "pass by",
         "type": "phrasal_verb",
         "en": "to go past something/someone",
         "vi": "đi ngang qua",
-        "ex": "Years passed by quickly."
+        "ex": "Years passed by quickly.",
+        "ex_vi": "Nhiều năm đã trôi qua nhanh chóng."
       },
       {
         "term": "pass on",
         "type": "phrasal_verb",
         "en": "to give something to another person; to die (polite)",
         "vi": "truyền lại, chuyển cho; qua đời",
-        "ex": "Please pass on this message to the team."
+        "ex": "Please pass on this message to the team. / His grandmother passed on peacefully in her sleep.",
+        "ex_vi": "Hãy chuyển lại thông báo này cho cả nhóm. / Bà của anh ấy đã qua đời một cách bình yên trong lúc ngủ."
       },
       {
         "term": "pass out",
         "type": "phrasal_verb",
         "en": "to faint; to distribute something",
         "vi": "ngất xỉu; phát ra",
-        "ex": "She passed out from the heat."
+        "ex": "She passed out from the heat. / Volunteers passed out flyers at the entrance.",
+        "ex_vi": "Cô ấy ngất xỉu vì nóng. / Các tình nguyện viên phát tờ rơi ở lối vào."
       },
       {
         "term": "pass up",
         "type": "phrasal_verb",
         "en": "to decide not to take an opportunity",
         "vi": "bỏ lỡ cơ hội, từ chối",
-        "ex": "I couldn't pass up such a great job offer."
+        "ex": "I couldn't pass up such a great job offer.",
+        "ex_vi": "Tôi không thể từ chối một lời mời làm việc tuyệt vời như vậy."
       }
     ]
   },
@@ -2018,35 +2113,40 @@ export const VERBS: Verb[] = [
         "type": "phrasal_verb",
         "en": "to break into pieces; to stop functioning emotionally",
         "vi": "tan vỡ, sụp đổ",
-        "ex": "Their marriage fell apart after years of problems."
+        "ex": "Their marriage fell apart after years of problems. / The old wooden chair fell apart when he sat on it.",
+        "ex_vi": "Cuộc hôn nhân của họ tan vỡ sau nhiều năm gặp vấn đề. / Chiếc ghế gỗ cũ bị vỡ tan khi anh ấy ngồi lên."
       },
       {
         "term": "fall behind",
         "type": "phrasal_verb",
         "en": "to fail to keep up with a pace or schedule",
         "vi": "bị tụt lại phía sau",
-        "ex": "He fell behind on his rent payments."
+        "ex": "He fell behind on his rent payments.",
+        "ex_vi": "Anh ấy bị chậm trễ trong việc trả tiền thuê nhà."
       },
       {
         "term": "fall asleep",
         "type": "phrasal_verb",
         "en": "to begin sleeping",
         "vi": "ngủ thiếp đi",
-        "ex": "She fell asleep on the couch."
+        "ex": "She fell asleep on the couch.",
+        "ex_vi": "Cô ấy ngủ thiếp đi trên ghế sofa."
       },
       {
         "term": "fall over",
         "type": "phrasal_verb",
         "en": "to lose balance and fall",
         "vi": "ngã, té",
-        "ex": "The chair fell over when he stood up."
+        "ex": "The chair fell over when he stood up.",
+        "ex_vi": "Cái ghế đổ khi anh ấy đứng lên."
       },
       {
         "term": "fall out",
         "type": "phrasal_verb",
         "en": "to have an argument and stop being friends",
         "vi": "cãi nhau, bất hòa",
-        "ex": "The two friends fell out over money."
+        "ex": "The two friends fell out over money.",
+        "ex_vi": "Hai người bạn đã cãi nhau vì tiền."
       }
     ]
   },
@@ -2117,56 +2217,64 @@ export const VERBS: Verb[] = [
         "type": "phrasal_verb",
         "en": "to rise from bed",
         "vi": "thức dậy",
-        "ex": "I get up at 6 a.m. every day."
+        "ex": "I get up at 6 a.m. every day.",
+        "ex_vi": "Tôi thức dậy lúc 6 giờ sáng mỗi ngày."
       },
       {
         "term": "get in",
         "type": "phrasal_verb",
         "en": "to enter a vehicle/place",
         "vi": "vào, lên (xe)",
-        "ex": "She got in the car and drove off."
+        "ex": "She got in the car and drove off.",
+        "ex_vi": "Cô ấy lên xe và lái đi."
       },
       {
         "term": "get on",
         "type": "phrasal_verb",
         "en": "to board a vehicle; to have a good relationship",
         "vi": "lên (xe, tàu); hòa hợp với ai đó",
-        "ex": "We got on the bus at the last stop."
+        "ex": "We got on the bus at the last stop. / My sister and I get on really well.",
+        "ex_vi": "Chúng tôi lên xe buýt ở trạm cuối. / Tôi và em gái hòa hợp với nhau rất tốt."
       },
       {
         "term": "get over",
         "type": "phrasal_verb",
         "en": "to recover from something",
         "vi": "vượt qua, hồi phục từ",
-        "ex": "It took her weeks to get over the flu."
+        "ex": "It took her weeks to get over the flu.",
+        "ex_vi": "Cô ấy đã mất vài tuần để hồi phục sau cơn cúm."
       },
       {
         "term": "get along with",
         "type": "phrasal_verb",
         "en": "to have a good relationship with someone",
         "vi": "hòa hợp với ai đó",
-        "ex": "I get along well with my coworkers."
+        "ex": "I get along well with my coworkers.",
+        "ex_vi": "Tôi hòa hợp tốt với các đồng nghiệp của mình."
       },
       {
         "term": "get used to",
         "type": "phrasal_verb",
         "en": "to become familiar/comfortable with something",
         "vi": "trở nên quen với",
-        "ex": "It took time to get used to the new schedule."
+        "ex": "It took time to get used to the new schedule.",
+        "ex_vi": "Phải mất một thời gian để quen với lịch trình mới."
       },
       {
         "term": "get rid of",
         "type": "phrasal_verb",
         "en": "to remove or eliminate something",
         "vi": "loại bỏ",
-        "ex": "We need to get rid of these old files."
+        "ex": "We need to get rid of these old files.",
+        "ex_vi": "Chúng ta cần loại bỏ những tệp cũ này."
       },
       {
         "term": "get away with",
         "type": "phrasal_verb",
         "en": "to do something wrong without punishment",
         "vi": "làm gì sai mà không bị phạt",
-        "ex": "He got away with cheating on the test."
+        "ex": "He got away with cheating on the test.",
+        "ex_vi": "Anh ấy đã gian lận trong bài kiểm tra mà không bị phạt."
       }
     ]
   },
@@ -2237,35 +2345,40 @@ export const VERBS: Verb[] = [
         "type": "phrasal_verb",
         "en": "to maintain the same pace/level",
         "vi": "theo kịp, duy trì",
-        "ex": "It's hard to keep up with new technology."
+        "ex": "It's hard to keep up with new technology.",
+        "ex_vi": "Rất khó để theo kịp công nghệ mới."
       },
       {
         "term": "keep on",
         "type": "phrasal_verb",
         "en": "to continue doing something",
         "vi": "tiếp tục",
-        "ex": "She kept on working despite the noise."
+        "ex": "She kept on working despite the noise.",
+        "ex_vi": "Cô ấy tiếp tục làm việc dù có tiếng ồn."
       },
       {
         "term": "keep away",
         "type": "phrasal_verb",
         "en": "to stay at a distance from something",
         "vi": "tránh xa",
-        "ex": "Keep away from the edge of the cliff."
+        "ex": "Keep away from the edge of the cliff.",
+        "ex_vi": "Hãy tránh xa mép vực."
       },
       {
         "term": "keep back",
         "type": "phrasal_verb",
         "en": "to hold something in reserve; to withhold information",
         "vi": "giữ lại, không nói ra",
-        "ex": "He kept back some important details."
+        "ex": "He kept back some important details. / The shop kept back some stock for regular customers.",
+        "ex_vi": "Anh ấy giữ lại một số chi tiết quan trọng không nói ra. / Cửa hàng giữ lại một số hàng dự trữ cho khách quen."
       },
       {
         "term": "keep in touch",
         "type": "phrasal_verb",
         "en": "to maintain contact with someone",
         "vi": "giữ liên lạc",
-        "ex": "Let's keep in touch after graduation."
+        "ex": "Let's keep in touch after graduation.",
+        "ex_vi": "Hãy giữ liên lạc sau khi tốt nghiệp."
       }
     ]
   },
@@ -2336,35 +2449,40 @@ export const VERBS: Verb[] = [
         "type": "phrasal_verb",
         "en": "to wait; to grip tightly",
         "vi": "chờ đã; bám chặt",
-        "ex": "Hold on a second, I'll be right there."
+        "ex": "Hold on a second, I'll be right there. / Hold on tightly to the rope as you climb.",
+        "ex_vi": "Chờ một chút, tôi sẽ đến ngay. / Hãy bám chặt vào dây khi bạn leo lên."
       },
       {
         "term": "hold up",
         "type": "phrasal_verb",
         "en": "to delay something; to remain strong",
         "vi": "làm chậm trễ; vẫn vững vàng",
-        "ex": "Traffic held up the delivery truck."
+        "ex": "Traffic held up the delivery truck. / Despite the pressure, her confidence held up well.",
+        "ex_vi": "Kẹt xe làm chậm trễ xe giao hàng. / Dù chịu nhiều áp lực, sự tự tin của cô ấy vẫn vững vàng."
       },
       {
         "term": "hold back",
         "type": "phrasal_verb",
         "en": "to restrain oneself or something; to hesitate",
         "vi": "kìm nén, ngần ngại",
-        "ex": "She held back her tears during the speech."
+        "ex": "She held back her tears during the speech. / He held back from asking her out for weeks.",
+        "ex_vi": "Cô ấy kìm nén nước mắt trong bài phát biểu. / Anh ấy đã ngần ngại không hỏi cô ấy đi chơi trong nhiều tuần."
       },
       {
         "term": "hold onto",
         "type": "phrasal_verb",
         "en": "to grip something tightly; to keep something",
         "vi": "bám chặt vào; giữ lại",
-        "ex": "Hold onto the railing while going down the stairs."
+        "ex": "Hold onto the railing while going down the stairs. / You should hold onto that receipt in case you need a refund.",
+        "ex_vi": "Hãy bám chặt vào lan can khi đi xuống cầu thang. / Bạn nên giữ lại hóa đơn đó trong trường hợp cần hoàn tiền."
       },
       {
         "term": "hold off",
         "type": "phrasal_verb",
         "en": "to delay or postpone",
         "vi": "trì hoãn",
-        "ex": "Let's hold off on making a decision."
+        "ex": "Let's hold off on making a decision.",
+        "ex_vi": "Hãy trì hoãn việc đưa ra quyết định."
       }
     ]
   },
@@ -2435,35 +2553,40 @@ export const VERBS: Verb[] = [
         "type": "phrasal_verb",
         "en": "to stop working (machine); to become very upset",
         "vi": "bị hỏng (máy móc); suy sụp tinh thần",
-        "ex": "The car broke down on the highway."
+        "ex": "The car broke down on the highway. / She broke down in tears after hearing the news.",
+        "ex_vi": "Chiếc xe bị hỏng trên đường cao tốc. / Cô ấy suy sụp và bật khóc sau khi nghe tin."
       },
       {
         "term": "break up",
         "type": "phrasal_verb",
         "en": "to end a relationship; to split into parts",
         "vi": "chia tay; chia nhỏ ra",
-        "ex": "They broke up after two years together."
+        "ex": "They broke up after two years together. / The teacher asked the students to break up into small groups.",
+        "ex_vi": "Họ chia tay sau hai năm yêu nhau. / Giáo viên yêu cầu học sinh chia thành các nhóm nhỏ."
       },
       {
         "term": "break into",
         "type": "phrasal_verb",
         "en": "to enter a place illegally by force",
         "vi": "đột nhập",
-        "ex": "Thieves broke into the house last night."
+        "ex": "Thieves broke into the house last night.",
+        "ex_vi": "Trộm đã đột nhập vào nhà vào đêm qua."
       },
       {
         "term": "break out",
         "type": "phrasal_verb",
         "en": "to start suddenly (fire, war, disease)",
         "vi": "bùng nổ (chiến tranh, dịch bệnh)",
-        "ex": "A fire broke out in the warehouse."
+        "ex": "A fire broke out in the warehouse.",
+        "ex_vi": "Một vụ cháy đã bùng phát trong nhà kho."
       },
       {
         "term": "break even",
         "type": "phrasal_verb",
         "en": "to make neither profit nor loss",
         "vi": "hòa vốn",
-        "ex": "The business broke even in its first year."
+        "ex": "The business broke even in its first year.",
+        "ex_vi": "Doanh nghiệp đã hòa vốn trong năm đầu tiên."
       }
     ]
   },
@@ -2534,42 +2657,48 @@ export const VERBS: Verb[] = [
         "type": "phrasal_verb",
         "en": "to start a device/light",
         "vi": "bật (thiết bị, đèn)",
-        "ex": "Please turn on the lights."
+        "ex": "Please turn on the lights.",
+        "ex_vi": "Hãy bật đèn lên."
       },
       {
         "term": "turn off",
         "type": "phrasal_verb",
         "en": "to stop a device/light",
         "vi": "tắt (thiết bị, đèn)",
-        "ex": "Turn off the TV before you sleep."
+        "ex": "Turn off the TV before you sleep.",
+        "ex_vi": "Hãy tắt TV trước khi đi ngủ."
       },
       {
         "term": "turn up",
         "type": "phrasal_verb",
         "en": "to arrive somewhere; to increase volume",
         "vi": "xuất hiện, đến; tăng âm lượng",
-        "ex": "He turned up late to the party."
+        "ex": "He turned up late to the party. / Can you turn up the music a little?",
+        "ex_vi": "Anh ấy đến muộn ở buổi tiệc. / Bạn có thể tăng âm lượng nhạc lên một chút không?"
       },
       {
         "term": "turn down",
         "type": "phrasal_verb",
         "en": "to refuse an offer; to lower volume",
         "vi": "từ chối; giảm âm lượng",
-        "ex": "She turned down the job offer."
+        "ex": "She turned down the job offer. / Please turn down the volume, the baby is sleeping.",
+        "ex_vi": "Cô ấy đã từ chối lời mời làm việc. / Làm ơn giảm âm lượng xuống, em bé đang ngủ."
       },
       {
         "term": "turn into",
         "type": "phrasal_verb",
         "en": "to become something different",
         "vi": "biến thành",
-        "ex": "The caterpillar turned into a butterfly."
+        "ex": "The caterpillar turned into a butterfly.",
+        "ex_vi": "Con sâu bướm đã biến thành con bướm."
       },
       {
         "term": "turn out",
         "type": "phrasal_verb",
         "en": "to happen in a particular way; to result in the end",
         "vi": "hóa ra là",
-        "ex": "The weather turned out to be perfect."
+        "ex": "The weather turned out to be perfect. / It turned out that she had been right all along.",
+        "ex_vi": "Thời tiết hóa ra lại rất đẹp. / Hóa ra là cô ấy đã đúng từ đầu."
       }
     ]
   },
@@ -2640,35 +2769,40 @@ export const VERBS: Verb[] = [
         "type": "phrasal_verb",
         "en": "to reduce the amount of something; to fell (a tree)",
         "vi": "cắt giảm; chặt hạ (cây)",
-        "ex": "He's trying to cut down on sugar."
+        "ex": "He's trying to cut down on sugar. / They cut down the old oak tree in the garden.",
+        "ex_vi": "Anh ấy đang cố gắng cắt giảm lượng đường. / Họ đã chặt hạ cây sồi già trong vườn."
       },
       {
         "term": "cut off",
         "type": "phrasal_verb",
         "en": "to interrupt/disconnect; to isolate",
         "vi": "cắt đứt, ngắt kết nối; cô lập",
-        "ex": "The storm cut off power to the village."
+        "ex": "The storm cut off power to the village. / The flood cut the village off from the rest of the country.",
+        "ex_vi": "Cơn bão đã cắt điện của cả làng. / Lũ lụt đã cô lập ngôi làng khỏi phần còn lại của đất nước."
       },
       {
         "term": "cut back",
         "type": "phrasal_verb",
         "en": "to reduce spending or an activity",
         "vi": "cắt giảm chi tiêu/hoạt động",
-        "ex": "The firm had to cut back on staff."
+        "ex": "The firm had to cut back on staff.",
+        "ex_vi": "Công ty đã phải cắt giảm nhân sự."
       },
       {
         "term": "cut out",
         "type": "phrasal_verb",
         "en": "to remove something; to stop doing something (informal)",
         "vi": "loại bỏ; ngừng làm gì đó",
-        "ex": "You should cut out junk food."
+        "ex": "You should cut out junk food. / He finally cut out smoking for good.",
+        "ex_vi": "Bạn nên loại bỏ đồ ăn vặt. / Cuối cùng anh ấy đã bỏ hẳn việc hút thuốc."
       },
       {
         "term": "cut in",
         "type": "phrasal_verb",
         "en": "to interrupt someone, or merge abruptly into traffic",
         "vi": "chen ngang (khi nói chuyện hoặc lái xe)",
-        "ex": "He kept cutting in before I could finish my sentence."
+        "ex": "He kept cutting in before I could finish my sentence.",
+        "ex_vi": "Anh ấy liên tục chen ngang trước khi tôi kịp nói hết câu."
       }
     ]
   },
@@ -2739,35 +2873,40 @@ export const VERBS: Verb[] = [
         "type": "phrasal_verb",
         "en": "to rise to a standing position; (stand up for) to defend",
         "vi": "đứng dậy; (stand up for) bảo vệ",
-        "ex": "She stood up to greet the guests."
+        "ex": "She stood up to greet the guests. / He always stands up for his friends when they're in trouble.",
+        "ex_vi": "Cô ấy đứng dậy để chào khách. / Anh ấy luôn bảo vệ bạn bè mình khi họ gặp khó khăn."
       },
       {
         "term": "stand by",
         "type": "phrasal_verb",
         "en": "to be ready to help; to support someone",
         "vi": "sẵn sàng; ủng hộ ai đó",
-        "ex": "I'll stand by you no matter what happens."
+        "ex": "I'll stand by you no matter what happens. / The technician is standing by to help if needed.",
+        "ex_vi": "Tôi sẽ luôn ủng hộ bạn dù chuyện gì xảy ra. / Kỹ thuật viên đang sẵn sàng hỗ trợ nếu cần."
       },
       {
         "term": "stand for",
         "type": "phrasal_verb",
         "en": "to represent or symbolize something; to tolerate",
         "vi": "đại diện cho, là viết tắt của; chịu đựng",
-        "ex": "WHO stands for World Health Organization."
+        "ex": "WHO stands for World Health Organization. / I won't stand for this kind of behavior.",
+        "ex_vi": "WHO là viết tắt của Tổ chức Y tế Thế giới. / Tôi sẽ không chấp nhận kiểu hành xử này."
       },
       {
         "term": "stand out",
         "type": "phrasal_verb",
         "en": "to be noticeably better or different",
         "vi": "nổi bật",
-        "ex": "Her work really stands out from the rest."
+        "ex": "Her work really stands out from the rest.",
+        "ex_vi": "Công việc của cô ấy thực sự nổi bật so với những người khác."
       },
       {
         "term": "stand up for",
         "type": "phrasal_verb",
         "en": "to defend or support someone or something",
         "vi": "bênh vực, bảo vệ",
-        "ex": "You should stand up for what you believe in."
+        "ex": "You should stand up for what you believe in.",
+        "ex_vi": "Bạn nên bảo vệ những gì mình tin tưởng."
       }
     ]
   },
@@ -2838,35 +2977,40 @@ export const VERBS: Verb[] = [
         "type": "phrasal_verb",
         "en": "to cancel something",
         "vi": "hủy bỏ",
-        "ex": "They called off the wedding."
+        "ex": "They called off the wedding.",
+        "ex_vi": "Họ đã hủy bỏ đám cưới."
       },
       {
         "term": "call back",
         "type": "phrasal_verb",
         "en": "to return a phone call",
         "vi": "gọi lại",
-        "ex": "I'll call you back in ten minutes."
+        "ex": "I'll call you back in ten minutes.",
+        "ex_vi": "Tôi sẽ gọi lại cho bạn trong mười phút nữa."
       },
       {
         "term": "call on",
         "type": "phrasal_verb",
         "en": "to ask someone to do something; to visit",
         "vi": "yêu cầu ai đó; ghé thăm",
-        "ex": "The teacher called on him to answer."
+        "ex": "The teacher called on him to answer. / We called on our grandparents on our way home.",
+        "ex_vi": "Giáo viên gọi anh ấy lên trả lời. / Chúng tôi ghé thăm ông bà trên đường về nhà."
       },
       {
         "term": "call up",
         "type": "phrasal_verb",
         "en": "to telephone someone; to summon (military)",
         "vi": "gọi điện cho; triệu tập",
-        "ex": "She called up her old friend."
+        "ex": "She called up her old friend. / He was called up to serve in the army.",
+        "ex_vi": "Cô ấy đã gọi điện cho người bạn cũ. / Anh ấy đã bị triệu tập nhập ngũ."
       },
       {
         "term": "call for",
         "type": "phrasal_verb",
         "en": "to require or need something",
         "vi": "yêu cầu, cần đến",
-        "ex": "This situation calls for immediate action."
+        "ex": "This situation calls for immediate action.",
+        "ex_vi": "Tình huống này đòi hỏi phải hành động ngay lập tức."
       }
     ]
   },
@@ -2937,42 +3081,48 @@ export const VERBS: Verb[] = [
         "type": "phrasal_verb",
         "en": "to take care of someone/something",
         "vi": "chăm sóc",
-        "ex": "Can you look after my dog this weekend?"
+        "ex": "Can you look after my dog this weekend?",
+        "ex_vi": "Bạn có thể chăm sóc con chó của tôi vào cuối tuần này không?"
       },
       {
         "term": "look for",
         "type": "phrasal_verb",
         "en": "to search for something",
         "vi": "tìm kiếm",
-        "ex": "I'm looking for my keys."
+        "ex": "I'm looking for my keys.",
+        "ex_vi": "Tôi đang tìm chìa khóa của mình."
       },
       {
         "term": "look into",
         "type": "phrasal_verb",
         "en": "to investigate something",
         "vi": "điều tra, xem xét",
-        "ex": "Police are looking into the matter."
+        "ex": "Police are looking into the matter.",
+        "ex_vi": "Cảnh sát đang điều tra vụ việc này."
       },
       {
         "term": "look up",
         "type": "phrasal_verb",
         "en": "to search for information; to improve",
         "vi": "tra cứu; trở nên tốt hơn",
-        "ex": "I looked up the word in a dictionary."
+        "ex": "I looked up the word in a dictionary. / Sales have started to look up after a slow year.",
+        "ex_vi": "Tôi đã tra từ đó trong từ điển. / Doanh số đã bắt đầu khởi sắc sau một năm trì trệ."
       },
       {
         "term": "look down on",
         "type": "phrasal_verb",
         "en": "to consider someone inferior",
         "vi": "coi thường ai đó",
-        "ex": "He looks down on people who didn't go to college."
+        "ex": "He looks down on people who didn't go to college.",
+        "ex_vi": "Anh ta coi thường những người không học đại học."
       },
       {
         "term": "look forward to",
         "type": "phrasal_verb",
         "en": "to anticipate with pleasure",
         "vi": "mong đợi, mong chờ",
-        "ex": "We look forward to hearing from you."
+        "ex": "We look forward to hearing from you.",
+        "ex_vi": "Chúng tôi mong sớm nhận được phản hồi từ bạn."
       }
     ]
   },
@@ -3043,35 +3193,40 @@ export const VERBS: Verb[] = [
         "type": "phrasal_verb",
         "en": "to lift something; to collect someone; to learn casually",
         "vi": "nhặt lên; đón ai đó; học được (một cách tự nhiên)",
-        "ex": "I'll pick you up at the airport."
+        "ex": "I'll pick you up at the airport. / She picked up the box and carried it inside. / He picked up some Spanish while traveling in Mexico.",
+        "ex_vi": "Tôi sẽ đón bạn ở sân bay. / Cô ấy nhấc chiếc hộp lên và mang vào trong. / Anh ấy học được một chút tiếng Tây Ban Nha trong lúc đi du lịch ở Mexico."
       },
       {
         "term": "pick out",
         "type": "phrasal_verb",
         "en": "to select from a group",
         "vi": "chọn ra",
-        "ex": "She picked out a dress for the party."
+        "ex": "She picked out a dress for the party.",
+        "ex_vi": "Cô ấy đã chọn một chiếc váy cho buổi tiệc."
       },
       {
         "term": "pick on",
         "type": "phrasal_verb",
         "en": "to criticize or bully someone repeatedly",
         "vi": "bắt nạt, chọc ghẹo",
-        "ex": "Stop picking on your little brother."
+        "ex": "Stop picking on your little brother.",
+        "ex_vi": "Đừng bắt nạt em trai của bạn nữa."
       },
       {
         "term": "pick at",
         "type": "phrasal_verb",
         "en": "to eat food slowly in small amounts, without appetite",
         "vi": "ăn uể oải, ăn từng chút một",
-        "ex": "She just picked at her salad, too nervous to eat."
+        "ex": "She just picked at her salad, too nervous to eat.",
+        "ex_vi": "Cô ấy chỉ ăn từng chút salad, quá lo lắng để ăn nhiều."
       },
       {
         "term": "pick off",
         "type": "phrasal_verb",
         "en": "to shoot, remove, or defeat targets one at a time",
         "vi": "hạ gục hoặc loại bỏ từng cái một",
-        "ex": "The sniper picked off the targets one by one."
+        "ex": "The sniper picked off the targets one by one.",
+        "ex_vi": "Tay súng bắn tỉa đã hạ từng mục tiêu một."
       }
     ]
   },
@@ -3142,35 +3297,40 @@ export const VERBS: Verb[] = [
         "type": "phrasal_verb",
         "en": "to establish or arrange something",
         "vi": "thiết lập, thành lập",
-        "ex": "They set up a new company last year."
+        "ex": "They set up a new company last year.",
+        "ex_vi": "Họ đã thành lập một công ty mới năm ngoái."
       },
       {
         "term": "set off",
         "type": "phrasal_verb",
         "en": "to start a journey; to trigger something",
         "vi": "khởi hành; kích hoạt",
-        "ex": "We set off early to avoid traffic."
+        "ex": "We set off early to avoid traffic. / The smoke set off the fire alarm.",
+        "ex_vi": "Chúng tôi khởi hành sớm để tránh tắc đường. / Khói đã kích hoạt chuông báo cháy."
       },
       {
         "term": "set out",
         "type": "phrasal_verb",
         "en": "to begin an activity with a goal; to arrange/display",
         "vi": "bắt đầu (với mục tiêu); trình bày",
-        "ex": "She set out to become a professional dancer."
+        "ex": "She set out to become a professional dancer. / The shop set out its new products in the window display.",
+        "ex_vi": "Cô ấy bắt đầu theo đuổi mục tiêu trở thành vũ công chuyên nghiệp. / Cửa hàng trưng bày sản phẩm mới ở tủ kính."
       },
       {
         "term": "set aside",
         "type": "phrasal_verb",
         "en": "to save something for later; to put to one side",
         "vi": "dành riêng ra",
-        "ex": "Try to set aside some money each month."
+        "ex": "Try to set aside some money each month. / He set aside his personal feelings to make a fair decision.",
+        "ex_vi": "Hãy cố gắng dành riêng một khoản tiền mỗi tháng. / Anh ấy đặt cảm xúc cá nhân sang một bên để đưa ra quyết định công bằng."
       },
       {
         "term": "set back",
         "type": "phrasal_verb",
         "en": "to delay progress; to cost someone a large sum",
         "vi": "làm chậm trễ; tốn kém (tiền bạc)",
-        "ex": "The accident set back the project by two weeks."
+        "ex": "The accident set back the project by two weeks. / The repairs set him back over a thousand dollars.",
+        "ex_vi": "Vụ tai nạn đã làm chậm trễ dự án hai tuần. / Việc sửa chữa đã khiến anh ấy tốn hơn một nghìn đô la."
       }
     ]
   },
@@ -3241,28 +3401,32 @@ export const VERBS: Verb[] = [
         "type": "phrasal_verb",
         "en": "to discover information",
         "vi": "tìm hiểu ra, khám phá",
-        "ex": "I need to find out what happened."
+        "ex": "I need to find out what happened.",
+        "ex_vi": "Tôi cần tìm hiểu xem đã xảy ra chuyện gì."
       },
       {
         "term": "find yourself",
         "type": "phrasal_verb",
         "en": "to realize you are in a particular situation/place",
         "vi": "nhận ra mình đang ở tình huống/nơi nào",
-        "ex": "She found herself lost in the old town."
+        "ex": "She found herself lost in the old town.",
+        "ex_vi": "Cô ấy nhận ra mình bị lạc trong khu phố cổ."
       },
       {
         "term": "find for",
         "type": "phrasal_verb",
         "en": "(in court) to give a legal decision in favor of someone",
         "vi": "(tòa án) xử thắng cho một bên",
-        "ex": "The jury found for the plaintiff."
+        "ex": "The jury found for the plaintiff.",
+        "ex_vi": "Bồi thẩm đoàn đã ra phán quyết có lợi cho bên nguyên đơn."
       },
       {
         "term": "find against",
         "type": "phrasal_verb",
         "en": "(in court) to give a legal decision against someone",
         "vi": "(tòa án) xử thua cho một bên",
-        "ex": "The judge found against the company in the lawsuit."
+        "ex": "The judge found against the company in the lawsuit.",
+        "ex_vi": "Thẩm phán đã ra phán quyết bất lợi cho công ty trong vụ kiện."
       }
     ]
   },
@@ -3333,35 +3497,40 @@ export const VERBS: Verb[] = [
         "type": "phrasal_verb",
         "en": "to exercise; to find a solution; to happen successfully",
         "vi": "tập thể dục; tìm ra giải pháp; diễn ra tốt đẹp",
-        "ex": "Things worked out well in the end."
+        "ex": "Things worked out well in the end. / I need to work out this tricky math problem. / I really hope your travel plans work out.",
+        "ex_vi": "Cuối cùng mọi việc đã diễn ra tốt đẹp. / Tôi cần giải quyết bài toán khó này. / Tôi thực sự hy vọng kế hoạch du lịch của bạn sẽ diễn ra suôn sẻ."
       },
       {
         "term": "work on",
         "type": "phrasal_verb",
         "en": "to spend effort improving or completing something",
         "vi": "làm việc trên, cải thiện",
-        "ex": "She's working on her thesis this week."
+        "ex": "She's working on her thesis this week.",
+        "ex_vi": "Tuần này cô ấy đang làm luận văn của mình."
       },
       {
         "term": "work for",
         "type": "phrasal_verb",
         "en": "to be employed by someone",
         "vi": "làm việc cho ai đó",
-        "ex": "He works for a tech company."
+        "ex": "He works for a tech company.",
+        "ex_vi": "Anh ấy làm việc cho một công ty công nghệ."
       },
       {
         "term": "work with",
         "type": "phrasal_verb",
         "en": "to collaborate with someone",
         "vi": "làm việc cùng ai đó",
-        "ex": "I enjoy working with this team."
+        "ex": "I enjoy working with this team.",
+        "ex_vi": "Tôi thích làm việc cùng nhóm này."
       },
       {
         "term": "work through",
         "type": "phrasal_verb",
         "en": "to deal with a problem step by step",
         "vi": "giải quyết từng bước, vượt qua",
-        "ex": "They worked through their differences."
+        "ex": "They worked through their differences.",
+        "ex_vi": "Họ đã cùng nhau vượt qua những bất đồng."
       }
     ]
   },
@@ -3432,35 +3601,40 @@ export const VERBS: Verb[] = [
         "type": "phrasal_verb",
         "en": "to register at a hotel/airport",
         "vi": "làm thủ tục nhận phòng/lên máy bay",
-        "ex": "We checked in at the hotel around noon."
+        "ex": "We checked in at the hotel around noon.",
+        "ex_vi": "Chúng tôi làm thủ tục nhận phòng ở khách sạn vào khoảng giữa trưa."
       },
       {
         "term": "check out",
         "type": "phrasal_verb",
         "en": "to leave a hotel after paying; to look at or investigate something",
         "vi": "làm thủ tục trả phòng; xem thử, tìm hiểu",
-        "ex": "You must check out before 11 a.m."
+        "ex": "You must check out before 11 a.m. / Check out this new restaurant downtown.",
+        "ex_vi": "Bạn phải trả phòng trước 11 giờ sáng. / Hãy thử xem nhà hàng mới ở trung tâm thành phố này."
       },
       {
         "term": "check on",
         "type": "phrasal_verb",
         "en": "to make sure someone/something is okay",
         "vi": "kiểm tra tình trạng của ai/cái gì",
-        "ex": "I'll check on the kids before I leave."
+        "ex": "I'll check on the kids before I leave.",
+        "ex_vi": "Tôi sẽ kiểm tra tình hình của các con trước khi đi."
       },
       {
         "term": "check off",
         "type": "phrasal_verb",
         "en": "to mark an item on a list as done",
         "vi": "đánh dấu đã hoàn thành trong danh sách",
-        "ex": "She checked off each task as she finished it."
+        "ex": "She checked off each task as she finished it.",
+        "ex_vi": "Cô ấy đánh dấu từng việc vào danh sách khi hoàn thành."
       },
       {
         "term": "check into",
         "type": "phrasal_verb",
         "en": "to look into or investigate something",
         "vi": "tìm hiểu, điều tra việc gì đó",
-        "ex": "I'll check into the delivery delay and get back to you."
+        "ex": "I'll check into the delivery delay and get back to you.",
+        "ex_vi": "Tôi sẽ tìm hiểu về việc giao hàng bị trễ và phản hồi lại bạn."
       }
     ]
   },
@@ -3531,35 +3705,40 @@ export const VERBS: Verb[] = [
         "type": "phrasal_verb",
         "en": "to complete a form; to substitute for someone temporarily",
         "vi": "điền vào (biểu mẫu); thay thế tạm thời",
-        "ex": "Please fill in this application form."
+        "ex": "Please fill in this application form. / Can you fill in for the manager while she's away?",
+        "ex_vi": "Vui lòng điền vào mẫu đơn này. / Bạn có thể thay thế tạm cho quản lý trong khi cô ấy vắng mặt không?"
       },
       {
         "term": "fill out",
         "type": "phrasal_verb",
         "en": "to complete a form in detail",
         "vi": "điền đầy đủ vào (biểu mẫu)",
-        "ex": "Fill out the survey before you leave."
+        "ex": "Fill out the survey before you leave.",
+        "ex_vi": "Hãy điền đầy đủ vào bản khảo sát trước khi bạn ra về."
       },
       {
         "term": "fill up",
         "type": "phrasal_verb",
         "en": "to make completely full",
         "vi": "đổ đầy, lấp đầy",
-        "ex": "He filled up the tank before the trip."
+        "ex": "He filled up the tank before the trip.",
+        "ex_vi": "Anh ấy đổ đầy bình xăng trước khi đi."
       },
       {
         "term": "fill someone in",
         "type": "phrasal_verb",
         "en": "to give someone the latest information about something",
         "vi": "cập nhật thông tin cho ai đó",
-        "ex": "Can you fill me in on what happened at the meeting?"
+        "ex": "Can you fill me in on what happened at the meeting?",
+        "ex_vi": "Bạn có thể cập nhật cho tôi biết chuyện gì đã xảy ra trong cuộc họp không?"
       },
       {
         "term": "fill in for",
         "type": "phrasal_verb",
         "en": "to temporarily do someone else's job while they're away",
         "vi": "làm thay ai đó tạm thời",
-        "ex": "I'm filling in for Anna while she's on leave."
+        "ex": "I'm filling in for Anna while she's on leave.",
+        "ex_vi": "Tôi đang làm thay cho Anna trong khi cô ấy nghỉ phép."
       }
     ]
   },
@@ -3630,35 +3809,40 @@ export const VERBS: Verb[] = [
         "type": "phrasal_verb",
         "en": "to submit something (homework, resignation)",
         "vi": "nộp (bài, đơn)",
-        "ex": "Please hand in your assignments by Friday."
+        "ex": "Please hand in your assignments by Friday.",
+        "ex_vi": "Vui lòng nộp bài tập trước thứ Sáu."
       },
       {
         "term": "hand out",
         "type": "phrasal_verb",
         "en": "to distribute something to a group",
         "vi": "phát ra, phân phát",
-        "ex": "The teacher handed out the test papers."
+        "ex": "The teacher handed out the test papers.",
+        "ex_vi": "Giáo viên đã phát đề kiểm tra."
       },
       {
         "term": "hand over",
         "type": "phrasal_verb",
         "en": "to give control or possession of something to someone",
         "vi": "giao lại, chuyển giao quyền",
-        "ex": "He handed over the keys to the new owner."
+        "ex": "He handed over the keys to the new owner.",
+        "ex_vi": "Anh ấy đã giao lại chìa khóa cho chủ nhân mới."
       },
       {
         "term": "hand down",
         "type": "phrasal_verb",
         "en": "to pass something from one generation or authority to the next",
         "vi": "truyền lại cho thế hệ sau; tuyên án",
-        "ex": "The recipe was handed down from her grandmother."
+        "ex": "The recipe was handed down from her grandmother.",
+        "ex_vi": "Công thức nấu ăn này được truyền lại từ bà của cô ấy."
       },
       {
         "term": "hand back",
         "type": "phrasal_verb",
         "en": "to return something to the person who gave it",
         "vi": "trả lại cho ai đó",
-        "ex": "The teacher handed back our graded essays."
+        "ex": "The teacher handed back our graded essays.",
+        "ex_vi": "Giáo viên đã trả lại bài luận đã chấm điểm cho chúng tôi."
       }
     ]
   },
@@ -3729,35 +3913,40 @@ export const VERBS: Verb[] = [
         "type": "phrasal_verb",
         "en": "to indicate or mention something specific",
         "vi": "chỉ ra, nêu ra",
-        "ex": "She pointed out a mistake in the report."
+        "ex": "She pointed out a mistake in the report.",
+        "ex_vi": "Cô ấy đã chỉ ra một lỗi sai trong báo cáo."
       },
       {
         "term": "point to",
         "type": "phrasal_verb",
         "en": "to indicate or suggest something",
         "vi": "cho thấy, gợi ý về",
-        "ex": "The evidence points to his involvement."
+        "ex": "The evidence points to his involvement.",
+        "ex_vi": "Bằng chứng cho thấy anh ta có liên quan."
       },
       {
         "term": "point at",
         "type": "phrasal_verb",
         "en": "to aim a finger or object directly at someone or something",
         "vi": "chỉ thẳng vào ai hoặc cái gì",
-        "ex": "It's rude to point at people."
+        "ex": "It's rude to point at people.",
+        "ex_vi": "Chỉ tay thẳng vào người khác là không lịch sự."
       },
       {
         "term": "point up",
         "type": "phrasal_verb",
         "en": "to emphasize or draw attention to something important",
         "vi": "nhấn mạnh, làm nổi bật",
-        "ex": "The report points up the need for better funding."
+        "ex": "The report points up the need for better funding.",
+        "ex_vi": "Báo cáo nhấn mạnh nhu cầu cần được cấp vốn tốt hơn."
       },
       {
         "term": "point toward",
         "type": "phrasal_verb",
         "en": "to suggest or indicate something, often based on evidence",
         "vi": "cho thấy, chỉ ra dựa trên bằng chứng",
-        "ex": "All the evidence points toward an inside job."
+        "ex": "All the evidence points toward an inside job.",
+        "ex_vi": "Mọi bằng chứng đều cho thấy đây là một vụ việc có nội gián."
       }
     ]
   },
@@ -3842,35 +4031,40 @@ export const VERBS: Verb[] = [
         "type": "phrasal_verb",
         "en": "to handle or resolve a problem or situation",
         "vi": "xử lý, giải quyết vấn đề",
-        "ex": "She knows how to deal with difficult customers."
+        "ex": "She knows how to deal with difficult customers.",
+        "ex_vi": "Cô ấy biết cách xử lý những khách hàng khó tính."
       },
       {
         "term": "deal in",
         "type": "phrasal_verb",
         "en": "to buy and sell a particular type of goods",
         "vi": "buôn bán loại hàng cụ thể",
-        "ex": "The shop deals in vintage furniture."
+        "ex": "The shop deals in vintage furniture.",
+        "ex_vi": "Cửa hàng này chuyên buôn bán đồ nội thất cổ điển."
       },
       {
         "term": "deal out",
         "type": "phrasal_verb",
         "en": "to distribute something, such as cards or punishment",
         "vi": "phân phát, chia bài hoặc hình phạt",
-        "ex": "The judge dealt out a harsh sentence."
+        "ex": "The judge dealt out a harsh sentence.",
+        "ex_vi": "Vị thẩm phán đã đưa ra một bản án nghiêm khắc."
       },
       {
         "term": "deal someone in",
         "type": "phrasal_verb",
         "en": "to include someone in a card game, plan, or arrangement",
         "vi": "cho ai đó tham gia cùng, vào ván bài hoặc kế hoạch",
-        "ex": "Deal me in for the next round of poker."
+        "ex": "Deal me in for the next round of poker.",
+        "ex_vi": "Cho tôi tham gia ván poker tiếp theo."
       },
       {
         "term": "wheel and deal",
         "type": "phrasal_verb",
         "en": "to negotiate shrewdly, sometimes in an unscrupulous way",
         "vi": "lươn lẹo, xoay xở trong làm ăn hoặc chính trị",
-        "ex": "He's known for wheeling and dealing in real estate."
+        "ex": "He's known for wheeling and dealing in real estate.",
+        "ex_vi": "Anh ta nổi tiếng với việc xoay xở, lươn lẹo trong lĩnh vực bất động sản."
       }
     ]
   },

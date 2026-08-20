@@ -54,6 +54,14 @@ function BackIcon() {
   );
 }
 
+function ListIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="block h-4 w-4">
+      <path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01" />
+    </svg>
+  );
+}
+
 function ContinueButton({ onClick, label = "Tiếp tục" }: { onClick: () => void; label?: string }) {
   return (
     <button className="btn btn-primary btn-block mt-auto px-4 py-3" onClick={onClick}>
@@ -460,8 +468,17 @@ export function UnitClient({ slug }: { slug: string }) {
   const unit = useMemo(() => getGrammarUnit(slug), [slug]);
 
   const [stepIndex, setStepIndex] = useState(0);
-  const [tally, setTally] = useState<Score>({ correct: 0, total: 0 });
+  // Keyed by step index rather than accumulated, because the step menu lets a
+  // learner jump back and redo an exercise: a running total would count that
+  // step twice and push the final percentage past what they actually scored.
+  const [scores, setScores] = useState<Record<number, Score>>({});
   const [finished, setFinished] = useState(false);
+  const [showStepList, setShowStepList] = useState(false);
+
+  const tally = Object.values(scores).reduce(
+    (a, s) => ({ correct: a.correct + s.correct, total: a.total + s.total }),
+    { correct: 0, total: 0 },
+  );
 
   if (!unit) {
     return (
@@ -490,8 +507,8 @@ export function UnitClient({ slug }: { slug: string }) {
   }
 
   function handleNext(score?: Score) {
-    const nextTally = score ? { correct: tally.correct + score.correct, total: tally.total + score.total } : tally;
-    setTally(nextTally);
+    const at = stepIndex;
+    if (score) setScores((prev) => ({ ...prev, [at]: score }));
     if (stepIndex + 1 >= steps.length) {
       grade(unit!.slug, true);
       setFinished(true);
@@ -502,7 +519,7 @@ export function UnitClient({ slug }: { slug: string }) {
 
   function restart() {
     setStepIndex(0);
-    setTally({ correct: 0, total: 0 });
+    setScores({});
     setFinished(false);
   }
 
@@ -558,13 +575,58 @@ export function UnitClient({ slug }: { slug: string }) {
             >
               Thoát
             </button>
-            <span className="text-[11px] tabular-nums text-neutral-600">
+            <button
+              className="flex items-center gap-1 text-[11px] tabular-nums text-neutral-600 hover:text-accent"
+              onClick={() => setShowStepList(true)}
+              aria-label="Danh sách các phần trong unit"
+            >
+              <ListIcon />
               {stepIndex + 1}/{steps.length}
-            </span>
+            </button>
           </div>
         </>
       }
     >
+      {showStepList && (
+        <div className="fixed inset-0 z-[60] bg-bg">
+          <div className="mx-auto flex h-full max-w-[480px] flex-col lg:max-w-[1040px]">
+            <div className="divider-b flex items-center justify-between px-4 py-3">
+              <span className="text-[16px] font-extrabold">Các phần trong unit</span>
+              <button className="btn btn-ghost" onClick={() => setShowStepList(false)}>
+                Đóng
+              </button>
+            </div>
+            <div className="flex-1 overflow-y-auto">
+              {steps.map((s, i) => {
+                const done = scores[i] !== undefined;
+                return (
+                  <button
+                    key={i}
+                    onClick={() => {
+                      setStepIndex(i);
+                      setShowStepList(false);
+                    }}
+                    className="divider-b flex w-full items-center gap-3 px-4 py-3 text-left hover:bg-surface"
+                    style={i === stepIndex ? { background: "var(--color-accent-100)" } : undefined}
+                  >
+                    <span className="label-xs w-6 flex-none text-neutral-600">{i + 1}</span>
+                    <span className="flex-1">
+                      <span className="block text-[14px] font-extrabold">{s.title}</span>
+                      <span className="label-xs mt-0.5 block text-neutral-600">{STEP_KIND_LABELS[s.kind]}</span>
+                    </span>
+                    {done && (
+                      <span className="label-xs flex-none text-accent">
+                        {scores[i].correct}/{scores[i].total}
+                      </span>
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      )}
+
       <div className="min-h-0 flex-1 overflow-y-auto">
         {step.kind === "rule" && <RuleStepView key={stepIndex} step={step} onNext={handleNext} />}
         {step.kind === "fill_mc" && <FillMcStepView key={stepIndex} step={step} onNext={handleNext} />}

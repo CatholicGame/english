@@ -8,6 +8,7 @@ import {
   type FillMcStep,
   type JudgeCorrectStep,
   type RuleStep,
+  type RuleTable,
   type TypeFillStep,
   type GrammarUnitStep,
 } from "@/data/english-grammar-in-use";
@@ -72,6 +73,45 @@ function ContinueButton({ onClick, label = "Tiếp tục" }: { onClick: () => vo
 
 // ---------- Rule (explanation) ----------
 
+function RuleTableView({ table }: { table: RuleTable }) {
+  return (
+    <div className="mt-2 overflow-x-auto">
+      <table className="w-full border-collapse text-[13px]">
+        {table.headers && (
+          <thead>
+            <tr>
+              {table.headers.map((h, i) => (
+                <th
+                  key={i}
+                  className="border-b px-2 py-1.5 text-left font-extrabold text-neutral-600"
+                  style={{ borderColor: "var(--color-divider)" }}
+                >
+                  {h}
+                </th>
+              ))}
+            </tr>
+          </thead>
+        )}
+        <tbody>
+          {table.rows.map((row, i) => (
+            <tr key={i}>
+              {row.map((cell, j) => (
+                <td
+                  key={j}
+                  className="border-b px-2 py-1.5 leading-relaxed"
+                  style={{ borderColor: "var(--color-divider)" }}
+                >
+                  {cell}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
 function RuleStepView({ step, onNext }: { step: RuleStep; onNext: (score?: Score) => void }) {
   return (
     <div className="flex flex-1 flex-col p-4">
@@ -84,7 +124,25 @@ function RuleStepView({ step, onNext }: { step: RuleStep; onNext: (score?: Score
                 {b.heading && <span className="text-[14px] font-extrabold">{b.heading}</span>}
               </div>
             )}
-            <p className="text-[13.5px] leading-relaxed text-neutral-700">{b.body}</p>
+            {b.body.split("\n\n").map((para, k) => (
+              <p key={k} className={`text-[13.5px] leading-relaxed text-neutral-700 ${k > 0 ? "mt-2" : ""}`}>
+                {para}
+              </p>
+            ))}
+            {b.table && <RuleTableView table={b.table} />}
+            {b.wordList && b.wordList.length > 0 && (
+              <div className="mt-2 flex flex-wrap gap-1.5">
+                {b.wordList.map((w, k) => (
+                  <span
+                    key={k}
+                    className="rounded-full border px-2.5 py-1 text-[12px]"
+                    style={{ borderColor: "var(--color-divider)", color: "var(--color-neutral-700)" }}
+                  >
+                    {w}
+                  </span>
+                ))}
+              </div>
+            )}
             {b.examples.length > 0 && (
               <ul className="mt-2 flex flex-col gap-1.5">
                 {b.examples.map((ex, j) => (

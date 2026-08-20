@@ -12,10 +12,27 @@ export interface GrammarExample {
   note?: string;
 }
 
+/** A short conjugation/reference grid the book prints as a table (e.g. the
+ * am/is/are + -ing rows). Rendered as an actual table, not squeezed into body
+ * prose. */
+export interface RuleTable {
+  headers?: string[];
+  rows: string[][];
+}
+
 export interface RuleBlock {
   label?: string; // "A", "B", "C" ... matching the book's lettered sections
   heading?: string;
+  /** One or more paragraphs, separated by a blank line ("\n\n"). Keep each
+   * paragraph to the same short chunk of explanation the book itself breaks
+   * onto its own line — don't run everything into a single dense paragraph. */
   body: string;
+  /** A verb-form grid the book shows as a table (see RuleTable). Omit unless
+   * the block genuinely has one. */
+  table?: RuleTable;
+  /** A short word list the book prints as a word bank (e.g. getting, becoming,
+   * changing ...), shown as wrapped tags instead of a comma-separated sentence. */
+  wordList?: string[];
   examples: GrammarExample[];
 }
 
@@ -121,7 +138,26 @@ const UNIT_1_PRESENT_CONTINUOUS: GrammarUnit = {
         {
           "label": "A",
           "heading": "Cách thành lập: am/is/are + -ing",
-          "body": "Study this example situation. Sarah is in her car. She is on her way to work. She's driving to work. This means she is driving now, at the time of speaking, and the action is not finished. The form am/is/are + -ing is the present continuous: I am (I'm) driving; he/she/it is (he's, she's, it's) working; we/you/they are (we're, you're, they're) doing.",
+          "body": "Study this example situation: Sarah is in her car. She is on her way to work. She's driving to work.\n\nThis means she is driving now, at the time of speaking. The action is not finished.\n\nam/is/are + -ing is the present continuous:",
+          "table": {
+            "rows": [
+              [
+                "I",
+                "am (= I'm)",
+                "driving"
+              ],
+              [
+                "he/she/it",
+                "is (= he's, she's, it's)",
+                "working"
+              ],
+              [
+                "we/you/they",
+                "are (= we're, you're, they're)",
+                "doing etc."
+              ]
+            ]
+          },
           "examples": [
             {
               "en": "She's driving to work.",
@@ -144,7 +180,7 @@ const UNIT_1_PRESENT_CONTINUOUS: GrammarUnit = {
         {
           "label": "B",
           "heading": "Hành động đang diễn ra, chưa kết thúc",
-          "body": "I am doing something means I started doing it and I haven't finished; I'm in the middle of doing it. Sometimes the action is not happening at the exact time of speaking. For example, Steve is talking to a friend on the phone and says: I'm reading a really good book at the moment. He is not reading the book at the time of speaking. He means that he has started reading the book but has not finished it yet; he is in the middle of reading it.",
+          "body": "I am doing something means I started doing it and I haven't finished it: I'm in the middle of doing it.\n\nSometimes the action is not happening at the exact time of speaking. For example, Steve is talking to a friend on the phone and says: 'I'm reading a really good book at the moment.'\n\nSteve is not reading the book at the time of speaking. He means that he has started reading the book but has not finished it yet, he is in the middle of reading it.",
           "examples": [
             {
               "en": "Please don't make so much noise. I'm trying to work.",
@@ -190,7 +226,19 @@ const UNIT_1_PRESENT_CONTINUOUS: GrammarUnit = {
         {
           "label": "D",
           "heading": "Diễn tả sự thay đổi đang xảy ra",
-          "body": "We use the present continuous when we talk about a change that has started to happen. We often use these verbs in this way: getting, becoming, changing, improving, starting, beginning, increasing, rising, falling, growing.",
+          "body": "We use the present continuous when we talk about a change that has started to happen.\n\nWe often use these verbs in this way:",
+          "wordList": [
+            "getting",
+            "becoming",
+            "changing",
+            "improving",
+            "starting",
+            "beginning",
+            "increasing",
+            "rising",
+            "falling",
+            "growing"
+          ],
           "examples": [
             {
               "en": "Is your English getting better?",

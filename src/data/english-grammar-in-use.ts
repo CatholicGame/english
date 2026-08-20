@@ -143,41 +143,41 @@ const UNIT_1_PRESENT_CONTINUOUS: GrammarUnit = {
           "label": "A",
           "heading": "Cách thành lập: am/is/are + -ing",
           "intro": "Study this example situation:",
-          "body": "Sarah is in her car. She is on her way to work. She's driving to work.\n\nThis means she is driving now, at the time of speaking. The action is not finished.\n\nam/is/are + -ing is the present continuous:",
+          "body": "Sarah is in her car. She is on her way to work. She's **driving** to work.\n\nThis means she is driving *now*, at the time of speaking. The action is not finished.\n\n**am/is/are + -ing** is the *present continuous*:",
           "table": {
             "rows": [
               [
                 "I",
-                "am (= I'm)",
-                "driving"
+                "**am** (= **I'm**)",
+                "**driving**"
               ],
               [
                 "he/she/it",
-                "is (= he's, she's, it's)",
-                "working"
+                "**is** (= **he's**, **she's**, **it's**)",
+                "**working**"
               ],
               [
                 "we/you/they",
-                "are (= we're, you're, they're)",
-                "doing etc."
+                "**are** (= **we're**, **you're**, **they're**)",
+                "**doing** etc."
               ]
             ]
           },
           "examples": [
             {
-              "en": "She's driving to work.",
-              "note": "= She is driving ..."
+              "en": "She's **driving** to work.",
+              "note": "= She **is driving** ..."
             },
             {
-              "en": "I am driving.",
+              "en": "I **am driving**.",
               "note": "I am = I'm"
             },
             {
-              "en": "He is working.",
+              "en": "He **is working**.",
               "note": "he is = he's"
             },
             {
-              "en": "They are doing it.",
+              "en": "They **are doing** it.",
               "note": "they are = they're"
             }
           ]
@@ -185,46 +185,46 @@ const UNIT_1_PRESENT_CONTINUOUS: GrammarUnit = {
         {
           "label": "B",
           "heading": "Hành động đang diễn ra, chưa kết thúc",
-          "body": "I am doing something means I started doing it and I haven't finished it: I'm in the middle of doing it.\n\nSometimes the action is not happening at the exact time of speaking. For example, Steve is talking to a friend on the phone and says: 'I'm reading a really good book at the moment.'\n\nSteve is not reading the book at the time of speaking. He means that he has started reading the book but has not finished it yet, he is in the middle of reading it.",
+          "body": "**I am doing** something means I started doing it and I haven't finished it: I'm in the middle of doing it.\n\nSometimes the action is not happening at the exact time of speaking. For example, Steve is talking to a friend on the phone and says: '**I'm reading** a really good book at the moment.'\n\nSteve is *not* reading the book at the time of speaking. He means that he has started reading the book but has not finished it yet, he is in the middle of reading it.",
           "examples": [
             {
-              "en": "Please don't make so much noise. I'm trying to work.",
+              "en": "Please don't make so much noise. I**'m trying** to work.",
               "note": "not I try"
             },
             {
-              "en": "'Where's Mark?' 'He's having a shower.'",
+              "en": "'Where's Mark?' 'He**'s having** a shower.'",
               "note": "not He has a shower"
             },
             {
-              "en": "Let's go out now. It isn't raining any more.",
+              "en": "Let's go out now. It **isn't raining** any more.",
               "note": "not It doesn't rain"
             },
             {
-              "en": "How's your new job? Are you enjoying it?"
+              "en": "How's your new job? **Are** you **enjoying** it?"
             },
             {
-              "en": "What's all that noise? What's going on? or What's happening?"
+              "en": "What's all that noise? What**'s going** on? or What**'s happening**?"
             },
             {
-              "en": "Kate wants to work in Italy, so she's learning Italian.",
+              "en": "Kate wants to work in Italy, so she**'s learning** Italian.",
               "note": "but perhaps she isn't learning Italian at the time of speaking"
             },
             {
-              "en": "Some friends of mine are building their own house. They hope to finish it next summer."
+              "en": "Some friends of mine **are building** their own house. They hope to finish it next summer."
             }
           ]
         },
         {
           "label": "C",
           "heading": "Dùng với today / this week / this year",
-          "body": "You can use the present continuous with today, this week, this year and other periods around now.",
+          "body": "You can use the present continuous with **today**, **this week**, **this year** and other periods around now.",
           "examples": [
             {
-              "en": "A: You're working hard today. B: Yes, I have a lot to do.",
+              "en": "A: You**'re working** hard **today**. B: Yes, I have a lot to do.",
               "note": "not You work hard today"
             },
             {
-              "en": "The company I work for isn't doing so well this year."
+              "en": "The company I work for **isn't doing** so well **this year**."
             }
           ]
         },
@@ -246,15 +246,15 @@ const UNIT_1_PRESENT_CONTINUOUS: GrammarUnit = {
           ],
           "examples": [
             {
-              "en": "Is your English getting better?",
+              "en": "**Is** your English **getting** better?",
               "note": "not Does your English get better"
             },
             {
-              "en": "The population of the world is increasing very fast.",
+              "en": "The population of the world **is increasing** very fast.",
               "note": "not increases"
             },
             {
-              "en": "At first I didn't like my job, but I'm starting to enjoy it now.",
+              "en": "At first I didn't like my job, but I**'m starting** to enjoy it now.",
               "note": "not I start"
             }
           ]

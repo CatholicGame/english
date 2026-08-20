@@ -74,6 +74,24 @@ function ContinueButton({ onClick, label = "Tiếp tục" }: { onClick: () => vo
 
 // ---------- Rule (explanation) ----------
 
+// Minimal inline markup for rule content: **bold** for the grammar form being
+// taught (matching how the book bolds it inside example sentences and the
+// conjugation table), *italic* for a spoken-emphasis or terminology word
+// (e.g. *now*, *not*, the *present continuous*). Not general markdown —
+// just these two patterns, applied to body/example/table text.
+function renderRich(text: string): React.ReactNode {
+  const parts = text.split(/(\*\*[^*]+\*\*|\*[^*]+\*)/g);
+  return parts.map((part, i) => {
+    if (part.startsWith("**") && part.endsWith("**")) {
+      return <strong key={i}>{part.slice(2, -2)}</strong>;
+    }
+    if (part.startsWith("*") && part.endsWith("*")) {
+      return <em key={i}>{part.slice(1, -1)}</em>;
+    }
+    return part;
+  });
+}
+
 function RuleTableView({ table }: { table: RuleTable }) {
   return (
     <div
@@ -105,7 +123,7 @@ function RuleTableView({ table }: { table: RuleTable }) {
                   className={`px-2.5 py-1.5 leading-relaxed ${i < table.rows.length - 1 ? "border-b" : ""}`}
                   style={{ borderColor: "var(--color-accent-300)" }}
                 >
-                  {cell}
+                  {renderRich(cell)}
                 </td>
               ))}
             </tr>
@@ -133,7 +151,7 @@ function RuleBlockView({ block: b }: { block: RuleBlock }) {
         {b.intro && <p className="mb-1.5 text-[12.5px] font-bold text-neutral-500">{b.intro}</p>}
         {b.body.split("\n\n").map((para, k) => (
           <p key={k} className={`text-[13.5px] leading-relaxed text-neutral-700 ${k > 0 ? "mt-2" : ""}`}>
-            {para}
+            {renderRich(para)}
           </p>
         ))}
         {b.table && <RuleTableView table={b.table} />}
@@ -153,9 +171,9 @@ function RuleBlockView({ block: b }: { block: RuleBlock }) {
         {b.examples.length > 0 && (
           <ul className="mt-2.5 flex flex-col gap-1.5">
             {b.examples.map((ex, j) => (
-              <li key={j} className="border-l-2 border-neutral-300 pl-2.5 text-[13.5px] italic">
-                {ex.en}
-                {ex.note && <span className="ml-1.5 not-italic text-neutral-500">({ex.note})</span>}
+              <li key={j} className="border-l-2 border-neutral-300 pl-2.5 text-[13.5px]">
+                {renderRich(ex.en)}
+                {ex.note && <span className="ml-1.5 text-neutral-500">({renderRich(ex.note)})</span>}
               </li>
             ))}
           </ul>

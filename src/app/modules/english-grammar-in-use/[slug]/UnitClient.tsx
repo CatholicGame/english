@@ -7,6 +7,7 @@ import {
   type AiPracticeStep,
   type FillMcStep,
   type JudgeCorrectStep,
+  type RuleBlock,
   type RuleStep,
   type RuleTable,
   type TypeFillStep,
@@ -75,7 +76,10 @@ function ContinueButton({ onClick, label = "Tiếp tục" }: { onClick: () => vo
 
 function RuleTableView({ table }: { table: RuleTable }) {
   return (
-    <div className="mt-2 overflow-x-auto">
+    <div
+      className="mt-2.5 overflow-hidden overflow-x-auto rounded-md border"
+      style={{ borderColor: "var(--color-accent-300)", background: "var(--color-accent-100)" }}
+    >
       <table className="w-full border-collapse text-[13px]">
         {table.headers && (
           <thead>
@@ -83,8 +87,8 @@ function RuleTableView({ table }: { table: RuleTable }) {
               {table.headers.map((h, i) => (
                 <th
                   key={i}
-                  className="border-b px-2 py-1.5 text-left font-extrabold text-neutral-600"
-                  style={{ borderColor: "var(--color-divider)" }}
+                  className="border-b px-2.5 py-1.5 text-left font-extrabold text-accent-800"
+                  style={{ borderColor: "var(--color-accent-300)" }}
                 >
                   {h}
                 </th>
@@ -98,8 +102,8 @@ function RuleTableView({ table }: { table: RuleTable }) {
               {row.map((cell, j) => (
                 <td
                   key={j}
-                  className="border-b px-2 py-1.5 leading-relaxed"
-                  style={{ borderColor: "var(--color-divider)" }}
+                  className={`px-2.5 py-1.5 leading-relaxed ${i < table.rows.length - 1 ? "border-b" : ""}`}
+                  style={{ borderColor: "var(--color-accent-300)" }}
                 >
                   {cell}
                 </td>
@@ -112,48 +116,61 @@ function RuleTableView({ table }: { table: RuleTable }) {
   );
 }
 
+function RuleBlockView({ block: b }: { block: RuleBlock }) {
+  return (
+    <div className="overflow-hidden rounded-lg bg-surface">
+      {(b.label || b.heading) && (
+        <div className="flex items-center gap-2 px-3 py-2" style={{ background: "var(--color-accent)" }}>
+          {b.label && (
+            <span className="flex h-5 w-5 flex-none items-center justify-center rounded-full bg-white/25 text-[12px] font-extrabold text-white">
+              {b.label}
+            </span>
+          )}
+          {b.heading && <span className="text-[14px] leading-snug font-extrabold text-white">{b.heading}</span>}
+        </div>
+      )}
+      <div className="p-3">
+        {b.intro && <p className="mb-1.5 text-[12.5px] font-bold text-neutral-500">{b.intro}</p>}
+        {b.body.split("\n\n").map((para, k) => (
+          <p key={k} className={`text-[13.5px] leading-relaxed text-neutral-700 ${k > 0 ? "mt-2" : ""}`}>
+            {para}
+          </p>
+        ))}
+        {b.table && <RuleTableView table={b.table} />}
+        {b.wordList && b.wordList.length > 0 && (
+          <div className="mt-2.5 flex flex-wrap gap-1.5">
+            {b.wordList.map((w, k) => (
+              <span
+                key={k}
+                className="rounded-full border px-2.5 py-1 text-[12px]"
+                style={{ borderColor: "var(--color-divider)", color: "var(--color-neutral-700)" }}
+              >
+                {w}
+              </span>
+            ))}
+          </div>
+        )}
+        {b.examples.length > 0 && (
+          <ul className="mt-2.5 flex flex-col gap-1.5">
+            {b.examples.map((ex, j) => (
+              <li key={j} className="border-l-2 border-neutral-300 pl-2.5 text-[13.5px] italic">
+                {ex.en}
+                {ex.note && <span className="ml-1.5 not-italic text-neutral-500">({ex.note})</span>}
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+    </div>
+  );
+}
+
 function RuleStepView({ step, onNext }: { step: RuleStep; onNext: (score?: Score) => void }) {
   return (
     <div className="flex flex-1 flex-col p-4">
-      <div className="flex flex-col gap-5">
+      <div className="flex flex-col gap-4">
         {step.blocks.map((b, i) => (
-          <div key={i} className="border-l-2 pl-3" style={{ borderColor: "var(--color-accent)" }}>
-            {(b.label || b.heading) && (
-              <div className="mb-1.5 flex items-baseline gap-2">
-                {b.label && <span className="label-xs flex-none text-accent">{b.label}</span>}
-                {b.heading && <span className="text-[14px] font-extrabold">{b.heading}</span>}
-              </div>
-            )}
-            {b.body.split("\n\n").map((para, k) => (
-              <p key={k} className={`text-[13.5px] leading-relaxed text-neutral-700 ${k > 0 ? "mt-2" : ""}`}>
-                {para}
-              </p>
-            ))}
-            {b.table && <RuleTableView table={b.table} />}
-            {b.wordList && b.wordList.length > 0 && (
-              <div className="mt-2 flex flex-wrap gap-1.5">
-                {b.wordList.map((w, k) => (
-                  <span
-                    key={k}
-                    className="rounded-full border px-2.5 py-1 text-[12px]"
-                    style={{ borderColor: "var(--color-divider)", color: "var(--color-neutral-700)" }}
-                  >
-                    {w}
-                  </span>
-                ))}
-              </div>
-            )}
-            {b.examples.length > 0 && (
-              <ul className="mt-2 flex flex-col gap-1.5">
-                {b.examples.map((ex, j) => (
-                  <li key={j} className="border-l-2 border-neutral-300 pl-2.5 text-[13.5px] italic">
-                    {ex.en}
-                    {ex.note && <span className="ml-1.5 not-italic text-neutral-500">({ex.note})</span>}
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
+          <RuleBlockView key={i} block={b} />
         ))}
       </div>
       <ContinueButton onClick={() => onNext()} label="Sang phần thực hành" />

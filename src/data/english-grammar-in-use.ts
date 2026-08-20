@@ -23,6 +23,10 @@ export interface RuleTable {
 export interface RuleBlock {
   label?: string; // "A", "B", "C" ... matching the book's lettered sections
   heading?: string;
+  /** A short standalone lead-in line before the body paragraphs, e.g. "Study
+   * this example situation:" — rendered on its own line instead of running
+   * into the scenario text that follows it. */
+  intro?: string;
   /** One or more paragraphs, separated by a blank line ("\n\n"). Keep each
    * paragraph to the same short chunk of explanation the book itself breaks
    * onto its own line — don't run everything into a single dense paragraph. */
@@ -138,7 +142,8 @@ const UNIT_1_PRESENT_CONTINUOUS: GrammarUnit = {
         {
           "label": "A",
           "heading": "Cách thành lập: am/is/are + -ing",
-          "body": "Study this example situation: Sarah is in her car. She is on her way to work. She's driving to work.\n\nThis means she is driving now, at the time of speaking. The action is not finished.\n\nam/is/are + -ing is the present continuous:",
+          "intro": "Study this example situation:",
+          "body": "Sarah is in her car. She is on her way to work. She's driving to work.\n\nThis means she is driving now, at the time of speaking. The action is not finished.\n\nam/is/are + -ing is the present continuous:",
           "table": {
             "rows": [
               [

@@ -133,6 +133,21 @@ for (const [, name, json] of blocks) {
       );
     }
 
+    // A typed answer must never start with a bare apostrophe ("'ve been
+    // waiting"): a learner cannot naturally type that as a whole answer, so the
+    // full form is the answer and the contraction goes in accept[]. Worked
+    // examples are exempt - they are displayed, never typed, so they keep the
+    // book's own contracted form.
+    for (const [i, item] of (step.items ?? []).entries()) {
+      const answers = [item.answer, ...(item.extraBlanks ?? []).map((b) => b.answer)];
+      for (const answer of answers) {
+        check(
+          !(typeof answer === "string" && answer.startsWith("'")),
+          `${at(step, ` item #${i}`)}: answer "${answer}" starts with a bare apostrophe - put the full form in answer and the contraction in accept[]`,
+        );
+      }
+    }
+
     // Item numbering must be unique within an exercise, whether it comes from
     // explicit labels or from startNumber.
     const start = step.startNumber ?? (step.examples?.length ?? 0) + 1;

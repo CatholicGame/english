@@ -223,9 +223,11 @@ bolds the target form in an example, bold it here too.
   shipped that way once and had to be merged back).
   When the book itself numbers two *separate* sentences `2a`/`2b`, they stay two items: give them
   the book's numbers via `label` and the shared situation via `context`.
-- **`answer` must never start with a bare leading apostrophe** (`"'ve been waiting"`). A learner
+- **A typed `answer` must never start with a bare leading apostrophe** (`"'ve been waiting"`). A learner
   can't naturally type that as a whole answer. Put the full form as `answer` (`"have been
-  waiting"`) and the contraction in `accept` (`["'ve been waiting"]`).
+  waiting"`) and the contraction in `accept` (`["'ve been waiting"]`). Worked examples are exempt:
+  they are displayed, never typed, so they keep the book's own contracted form. `npm run
+  check:grammar` enforces this on `items` only.
 - **`JudgeCorrectItem.underlined` must be an exact substring of `sentence`** — character for
   character, or the highlighting breaks at render time.
 - Every `TypeFillItem`/`FillMcItem` that could reasonably be answered with a contraction *or* the

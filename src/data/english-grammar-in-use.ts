@@ -66,29 +66,90 @@ export interface RuleStep {
   blocks: RuleBlock[];
 }
 
+/** One already-answered item the book prints at the top of an exercise as a
+ * worked example ("1 I don't eat much during the day. I never have lunch."),
+ * carrying the exact same shape as a real item so it renders as an
+ * already-filled row in the same list, in the same visual language, instead of
+ * being flattened into a prose blob above the exercise where a learner has to
+ * work out which part of it was the answer. */
+export interface WorkedExample {
+  /** The book's own item number, e.g. "1". */
+  label?: string;
+  /** Situation/story text the example belongs to, same role as on a real item. */
+  context?: string;
+  /** English counterpart of `context`. Omit when the context is the book's own
+   * English text, which is the usual case. */
+  contextEn?: string;
+  /** The sentence with `___` where the answer goes, or exactly "___" when the
+   * whole answer is the sentence. */
+  prompt: string;
+  answer: string;
+  /** See TypeFillItem.extraBlanks: a worked example can show a multi-gap
+   * sentence too. */
+  extraBlanks?: { answer: string; accept?: string[] }[];
+}
+
+/** Chrome every practice exercise can carry, mirroring the parts the book
+ * prints around its numbered items:
+ *  - `wordBank`: the boxed list of words/phrases to choose from,
+ *  - `examples`: the item(s) the book has already filled in,
+ *  - `passage`: genuine shared reading context (a text to read, a dialogue),
+ *  - `startNumber`: where the book's own numbering picks up.
+ * They used to be crammed into `passage` as one run-on string, which rendered
+ * as an undifferentiated grey block a learner could not scan. Keep them apart. */
+interface ExerciseChrome {
+  wordBank?: string[];
+  examples?: WorkedExample[];
+  /** ONLY a real shared context (a reading text, a dialogue setup). Never a
+   * word bank and never a worked example: those have their own fields. */
+  passage?: string;
+  /** English counterpart of `passage`. Omit when the passage is already the
+   * book's own English text. */
+  passageEn?: string;
+  /** The book's own item number for items[0]. Defaults to 1, or to
+   * examples.length + 1 when the exercise opens with worked examples. */
+  startNumber?: number;
+}
+
 export interface FillMcItem {
+  /** The book's own item number when it is not a plain running count (e.g.
+   * "13a"). Falls back to the derived running number. */
+  label?: string;
+  /** Situation/story the item belongs to. Consecutive items sharing the exact
+   * same string are rendered as one group under a single copy of it, the way
+   * the book prints one story with several blanks in it, instead of repeating
+   * the whole story inside every item. */
+  context?: string;
+  /** English counterpart of `context`. Omit when the context is the book's own
+   * English text, which is the usual case. */
+  contextEn?: string;
   before: string;
   after: string;
   options: string[];
   answer: string;
 }
 
-export interface FillMcStep {
+export interface FillMcStep extends ExerciseChrome {
   kind: "fill_mc";
   title: string;
   titleEn?: string;
   instructions: string;
   /** English counterpart of `instructions`. */
   instructionsEn?: string;
-  /** Same role as on TypeFillStep: the word bank or worked example the book
-   * prints once above the whole exercise. */
-  passage?: string;
-  /** English counterpart of `passage`. */
-  passageEn?: string;
   items: FillMcItem[];
 }
 
 export interface TypeFillItem {
+  /** See FillMcItem.label. */
+  label?: string;
+  /** See FillMcItem.context. */
+  context?: string;
+  /** See FillMcItem.contextEn. */
+  contextEn?: string;
+  /** The sentence to complete, with `___` marking the blank. Exactly "___"
+   * when the exercise asks for a whole sentence rather than a gap in one
+   * ("Write questions", "Ask her") - the blank line is then dropped and only
+   * the answer box is shown. */
   prompt: string;
   answer: string;
   /** Other wordings that are equally correct. The book prints one answer, but
@@ -96,26 +157,24 @@ export interface TypeFillItem {
    * ("Write questions", "Ask her") have several natural correct forms, and
    * exact-matching only the printed one marks good answers wrong. */
   accept?: string[];
+  /** Gaps 2..n, when the book prints ONE sentence with several gaps in it
+   * ("How long ___ (you / drive) when the accident ___ (happen)?"). `prompt`
+   * then holds one `___` per gap: the first takes `answer`/`accept`, the rest
+   * take these in order, and every gap is typed and scored on its own.
+   * Splitting such a sentence into one item per gap instead (which is what an
+   * earlier pass did) means printing the whole sentence again for each gap
+   * with the other gaps already filled in, which hands the learner the very
+   * answers they are supposed to produce. */
+  extraBlanks?: { answer: string; accept?: string[] }[];
 }
 
-export interface TypeFillStep {
+export interface TypeFillStep extends ExerciseChrome {
   kind: "type_fill";
   title: string;
   titleEn?: string;
   instructions: string;
   /** English counterpart of `instructions`. */
   instructionsEn?: string;
-  /** Shared context shown above the items (a short reading passage, a list of
-   * verbs to choose from, a dialogue setup) when the book's exercise has one. */
-  passage?: string;
-  /** English counterpart of `passage`. */
-  passageEn?: string;
-  /** The book's own item number for items[0]. Most exercises start at 1, but
-   * when the first one or two items are given as a worked example (moved into
-   * `passage` instead of `items`), the real items pick up numbering partway
-   * through the book's list (e.g. 3, when items 1-2 were the worked example).
-   * Omit for the default of 1. */
-  startNumber?: number;
   items: TypeFillItem[];
 }
 
@@ -124,6 +183,8 @@ export interface TypeFillStep {
  * right, and only writes a correction when it isn't. Squeezing this into
  * type_fill would throw away the judgement half, which is the point of it. */
 export interface JudgeCorrectItem {
+  /** See FillMcItem.label. */
+  label?: string;
   sentence: string;
   /** The exact substring of `sentence` the book underlines. */
   underlined: string;
@@ -139,6 +200,8 @@ export interface JudgeCorrectStep {
   titleEn?: string;
   instructions: string;
   instructionsEn?: string;
+  /** The book's own item number for items[0]. */
+  startNumber?: number;
   items: JudgeCorrectItem[];
 }
 
@@ -388,8 +451,13 @@ const UNIT_1_PRESENT_CONTINUOUS: GrammarUnit = {
       "titleEn": "1.3 · Write questions in the present continuous",
       "instructions": "Viết câu hỏi bằng thì hiện tại tiếp diễn, dựa vào gợi ý trong ngoặc.",
       "instructionsEn": "Write questions using the present continuous, based on the words in brackets.",
-      "passage": "Ví dụ: 1 What's all that noise? **What's happening?**",
-      "passageEn": "Example: 1 What's all that noise? **What's happening?**",
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "What's all that noise? ___ (what / happen?)",
+          "answer": "What's happening?"
+        }
+      ],
       "startNumber": 2,
       "items": [
         {
@@ -443,8 +511,18 @@ const UNIT_1_PRESENT_CONTINUOUS: GrammarUnit = {
       "titleEn": "1.4 · Put the verb into the positive or negative form",
       "instructions": "Chia động từ trong ngoặc ở thì hiện tại tiếp diễn, dạng khẳng định (**I'm doing** etc.) hoặc phủ định (**I'm not doing** etc.).",
       "instructionsEn": "Put the verb in brackets into the present continuous, positive (**I'm doing** etc.) or negative (**I'm not doing** etc.).",
-      "passage": "Ví dụ:\n1 Please don't make so much noise. **I'm trying** (I / try) to work.\n2 Let's go out now. **It isn't raining** (it / rain) any more.",
-      "passageEn": "Example:\n1 Please don't make so much noise. **I'm trying** (I / try) to work.\n2 Let's go out now. **It isn't raining** (it / rain) any more.",
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "Please don't make so much noise. ___ (I / try) to work.",
+          "answer": "I'm trying"
+        },
+        {
+          "label": "2",
+          "prompt": "Let's go out now. ___ (it / rain) any more.",
+          "answer": "It isn't raining"
+        }
+      ],
       "startNumber": 3,
       "items": [
         {
@@ -738,10 +816,25 @@ const UNIT_2_PRESENT_SIMPLE: GrammarUnit = {
       "kind": "type_fill",
       "title": "2.1 · Hoàn thành câu với động từ cho sẵn",
       "titleEn": "2.1 · Complete the sentences with the given verbs",
-      "instructions": "Hoàn thành các câu bằng cách dùng những động từ sau, chia ở dạng đúng của thì hiện tại đơn. Ví dụ: Tanya speaks German very well.",
-      "instructionsEn": "Complete the sentences using the following verbs, in the correct form of the present simple. Example: Tanya speaks German very well.",
-      "passage": "Word bank: cause(s), close(s), connect(s), go(es), live(s), speak(s), take(s)",
-      "passageEn": "Word bank: cause(s), close(s), connect(s), go(es), live(s), speak(s), take(s)",
+      "instructions": "Hoàn thành các câu bằng cách dùng những động từ sau, chia ở dạng đúng của thì hiện tại đơn.",
+      "instructionsEn": "Complete the sentences using the following verbs, in the correct form of the present simple.",
+      "wordBank": [
+        "cause(s)",
+        "close(s)",
+        "connect(s)",
+        "go(es)",
+        "live(s)",
+        "speak(s)",
+        "take(s)"
+      ],
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "Tanya ___ German very well.",
+          "answer": "speaks"
+        }
+      ],
+      "startNumber": 2,
       "items": [
         {
           "prompt": "Ben and Jack ___ to the same school.",
@@ -773,8 +866,16 @@ const UNIT_2_PRESENT_SIMPLE: GrammarUnit = {
       "kind": "type_fill",
       "title": "2.2 · Chia động từ ở dạng đúng",
       "titleEn": "2.2 · Put the verb into the correct form",
-      "instructions": "Đặt động từ trong ngoặc vào dạng đúng của thì hiện tại đơn (khẳng định, phủ định hoặc nghi vấn). Ví dụ: Julia doesn't drink (not / drink) tea very often.",
-      "instructionsEn": "Put the verb in brackets into the correct form of the present simple (positive, negative or question). Example: Julia doesn't drink (not / drink) tea very often.",
+      "instructions": "Đặt động từ trong ngoặc vào dạng đúng của thì hiện tại đơn (khẳng định, phủ định hoặc nghi vấn).",
+      "instructionsEn": "Put the verb in brackets into the correct form of the present simple (positive, negative or question).",
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "Julia ___ (not / drink) tea very often.",
+          "answer": "doesn't drink"
+        }
+      ],
+      "startNumber": 2,
       "items": [
         {
           "prompt": "What time ___ (the banks / close) here?",
@@ -820,10 +921,32 @@ const UNIT_2_PRESENT_SIMPLE: GrammarUnit = {
       "kind": "type_fill",
       "title": "2.3 · Hoàn thành câu, có khi cần dạng phủ định",
       "titleEn": "2.3 · Complete the sentences, sometimes using the negative",
-      "instructions": "Hoàn thành các câu bằng những động từ sau. Đôi khi bạn cần dùng dạng phủ định. Ví dụ: The earth goes round the sun. / Rice doesn't grow in cold climates.",
-      "instructionsEn": "Complete the sentences using the following verbs. Sometimes you need the negative form. Example: The earth goes round the sun. / Rice doesn't grow in cold climates.",
-      "passage": "Word bank: believe, eat, flow, go, grow, make, rise, tell, translate",
-      "passageEn": "Word bank: believe, eat, flow, go, grow, make, rise, tell, translate",
+      "instructions": "Hoàn thành các câu bằng những động từ sau. Đôi khi bạn cần dùng dạng phủ định.",
+      "instructionsEn": "Complete the sentences using the following verbs. Sometimes you need the negative form.",
+      "wordBank": [
+        "believe",
+        "eat",
+        "flow",
+        "go",
+        "grow",
+        "make",
+        "rise",
+        "tell",
+        "translate"
+      ],
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "The earth ___ round the sun.",
+          "answer": "goes"
+        },
+        {
+          "label": "2",
+          "prompt": "Rice ___ in cold climates.",
+          "answer": "doesn't grow"
+        }
+      ],
+      "startNumber": 3,
       "items": [
         {
           "prompt": "The sun ___ in the east.",
@@ -868,33 +991,47 @@ const UNIT_2_PRESENT_SIMPLE: GrammarUnit = {
       "kind": "type_fill",
       "title": "2.4 · Viết câu hỏi",
       "titleEn": "2.4 · Write questions",
-      "instructions": "Bạn hỏi Lisa về bản thân cô ấy và gia đình cô ấy. Hãy viết câu hỏi. Ví dụ: Bạn biết Lisa chơi tennis và muốn biết cô ấy chơi bao lâu một lần: How often do you play tennis?",
-      "instructionsEn": "You ask Lisa about herself and her family. Write the questions. Example: You know that Lisa plays tennis and want to know how often. Ask her: How often do you play tennis?",
+      "instructions": "Bạn hỏi Lisa về bản thân cô ấy và gia đình cô ấy. Hãy viết câu hỏi.",
+      "instructionsEn": "You ask Lisa about herself and her family. Write the questions.",
+      "examples": [
+        {
+          "label": "1",
+          "context": "You know that Lisa plays tennis and you want to know how often. Ask her:",
+          "prompt": "___",
+          "answer": "How often do you play tennis?"
+        }
+      ],
+      "startNumber": 2,
       "items": [
         {
-          "prompt": "Perhaps Lisa's sister plays tennis too. You want to know. Ask Lisa. ___ your sister ___ ?",
+          "context": "Perhaps Lisa's sister plays tennis too. You want to know. Ask Lisa:",
+          "prompt": "___",
           "answer": "Does your sister play tennis?"
         },
         {
-          "prompt": "You know that Lisa goes to the cinema a lot. You want to know how often. Ask her. ___ ?",
+          "context": "You know that Lisa goes to the cinema a lot. You want to know how often. Ask her:",
+          "prompt": "___",
           "answer": "How often do you go to the cinema?"
         },
         {
-          "prompt": "You know that Lisa's brother works. You want to know what he does. Ask Lisa. ___ ?",
+          "context": "You know that Lisa's brother works. You want to know what he does. Ask Lisa:",
+          "prompt": "___",
           "answer": "What does your brother do?",
           "accept": [
             "What does your brother do for a living?"
           ]
         },
         {
-          "prompt": "You're not sure whether Lisa speaks Spanish. You want to know. Ask her. ___ ?",
+          "context": "You're not sure whether Lisa speaks Spanish. You want to know. Ask her:",
+          "prompt": "___",
           "answer": "Do you speak Spanish?",
           "accept": [
             "Can you speak Spanish?"
           ]
         },
         {
-          "prompt": "You don't know where Lisa's grandparents live. You want to know. Ask Lisa. ___ ?",
+          "context": "You don't know where Lisa's grandparents live. You want to know. Ask Lisa:",
+          "prompt": "___",
           "answer": "Where do your grandparents live?"
         }
       ]
@@ -903,10 +1040,24 @@ const UNIT_2_PRESENT_SIMPLE: GrammarUnit = {
       "kind": "type_fill",
       "title": "2.5 · Hoàn thành câu với I promise / I apologise ...",
       "titleEn": "2.5 · Complete the sentences with I promise / I apologise ...",
-      "instructions": "Hoàn thành các câu bằng những cụm sau. Ví dụ: Mr Evans is not in the office today. I suggest you try calling him tomorrow.",
-      "instructionsEn": "Complete the sentences using the following phrases. Example: Mr Evans is not in the office today. I suggest you try calling him tomorrow.",
-      "passage": "Word bank: I agree, I apologise, I insist, I promise, I recommend, I suggest",
-      "passageEn": "Word bank: I agree, I apologise, I insist, I promise, I recommend, I suggest",
+      "instructions": "Hoàn thành các câu bằng những cụm sau.",
+      "instructionsEn": "Complete the sentences using the following phrases.",
+      "wordBank": [
+        "I agree",
+        "I apologise",
+        "I insist",
+        "I promise",
+        "I recommend",
+        "I suggest"
+      ],
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "Mr Evans is not in the office today. ___ you try calling him tomorrow.",
+          "answer": "I suggest"
+        }
+      ],
+      "startNumber": 2,
       "items": [
         {
           "prompt": "I won't tell anybody what you said. ___ .",
@@ -1175,48 +1326,67 @@ const UNIT_3_PRESENT_CONTINUOUS_AND_SIMPLE_1: GrammarUnit = {
       "titleEn": "3.2 · Put the verb into the correct form: continuous or simple (sentence pairs a/b)",
       "instructions": "Đặt động từ vào đúng dạng, hiện tại tiếp diễn hoặc hiện tại đơn. Chú ý sự khác nhau giữa câu a và câu b trong từng cặp.",
       "instructionsEn": "Put the verb into the correct form, present continuous or present simple. Pay attention to the difference between sentence a and sentence b in each pair.",
-      "passage": "Ví dụ trong sách: 1 a I usually **get** (I / usually / get) hungry in the afternoon. b I**'m getting** (I / get) hungry. Let's go and eat something.",
-      "passageEn": "Example from the book: 1 a I usually **get** (I / usually / get) hungry in the afternoon. b I**'m getting** (I / get) hungry. Let's go and eat something.",
+      "examples": [
+        {
+          "label": "1a",
+          "prompt": "I usually ___ (I / usually / get) hungry in the afternoon.",
+          "answer": "get"
+        },
+        {
+          "label": "1b",
+          "prompt": "I ___ (I / get) hungry. Let's go and eat something.",
+          "answer": "'m getting"
+        }
+      ],
+      "startNumber": 2,
       "items": [
         {
-          "prompt": "2 a '___ (you / listen) to the radio?' 'No, you can turn it off.'",
+          "label": "2a",
+          "prompt": "'___ (you / listen) to the radio?' 'No, you can turn it off.'",
           "answer": "Are you listening"
         },
         {
-          "prompt": "2 b '___ (you / listen) to the radio a lot?' 'No, not very often.'",
+          "label": "2b",
+          "prompt": "'___ (you / listen) to the radio a lot?' 'No, not very often.'",
           "answer": "Do you listen"
         },
         {
-          "prompt": "3 a The River Nile ___ (flow) into the Mediterranean.",
+          "label": "3a",
+          "prompt": "The River Nile ___ (flow) into the Mediterranean.",
           "answer": "flows"
         },
         {
-          "prompt": "3 b The river ___ (flow) very fast today, much faster than usual.",
+          "label": "3b",
+          "prompt": "The river ___ (flow) very fast today, much faster than usual.",
           "answer": "is flowing",
           "accept": [
             "'s flowing"
           ]
         },
         {
-          "prompt": "4 a I'm not very active. ___ (I / not / do) any sport.",
+          "label": "4a",
+          "prompt": "I'm not very active. ___ (I / not / do) any sport.",
           "answer": "I don't do",
           "accept": [
             "I do not do"
           ]
         },
         {
-          "prompt": "4 b What ___ (you / usually / do) at weekends?",
+          "label": "4b",
+          "prompt": "What ___ (you / usually / do) at weekends?",
           "answer": "do you usually do"
         },
         {
-          "prompt": "5 a Rachel is in New York right now. ___ (She / stay) at the Park Hotel.",
+          "label": "5a",
+          "prompt": "Rachel is in New York right now. ___ (She / stay) at the Park Hotel.",
           "answer": "She's staying",
           "accept": [
             "She is staying"
           ]
         },
         {
-          "prompt": "5 b ___ (She / always / stay) there when she's in New York.",
+          "label": "5b",
+          "prompt": "___ (She / always / stay) there when she's in New York.",
           "answer": "She always stays"
         }
       ]
@@ -1227,76 +1397,94 @@ const UNIT_3_PRESENT_CONTINUOUS_AND_SIMPLE_1: GrammarUnit = {
       "titleEn": "3.3 · Put the verb into the correct form: continuous or simple",
       "instructions": "Đặt động từ trong ngoặc vào đúng dạng, hiện tại tiếp diễn hoặc hiện tại đơn.",
       "instructionsEn": "Put the verb in brackets into the correct form, present continuous or present simple.",
-      "passage": "Ví dụ trong sách: 1 Why are all these people here? What**'s happening** (What / happen)?",
-      "passageEn": "Example from the book: 1 Why are all these people here? What**'s happening** (What / happen)?",
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "Why are all these people here? What ___ (What / happen)?",
+          "answer": "'s happening"
+        }
+      ],
+      "startNumber": 2,
       "items": [
         {
-          "prompt": "2 Julia is good at languages. ___ (She / speak) four languages very well.",
+          "label": "2",
+          "prompt": "Julia is good at languages. ___ (She / speak) four languages very well.",
           "answer": "She speaks"
         },
         {
-          "prompt": "3 Are you ready yet? ___ (Everybody / wait) for you.",
+          "label": "3",
+          "prompt": "Are you ready yet? ___ (Everybody / wait) for you.",
           "answer": "Everybody's waiting",
           "accept": [
             "Everybody is waiting"
           ]
         },
         {
-          "prompt": "4 I've never heard this word. How ___ (you / pronounce) it?",
+          "label": "4",
+          "prompt": "I've never heard this word. How ___ (you / pronounce) it?",
           "answer": "do you pronounce"
         },
         {
-          "prompt": "5 Kate ___ (not / work) this week. She's on holiday.",
+          "label": "5",
+          "prompt": "Kate ___ (not / work) this week. She's on holiday.",
           "answer": "isn't working",
           "accept": [
             "is not working"
           ]
         },
         {
-          "prompt": "6 I think my English ___ (improve) slowly. It's better than it was.",
+          "label": "6",
+          "prompt": "I think my English ___ (improve) slowly. It's better than it was.",
           "answer": "is improving",
           "accept": [
             "'s improving"
           ]
         },
         {
-          "prompt": "7 Nicola ___ (live) in Manchester. She has never lived anywhere else.",
+          "label": "7",
+          "prompt": "Nicola ___ (live) in Manchester. She has never lived anywhere else.",
           "answer": "lives"
         },
         {
-          "prompt": "8 Can we stop walking soon? ___ (I / start) to get tired.",
+          "label": "8",
+          "prompt": "Can we stop walking soon? ___ (I / start) to get tired.",
           "answer": "I'm starting",
           "accept": [
             "I am starting"
           ]
         },
         {
-          "prompt": "9 Sam and Tina are in Madrid right now. ___ (They / visit) a friend of theirs.",
+          "label": "9",
+          "prompt": "Sam and Tina are in Madrid right now. ___ (They / visit) a friend of theirs.",
           "answer": "They're visiting",
           "accept": [
             "They are visiting"
           ]
         },
         {
-          "prompt": "10 'What ___ (your father / do)?' 'He's an architect.'",
+          "label": "10",
+          "prompt": "'What ___ (your father / do)?' 'He's an architect.'",
           "answer": "does your father do"
         },
         {
-          "prompt": "11 It took me an hour to get to work this morning. Most days ___ (it / not / take) so long.",
+          "label": "11",
+          "prompt": "It took me an hour to get to work this morning. Most days ___ (it / not / take) so long.",
           "answer": "it doesn't take",
           "accept": [
             "it does not take"
           ]
         },
         {
-          "prompt": "12 ___ (I / learn) to drive. My driving test is next month.",
+          "label": "12a",
+          "prompt": "___ (I / learn) to drive. My driving test is next month.",
           "answer": "I'm learning",
           "accept": [
             "I am learning"
           ]
         },
         {
-          "prompt": "12 My father ___ (teach) me.",
+          "label": "12b",
+          "prompt": "My father ___ (teach) me.",
           "answer": "is teaching",
           "accept": [
             "'s teaching"
@@ -1310,18 +1498,29 @@ const UNIT_3_PRESENT_CONTINUOUS_AND_SIMPLE_1: GrammarUnit = {
       "titleEn": "3.4 · Complete B's sentences with always + -ing",
       "instructions": "Hoàn thành câu của người B. Dùng always cùng với động từ ở dạng -ing để nói rằng việc đó xảy ra quá thường xuyên.",
       "instructionsEn": "Complete B's sentences. Use always with the -ing form of the verb to say that something happens too often.",
-      "passage": "Ví dụ trong sách: 1 a: I've lost my keys again. b: Not again! You**'re always losing** your keys.",
-      "passageEn": "Example from the book: 1 a: I've lost my keys again. b: Not again! You**'re always losing** your keys.",
+      "examples": [
+        {
+          "label": "1",
+          "context": "a: I've lost my keys again.",
+          "prompt": "b: Not again! You ___ your keys.",
+          "answer": "'re always losing"
+        }
+      ],
+      "startNumber": 2,
       "items": [
         {
-          "prompt": "2 a: The car has broken down again. b: That car is useless. It ___.",
+          "label": "2",
+          "context": "a: The car has broken down again.",
+          "prompt": "b: That car is useless. It ___.",
           "answer": "is always breaking down",
           "accept": [
             "'s always breaking down"
           ]
         },
         {
-          "prompt": "3 a: Look! You've made the same mistake again. b: Oh no, not again! I ___.",
+          "label": "3",
+          "context": "a: Look! You've made the same mistake again.",
+          "prompt": "b: Oh no, not again! I ___.",
           "answer": "am always making the same mistake",
           "accept": [
             "'m always making the same mistake",
@@ -1332,7 +1531,9 @@ const UNIT_3_PRESENT_CONTINUOUS_AND_SIMPLE_1: GrammarUnit = {
           ]
         },
         {
-          "prompt": "4 a: Oh, I've left my phone at home again. b: Typical! ___.",
+          "label": "4",
+          "context": "a: Oh, I've left my phone at home again.",
+          "prompt": "b: Typical! ___.",
           "answer": "You're always leaving your phone at home",
           "accept": [
             "You are always leaving your phone at home",
@@ -1511,8 +1712,16 @@ const UNIT_4_PRESENT_CONTINUOUS_AND_SIMPLE_2: GrammarUnit = {
       "kind": "type_fill",
       "title": "4.1 · Chia động từ: tiếp diễn hay đơn",
       "titleEn": "4.1 · Put the verb into the correct form, present continuous or present simple",
-      "instructions": "Chia động từ trong ngoặc sang dạng đúng: hiện tại tiếp diễn hoặc hiện tại đơn. Ví dụ: Are you hungry? Do you want (you / want) something to eat?",
-      "instructionsEn": "Put the verb in brackets into the correct form: present continuous or present simple. Example: Are you hungry? Do you want (you / want) something to eat?",
+      "instructions": "Chia động từ trong ngoặc sang dạng đúng: hiện tại tiếp diễn hoặc hiện tại đơn.",
+      "instructionsEn": "Put the verb in brackets into the correct form: present continuous or present simple.",
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "Are you hungry? ___ (you / want) something to eat?",
+          "answer": "Do you want"
+        }
+      ],
+      "startNumber": 2,
       "items": [
         {
           "prompt": "Alan says he's 90 years old, but nobody ___ (believe) him.",
@@ -1576,13 +1785,20 @@ const UNIT_4_PRESENT_CONTINUOUS_AND_SIMPLE_2: GrammarUnit = {
       "kind": "type_fill",
       "title": "4.2 · Dùng từ trong ngoặc để viết câu",
       "titleEn": "4.2 · Use the words in brackets to make sentences",
-      "instructions": "Dùng các từ trong ngoặc để viết thành câu hoàn chỉnh, chọn hiện tại đơn hoặc hiện tại tiếp diễn cho phù hợp với tình huống. Ví dụ 1: (you / not / seem / very happy today) là You don't seem very happy today.",
-      "instructionsEn": "Use the words in brackets to write complete sentences, choosing the present simple or present continuous to fit the situation. Example 1: (you / not / seem / very happy today) is You don't seem very happy today.",
-      "passage": "Mỗi tình huống là một đoạn hội thoại ngắn. Hãy viết câu cho phần được cho trong ngoặc.",
-      "passageEn": "Each situation is a short conversation. Write the sentence for the part given in brackets.",
+      "instructions": "Dùng các từ trong ngoặc để viết thành câu hoàn chỉnh, chọn hiện tại đơn hoặc hiện tại tiếp diễn cho phù hợp với tình huống.",
+      "instructionsEn": "Use the words in brackets to write complete sentences, choosing the present simple or present continuous to fit the situation.",
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "___ (you / not / seem / very happy today)",
+          "answer": "You don't seem very happy today"
+        }
+      ],
+      "startNumber": 2,
       "items": [
         {
-          "prompt": "A: Are you OK? You look worried. B: ___ (I / think)",
+          "context": "A: Are you OK? You look worried.",
+          "prompt": "B: ___ (I / think)",
           "answer": "I'm thinking",
           "accept": [
             "I am thinking"
@@ -1669,8 +1885,16 @@ const UNIT_4_PRESENT_CONTINUOUS_AND_SIMPLE_2: GrammarUnit = {
       "kind": "type_fill",
       "title": "4.4 · is/are being hay is/are",
       "titleEn": "4.4 · is/are being or is/are",
-      "instructions": "Hoàn thành câu. Dùng is/are being (tiếp diễn) hoặc is/are (đơn). Ví dụ: I can't understand why he's being so selfish. He isn't usually like that.",
-      "instructionsEn": "Complete the sentences. Use is/are being (continuous) or is/are (simple). Example: I can't understand why he's being so selfish. He isn't usually like that.",
+      "instructions": "Hoàn thành câu. Dùng is/are being (tiếp diễn) hoặc is/are (đơn).",
+      "instructionsEn": "Complete the sentences. Use is/are being (continuous) or is/are (simple).",
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "I can't understand why he ___ so selfish. He isn't usually like that.",
+          "answer": "'s being"
+        }
+      ],
+      "startNumber": 2,
       "items": [
         {
           "prompt": "You'll like Sophie when you meet her. She ___ very nice.",
@@ -1756,16 +1980,46 @@ const UNIT_5_PAST_SIMPLE: GrammarUnit = {
           "bodyVi": "Quá khứ đơn thường tận cùng bằng **-ed**. Đây là các động từ có quy tắc. Về các quy tắc chính tả như **stopped** và **studied**, xem Phụ lục 6.\n\nNhưng nhiều động từ là bất quy tắc: quá khứ đơn của chúng không tận cùng bằng -ed. Xem danh sách động từ bất quy tắc ở Phụ lục 1.",
           "table": {
             "rows": [
-              ["work", "**worked**"],
-              ["invite", "**invited**"],
-              ["decide", "**decided**"],
-              ["stop", "**stopped**"],
-              ["pass", "**passed**"],
-              ["study", "**studied**"],
-              ["write", "**wrote**"],
-              ["see", "**saw**"],
-              ["go", "**went**"],
-              ["shut", "**shut** (no change)"]
+              [
+                "work",
+                "**worked**"
+              ],
+              [
+                "invite",
+                "**invited**"
+              ],
+              [
+                "decide",
+                "**decided**"
+              ],
+              [
+                "stop",
+                "**stopped**"
+              ],
+              [
+                "pass",
+                "**passed**"
+              ],
+              [
+                "study",
+                "**studied**"
+              ],
+              [
+                "write",
+                "**wrote**"
+              ],
+              [
+                "see",
+                "**saw**"
+              ],
+              [
+                "go",
+                "**went**"
+              ],
+              [
+                "shut",
+                "**shut** (no change)"
+              ]
             ]
           },
           "examples": [
@@ -1879,8 +2133,15 @@ const UNIT_5_PAST_SIMPLE: GrammarUnit = {
       "titleEn": "5.1 · What Laura did yesterday",
       "instructions": "Đọc lời Laura kể về một ngày làm việc điển hình. Hôm qua là một ngày làm việc điển hình của Laura. Viết những việc cô ấy đã làm hoặc đã không làm hôm qua, dùng thì quá khứ đơn.",
       "instructionsEn": "Read what Laura says about a typical working day. Yesterday was a typical working day for Laura. Write what she did or didn't do yesterday, using the past simple.",
-      "passage": "LAURA: I usually get up at 7 o'clock and have a big breakfast. I walk to work, which takes me about half an hour. I start work at 8.45. I never have lunch. I finish work at 5 o'clock. I'm always tired when I get home. I usually cook a meal in the evening. I don't usually go out. I go to bed at about 11 o'clock, and I always sleep well.\n\nVí dụ: 1 She got up at 7 o'clock.",
-      "passageEn": "LAURA: I usually get up at 7 o'clock and have a big breakfast. I walk to work, which takes me about half an hour. I start work at 8.45. I never have lunch. I finish work at 5 o'clock. I'm always tired when I get home. I usually cook a meal in the evening. I don't usually go out. I go to bed at about 11 o'clock, and I always sleep well.\n\nExample: 1 She got up at 7 o'clock.",
+      "passage": "LAURA: I usually get up at 7 o'clock and have a big breakfast. I walk to work, which takes me about half an hour. I start work at 8.45. I never have lunch. I finish work at 5 o'clock. I'm always tired when I get home. I usually cook a meal in the evening. I don't usually go out. I go to bed at about 11 o'clock, and I always sleep well.",
+      "passageEn": "LAURA: I usually get up at 7 o'clock and have a big breakfast. I walk to work, which takes me about half an hour. I start work at 8.45. I never have lunch. I finish work at 5 o'clock. I'm always tired when I get home. I usually cook a meal in the evening. I don't usually go out. I go to bed at about 11 o'clock, and I always sleep well.",
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "She ___ at 7 o'clock.",
+          "answer": "got up"
+        }
+      ],
       "startNumber": 2,
       "items": [
         {
@@ -1956,8 +2217,25 @@ const UNIT_5_PAST_SIMPLE: GrammarUnit = {
       "titleEn": "5.2 · Complete the sentences with the given verbs",
       "instructions": "Hoàn thành các câu sau, dùng những động từ trong khung ở dạng quá khứ đơn đúng.",
       "instructionsEn": "Complete the following sentences, using the verbs in the box in the correct past simple form.",
-      "passage": "buy   catch   cost   fall   hurt   sell   spend   teach   throw   write\n\nVí dụ: 1 Mozart wrote more than 600 pieces of music.",
-      "passageEn": "buy   catch   cost   fall   hurt   sell   spend   teach   throw   write\n\nExample: 1 Mozart wrote more than 600 pieces of music.",
+      "wordBank": [
+        "buy",
+        "catch",
+        "cost",
+        "fall",
+        "hurt",
+        "sell",
+        "spend",
+        "teach",
+        "throw",
+        "write"
+      ],
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "Mozart ___ more than 600 pieces of music.",
+          "answer": "wrote"
+        }
+      ],
       "startNumber": 2,
       "items": [
         {
@@ -2004,12 +2282,19 @@ const UNIT_5_PAST_SIMPLE: GrammarUnit = {
       "titleEn": "5.3 · Write questions about James's holiday",
       "instructions": "Bạn hỏi James về kỳ nghỉ của anh ấy ở Mỹ. Dựa vào câu trả lời của James, viết câu hỏi của bạn ở thì quá khứ đơn.",
       "instructionsEn": "You ask James about his holiday in the US. Based on James's answers, write your questions in the past simple.",
-      "passage": "Ví dụ:\nYOU: Where did you go?\nJAMES: To the US. We went on a trip from San Francisco to Denver.",
-      "passageEn": "Example:\nYOU: Where did you go?\nJAMES: To the US. We went on a trip from San Francisco to Denver.",
+      "examples": [
+        {
+          "label": "1",
+          "context": "JAMES: To the US. We went on a trip from San Francisco to Denver.",
+          "prompt": "YOU: ___",
+          "answer": "Where did you go?"
+        }
+      ],
       "startNumber": 2,
       "items": [
         {
-          "prompt": "YOU: How ___ ? By car? / JAMES: Yes, we hired a car in San Francisco.",
+          "context": "JAMES: Yes, we hired a car in San Francisco.",
+          "prompt": "YOU: How ___ ? By car?",
           "answer": "did you travel",
           "accept": [
             "did you go",
@@ -2018,7 +2303,8 @@ const UNIT_5_PAST_SIMPLE: GrammarUnit = {
           ]
         },
         {
-          "prompt": "YOU: It's a long way to drive. How long ___ ? / JAMES: Two weeks. We stopped at a lot of places along the way.",
+          "context": "JAMES: Two weeks. We stopped at a lot of places along the way.",
+          "prompt": "YOU: It's a long way to drive. How long ___ ?",
           "answer": "did it take",
           "accept": [
             "did it take you",
@@ -2028,18 +2314,21 @@ const UNIT_5_PAST_SIMPLE: GrammarUnit = {
           ]
         },
         {
-          "prompt": "YOU: Where ___ ? In hotels? / JAMES: Yes, small hotels or motels.",
+          "context": "JAMES: Yes, small hotels or motels.",
+          "prompt": "YOU: Where ___ ? In hotels?",
           "answer": "did you stay",
           "accept": [
             "did you sleep"
           ]
         },
         {
-          "prompt": "YOU: ___ good? / JAMES: Yes, but it was very hot - sometimes too hot.",
+          "context": "JAMES: Yes, but it was very hot - sometimes too hot.",
+          "prompt": "YOU: ___ good?",
           "answer": "Was the weather"
         },
         {
-          "prompt": "YOU: ___ the Grand Canyon? / JAMES: Of course. It was wonderful.",
+          "context": "JAMES: Of course. It was wonderful.",
+          "prompt": "YOU: ___ the Grand Canyon?",
           "answer": "Did you see",
           "accept": [
             "Did you visit",
@@ -2054,8 +2343,18 @@ const UNIT_5_PAST_SIMPLE: GrammarUnit = {
       "titleEn": "5.4 · Positive or negative form",
       "instructions": "Hoàn thành các câu. Chia động từ trong ngoặc ở thì quá khứ đơn, dạng khẳng định hoặc phủ định cho phù hợp.",
       "instructionsEn": "Complete the sentences. Put the verb in brackets into the past simple, positive or negative form as appropriate.",
-      "passage": "Ví dụ:\n1 It was warm, so I took off my coat. (take)\n2 The film wasn't very good. I didn't enjoy it much. (enjoy)",
-      "passageEn": "Example:\n1 It was warm, so I took off my coat. (take)\n2 The film wasn't very good. I didn't enjoy it much. (enjoy)",
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "It was warm, so I ___ off my coat. (take)",
+          "answer": "took"
+        },
+        {
+          "label": "2",
+          "prompt": "The film wasn't very good. I ___ it much. (enjoy)",
+          "answer": "didn't enjoy"
+        }
+      ],
       "startNumber": 3,
       "items": [
         {
@@ -2359,45 +2658,43 @@ const UNIT_6_PAST_CONTINUOUS: GrammarUnit = {
       "titleEn": "6.3 · Two short stories",
       "instructions": "Chia động từ trong ngoặc ở thì quá khứ tiếp diễn hoặc quá khứ đơn. Mỗi câu chỉ điền vào chỗ trống được đánh dấu.",
       "instructionsEn": "Put the verb in brackets into the past continuous or the past simple. Each sentence has just one blank to fill in.",
-      "passage": "Mẩu chuyện 1: gặp Sue ngoài phố. Mẩu chuyện 2: đạp xe về nhà và một người đàn ông bước ra đường.",
-      "passageEn": "Story 1: seeing Sue in town. Story 2: cycling home when a man stepped out into the road.",
       "items": [
         {
-          "prompt": "I ___ (see) Sue in town yesterday, but she didn't see me. She was looking the other way.",
-          "answer": "saw"
-        },
-        {
-          "prompt": "I saw Sue in town yesterday, but she ___ (not/see) me. She was looking the other way.",
-          "answer": "didn't see",
-          "accept": [
-            "did not see"
+          "label": "1",
+          "prompt": "I ___ (see) Sue in town yesterday, but she ___ (not / see) me. She ___ (look) the other way.",
+          "answer": "saw",
+          "extraBlanks": [
+            {
+              "answer": "didn't see",
+              "accept": [
+                "did not see"
+              ]
+            },
+            {
+              "answer": "was looking"
+            }
           ]
         },
         {
-          "prompt": "I saw Sue in town yesterday, but she didn't see me. She ___ (look) the other way.",
-          "answer": "was looking"
-        },
-        {
-          "prompt": "I ___ (cycle) home yesterday when a man stepped out into the road in front of me.",
-          "answer": "was cycling"
-        },
-        {
-          "prompt": "I was cycling home yesterday when a man ___ (step) out into the road in front of me.",
-          "answer": "stepped"
-        },
-        {
-          "prompt": "I ___ (go) quite fast, but luckily I managed to stop in time, and I didn't hit him.",
-          "answer": "was going"
-        },
-        {
-          "prompt": "I was going quite fast, but luckily I ___ (manage) to stop in time, and I didn't hit him.",
-          "answer": "managed"
-        },
-        {
-          "prompt": "I was going quite fast, but luckily I managed to stop in time, and I ___ (not/hit) him.",
-          "answer": "didn't hit",
-          "accept": [
-            "did not hit"
+          "label": "2",
+          "prompt": "I ___ (cycle) home yesterday when a man ___ (step) out into the road in front of me. I ___ (go) quite fast, but luckily I ___ (manage) to stop in time, and I ___ (not / hit) him.",
+          "answer": "was cycling",
+          "extraBlanks": [
+            {
+              "answer": "stepped"
+            },
+            {
+              "answer": "was going"
+            },
+            {
+              "answer": "managed"
+            },
+            {
+              "answer": "didn't hit",
+              "accept": [
+                "did not hit"
+              ]
+            }
           ]
         }
       ]
@@ -2408,8 +2705,19 @@ const UNIT_6_PAST_CONTINUOUS: GrammarUnit = {
       "titleEn": "6.4 · Past continuous or past simple",
       "instructions": "Chia động từ trong ngoặc ở thì quá khứ tiếp diễn hoặc quá khứ đơn. Mỗi câu chỉ điền vào chỗ trống được đánh dấu.",
       "instructionsEn": "Put the verb in brackets into the past continuous or the past simple. Each sentence has just one blank to fill in.",
-      "passage": "Ví dụ mẫu: Jenny was waiting (wait) for me when I arrived (arrive).",
-      "passageEn": "Example: Jenny **was waiting** (wait) for me when I **arrived** (arrive).",
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "Jenny ___ (wait) for me when I ___ (arrive).",
+          "answer": "was waiting",
+          "extraBlanks": [
+            {
+              "answer": "arrived"
+            }
+          ]
+        }
+      ],
+      "startNumber": 2,
       "items": [
         {
           "prompt": "\"What ___ (you / do) at this time yesterday?\" \"I was asleep.\"",
@@ -2420,80 +2728,87 @@ const UNIT_6_PAST_CONTINUOUS: GrammarUnit = {
           "answer": "Did you go"
         },
         {
-          "prompt": "How fast ___ (you / drive) when the accident happened?",
-          "answer": "were you driving"
-        },
-        {
-          "prompt": "How fast were you driving when the accident ___ (happen)?",
-          "answer": "happened"
-        },
-        {
-          "prompt": "Sam ___ (take) a picture of me while I wasn't looking.",
-          "answer": "took"
-        },
-        {
-          "prompt": "Sam took a picture of me while I ___ (not / look).",
-          "answer": "wasn't looking",
-          "accept": [
-            "was not looking"
+          "prompt": "How fast ___ (you / drive) when the accident ___ (happen)?",
+          "answer": "were you driving",
+          "extraBlanks": [
+            {
+              "answer": "happened"
+            }
           ]
         },
         {
-          "prompt": "We were in a very difficult position. We ___ (not / know) what to do, so we did nothing.",
+          "prompt": "Sam ___ (take) a picture of me while I ___ (not / look).",
+          "answer": "took",
+          "extraBlanks": [
+            {
+              "answer": "wasn't looking",
+              "accept": [
+                "was not looking"
+              ]
+            }
+          ]
+        },
+        {
+          "prompt": "We were in a very difficult position. We ___ (not / know) what to do, so we ___ (do) nothing.",
           "answer": "didn't know",
           "accept": [
             "did not know"
+          ],
+          "extraBlanks": [
+            {
+              "answer": "did"
+            }
           ]
         },
         {
-          "prompt": "We were in a very difficult position. We didn't know what to do, so we ___ (do) nothing.",
-          "answer": "did"
+          "prompt": "I haven't seen Alan for ages. When I last ___ (see) him, he ___ (try) to find a job.",
+          "answer": "saw",
+          "extraBlanks": [
+            {
+              "answer": "was trying"
+            }
+          ]
         },
         {
-          "prompt": "I haven't seen Alan for ages. When I last ___ (see) him, he was trying to find a job.",
-          "answer": "saw"
+          "prompt": "I ___ (walk) along the street when suddenly I ___ (hear) something behind me.",
+          "answer": "was walking",
+          "extraBlanks": [
+            {
+              "answer": "heard"
+            }
+          ]
         },
         {
-          "prompt": "I haven't seen Alan for ages. When I last saw him, he ___ (try) to find a job.",
-          "answer": "was trying"
+          "prompt": "Somebody ___ (follow) me. I was scared and I ___ (start) to run.",
+          "answer": "was following",
+          "extraBlanks": [
+            {
+              "answer": "started"
+            }
+          ]
         },
         {
-          "prompt": "I ___ (walk) along the street when suddenly I heard something behind me.",
-          "answer": "was walking"
+          "prompt": "When I was young, I ___ (want) to be a pilot. Later I ___ (change) my mind.",
+          "answer": "wanted",
+          "extraBlanks": [
+            {
+              "answer": "changed"
+            }
+          ]
         },
         {
-          "prompt": "I was walking along the street when suddenly I ___ (hear) something behind me.",
-          "answer": "heard"
-        },
-        {
-          "prompt": "Somebody ___ (follow) me. I was scared and I started to run.",
-          "answer": "was following"
-        },
-        {
-          "prompt": "Somebody was following me. I was scared and I ___ (start) to run.",
-          "answer": "started"
-        },
-        {
-          "prompt": "When I was young, I ___ (want) to be a pilot. Later I changed my mind.",
-          "answer": "wanted"
-        },
-        {
-          "prompt": "When I was young, I wanted to be a pilot. Later I ___ (change) my mind.",
-          "answer": "changed"
-        },
-        {
-          "prompt": "Last night I ___ (drop) a plate when I was doing the washing up.",
-          "answer": "dropped"
-        },
-        {
-          "prompt": "Last night I dropped a plate when I ___ (do) the washing up.",
-          "answer": "was doing"
-        },
-        {
-          "prompt": "Last night I dropped a plate when I was doing the washing up. Fortunately it ___ (not / break).",
-          "answer": "didn't break",
-          "accept": [
-            "did not break"
+          "prompt": "Last night I ___ (drop) a plate when I ___ (do) the washing up. Fortunately it ___ (not / break).",
+          "answer": "dropped",
+          "extraBlanks": [
+            {
+              "answer": "was doing"
+            },
+            {
+              "answer": "didn't break",
+              "accept": [
+                "did not break"
+              ]
+            }
           ]
         }
       ]
@@ -2668,13 +2983,31 @@ const UNIT_7_PRESENT_PERFECT_1: GrammarUnit = {
       "kind": "type_fill",
       "title": "7.1 · Hoàn thành câu với hiện tại hoàn thành",
       "titleEn": "7.1 · Complete the sentences using the present perfect",
-      "instructions": "Đọc các tình huống và hoàn thành câu bằng thì hiện tại hoàn thành. Chọn động từ trong danh sách cho sẵn. Ví dụ: Tom is looking for his key. He can't find it. Tom has lost his key.",
-      "instructionsEn": "Read the situations and complete the sentences using the present perfect. Choose a verb from the list given. Example: Tom is looking for his key. He can't find it. Tom has lost his key.",
-      "passage": "Chọn từ các động từ sau: break, disappear, go up, grow, improve, lose, shrink, stop",
-      "passageEn": "Choose from these verbs: break, disappear, go up, grow, improve, lose, shrink, stop",
+      "instructions": "Đọc các tình huống và hoàn thành câu bằng thì hiện tại hoàn thành. Chọn động từ trong danh sách cho sẵn.",
+      "instructionsEn": "Read the situations and complete the sentences using the present perfect. Choose a verb from the list given.",
+      "wordBank": [
+        "break",
+        "disappear",
+        "go up",
+        "grow",
+        "improve",
+        "lose",
+        "shrink",
+        "stop"
+      ],
+      "examples": [
+        {
+          "label": "1",
+          "context": "Tom is looking for his key. He can't find it.",
+          "prompt": "Tom ___ his key.",
+          "answer": "has lost"
+        }
+      ],
+      "startNumber": 2,
       "items": [
         {
-          "prompt": "Maria's English wasn't very good. Now it is better. Her English ___.",
+          "context": "Maria's English wasn't very good. Now it is better.",
+          "prompt": "Her English ___.",
           "answer": "has improved",
           "accept": [
             "'s improved",
@@ -2682,35 +3015,40 @@ const UNIT_7_PRESENT_PERFECT_1: GrammarUnit = {
           ]
         },
         {
-          "prompt": "My bag was here, but it isn't here any more. My bag ___.",
+          "context": "My bag was here, but it isn't here any more.",
+          "prompt": "My bag ___.",
           "answer": "has disappeared",
           "accept": [
             "'s disappeared"
           ]
         },
         {
-          "prompt": "Lisa can't walk and her leg is in plaster. Lisa ___.",
+          "context": "Lisa can't walk and her leg is in plaster.",
+          "prompt": "Lisa ___.",
           "answer": "has broken her leg",
           "accept": [
             "'s broken her leg"
           ]
         },
         {
-          "prompt": "Last week the bus fare was 1.80 pounds. Now it is 2 pounds. The bus fare ___.",
+          "context": "Last week the bus fare was 1.80 pounds. Now it is 2 pounds.",
+          "prompt": "The bus fare ___.",
           "answer": "has gone up",
           "accept": [
             "'s gone up"
           ]
         },
         {
-          "prompt": "Dan didn't have a beard before. Now he has a beard. Dan ___.",
+          "context": "Dan didn't have a beard before. Now he has a beard.",
+          "prompt": "Dan ___.",
           "answer": "has grown a beard",
           "accept": [
             "'s grown a beard"
           ]
         },
         {
-          "prompt": "It was raining ten minutes ago. It isn't raining now. It ___.",
+          "context": "It was raining ten minutes ago. It isn't raining now.",
+          "prompt": "It ___.",
           "answer": "has stopped raining",
           "accept": [
             "'s stopped raining",
@@ -2718,7 +3056,8 @@ const UNIT_7_PRESENT_PERFECT_1: GrammarUnit = {
           ]
         },
         {
-          "prompt": "I washed my sweater, and now it's too small for me. My sweater ___.",
+          "context": "I washed my sweater, and now it's too small for me.",
+          "prompt": "My sweater ___.",
           "answer": "has shrunk",
           "accept": [
             "'s shrunk"
@@ -2730,8 +3069,16 @@ const UNIT_7_PRESENT_PERFECT_1: GrammarUnit = {
       "kind": "fill_mc",
       "title": "7.2 · Chọn been hoặc gone",
       "titleEn": "7.2 · Choose been or gone",
-      "instructions": "Điền been hoặc gone vào chỗ trống. Ví dụ: My parents are on holiday. They've gone to Italy.",
-      "instructionsEn": "Put in been or gone. Example: My parents are on holiday. They've gone to Italy.",
+      "instructions": "Điền been hoặc gone vào chỗ trống.",
+      "instructionsEn": "Put in been or gone.",
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "My parents are on holiday. They've ___ to Italy.",
+          "answer": "gone"
+        }
+      ],
+      "startNumber": 2,
       "items": [
         {
           "before": "Hello! I've just",
@@ -2775,8 +3122,16 @@ const UNIT_7_PRESENT_PERFECT_1: GrammarUnit = {
       "kind": "type_fill",
       "title": "7.3 · Viết dạng hiện tại hoàn thành từ gợi ý",
       "titleEn": "7.3 · Complete the sentences using the present perfect",
-      "instructions": "Hoàn thành các câu bằng thì hiện tại hoàn thành, dùng các từ trong ngoặc. Ví dụ: Sally is still here. She hasn't gone (she / not / go) out.",
-      "instructionsEn": "Complete the sentences using the present perfect, with the words in brackets. Example: Sally is still here. She hasn't gone (she / not / go) out.",
+      "instructions": "Hoàn thành các câu bằng thì hiện tại hoàn thành, dùng các từ trong ngoặc.",
+      "instructionsEn": "Complete the sentences using the present perfect, with the words in brackets.",
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "Sally is still here. ___ (she / not / go) out.",
+          "answer": "She hasn't gone"
+        }
+      ],
+      "startNumber": 2,
       "items": [
         {
           "prompt": "I can't find my bag. ___ (you / see / it) anywhere?",
@@ -2849,11 +3204,21 @@ const UNIT_7_PRESENT_PERFECT_1: GrammarUnit = {
       "kind": "type_fill",
       "title": "7.4 · Viết câu với just, already hoặc yet",
       "titleEn": "7.4 · Write sentences with just, already or yet",
-      "instructions": "Đọc các tình huống và viết câu dùng just, already hoặc yet, với động từ cho trong ngoặc. Ví dụ: 'Would you like something to eat?' You say: No thank you. I've just had lunch. (have lunch)",
-      "instructionsEn": "Read the situations and write sentences using just, already or yet, with the verb given in brackets. Example: 'Would you like something to eat?' You say: No thank you. I've just had lunch. (have lunch)",
+      "instructions": "Đọc các tình huống và viết câu dùng just, already hoặc yet, với động từ cho trong ngoặc.",
+      "instructionsEn": "Read the situations and write sentences using just, already or yet, with the verb given in brackets.",
+      "examples": [
+        {
+          "label": "1",
+          "context": "'Would you like something to eat?'",
+          "prompt": "You say: No thank you. ___. (have lunch)",
+          "answer": "I've just had lunch"
+        }
+      ],
+      "startNumber": 2,
       "items": [
         {
-          "prompt": "Joe goes out. Five minutes later, the phone rings and the caller says, 'Can I speak to Joe?' You say: I'm afraid ___. (go out)",
+          "context": "Joe goes out. Five minutes later, the phone rings and the caller says, 'Can I speak to Joe?'",
+          "prompt": "You say: I'm afraid ___. (go out)",
           "answer": "he's just gone out",
           "accept": [
             "he has just gone out",
@@ -2861,14 +3226,16 @@ const UNIT_7_PRESENT_PERFECT_1: GrammarUnit = {
           ]
         },
         {
-          "prompt": "You are eating in a restaurant. The waiter thinks you have finished and starts to take your plate away. You say: Wait a minute! ___. (not / finish)",
+          "context": "You are eating in a restaurant. The waiter thinks you have finished and starts to take your plate away. You say: Wait a minute!",
+          "prompt": "___. (not / finish)",
           "answer": "I haven't finished yet",
           "accept": [
             "I have not finished yet"
           ]
         },
         {
-          "prompt": "You plan to eat at a restaurant tonight. You phone to reserve a table. Later your friend says, 'Shall I phone to reserve a table?' You say: No, ___. (do it)",
+          "context": "You plan to eat at a restaurant tonight. You phone to reserve a table. Later your friend says, 'Shall I phone to reserve a table?'",
+          "prompt": "You say: No, ___. (do it)",
           "answer": "I've already done it",
           "accept": [
             "I have already done it",
@@ -2877,7 +3244,8 @@ const UNIT_7_PRESENT_PERFECT_1: GrammarUnit = {
           ]
         },
         {
-          "prompt": "You know that Lisa is looking for a place to live. Perhaps she has been successful. You ask her: ___? (find)",
+          "context": "You know that Lisa is looking for a place to live. Perhaps she has been successful.",
+          "prompt": "You ask her: ___? (find)",
           "answer": "Have you found a place to live yet",
           "accept": [
             "Have you found a place yet",
@@ -2885,7 +3253,8 @@ const UNIT_7_PRESENT_PERFECT_1: GrammarUnit = {
           ]
         },
         {
-          "prompt": "You are still thinking about where to go for your holiday. A friend asks, 'Where are you going for your holiday?' You say: ___. (not / decide)",
+          "context": "You are still thinking about where to go for your holiday. A friend asks, 'Where are you going for your holiday?'",
+          "prompt": "You say: ___. (not / decide)",
           "answer": "I haven't decided yet",
           "accept": [
             "We haven't decided yet",
@@ -2894,7 +3263,8 @@ const UNIT_7_PRESENT_PERFECT_1: GrammarUnit = {
           ]
         },
         {
-          "prompt": "Laura went out, but a few minutes ago she returned. Somebody asks, 'Is Laura still out?' You say: No, ___. (come back)",
+          "context": "Laura went out, but a few minutes ago she returned. Somebody asks, 'Is Laura still out?'",
+          "prompt": "You say: No, ___. (come back)",
           "answer": "she's just come back",
           "accept": [
             "she has just come back",
@@ -3061,25 +3431,34 @@ const UNIT_8_PRESENT_PERFECT_2: GrammarUnit = {
       "titleEn": "8.1 · Write questions with ever",
       "instructions": "Bạn hỏi mọi người về những việc họ đã từng làm. Viết câu hỏi đầy đủ với ever, dùng thì hiện tại hoàn thành.",
       "instructionsEn": "You are asking people about things they have done. Write full questions with ever, using the present perfect.",
-      "passage": "Ví dụ: 1 (ride / horse?) Have you ever ridden a horse?",
-      "passageEn": "Example: 1 (ride / horse?) Have you ever ridden a horse?",
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "(ride / horse?) ___",
+          "answer": "Have you ever ridden a horse?"
+        }
+      ],
+      "startNumber": 2,
       "items": [
         {
-          "prompt": "2 (be / California?) ___",
+          "label": "2",
+          "prompt": "(be / California?) ___",
           "answer": "Have you ever been to California?",
           "accept": [
             "Have you been to California?"
           ]
         },
         {
-          "prompt": "3 (run / marathon?) ___",
+          "label": "3",
+          "prompt": "(run / marathon?) ___",
           "answer": "Have you ever run a marathon?",
           "accept": [
             "Have you run a marathon?"
           ]
         },
         {
-          "prompt": "4 (speak / famous person?) ___",
+          "label": "4",
+          "prompt": "(speak / famous person?) ___",
           "answer": "Have you ever spoken to a famous person?",
           "accept": [
             "Have you ever spoken with a famous person?",
@@ -3087,7 +3466,8 @@ const UNIT_8_PRESENT_PERFECT_2: GrammarUnit = {
           ]
         },
         {
-          "prompt": "5 (most beautiful place / visit?) ___",
+          "label": "5",
+          "prompt": "(most beautiful place / visit?) ___",
           "answer": "What's the most beautiful place you've ever visited?",
           "accept": [
             "What is the most beautiful place you've ever visited?",
@@ -3103,25 +3483,51 @@ const UNIT_8_PRESENT_PERFECT_2: GrammarUnit = {
       "titleEn": "8.2 · Complete B's answers",
       "instructions": "Hoàn thành câu trả lời của B. Một số câu ở dạng khẳng định, một số ở dạng phủ định. Dùng các động từ trong khung, chia ở thì hiện tại hoàn thành.",
       "instructionsEn": "Complete B's answers. Some sentences are positive and some are negative. Use the verbs in the box, in the present perfect.",
-      "passage": "Động từ dùng cho bài này: be, be, eat, happen, have, have, meet, play, read, see, try\n\nVí dụ: 1 A: What's Mark's sister like? B: I've no idea. I've never met her.",
-      "passageEn": "Verbs to use for this exercise: be, be, eat, happen, have, have, meet, play, read, see, try\n\nExample: 1 A: What's Mark's sister like? B: I've no idea. I've never met her.",
+      "wordBank": [
+        "be",
+        "be",
+        "eat",
+        "happen",
+        "have",
+        "have",
+        "meet",
+        "play",
+        "read",
+        "see",
+        "try"
+      ],
+      "examples": [
+        {
+          "label": "1",
+          "context": "A: What's Mark's sister like?",
+          "prompt": "B: I've no idea. ___ her.",
+          "answer": "I've never met"
+        }
+      ],
+      "startNumber": 2,
       "items": [
         {
-          "prompt": "2 A: Is everything going well? B: Yes, we ___ any problems so far.",
+          "label": "2",
+          "context": "A: Is everything going well?",
+          "prompt": "B: Yes, we ___ any problems so far.",
           "answer": "haven't had",
           "accept": [
             "have not had"
           ]
         },
         {
-          "prompt": "3 A: Are you hungry? B: Yes. I ___ much today.",
+          "label": "3",
+          "context": "A: Are you hungry?",
+          "prompt": "B: Yes. I ___ much today.",
           "answer": "haven't eaten",
           "accept": [
             "have not eaten"
           ]
         },
         {
-          "prompt": "4 A: Can you play chess? B: Yes, but ___ for ages.",
+          "label": "4",
+          "context": "A: Can you play chess?",
+          "prompt": "B: Yes, but ___ for ages.",
           "answer": "I haven't played",
           "accept": [
             "I have not played",
@@ -3130,14 +3536,18 @@ const UNIT_8_PRESENT_PERFECT_2: GrammarUnit = {
           ]
         },
         {
-          "prompt": "5 A: Are you enjoying your holiday? B: Yes, it's the best holiday ___ for a long time.",
+          "label": "5",
+          "context": "A: Are you enjoying your holiday?",
+          "prompt": "B: Yes, it's the best holiday ___ for a long time.",
           "answer": "I've had",
           "accept": [
             "I have had"
           ]
         },
         {
-          "prompt": "6 A: What's that book about? B: I don't know. ___ it.",
+          "label": "6",
+          "context": "A: What's that book about?",
+          "prompt": "B: I don't know. ___ it.",
           "answer": "I haven't read",
           "accept": [
             "I have not read",
@@ -3146,7 +3556,9 @@ const UNIT_8_PRESENT_PERFECT_2: GrammarUnit = {
           ]
         },
         {
-          "prompt": "7 A: Is Brussels an interesting place? B: I've no idea. ___ there.",
+          "label": "7",
+          "context": "A: Is Brussels an interesting place?",
+          "prompt": "B: I've no idea. ___ there.",
           "answer": "I've never been",
           "accept": [
             "I have never been",
@@ -3155,7 +3567,9 @@ const UNIT_8_PRESENT_PERFECT_2: GrammarUnit = {
           ]
         },
         {
-          "prompt": "8 A: I hear your car broke down again yesterday. B: Yes, it's the second time ___ this month.",
+          "label": "8",
+          "context": "A: I hear your car broke down again yesterday.",
+          "prompt": "B: Yes, it's the second time ___ this month.",
           "answer": "it's happened",
           "accept": [
             "it has happened",
@@ -3164,7 +3578,9 @@ const UNIT_8_PRESENT_PERFECT_2: GrammarUnit = {
           ]
         },
         {
-          "prompt": "9 A: Do you like caviar? B: I don't know. ___ it.",
+          "label": "9",
+          "context": "A: Do you like caviar?",
+          "prompt": "B: I don't know. ___ it.",
           "answer": "I've never tried",
           "accept": [
             "I have never tried",
@@ -3173,14 +3589,18 @@ const UNIT_8_PRESENT_PERFECT_2: GrammarUnit = {
           ]
         },
         {
-          "prompt": "10 A: Mike was late for work again today. B: Again? He ___ late every day this week.",
+          "label": "10",
+          "context": "A: Mike was late for work again today.",
+          "prompt": "B: Again? He ___ late every day this week.",
           "answer": "has been",
           "accept": [
             "'s been"
           ]
         },
         {
-          "prompt": "11 A: Who's that woman by the door? B: I don't know. ___ her before.",
+          "label": "11",
+          "context": "A: Who's that woman by the door?",
+          "prompt": "B: I don't know. ___ her before.",
           "answer": "I haven't seen",
           "accept": [
             "I have not seen",
@@ -3196,18 +3616,29 @@ const UNIT_8_PRESENT_PERFECT_2: GrammarUnit = {
       "titleEn": "8.4 · Read the situations and complete the sentences",
       "instructions": "Đọc các tình huống rồi hoàn thành câu bằng thì hiện tại hoàn thành (It's the first time ... / ... hasn't ... before).",
       "instructionsEn": "Read the situations and complete the sentences using the present perfect (It's the first time ... / ... hasn't ... before).",
-      "passage": "Ví dụ: 1 Jack is driving a car for the first time. He's very nervous and not sure what to do. It's the first time he's driven a car.",
-      "passageEn": "Example: 1 Jack is driving a car for the first time. He's very nervous and not sure what to do. It's the first time he's driven a car.",
+      "examples": [
+        {
+          "label": "1",
+          "context": "Jack is driving a car for the first time. He's very nervous and not sure what to do.",
+          "prompt": "It's the first time ___ a car.",
+          "answer": "he's driven"
+        }
+      ],
+      "startNumber": 2,
       "items": [
         {
-          "prompt": "2 Some children at the zoo are looking at a giraffe. They've never seen one before. It's the first time ___ a giraffe.",
+          "label": "2",
+          "context": "Some children at the zoo are looking at a giraffe. They've never seen one before.",
+          "prompt": "It's the first time ___ a giraffe.",
           "answer": "they've seen",
           "accept": [
             "they have seen"
           ]
         },
         {
-          "prompt": "3 Sue is riding a horse. She doesn't look very confident or comfortable. She ___ before.",
+          "label": "3",
+          "context": "Sue is riding a horse. She doesn't look very confident or comfortable.",
+          "prompt": "She ___ before.",
           "answer": "hasn't ridden a horse",
           "accept": [
             "has not ridden a horse",
@@ -3216,7 +3647,9 @@ const UNIT_8_PRESENT_PERFECT_2: GrammarUnit = {
           ]
         },
         {
-          "prompt": "4 Joe and Lisa are on holiday in Japan. They've been to Japan once before. This is the second time ___.",
+          "label": "4",
+          "context": "Joe and Lisa are on holiday in Japan. They've been to Japan once before.",
+          "prompt": "This is the second time ___.",
           "answer": "they've been to Japan",
           "accept": [
             "they have been to Japan",
@@ -3226,7 +3659,9 @@ const UNIT_8_PRESENT_PERFECT_2: GrammarUnit = {
           ]
         },
         {
-          "prompt": "5 Emily is staying at the Prince Hotel. She stayed there a few years ago. It's not the first ___ this hotel.",
+          "label": "5",
+          "context": "Emily is staying at the Prince Hotel. She stayed there a few years ago.",
+          "prompt": "It's not the first ___ this hotel.",
           "answer": "time she's stayed at",
           "accept": [
             "time she has stayed at",
@@ -3235,7 +3670,9 @@ const UNIT_8_PRESENT_PERFECT_2: GrammarUnit = {
           ]
         },
         {
-          "prompt": "6 Ben is playing tennis for the first time. He's a complete beginner. ___ before.",
+          "label": "6",
+          "context": "Ben is playing tennis for the first time. He's a complete beginner.",
+          "prompt": "___ before.",
           "answer": "He hasn't played tennis",
           "accept": [
             "He has not played tennis",
@@ -3399,23 +3836,38 @@ const UNIT_9_PRESENT_PERFECT_CONTINUOUS: GrammarUnit = {
       "titleEn": "9.2 · Write a question for each situation",
       "instructions": "Viết một câu hỏi cho mỗi tình huống, dùng thì hiện tại hoàn thành tiếp diễn (have/has been + -ing).",
       "instructionsEn": "Write a question for each situation, using the present perfect continuous (have/has been + -ing).",
-      "passage": "Ví dụ: 1 You meet Kate as she is leaving the swimming pool. Hi, Kate. (you / swim?) Have you been swimming?",
-      "passageEn": "Example: 1 You meet Kate as she is leaving the swimming pool. Hi, Kate. (you / swim?) Have you been swimming?",
+      "examples": [
+        {
+          "label": "1",
+          "context": "You meet Kate as she is leaving the swimming pool.",
+          "prompt": "Hi, Kate. (you / swim?) ___",
+          "answer": "Have you been swimming?"
+        }
+      ],
+      "startNumber": 2,
       "items": [
         {
-          "prompt": "2 You have arrived a little late to meet Ben who is waiting for you. You say: (you / wait / long?) ___",
+          "label": "2",
+          "context": "You have arrived a little late to meet Ben who is waiting for you.",
+          "prompt": "You say: (you / wait / long?) ___",
           "answer": "Have you been waiting long?"
         },
         {
-          "prompt": "3 Jane's little boy comes into the house with a very dirty face and dirty hands. His mother says: (what / you / do?) ___",
+          "label": "3",
+          "context": "Jane's little boy comes into the house with a very dirty face and dirty hands.",
+          "prompt": "His mother says: (what / you / do?) ___",
           "answer": "What have you been doing?"
         },
         {
-          "prompt": "4 You are in a shop and see Anna. You didn't know she worked there. You say: (how long / you / work / here?) ___",
+          "label": "4",
+          "context": "You are in a shop and see Anna. You didn't know she worked there.",
+          "prompt": "You say: (how long / you / work / here?) ___",
           "answer": "How long have you been working here?"
         },
         {
-          "prompt": "5 A friend tells you about his job, he sells phones. You say: (how long / you / do / that?) ___",
+          "label": "5",
+          "context": "A friend tells you about his job, he sells phones.",
+          "prompt": "You say: (how long / you / do / that?) ___",
           "answer": "How long have you been doing that?"
         }
       ]
@@ -3426,18 +3878,29 @@ const UNIT_9_PRESENT_PERFECT_CONTINUOUS: GrammarUnit = {
       "titleEn": "9.3 · Read the situations and complete the sentences",
       "instructions": "Đọc tình huống rồi hoàn thành câu bằng thì hiện tại hoàn thành tiếp diễn (have/has been + -ing).",
       "instructionsEn": "Read the situation, then complete the sentence using the present perfect continuous (have/has been + -ing).",
-      "passage": "Ví dụ: 1 It's raining. The rain started two hours ago. It's been raining for two hours.",
-      "passageEn": "Example: 1 It's raining. The rain started two hours ago. It's been raining for two hours.",
+      "examples": [
+        {
+          "label": "1",
+          "context": "It's raining. The rain started two hours ago.",
+          "prompt": "It ___ for two hours.",
+          "answer": "'s been raining"
+        }
+      ],
+      "startNumber": 2,
       "items": [
         {
-          "prompt": "2 We are waiting for the bus. We started waiting 20 minutes ago. We ___ for 20 minutes.",
+          "label": "2",
+          "context": "We are waiting for the bus. We started waiting 20 minutes ago.",
+          "prompt": "We ___ for 20 minutes.",
           "answer": "have been waiting",
           "accept": [
             "'ve been waiting"
           ]
         },
         {
-          "prompt": "3 I'm learning Japanese. I started classes in December. I ___ since December.",
+          "label": "3",
+          "context": "I'm learning Japanese. I started classes in December.",
+          "prompt": "I ___ since December.",
           "answer": "have been learning Japanese",
           "accept": [
             "'ve been learning Japanese",
@@ -3445,7 +3908,9 @@ const UNIT_9_PRESENT_PERFECT_CONTINUOUS: GrammarUnit = {
           ]
         },
         {
-          "prompt": "4 Jessica is working in a hotel. She started working there on 18 January. ___ since 18 January.",
+          "label": "4",
+          "context": "Jessica is working in a hotel. She started working there on 18 January.",
+          "prompt": "___ since 18 January.",
           "answer": "She has been working in a hotel",
           "accept": [
             "She's been working in a hotel",
@@ -3454,7 +3919,9 @@ const UNIT_9_PRESENT_PERFECT_CONTINUOUS: GrammarUnit = {
           ]
         },
         {
-          "prompt": "5 Our friends always go to Italy for their holidays. The first time was years ago. ___ for years.",
+          "label": "5",
+          "context": "Our friends always go to Italy for their holidays. The first time was years ago.",
+          "prompt": "___ for years.",
           "answer": "They have been going to Italy",
           "accept": [
             "They've been going to Italy"
@@ -3468,57 +3935,71 @@ const UNIT_9_PRESENT_PERFECT_CONTINUOUS: GrammarUnit = {
       "titleEn": "9.4 · Choose the present continuous or the present perfect continuous",
       "instructions": "Chia động từ trong ngoặc ở thì hiện tại tiếp diễn (am/is/are + -ing) hoặc hiện tại hoàn thành tiếp diễn (have/has been + -ing).",
       "instructionsEn": "Put the verb in brackets into the present continuous (am/is/are + -ing) or the present perfect continuous (have/has been + -ing).",
-      "passage": "Ví dụ: 1 Maria has been learning (Maria / learn) English for two years.",
-      "passageEn": "Example: 1 Maria has been learning (Maria / learn) English for two years.",
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "Maria ___ (Maria / learn) English for two years.",
+          "answer": "has been learning"
+        }
+      ],
+      "startNumber": 2,
       "items": [
         {
-          "prompt": "2 Hi, Tom. ___ (I / look) for you. I need to ask you something.",
+          "label": "2",
+          "prompt": "Hi, Tom. ___ (I / look) for you. I need to ask you something.",
           "answer": "I've been looking",
           "accept": [
             "I have been looking"
           ]
         },
         {
-          "prompt": "3 Why ___ (you / look) at me like that? Stop it!",
+          "label": "3",
+          "prompt": "Why ___ (you / look) at me like that? Stop it!",
           "answer": "are you looking"
         },
         {
-          "prompt": "4 Rachel is a teacher. ___ (she / teach) for ten years.",
+          "label": "4",
+          "prompt": "Rachel is a teacher. ___ (she / teach) for ten years.",
           "answer": "She has been teaching",
           "accept": [
             "She's been teaching"
           ]
         },
         {
-          "prompt": "5 ___ (I / think) about what you said and I've decided to take your advice.",
+          "label": "5",
+          "prompt": "___ (I / think) about what you said and I've decided to take your advice.",
           "answer": "I've been thinking",
           "accept": [
             "I have been thinking"
           ]
         },
         {
-          "prompt": "6 'Is Paul on holiday this week?' 'No, ___ (he / work).'",
+          "label": "6",
+          "prompt": "'Is Paul on holiday this week?' 'No, ___ (he / work).'",
           "answer": "he's working",
           "accept": [
             "he is working"
           ]
         },
         {
-          "prompt": "7 Sarah is very tired. ___ (she / work) very hard recently.",
+          "label": "7",
+          "prompt": "Sarah is very tired. ___ (she / work) very hard recently.",
           "answer": "She's been working",
           "accept": [
             "She has been working"
           ]
         },
         {
-          "prompt": "8 It's dangerous to use your phone when ___ (you / drive).",
+          "label": "8",
+          "prompt": "It's dangerous to use your phone when ___ (you / drive).",
           "answer": "you're driving",
           "accept": [
             "you are driving"
           ]
         },
         {
-          "prompt": "9 Laura ___ (travel) in South America for the last three months.",
+          "label": "9",
+          "prompt": "Laura ___ (travel) in South America for the last three months.",
           "answer": "has been travelling",
           "accept": [
             "has been traveling"
@@ -3685,11 +4166,25 @@ const UNIT_10_PRESENT_PERFECT_CONTINUOUS_AND_SIMPLE: GrammarUnit = {
       "titleEn": "10.1 · Read the situation and complete the sentences",
       "instructions": "Đọc tình huống rồi hoàn thành các câu bằng động từ trong ngoặc, chia ở thì hiện tại hoàn thành tiếp diễn hoặc hiện tại hoàn thành đơn.",
       "instructionsEn": "Read the situation, then complete the sentences using the verbs in brackets, in the present perfect continuous or present perfect simple.",
-      "passage": "Ví dụ: 1 Tom started reading a book two hours ago. He is still reading it and now he is on page 53. He has been reading for two hours. (read) He has read 53 pages so far. (read)",
-      "passageEn": "Example: 1 Tom started reading a book two hours ago. He is still reading it and now he is on page 53. He has been reading for two hours. (read) He has read 53 pages so far. (read)",
+      "examples": [
+        {
+          "label": "1",
+          "context": "Tom started reading a book two hours ago. He is still reading it and now he is on page 53.",
+          "prompt": "He ___ for two hours. (read) He ___ 53 pages so far. (read)",
+          "answer": "has been reading",
+          "extraBlanks": [
+            {
+              "answer": "has read"
+            }
+          ]
+        }
+      ],
+      "startNumber": 2,
       "items": [
         {
-          "prompt": "2a Rachel is from Australia. She is travelling round Europe. She began her trip three months ago. She ___ for three months. (travel)",
+          "label": "2a",
+          "context": "Rachel is from Australia. She is travelling round Europe. She began her trip three months ago.",
+          "prompt": "She ___ for three months. (travel)",
           "answer": "has been travelling round Europe",
           "accept": [
             "'s been travelling round Europe",
@@ -3697,21 +4192,27 @@ const UNIT_10_PRESENT_PERFECT_CONTINUOUS_AND_SIMPLE: GrammarUnit = {
           ]
         },
         {
-          "prompt": "2b She began her trip three months ago. ___ six countries so far. (visit)",
+          "label": "2b",
+          "context": "Rachel is from Australia. She is travelling round Europe. She began her trip three months ago.",
+          "prompt": "___ six countries so far. (visit)",
           "answer": "She has visited",
           "accept": [
             "She's visited"
           ]
         },
         {
-          "prompt": "3a Patrick is a tennis player. He began playing tennis when he was 10 years old. This year he won the national championship again, for the fourth time. ___ the national championship four times. (win)",
+          "label": "3a",
+          "context": "Patrick is a tennis player. He began playing tennis when he was 10 years old. This year he won the national championship again, for the fourth time.",
+          "prompt": "___ the national championship four times. (win)",
           "answer": "He has won",
           "accept": [
             "He's won"
           ]
         },
         {
-          "prompt": "3b ___ since he was ten. (play)",
+          "label": "3b",
+          "context": "Patrick is a tennis player. He began playing tennis when he was 10 years old. This year he won the national championship again, for the fourth time.",
+          "prompt": "___ since he was ten. (play)",
           "answer": "He has been playing tennis",
           "accept": [
             "He's been playing tennis",
@@ -3719,14 +4220,18 @@ const UNIT_10_PRESENT_PERFECT_CONTINUOUS_AND_SIMPLE: GrammarUnit = {
           ]
         },
         {
-          "prompt": "4a When they left college, Lisa and Sue started making films together. They still make films. They ___ films since they left college. (make)",
+          "label": "4a",
+          "context": "When they left college, Lisa and Sue started making films together. They still make films.",
+          "prompt": "They ___ films since they left college. (make)",
           "answer": "have been making",
           "accept": [
             "'ve been making"
           ]
         },
         {
-          "prompt": "4b ___ five films since they left college. (make)",
+          "label": "4b",
+          "context": "When they left college, Lisa and Sue started making films together. They still make films.",
+          "prompt": "___ five films since they left college. (make)",
           "answer": "They have made",
           "accept": [
             "They've made"
@@ -3740,39 +4245,60 @@ const UNIT_10_PRESENT_PERFECT_CONTINUOUS_AND_SIMPLE: GrammarUnit = {
       "titleEn": "10.2 · Ask questions using the present perfect simple or continuous",
       "instructions": "Đặt câu hỏi bằng các từ trong ngoặc, dùng thì hiện tại hoàn thành đơn (have/has done) hoặc tiếp diễn (have/has been doing).",
       "instructionsEn": "Ask questions using the words in brackets, using the present perfect simple (have/has done) or continuous (have/has been doing).",
-      "passage": "Ví dụ: 1 You have a friend who is learning Arabic. You ask: (how long / learn / Arabic?) How long have you been learning Arabic?",
-      "passageEn": "Example: 1 You have a friend who is learning Arabic. You ask: (how long / learn / Arabic?) How long have you been learning Arabic?",
+      "examples": [
+        {
+          "label": "1",
+          "context": "You have a friend who is learning Arabic.",
+          "prompt": "You ask: (how long / learn / Arabic?) ___",
+          "answer": "How long have you been learning Arabic?"
+        }
+      ],
+      "startNumber": 2,
       "items": [
         {
-          "prompt": "2 You have just arrived to meet a friend. She is waiting for you. You ask: (wait / long?) ___",
+          "label": "2",
+          "context": "You have just arrived to meet a friend. She is waiting for you.",
+          "prompt": "You ask: (wait / long?) ___",
           "answer": "Have you been waiting long?"
         },
         {
-          "prompt": "3 You see somebody fishing by the river. You ask: (catch / any fish?) ___",
+          "label": "3",
+          "context": "You see somebody fishing by the river.",
+          "prompt": "You ask: (catch / any fish?) ___",
           "answer": "Have you caught any fish?"
         },
         {
-          "prompt": "4 Some friends of yours are having a party next week. You ask: (how many people / invite?) ___",
+          "label": "4",
+          "context": "Some friends of yours are having a party next week.",
+          "prompt": "You ask: (how many people / invite?) ___",
           "answer": "How many people have you invited?"
         },
         {
-          "prompt": "5 A friend of yours is a teacher. You ask: (how long / teach?) ___",
+          "label": "5",
+          "context": "A friend of yours is a teacher.",
+          "prompt": "You ask: (how long / teach?) ___",
           "answer": "How long have you been teaching?"
         },
         {
-          "prompt": "6a You meet somebody who is a writer. You ask: (how many books / write?) ___",
+          "label": "6a",
+          "context": "You meet somebody who is a writer.",
+          "prompt": "You ask: (how many books / write?) ___",
           "answer": "How many books have you written?"
         },
         {
-          "prompt": "6b You also ask: (how long / write / books?) ___",
+          "label": "6b",
+          "prompt": "You also ask: (how long / write / books?) ___",
           "answer": "How long have you been writing books?"
         },
         {
-          "prompt": "7a A friend of yours is saving money to go on a world trip. You ask: (how long / save?) ___",
+          "label": "7a",
+          "context": "A friend of yours is saving money to go on a world trip.",
+          "prompt": "You ask: (how long / save?) ___",
           "answer": "How long have you been saving?"
         },
         {
-          "prompt": "7b You also ask: (how much money / save?) ___",
+          "label": "7b",
+          "prompt": "You also ask: (how much money / save?) ___",
           "answer": "How much money have you saved?"
         }
       ]
@@ -3783,107 +4309,129 @@ const UNIT_10_PRESENT_PERFECT_CONTINUOUS_AND_SIMPLE: GrammarUnit = {
       "titleEn": "10.3 · Put the verb into the present perfect simple or continuous",
       "instructions": "Chia động từ trong ngoặc ở thì hiện tại hoàn thành đơn (have/has done) hoặc tiếp diễn (have/has been doing).",
       "instructionsEn": "Put the verb in brackets into the present perfect simple (have/has done) or continuous (have/has been doing).",
-      "passage": "Ví dụ: 1 Where have you been? Have you been playing (you / play) tennis?",
-      "passageEn": "Example: 1 Where have you been? Have you been playing (you / play) tennis?",
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "Where have you been? ___ (you / play) tennis?",
+          "answer": "Have you been playing"
+        }
+      ],
+      "startNumber": 2,
       "items": [
         {
-          "prompt": "2 Look! ___ (somebody / break) that window.",
+          "label": "2",
+          "prompt": "Look! ___ (somebody / break) that window.",
           "answer": "Somebody has broken",
           "accept": [
             "Somebody's broken"
           ]
         },
         {
-          "prompt": "3 You look tired. ___ (you / work) hard?",
+          "label": "3",
+          "prompt": "You look tired. ___ (you / work) hard?",
           "answer": "Have you been working",
           "accept": [
             "Have you been working hard"
           ]
         },
         {
-          "prompt": "4 '___ (you / ever / work) in a factory?' 'No, never.'",
+          "label": "4",
+          "prompt": "'___ (you / ever / work) in a factory?' 'No, never.'",
           "answer": "Have you ever worked"
         },
         {
-          "prompt": "5 Where's Lisa? Where ___ (she / go)?",
+          "label": "5",
+          "prompt": "Where's Lisa? Where ___ (she / go)?",
           "answer": "has she gone"
         },
         {
-          "prompt": "6 This is a very old book. ___ (I / have) it since I was a child.",
+          "label": "6",
+          "prompt": "This is a very old book. ___ (I / have) it since I was a child.",
           "answer": "I've had",
           "accept": [
             "I have had"
           ]
         },
         {
-          "prompt": "7 'Have you been busy?' 'No, ___ (I / watch) TV.'",
+          "label": "7",
+          "prompt": "'Have you been busy?' 'No, ___ (I / watch) TV.'",
           "answer": "I've been watching",
           "accept": [
             "I have been watching"
           ]
         },
         {
-          "prompt": "8 My brother is an actor. ___ (he / appear) in several films.",
+          "label": "8",
+          "prompt": "My brother is an actor. ___ (he / appear) in several films.",
           "answer": "He has appeared",
           "accept": [
             "He's appeared"
           ]
         },
         {
-          "prompt": "9 'Sorry I'm late.' 'That's all right. ___ (I / not / wait) long.'",
+          "label": "9",
+          "prompt": "'Sorry I'm late.' 'That's all right. ___ (I / not / wait) long.'",
           "answer": "I haven't been waiting",
           "accept": [
             "I have not been waiting"
           ]
         },
         {
-          "prompt": "10 Are you OK? You look as if ___ (you / cry).",
+          "label": "10",
+          "prompt": "Are you OK? You look as if ___ (you / cry).",
           "answer": "you've been crying",
           "accept": [
             "you have been crying"
           ]
         },
         {
-          "prompt": "11 'Is it still raining?' 'No, ___ (it / stop).'",
+          "label": "11",
+          "prompt": "'Is it still raining?' 'No, ___ (it / stop).'",
           "answer": "it's stopped",
           "accept": [
             "it has stopped"
           ]
         },
         {
-          "prompt": "12 The children are tired now. ___ (they / play) in the garden.",
+          "label": "12",
+          "prompt": "The children are tired now. ___ (they / play) in the garden.",
           "answer": "They've been playing",
           "accept": [
             "They have been playing"
           ]
         },
         {
-          "prompt": "13a ___ (I / lose) my phone.",
+          "label": "13a",
+          "prompt": "___ (I / lose) my phone.",
           "answer": "I've lost",
           "accept": [
             "I have lost"
           ]
         },
         {
-          "prompt": "13b ___ (you / see) it?",
+          "label": "13b",
+          "prompt": "___ (you / see) it?",
           "answer": "Have you seen"
         },
         {
-          "prompt": "14a ___ (I / read) the book you lent me, but",
+          "label": "14a",
+          "prompt": "___ (I / read) the book you lent me, but",
           "answer": "I've been reading",
           "accept": [
             "I have been reading"
           ]
         },
         {
-          "prompt": "14b ___ (I / not / finish) it yet. It's really interesting.",
+          "label": "14b",
+          "prompt": "___ (I / not / finish) it yet. It's really interesting.",
           "answer": "I haven't finished",
           "accept": [
             "I have not finished"
           ]
         },
         {
-          "prompt": "15 ___ (I / read) the book you lent me, so you can have it back now.",
+          "label": "15",
+          "prompt": "___ (I / read) the book you lent me, so you can have it back now.",
           "answer": "I've read",
           "accept": [
             "I have read"
@@ -4037,88 +4585,94 @@ const UNIT_11_HOW_LONG_HAVE_YOU_BEEN: GrammarUnit = {
       "titleEn": "11.1 · Choose the correct sentence",
       "instructions": "Chọn cách diễn đạt đúng trong mỗi cặp.",
       "instructionsEn": "Choose the correct wording in each pair.",
-      "passage": "Ví dụ: 1 Ben is a friend of mine. I know / I've known him very well. (I know is correct)",
-      "passageEn": "Example: 1 Ben is a friend of mine. I know / I've known him very well. (I know is correct)",
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "Ben is a friend of mine. ___ him very well.",
+          "answer": "I know"
+        }
+      ],
+      "startNumber": 2,
       "items": [
         {
           "before": "I like your house. How long",
+          "after": "here?",
           "options": [
             "do you live",
             "have you lived"
           ],
-          "after": "here?",
           "answer": "have you lived"
         },
         {
           "before": "You'll need an umbrella if you go out now.",
+          "after": "",
           "options": [
             "It's raining",
             "It's been raining"
           ],
-          "after": "",
           "answer": "It's raining"
         },
         {
           "before": "The weather",
+          "after": "awful since I arrived here.",
           "options": [
             "is",
             "has been"
           ],
-          "after": "awful since I arrived here.",
           "answer": "has been"
         },
         {
           "before": "I'm sorry I'm late.",
+          "after": "long?",
           "options": [
             "Are you waiting",
             "Have you been waiting"
           ],
-          "after": "long?",
           "answer": "Have you been waiting"
         },
         {
           "before": "We've moved.",
+          "after": "in New Street now.",
           "options": [
             "We're living",
             "We've been living"
           ],
-          "after": "in New Street now.",
           "answer": "We're living"
         },
         {
           "before": "I met Maria only recently.",
+          "after": "her very long.",
           "options": [
             "I don't know",
             "I haven't known"
           ],
-          "after": "her very long.",
           "answer": "I haven't known"
         },
         {
           "before": "Lisa is in Germany.",
+          "after": "there on a business trip.",
           "options": [
             "She's",
             "She's been"
           ],
-          "after": "there on a business trip.",
           "answer": "She's"
         },
         {
           "before": "That's a very old bike. How long",
+          "after": "it?",
           "options": [
             "do you have",
             "have you had"
           ],
-          "after": "it?",
           "answer": "have you had"
         },
         {
           "before": "I'm not feeling good.",
+          "after": "ill all day.",
           "options": [
             "I'm feeling",
             "I've been feeling"
           ],
-          "after": "ill all day.",
           "answer": "I've been feeling"
         }
       ]
@@ -4129,34 +4683,53 @@ const UNIT_11_HOW_LONG_HAVE_YOU_BEEN: GrammarUnit = {
       "titleEn": "11.2 · Read the situations and write questions",
       "instructions": "Đọc tình huống rồi viết câu hỏi bằng các từ trong ngoặc, dùng how long have/has ...",
       "instructionsEn": "Read the situation and write a question using the words in brackets, with how long have/has ...",
-      "passage": "Ví dụ: 1 A friend tells you that Paul is in hospital. You ask him: (how long / Paul / hospital?) How long has Paul been in hospital?",
-      "passageEn": "Example: 1 A friend tells you that Paul is in hospital. You ask him: (how long / Paul / hospital?) How long has Paul been in hospital?",
+      "examples": [
+        {
+          "label": "1",
+          "context": "A friend tells you that Paul is in hospital.",
+          "prompt": "You ask him: (how long / Paul / hospital?) ___",
+          "answer": "How long has Paul been in hospital?"
+        }
+      ],
+      "startNumber": 2,
       "items": [
         {
-          "prompt": "2 You know that Jane is a good friend of Katherine's. You ask Jane: (how long / you / know / Katherine?) ___",
+          "label": "2",
+          "context": "You know that Jane is a good friend of Katherine's.",
+          "prompt": "You ask Jane: (how long / you / know / Katherine?) ___",
           "answer": "How long have you known Katherine?"
         },
         {
-          "prompt": "3 Your friend's sister went to Australia some time ago and she's still there. You ask your friend: (how long / sister / in Australia?) ___",
+          "label": "3",
+          "context": "Your friend's sister went to Australia some time ago and she's still there.",
+          "prompt": "You ask your friend: (how long / sister / in Australia?) ___",
           "answer": "How long has your sister been in Australia?"
         },
         {
-          "prompt": "4 You meet a woman who tells you that she teaches English. You ask her: (how long / you / teach / English?) ___",
+          "label": "4",
+          "context": "You meet a woman who tells you that she teaches English.",
+          "prompt": "You ask her: (how long / you / teach / English?) ___",
           "answer": "How long have you been teaching English?"
         },
         {
-          "prompt": "5 Tom always wears the same jacket. It's very old. You ask him: (how long / you / have / that jacket?) ___",
+          "label": "5",
+          "context": "Tom always wears the same jacket. It's very old.",
+          "prompt": "You ask him: (how long / you / have / that jacket?) ___",
           "answer": "How long have you had that jacket?"
         },
         {
-          "prompt": "6 You are talking to a friend about Joe, who now works at the airport. You ask your friend: (how long / Joe / work / airport?) ___",
+          "label": "6",
+          "context": "You are talking to a friend about Joe, who now works at the airport.",
+          "prompt": "You ask your friend: (how long / Joe / work / airport?) ___",
           "answer": "How long has Joe been working at the airport?",
           "accept": [
             "How long has Joe worked at the airport?"
           ]
         },
         {
-          "prompt": "7 You meet somebody on a plane. She says that she lives in Chicago. You ask her: (you / always / live / in Chicago?) ___",
+          "label": "7",
+          "context": "You meet somebody on a plane. She says that she lives in Chicago.",
+          "prompt": "You ask her: (you / always / live / in Chicago?) ___",
           "answer": "Have you always lived in Chicago?"
         }
       ]
@@ -4167,67 +4740,92 @@ const UNIT_11_HOW_LONG_HAVE_YOU_BEEN: GrammarUnit = {
       "titleEn": "11.3 · Complete B's answers",
       "instructions": "Hoàn thành câu trả lời của B, dùng thì hiện tại hoàn thành đơn hoặc tiếp diễn.",
       "instructionsEn": "Complete B's answers, using the present perfect simple or continuous.",
-      "passage": "Ví dụ: 1 A: Paul is in hospital, isn't he? B: Yes, he has been in hospital since Monday.",
-      "passageEn": "Example: 1 A: Paul is in hospital, isn't he? B: Yes, he has been in hospital since Monday.",
+      "examples": [
+        {
+          "label": "1",
+          "context": "A: Paul is in hospital, isn't he?",
+          "prompt": "B: Yes, he ___ in hospital since Monday.",
+          "answer": "has been"
+        }
+      ],
+      "startNumber": 2,
       "items": [
         {
-          "prompt": "2 A: Do you see Lisa very often? B: No, I ___ her for three months.",
+          "label": "2",
+          "context": "A: Do you see Lisa very often?",
+          "prompt": "B: No, I ___ her for three months.",
           "answer": "haven't seen",
           "accept": [
             "have not seen"
           ]
         },
         {
-          "prompt": "3 A: Is Paul married? B: Yes, he ___ married for ten years.",
+          "label": "3",
+          "context": "A: Is Paul married?",
+          "prompt": "B: Yes, he ___ married for ten years.",
           "answer": "has been",
           "accept": [
             "'s been"
           ]
         },
         {
-          "prompt": "4 A: Is Amy married? B: Yes, she ___ married to a German guy.",
+          "label": "4",
+          "context": "A: Is Amy married?",
+          "prompt": "B: Yes, she ___ married to a German guy.",
           "answer": "she's",
           "accept": [
             "she is"
           ]
         },
         {
-          "prompt": "5 A: Do you still play tennis? B: No, I ___ tennis for years.",
+          "label": "5",
+          "context": "A: Do you still play tennis?",
+          "prompt": "B: No, I ___ tennis for years.",
           "answer": "haven't played",
           "accept": [
             "have not played"
           ]
         },
         {
-          "prompt": "6 A: Are you waiting for the bus? B: Yes, I ___ for about 20 minutes.",
+          "label": "6",
+          "context": "A: Are you waiting for the bus?",
+          "prompt": "B: Yes, I ___ for about 20 minutes.",
           "answer": "have been waiting",
           "accept": [
             "'ve been waiting"
           ]
         },
         {
-          "prompt": "7 A: You know Mel, don't you? B: Yes, we ___ each other a long time.",
+          "label": "7",
+          "context": "A: You know Mel, don't you?",
+          "prompt": "B: Yes, we ___ each other a long time.",
           "answer": "have known",
           "accept": [
             "'ve known"
           ]
         },
         {
-          "prompt": "8 A: Jack is never ill, is he? B: No, he ___ ill since I've known him.",
+          "label": "8",
+          "context": "A: Jack is never ill, is he?",
+          "prompt": "B: No, he ___ ill since I've known him.",
           "answer": "hasn't been",
           "accept": [
             "has not been"
           ]
         },
         {
-          "prompt": "9 A: Martin lives in Italy, doesn't he? B: Yes, he ___ in Milan.",
+          "label": "9",
+          "context": "A: Martin lives in Italy, doesn't he?",
+          "prompt": "B: Yes, he ___ in Milan.",
           "answer": "lives",
           "accept": [
             "'s living"
           ]
         },
         {
-          "prompt": "10 A: Sue lives in Berlin, doesn't she? B: Yes, she ___ in Berlin for many years.",
+          "label": "10",
+          "context": "A: Sue lives in Berlin, doesn't she?",
+          "prompt": "B: Yes, she ___ in Berlin for many years.",
           "answer": "has lived",
           "accept": [
             "'s lived",
@@ -4236,35 +4834,45 @@ const UNIT_11_HOW_LONG_HAVE_YOU_BEEN: GrammarUnit = {
           ]
         },
         {
-          "prompt": "11 A: Is Joe watching TV? B: Yes, he ___ TV all evening.",
+          "label": "11",
+          "context": "A: Is Joe watching TV?",
+          "prompt": "B: Yes, he ___ TV all evening.",
           "answer": "has been watching",
           "accept": [
             "'s been watching"
           ]
         },
         {
-          "prompt": "12 A: Do you watch TV a lot? B: No, I ___ TV since last weekend.",
+          "label": "12",
+          "context": "A: Do you watch TV a lot?",
+          "prompt": "B: No, I ___ TV since last weekend.",
           "answer": "haven't watched",
           "accept": [
             "have not watched"
           ]
         },
         {
-          "prompt": "13 A: Do you have a headache? B: Yes, I ___ a headache all morning.",
+          "label": "13",
+          "context": "A: Do you have a headache?",
+          "prompt": "B: Yes, I ___ a headache all morning.",
           "answer": "have had",
           "accept": [
             "'ve had"
           ]
         },
         {
-          "prompt": "14 A: Do you go to the cinema a lot? B: No, I ___ to the cinema for ages.",
+          "label": "14",
+          "context": "A: Do you go to the cinema a lot?",
+          "prompt": "B: No, I ___ to the cinema for ages.",
           "answer": "haven't been",
           "accept": [
             "have not been"
           ]
         },
         {
-          "prompt": "15 A: Would you like to go to New York one day? B: Yes, I ___ to go to New York. (use always / want)",
+          "label": "15",
+          "context": "A: Would you like to go to New York one day?",
+          "prompt": "B: Yes, I ___ to go to New York. (use always / want)",
           "answer": "have always wanted",
           "accept": [
             "'ve always wanted"
@@ -4430,70 +5038,76 @@ const UNIT_12_FOR_AND_SINCE: GrammarUnit = {
       "titleEn": "12.1 · Choose for or since",
       "instructions": "Chọn for hoặc since cho mỗi câu.",
       "instructionsEn": "Write for or since for each sentence.",
-      "passage": "Ví dụ: 1 It's been raining since lunchtime.",
-      "passageEn": "Example: 1 It's been raining since lunchtime.",
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "It's been raining ___ lunchtime.",
+          "answer": "since"
+        }
+      ],
+      "startNumber": 2,
       "items": [
         {
           "before": "Paul has lived in Brazil",
+          "after": "ten years.",
           "options": [
             "for",
             "since"
           ],
-          "after": "ten years.",
           "answer": "for"
         },
         {
           "before": "I'm tired of waiting. We've been sitting here",
+          "after": "an hour.",
           "options": [
             "for",
             "since"
           ],
-          "after": "an hour.",
           "answer": "for"
         },
         {
           "before": "Kevin has been looking for a job",
+          "after": "he left school.",
           "options": [
             "for",
             "since"
           ],
-          "after": "he left school.",
           "answer": "since"
         },
         {
           "before": "I haven't been to a party",
+          "after": "ages.",
           "options": [
             "for",
             "since"
           ],
-          "after": "ages.",
           "answer": "for"
         },
         {
           "before": "I wonder where Joe is. I haven't seen him",
+          "after": "last week.",
           "options": [
             "for",
             "since"
           ],
-          "after": "last week.",
           "answer": "since"
         },
         {
           "before": "Jane is away on holiday. She's been away",
+          "after": "Friday.",
           "options": [
             "for",
             "since"
           ],
-          "after": "Friday.",
           "answer": "since"
         },
         {
           "before": "The weather is dry. It hasn't rained",
+          "after": "a few weeks.",
           "options": [
             "for",
             "since"
           ],
-          "after": "a few weeks.",
           "answer": "for"
         }
       ]
@@ -4504,52 +5118,59 @@ const UNIT_12_FOR_AND_SINCE: GrammarUnit = {
       "titleEn": "12.2 · Choose the right question for the answer",
       "instructions": "Đọc câu trả lời rồi chọn câu hỏi đúng.",
       "instructionsEn": "Look at each answer and choose the right question.",
-      "passage": "Ví dụ: 1 Answer: Ten years ago. Question: When did they get married? (correct, not How long have they been married?)",
-      "passageEn": "Example: 1 Answer: Ten years ago. Question: When did they get married? (correct, not How long have they been married?)",
+      "examples": [
+        {
+          "label": "1",
+          "context": "Answer: Ten years ago.",
+          "prompt": "___",
+          "answer": "When did they get married?"
+        }
+      ],
+      "startNumber": 2,
       "items": [
         {
           "before": "Answer: About five years.",
+          "after": "",
           "options": [
             "How long have you had this car?",
             "When did you buy this car?"
           ],
-          "after": "",
           "answer": "How long have you had this car?"
         },
         {
           "before": "Answer: Only a few minutes.",
+          "after": "",
           "options": [
             "How long have you been waiting?",
             "When did you get here?"
           ],
-          "after": "",
           "answer": "How long have you been waiting?"
         },
         {
           "before": "Answer: September.",
+          "after": "",
           "options": [
             "How long have you been doing your course?",
             "When did your course start?"
           ],
-          "after": "",
           "answer": "When did your course start?"
         },
         {
           "before": "Answer: Last week.",
+          "after": "",
           "options": [
             "How long has Anna been in London?",
             "When did Anna arrive in London?"
           ],
-          "after": "",
           "answer": "When did Anna arrive in London?"
         },
         {
           "before": "Answer: A long time.",
+          "after": "",
           "options": [
             "How long have you known each other?",
             "When did you first meet each other?"
           ],
-          "after": "",
           "answer": "How long have you known each other?"
         }
       ]
@@ -4560,34 +5181,59 @@ const UNIT_12_FOR_AND_SINCE: GrammarUnit = {
       "titleEn": "12.3 · Read the situations and complete the sentences",
       "instructions": "Đọc tình huống rồi hoàn thành câu.",
       "instructionsEn": "Read the situations and complete the sentences.",
-      "passage": "Ví dụ: 1 It's raining. It's been raining since lunchtime. It started raining at lunchtime.\n2 Ann and Jess are friends. They first met years ago. They've known each other for years.",
-      "passageEn": "Example: 1 It's raining. It's been raining since lunchtime. It started raining at lunchtime.\n2 Ann and Jess are friends. They first met years ago. They've known each other for years.",
+      "examples": [
+        {
+          "label": "1",
+          "context": "It's raining. It started raining at lunchtime.",
+          "prompt": "It ___ lunchtime.",
+          "answer": "'s been raining since"
+        },
+        {
+          "label": "2",
+          "context": "Ann and Jess are friends. They first met years ago.",
+          "prompt": "They ___ years.",
+          "answer": "'ve known each other for"
+        }
+      ],
+      "startNumber": 3,
       "items": [
         {
-          "prompt": "3 Mark is unwell. He became ill on Sunday. He has ___ Sunday.",
+          "label": "3",
+          "context": "Mark is unwell. He became ill on Sunday.",
+          "prompt": "He has ___ Sunday.",
           "answer": "been ill since",
           "accept": [
             "been unwell since"
           ]
         },
         {
-          "prompt": "4 Sarah is married. She's been married for a year. She got ___.",
+          "label": "4",
+          "context": "Sarah is married. She's been married for a year.",
+          "prompt": "She got ___.",
           "answer": "married a year ago"
         },
         {
-          "prompt": "5 You have a headache. It started when you woke up. I've ___ I woke up.",
+          "label": "5",
+          "context": "You have a headache. It started when you woke up.",
+          "prompt": "I've ___ I woke up.",
           "answer": "had a headache since"
         },
         {
-          "prompt": "6 Sue is in a meeting at work. It's been going on since 9 o'clock. The meeting ___ at 9 o'clock.",
+          "label": "6",
+          "context": "Sue is in a meeting at work. It's been going on since 9 o'clock.",
+          "prompt": "The meeting ___ at 9 o'clock.",
           "answer": "started"
         },
         {
-          "prompt": "7 You're working in a hotel. You started working there six months ago. I've been ___.",
+          "label": "7",
+          "context": "You're working in a hotel. You started working there six months ago.",
+          "prompt": "I've been ___.",
           "answer": "working in a hotel for six months"
         },
         {
-          "prompt": "8 Kate is learning Japanese. She's been doing this for a long time. Kate started ___.",
+          "label": "8",
+          "context": "Kate is learning Japanese. She's been doing this for a long time.",
+          "prompt": "Kate started ___.",
           "answer": "learning Japanese a long time ago"
         }
       ]
@@ -4598,31 +5244,60 @@ const UNIT_12_FOR_AND_SINCE: GrammarUnit = {
       "titleEn": "12.4 · Complete B's sentences",
       "instructions": "Hoàn thành câu trả lời của B. Sau đó viết lại câu trả lời đó theo mẫu It's ... since ....",
       "instructionsEn": "Complete B's sentences. Then write B's answers again using the pattern It's ... since ....",
-      "passage": "Ví dụ: 1 A: Do you often go on holiday? B: No, I haven't had a holiday for five years.\n5 (viết lại câu 1) No, it's five years since I last had a holiday.",
-      "passageEn": "Example: 1 A: Do you often go on holiday? B: No, I haven't had a holiday for five years.\n5 (rewrite of 1) No, it's five years since I last had a holiday.",
+      "examples": [
+        {
+          "label": "1",
+          "context": "A: Do you often go on holiday?",
+          "prompt": "B: No, I ___ five years.",
+          "answer": "haven't had a holiday for"
+        },
+        {
+          "label": "5",
+          "context": "Viết lại câu 1 theo mẫu It's ... since ...",
+          "contextEn": "Rewrite sentence 1 using It's ... since ...",
+          "prompt": "No, it's ___.",
+          "answer": "five years since I last had a holiday"
+        }
+      ],
+      "startNumber": 2,
       "items": [
         {
-          "prompt": "2 A: Have you seen Lisa recently? B: No, I ___ about a month.",
+          "label": "2",
+          "context": "A: Have you seen Lisa recently?",
+          "prompt": "B: No, I ___ about a month.",
           "answer": "haven't seen her for"
         },
         {
-          "prompt": "3 A: Do you still go swimming regularly? B: No, I ___ a long time.",
+          "label": "3",
+          "context": "A: Do you still go swimming regularly?",
+          "prompt": "B: No, I ___ a long time.",
           "answer": "haven't been swimming for"
         },
         {
-          "prompt": "4 A: Do you still ride a bike these days? B: No, I ___ ages.",
+          "label": "4",
+          "context": "A: Do you still ride a bike these days?",
+          "prompt": "B: No, I ___ ages.",
           "answer": "haven't ridden a bike for"
         },
         {
-          "prompt": "6 Viết lại câu 2 theo mẫu It's ... since ...: No, it's ___.",
+          "label": "6",
+          "context": "Viết lại câu 2 theo mẫu It's ... since ...",
+          "contextEn": "Rewrite sentence 2 using It's ... since ...",
+          "prompt": "No, it's ___.",
           "answer": "about a month since I last saw Lisa"
         },
         {
-          "prompt": "7 Viết lại câu 3 theo mẫu It's ... since ...: No, it's ___.",
+          "label": "7",
+          "context": "Viết lại câu 3 theo mẫu It's ... since ...",
+          "contextEn": "Rewrite sentence 3 using It's ... since ...",
+          "prompt": "No, it's ___.",
           "answer": "a long time since I last went swimming"
         },
         {
-          "prompt": "8 Viết lại câu 4 theo mẫu It's ... since ...: ___.",
+          "label": "8",
+          "context": "Viết lại câu 4 theo mẫu It's ... since ...",
+          "contextEn": "Rewrite sentence 4 using It's ... since ...",
+          "prompt": "___.",
           "answer": "It's ages since I last rode a bike"
         }
       ]
@@ -4747,36 +5422,47 @@ const UNIT_13_PRESENT_PERFECT_AND_PAST_1: GrammarUnit = {
       "titleEn": "13.1 · Complete the sentences using the present perfect or past simple",
       "instructions": "Hoàn thành các câu, dùng thì hiện tại hoàn thành nếu có thể, nếu không thì dùng quá khứ đơn.",
       "instructionsEn": "Complete the sentences. Use the present perfect where possible. Otherwise use the past simple.",
-      "passage": "Ví dụ: 1 I can't get in. **I've lost** (lose) my key.",
-      "passageEn": "Example: 1 I can't get in. **I've lost** (lose) my key.",
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "I can't get in. ___ (lose) my key.",
+          "answer": "I've lost"
+        }
+      ],
+      "startNumber": 2,
       "items": [
         {
-          "prompt": "2 The office is empty now. Everybody ___ home. (go)",
+          "label": "2",
+          "prompt": "The office is empty now. Everybody ___ home. (go)",
           "answer": "has gone",
           "accept": [
             "'s gone"
           ]
         },
         {
-          "prompt": "3 I meant to call you last night, but I ___. (forget)",
+          "label": "3",
+          "prompt": "I meant to call you last night, but I ___. (forget)",
           "answer": "forgot"
         },
         {
-          "prompt": "4 Can you help us? Our car ___ down. (break)",
+          "label": "4",
+          "prompt": "Can you help us? Our car ___ down. (break)",
           "answer": "has broken",
           "accept": [
             "'s broken"
           ]
         },
         {
-          "prompt": "5 Are you OK? Yes, I ___ a headache, but it's OK now. (have)",
+          "label": "5",
+          "prompt": "Are you OK? Yes, I ___ a headache, but it's OK now. (have)",
           "answer": "have had",
           "accept": [
             "'ve had"
           ]
         },
         {
-          "prompt": "6 Helen ___ to New York for a holiday, but she's back home in London now. (go)",
+          "label": "6",
+          "prompt": "Helen ___ to New York for a holiday, but she's back home in London now. (go)",
           "answer": "went"
         }
       ]
@@ -4855,67 +5541,91 @@ const UNIT_13_PRESENT_PERFECT_AND_PAST_1: GrammarUnit = {
       "titleEn": "13.3 · Put the verb into the present perfect or past simple",
       "instructions": "Chia động từ trong ngoặc ở thì hiện tại hoàn thành hoặc quá khứ đơn.",
       "instructionsEn": "Put the verb in brackets into the present perfect or past simple.",
-      "passage": "Ví dụ: 1 It **stopped** raining for a while, but now it's raining again. (it / stop)\n2 The town where I live is very different now. It **has changed** a lot. (it / change)",
-      "passageEn": "Example: 1 It **stopped** raining for a while, but now it's raining again. (it / stop)\n2 The town where I live is very different now. It **has changed** a lot. (it / change)",
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "It ___ raining for a while, but now it's raining again. (it / stop)",
+          "answer": "stopped"
+        },
+        {
+          "label": "2",
+          "prompt": "The town where I live is very different now. It ___ a lot. (it / change)",
+          "answer": "has changed"
+        }
+      ],
+      "startNumber": 3,
       "items": [
         {
-          "prompt": "3 I studied German at school, but ___ most of it now. (I / forget)",
+          "label": "3",
+          "prompt": "I studied German at school, but ___ most of it now. (I / forget)",
           "answer": "I've forgotten",
           "accept": [
             "I have forgotten"
           ]
         },
         {
-          "prompt": "4 The police ___ three people, but later they let them go. (arrest)",
+          "label": "4",
+          "prompt": "The police ___ three people, but later they let them go. (arrest)",
           "answer": "arrested"
         },
         {
-          "prompt": "5 What do you think of my English? Do you think ___? (it / improve)",
+          "label": "5",
+          "prompt": "What do you think of my English? Do you think ___? (it / improve)",
           "answer": "it's improved",
           "accept": [
             "it has improved"
           ]
         },
         {
-          "prompt": "6 Are you ready to go? ___ your coffee? (you / finish)",
+          "label": "6",
+          "prompt": "Are you ready to go? ___ your coffee? (you / finish)",
           "answer": "Have you finished"
         },
         {
-          "prompt": "7 ___ for a job as a tour guide, but I wasn't successful. (I / apply)",
+          "label": "7",
+          "prompt": "___ for a job as a tour guide, but I wasn't successful. (I / apply)",
           "answer": "I applied"
         },
         {
-          "prompt": "8 Where's my bike? ___ outside the house, but it's not there now. (it / be)",
+          "label": "8",
+          "prompt": "Where's my bike? ___ outside the house, but it's not there now. (it / be)",
           "answer": "It was"
         },
         {
-          "prompt": "9 Quick! We need to call an ambulance. ___ an accident. (there / be)",
+          "label": "9",
+          "prompt": "Quick! We need to call an ambulance. ___ an accident. (there / be)",
           "answer": "There's been",
           "accept": [
             "There has been"
           ]
         },
         {
-          "prompt": "10a A: I've found my phone. B: Oh, good. Where ___ it? (you / find)",
-          "answer": "did you find"
+          "label": "10",
+          "context": "A: I've found my phone.",
+          "prompt": "B: Oh, good. Where ___ it? (you / find) A: ___ at the bottom of my bag. (It / be)",
+          "answer": "did you find",
+          "extraBlanks": [
+            {
+              "answer": "It was"
+            }
+          ]
         },
         {
-          "prompt": "10b A: I've found my phone. B: Oh, good. Where did you find it? A: ___ at the bottom of my bag. (It / be)",
-          "answer": "It was"
-        },
-        {
-          "prompt": "11a Ben won't be able to play tennis for a while. ___ his arm. (He / break)",
+          "label": "11a",
+          "prompt": "Ben won't be able to play tennis for a while. ___ his arm. (He / break)",
           "answer": "He's broken",
           "accept": [
             "He has broken"
           ]
         },
         {
-          "prompt": "11b Oh. How ___? (that / happen)",
+          "label": "11b",
+          "prompt": "Oh. How ___? (that / happen)",
           "answer": "did that happen"
         },
         {
-          "prompt": "11c ___ off a ladder. (He / fall)",
+          "label": "11c",
+          "prompt": "___ off a ladder. (He / fall)",
           "answer": "He fell"
         }
       ]
@@ -5122,38 +5832,51 @@ const UNIT_14_PRESENT_PERFECT_AND_PAST_2: GrammarUnit = {
       "titleEn": "14.2 · Make sentences from the words in brackets",
       "instructions": "Đặt câu từ các từ trong ngoặc, dùng thì hiện tại hoàn thành hoặc quá khứ đơn.",
       "instructionsEn": "Make sentences from the words in brackets. Use the present perfect or past simple.",
-      "passage": "Ví dụ: 1 (it / not / rain / this week) It hasn't rained this week.",
-      "passageEn": "Example: 1 (it / not / rain / this week) It hasn't rained this week.",
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "___ (it / not / rain / this week)",
+          "answer": "It hasn't rained this week"
+        }
+      ],
+      "startNumber": 2,
       "items": [
         {
-          "prompt": "2 (the weather / be / cold / recently) The weather ___",
+          "label": "2",
+          "prompt": "(the weather / be / cold / recently) The weather ___",
           "answer": "has been cold recently"
         },
         {
-          "prompt": "3 (it / cold / last week) It ___",
+          "label": "3",
+          "prompt": "(it / cold / last week) It ___",
           "answer": "was cold last week"
         },
         {
-          "prompt": "4 (I / not / eat / any fruit yesterday) I ___",
+          "label": "4",
+          "prompt": "(I / not / eat / any fruit yesterday) I ___",
           "answer": "didn't eat any fruit yesterday"
         },
         {
-          "prompt": "5 (I / not / eat / any fruit today) ___",
+          "label": "5",
+          "prompt": "(I / not / eat / any fruit today) ___",
           "answer": "I haven't eaten any fruit today"
         },
         {
-          "prompt": "6 (Emily / earn / a lot of money / this year) ___",
+          "label": "6",
+          "prompt": "(Emily / earn / a lot of money / this year) ___",
           "answer": "Emily has earned a lot of money this year",
           "accept": [
             "Emily's earned a lot of money this year"
           ]
         },
         {
-          "prompt": "7 (she / not / earn / so much / last year) ___",
+          "label": "7",
+          "prompt": "(she / not / earn / so much / last year) ___",
           "answer": "She didn't earn so much last year"
         },
         {
-          "prompt": "8 (you / have / a holiday recently?) ___",
+          "label": "8",
+          "prompt": "(you / have / a holiday recently?) ___",
           "answer": "Have you had a holiday recently?"
         }
       ]
@@ -5164,87 +5887,115 @@ const UNIT_14_PRESENT_PERFECT_AND_PAST_2: GrammarUnit = {
       "titleEn": "14.3 · Put the verbs into the present perfect or past simple",
       "instructions": "Chia động từ trong ngoặc ở thì hiện tại hoàn thành hoặc quá khứ đơn.",
       "instructionsEn": "Put the verb in brackets into the present perfect or past simple.",
-      "passage": "Ví dụ: 1 I haven't been (I / not / be) to Canada, but I'd like to go there.\n2 Paul and Lucy arrived (arrive) about ten minutes ago.",
-      "passageEn": "Example: 1 I haven't been (I / not / be) to Canada, but I'd like to go there.\n2 Paul and Lucy arrived (arrive) about ten minutes ago.",
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "___ (I / not / be) to Canada, but I'd like to go there.",
+          "answer": "I haven't been"
+        },
+        {
+          "label": "2",
+          "prompt": "Paul and Lucy ___ (arrive) about ten minutes ago.",
+          "answer": "arrived"
+        }
+      ],
+      "startNumber": 3,
       "items": [
         {
-          "prompt": "3 I'm tired. ___ well last night. (I / not / sleep)",
+          "label": "3",
+          "prompt": "I'm tired. ___ well last night. (I / not / sleep)",
           "answer": "I didn't sleep"
         },
         {
-          "prompt": "4a ___ a bus drivers' strike last week. (There / be)",
+          "label": "4a",
+          "prompt": "___ a bus drivers' strike last week. (There / be)",
           "answer": "There was"
         },
         {
-          "prompt": "4b so ___ no buses. (there / be)",
+          "label": "4b",
+          "prompt": "so ___ no buses. (there / be)",
           "answer": "there were"
         },
         {
-          "prompt": "5a Edward ___ in a bank for 15 years. (work)",
+          "label": "5a",
+          "prompt": "Edward ___ in a bank for 15 years. (work)",
           "answer": "worked"
         },
         {
-          "prompt": "5b Then ___ it up. Now he works as a gardener. (he / give)",
+          "label": "5b",
+          "prompt": "Then ___ it up. Now he works as a gardener. (he / give)",
           "answer": "he gave"
         },
         {
-          "prompt": "6 Mary lives in Dublin. ___ there all her life. (She / live)",
+          "label": "6",
+          "prompt": "Mary lives in Dublin. ___ there all her life. (She / live)",
           "answer": "She has lived",
           "accept": [
             "She's lived"
           ]
         },
         {
-          "prompt": "7a My grandfather ___ before I was born. (die)",
+          "label": "7a",
+          "prompt": "My grandfather ___ before I was born. (die)",
           "answer": "died"
         },
         {
-          "prompt": "7b ___ him. (I / never / meet)",
+          "label": "7b",
+          "prompt": "___ him. (I / never / meet)",
           "answer": "I've never met",
           "accept": [
             "I have never met"
           ]
         },
         {
-          "prompt": "8 I don't know Karen's husband. ___ him. (I / never / meet)",
+          "label": "8",
+          "prompt": "I don't know Karen's husband. ___ him. (I / never / meet)",
           "answer": "I've never met",
           "accept": [
             "I have never met"
           ]
         },
         {
-          "prompt": "9 It's nearly lunchtime, and ___ Martin all morning. I wonder where he is. (I / not / see)",
+          "label": "9",
+          "prompt": "It's nearly lunchtime, and ___ Martin all morning. I wonder where he is. (I / not / see)",
           "answer": "I haven't seen"
         },
         {
-          "prompt": "10a A: ___ to the cinema last night? (you / go)",
+          "label": "10a",
+          "prompt": "A: ___ to the cinema last night? (you / go)",
           "answer": "Did you go"
         },
         {
-          "prompt": "10b B: Yes, but the movie ___ awful. (be)",
+          "label": "10b",
+          "prompt": "B: Yes, but the movie ___ awful. (be)",
           "answer": "was"
         },
         {
-          "prompt": "11a A: ___ very warm here since we arrived. (It / be)",
+          "label": "11a",
+          "prompt": "A: ___ very warm here since we arrived. (It / be)",
           "answer": "It's been",
           "accept": [
             "It has been"
           ]
         },
         {
-          "prompt": "11b B: Yes, ___ 35 degrees yesterday. (it / be)",
+          "label": "11b",
+          "prompt": "B: Yes, ___ 35 degrees yesterday. (it / be)",
           "answer": "it was"
         },
         {
-          "prompt": "12a A: Where do you live? B: In Boston. A: How long ___ there? (you / live)",
+          "label": "12a",
+          "prompt": "A: Where do you live? B: In Boston. A: How long ___ there? (you / live)",
           "answer": "have you lived"
         },
         {
-          "prompt": "12b B: Five years. A: Where ___ before that? (you / live)",
+          "label": "12b",
+          "prompt": "B: Five years. A: Where ___ before that? (you / live)",
           "answer": "did you live"
         },
         {
-          "prompt": "12c B: In Chicago. A: And how long ___ in Chicago? (you / live)",
+          "label": "12c",
+          "prompt": "B: In Chicago. A: And how long ___ in Chicago? (you / live)",
           "answer": "did you live"
         }
       ]
@@ -5396,46 +6147,66 @@ const UNIT_15_PAST_PERFECT: GrammarUnit = {
       "titleEn": "15.1 · Read the situations and write sentences in the past perfect",
       "instructions": "Đọc tình huống rồi viết câu bằng các từ trong ngoặc, dùng thì quá khứ hoàn thành.",
       "instructionsEn": "Read the situations and write sentences using the words in brackets, in the past perfect.",
-      "passage": "Ví dụ:\n1 There was a picture lying on the floor. (It / fall / off the wall) It had fallen off the wall.\n2 The people sitting next to you on the plane were nervous. It was their first flight. (They / not / fly / before) They hadn't flown before.",
-      "passageEn": "Example:\n1 There was a picture lying on the floor. (It / fall / off the wall) It had fallen off the wall.\n2 The people sitting next to you on the plane were nervous. It was their first flight. (They / not / fly / before) They hadn't flown before.",
+      "examples": [
+        {
+          "label": "1",
+          "context": "There was a picture lying on the floor.",
+          "prompt": "(It / fall / off the wall) ___",
+          "answer": "It had fallen off the wall"
+        },
+        {
+          "label": "2",
+          "context": "The people sitting next to you on the plane were nervous. It was their first flight.",
+          "prompt": "(They / not / fly / before) ___",
+          "answer": "They hadn't flown before"
+        }
+      ],
       "startNumber": 3,
       "items": [
         {
-          "prompt": "You went back to your home town recently after many years. It wasn't the same as before. (It / change / a lot) It ___.",
+          "context": "You went back to your home town recently after many years. It wasn't the same as before.",
+          "prompt": "(It / change / a lot) It ___.",
           "answer": "had changed a lot"
         },
         {
-          "prompt": "Somebody sang a song. You didn't know it. (I / not / hear / it / before) I ___.",
+          "context": "Somebody sang a song. You didn't know it.",
+          "prompt": "(I / not / hear / it / before) I ___.",
           "answer": "hadn't heard it before"
         },
         {
-          "prompt": "I invited Rachel to the party, but she couldn't come. (She / arrange / to do something else) ___.",
+          "context": "I invited Rachel to the party, but she couldn't come.",
+          "prompt": "(She / arrange / to do something else) ___.",
           "answer": "She had arranged to do something else",
           "accept": [
             "She'd arranged to do something else"
           ]
         },
         {
-          "prompt": "You went to the cinema last night. You got to the cinema late. (The film / already / start) ___.",
+          "context": "You went to the cinema last night. You got to the cinema late.",
+          "prompt": "(The film / already / start) ___.",
           "answer": "The film had already started"
         },
         {
-          "prompt": "Last year we went to Mexico. It was our first time there. (We / not / be / there / before) We ___.",
+          "context": "Last year we went to Mexico. It was our first time there.",
+          "prompt": "(We / not / be / there / before) We ___.",
           "answer": "hadn't been there before"
         },
         {
-          "prompt": "I met Daniel last week. It was good to see him again after such a long time. (I / not / see / him for five years) ___.",
+          "context": "I met Daniel last week. It was good to see him again after such a long time.",
+          "prompt": "(I / not / see / him for five years) ___.",
           "answer": "I hadn't seen him for five years"
         },
         {
-          "prompt": "I offered my friends something to eat, but they weren't hungry. (They / just / have / lunch) ___.",
+          "context": "I offered my friends something to eat, but they weren't hungry.",
+          "prompt": "(They / just / have / lunch) ___.",
           "answer": "They had just had lunch",
           "accept": [
             "They'd just had lunch"
           ]
         },
         {
-          "prompt": "Sam played tennis yesterday. He wasn't very good at it because it was his first game ever. (He / never / play / before) ___.",
+          "context": "Sam played tennis yesterday. He wasn't very good at it because it was his first game ever.",
+          "prompt": "(He / never / play / before) ___.",
           "answer": "He had never played before",
           "accept": [
             "He'd never played before"
@@ -5449,52 +6220,65 @@ const UNIT_15_PAST_PERFECT: GrammarUnit = {
       "titleEn": "15.2 · Complete the paragraphs using the past perfect",
       "instructions": "Dùng các câu bên trái để hoàn thành đoạn văn bên phải. Các câu bên trái được sắp theo thứ tự việc đã xảy ra, nên đôi khi bạn cần dùng thì quá khứ hoàn thành cho việc xảy ra trước.",
       "instructionsEn": "Use the sentences on the left to complete the paragraphs on the right. The sentences on the left are in the order the events happened, so you sometimes need the past perfect for whatever happened earlier.",
-      "passage": "Ví dụ: 1 (a) Somebody broke into the office during the night. (b) We arrived at work in the morning. (c) We called the police. Đoạn văn: We arrived at work in the morning and found that somebody had broken into the office during the night. So we called the police.",
-      "passageEn": "Example: 1 (a) Somebody broke into the office during the night. (b) We arrived at work in the morning. (c) We called the police. Paragraph: We arrived at work in the morning and found that somebody had broken into the office during the night. So we called the police.",
+      "examples": [
+        {
+          "label": "1",
+          "context": "(a) Somebody broke into the office during the night. (b) We arrived at work in the morning. (c) We called the police.",
+          "prompt": "We arrived at work in the morning and found that somebody ___ into the office during the night. So we called the police.",
+          "answer": "had broken"
+        }
+      ],
       "startNumber": 2,
       "items": [
         {
-          "prompt": "2a (a) Laura went out this morning. (b) I rang her doorbell. (c) There was no answer. I went to Laura's house this morning and rang her doorbell, but ___ no answer.",
-          "answer": "there was"
-        },
-        {
-          "prompt": "2b ___ out. (Laura had already left before you rang the doorbell.)",
-          "answer": "She had gone",
-          "accept": [
-            "She'd gone"
+          "label": "2",
+          "context": "(a) Laura went out this morning. (b) I rang her doorbell. (c) There was no answer.",
+          "prompt": "I went to Laura's house this morning and rang her doorbell, but ___ no answer. ___ out.",
+          "answer": "there was",
+          "extraBlanks": [
+            {
+              "answer": "She had gone",
+              "accept": [
+                "She'd gone"
+              ]
+            }
           ]
         },
         {
-          "prompt": "3a (a) Joe came back from holiday a few days ago. (b) I met him the same day. (c) He looked very well. I met Joe a few days ago. ___ from holiday.",
+          "label": "3",
+          "context": "(a) Joe came back from holiday a few days ago. (b) I met him the same day. (c) He looked very well.",
+          "prompt": "I met Joe a few days ago. ___ from holiday. ___ very well.",
           "answer": "He had just come back",
           "accept": [
             "He'd just come back"
+          ],
+          "extraBlanks": [
+            {
+              "answer": "He looked"
+            }
           ]
         },
         {
-          "prompt": "3b ___ very well.",
-          "answer": "He looked"
-        },
-        {
-          "prompt": "4a (a) James sent Amy lots of emails. (b) She never replied to them. (c) Yesterday he got a phone call from her. (d) He was surprised. Yesterday James ___ from Amy.",
-          "answer": "got a phone call"
-        },
-        {
-          "prompt": "4b ___ surprised.",
-          "answer": "He was"
-        },
-        {
-          "prompt": "4c He ___ Amy lots of emails,",
-          "answer": "had sent",
-          "accept": [
-            "'d sent"
-          ]
-        },
-        {
-          "prompt": "4d but ___.",
-          "answer": "she had never replied",
-          "accept": [
-            "she'd never replied"
+          "label": "4",
+          "context": "(a) James sent Amy lots of emails. (b) She never replied to them. (c) Yesterday he got a phone call from her. (d) He was surprised.",
+          "prompt": "Yesterday James ___ from Amy. ___ surprised. He ___ Amy lots of emails, but ___.",
+          "answer": "got a phone call",
+          "extraBlanks": [
+            {
+              "answer": "He was"
+            },
+            {
+              "answer": "had sent",
+              "accept": [
+                "'d sent"
+              ]
+            },
+            {
+              "answer": "she had never replied",
+              "accept": [
+                "she'd never replied"
+              ]
+            }
           ]
         }
       ]
@@ -5505,8 +6289,13 @@ const UNIT_15_PAST_PERFECT: GrammarUnit = {
       "titleEn": "15.3 · Put the verb into the past perfect or past simple",
       "instructions": "Chia động từ trong ngoặc ở thì quá khứ hoàn thành (I had done) hoặc quá khứ đơn (I did).",
       "instructionsEn": "Put the verb in brackets into the past perfect (I had done) or the past simple (I did).",
-      "passage": "Ví dụ: 1 Paul wasn't at the party when I arrived. He'd gone (He / go) home.",
-      "passageEn": "Example: 1 Paul wasn't at the party when I arrived. He'd gone (He / go) home.",
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "Paul wasn't at the party when I arrived. ___ (He / go) home.",
+          "answer": "He'd gone"
+        }
+      ],
       "startNumber": 2,
       "items": [
         {
@@ -5532,19 +6321,19 @@ const UNIT_15_PAST_PERFECT: GrammarUnit = {
           "answer": "broke"
         },
         {
-          "prompt": "We were driving along the road when ___ a car. (we / see)",
-          "answer": "we saw"
-        },
-        {
-          "prompt": "... a car which ___ down, (break)",
-          "answer": "had broken",
-          "accept": [
-            "'d broken"
+          "prompt": "We were driving along the road when ___ (we / see) a car which ___ (break) down, so ___ (we / stop) to help.",
+          "answer": "we saw",
+          "extraBlanks": [
+            {
+              "answer": "had broken",
+              "accept": [
+                "'d broken"
+              ]
+            },
+            {
+              "answer": "we stopped"
+            }
           ]
-        },
-        {
-          "prompt": "so ___ to help. (we / stop)",
-          "answer": "we stopped"
         }
       ]
     },
@@ -5685,40 +6474,51 @@ const UNIT_16_PAST_PERFECT_CONTINUOUS: GrammarUnit = {
       "titleEn": "16.1 · Read the situations and make sentences in the past perfect continuous",
       "instructions": "Đọc tình huống rồi viết câu bằng các từ trong ngoặc, dùng thì quá khứ hoàn thành tiếp diễn.",
       "instructionsEn": "Read the situations and make sentences using the words in brackets, in the past perfect continuous.",
-      "passage": "Ví dụ: 1 Tom was very tired when he got home. (He / work / hard all day) He'd been working hard all day.",
-      "passageEn": "Example: 1 Tom was very tired when he got home. (He / work / hard all day) He'd been working hard all day.",
+      "examples": [
+        {
+          "label": "1",
+          "context": "Tom was very tired when he got home.",
+          "prompt": "(He / work / hard all day) ___",
+          "answer": "He'd been working hard all day"
+        }
+      ],
       "startNumber": 2,
       "items": [
         {
-          "prompt": "The children came into the house. They had a football and they were both very tired. (They / play / football)",
+          "context": "The children came into the house. They had a football and they were both very tired.",
+          "prompt": "(They / play / football) ___",
           "answer": "They had been playing football",
           "accept": [
             "They'd been playing football"
           ]
         },
         {
-          "prompt": "I was disappointed when I had to cancel my holiday. (I / look / forward to it)",
+          "context": "I was disappointed when I had to cancel my holiday.",
+          "prompt": "(I / look / forward to it) ___",
           "answer": "I had been looking forward to it",
           "accept": [
             "I'd been looking forward to it"
           ]
         },
         {
-          "prompt": "Anna woke up in the middle of the night. She was frightened and didn't know where she was. (She / have / a bad dream)",
+          "context": "Anna woke up in the middle of the night. She was frightened and didn't know where she was.",
+          "prompt": "(She / have / a bad dream) ___",
           "answer": "She had been having a bad dream",
           "accept": [
             "She'd been having a bad dream"
           ]
         },
         {
-          "prompt": "When I got home, Mark was sitting in front of the TV. He had just turned it off. (He / watch / a film)",
+          "context": "When I got home, Mark was sitting in front of the TV. He had just turned it off.",
+          "prompt": "(He / watch / a film) ___",
           "answer": "He had been watching a film",
           "accept": [
             "He'd been watching a film"
           ]
         },
         {
-          "prompt": "The people waiting at the bus stop were getting impatient. The bus was very late. (They / wait / a long time)",
+          "context": "The people waiting at the bus stop were getting impatient. The bus was very late.",
+          "prompt": "(They / wait / a long time) ___",
           "answer": "They had been waiting a long time",
           "accept": [
             "They'd been waiting a long time"
@@ -5732,47 +6532,66 @@ const UNIT_16_PAST_PERFECT_CONTINUOUS: GrammarUnit = {
       "titleEn": "16.2 · Read the situations and complete the sentences",
       "instructions": "Đọc tình huống rồi hoàn thành câu, dùng thì quá khứ hoàn thành tiếp diễn hoặc quá khứ đơn cho phù hợp.",
       "instructionsEn": "Read the situations and complete the sentences, using the past perfect continuous or the past simple as appropriate.",
-      "passage": "Ví dụ: 1 We played tennis yesterday. We didn't finish our game. We'd been playing (We / play) for half an hour when it started (it / start) to rain.",
-      "passageEn": "Example: 1 We played tennis yesterday. We didn't finish our game. We'd been playing (We / play) for half an hour when it started (it / start) to rain.",
+      "examples": [
+        {
+          "label": "1",
+          "context": "We played tennis yesterday. We didn't finish our game.",
+          "prompt": "We ___ (We / play) for half an hour when it ___ (it / start) to rain.",
+          "answer": "'d been playing",
+          "extraBlanks": [
+            {
+              "answer": "started"
+            }
+          ]
+        }
+      ],
       "startNumber": 2,
       "items": [
         {
-          "prompt": "2a I had arranged to meet Tom in a restaurant. I arrived and waited for him to come. ___ for 20 minutes (I / wait)",
+          "label": "2",
+          "context": "I had arranged to meet Tom in a restaurant. I arrived and waited for him to come.",
+          "prompt": "___ for 20 minutes (I / wait) when ___ that (I / realise) ___ in the wrong restaurant. (I / be)",
           "answer": "I had been waiting",
           "accept": [
             "I'd been waiting"
+          ],
+          "extraBlanks": [
+            {
+              "answer": "I realised"
+            },
+            {
+              "answer": "I was"
+            }
           ]
         },
         {
-          "prompt": "2b when ___ that (I / realise)",
-          "answer": "I realised"
-        },
-        {
-          "prompt": "2c ___ in the wrong restaurant. (I / be)",
-          "answer": "I was"
-        },
-        {
-          "prompt": "3a Sarah worked in a company for a long time. The company no longer exists. At the time the company ___ out of business, (go)",
-          "answer": "went"
-        },
-        {
-          "prompt": "3b Sarah ___ there for twelve years. (work)",
-          "answer": "had been working",
-          "accept": [
-            "had worked",
-            "'d been working"
+          "label": "3",
+          "context": "Sarah worked in a company for a long time. The company no longer exists.",
+          "prompt": "At the time the company ___ out of business, (go) Sarah ___ there for twelve years. (work)",
+          "answer": "went",
+          "extraBlanks": [
+            {
+              "answer": "had been working",
+              "accept": [
+                "had worked",
+                "'d been working"
+              ]
+            }
           ]
         },
         {
-          "prompt": "4a I went to a concert. Soon after the orchestra began playing, something strange happened. The orchestra ___ for about ten minutes (play)",
+          "label": "4",
+          "context": "I went to a concert. Soon after the orchestra began playing, something strange happened.",
+          "prompt": "The orchestra ___ for about ten minutes (play) when a man in the audience suddenly ___ shouting. (start)",
           "answer": "had been playing",
           "accept": [
             "'d been playing"
+          ],
+          "extraBlanks": [
+            {
+              "answer": "started"
+            }
           ]
-        },
-        {
-          "prompt": "4b when a man in the audience suddenly ___ shouting. (start)",
-          "answer": "started"
         }
       ]
     },
@@ -5782,115 +6601,121 @@ const UNIT_16_PAST_PERFECT_CONTINUOUS: GrammarUnit = {
       "titleEn": "16.3 · Which is right?",
       "instructions": "Chọn cách diễn đạt đúng trong mỗi cặp.",
       "instructionsEn": "Choose the correct form in each pair.",
-      "passage": "Ví dụ: 1 It was noisy next door last night. Our neighbours were having / had been having a party. (were having is correct)",
-      "passageEn": "Example: 1 It was noisy next door last night. Our neighbours were having / had been having a party. (were having is correct)",
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "It was noisy next door last night. Our neighbours ___ a party.",
+          "answer": "were having"
+        }
+      ],
+      "startNumber": 2,
       "items": [
         {
           "before": "At the end of our journey we were extremely tired.",
+          "after": "for more than 24 hours.",
           "options": [
             "We were travelling",
             "We'd been travelling"
           ],
-          "after": "for more than 24 hours.",
           "answer": "We'd been travelling"
         },
         {
           "before": "James was on his hands and knees on the floor.",
+          "after": "for his contact lens.",
           "options": [
             "He was looking",
             "He'd been looking"
           ],
-          "after": "for his contact lens.",
           "answer": "He'd been looking"
         },
         {
           "before": "Sue was sitting on the ground. She was out of breath.",
+          "after": "",
           "options": [
             "She was running",
             "She'd been running"
           ],
-          "after": "",
           "answer": "She'd been running"
         },
         {
           "before": "John and I went for a walk.",
+          "after": "very fast and I had difficulty keeping up with him.",
           "options": [
             "He was walking",
             "He'd been walking"
           ],
-          "after": "very fast and I had difficulty keeping up with him.",
           "answer": "He was walking"
         },
         {
           "before": "I was sad when I sold my car.",
+          "after": "for a very long time.",
           "options": [
             "I've had it",
             "I'd had it"
           ],
-          "after": "for a very long time.",
           "answer": "I'd had it"
         },
         {
           "before": "I was sad when my local cafe closed.",
+          "after": "there for many years.",
           "options": [
             "I was going",
             "I'd been going"
           ],
-          "after": "there for many years.",
           "answer": "I'd been going"
         },
         {
           "before": "I'm running a marathon next month.",
+          "after": "for it every day.",
           "options": [
             "I've been training",
             "I'd been training"
           ],
-          "after": "for it every day.",
           "answer": "I've been training"
         },
         {
           "before": "I had arranged to meet Kate, but I was late. When I finally arrived,",
+          "after": "for me.",
           "options": [
             "she was waiting",
             "she'd been waiting"
           ],
-          "after": "for me.",
           "answer": "she was waiting"
         },
         {
           "before": "She was annoyed because",
+          "after": "such a long time.",
           "options": [
             "she was waiting",
             "she'd been waiting"
           ],
-          "after": "such a long time.",
           "answer": "she'd been waiting"
         },
         {
           "before": "Joe and I work for the same company. He joined the company before me. When I started a few years ago,",
+          "after": "there.",
           "options": [
             "he was already working",
             "he'd already been working"
           ],
-          "after": "there.",
           "answer": "he'd already been working"
         },
         {
           "before": "I started working at the company a few years ago. At the time I started, Joe",
+          "after": "there for two years.",
           "options": [
             "was already working",
             "had already been working"
           ],
-          "after": "there for two years.",
           "answer": "had already been working"
         },
         {
           "before": "Joe still works for the company.",
+          "after": "there a long time now.",
           "options": [
             "He's been working",
             "He'd been working"
           ],
-          "after": "there a long time now.",
           "answer": "He's been working"
         }
       ]
@@ -6145,8 +6970,18 @@ const UNIT_17_HAVE_AND_HAVE_GOT: GrammarUnit = {
       "titleEn": "17.2 · Complete the sentences using have",
       "instructions": "Hoàn thành các câu bằng have, chia ở dạng phù hợp.",
       "instructionsEn": "Complete the sentences using have, in the correct form.",
-      "passage": "Ví dụ:\n1 She couldn't get into the house. She didn't have a key.\n2 Is there anything you'd like to ask? Do you have any questions?",
-      "passageEn": "Example:\n1 She couldn't get into the house. She didn't have a key.\n2 Is there anything you'd like to ask? Do you have any questions?",
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "She couldn't get into the house. She ___ a key.",
+          "answer": "didn't have"
+        },
+        {
+          "label": "2",
+          "prompt": "Is there anything you'd like to ask? ___ any questions?",
+          "answer": "Do you have"
+        }
+      ],
       "startNumber": 3,
       "items": [
         {
@@ -6182,12 +7017,14 @@ const UNIT_17_HAVE_AND_HAVE_GOT: GrammarUnit = {
           "answer": "don't have"
         },
         {
-          "prompt": "'Tom ___ a motorbike, (have)",
-          "answer": "had"
-        },
-        {
-          "prompt": "___ he?' 'Yes, that's right. A long time ago.'",
-          "answer": "didn't"
+          "label": "11",
+          "prompt": "'Tom ___ a motorbike, ___ he?' 'Yes, that's right. A long time ago.' (have)",
+          "answer": "had",
+          "extraBlanks": [
+            {
+              "answer": "didn't"
+            }
+          ]
         }
       ]
     },
@@ -6279,8 +7116,25 @@ const UNIT_17_HAVE_AND_HAVE_GOT: GrammarUnit = {
       "titleEn": "17.4 · Complete the sentences with a have expression",
       "instructions": "Hoàn thành câu bằng một cụm động từ với have ở dạng đúng, chọn trong danh sách cho sẵn.",
       "instructionsEn": "Complete the sentences using an expression with have in the correct form, chosen from the list.",
-      "passage": "Danh sách: have a baby, have a break, have a chat, have trouble, have a shower, have a look, have lunch, have a party, have a nice time, have a holiday\n\nVí dụ: 1 I don't eat much during the day. I never have lunch.",
-      "passageEn": "Choose from: have a baby, have a break, have a chat, have trouble, have a shower, have a look, have lunch, have a party, have a nice time, have a holiday\n\nExample: 1 I don't eat much during the day. I never have lunch.",
+      "wordBank": [
+        "have a baby",
+        "have a break",
+        "have a chat",
+        "have trouble",
+        "have a shower",
+        "have a look",
+        "have lunch",
+        "have a party",
+        "have a nice time",
+        "have a holiday"
+      ],
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "I don't eat much during the day. I never ___.",
+          "answer": "have lunch"
+        }
+      ],
       "startNumber": 2,
       "items": [
         {

@@ -11,7 +11,9 @@ import {
   type RuleBlock,
   type RuleStep,
   type RuleTable,
+  type TypeFillItem,
   type TypeFillStep,
+  type WorkedExample,
   type GrammarUnitStep,
 } from "@/data/english-grammar-in-use";
 import { useProgress } from "@/lib/progress-context";
@@ -65,15 +67,6 @@ function ListIcon() {
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="block h-4 w-4">
       <path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01" />
     </svg>
-  );
-}
-
-function ContinueButton({ onClick, label }: { onClick: () => void; label?: string }) {
-  const { t } = useUiLang();
-  return (
-    <button className="btn btn-primary btn-block mt-auto px-4 py-3" onClick={onClick}>
-      {label ?? t("grammar.continue")}
-    </button>
   );
 }
 
@@ -215,6 +208,11 @@ function RuleBlockView({ block: b }: { block: RuleBlock }) {
 
 function RuleStepView({ step, onNext }: { step: RuleStep; onNext: (score?: Score) => void }) {
   const { t } = useUiLang();
+  const inlineAction = usePinnedAction(
+    <button className="btn btn-primary btn-block px-4 py-3" onClick={() => onNext()}>
+      {t("grammar.toPractice")}
+    </button>,
+  );
   return (
     <div className="flex flex-1 flex-col p-4">
       <div className="flex flex-col gap-4">
@@ -222,94 +220,345 @@ function RuleStepView({ step, onNext }: { step: RuleStep; onNext: (score?: Score
           <RuleBlockView key={i} block={b} />
         ))}
       </div>
-      <ContinueButton onClick={() => onNext()} label={t("grammar.toPractice")} />
+      {inlineAction}
     </div>
   );
+}
+
+// ---------- Shared exercise chrome ----------
+
+/** The book prints four separate things around a numbered exercise: its own
+ * numbered title, the instruction line, an optional word box, and an optional
+ * reading passage. Each gets its own visual treatment here, because a learner
+ * scans for "what do I have to do" and "what do I choose from" separately.
+ * They used to be concatenated into one `passage` string and rendered as a
+ * single grey block, which is unreadable at a glance. */
+type ChromeStep = {
+  title: string;
+  titleEn?: string;
+  instructions: string;
+  instructionsEn?: string;
+  passage?: string;
+  passageEn?: string;
+  wordBank?: string[];
+};
+
+function ExerciseHeader({ step, onPickWord }: { step: ChromeStep; onPickWord?: (word: string) => void }) {
+  const { lang, t } = useUiLang();
+  const passage = loc(step.passage ?? "", step.passageEn, lang);
+  return (
+    <div className="mb-4">
+      <h2 className="text-[15px] leading-snug font-extrabold">{loc(step.title, step.titleEn, lang)}</h2>
+      <p className="mt-1 text-[13px] leading-relaxed text-neutral-600">
+        {renderRich(loc(step.instructions, step.instructionsEn, lang))}
+      </p>
+      {passage && (
+        <div
+          className="mt-3 rounded-md border-l-[3px] bg-surface px-3 py-2.5 text-[13px] leading-relaxed"
+          style={{ borderColor: "var(--color-accent)" }}
+        >
+          <span className="label-xs mb-1 block text-neutral-500">{t("grammar.reading")}</span>
+          {passage.split("\n").map((line, k) => (
+            <p key={k} className={line ? "" : "h-2"}>
+              {renderRich(line)}
+            </p>
+          ))}
+        </div>
+      )}
+      {step.wordBank && step.wordBank.length > 0 && (
+        <div
+          className="mt-3 rounded-xl border-2 px-3 py-2.5"
+          style={{ borderColor: "var(--color-accent-300)", background: "var(--color-accent-100)" }}
+        >
+          <span className="label-xs mb-1.5 block text-accent-800">{t("grammar.wordBank")}</span>
+          <div className="flex flex-wrap gap-1.5">
+            {step.wordBank.map((w) =>
+              onPickWord ? (
+                <button
+                  key={w}
+                  onClick={() => onPickWord(w)}
+                  className="rounded-full border bg-surface px-2.5 py-1 text-[12.5px] font-bold"
+                  style={{ borderColor: "var(--color-accent-300)" }}
+                >
+                  {w}
+                </button>
+              ) : (
+                <span
+                  key={w}
+                  className="rounded-full border bg-surface px-2.5 py-1 text-[12.5px] font-bold"
+                  style={{ borderColor: "var(--color-accent-300)" }}
+                >
+                  {w}
+                </span>
+              ),
+            )}
+          </div>
+          {onPickWord && <p className="mt-1.5 text-[11px] text-neutral-500">{t("grammar.wordBankHint")}</p>}
+        </div>
+      )}
+    </div>
+  );
+}
+
+type ItemTone = "idle" | "correct" | "wrong" | "example";
+
+const TONE_BADGE: Record<ItemTone, React.CSSProperties> = {
+  idle: { background: "var(--color-accent-100)", color: "var(--color-accent-800)" },
+  correct: { background: "var(--color-text)", color: "var(--color-bg)" },
+  wrong: { background: "var(--color-accent)", color: "var(--color-bg)" },
+  example: { background: "var(--color-neutral-300)", color: "var(--color-neutral-700)" },
+};
+
+/** One numbered row: the book's own item number in a badge, then the item's
+ * content. The number is always shown, so any item can be cross-referenced
+ * against the printed book. */
+function ItemRow({ label, tone = "idle", children }: { label: string; tone?: ItemTone; children: React.ReactNode }) {
+  return (
+    <div className="flex gap-2.5 py-1.5">
+      <span
+        className="mt-[3px] flex h-[22px] min-w-[22px] flex-none items-center justify-center rounded-full px-1 text-[11px] font-extrabold tabular-nums"
+        style={TONE_BADGE[tone]}
+      >
+        {label}
+      </span>
+      <div className="min-w-0 flex-1">{children}</div>
+    </div>
+  );
+}
+
+/** The sentence with its gap: an actual blank line while unanswered, the answer
+ * written into the gap once it is known. Showing the completed sentence (rather
+ * than only "Answer: has a break" underneath) is the point of a gap-fill: the
+ * learner reads the finished sentence back. */
+function PromptLine({ prompt, renderBlank }: { prompt: string; renderBlank?: (blank: number) => React.ReactNode }) {
+  const parts = prompt.split("___");
+  const gaps = parts.length - 1;
+  return (
+    <span className="text-[14px] leading-relaxed">
+      {parts.map((part, i) => (
+        <span key={i}>
+          {i > 0 &&
+            (renderBlank?.(i - 1) ?? (
+              <span
+                className="mx-1 inline-block w-[72px] border-b-2 border-dashed text-center align-middle text-[10px] leading-[14px] font-extrabold text-accent"
+                style={{ borderColor: "var(--color-accent-300)" }}
+              >
+                {gaps > 1 ? i : ""}
+              </span>
+            ))}
+          {renderRich(part)}
+        </span>
+      ))}
+    </span>
+  );
+}
+
+function FilledAnswer({ text, tone }: { text: string; tone: "correct" | "wrong" | "example" }) {
+  const style: React.CSSProperties =
+    tone === "wrong"
+      ? { background: "var(--color-accent-100)", color: "var(--color-accent-800)" }
+      : { background: "var(--color-neutral-300)", color: "var(--color-text)" };
+  return (
+    <strong className="mx-0.5 rounded px-1 py-[1px] font-extrabold" style={style}>
+      {text}
+    </strong>
+  );
+}
+
+/** What the learner actually typed or picked, shown only when it was wrong:
+ * the completed sentence above already carries the right answer. */
+function YourAnswer({ text, label }: { text: string | null; label?: number }) {
+  const { t } = useUiLang();
+  if (!text?.trim()) return null;
+  return (
+    <div className="mt-0.5 text-[12px] text-neutral-500">
+      {label != null && <span className="mr-1 font-extrabold">{label}</span>}
+      {t("grammar.yourAnswer")} <span className="line-through">{text}</span>
+    </div>
+  );
+}
+
+/** Groups consecutive items sharing the exact same `context` string, so a story
+ * the book prints once with several blanks in it is rendered once with several
+ * blanks in it, instead of being repeated in full under every single blank. */
+type Contextual = { context?: string; contextEn?: string };
+
+function groupByContext<T extends Contextual>(items: T[]): { item: T; from: number; items: T[] }[] {
+  const groups: { item: T; from: number; items: T[] }[] = [];
+  items.forEach((item, index) => {
+    const last = groups[groups.length - 1];
+    if (last && item.context && last.item.context === item.context) last.items.push(item);
+    else groups.push({ item, from: index, items: [item] });
+  });
+  return groups;
+}
+
+/** A situation card: the shared story/setup, then the blanks belonging to it.
+ * Items with no context render bare, with no card around them. */
+function ContextGroup({ of, children }: { of: Contextual; children: React.ReactNode }) {
+  const { lang } = useUiLang();
+  if (!of.context) return <>{children}</>;
+  return (
+    <div className="mb-3 overflow-hidden rounded-lg border" style={{ borderColor: "var(--color-divider)" }}>
+      <p className="bg-surface px-3 py-2 text-[13px] leading-relaxed text-neutral-700">
+        {renderRich(loc(of.context, of.contextEn, lang))}
+      </p>
+      <div className="px-3 py-1.5">{children}</div>
+    </div>
+  );
+}
+
+/** The item(s) the book has already filled in at the top of an exercise,
+ * rendered as answered rows of the very same list the learner is about to work
+ * through, so the shape of the task is obvious without reading prose. */
+function WorkedExamples({ examples }: { examples?: WorkedExample[] }) {
+  const { t } = useUiLang();
+  if (!examples || examples.length === 0) return null;
+  return (
+    <div className="mb-4 rounded-lg border border-dashed px-3 py-2" style={{ borderColor: "var(--color-divider)" }}>
+      <span className="label-xs mb-1 block text-neutral-500">{t("grammar.example")}</span>
+      {groupByContext(examples).map((group, gi) => (
+        <ContextGroup key={gi} of={group.item}>
+          {group.items.map((ex, k) => (
+            <ItemRow key={k} label={ex.label ?? String(group.from + k + 1)} tone="example">
+              <PromptLine prompt={ex.prompt} renderBlank={() => <FilledAnswer text={ex.answer} tone="example" />} />
+            </ItemRow>
+          ))}
+        </ContextGroup>
+      ))}
+    </div>
+  );
+}
+
+/** Score plus primary action, pinned to the bottom of the viewport. The score
+ * used to sit at the very end of the scrollable content, which on a 19-item
+ * exercise meant scrolling past everything to find out how you did. */
+function PracticeFooter({
+  checked,
+  done,
+  total,
+  correct,
+  canCheck = true,
+  onCheck,
+  onContinue,
+}: {
+  checked: boolean;
+  done?: number;
+  total?: number;
+  correct?: number;
+  canCheck?: boolean;
+  onCheck?: () => void;
+  onContinue: () => void;
+}) {
+  const { t } = useUiLang();
+  if (!checked) {
+    return (
+      <>
+        {total != null && done != null && (
+          <div className="mb-1.5 text-center text-[11px] tabular-nums text-neutral-500">
+            {t("grammar.filledCount", { done, total })}
+          </div>
+        )}
+        <button className="btn btn-primary btn-block px-4 py-3 disabled:opacity-40" disabled={!canCheck} onClick={onCheck}>
+          {t("grammar.check")}
+        </button>
+      </>
+    );
+  }
+  return (
+    <>
+      {correct != null && total != null && (
+        <div className="mb-1.5 flex items-center justify-center gap-1.5 text-[12px]">
+          <span className="label-xs text-neutral-500">{t("grammar.result")}</span>
+          <span className="font-extrabold text-accent">{t("grammar.scoreCorrect", { correct, total })}</span>
+        </div>
+      )}
+      <button className="btn btn-primary btn-block px-4 py-3" onClick={onContinue}>
+        {t("grammar.continue")}
+      </button>
+    </>
+  );
+}
+
+/** Pins a step's primary action to the viewport bottom, returning the node to
+ * render inline instead when there is no ActionBarScreen to pin to. */
+function usePinnedAction(node: React.ReactNode): React.ReactNode {
+  return useActionBar(node) ? null : <div className="mt-4">{node}</div>;
 }
 
 // ---------- Multiple choice fill-in ----------
 
 function FillMcStepView({ step, onNext }: { step: FillMcStep; onNext: (score?: Score) => void }) {
-  const { lang, t } = useUiLang();
   const [picked, setPicked] = useState<(string | null)[]>(() => step.items.map(() => null));
   const [checked, setChecked] = useState(false);
   const allPicked = picked.every((p) => p !== null);
   const correctCount = picked.filter((p, i) => p === step.items[i].answer).length;
-  const passage = loc(step.passage ?? "", step.passageEn, lang);
+  const startNumber = step.startNumber ?? (step.examples?.length ?? 0) + 1;
+
+  const inlineAction = usePinnedAction(
+    <PracticeFooter
+      checked={checked}
+      done={picked.filter((p) => p !== null).length}
+      total={step.items.length}
+      correct={correctCount}
+      canCheck={allPicked}
+      onCheck={() => setChecked(true)}
+      onContinue={() => onNext({ correct: correctCount, total: step.items.length })}
+    />,
+  );
 
   return (
     <div className="flex flex-1 flex-col p-4">
-      <div className="mb-3 text-[13px] leading-relaxed text-neutral-700">
-        {renderRich(loc(step.instructions, step.instructionsEn, lang))}
-      </div>
-      {passage && (
-        <div className="mb-4 flex flex-col gap-1 rounded-md bg-surface p-3 text-[13px] leading-relaxed">
-          {passage.split("\n").map((line, k) => (
-            <p key={k}>{renderRich(line)}</p>
-          ))}
-        </div>
-      )}
+      <ExerciseHeader step={step} />
+      <WorkedExamples examples={step.examples} />
       <div className="lg:grid lg:grid-cols-2 lg:gap-x-6">
-        {step.items.map((it, i) => (
-          <div key={i} className="mb-4">
-            <div className="mb-2 text-[14px] leading-relaxed">
-              {renderRich(it.before)} <span className="font-extrabold text-accent-700">{picked[i] ?? "____"}</span> {renderRich(it.after)}
-            </div>
-            <div className="flex flex-wrap gap-1.5">
-              {it.options.map((o) => {
-                const isAnswer = o === it.answer;
-                const isPicked = picked[i] === o;
-                let style: React.CSSProperties = {
-                  borderColor: "var(--color-divider)",
-                  background: "var(--color-surface)",
-                  color: "var(--color-text)",
-                };
-                if (checked) {
-                  if (isAnswer) style = { borderColor: "var(--color-text)", background: "var(--color-text)", color: "var(--color-bg)" };
-                  else if (isPicked) style = { borderColor: "var(--color-accent)", background: "var(--color-accent-100)", color: "var(--color-accent-800)" };
-                  else style = { borderColor: "var(--color-divider)", background: "var(--color-bg)", color: "var(--color-neutral-600)" };
-                } else if (isPicked) {
-                  style = { borderColor: "var(--color-accent)", background: "var(--color-accent-100)", color: "var(--color-accent-800)" };
-                }
-                return (
-                  <button
-                    key={o}
-                    disabled={checked}
-                    style={style}
-                    className="border px-3 py-1.5 text-[13px] font-bold"
-                    onClick={() => {
-                      const next = [...picked];
-                      next[i] = o;
-                      setPicked(next);
-                    }}
-                  >
-                    {o}
-                  </button>
-                );
-              })}
-            </div>
-          </div>
+        {groupByContext(step.items).map((group, gi) => (
+          <ContextGroup key={gi} of={group.item}>
+            {group.items.map((it, k) => {
+              const i = group.from + k;
+              const chosen = picked[i];
+              const tone: ItemTone = !checked ? "idle" : chosen === it.answer ? "correct" : "wrong";
+              return (
+                <ItemRow key={i} label={it.label ?? String(startNumber + i)} tone={tone}>
+                  <PromptLine
+                    prompt={`${it.before} ___ ${it.after}`}
+                    renderBlank={
+                      checked
+                        ? () => <FilledAnswer text={it.answer} tone={tone === "wrong" ? "wrong" : "correct"} />
+                        : chosen
+                          ? () => <FilledAnswer text={chosen} tone="correct" />
+                          : undefined
+                    }
+                  />
+                  {!checked && (
+                    <div className="mt-1.5 flex flex-wrap gap-1.5">
+                      {it.options.map((o) => {
+                        const isPicked = chosen === o;
+                        return (
+                          <button
+                            key={o}
+                            className="rounded-full border px-3 py-1.5 text-[13px] font-bold"
+                            style={{
+                              borderColor: isPicked ? "var(--color-accent)" : "var(--color-divider)",
+                              background: isPicked ? "var(--color-accent-100)" : "var(--color-surface)",
+                              color: isPicked ? "var(--color-accent-800)" : "var(--color-text)",
+                            }}
+                            onClick={() => setPicked((prev) => prev.map((p, n) => (n === i ? o : p)))}
+                          >
+                            {o}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  )}
+                  {checked && tone === "wrong" && <YourAnswer text={chosen} />}
+                </ItemRow>
+              );
+            })}
+          </ContextGroup>
         ))}
       </div>
-      {checked && (
-        <div className="mb-3 bg-accent-100 px-4 py-3 text-[13px] leading-relaxed text-accent-800">
-          <span className="label-xs mb-0.5 block">{t("grammar.result")}</span>
-          <span className="font-extrabold">
-            {t("grammar.scoreCorrect", { correct: correctCount, total: step.items.length })}
-          </span>
-        </div>
-      )}
-      {checked ? (
-        <ContinueButton onClick={() => onNext({ correct: correctCount, total: step.items.length })} />
-      ) : (
-        <button
-          className="btn btn-primary btn-block mt-auto px-4 py-3 disabled:opacity-40"
-          disabled={!allPicked}
-          onClick={() => setChecked(true)}
-        >
-          {t("grammar.check")}
-        </button>
-      )}
+      {inlineAction}
     </div>
   );
 }
@@ -322,13 +571,23 @@ interface PairSel {
 }
 
 function MatchPairsStepView({ step, onNext }: { step: MatchPairsStep; onNext: (score?: Score) => void }) {
-  const { lang, t } = useUiLang();
   const [sel, setSel] = useState<PairSel | null>(null);
   const [doneLeft, setDoneLeft] = useState<Record<number, number>>({});
   const [wrong, setWrong] = useState<{ l: number; r: number } | null>(null);
   const [mistakes, setMistakes] = useState(0);
   const matchedRight = new Set(Object.values(doneLeft));
   const allDone = Object.keys(doneLeft).length === step.left.length;
+
+  const inlineAction = usePinnedAction(
+    allDone ? (
+      <PracticeFooter
+        checked
+        correct={step.left.length}
+        total={step.left.length + mistakes}
+        onContinue={() => onNext({ correct: step.left.length, total: step.left.length + mistakes })}
+      />
+    ) : null,
+  );
 
   function pick(side: "l" | "r", index: number) {
     if (wrong) return;
@@ -363,9 +622,7 @@ function MatchPairsStepView({ step, onNext }: { step: MatchPairsStep; onNext: (s
 
   return (
     <div className="flex flex-1 flex-col p-4 lg:mx-auto lg:w-full lg:max-w-[640px]">
-      <div className="mb-3 text-[13px] leading-relaxed text-neutral-700">
-        {renderRich(loc(step.instructions, step.instructionsEn, lang))}
-      </div>
+      <ExerciseHeader step={step} />
       <div className="grid grid-cols-2 gap-2.5">
         <div className="flex flex-col gap-1.5">
           {step.left.map((text, i) => (
@@ -373,7 +630,7 @@ function MatchPairsStepView({ step, onNext }: { step: MatchPairsStep; onNext: (s
               key={i}
               disabled={doneLeft[i] !== undefined}
               style={styleFor("l", i)}
-              className="border px-2.5 py-2 text-left text-[12.5px] leading-snug"
+              className="rounded-md border px-2.5 py-2 text-left text-[12.5px] leading-snug"
               onClick={() => pick("l", i)}
             >
               <span className="mr-1.5 opacity-60">{i + 1}</span>
@@ -387,7 +644,7 @@ function MatchPairsStepView({ step, onNext }: { step: MatchPairsStep; onNext: (s
               key={i}
               disabled={matchedRight.has(i)}
               style={styleFor("r", i)}
-              className="border px-2.5 py-2 text-left text-[12.5px] leading-snug"
+              className="rounded-md border px-2.5 py-2 text-left text-[12.5px] leading-snug"
               onClick={() => pick("r", i)}
             >
               <span className="mr-1.5 opacity-60">{QUIZ_LETTERS_LOWER[i]}</span>
@@ -396,17 +653,7 @@ function MatchPairsStepView({ step, onNext }: { step: MatchPairsStep; onNext: (s
           ))}
         </div>
       </div>
-      {allDone && (
-        <div className="mt-3 bg-accent-100 px-4 py-3 text-[13px] leading-relaxed text-accent-800">
-          <span className="label-xs mb-0.5 block">{t("grammar.result")}</span>
-          <span className="font-extrabold">
-            {t("grammar.scoreCorrectTaps", { correct: step.left.length, total: step.left.length + mistakes })}
-          </span>
-        </div>
-      )}
-      {allDone && (
-        <ContinueButton onClick={() => onNext({ correct: step.left.length, total: step.left.length + mistakes })} />
-      )}
+      {inlineAction}
     </div>
   );
 }
@@ -423,76 +670,92 @@ function matchesAnswer(input: string, item: { answer: string; accept?: string[] 
   return v === norm(item.answer) || (item.accept ?? []).some((a) => norm(a) === v);
 }
 
+/** An item's gaps, in the order they appear in `prompt`: the first is the
+ * item's own answer, the rest come from `extraBlanks`. */
+function blanksOf(item: TypeFillItem): { answer: string; accept?: string[] }[] {
+  return [{ answer: item.answer, accept: item.accept }, ...(item.extraBlanks ?? [])];
+}
+
 function TypeFillStepView({ step, onNext }: { step: TypeFillStep; onNext: (score?: Score) => void }) {
-  const { lang, t } = useUiLang();
-  const [inputs, setInputs] = useState<string[]>(() => step.items.map(() => ""));
+  const { t } = useUiLang();
+  const blanks = useMemo(() => step.items.map(blanksOf), [step]);
+  const [inputs, setInputs] = useState<string[][]>(() => blanks.map((b) => b.map(() => "")));
   const [checked, setChecked] = useState(false);
-  const correctCount = inputs.filter((v, i) => matchesAnswer(v, step.items[i])).length;
-  // Only show a number badge when the step opts in via startNumber. Exercises
-  // authored before this (units whose prompts already bake a book number into
-  // the prompt text itself, e.g. "2 (be / California?) ...") must NOT also get
-  // a badge, or the item would show two conflicting numbers.
-  const startNumber = step.startNumber;
-  const passage = loc(step.passage ?? "", step.passageEn, lang);
+  const [focused, setFocused] = useState<[number, number]>([0, 0]);
+  const startNumber = step.startNumber ?? (step.examples?.length ?? 0) + 1;
+
+  const total = blanks.reduce((n, b) => n + b.length, 0);
+  const done = inputs.reduce((n, row) => n + row.filter((v) => v.trim()).length, 0);
+  const correctCount = blanks.reduce(
+    (n, row, i) => n + row.filter((b, j) => matchesAnswer(inputs[i][j], b)).length,
+    0,
+  );
+
+  function setInput(i: number, j: number, value: string) {
+    setInputs((prev) => prev.map((row, k) => (k === i ? row.map((v, n) => (n === j ? value : v)) : row)));
+  }
+
+  const inlineAction = usePinnedAction(
+    <PracticeFooter
+      checked={checked}
+      done={done}
+      total={total}
+      correct={correctCount}
+      onCheck={() => setChecked(true)}
+      onContinue={() => onNext({ correct: correctCount, total })}
+    />,
+  );
 
   return (
     <div className="flex flex-1 flex-col p-4">
-      <div className="mb-3 text-[13px] leading-relaxed text-neutral-700">
-        {renderRich(loc(step.instructions, step.instructionsEn, lang))}
-      </div>
-      {passage && (
-        <div className="mb-4 flex flex-col gap-1 rounded-md bg-surface p-3 text-[13px] leading-relaxed">
-          {passage.split("\n").map((line, k) => (
-            <p key={k}>{renderRich(line)}</p>
-          ))}
-        </div>
-      )}
+      <ExerciseHeader step={step} onPickWord={checked ? undefined : (w) => setInput(focused[0], focused[1], w)} />
+      <WorkedExamples examples={step.examples} />
       <div className="lg:grid lg:grid-cols-2 lg:gap-x-6">
-        {step.items.map((it, i) => {
-          const ok = checked && matchesAnswer(inputs[i], it);
-          const bad = checked && !ok;
-          return (
-            <div key={i} className="mb-3">
-              <div className="mb-1 text-[14px] leading-relaxed">
-                {startNumber != null && <span className="mr-1.5 font-extrabold text-accent">{startNumber + i}</span>}
-                {renderRich(it.prompt)}
-              </div>
-              <input
-                className="input"
-                style={{ borderColor: bad ? "var(--color-accent)" : ok ? "var(--color-text)" : undefined }}
-                disabled={checked}
-                value={inputs[i]}
-                onChange={(e) => {
-                  const next = [...inputs];
-                  next[i] = e.target.value;
-                  setInputs(next);
-                }}
-                placeholder={t("grammar.answerPlaceholder")}
-              />
-              {bad && (
-                <div className="mt-1 text-[12px] text-accent-700">
-                  {t("grammar.answerLabel")} <span className="font-extrabold">{it.answer}</span>
-                </div>
-              )}
-            </div>
-          );
-        })}
+        {groupByContext(step.items).map((group, gi) => (
+          <ContextGroup key={gi} of={group.item}>
+            {group.items.map((it, k) => {
+              const i = group.from + k;
+              const row = blanks[i];
+              const okAt = (j: number) => checked && matchesAnswer(inputs[i][j], row[j]);
+              const allOk = row.every((_, j) => okAt(j));
+              const tone: ItemTone = !checked ? "idle" : allOk ? "correct" : "wrong";
+              return (
+                <ItemRow key={i} label={it.label ?? String(startNumber + i)} tone={tone}>
+                  {/* A prompt that is nothing but the gap ("write the whole
+                      question") has no sentence to show yet - the input below
+                      IS the line - so only render it once there's an answer. */}
+                  {(checked || it.prompt.trim() !== "___") && (
+                    <PromptLine
+                      prompt={it.prompt}
+                      renderBlank={
+                        checked ? (j) => <FilledAnswer text={row[j].answer} tone={okAt(j) ? "correct" : "wrong"} /> : undefined
+                      }
+                    />
+                  )}
+                  {!checked &&
+                    row.map((_, j) => (
+                      <div key={j} className="mt-1 flex items-center gap-1.5">
+                        {row.length > 1 && <span className="w-3 flex-none text-[11px] font-extrabold text-accent">{j + 1}</span>}
+                        <input
+                          className="input flex-1"
+                          value={inputs[i][j]}
+                          onFocus={() => setFocused([i, j])}
+                          onChange={(e) => setInput(i, j, e.target.value)}
+                          placeholder={t("grammar.answerPlaceholder")}
+                        />
+                      </div>
+                    ))}
+                  {checked &&
+                    row.map((_, j) =>
+                      okAt(j) ? null : <YourAnswer key={j} text={inputs[i][j]} label={row.length > 1 ? j + 1 : undefined} />,
+                    )}
+                </ItemRow>
+              );
+            })}
+          </ContextGroup>
+        ))}
       </div>
-      {checked && (
-        <div className="mb-3 bg-accent-100 px-4 py-3 text-[13px] leading-relaxed text-accent-800">
-          <span className="label-xs mb-0.5 block">{t("grammar.result")}</span>
-          <span className="font-extrabold">
-            {t("grammar.scoreCorrect", { correct: correctCount, total: step.items.length })}
-          </span>
-        </div>
-      )}
-      {checked ? (
-        <ContinueButton onClick={() => onNext({ correct: correctCount, total: step.items.length })} />
-      ) : (
-        <button className="btn btn-primary btn-block mt-auto px-4 py-3" onClick={() => setChecked(true)}>
-          {t("grammar.check")}
-        </button>
-      )}
+      {inlineAction}
     </div>
   );
 }
@@ -504,10 +767,11 @@ function TypeFillStepView({ step, onNext }: { step: TypeFillStep; onNext: (score
  * awarded only when both halves are right, so guessing "sai" and typing
  * anything doesn't earn credit. */
 function JudgeCorrectStepView({ step, onNext }: { step: JudgeCorrectStep; onNext: (score?: Score) => void }) {
-  const { lang, t } = useUiLang();
+  const { t } = useUiLang();
   const [verdicts, setVerdicts] = useState<(boolean | null)[]>(() => step.items.map(() => null));
   const [fixes, setFixes] = useState<string[]>(() => step.items.map(() => ""));
   const [checked, setChecked] = useState(false);
+  const startNumber = step.startNumber ?? 1;
 
   function isRight(i: number): boolean {
     const it = step.items[i];
@@ -519,97 +783,88 @@ function JudgeCorrectStepView({ step, onNext }: { step: JudgeCorrectStep; onNext
   const correctCount = step.items.filter((_, i) => isRight(i)).length;
   const allAnswered = verdicts.every((v, i) => v !== null && (v === false || fixes[i].trim() !== ""));
 
+  const inlineAction = usePinnedAction(
+    <PracticeFooter
+      checked={checked}
+      done={verdicts.filter((v) => v !== null).length}
+      total={step.items.length}
+      correct={correctCount}
+      canCheck={allAnswered}
+      onCheck={() => setChecked(true)}
+      onContinue={() => onNext({ correct: correctCount, total: step.items.length })}
+    />,
+  );
+
   return (
     <div className="flex flex-1 flex-col p-4">
-      <div className="mb-3 text-[13px] leading-relaxed text-neutral-700">
-        {renderRich(loc(step.instructions, step.instructionsEn, lang))}
-      </div>
-      <div className="flex flex-col gap-4">
+      <ExerciseHeader step={step} />
+      <div className="flex flex-col gap-1">
         {step.items.map((it, i) => {
           const parts = it.sentence.split(it.underlined);
           const ok = checked && isRight(i);
-          const bad = checked && !ok;
+          const tone: ItemTone = !checked ? "idle" : ok ? "correct" : "wrong";
           return (
-            <div key={i} className="border-l-2 pl-3" style={{ borderColor: bad ? "var(--color-accent)" : "var(--color-divider)" }}>
+            <ItemRow key={i} label={it.label ?? String(startNumber + i)} tone={tone}>
               <div className="text-[14px] leading-relaxed">
                 {parts[0]}
-                <span className="font-extrabold underline decoration-2 underline-offset-2">{it.underlined}</span>
+                <span
+                  className="font-extrabold underline decoration-2 underline-offset-2"
+                  style={checked && !it.ok ? { color: "var(--color-accent)" } : undefined}
+                >
+                  {it.underlined}
+                </span>
                 {parts.slice(1).join(it.underlined)}
               </div>
-              <div className="mt-1.5 flex flex-wrap gap-1.5">
-                {[
-                  { label: t("grammar.judgeOk"), value: false },
-                  { label: t("grammar.judgeFix"), value: true },
-                ].map((opt) => {
-                  const picked = verdicts[i] === opt.value;
-                  return (
-                    <button
-                      key={opt.label}
-                      disabled={checked}
-                      className="rounded-full border px-3 py-1 text-[12px] font-bold"
-                      style={{
-                        borderColor: picked ? "var(--color-accent)" : "var(--color-divider)",
-                        background: picked ? "var(--color-accent-100)" : "var(--color-surface)",
-                        color: picked ? "var(--color-accent-800)" : "var(--color-text)",
-                      }}
-                      onClick={() => {
-                        const next = [...verdicts];
-                        next[i] = opt.value;
-                        setVerdicts(next);
-                      }}
-                    >
-                      {opt.label}
-                    </button>
-                  );
-                })}
-              </div>
-              {verdicts[i] === true && (
+              {!checked && (
+                <div className="mt-1.5 flex flex-wrap gap-1.5">
+                  {[
+                    { label: t("grammar.judgeOk"), value: false },
+                    { label: t("grammar.judgeFix"), value: true },
+                  ].map((opt) => {
+                    const picked = verdicts[i] === opt.value;
+                    return (
+                      <button
+                        key={opt.label}
+                        className="rounded-full border px-3 py-1 text-[12px] font-bold"
+                        style={{
+                          borderColor: picked ? "var(--color-accent)" : "var(--color-divider)",
+                          background: picked ? "var(--color-accent-100)" : "var(--color-surface)",
+                          color: picked ? "var(--color-accent-800)" : "var(--color-text)",
+                        }}
+                        onClick={() => setVerdicts((prev) => prev.map((v, k) => (k === i ? opt.value : v)))}
+                      >
+                        {opt.label}
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
+              {!checked && verdicts[i] === true && (
                 <input
                   className="input mt-1.5"
-                  disabled={checked}
                   value={fixes[i]}
-                  onChange={(e) => {
-                    const next = [...fixes];
-                    next[i] = e.target.value;
-                    setFixes(next);
-                  }}
+                  onChange={(e) => setFixes((prev) => prev.map((v, k) => (k === i ? e.target.value : v)))}
                   placeholder={t("grammar.fixPlaceholder", { text: it.underlined })}
                 />
               )}
-              {bad && (
-                <div className="mt-1 text-[12px] text-accent-700">
+              {checked && (
+                <div className="mt-1 text-[12.5px]">
                   {it.ok ? (
-                    t("grammar.alreadyCorrect")
+                    <span className="text-neutral-500">{t("grammar.alreadyCorrect")}</span>
                   ) : (
                     <>
-                      {t("grammar.answerLabel")} <span className="font-extrabold">{it.correction}</span>
+                      <span className="text-neutral-500">{t("grammar.answerLabel")} </span>
+                      <FilledAnswer text={it.correction ?? ""} tone={ok ? "correct" : "wrong"} />
                     </>
                   )}
+                  {!ok && verdicts[i] === true && <YourAnswer text={fixes[i]} />}
                 </div>
               )}
-            </div>
+            </ItemRow>
           );
         })}
       </div>
-      {checked && (
-        <div className="mt-4 mb-3 bg-accent-100 px-4 py-3 text-[13px] leading-relaxed text-accent-800">
-          <span className="label-xs mb-0.5 block">{t("grammar.result")}</span>
-          <span className="font-extrabold">
-            {t("grammar.scoreCorrect", { correct: correctCount, total: step.items.length })}
-          </span>
-        </div>
-      )}
-      {checked ? (
-        <ContinueButton onClick={() => onNext({ correct: correctCount, total: step.items.length })} />
-      ) : (
-        <button
-          className="btn btn-primary btn-block mt-auto px-4 py-3 disabled:opacity-40"
-          disabled={!allAnswered}
-          onClick={() => setChecked(true)}
-        >
-          {t("grammar.check")}
-        </button>
-      )}
+      {inlineAction}
     </div>
   );
 }
@@ -627,7 +882,7 @@ function AiPracticeStepView({
   itemKey: string;
   onNext: (score?: Score) => void;
 }) {
-  const { lang, t } = useUiLang();
+  const { t } = useUiLang();
   const { appendMessages, getConvos } = useAiConvoStore(MODULE_KEY);
   const [sentence, setSentence] = useState("");
   const [loading, setLoading] = useState(false);
@@ -666,7 +921,9 @@ function AiPracticeStepView({
   }
 
   const footerContent = result ? (
-    <ContinueButton onClick={() => onNext()} label={t("grammar.completeUnit")} />
+    <button className="btn btn-primary btn-block px-4 py-3" onClick={() => onNext()}>
+      {t("grammar.completeUnit")}
+    </button>
   ) : (
     <button
       className="btn btn-primary btn-block px-4 py-3 disabled:opacity-40"
@@ -676,13 +933,11 @@ function AiPracticeStepView({
       {loading ? t("grammar.grading") : t("grammar.submitToAi")}
     </button>
   );
-  useActionBar(footerContent);
+  const inlineAction = usePinnedAction(footerContent);
 
   return (
     <div className="flex flex-1 flex-col p-4">
-      <div className="mb-3 text-[13px] leading-relaxed text-neutral-700">
-        {renderRich(loc(step.instructions, step.instructionsEn, lang))}
-      </div>
+      <ExerciseHeader step={step} />
       <textarea
         className="input min-h-[90px] w-full resize-none"
         value={sentence}
@@ -699,6 +954,7 @@ function AiPracticeStepView({
       {result != null && xpEarned != null && (
         <div className="mt-2 text-[13px] font-extrabold text-accent">+{xpEarned} XP</div>
       )}
+      {inlineAction}
     </div>
   );
 }
@@ -811,33 +1067,31 @@ export function UnitClient({ slug }: { slug: string }) {
     <ActionBarScreen
       header={
         <>
-          <div className="divider-b flex items-center gap-3 px-4 py-3">
+          <div className="flex items-center gap-3 px-4 py-3">
             <button onClick={goBack} className="relative h-[18px] w-[18px] flex-none text-neutral-600 hover:text-accent">
               <BackIcon />
             </button>
             <div className="h-1.5 flex-1 bg-neutral-300">
-              <div className="h-full bg-accent" style={{ width: `${(stepIndex / steps.length) * 100}%` }} />
+              <div className="h-full bg-accent" style={{ width: `${((stepIndex + 1) / steps.length) * 100}%` }} />
             </div>
-          </div>
-          <div className="px-4 pt-3">
-            <span className="label-xs block text-accent">
-              Unit {unit.unit} · {unit.title} · {stepKindLabel(step.kind, t)}
-            </span>
-          </div>
-          <div className="flex items-center justify-between gap-3 px-4 pt-2">
             <button
-              className="btn btn-ghost px-0 text-[11px]"
-              onClick={() => router.push("/modules/english-grammar-in-use")}
-            >
-              {t("grammar.exit")}
-            </button>
-            <button
-              className="flex items-center gap-1 text-[11px] tabular-nums text-neutral-600 hover:text-accent"
+              className="flex flex-none items-center gap-1 text-[11px] tabular-nums text-neutral-600 hover:text-accent"
               onClick={() => setShowStepList(true)}
               aria-label={t("grammar.stepListAria")}
             >
               <ListIcon />
               {stepIndex + 1}/{steps.length}
+            </button>
+          </div>
+          <div className="divider-b flex items-center justify-between gap-3 px-4 pb-2">
+            <span className="label-xs truncate text-accent">
+              Unit {unit.unit} · {unit.title} · {stepKindLabel(step.kind, t)}
+            </span>
+            <button
+              className="btn btn-ghost flex-none px-0 text-[11px]"
+              onClick={() => router.push("/modules/english-grammar-in-use")}
+            >
+              {t("grammar.exit")}
             </button>
           </div>
         </>

@@ -1,0 +1,107 @@
+// Structural self-check for src/data/english-grammar-in-use.ts.
+//
+// Run: node scripts/check-grammar-data.mjs
+//
+// The exercise data is hand-authored one unit at a time (145 units in the book,
+// a handful shipped so far), so the shape a renderer depends on is easy to
+// break by hand. This asserts the invariants the UnitClient renderer relies on
+// and that AGENTS.md describes, and exits non-zero with the offending unit,
+// exercise and item when one is violated.
+//
+// Each `const UNIT_...: GrammarUnit = { ... };` body is plain JSON, so it is
+// read with a regex + JSON.parse rather than by importing TypeScript (no
+// loader/bundler is wired up for scripts here).
+
+import { readFileSync } from "node:fs";
+
+const SRC = "src/data/english-grammar-in-use.ts";
+const PRACTICE = ["fill_mc", "type_fill", "judge_correct", "match_pairs"];
+const errors = [];
+
+function check(cond, message) {
+  if (!cond) errors.push(message);
+}
+
+const text = readFileSync(SRC, "utf8");
+const blocks = [...text.matchAll(/^const (UNIT_[A-Z0-9_]+): GrammarUnit = (\{[\s\S]*?\r?\n\});\r?$/gm)];
+check(blocks.length > 0, `${SRC}: no unit blocks found - has the file format changed?`);
+
+for (const [, name, json] of blocks) {
+  let unit;
+  try {
+    unit = JSON.parse(json);
+  } catch (e) {
+    errors.push(`${name}: body is not plain JSON (${e.message})`);
+    continue;
+  }
+  const at = (step, extra = "") => `Unit ${unit.unit} "${step.title}"${extra}`;
+
+  // Step order: rule, then auto-graded practice, then the AI step.
+  const kinds = unit.steps.map((s) => s.kind);
+  check(kinds[0] === "rule", `Unit ${unit.unit}: first step is "${kinds[0]}", expected "rule"`);
+  check(
+    kinds[kinds.length - 1] === "ai_practice",
+    `Unit ${unit.unit}: last step is "${kinds[kinds.length - 1]}", expected "ai_practice"`,
+  );
+  check(
+    kinds.slice(1, -1).every((k) => PRACTICE.includes(k)),
+    `Unit ${unit.unit}: steps between the rule and the AI step must be practice steps, got ${kinds.join(", ")}`,
+  );
+
+  for (const step of unit.steps) {
+    if (!PRACTICE.includes(step.kind)) continue;
+
+    // The book's exercise number heads the title, for cross-referencing.
+    check(
+      new RegExp(`^${unit.unit}\\.\\d+ · `).test(step.title),
+      `${at(step)}: title must start with "${unit.unit}.<n> · "`,
+    );
+
+    // `passage` is for genuine shared reading context only. A word bank goes in
+    // `wordBank` and a worked example in `examples`, or they render as one
+    // unscannable grey block again.
+    if (step.passage) {
+      check(
+        !/(Word bank|Danh sách|Chọn từ|Ví dụ|Example)/.test(step.passage),
+        `${at(step)}: passage carries a word bank or a worked example - use wordBank / examples instead`,
+      );
+    }
+
+    // One typed gap per answer, or the renderer shows a gap with nothing to
+    // fill it (or an answer with nowhere to go).
+    const rows = [
+      ...(step.examples ?? []).map((e) => ["example", e]),
+      ...(step.items ?? []).map((it) => ["item", it]),
+    ];
+    for (const [i, item] of rows.entries()) {
+      const [kind, it] = item;
+      if (typeof it.prompt !== "string") continue;
+      const gaps = (it.prompt.match(/___/g) ?? []).length;
+      const answers = 1 + (it.extraBlanks?.length ?? 0);
+      check(
+        gaps === answers,
+        `${at(step, ` ${kind} #${i}`)}: ${gaps} gap(s) in the prompt but ${answers} answer(s)`,
+      );
+      check(
+        !(it.accept ?? []).includes(it.answer),
+        `${at(step, ` ${kind} #${i}`)}: accept[] repeats the answer itself`,
+      );
+    }
+
+    // Item numbering must be unique within an exercise, whether it comes from
+    // explicit labels or from startNumber.
+    const start = step.startNumber ?? (step.examples?.length ?? 0) + 1;
+    const labels = (step.items ?? []).map((it, i) => it.label ?? String(start + i));
+    check(
+      new Set(labels).size === labels.length,
+      `${at(step)}: duplicate item numbers (${labels.join(", ")})`,
+    );
+  }
+}
+
+if (errors.length) {
+  console.error(`${errors.length} problem(s) in ${SRC}:`);
+  for (const e of errors) console.error("  - " + e);
+  process.exit(1);
+}
+console.log(`${SRC}: ${blocks.length} units OK`);

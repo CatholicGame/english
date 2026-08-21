@@ -49,23 +49,40 @@ book gives (see §3).
   doesn't fit — the point is the learner shouldn't lose that angle of practice entirely.
 - Note the skip in a code comment or just by absence; don't leave a numbering gap unexplained.
 
-## 3. Worked examples: pull them out, don't re-quiz them
+## 3. The four parts around an exercise, each in its own field
 
-The book gives the learner one (sometimes two) fully worked examples per exercise, printed inline
-with the numbered items. Two mistakes to avoid, both made and then fixed in Unit 1:
+The book prints four visually distinct things around a numbered exercise, and each has its own
+field. They were once all concatenated into `passage`, which rendered as a single grey block of
+run-on prose a learner had to unpick before starting — that is the bug this structure exists to
+prevent, so never merge them back together.
 
-- **Don't leave the worked example in `items`.** If item 1 is already answered in the book, it does
-  not belong in the `items` array as something the learner types again. Move it into `passage`
-  instead (see the "Ví dụ:" convention below), and start `items` at the first *real* blank.
-- **Set `startNumber`** on the step so the UI's item-number badge matches the book's own numbering.
-  If the worked example was items 1-2, the first real item is book-number 3 → `"startNumber": 3`.
-  Only set it when it's not 1; leave it unset for exercises with no excluded worked example (the
-  default numbering starts at 1 and no badge renders unless `startNumber` is explicitly set — see
-  §7, this matters for units authored before this convention existed).
+| Field | Holds | Renders as |
+|---|---|---|
+| `instructions` (+`instructionsEn`) | What to do | The line under the exercise title |
+| `wordBank: string[]` | The boxed list of words/phrases to choose from | A bordered box of tappable chips (tapping one fills the focused answer box) |
+| `examples: WorkedExample[]` | The item(s) the book has already filled in | Already-answered rows in the same list shape as the real items |
+| `passage` (+`passageEn`) | A genuine shared reading text or dialogue setup, and nothing else | A quoted "Bài đọc" block |
 
-`passage` is also where word banks, dialogue setups, and short reading passages go — anything the
-book prints once above the whole exercise rather than per-item. Prefix a worked example with
-`Ví dụ:` (see existing units for the exact phrasing convention); don't invent a different lead-in.
+- **A worked example is never an `items` entry.** If item 1 is already answered in the book, the
+  learner must not have to type it again. It goes in `examples` as
+  `{ label, context?, prompt, answer }` — same shape as a real item, so it renders as a row of the
+  same list rather than as prose the learner has to parse. Write `prompt` with `___` where the
+  answer goes, exactly as you would for a real item.
+- **A worked example never lives in `instructions` either.** Several early units appended
+  "Ví dụ: ..." to the instruction line; that is the same mistake in a different field.
+- **Per-item situation text goes in `context` (+`contextEn` only when it isn't the book's own
+  English), never repeated inside each `prompt`.** Consecutive items sharing the exact same
+  `context` string render as one situation card with the shared text shown once and their blanks
+  listed under it, which is how the book prints "read the situation, then complete the sentences".
+  Repeating the situation inside each prompt was the old shape, and where two items were two gaps
+  of one sentence it also printed the other gap's answer right next to the gap being asked about.
+- **Set `startNumber`** so the item-number badge matches the book's own numbering. It defaults to
+  `examples.length + 1`, which is right whenever the book's worked examples are its items 1..n, so
+  only set it explicitly when the numbering starts somewhere else. When the book's own numbering
+  isn't a plain running count (`2a`, `13b`), put it on the item as `label` instead — never bake a
+  number into the prompt text, or the item shows two conflicting numbers.
+- `wordBank`, `examples` and `label` carry the book's English content, so they take no `*En`
+  sibling — there is nothing to translate.
 
 ## 4. Choosing the step kind
 
@@ -156,8 +173,14 @@ bolds the target form in an example, bold it here too.
 
 ## 8. Other content rules
 
-- **Multi-blank book items** (one numbered item requiring two separate typed answers) split into
-  sub-items `2a`/`2b` rather than being crammed into one prompt/answer pair.
+- **One book sentence with several gaps in it stays one item**, with one `___` per gap in `prompt`:
+  the first gap takes `answer`/`accept`, the rest go in `extraBlanks: [{ answer, accept? }]`, in
+  order. Each gap gets its own numbered answer box and scores separately. Do NOT split it into one
+  item per gap — that reprints the whole sentence for every gap with the other gaps already filled
+  in, handing the learner the answers they are supposed to produce (units 6, 13, 15 and 16 all
+  shipped that way once and had to be merged back).
+  When the book itself numbers two *separate* sentences `2a`/`2b`, they stay two items: give them
+  the book's numbers via `label` and the shared situation via `context`.
 - **`answer` must never start with a bare leading apostrophe** (`"'ve been waiting"`). A learner
   can't naturally type that as a whole answer. Put the full form as `answer` (`"have been
   waiting"`) and the contraction in `accept` (`["'ve been waiting"]`).
@@ -174,16 +197,19 @@ bolds the target form in an example, bold it here too.
 Run all of these — they've each caught a real mistake made while building this module:
 
 1. `npx tsc --noEmit` clean.
-2. `**`/`*` marker balance: `**` count even, and single `*` count (after stripping `**...**` spans)
+2. `npm run check:grammar` (`scripts/check-grammar-data.mjs`) clean — it asserts the structural
+   rules a type can't: step order, the exercise-number title prefix, one gap per answer, no word
+   bank or worked example hiding in `passage`, and unique item numbers within an exercise.
+3. `**`/`*` marker balance: `**` count even, and single `*` count (after stripping `**...**` spans)
    even, within the unit's source range. A mismatched marker renders literal asterisks.
-3. Every `JudgeCorrectItem.underlined` is a substring of its `sentence` (see §8).
-4. No `answer` field starts with a bare `'` (see §8).
-5. Grep the unit's block for Vietnamese-only fields missing their `*En`/`*Vi` sibling — every
+4. Every `JudgeCorrectItem.underlined` is a substring of its `sentence` (see §8).
+5. No `answer` field starts with a bare `'` (see §8).
+6. Grep the unit's block for Vietnamese-only fields missing their `*En`/`*Vi` sibling — every
    `title`/`instructions`/`passage`/`heading` needs an `*En`, every `body`/`intro`/example needs a
    `*Vi`/`vi`.
-6. If you touched `UnitClient.tsx` itself, grep it for raw Vietnamese characters
+7. If you touched `UnitClient.tsx` itself, grep it for raw Vietnamese characters
    (`[À-ỹ]`) outside of comments — there should be none; everything user-facing routes through
    `t()` or `loc()`.
 
-If you're only adding a new unit's data (not touching the component), steps 1-5 are the ones that
-matter; step 6 only applies when the shared rendering code changes.
+If you're only adding a new unit's data (not touching the component), steps 1-6 are the ones that
+matter; step 7 only applies when the shared rendering code changes.

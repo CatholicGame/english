@@ -5260,6 +5260,1081 @@ const UNIT_14_PRESENT_PERFECT_AND_PAST_2: GrammarUnit = {
   ]
 };
 
+const UNIT_15_PAST_PERFECT: GrammarUnit = {
+  "unit": 15,
+  "slug": "past-perfect",
+  "title": "Past perfect (I had done)",
+  "topic": "Present perfect and past",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "Cách thành lập: had + phân từ hai",
+          "headingEn": "Formation: had + past participle",
+          "intro": "Study this example situation:",
+          "introVi": "Hãy xem tình huống ví dụ sau:",
+          "body": "Sarah and Paul went to the same party last week, but they didn't see each other. Paul left the party at 10.30 and Sarah arrived at 11 o'clock. So when Sarah arrived at the party, Paul wasn't there. He had **gone** home.\n\n**had gone** is the *past perfect*:",
+          "bodyVi": "Sarah và Paul cùng đến một buổi tiệc tuần trước, nhưng họ không gặp nhau. Paul ra khỏi tiệc lúc 10 giờ 30, còn Sarah đến lúc 11 giờ. Vì vậy khi Sarah đến, Paul đã không còn ở đó. Anh ấy đã về nhà rồi.\n\n**had gone** là thì *quá khứ hoàn thành*:",
+          "table": {
+            "rows": [
+              [
+                "I/we/they/you",
+                "**had** (= **I'd** etc.)",
+                "**gone** / **seen** / **finished** etc."
+              ],
+              [
+                "he/she/it",
+                "**had** (= **he'd** etc.)",
+                "**gone** / **seen** / **finished** etc."
+              ]
+            ]
+          },
+          "examples": [
+            {
+              "en": "The past perfect (simple) is **had** + past participle (**gone**/**seen**/**finished** etc.).",
+              "vi": "Thì quá khứ hoàn thành (đơn) là had + phân từ hai (gone/seen/finished v.v.)."
+            },
+            {
+              "en": "Sarah arrived at the party.",
+              "note": "the starting point of the story",
+              "vi": "Sarah đến buổi tiệc."
+            },
+            {
+              "en": "When Sarah arrived at the party, Paul **had** already **gone** home.",
+              "vi": "Khi Sarah đến buổi tiệc, Paul đã về nhà rồi."
+            },
+            {
+              "en": "When we got home last night, we found that somebody **had broken** into the flat.",
+              "vi": "Khi chúng tôi về nhà đêm qua, chúng tôi phát hiện có ai đó đã đột nhập vào căn hộ."
+            },
+            {
+              "en": "Karen didn't come to the cinema with us. She**'d already seen** the movie.",
+              "vi": "Karen không đi xem phim cùng chúng tôi. Cô ấy đã xem bộ phim đó rồi."
+            },
+            {
+              "en": "At first I thought I**'d done** the right thing, but I soon realised that I**'d made** a big mistake.",
+              "vi": "Ban đầu tôi nghĩ mình đã làm đúng, nhưng chẳng mấy chốc tôi nhận ra là mình đã phạm một lỗi lớn."
+            },
+            {
+              "en": "The people sitting next to me on the plane were nervous. They **hadn't flown** before.",
+              "note": "or They'd never flown before.",
+              "vi": "Những người ngồi cạnh tôi trên máy bay có vẻ lo lắng. Họ chưa từng đi máy bay trước đó."
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "So sánh hiện tại hoàn thành và quá khứ hoàn thành",
+          "headingEn": "Compare present perfect and past perfect",
+          "body": "Compare *have seen* (present perfect) and *had seen* (past perfect):",
+          "bodyVi": "So sánh *have seen* (hiện tại hoàn thành) và *had seen* (quá khứ hoàn thành):",
+          "examples": [
+            {
+              "en": "Who is that woman? **I've seen** her before, but I can't remember where.",
+              "note": "present perfect: an unspecified time before now",
+              "vi": "Người phụ nữ đó là ai vậy? Tôi đã gặp cô ấy trước đây rồi, nhưng không nhớ ở đâu."
+            },
+            {
+              "en": "I wasn't sure who she was. **I'd seen** her before, but I couldn't remember where.",
+              "note": "past perfect: before that past moment",
+              "vi": "Tôi không chắc cô ấy là ai. Tôi đã gặp cô ấy trước đó rồi, nhưng không nhớ ở đâu."
+            },
+            {
+              "en": "We aren't hungry. **We've just had** lunch.",
+              "vi": "Chúng tôi không đói. Chúng tôi vừa ăn trưa xong."
+            },
+            {
+              "en": "We weren't hungry. **We'd just had** lunch.",
+              "vi": "Chúng tôi không đói. Chúng tôi vừa ăn trưa xong trước đó."
+            },
+            {
+              "en": "The house is dirty. They **haven't cleaned** it for weeks.",
+              "vi": "Ngôi nhà bẩn quá. Họ đã không dọn dẹp nó trong nhiều tuần."
+            },
+            {
+              "en": "The house was dirty. They **hadn't cleaned** it for weeks.",
+              "vi": "Ngôi nhà đã bẩn. Họ đã không dọn dẹp nó trong nhiều tuần trước đó."
+            }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "So sánh quá khứ đơn và quá khứ hoàn thành",
+          "headingEn": "Compare past simple and past perfect",
+          "body": "Compare past simple (left, was etc.) and past perfect (had left, had been etc.):",
+          "bodyVi": "So sánh quá khứ đơn (left, was v.v.) và quá khứ hoàn thành (had left, had been v.v.):",
+          "examples": [
+            {
+              "en": "A: Was Tom there when you arrived? B: Yes, but he **left** soon afterwards.",
+              "note": "past simple: things happened one after another",
+              "vi": "A: Tom có ở đó khi bạn đến không? B: Có, nhưng anh ấy rời đi ngay sau đó."
+            },
+            {
+              "en": "A: Was Tom there when you arrived? B: No, he**'d already left**.",
+              "note": "past perfect: he left before you arrived",
+              "vi": "A: Tom có ở đó khi bạn đến không? B: Không, anh ấy đã rời đi trước đó rồi."
+            },
+            {
+              "en": "Kate wasn't at home when I phoned. She **was** at her mother's house.",
+              "vi": "Kate không có ở nhà khi tôi gọi điện. Cô ấy đang ở nhà mẹ mình."
+            },
+            {
+              "en": "Kate **had** just **got** home when I phoned. She**'d been** at her mother's house.",
+              "vi": "Kate vừa về nhà xong khi tôi gọi điện. Cô ấy đã ở nhà mẹ mình trước đó."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "15.1 · Đọc tình huống và viết câu ở thì quá khứ hoàn thành",
+      "titleEn": "15.1 · Read the situations and write sentences in the past perfect",
+      "instructions": "Đọc tình huống rồi viết câu bằng các từ trong ngoặc, dùng thì quá khứ hoàn thành.",
+      "instructionsEn": "Read the situations and write sentences using the words in brackets, in the past perfect.",
+      "passage": "Ví dụ:\n1 There was a picture lying on the floor. (It / fall / off the wall) It had fallen off the wall.\n2 The people sitting next to you on the plane were nervous. It was their first flight. (They / not / fly / before) They hadn't flown before.",
+      "passageEn": "Example:\n1 There was a picture lying on the floor. (It / fall / off the wall) It had fallen off the wall.\n2 The people sitting next to you on the plane were nervous. It was their first flight. (They / not / fly / before) They hadn't flown before.",
+      "startNumber": 3,
+      "items": [
+        {
+          "prompt": "You went back to your home town recently after many years. It wasn't the same as before. (It / change / a lot) It ___.",
+          "answer": "had changed a lot"
+        },
+        {
+          "prompt": "Somebody sang a song. You didn't know it. (I / not / hear / it / before) I ___.",
+          "answer": "hadn't heard it before"
+        },
+        {
+          "prompt": "I invited Rachel to the party, but she couldn't come. (She / arrange / to do something else) ___.",
+          "answer": "She had arranged to do something else",
+          "accept": [
+            "She'd arranged to do something else"
+          ]
+        },
+        {
+          "prompt": "You went to the cinema last night. You got to the cinema late. (The film / already / start) ___.",
+          "answer": "The film had already started"
+        },
+        {
+          "prompt": "Last year we went to Mexico. It was our first time there. (We / not / be / there / before) We ___.",
+          "answer": "hadn't been there before"
+        },
+        {
+          "prompt": "I met Daniel last week. It was good to see him again after such a long time. (I / not / see / him for five years) ___.",
+          "answer": "I hadn't seen him for five years"
+        },
+        {
+          "prompt": "I offered my friends something to eat, but they weren't hungry. (They / just / have / lunch) ___.",
+          "answer": "They had just had lunch",
+          "accept": [
+            "They'd just had lunch"
+          ]
+        },
+        {
+          "prompt": "Sam played tennis yesterday. He wasn't very good at it because it was his first game ever. (He / never / play / before) ___.",
+          "answer": "He had never played before",
+          "accept": [
+            "He'd never played before"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "15.2 · Hoàn thành đoạn văn bằng thì quá khứ hoàn thành",
+      "titleEn": "15.2 · Complete the paragraphs using the past perfect",
+      "instructions": "Dùng các câu bên trái để hoàn thành đoạn văn bên phải. Các câu bên trái được sắp theo thứ tự việc đã xảy ra, nên đôi khi bạn cần dùng thì quá khứ hoàn thành cho việc xảy ra trước.",
+      "instructionsEn": "Use the sentences on the left to complete the paragraphs on the right. The sentences on the left are in the order the events happened, so you sometimes need the past perfect for whatever happened earlier.",
+      "passage": "Ví dụ: 1 (a) Somebody broke into the office during the night. (b) We arrived at work in the morning. (c) We called the police. Đoạn văn: We arrived at work in the morning and found that somebody had broken into the office during the night. So we called the police.",
+      "passageEn": "Example: 1 (a) Somebody broke into the office during the night. (b) We arrived at work in the morning. (c) We called the police. Paragraph: We arrived at work in the morning and found that somebody had broken into the office during the night. So we called the police.",
+      "startNumber": 2,
+      "items": [
+        {
+          "prompt": "2a (a) Laura went out this morning. (b) I rang her doorbell. (c) There was no answer. I went to Laura's house this morning and rang her doorbell, but ___ no answer.",
+          "answer": "there was"
+        },
+        {
+          "prompt": "2b ___ out. (Laura had already left before you rang the doorbell.)",
+          "answer": "She had gone",
+          "accept": [
+            "She'd gone"
+          ]
+        },
+        {
+          "prompt": "3a (a) Joe came back from holiday a few days ago. (b) I met him the same day. (c) He looked very well. I met Joe a few days ago. ___ from holiday.",
+          "answer": "He had just come back",
+          "accept": [
+            "He'd just come back"
+          ]
+        },
+        {
+          "prompt": "3b ___ very well.",
+          "answer": "He looked"
+        },
+        {
+          "prompt": "4a (a) James sent Amy lots of emails. (b) She never replied to them. (c) Yesterday he got a phone call from her. (d) He was surprised. Yesterday James ___ from Amy.",
+          "answer": "got a phone call"
+        },
+        {
+          "prompt": "4b ___ surprised.",
+          "answer": "He was"
+        },
+        {
+          "prompt": "4c He ___ Amy lots of emails,",
+          "answer": "had sent",
+          "accept": [
+            "'d sent"
+          ]
+        },
+        {
+          "prompt": "4d but ___.",
+          "answer": "she had never replied",
+          "accept": [
+            "she'd never replied"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "15.3 · Chia động từ ở thì quá khứ hoàn thành hoặc quá khứ đơn",
+      "titleEn": "15.3 · Put the verb into the past perfect or past simple",
+      "instructions": "Chia động từ trong ngoặc ở thì quá khứ hoàn thành (I had done) hoặc quá khứ đơn (I did).",
+      "instructionsEn": "Put the verb in brackets into the past perfect (I had done) or the past simple (I did).",
+      "passage": "Ví dụ: 1 Paul wasn't at the party when I arrived. He'd gone (He / go) home.",
+      "passageEn": "Example: 1 Paul wasn't at the party when I arrived. He'd gone (He / go) home.",
+      "startNumber": 2,
+      "items": [
+        {
+          "prompt": "I felt very tired when I got home, so ___ straight to bed. (I / go)",
+          "answer": "I went"
+        },
+        {
+          "prompt": "The house was very quiet when I got home. Everybody ___ to bed. (go)",
+          "answer": "had gone",
+          "accept": [
+            "'d gone"
+          ]
+        },
+        {
+          "prompt": "Mark travels a lot. When I first met him, ___ round the world. (he / already / travel)",
+          "answer": "he had already travelled",
+          "accept": [
+            "he'd already travelled"
+          ]
+        },
+        {
+          "prompt": "Sorry I'm late. The car ___ down on my way here. (break)",
+          "answer": "broke"
+        },
+        {
+          "prompt": "We were driving along the road when ___ a car. (we / see)",
+          "answer": "we saw"
+        },
+        {
+          "prompt": "... a car which ___ down, (break)",
+          "answer": "had broken",
+          "accept": [
+            "'d broken"
+          ]
+        },
+        {
+          "prompt": "so ___ to help. (we / stop)",
+          "answer": "we stopped"
+        }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng thì quá khứ hoàn thành (had + phân từ hai) để kể về một việc đã xảy ra trước một mốc thời gian khác trong quá khứ, ví dụ: When Sarah arrived at the party, Paul had already gone home.",
+      "instructionsEn": "Write 2-3 English sentences using the past perfect (had + past participle) to describe something that happened before another point in the past, for example: When Sarah arrived at the party, Paul had already gone home.",
+      "ruleSummary": "This unit practises the past perfect (had + past participle), used for something that happened before a past starting point already established in a story. If the starting point is 'Sarah arrived at the party', anything that happened earlier than that moment needs the past perfect (Paul had already gone home), while events at or after the starting point use the past simple. Compare with the present perfect, which relates a past event to now (I've seen her before, I can't remember where) versus the past perfect, which relates it to another point in the past (I'd seen her before, but I couldn't remember where). Compare also with the past simple for events that simply happened one after another (he arrived, then he left) versus the past perfect when one event happened before the other and needs to be marked as earlier (when I arrived, he'd already left). A correct student sentence must use had plus a correct past participle, and must genuinely need to mark one past event as earlier than another past reference point, not just describe a single past event, which would only need the past simple."
+    }
+  ]
+};
+
+const UNIT_16_PAST_PERFECT_CONTINUOUS: GrammarUnit = {
+  "unit": 16,
+  "slug": "past-perfect-continuous",
+  "title": "Past perfect continuous (I had been doing)",
+  "topic": "Present perfect and past",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "Cách thành lập: had been + -ing",
+          "headingEn": "Formation: had been + -ing",
+          "intro": "Study this example situation:",
+          "introVi": "Hãy xem tình huống ví dụ sau:",
+          "body": "Yesterday morning I got up and looked out of the window. The sun was shining, but the ground was very wet. It **had been raining**.\n\nIt was not raining when I looked out of the window. The sun was shining. But it **had been raining** before.\n\n**had been -ing** is the *past perfect continuous*:",
+          "bodyVi": "Sáng hôm qua tôi ngủ dậy và nhìn ra ngoài cửa sổ. Nắng đang chiếu, nhưng mặt đất rất ướt. Trời đã mưa trước đó.\n\nLúc tôi nhìn ra cửa sổ thì trời không mưa. Nắng đang chiếu. Nhưng trước đó trời đã mưa.\n\n**had been -ing** là thì *quá khứ hoàn thành tiếp diễn*:",
+          "table": {
+            "rows": [
+              [
+                "I/we/you/they",
+                "**had** (= **I'd** etc.)",
+                "**been doing**"
+              ],
+              [
+                "he/she/it",
+                "**had** (= **he'd** etc.)",
+                "**been working** / **been playing** etc."
+              ]
+            ]
+          },
+          "examples": [
+            {
+              "en": "My hands were dirty because I**'d been repairing** my bike.",
+              "vi": "Tay tôi bẩn vì tôi vừa sửa xe đạp xong."
+            },
+            {
+              "en": "Tom was tired when he got home. He**'d been working** hard all day.",
+              "vi": "Tom mệt khi về nhà. Anh ấy đã làm việc vất vả cả ngày."
+            },
+            {
+              "en": "I went to Madrid a few years ago and stayed with a friend of mine. She **hadn't been living** there very long, but she knew the city very well.",
+              "vi": "Vài năm trước tôi đến Madrid và ở cùng một người bạn. Cô ấy chưa sống ở đó lâu, nhưng lại biết thành phố rất rõ."
+            },
+            {
+              "en": "We**'d been playing** tennis for about half an hour when it started to rain heavily.",
+              "note": "something had been happening before something else happened",
+              "vi": "Chúng tôi đã chơi tennis được khoảng nửa giờ thì trời bắt đầu mưa to."
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "So sánh hiện tại hoàn thành tiếp diễn và quá khứ hoàn thành tiếp diễn",
+          "headingEn": "Compare present perfect continuous and past perfect continuous",
+          "body": "Compare *have been -ing* (present perfect continuous) and *had been -ing* (past perfect continuous):",
+          "bodyVi": "So sánh *have been -ing* (hiện tại hoàn thành tiếp diễn) và *had been -ing* (quá khứ hoàn thành tiếp diễn):",
+          "examples": [
+            {
+              "en": "I hope the bus comes soon. I**'ve been waiting** for 20 minutes.",
+              "note": "before now",
+              "vi": "Tôi mong xe buýt đến sớm. Tôi đã đợi 20 phút rồi."
+            },
+            {
+              "en": "At last the bus came. I**'d been waiting** for 20 minutes.",
+              "note": "before the bus came",
+              "vi": "Cuối cùng xe buýt cũng đến. Tôi đã đợi 20 phút trước đó."
+            },
+            {
+              "en": "James is out of breath. He**'s been running**.",
+              "note": "= he has been ...",
+              "vi": "James đang hụt hơi. Anh ấy vừa chạy xong."
+            },
+            {
+              "en": "James was out of breath. He**'d been running**.",
+              "note": "= he had been ...",
+              "vi": "James đã hụt hơi. Anh ấy vừa chạy xong trước đó."
+            }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "So sánh quá khứ tiếp diễn và quá khứ hoàn thành tiếp diễn",
+          "headingEn": "Compare past continuous and past perfect continuous",
+          "body": "Compare *was -ing* (past continuous) and *had been -ing*:",
+          "bodyVi": "So sánh *was -ing* (quá khứ tiếp diễn) và *had been -ing*:",
+          "examples": [
+            {
+              "en": "It **wasn't raining** when we went out. The sun was shining. But it **had been raining**, so the ground was wet.",
+              "vi": "Trời không mưa khi chúng tôi ra ngoài. Nắng đang chiếu. Nhưng trước đó trời đã mưa, nên mặt đất ướt."
+            },
+            {
+              "en": "Katherine **was lying** on the sofa. She was tired because she**'d been working** hard.",
+              "vi": "Katherine đang nằm trên ghế sofa. Cô ấy mệt vì đã làm việc vất vả trước đó."
+            }
+          ]
+        },
+        {
+          "label": "D",
+          "heading": "Động từ không dùng ở dạng tiếp diễn",
+          "headingEn": "Verbs not normally used in the continuous",
+          "body": "Some verbs (for example, know) are not normally used in continuous forms (be + -ing). For a list of these verbs, see Unit 4A; for have, see Unit 17.",
+          "bodyVi": "Một số động từ (ví dụ know) không được dùng ở dạng tiếp diễn (be + -ing). Xem danh sách các động từ này ở Unit 4A; về have, xem Unit 17.",
+          "examples": [
+            {
+              "en": "We were good friends. We **had known** each other for years.",
+              "note": "not had been knowing",
+              "vi": "Chúng tôi là bạn tốt. Chúng tôi đã biết nhau nhiều năm."
+            },
+            {
+              "en": "A few years ago Lisa cut her hair really short. I was surprised because she**'d always had** long hair.",
+              "note": "not she'd been having",
+              "vi": "Vài năm trước Lisa cắt tóc rất ngắn. Tôi ngạc nhiên vì trước đó cô ấy luôn để tóc dài."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "16.1 · Đọc tình huống và viết câu ở thì quá khứ hoàn thành tiếp diễn",
+      "titleEn": "16.1 · Read the situations and make sentences in the past perfect continuous",
+      "instructions": "Đọc tình huống rồi viết câu bằng các từ trong ngoặc, dùng thì quá khứ hoàn thành tiếp diễn.",
+      "instructionsEn": "Read the situations and make sentences using the words in brackets, in the past perfect continuous.",
+      "passage": "Ví dụ: 1 Tom was very tired when he got home. (He / work / hard all day) He'd been working hard all day.",
+      "passageEn": "Example: 1 Tom was very tired when he got home. (He / work / hard all day) He'd been working hard all day.",
+      "startNumber": 2,
+      "items": [
+        {
+          "prompt": "The children came into the house. They had a football and they were both very tired. (They / play / football)",
+          "answer": "They had been playing football",
+          "accept": [
+            "They'd been playing football"
+          ]
+        },
+        {
+          "prompt": "I was disappointed when I had to cancel my holiday. (I / look / forward to it)",
+          "answer": "I had been looking forward to it",
+          "accept": [
+            "I'd been looking forward to it"
+          ]
+        },
+        {
+          "prompt": "Anna woke up in the middle of the night. She was frightened and didn't know where she was. (She / have / a bad dream)",
+          "answer": "She had been having a bad dream",
+          "accept": [
+            "She'd been having a bad dream"
+          ]
+        },
+        {
+          "prompt": "When I got home, Mark was sitting in front of the TV. He had just turned it off. (He / watch / a film)",
+          "answer": "He had been watching a film",
+          "accept": [
+            "He'd been watching a film"
+          ]
+        },
+        {
+          "prompt": "The people waiting at the bus stop were getting impatient. The bus was very late. (They / wait / a long time)",
+          "answer": "They had been waiting a long time",
+          "accept": [
+            "They'd been waiting a long time"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "16.2 · Đọc tình huống và hoàn thành câu",
+      "titleEn": "16.2 · Read the situations and complete the sentences",
+      "instructions": "Đọc tình huống rồi hoàn thành câu, dùng thì quá khứ hoàn thành tiếp diễn hoặc quá khứ đơn cho phù hợp.",
+      "instructionsEn": "Read the situations and complete the sentences, using the past perfect continuous or the past simple as appropriate.",
+      "passage": "Ví dụ: 1 We played tennis yesterday. We didn't finish our game. We'd been playing (We / play) for half an hour when it started (it / start) to rain.",
+      "passageEn": "Example: 1 We played tennis yesterday. We didn't finish our game. We'd been playing (We / play) for half an hour when it started (it / start) to rain.",
+      "startNumber": 2,
+      "items": [
+        {
+          "prompt": "2a I had arranged to meet Tom in a restaurant. I arrived and waited for him to come. ___ for 20 minutes (I / wait)",
+          "answer": "I had been waiting",
+          "accept": [
+            "I'd been waiting"
+          ]
+        },
+        {
+          "prompt": "2b when ___ that (I / realise)",
+          "answer": "I realised"
+        },
+        {
+          "prompt": "2c ___ in the wrong restaurant. (I / be)",
+          "answer": "I was"
+        },
+        {
+          "prompt": "3a Sarah worked in a company for a long time. The company no longer exists. At the time the company ___ out of business, (go)",
+          "answer": "went"
+        },
+        {
+          "prompt": "3b Sarah ___ there for twelve years. (work)",
+          "answer": "had been working",
+          "accept": [
+            "had worked",
+            "'d been working"
+          ]
+        },
+        {
+          "prompt": "4a I went to a concert. Soon after the orchestra began playing, something strange happened. The orchestra ___ for about ten minutes (play)",
+          "answer": "had been playing",
+          "accept": [
+            "'d been playing"
+          ]
+        },
+        {
+          "prompt": "4b when a man in the audience suddenly ___ shouting. (start)",
+          "answer": "started"
+        }
+      ]
+    },
+    {
+      "kind": "fill_mc",
+      "title": "16.3 · Chọn câu đúng",
+      "titleEn": "16.3 · Which is right?",
+      "instructions": "Chọn cách diễn đạt đúng trong mỗi cặp.",
+      "instructionsEn": "Choose the correct form in each pair.",
+      "passage": "Ví dụ: 1 It was noisy next door last night. Our neighbours were having / had been having a party. (were having is correct)",
+      "passageEn": "Example: 1 It was noisy next door last night. Our neighbours were having / had been having a party. (were having is correct)",
+      "items": [
+        {
+          "before": "At the end of our journey we were extremely tired.",
+          "options": [
+            "We were travelling",
+            "We'd been travelling"
+          ],
+          "after": "for more than 24 hours.",
+          "answer": "We'd been travelling"
+        },
+        {
+          "before": "James was on his hands and knees on the floor.",
+          "options": [
+            "He was looking",
+            "He'd been looking"
+          ],
+          "after": "for his contact lens.",
+          "answer": "He'd been looking"
+        },
+        {
+          "before": "Sue was sitting on the ground. She was out of breath.",
+          "options": [
+            "She was running",
+            "She'd been running"
+          ],
+          "after": "",
+          "answer": "She'd been running"
+        },
+        {
+          "before": "John and I went for a walk.",
+          "options": [
+            "He was walking",
+            "He'd been walking"
+          ],
+          "after": "very fast and I had difficulty keeping up with him.",
+          "answer": "He was walking"
+        },
+        {
+          "before": "I was sad when I sold my car.",
+          "options": [
+            "I've had it",
+            "I'd had it"
+          ],
+          "after": "for a very long time.",
+          "answer": "I'd had it"
+        },
+        {
+          "before": "I was sad when my local cafe closed.",
+          "options": [
+            "I was going",
+            "I'd been going"
+          ],
+          "after": "there for many years.",
+          "answer": "I'd been going"
+        },
+        {
+          "before": "I'm running a marathon next month.",
+          "options": [
+            "I've been training",
+            "I'd been training"
+          ],
+          "after": "for it every day.",
+          "answer": "I've been training"
+        },
+        {
+          "before": "I had arranged to meet Kate, but I was late. When I finally arrived,",
+          "options": [
+            "she was waiting",
+            "she'd been waiting"
+          ],
+          "after": "for me.",
+          "answer": "she was waiting"
+        },
+        {
+          "before": "She was annoyed because",
+          "options": [
+            "she was waiting",
+            "she'd been waiting"
+          ],
+          "after": "such a long time.",
+          "answer": "she'd been waiting"
+        },
+        {
+          "before": "Joe and I work for the same company. He joined the company before me. When I started a few years ago,",
+          "options": [
+            "he was already working",
+            "he'd already been working"
+          ],
+          "after": "there.",
+          "answer": "he'd already been working"
+        },
+        {
+          "before": "I started working at the company a few years ago. At the time I started, Joe",
+          "options": [
+            "was already working",
+            "had already been working"
+          ],
+          "after": "there for two years.",
+          "answer": "had already been working"
+        },
+        {
+          "before": "Joe still works for the company.",
+          "options": [
+            "He's been working",
+            "He'd been working"
+          ],
+          "after": "there a long time now.",
+          "answer": "He's been working"
+        }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng thì quá khứ hoàn thành tiếp diễn (had been + V-ing) để giải thích lý do cho một trạng thái trong quá khứ, ví dụ: My hands were dirty because I'd been repairing my bike.",
+      "instructionsEn": "Write 2-3 English sentences using the past perfect continuous (had been + V-ing) to explain the reason for a past state, for example: My hands were dirty because I'd been repairing my bike.",
+      "ruleSummary": "This unit practises the past perfect continuous (had been + -ing), used for an activity that had been going on before a particular past moment, often to explain a state at that moment (My hands were dirty because I'd been repairing my bike. Tom was tired because he'd been working hard all day). Compare it with the present perfect continuous, which relates the activity to now (I've been waiting for 20 minutes, before now) versus the past perfect continuous, which relates it to another past moment (I'd been waiting for 20 minutes, before the bus came). Compare it also with the past continuous (was doing), which simply describes what was happening at a past moment, versus the past perfect continuous, which looks back at an activity that had been happening before that moment. As with other continuous forms, state verbs such as know are not normally used in the continuous (We had known each other for years, not had been knowing). A correct student sentence must use had been plus the -ing form, and should describe an activity that explains or precedes a specific past moment, not simply narrate a single past event."
+    }
+  ]
+};
+
+const UNIT_17_HAVE_AND_HAVE_GOT: GrammarUnit = {
+  "unit": 17,
+  "slug": "have-and-have-got",
+  "title": "have and have got",
+  "topic": "Present perfect and past",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "have và have got: sở hữu, quan hệ, bệnh tật, cuộc hẹn...",
+          "headingEn": "have and have got: possession, relationships, illnesses, appointments etc.",
+          "body": "You can use **have** or **have got**. There is no difference in meaning.\n\nWith these meanings (possession etc.), we do not use continuous forms (**I'm having** etc.).\n\nFor the past we use **had** (usually without got).",
+          "bodyVi": "Bạn có thể dùng **have** hoặc **have got**. Không có sự khác biệt về nghĩa.\n\nVới những nghĩa này (sở hữu v.v.), chúng ta không dùng dạng tiếp diễn (**I'm having** v.v.).\n\nỞ thì quá khứ, chúng ta dùng **had** (thường không có got).",
+          "examples": [
+            {
+              "en": "They **have** a new car.",
+              "note": "or They've got a new car.",
+              "vi": "Họ có một chiếc xe mới."
+            },
+            {
+              "en": "Lisa **has** two brothers.",
+              "note": "or Lisa has got two brothers.",
+              "vi": "Lisa có hai anh trai."
+            },
+            {
+              "en": "I **have** a headache.",
+              "note": "or I've got a headache.",
+              "vi": "Tôi bị đau đầu."
+            },
+            {
+              "en": "Our house **has** a small garden.",
+              "note": "or Our house has got a small garden.",
+              "vi": "Nhà chúng tôi có một khu vườn nhỏ."
+            },
+            {
+              "en": "He **has** a few problems.",
+              "note": "or He's got a few problems.",
+              "vi": "Anh ấy có vài vấn đề."
+            },
+            {
+              "en": "I **have** a driving lesson tomorrow.",
+              "note": "or I've got a driving lesson tomorrow.",
+              "vi": "Ngày mai tôi có một buổi học lái xe."
+            },
+            {
+              "en": "We're enjoying our holiday. We **have** / We've got a nice room in the hotel.",
+              "note": "not We're having a nice room",
+              "vi": "Chúng tôi đang có một kỳ nghỉ vui vẻ. Chúng tôi có một phòng đẹp trong khách sạn."
+            },
+            {
+              "en": "Lisa **had** long hair when she was a child.",
+              "note": "not Lisa had got",
+              "vi": "Lisa từng để tóc dài khi còn nhỏ."
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "Câu hỏi và câu phủ định",
+          "headingEn": "Questions and negatives",
+          "body": "In questions and negative sentences there are three possible forms:",
+          "bodyVi": "Trong câu hỏi và câu phủ định, có ba cách diễn đạt:",
+          "table": {
+            "headers": [
+              "Câu hỏi",
+              "Câu phủ định"
+            ],
+            "rows": [
+              [
+                "**Do** you **have** any questions?",
+                "I **don't have** any questions."
+              ],
+              [
+                "**Have** you **got** any questions?",
+                "I **haven't got** any questions."
+              ],
+              [
+                "**Have** you any questions? (less usual)",
+                "I **haven't** any questions. (less usual)"
+              ],
+              [
+                "**Does** she **have** a car?",
+                "She **doesn't have** a car."
+              ],
+              [
+                "**Has** she **got** a car?",
+                "She **hasn't got** a car."
+              ],
+              [
+                "**Has** she a car? (less usual)",
+                "She **hasn't** a car. (less usual)"
+              ]
+            ]
+          },
+          "examples": [
+            {
+              "en": "In past questions and negative sentences, we use **did/didn't**:",
+              "vi": "Ở câu hỏi và câu phủ định thời quá khứ, chúng ta dùng **did/didn't**:"
+            },
+            {
+              "en": "**Did** you **have** a car when you were living in Paris?",
+              "vi": "Bạn có xe hơi không khi bạn đang sống ở Paris?"
+            },
+            {
+              "en": "I **didn't have** my phone, so I couldn't call you.",
+              "vi": "Tôi không có điện thoại, nên tôi không thể gọi cho bạn."
+            },
+            {
+              "en": "Lisa **had** long hair, didn't she?",
+              "vi": "Lisa từng để tóc dài, đúng không?"
+            }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "have breakfast / have a shower / have a good time...",
+          "headingEn": "have breakfast / have a shower / have a good time etc.",
+          "body": "We also use **have** (but not have got) for things we do or experience. For example:",
+          "bodyVi": "Chúng ta cũng dùng **have** (nhưng không dùng have got) cho những việc chúng ta làm hoặc trải qua. Ví dụ:",
+          "wordList": [
+            "breakfast",
+            "dinner",
+            "a cup of coffee",
+            "something to eat",
+            "a bath",
+            "a shower",
+            "a swim",
+            "a break",
+            "a rest",
+            "a party",
+            "a holiday",
+            "an accident",
+            "an experience",
+            "a dream",
+            "a look (at something)",
+            "a chat",
+            "a discussion",
+            "a conversation (with somebody)",
+            "trouble",
+            "difficulty",
+            "fun",
+            "a good time",
+            "a baby"
+          ],
+          "examples": [
+            {
+              "en": "**Have got** is not possible in these expressions.",
+              "vi": "Không dùng được **have got** trong các cách diễn đạt này."
+            },
+            {
+              "en": "Sometimes I **have** (= eat) a sandwich for my lunch.",
+              "note": "not I've got",
+              "vi": "Đôi khi tôi ăn một cái sandwich cho bữa trưa."
+            },
+            {
+              "en": "I've got / I **have** some sandwiches. Would you like one?",
+              "vi": "Tôi có vài cái sandwich. Bạn có muốn ăn một cái không?"
+            },
+            {
+              "en": "You can use continuous forms (**I'm having** etc.) with these expressions:",
+              "vi": "Bạn có thể dùng dạng tiếp diễn (**I'm having** v.v.) với những cách diễn đạt này:"
+            },
+            {
+              "en": "We're enjoying our holiday. We**'re having** a great time.",
+              "vi": "Chúng tôi đang có một kỳ nghỉ vui vẻ. Chúng tôi đang có khoảng thời gian tuyệt vời."
+            },
+            {
+              "en": "'Where's Mark?' 'He**'s having** a shower.'",
+              "vi": "'Mark đâu rồi?' 'Anh ấy đang tắm.'"
+            },
+            {
+              "en": "In questions and negative sentences we use **do/does/did**:",
+              "vi": "Trong câu hỏi và câu phủ định, chúng ta dùng **do/does/did**:"
+            },
+            {
+              "en": "I **don't** usually **have** a big breakfast.",
+              "note": "not I usually haven't",
+              "vi": "Tôi thường không ăn sáng nhiều."
+            },
+            {
+              "en": "Where **does** Chris usually **have** lunch?",
+              "vi": "Chris thường ăn trưa ở đâu?"
+            },
+            {
+              "en": "**Did** you **have** trouble finding somewhere to stay?",
+              "note": "not Had you",
+              "vi": "Bạn có gặp khó khăn khi tìm chỗ ở không?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "match_pairs",
+      "title": "17.1 · Nối câu cho phù hợp",
+      "titleEn": "17.1 · Which goes with which?",
+      "instructions": "Các câu bên phải nối tiếp ý của các câu bên trái. Chạm một câu bên trái, sau đó chạm câu phù hợp bên phải.",
+      "instructionsEn": "The sentences on the right go with those on the left. Tap a sentence on the left, then tap the one on the right that goes with it.",
+      "left": [
+        "I'm not free tomorrow morning.",
+        "Rachel is an only child.",
+        "We've got plenty of time.",
+        "You've got a really good voice.",
+        "I don't feel very well this morning.",
+        "Laura studied at university.",
+        "I've got a question.",
+        "James has got a lot of experience."
+      ],
+      "right": [
+        "She's got a degree in physics.",
+        "I've got a sore throat.",
+        "There's no need to hurry.",
+        "I've got a driving lesson.",
+        "Maybe you can answer it.",
+        "I think he should get the job.",
+        "I wish I could sing as well as you.",
+        "She's got no brothers or sisters."
+      ],
+      "answers": [
+        "I've got a driving lesson.",
+        "She's got no brothers or sisters.",
+        "There's no need to hurry.",
+        "I wish I could sing as well as you.",
+        "I've got a sore throat.",
+        "She's got a degree in physics.",
+        "Maybe you can answer it.",
+        "I think he should get the job."
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "17.2 · Hoàn thành câu dùng have",
+      "titleEn": "17.2 · Complete the sentences using have",
+      "instructions": "Hoàn thành các câu bằng have, chia ở dạng phù hợp.",
+      "instructionsEn": "Complete the sentences using have, in the correct form.",
+      "passage": "Ví dụ:\n1 She couldn't get into the house. She didn't have a key.\n2 Is there anything you'd like to ask? Do you have any questions?",
+      "passageEn": "Example:\n1 She couldn't get into the house. She didn't have a key.\n2 Is there anything you'd like to ask? Do you have any questions?",
+      "startNumber": 3,
+      "items": [
+        {
+          "prompt": "They can't pay their bills. They ___ any money. (have)",
+          "answer": "don't have"
+        },
+        {
+          "prompt": "We got wet in the rain yesterday. We ___ an umbrella. (have)",
+          "answer": "didn't have"
+        },
+        {
+          "prompt": "Jack ___ a car. He can't afford one and he can't drive anyway. (have)",
+          "answer": "doesn't have"
+        },
+        {
+          "prompt": "'Excuse me, ___ a pen I could borrow?' 'Yes, sure. Here you are.' (have)",
+          "answer": "do you have"
+        },
+        {
+          "prompt": "I was very busy yesterday. I ___ time to go shopping. (have)",
+          "answer": "didn't have"
+        },
+        {
+          "prompt": "'Tell me about Jack. ___ a job?' 'Yes, he works at the hospital.' (have)",
+          "answer": "does he have"
+        },
+        {
+          "prompt": "When you worked in your last job, ___ your own office? (have)",
+          "answer": "did you have"
+        },
+        {
+          "prompt": "'Where's the remote control?' 'I don't know. I ___ it.' (have)",
+          "answer": "don't have"
+        },
+        {
+          "prompt": "'Tom ___ a motorbike, (have)",
+          "answer": "had"
+        },
+        {
+          "prompt": "___ he?' 'Yes, that's right. A long time ago.'",
+          "answer": "didn't"
+        }
+      ]
+    },
+    {
+      "kind": "judge_correct",
+      "title": "17.3 · Phần gạch chân đúng hay cần sửa?",
+      "titleEn": "17.3 · Are the underlined words OK?",
+      "instructions": "Phần gạch chân trong mỗi câu đã đúng chưa? Sửa lại nếu cần.",
+      "instructionsEn": "Are the underlined words in each sentence OK? Change them where necessary.",
+      "items": [
+        {
+          "sentence": "I'm not free tomorrow morning. I've got a driving lesson.",
+          "underlined": "I've got a driving lesson",
+          "ok": true
+        },
+        {
+          "sentence": "Lisa had got long hair when she was a child.",
+          "underlined": "had got long hair",
+          "ok": false,
+          "correction": "had long hair"
+        },
+        {
+          "sentence": "I couldn't contact you because I hadn't my phone.",
+          "underlined": "hadn't my phone",
+          "ok": false,
+          "correction": "didn't have my phone"
+        },
+        {
+          "sentence": "'Are you feeling OK?' 'No, I'm having a cold.'",
+          "underlined": "I'm having a cold",
+          "ok": false,
+          "correction": "I've got a cold",
+          "accept": [
+            "I have a cold"
+          ]
+        },
+        {
+          "sentence": "I'm not working right now. I'm having a break.",
+          "underlined": "I'm having a break",
+          "ok": true
+        },
+        {
+          "sentence": "I felt really tired. I hadn't any energy.",
+          "underlined": "I hadn't any energy",
+          "ok": false,
+          "correction": "I didn't have any energy",
+          "accept": [
+            "I had no energy"
+          ]
+        },
+        {
+          "sentence": "It's a small town. It doesn't have many shops.",
+          "underlined": "It doesn't have many shops",
+          "ok": true
+        },
+        {
+          "sentence": "Was your trip OK? Had you any problems?",
+          "underlined": "Had you any problems",
+          "ok": false,
+          "correction": "Did you have any problems"
+        },
+        {
+          "sentence": "My friend called me when I was having breakfast.",
+          "underlined": "I was having breakfast",
+          "ok": true
+        },
+        {
+          "sentence": "The last time I saw Steve, he was having a beard.",
+          "underlined": "he was having a beard",
+          "ok": false,
+          "correction": "he had a beard"
+        },
+        {
+          "sentence": "We don't need to hurry. We have plenty of time.",
+          "underlined": "We have plenty of time",
+          "ok": true
+        },
+        {
+          "sentence": "How often have you a shower?",
+          "underlined": "have you a shower",
+          "ok": false,
+          "correction": "do you have a shower"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "17.4 · Hoàn thành câu với cụm động từ have",
+      "titleEn": "17.4 · Complete the sentences with a have expression",
+      "instructions": "Hoàn thành câu bằng một cụm động từ với have ở dạng đúng, chọn trong danh sách cho sẵn.",
+      "instructionsEn": "Complete the sentences using an expression with have in the correct form, chosen from the list.",
+      "passage": "Danh sách: have a baby, have a break, have a chat, have trouble, have a shower, have a look, have lunch, have a party, have a nice time, have a holiday\n\nVí dụ: 1 I don't eat much during the day. I never have lunch.",
+      "passageEn": "Choose from: have a baby, have a break, have a chat, have trouble, have a shower, have a look, have lunch, have a party, have a nice time, have a holiday\n\nExample: 1 I don't eat much during the day. I never have lunch.",
+      "startNumber": 2,
+      "items": [
+        {
+          "prompt": "David starts work at 8 o'clock and ___ at 10.30.",
+          "answer": "has a break"
+        },
+        {
+          "prompt": "We ___ last week. We invited lots of people.",
+          "answer": "had a party"
+        },
+        {
+          "prompt": "There's something wrong with my bike. Can you ___ at it for me?",
+          "answer": "have a look"
+        },
+        {
+          "prompt": "Joe is away on holiday at the moment. I hope he ___.",
+          "answer": "is having a nice time",
+          "accept": [
+            "'s having a nice time"
+          ]
+        },
+        {
+          "prompt": "I met some friends in the supermarket yesterday. We stopped and ___.",
+          "answer": "had a chat"
+        },
+        {
+          "prompt": "'___ finding the book you wanted?' 'No, I found it OK.'",
+          "answer": "Did you have trouble"
+        },
+        {
+          "prompt": "Suzanne ___ a few weeks ago. It's her second child.",
+          "answer": "had a baby"
+        },
+        {
+          "prompt": "I ___ when the light went out suddenly.",
+          "answer": "was having a shower"
+        },
+        {
+          "prompt": "I'd like to go away somewhere. I ___ for a long time.",
+          "answer": "haven't had a holiday"
+        }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng have hoặc have got để nói về những gì bạn sở hữu, hoặc dùng một cụm động từ với have (have breakfast, have a shower, have a good time...) để nói về việc bạn làm hoặc trải nghiệm.",
+      "instructionsEn": "Write 2-3 English sentences using have or have got to talk about what you own, or using a have expression (have breakfast, have a shower, have a good time...) to talk about something you do or experience.",
+      "ruleSummary": "This unit practises have and have got. For possession, relationships, illnesses and similar states, have and have got mean the same thing (I have / I've got a headache) and do not use continuous forms (not I'm having a headache); for the past, only had is used, not had got. Questions and negatives can use do/does/did have (Do you have ...? I don't have ...) or have/has got (Have you got ...? I haven't got ...), but past questions and negatives always use did/didn't have, never had got. Separately, have (but never have got) is used for things people do or experience, such as have breakfast, have a shower, have a look, have a good time, have a chat, have a baby; these DO use continuous forms (I'm having a shower) and use do/does/did in questions and negatives (Did you have a good time?). A correct student sentence must not mix had got with a past-tense question or negative, and must not use a continuous form for possession/state have."
+    }
+  ]
+};
+
 export const UNITS_META: GrammarUnitMeta[] = [
   { unit: 1, slug: UNIT_1_PRESENT_CONTINUOUS.slug, title: UNIT_1_PRESENT_CONTINUOUS.title, topic: UNIT_1_PRESENT_CONTINUOUS.topic, available: true },
   { unit: 2, slug: UNIT_2_PRESENT_SIMPLE.slug, title: UNIT_2_PRESENT_SIMPLE.title, topic: UNIT_2_PRESENT_SIMPLE.topic, available: true },
@@ -5275,9 +6350,12 @@ export const UNITS_META: GrammarUnitMeta[] = [
   { unit: 12, slug: UNIT_12_FOR_AND_SINCE.slug, title: UNIT_12_FOR_AND_SINCE.title, topic: UNIT_12_FOR_AND_SINCE.topic, available: true },
   { unit: 13, slug: UNIT_13_PRESENT_PERFECT_AND_PAST_1.slug, title: UNIT_13_PRESENT_PERFECT_AND_PAST_1.title, topic: UNIT_13_PRESENT_PERFECT_AND_PAST_1.topic, available: true },
   { unit: 14, slug: UNIT_14_PRESENT_PERFECT_AND_PAST_2.slug, title: UNIT_14_PRESENT_PERFECT_AND_PAST_2.title, topic: UNIT_14_PRESENT_PERFECT_AND_PAST_2.topic, available: true },
+  { unit: 15, slug: UNIT_15_PAST_PERFECT.slug, title: UNIT_15_PAST_PERFECT.title, topic: UNIT_15_PAST_PERFECT.topic, available: true },
+  { unit: 16, slug: UNIT_16_PAST_PERFECT_CONTINUOUS.slug, title: UNIT_16_PAST_PERFECT_CONTINUOUS.title, topic: UNIT_16_PAST_PERFECT_CONTINUOUS.topic, available: true },
+  { unit: 17, slug: UNIT_17_HAVE_AND_HAVE_GOT.slug, title: UNIT_17_HAVE_AND_HAVE_GOT.title, topic: UNIT_17_HAVE_AND_HAVE_GOT.topic, available: true },
 ];
 
-export const GRAMMAR_UNITS: GrammarUnit[] = [UNIT_1_PRESENT_CONTINUOUS, UNIT_2_PRESENT_SIMPLE, UNIT_3_PRESENT_CONTINUOUS_AND_SIMPLE_1, UNIT_4_PRESENT_CONTINUOUS_AND_SIMPLE_2, UNIT_5_PAST_SIMPLE, UNIT_6_PAST_CONTINUOUS, UNIT_7_PRESENT_PERFECT_1, UNIT_8_PRESENT_PERFECT_2, UNIT_9_PRESENT_PERFECT_CONTINUOUS, UNIT_10_PRESENT_PERFECT_CONTINUOUS_AND_SIMPLE, UNIT_11_HOW_LONG_HAVE_YOU_BEEN, UNIT_12_FOR_AND_SINCE, UNIT_13_PRESENT_PERFECT_AND_PAST_1, UNIT_14_PRESENT_PERFECT_AND_PAST_2];
+export const GRAMMAR_UNITS: GrammarUnit[] = [UNIT_1_PRESENT_CONTINUOUS, UNIT_2_PRESENT_SIMPLE, UNIT_3_PRESENT_CONTINUOUS_AND_SIMPLE_1, UNIT_4_PRESENT_CONTINUOUS_AND_SIMPLE_2, UNIT_5_PAST_SIMPLE, UNIT_6_PAST_CONTINUOUS, UNIT_7_PRESENT_PERFECT_1, UNIT_8_PRESENT_PERFECT_2, UNIT_9_PRESENT_PERFECT_CONTINUOUS, UNIT_10_PRESENT_PERFECT_CONTINUOUS_AND_SIMPLE, UNIT_11_HOW_LONG_HAVE_YOU_BEEN, UNIT_12_FOR_AND_SINCE, UNIT_13_PRESENT_PERFECT_AND_PAST_1, UNIT_14_PRESENT_PERFECT_AND_PAST_2, UNIT_15_PAST_PERFECT, UNIT_16_PAST_PERFECT_CONTINUOUS, UNIT_17_HAVE_AND_HAVE_GOT];
 
 export function getGrammarUnit(slug: string): GrammarUnit | undefined {
   return GRAMMAR_UNITS.find((u) => u.slug === slug);

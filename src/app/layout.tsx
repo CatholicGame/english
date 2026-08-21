@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Archivo, Nunito, Lora } from "next/font/google";
 import { AppHeader } from "@/components/AppHeader";
 import { GlobalDictionaryLookup } from "@/components/GlobalDictionaryLookup";
+import { GlobalDiscussChat } from "@/components/GlobalDiscussChat";
 import { DriveQuotaWarning } from "@/components/DriveQuotaWarning";
 import { OnboardingGuide } from "@/components/OnboardingGuide";
 import { AuthProvider } from "@/lib/auth-context";
@@ -55,6 +56,7 @@ export default function RootLayout({
             <DriveQuotaWarning />
             {children}
             <GlobalDictionaryLookup />
+            <GlobalDiscussChat />
             <OnboardingGuide />
           </AuthProvider>
         </GlobalScoreProvider>

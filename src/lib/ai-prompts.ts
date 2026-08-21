@@ -195,6 +195,27 @@ function discussionChat(payload: Record<string, unknown>): PromptResult {
   };
 }
 
+// Floating global Q&A chat, available on every screen (see
+// GlobalDiscussChat.tsx). Free-form question and answer, not tied to any
+// module or item. Answers stay short and outline-style (a few bullet
+// points) instead of long paragraphs, but keep a conversational tone.
+function globalChat(payload: Record<string, unknown>): PromptResult {
+  const history = payload.history as string;
+
+  return {
+    systemPrompt:
+      "You are a friendly, knowledgeable assistant chatting with a Vietnamese learner inside an English-learning app. " +
+      "Answer the user's latest message directly. Keep replies short: 2-5 short bullet points for anything with multiple parts, " +
+      "or 1-2 short sentences for a simple question. Never write long paragraphs or dense prose. Keep the tone warm and conversational, " +
+      "like a knowledgeable friend texting back, not a textbook. If the question is about English (grammar, vocabulary, translation, usage), " +
+      "answer as a skilled English tutor; for anything else, just answer helpfully and briefly." +
+      feedbackLangNote(payload),
+    userMessage: "Conversation so far:\n" + history + "\n\nRespond to the user's latest message.",
+    temperature: 0.5,
+    jsonMode: false,
+  };
+}
+
 // ─── Topic 3: Cambridge IELTS Advanced ───────────────────────────
 
 function vocabPoolBlock(payload: Record<string, unknown>, fitClause: string): string {
@@ -504,6 +525,8 @@ export function buildPrompt(
         return lamOpinionFeedback(payload);
       case "discussion":
         return discussionChat(payload);
+      case "global_chat":
+        return globalChat(payload);
       case "cielts_writing_feedback":
         return cieltsWritingFeedback(payload);
       case "cielts_speaking_feedback":

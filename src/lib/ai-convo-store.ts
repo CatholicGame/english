@@ -20,6 +20,7 @@ export type IntentType =
   | "cpv_writing_review"
   | "lam_opinion_feedback"
   | "discussion"
+  | "global_chat"
   | "cielts_writing_feedback"
   | "cielts_speaking_feedback"
   | "cielts_vocab_sentence"

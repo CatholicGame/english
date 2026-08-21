@@ -488,6 +488,17 @@ function usePinnedAction(node: React.ReactNode): React.ReactNode {
 
 // ---------- Multiple choice fill-in ----------
 
+/** The gap sentence, from the book's text before and after the gap. Either side
+ * can be empty (the gap opens or ends the sentence) or start with punctuation
+ * that closes the sentence, so the parts are joined without leaving a stray
+ * space at the edges or in front of a full stop. */
+function mcSentence(it: { before: string; after: string }): string {
+  return [it.before, "___", it.after]
+    .filter((part) => part !== "")
+    .join(" ")
+    .replace(/\s+([.,;:!?])/g, "$1");
+}
+
 function FillMcStepView({ step, onNext }: { step: FillMcStep; onNext: (score?: Score) => void }) {
   const [picked, setPicked] = useState<(string | null)[]>(() => step.items.map(() => null));
   const [checked, setChecked] = useState(false);
@@ -521,7 +532,7 @@ function FillMcStepView({ step, onNext }: { step: FillMcStep; onNext: (score?: S
               return (
                 <ItemRow key={i} label={it.label ?? String(startNumber + i)} tone={tone}>
                   <PromptLine
-                    prompt={`${it.before} ___ ${it.after}`}
+                    prompt={mcSentence(it)}
                     renderBlank={
                       checked
                         ? () => <FilledAnswer text={it.answer} tone={tone === "wrong" ? "wrong" : "correct"} />

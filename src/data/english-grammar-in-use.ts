@@ -8263,6 +8263,2226 @@ const UNIT_20_IM_GOING_TO: GrammarUnit = {
   ]
 };
 
+const UNIT_21_WILL_AND_SHALL_1: GrammarUnit = {
+  "unit": 21,
+  "slug": "will-and-shall-1",
+  "title": "will and shall 1",
+  "topic": "Future",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "I'll: quyết định ngay lúc nói",
+          "headingEn": "I'll: a decision made at the moment of speaking",
+          "body": "We use **I'll ...** (= I will) when we've just decided to do something. When we say 'I'll do something', we announce our decision.\n\nWe do not use the present simple (I do / I go etc.) in these sentences.\n\nWe often use **I think I'll ...** and **I don't think I'll ...**\n\nIn spoken English **will not** is usually **won't**.",
+          "bodyVi": "Chúng ta dùng I'll ... (= I will) khi vừa mới quyết định làm việc gì đó. Nói 'I'll do something' là thông báo quyết định của mình.\n\nTrong những câu này không dùng thì hiện tại đơn (I do, I go ...).\n\nChúng ta hay dùng I think I'll ... và I don't think I'll ...\n\nTrong tiếng Anh nói, will not thường rút gọn thành won't.",
+          "examples": [
+            {
+              "en": "Oh, I left the door open. I**'ll** go and shut it.",
+              "vi": "Ôi, tôi để cửa mở. Để tôi đi đóng lại."
+            },
+            {
+              "en": "'What would you like to drink?' 'I**'ll** have orange juice, please.'",
+              "vi": "'Bạn muốn uống gì?' 'Cho tôi nước cam nhé.'"
+            },
+            {
+              "en": "'Did you call Max?' 'Oh no, I forgot. I**'ll** call him now.'",
+              "vi": "'Bạn gọi Max chưa?' 'Ôi không, tôi quên mất. Để tôi gọi ngay đây.'"
+            },
+            {
+              "en": "I**'ll** phone him now.",
+              "note": "not I phone him now",
+              "vi": "Tôi sẽ gọi cho anh ấy ngay bây giờ."
+            },
+            {
+              "en": "I'm a little hungry. **I think I'll** have something to eat.",
+              "vi": "Tôi hơi đói. Chắc tôi ăn gì đó đây."
+            },
+            {
+              "en": "**I don't think I'll** go out tonight. I'm too tired.",
+              "vi": "Chắc tối nay tôi không ra ngoài đâu. Tôi mệt quá."
+            },
+            {
+              "en": "I can see you're busy, so I **won't** stay long.",
+              "note": "= I will not stay long",
+              "vi": "Tôi thấy bạn đang bận, nên tôi sẽ không ở lâu đâu."
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "I'll để đề nghị giúp, đồng ý, hứa hẹn; won't để từ chối",
+          "headingEn": "I'll for offering, agreeing and promising; won't for refusing",
+          "body": "We often use **I'll** when we are offering to do something, agreeing to do something or promising to do something.\n\nWe use **won't** to say that somebody refuses to do something.\n\n**Will you (do something)?** = please do it.",
+          "bodyVi": "Chúng ta hay dùng I'll khi đề nghị làm giúp việc gì, khi đồng ý làm việc gì, hoặc khi hứa sẽ làm việc gì.\n\nChúng ta dùng won't để nói ai đó (hoặc cái gì đó) không chịu làm.\n\nWill you (do something)? nghĩa là làm ơn làm việc đó đi.",
+          "examples": [
+            {
+              "en": "That bag looks heavy. I**'ll** help you with it.",
+              "note": "offering; not I help",
+              "vi": "Cái túi đó có vẻ nặng. Để tôi giúp bạn."
+            },
+            {
+              "en": "a: Can you give Tom this book? b: Sure, I**'ll** give it to him when I see him this afternoon.",
+              "note": "agreeing",
+              "vi": "a: Bạn đưa Tom quyển sách này được không? b: Được, chiều nay gặp anh ấy tôi sẽ đưa."
+            },
+            {
+              "en": "Thanks for lending me the money. I**'ll** pay you back on Friday.",
+              "note": "promising",
+              "vi": "Cảm ơn đã cho tôi mượn tiền. Thứ Sáu tôi sẽ trả bạn."
+            },
+            {
+              "en": "I **won't** tell anyone what happened. I promise.",
+              "vi": "Tôi sẽ không kể cho ai chuyện đã xảy ra. Tôi hứa đấy."
+            },
+            {
+              "en": "I've tried to give her advice, but she **won't** listen.",
+              "vi": "Tôi đã cố khuyên cô ấy, nhưng cô ấy không chịu nghe."
+            },
+            {
+              "en": "The car **won't** start.",
+              "note": "= the car refuses to start",
+              "vi": "Cái xe không chịu nổ máy."
+            },
+            {
+              "en": "**Will you** please turn the music down? It's too loud.",
+              "vi": "Bạn vặn nhỏ nhạc lại giúp nhé? Ồn quá."
+            }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "Không dùng will cho việc đã quyết định hoặc đã sắp xếp từ trước",
+          "headingEn": "Do not use will for what was decided or arranged before",
+          "body": "We do not use **will** to talk about what has been decided or arranged before.\n\nCompare:",
+          "bodyVi": "Chúng ta không dùng will để nói về việc đã được quyết định hoặc sắp xếp từ trước.\n\nSo sánh:",
+          "examples": [
+            {
+              "en": "I**'m going** on holiday next Saturday.",
+              "note": "not I'll go",
+              "vi": "Thứ Bảy tới tôi đi nghỉ."
+            },
+            {
+              "en": "I**'m meeting** Kate tomorrow morning.",
+              "note": "decided before",
+              "vi": "Sáng mai tôi gặp Kate."
+            },
+            {
+              "en": "a: I**'ll** meet you at half past ten, OK? b: Fine. See you then.",
+              "note": "decided now",
+              "vi": "a: Mười giờ rưỡi tôi gặp bạn nhé? b: Được. Hẹn gặp lúc đó."
+            }
+          ]
+        },
+        {
+          "label": "D",
+          "heading": "shall I ... ? / shall we ... ?",
+          "headingEn": "shall I ... ? / shall we ... ?",
+          "body": "We use **shall** mostly in the questions **shall I ...?** and **shall we ...?**, to ask if it's OK to do something or to ask for a suggestion.\n\nCompare **shall I ...?** and **will you ...?**",
+          "bodyVi": "Chúng ta chủ yếu dùng shall trong câu hỏi shall I ...? và shall we ...?, để hỏi xem có nên làm việc gì đó không, hoặc để xin gợi ý.\n\nSo sánh shall I ...? và will you ...?",
+          "examples": [
+            {
+              "en": "**Shall I** open the window?",
+              "note": "= do you want me to open it?",
+              "vi": "Tôi mở cửa sổ nhé?"
+            },
+            {
+              "en": "I've got no money. What **shall I** do?",
+              "note": "= what do you suggest?",
+              "vi": "Tôi không có tiền. Tôi nên làm gì đây?"
+            },
+            {
+              "en": "'**Shall we** go?' 'Just a minute. I'm not ready yet.'",
+              "vi": "'Mình đi nhé?' 'Chờ chút. Tôi chưa sẵn sàng.'"
+            },
+            {
+              "en": "'Where **shall we** have lunch?' 'Let's go to Marino's.'",
+              "vi": "'Mình ăn trưa ở đâu nhỉ?' 'Đến quán Marino đi.'"
+            },
+            {
+              "en": "**Shall I** shut the door?",
+              "note": "= do you want me to shut it?",
+              "vi": "Tôi đóng cửa nhé?"
+            },
+            {
+              "en": "**Will you** shut the door?",
+              "note": "= I want you to shut it",
+              "vi": "Bạn đóng cửa giúp nhé?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "21.1 · Hoàn thành câu với I'll",
+      "titleEn": "21.1 · Complete the sentences with I'll",
+      "instructions": "Hoàn thành các câu bằng I'll cùng một động từ phù hợp.",
+      "instructionsEn": "Complete the sentences with I'll and a suitable verb.",
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "'How are you going to get home?' 'I think ___ a taxi.'",
+          "answer": "I'll take"
+        }
+      ],
+      "startNumber": 2,
+      "items": [
+        {
+          "prompt": "'It's cold in this room.' 'Is it? ___ on the heating then.'",
+          "answer": "I'll turn",
+          "accept": [
+            "I'll switch",
+            "I'll put"
+          ]
+        },
+        {
+          "prompt": "'Are you free next Friday?' 'Let me see. ___ my diary.'",
+          "answer": "I'll check"
+        },
+        {
+          "prompt": "'Shall I do the washing-up?' 'No, it's all right. ___ it later.'",
+          "answer": "I'll do"
+        },
+        {
+          "prompt": "'I don't know how to use this phone.' 'OK, ___ you.'",
+          "answer": "I'll show"
+        },
+        {
+          "prompt": "'Would you like tea or coffee?' '___ coffee, please.'",
+          "answer": "I'll have"
+        },
+        {
+          "prompt": "'Are you coming with us?' 'No, I think ___ here.'",
+          "answer": "I'll stay",
+          "accept": [
+            "I'll wait"
+          ]
+        },
+        {
+          "prompt": "'Can you finish this report today?' 'Well, ___, but I can't promise.'",
+          "answer": "I'll try"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "21.2 · I think I'll ... / I don't think I'll ...",
+      "titleEn": "21.2 · I think I'll ... / I don't think I'll ...",
+      "instructions": "Đọc tình huống rồi viết câu với I think I'll ... hoặc I don't think I'll ...",
+      "instructionsEn": "Read the situations and write sentences with I think I'll ... or I don't think I'll ...",
+      "examples": [
+        {
+          "label": "1",
+          "context": "It's a bit cold. The window is open and you decide to close it. You say:",
+          "prompt": "It's cold with the window open. ___.",
+          "answer": "I think I'll close it"
+        }
+      ],
+      "startNumber": 2,
+      "items": [
+        {
+          "context": "You are feeling tired and it's getting late. You decide to go to bed. You say:",
+          "prompt": "I'm tired, so ___. Goodnight!",
+          "answer": "I think I'll go to bed"
+        },
+        {
+          "context": "The weather is nice and you need some exercise. You decide to go for a walk. You say:",
+          "prompt": "It's a lovely morning. ___. Do you want to come too?",
+          "answer": "I think I'll go for a walk"
+        },
+        {
+          "context": "You were going to have lunch. Now you decide you don't want to eat anything. You say:",
+          "prompt": "I don't feel hungry any more. ___ lunch.",
+          "answer": "I don't think I'll have",
+          "accept": [
+            "I don't think I'll have any"
+          ]
+        },
+        {
+          "context": "You planned to go swimming today. Now you decide not to go. You say:",
+          "prompt": "I've got a lot to do, so ___ today.",
+          "answer": "I don't think I'll go swimming"
+        }
+      ]
+    },
+    {
+      "kind": "fill_mc",
+      "title": "21.3 · Chọn cách nói đúng",
+      "titleEn": "21.3 · Which is correct?",
+      "instructions": "Chọn cách diễn đạt đúng trong mỗi cặp.",
+      "instructionsEn": "Choose the correct form in each pair.",
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "'Did you call Max?' 'Oh no, I forgot. ___ him now.'",
+          "answer": "I'll call"
+        }
+      ],
+      "startNumber": 2,
+      "items": [
+        {
+          "before": "I can't meet you tomorrow morning.",
+          "after": "tennis.",
+          "options": [
+            "I'm playing",
+            "I'll play"
+          ],
+          "answer": "I'm playing"
+        },
+        {
+          "before": "'",
+          "after": "you outside the hotel at 10.30, OK?' 'Yes, that's fine.'",
+          "options": [
+            "I meet",
+            "I'll meet"
+          ],
+          "answer": "I'll meet"
+        },
+        {
+          "before": "'Please don't go yet.' 'OK,",
+          "after": "a little longer, but I have to go soon.'",
+          "options": [
+            "I'm staying",
+            "I'll stay"
+          ],
+          "answer": "I'll stay"
+        },
+        {
+          "before": "",
+          "after": "a party next Saturday. I hope you can come.",
+          "options": [
+            "I'm having",
+            "I'll have"
+          ],
+          "answer": "I'm having"
+        },
+        {
+          "before": "'Remember to lock the door when you go out.' 'OK.",
+          "after": ".'",
+          "options": [
+            "I don't forget",
+            "I won't forget"
+          ],
+          "answer": "I won't forget"
+        },
+        {
+          "before": "'Do you have any plans for the weekend?' 'Yes,",
+          "after": "to a wedding.'",
+          "options": [
+            "we're going",
+            "we'll go"
+          ],
+          "answer": "we're going"
+        },
+        {
+          "before": "'",
+          "after": "anything tomorrow evening?' 'No, I'm free. Why?'",
+          "options": [
+            "Are you doing",
+            "Will you do"
+          ],
+          "answer": "Are you doing"
+        },
+        {
+          "before": "'",
+          "after": "something for me?' 'It depends. What do you want me to do?'",
+          "options": [
+            "Do you do",
+            "Will you do"
+          ],
+          "answer": "Will you do"
+        },
+        {
+          "before": "'",
+          "after": "to work by car?' 'Not usually. I prefer to walk.'",
+          "options": [
+            "Do you go",
+            "Will you go"
+          ],
+          "answer": "Do you go"
+        },
+        {
+          "before": "I asked Sue what happened, but she",
+          "after": "me.",
+          "options": [
+            "doesn't tell",
+            "won't tell"
+          ],
+          "answer": "won't tell"
+        },
+        {
+          "before": "I don't know if I can win the race tomorrow, but",
+          "after": "my best.",
+          "options": [
+            "I'm doing",
+            "I'll do"
+          ],
+          "answer": "I'll do"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "21.4 · Đặt câu hỏi với shall I ... ? / shall we ... ?",
+      "titleEn": "21.4 · Write questions with shall I ... ? / shall we ... ?",
+      "instructions": "Trong mỗi tình huống bạn nói gì? Viết câu với shall I ... ? hoặc shall we ... ?",
+      "instructionsEn": "What do you say in each situation? Write sentences with shall I ... ? or shall we ... ?",
+      "examples": [
+        {
+          "label": "1",
+          "context": "You and a friend want to do something this evening, but you don't know what. You say:",
+          "prompt": "___ Do you want to go somewhere?",
+          "answer": "What shall we do this evening?"
+        }
+      ],
+      "startNumber": 2,
+      "items": [
+        {
+          "context": "You and a friend are going on holiday together, but you have to decide where. You ask your friend:",
+          "prompt": "___",
+          "answer": "Where shall we go?",
+          "accept": [
+            "Where shall we go on holiday?"
+          ]
+        },
+        {
+          "context": "You try on a jacket in a shop. You are not sure whether to buy it or not. You ask a friend for advice:",
+          "prompt": "___ What do you think?",
+          "answer": "Shall I buy it?"
+        },
+        {
+          "context": "You and a friend are going out. You have to decide whether to get a taxi or to walk. You ask your friend:",
+          "prompt": "___",
+          "answer": "Shall we get a taxi or shall we walk?",
+          "accept": [
+            "Shall we get a taxi or walk?"
+          ]
+        },
+        {
+          "context": "It's Helen's birthday soon. You want to give her a present, but what? You ask a friend:",
+          "prompt": "What ___? Any ideas?",
+          "answer": "shall I give Helen",
+          "accept": [
+            "shall I buy Helen",
+            "shall I get Helen",
+            "shall I give Helen for her birthday",
+            "shall I buy Helen for her birthday",
+            "shall I get Helen for her birthday"
+          ]
+        },
+        {
+          "context": "You're meeting a friend tomorrow, but you have to decide what time. You say:",
+          "prompt": "___? Is 10.30 OK for you?",
+          "answer": "What time shall we meet"
+        }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng I'll hoặc won't: một quyết định bạn vừa nghĩ ra ngay lúc này, một lời đề nghị giúp đỡ, hoặc một lời hứa. Bạn cũng có thể viết một câu hỏi với Shall I ... ? hoặc Shall we ... ?",
+      "instructionsEn": "Write 2-3 English sentences using I'll or won't: a decision you have just made, an offer to help, or a promise. You can also write a question with Shall I ... ? or Shall we ... ?",
+      "ruleSummary": "This unit practises will and shall 1. I'll (= I will) announces a decision made at the moment of speaking (I left the door open. I'll go and shut it), and is also used for offering (I'll help you with it), agreeing (Sure, I'll give it to him) and promising (I'll pay you back on Friday). The present simple is wrong in these sentences (not I phone him now). I think I'll ... and I don't think I'll ... are very common. won't (= will not) says that somebody or something refuses to do something (The car won't start; She won't listen), and Will you (do something)? is a request. will is NOT used for what has already been decided or arranged: that takes the present continuous (I'm going on holiday next Saturday, not I'll go). shall is used mainly in the questions shall I ...? and shall we ...?, to ask if something is wanted or to ask for a suggestion (Shall I open the window? Where shall we have lunch?). A correct student sentence must use will/won't for a decision, offer, promise or refusal made now, not for an existing arrangement, and shall only in a first-person question."
+    }
+  ]
+};
+
+// Exercise 22.4 ("Where do you think you will be at these times? Write
+// sentences about yourself") is open composition with no fixed answer, so it is
+// folded into this unit's ai_practice step; the numbering therefore runs
+// 22.1, 22.2, 22.3, 22.5.
+const UNIT_22_WILL_AND_SHALL_2: GrammarUnit = {
+  "unit": 22,
+  "slug": "will-and-shall-2",
+  "title": "will and shall 2",
+  "topic": "Future",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "will để dự đoán tương lai, không dùng cho việc đã sắp xếp",
+          "headingEn": "will predicts the future; it is not for arrangements",
+          "body": "We do not use **will** to say what somebody has already arranged or decided to do.\n\nWe use **will** to say what we know or believe about the future, not what somebody has already decided. When we predict a future happening or situation, we use **will/won't**.",
+          "bodyVi": "Chúng ta không dùng will để nói việc ai đó đã sắp xếp hoặc đã quyết định làm.\n\nChúng ta dùng will để nói điều mình biết hoặc tin về tương lai, chứ không phải điều ai đó đã quyết định. Khi dự đoán một sự việc hay tình huống trong tương lai, chúng ta dùng will/won't.",
+          "examples": [
+            {
+              "en": "Lisa **is working** next week.",
+              "note": "not Lisa will work",
+              "vi": "Tuần sau Lisa đi làm."
+            },
+            {
+              "en": "**Are** you **going to** watch TV this evening?",
+              "note": "not will you watch",
+              "vi": "Tối nay bạn định xem TV à?"
+            },
+            {
+              "en": "Kate has her driving test next week. She**'ll** pass easily. She's a good driver.",
+              "vi": "Tuần sau Kate thi lái xe. Cô ấy sẽ đỗ dễ dàng. Cô ấy lái tốt lắm."
+            },
+            {
+              "en": "They've been away a long time. When they return, they**'ll** find a lot of changes here.",
+              "vi": "Họ đi lâu rồi. Khi họ về, họ sẽ thấy nhiều thay đổi ở đây."
+            },
+            {
+              "en": "'Where **will** you **be** this time next year?' 'I**'ll be** in Japan.'",
+              "vi": "'Giờ này năm sau bạn sẽ ở đâu?' 'Tôi sẽ ở Nhật.'"
+            },
+            {
+              "en": "That plate is hot. If you touch it, you**'ll** burn yourself.",
+              "vi": "Cái đĩa đó nóng đấy. Chạm vào là bạn bỏng tay."
+            },
+            {
+              "en": "Anna looks completely different now. You **won't** recognise her.",
+              "vi": "Bây giờ trông Anna khác hẳn. Bạn sẽ không nhận ra cô ấy đâu."
+            },
+            {
+              "en": "I think James **is going** to the party on Friday.",
+              "note": "= I think he has already decided to go",
+              "vi": "Tôi nghĩ thứ Sáu James đi dự tiệc."
+            },
+            {
+              "en": "I think James **will go** to the party on Friday.",
+              "note": "= I think he will decide to go",
+              "vi": "Tôi nghĩ thứ Sáu James sẽ đi dự tiệc."
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "will đi với probably, I'm sure, I think, I don't think, I wonder",
+          "headingEn": "will with probably, I'm sure, I think, I don't think, I wonder",
+          "body": "We often use **will ('ll)** with **probably**, **I'm sure**, **I think**, **I don't think** and **I wonder**.\n\nAfter **I hope**, we generally use the present.",
+          "bodyVi": "Chúng ta hay dùng will ('ll) cùng với probably, I'm sure, I think, I don't think và I wonder.\n\nSau I hope, chúng ta thường dùng thì hiện tại.",
+          "examples": [
+            {
+              "en": "I**'ll probably** be home late tonight.",
+              "vi": "Tối nay chắc tôi về muộn."
+            },
+            {
+              "en": "Don't worry about the exam. **I'm sure** you**'ll** pass.",
+              "vi": "Đừng lo về kỳ thi. Tôi chắc bạn sẽ đỗ."
+            },
+            {
+              "en": "**Do you think** Sarah **will** like the present we bought her?",
+              "vi": "Bạn có nghĩ Sarah sẽ thích món quà bọn mình mua không?"
+            },
+            {
+              "en": "**I don't think** the exam **will** be very difficult.",
+              "vi": "Tôi không nghĩ kỳ thi sẽ khó lắm."
+            },
+            {
+              "en": "**I wonder** what **will** happen.",
+              "vi": "Tôi tự hỏi chuyện gì sẽ xảy ra."
+            },
+            {
+              "en": "**I hope** Kate **passes** the driving test.",
+              "vi": "Tôi hy vọng Kate thi đỗ bằng lái."
+            },
+            {
+              "en": "**I hope** it **doesn't** rain tomorrow.",
+              "vi": "Tôi mong mai trời đừng mưa."
+            }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "Đôi khi will nói về hiện tại",
+          "headingEn": "will can sometimes talk about now",
+          "body": "Generally we use **will** to talk about the future, but sometimes we use **will** to talk about now.",
+          "bodyVi": "Thường thì will nói về tương lai, nhưng đôi khi will lại nói về hiện tại.",
+          "examples": [
+            {
+              "en": "Don't phone Amy now. She**'ll be** busy.",
+              "note": "= she'll be busy now",
+              "vi": "Đừng gọi Amy lúc này. Chắc giờ cô ấy đang bận."
+            }
+          ]
+        },
+        {
+          "label": "D",
+          "heading": "shall chỉ dùng với I và we",
+          "headingEn": "shall is used only with I and we",
+          "body": "Normally we use **shall** only with **I** and **we**. You can say **I shall** or **I will (I'll)**, and **we shall** or **we will (we'll)**.\n\nIn spoken English we normally use **I'll** and **we'll**.\n\nThe negative of **shall** is **shall not** or **shan't**.\n\nWe do not normally use **shall** with he/she/it/you/they.",
+          "bodyVi": "Bình thường chúng ta chỉ dùng shall với I và we. Có thể nói I shall hoặc I will (I'll), we shall hoặc we will (we'll).\n\nTrong tiếng Anh nói, chúng ta thường dùng I'll và we'll.\n\nDạng phủ định của shall là shall not hoặc shan't.\n\nChúng ta thường không dùng shall với he/she/it/you/they.",
+          "examples": [
+            {
+              "en": "I **shall** be late this evening.",
+              "note": "or I will be",
+              "vi": "Tối nay tôi sẽ về muộn."
+            },
+            {
+              "en": "We **shall** probably go to France in June.",
+              "note": "or We will probably go",
+              "vi": "Tháng Sáu chắc chúng tôi sẽ đi Pháp."
+            },
+            {
+              "en": "I **shan't** be here tomorrow.",
+              "note": "or I won't be",
+              "vi": "Mai tôi sẽ không có ở đây."
+            },
+            {
+              "en": "She **will** be very angry.",
+              "note": "not She shall be",
+              "vi": "Cô ấy sẽ rất giận cho xem."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "fill_mc",
+      "title": "22.1 · will ('ll) hay won't",
+      "titleEn": "22.1 · will ('ll) or won't",
+      "instructions": "Điền will ('ll) hoặc won't vào chỗ trống.",
+      "instructionsEn": "Put in will ('ll) or won't.",
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "Can you wait for me? I ___ be long.",
+          "answer": "won't"
+        }
+      ],
+      "startNumber": 2,
+      "items": [
+        {
+          "before": "There's no point in asking Amanda for advice. She",
+          "after": "know what to do.",
+          "options": [
+            "will",
+            "won't"
+          ],
+          "answer": "won't"
+        },
+        {
+          "before": "I'm glad I'm meeting Emma tomorrow. It",
+          "after": "be good to see her again.",
+          "options": [
+            "will",
+            "won't"
+          ],
+          "answer": "will"
+        },
+        {
+          "before": "I'm sorry about what happened yesterday. It",
+          "after": "happen again.",
+          "options": [
+            "will",
+            "won't"
+          ],
+          "answer": "won't"
+        },
+        {
+          "before": "You don't need to take an umbrella with you. I don't think it",
+          "after": "rain.",
+          "options": [
+            "will",
+            "won't"
+          ],
+          "answer": "will"
+        },
+        {
+          "before": "I've got some incredible news! You",
+          "after": "believe it.",
+          "options": [
+            "will",
+            "won't"
+          ],
+          "answer": "won't"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "22.2 · Hoàn thành câu với will ('ll)",
+      "titleEn": "22.2 · Complete the sentences using will ('ll)",
+      "instructions": "Hoàn thành các câu bằng will ('ll), chọn chủ ngữ và động từ trong khung.",
+      "instructionsEn": "Complete the sentences using will ('ll). Choose a subject and verb from the box.",
+      "wordBank": [
+        "it / be",
+        "she / come",
+        "you / get",
+        "you / like",
+        "you / enjoy",
+        "people / live",
+        "it / look",
+        "we / meet",
+        "you / pass",
+        "she / mind"
+      ],
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "Don't worry about your exam. I'm sure ___.",
+          "answer": "you'll pass"
+        }
+      ],
+      "startNumber": 2,
+      "items": [
+        {
+          "prompt": "Why don't you try on this jacket? ___ nice on you.",
+          "answer": "It will look",
+          "accept": [
+            "It'll look"
+          ]
+        },
+        {
+          "prompt": "You must meet Max sometime. I think ___ him.",
+          "answer": "you'll like",
+          "accept": [
+            "you will like"
+          ]
+        },
+        {
+          "prompt": "It's a very nice hotel. ___ your stay there.",
+          "answer": "You'll enjoy",
+          "accept": [
+            "You will enjoy"
+          ]
+        },
+        {
+          "prompt": "It's raining hard. Don't go out. ___ very wet.",
+          "answer": "You'll get",
+          "accept": [
+            "You will get"
+          ]
+        },
+        {
+          "prompt": "Do you think ___ longer in the future?",
+          "answer": "people will live",
+          "accept": [
+            "people'll live"
+          ]
+        },
+        {
+          "prompt": "Goodbye! I'm sure ___ again before long.",
+          "answer": "we'll meet",
+          "accept": [
+            "we will meet"
+          ]
+        },
+        {
+          "prompt": "I've invited Anna to the party, but I don't think ___.",
+          "answer": "she'll come",
+          "accept": [
+            "she will come"
+          ]
+        },
+        {
+          "prompt": "You can borrow Amy's umbrella. I don't think ___.",
+          "answer": "she'll mind",
+          "accept": [
+            "she will mind"
+          ]
+        },
+        {
+          "context": "It takes me an hour to get to work at the moment.",
+          "prompt": "When the new road is finished, ___ much quicker.",
+          "answer": "it will be",
+          "accept": [
+            "it'll be"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "22.3 · Đặt câu hỏi với do you think ... will ... ?",
+      "titleEn": "22.3 · Write questions with do you think ... will ... ?",
+      "instructions": "Viết câu hỏi theo mẫu do you think ... will ... ?, dùng động từ trong khung. Phần trong ngoặc là những từ mở đầu câu hỏi.",
+      "instructionsEn": "Write questions using do you think ... will ... ? with a verb from the box. The words in brackets are how the question begins.",
+      "wordBank": [
+        "be back",
+        "cost",
+        "end",
+        "get married",
+        "happen",
+        "like",
+        "rain"
+      ],
+      "examples": [
+        {
+          "label": "1",
+          "context": "I've bought this picture for Karen.",
+          "prompt": "(Do you ...) ___",
+          "answer": "Do you think she'll like it?"
+        }
+      ],
+      "startNumber": 2,
+      "items": [
+        {
+          "context": "The weather doesn't look very good.",
+          "prompt": "(Do you ...) ___",
+          "answer": "Do you think it will rain?",
+          "accept": [
+            "Do you think it'll rain?"
+          ]
+        },
+        {
+          "context": "The meeting is still going on.",
+          "prompt": "(When do you ...) ___",
+          "answer": "When do you think it will end?",
+          "accept": [
+            "When do you think it'll end?"
+          ]
+        },
+        {
+          "context": "My car needs to be repaired.",
+          "prompt": "(How much do you ...) ___",
+          "answer": "How much do you think it will cost?",
+          "accept": [
+            "How much do you think it'll cost?"
+          ]
+        },
+        {
+          "context": "Sally and David are in love.",
+          "prompt": "(Do ...) ___",
+          "answer": "Do you think they'll get married?",
+          "accept": [
+            "Do you think they will get married?"
+          ]
+        },
+        {
+          "context": "'I'm going out now.' 'OK.'",
+          "prompt": "(What time do you ...) ___",
+          "answer": "What time do you think you'll be back?",
+          "accept": [
+            "What time do you think you will be back?"
+          ]
+        },
+        {
+          "context": "The future situation is uncertain.",
+          "prompt": "(What do you ...) ___",
+          "answer": "What do you think will happen?"
+        }
+      ]
+    },
+    {
+      "kind": "fill_mc",
+      "title": "22.5 · Cách nào hợp hơn?",
+      "titleEn": "22.5 · Which is better?",
+      "instructions": "Chọn cách diễn đạt hợp hơn trong mỗi cặp.",
+      "instructionsEn": "Choose the better form in each pair.",
+      "examples": [
+        {
+          "label": "1",
+          "context": "Lisa isn't free on Saturday.",
+          "prompt": "___.",
+          "answer": "She's working"
+        }
+      ],
+      "startNumber": 2,
+      "items": [
+        {
+          "before": "It was an amazing experience.",
+          "after": "",
+          "options": [
+            "I never forget it",
+            "I'll never forget it"
+          ],
+          "answer": "I'll never forget it"
+        },
+        {
+          "before": "Something very funny happened.",
+          "after": "when I tell you about it.",
+          "options": [
+            "You're laughing",
+            "You'll laugh"
+          ],
+          "answer": "You'll laugh"
+        },
+        {
+          "before": "",
+          "after": "to a party tomorrow night. Would you like to come too?",
+          "options": [
+            "I'll go",
+            "I'm going"
+          ],
+          "answer": "I'm going"
+        },
+        {
+          "before": "Who do you think",
+          "after": "the game tomorrow?",
+          "options": [
+            "will win",
+            "is winning"
+          ],
+          "answer": "will win"
+        },
+        {
+          "before": "I can't meet you this evening. A friend of mine",
+          "after": "to see me.",
+          "options": [
+            "will come",
+            "is coming"
+          ],
+          "answer": "is coming"
+        },
+        {
+          "before": "Don't be afraid of the dog.",
+          "after": "you.",
+          "options": [
+            "It won't hurt",
+            "It isn't hurting"
+          ],
+          "answer": "It won't hurt"
+        },
+        {
+          "before": "",
+          "after": "if I press this button?",
+          "options": [
+            "What's happening",
+            "What will happen"
+          ],
+          "answer": "What will happen"
+        },
+        {
+          "before": "a: Have you decided where to go for your holidays? b: Yes,",
+          "after": "to Italy.",
+          "options": [
+            "we'll go",
+            "we're going"
+          ],
+          "answer": "we're going"
+        }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Bạn nghĩ mình sẽ ở đâu và làm gì vào những lúc này: 3 giờ sáng mai, 4 giờ chiều thứ Sáu tới, giờ này năm sau? Hãy viết 2-3 câu tiếng Anh dùng I'll be ... , I'll probably be ... hoặc I don't know where ...",
+      "instructionsEn": "Where do you think you will be, and what will you be doing, at 3 am tomorrow, at 4 pm next Friday, and this time next year? Write 2-3 English sentences using I'll be ... , I'll probably be ... or I don't know where ...",
+      "ruleSummary": "This unit practises will and shall 2. will/won't is for what we know, believe or predict about the future (She'll pass easily; You won't recognise her; If you touch it, you'll burn yourself), NOT for what somebody has already arranged or decided, which takes the present continuous or going to (Lisa is working next week, not Lisa will work). will is very common with probably, I'm sure, I think, I don't think and I wonder, but after I hope we normally use a present tense (I hope it doesn't rain tomorrow). will can occasionally refer to the present (Don't phone Amy now, she'll be busy). shall is normally used only with I and we (I shall be late; negative shan't), and not with he/she/it/you/they. A correct student sentence must use will for a prediction or belief about the future, not for an existing arrangement, and must not put will after if or after I hope."
+    }
+  ]
+};
+
+const UNIT_23_I_WILL_AND_IM_GOING_TO: GrammarUnit = {
+  "unit": 23,
+  "slug": "i-will-and-im-going-to",
+  "title": "I will and I'm going to",
+  "topic": "Future",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "Hành động tương lai: will là quyết định mới, going to là quyết định từ trước",
+          "headingEn": "Future actions: will announces a new decision, going to reports an earlier one",
+          "body": "Compare **will** and **(be) going to** for future actions.\n\nWe use **will** to announce a new decision, made at the moment of speaking.\n\nWe use **(be) going to** when we have already decided to do something.",
+          "bodyVi": "So sánh will và (be) going to khi nói về hành động trong tương lai.\n\nChúng ta dùng will để thông báo một quyết định mới, nghĩ ra ngay lúc nói.\n\nChúng ta dùng (be) going to khi đã quyết định làm việc đó từ trước.",
+          "examples": [
+            {
+              "en": "'Let's have a party.' 'That's a great idea. We**'ll** invite lots of people.'",
+              "note": "the party is a new idea",
+              "vi": "'Mình mở tiệc đi.' 'Ý hay đấy. Bọn mình sẽ mời thật nhiều người.'"
+            },
+            {
+              "en": "Sarah and I have decided to have a party. We**'re going to** invite lots of people.",
+              "note": "decided before",
+              "vi": "Sarah và tôi đã quyết định mở tiệc. Bọn tôi sẽ mời thật nhiều người."
+            },
+            {
+              "en": "'Gary has been trying to contact you.' 'Has he? OK, I**'ll** call him.'",
+              "vi": "'Gary đang tìm cách liên lạc với bạn đấy.' 'Thế à? Được, tôi sẽ gọi cho anh ấy.'"
+            },
+            {
+              "en": "'Gary has been trying to contact you.' 'Yes, I know. I**'m going to** call him.'",
+              "vi": "'Gary đang tìm cách liên lạc với bạn đấy.' 'Ừ, tôi biết. Tôi định gọi cho anh ấy.'"
+            },
+            {
+              "en": "'Anna is in hospital.' 'Really? I didn't know. I**'ll** go and visit her.'",
+              "vi": "'Anna đang nằm viện.' 'Thật à? Tôi không biết đấy. Tôi sẽ đi thăm cô ấy.'"
+            },
+            {
+              "en": "'Anna is in hospital.' 'Yes, I know. I**'m going to** visit her this evening.'",
+              "vi": "'Anna đang nằm viện.' 'Ừ, tôi biết. Tối nay tôi định đi thăm cô ấy.'"
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "Dự đoán tương lai: dùng được cả will lẫn going to",
+          "headingEn": "Predicting the future: both will and going to are possible",
+          "body": "We use both **will** and **going to** for future happenings and situations.\n\nWhen we say something **is going to** happen, we believe this because of the situation now: what is happening now shows that it is going to happen.\n\nCompare:",
+          "bodyVi": "Chúng ta dùng cả will lẫn going to cho những sự việc, tình huống trong tương lai.\n\nKhi nói something is going to happen, chúng ta tin như vậy vì tình hình hiện tại: những gì đang xảy ra bây giờ cho thấy điều đó sắp xảy ra.\n\nSo sánh:",
+          "examples": [
+            {
+              "en": "I think the weather **will be** nice later. or I think the weather **is going to be** nice later.",
+              "vi": "Tôi nghĩ lát nữa trời sẽ đẹp."
+            },
+            {
+              "en": "Those shoes are well-made. They**'ll** last a long time. or They**'re going to** last a long time.",
+              "vi": "Đôi giày đó làm tốt lắm. Chúng sẽ bền lâu."
+            },
+            {
+              "en": "Look at those black clouds. It**'s going to** rain.",
+              "note": "not it will rain; we can see the clouds now",
+              "vi": "Nhìn mấy đám mây đen kia kìa. Trời sắp mưa."
+            },
+            {
+              "en": "We**'re going to** be late. The meeting starts in five minutes and it takes 15 minutes to get there.",
+              "note": "it is clear now that we don't have enough time",
+              "vi": "Bọn mình sắp muộn rồi. Năm phút nữa họp mà đi đến đó mất 15 phút."
+            },
+            {
+              "en": "Jane **will** be late for the meeting. She's always late.",
+              "note": "I believe this because I know what Jane is like",
+              "vi": "Jane sẽ đến họp muộn cho xem. Cô ấy lúc nào cũng muộn."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "23.1 · will ('ll) hay (be) going to",
+      "titleEn": "23.1 · will ('ll) or (be) going to",
+      "instructions": "Hoàn thành các đoạn hội thoại, dùng will ('ll) hoặc (be) going to với động từ trong ngoặc.",
+      "instructionsEn": "Complete the conversations using will ('ll) or (be) going to with the verb in brackets.",
+      "examples": [
+        {
+          "label": "1",
+          "context": "a: Why are you turning on the TV?",
+          "prompt": "b: ___ the news. (I / watch)",
+          "answer": "I'm going to watch"
+        }
+      ],
+      "startNumber": 2,
+      "items": [
+        {
+          "context": "a: I forgot my wallet. I don't have any money.",
+          "prompt": "b: Not to worry. ___ you some. (I / lend)",
+          "answer": "I'll lend",
+          "accept": [
+            "I will lend"
+          ]
+        },
+        {
+          "context": "a: Why are you filling that bucket with water?",
+          "prompt": "b: ___ the car. (I / wash)",
+          "answer": "I'm going to wash",
+          "accept": [
+            "I am going to wash"
+          ]
+        },
+        {
+          "context": "a: I don't know how to use the washing machine.",
+          "prompt": "b: It's easy. ___ you. (I / show)",
+          "answer": "I'll show",
+          "accept": [
+            "I will show"
+          ]
+        },
+        {
+          "context": "a: I've decided to paint this room.",
+          "prompt": "b: That's nice. What colour ___ it? (you / paint)",
+          "answer": "are you going to paint"
+        },
+        {
+          "context": "a: Where are you going? Are you going shopping?",
+          "prompt": "b: Yes, ___ some things for dinner tonight. (I / buy)",
+          "answer": "I'm going to buy",
+          "accept": [
+            "I am going to buy"
+          ]
+        },
+        {
+          "context": "a: What would you like to eat?",
+          "prompt": "b: ___ a pizza, please. (I / have)",
+          "answer": "I'll have",
+          "accept": [
+            "I will have"
+          ]
+        },
+        {
+          "context": "a: This food doesn't taste very good, does it?",
+          "prompt": "b: No, it's horrible. ___ it. (I / not / finish)",
+          "answer": "I'm not going to finish",
+          "accept": [
+            "I am not going to finish"
+          ]
+        },
+        {
+          "context": "a: Tom is starting an evening class next month.",
+          "prompt": "b: Is he? What ___? (he / study)",
+          "answer": "is he going to study"
+        },
+        {
+          "context": "a: Did you call Lisa?",
+          "prompt": "b: Oh, no. I completely forgot. ___ her now. (I / call)",
+          "answer": "I'll call",
+          "accept": [
+            "I will call"
+          ]
+        },
+        {
+          "context": "a: Has Dan decided what to do when he leaves school?",
+          "prompt": "b: Yes. Everything is planned. First ___ a holiday for a few weeks. (he / have) Then ___ a management training course. (he / do)",
+          "answer": "he's going to have",
+          "accept": [
+            "he is going to have"
+          ],
+          "extraBlanks": [
+            {
+              "answer": "he's going to do",
+              "accept": [
+                "he is going to do"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "23.2 · Đọc tình huống và hoàn thành câu",
+      "titleEn": "23.2 · Read the situations and complete the sentences",
+      "instructions": "Đọc tình huống rồi hoàn thành câu, dùng will ('ll) hoặc (be) going to với động từ trong ngoặc.",
+      "instructionsEn": "Read the situations and complete the sentences using will ('ll) or (be) going to with the verb in brackets.",
+      "examples": [
+        {
+          "label": "1",
+          "context": "You want some coffee. You go to the kitchen to make some. You say (to your friend):",
+          "prompt": "___ some coffee. Would you like some? (I / make)",
+          "answer": "I'm going to make"
+        }
+      ],
+      "items": [
+        {
+          "label": "2",
+          "context": "You're speaking to a friend and arranging to meet. You suggest a time and place. You say:",
+          "prompt": "___ you at 10.30 in the hotel lobby, OK? (I / see)",
+          "answer": "I'll see",
+          "accept": [
+            "I will see"
+          ]
+        },
+        {
+          "label": "3",
+          "context": "You have decided to sell your car. You tell a friend of yours. You say:",
+          "prompt": "I don't need my car any more. ___ it. (I / sell)",
+          "answer": "I'm going to sell",
+          "accept": [
+            "I am going to sell"
+          ]
+        },
+        {
+          "label": "4",
+          "context": "Your friend is worried because she has lost her driving licence. You say:",
+          "prompt": "Don't worry. I'm sure ___ it. (you / find)",
+          "answer": "you'll find",
+          "accept": [
+            "you will find",
+            "you're going to find"
+          ]
+        },
+        {
+          "label": "5a",
+          "context": "You have an old camera that is broken. You have decided to throw it away. You tell your friend. You say:",
+          "prompt": "This camera is broken. ___ it away. (I / throw)",
+          "answer": "I'm going to throw",
+          "accept": [
+            "I am going to throw"
+          ]
+        },
+        {
+          "label": "5b",
+          "context": "Your friend loves and collects old cameras. He doesn't want you to throw it away. He says:",
+          "prompt": "Don't throw it away! ___ it. (I / have)",
+          "answer": "I'll have",
+          "accept": [
+            "I will have"
+          ]
+        },
+        {
+          "label": "6a",
+          "context": "Joe has to go to the airport tomorrow. He doesn't know how to get there. Amy offers to take him. Amy says:",
+          "prompt": "Don't worry about getting to the airport, Joe. ___ you. (I / take)",
+          "answer": "I'll take",
+          "accept": [
+            "I will take"
+          ]
+        },
+        {
+          "label": "6b",
+          "context": "Later that day, Paul offers to take Joe to the airport. Joe tells him that it's not necessary. Joe says:",
+          "prompt": "Thanks, Paul, but ___ me. (Amy / take)",
+          "answer": "Amy is going to take",
+          "accept": [
+            "Amy's going to take",
+            "Amy is taking"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "match_pairs",
+      "title": "23.3 · Nối câu cho phù hợp",
+      "titleEn": "23.3 · Which goes with which?",
+      "instructions": "Các câu bên phải nối tiếp ý của các câu bên trái. Chạm một câu bên trái, sau đó chạm câu phù hợp bên phải.",
+      "instructionsEn": "The sentences on the right go with those on the left. Tap a sentence on the left, then tap the one on the right that goes with it.",
+      "left": [
+        "Why don't you come to the party with us?",
+        "That ceiling looks dangerous.",
+        "He's looking very tired.",
+        "This table is too big.",
+        "The weather forecast is good.",
+        "Jack is very determined.",
+        "They are building a new skyscraper here.",
+        "I haven't seen Ben for ages."
+      ],
+      "right": [
+        "He'll get what he wants.",
+        "He probably won't remember me.",
+        "It's going to be a nice day.",
+        "It looks as if it's going to fall down.",
+        "It's going to be 200 metres high.",
+        "You'll enjoy it.",
+        "I don't think it will fit in the room.",
+        "I think he's going to fall asleep."
+      ],
+      "answers": [
+        "You'll enjoy it.",
+        "It looks as if it's going to fall down.",
+        "I think he's going to fall asleep.",
+        "I don't think it will fit in the room.",
+        "It's going to be a nice day.",
+        "He'll get what he wants.",
+        "It's going to be 200 metres high.",
+        "He probably won't remember me."
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh so sánh will và going to: một quyết định bạn vừa nghĩ ra ngay lúc này (dùng I'll), và một việc bạn đã quyết định từ trước hoặc một điều bạn thấy sắp xảy ra (dùng going to).",
+      "instructionsEn": "Write 2-3 English sentences contrasting will and going to: a decision you are making right now (with I'll), and something you decided earlier or can see is about to happen (with going to).",
+      "ruleSummary": "This unit practises the difference between I will and I'm going to. For future ACTIONS, will announces a decision made at the moment of speaking (Anna is in hospital. Really? I'll go and visit her), while (be) going to reports a decision already made before the moment of speaking (Yes, I know. I'm going to visit her this evening). For future HAPPENINGS AND SITUATIONS (predictions) both are usually possible (The weather will be nice later / is going to be nice later), but going to is required when the present situation itself is the evidence (Look at those black clouds. It's going to rain, not it will rain; We're going to be late, the meeting starts in five minutes), whereas will suits a belief based on general knowledge (Jane will be late. She's always late). A correct student sentence must use I'll only for a decision taken at that moment, must not use will where the evidence is visible in the present situation, and must form going to as be + going to + base verb."
+    }
+  ]
+};
+
+const UNIT_24_WILL_BE_DOING_AND_WILL_HAVE_DONE: GrammarUnit = {
+  "unit": 24,
+  "slug": "will-be-doing-and-will-have-done",
+  "title": "will be doing and will have done",
+  "topic": "Future",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "Tình huống ví dụ: nửa giờ nữa và ba giờ nữa",
+          "headingEn": "Example situation: half an hour from now and three hours from now",
+          "intro": "Study this example situation:",
+          "introVi": "Hãy xem tình huống ví dụ sau:",
+          "body": "These people are standing in a queue to get into the cinema.\n\nHalf an hour from now, the cinema will be full. Everyone **will be watching** the film.\n\nThree hours from now, the cinema will be empty. The film **will have finished**. Everyone **will have gone** home.",
+          "bodyVi": "Những người này đang xếp hàng để vào rạp chiếu phim.\n\nNửa giờ nữa, rạp sẽ chật kín. Mọi người sẽ đang xem phim.\n\nBa giờ nữa, rạp sẽ trống trơn. Phim sẽ đã chiếu xong. Mọi người sẽ đã về nhà.",
+          "examples": [
+            {
+              "en": "Everyone **will be watching** the film.",
+              "note": "future continuous",
+              "vi": "Mọi người sẽ đang xem phim."
+            },
+            {
+              "en": "The film **will have finished**.",
+              "note": "future perfect",
+              "vi": "Phim sẽ đã kết thúc."
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "will be doing: đang làm dở việc gì đó vào một thời điểm tương lai",
+          "headingEn": "will be doing: in the middle of doing it at a future time",
+          "body": "**I will be doing** something (future continuous) = I will be in the middle of doing it.\n\nCompare **will be (do)ing** and **will (do)**.",
+          "bodyVi": "I will be doing something (thì tương lai tiếp diễn) nghĩa là lúc đó tôi đang làm dở việc ấy.\n\nSo sánh will be (do)ing và will (do).",
+          "examples": [
+            {
+              "en": "This time next week I'll be on holiday. I**'ll be lying** on the beach or **swimming** in the sea.",
+              "vi": "Giờ này tuần sau tôi đang đi nghỉ. Tôi sẽ đang nằm trên bãi biển hoặc bơi dưới biển."
+            },
+            {
+              "en": "You have no chance of getting the job. You**'ll be wasting** your time if you apply.",
+              "vi": "Bạn không có cơ hội nhận việc đó đâu. Nộp đơn là bạn đang phí thời gian đấy."
+            },
+            {
+              "en": "Don't phone between 7 and 8. We**'ll be eating**.",
+              "vi": "Đừng gọi trong khoảng 7 đến 8 giờ. Lúc đó bọn tôi đang ăn."
+            },
+            {
+              "en": "Let's wait for Liz to arrive and then we**'ll eat**.",
+              "vi": "Chờ Liz đến rồi mình ăn."
+            },
+            {
+              "en": "At 10 o'clock yesterday, Tina was in her office. She **was working**.",
+              "note": "past continuous",
+              "vi": "Mười giờ hôm qua Tina ở văn phòng. Cô ấy đang làm việc."
+            },
+            {
+              "en": "It's 10 o'clock now. She is in her office. She **is working**.",
+              "note": "present continuous",
+              "vi": "Bây giờ là mười giờ. Cô ấy ở văn phòng. Cô ấy đang làm việc."
+            },
+            {
+              "en": "At 10 o'clock tomorrow, she will be in her office. She **will be working**.",
+              "note": "future continuous",
+              "vi": "Mười giờ sáng mai cô ấy sẽ ở văn phòng. Cô ấy sẽ đang làm việc."
+            }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "will be -ing cũng dùng cho hành động trọn vẹn trong tương lai",
+          "headingEn": "will be -ing is also used for complete future actions",
+          "body": "We also use **will be -ing** to talk about complete actions in the future. Used in this way, **will be (doing)** is similar to **will (do)** and **going to (do)**.",
+          "bodyVi": "Chúng ta cũng dùng will be -ing để nói về những hành động trọn vẹn trong tương lai. Dùng theo cách này, will be (doing) gần giống will (do) và going to (do).",
+          "examples": [
+            {
+              "en": "The government **will be making** a statement about the crisis later today.",
+              "vi": "Hôm nay chính phủ sẽ ra tuyên bố về cuộc khủng hoảng."
+            },
+            {
+              "en": "Later in the programme, I**'ll be talking** to the Minister of Education.",
+              "vi": "Lát nữa trong chương trình, tôi sẽ trò chuyện với Bộ trưởng Giáo dục."
+            },
+            {
+              "en": "The team's star player is injured and **won't be playing** in the game on Saturday.",
+              "vi": "Ngôi sao của đội bị chấn thương và sẽ không thi đấu trận thứ Bảy."
+            }
+          ]
+        },
+        {
+          "label": "D",
+          "heading": "will have done: đã xong trước một thời điểm trong tương lai",
+          "headingEn": "will have done: complete before a future time",
+          "body": "**I will have done** something (future perfect) = it will be complete before a time in the future.\n\nCompare:",
+          "bodyVi": "I will have done something (thì tương lai hoàn thành) nghĩa là việc đó sẽ xong trước một thời điểm trong tương lai.\n\nSo sánh:",
+          "examples": [
+            {
+              "en": "Sally always leaves for work at 8.30 in the morning. She won't be at home at 9 o'clock. She**'ll have gone** to work.",
+              "vi": "Sally luôn đi làm lúc 8 giờ 30 sáng. Chín giờ cô ấy sẽ không có nhà. Cô ấy đã đi làm rồi."
+            },
+            {
+              "en": "We're late. The film **will** already **have started** by the time we get to the cinema.",
+              "vi": "Bọn mình muộn rồi. Đến rạp thì phim đã chiếu được một lúc."
+            },
+            {
+              "en": "Ted and Amy **have been** married for 24 years.",
+              "note": "present perfect",
+              "vi": "Ted và Amy đã cưới nhau được 24 năm."
+            },
+            {
+              "en": "Next year they **will have been** married for 25 years.",
+              "note": "future perfect",
+              "vi": "Sang năm họ sẽ tròn 25 năm cưới nhau."
+            },
+            {
+              "en": "When their son was born, they **had been** married for three years.",
+              "note": "past perfect",
+              "vi": "Khi con trai họ chào đời, họ đã cưới nhau được ba năm."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "fill_mc",
+      "title": "24.1 · Câu nào đúng về Andy?",
+      "titleEn": "24.1 · Which sentences about Andy are true?",
+      "instructions": "Đọc về Andy, rồi với mỗi câu chọn True nếu đúng và False nếu sai. Trong mỗi nhóm có ít nhất một câu đúng.",
+      "instructionsEn": "Read about Andy, then mark each sentence True or False. In each group at least one is true.",
+      "passage": "Andy goes to work every day. He leaves home at 8 o'clock and arrives at work at about 8.45. He starts work immediately and continues until 12.30 when he has lunch (which takes about half an hour). He starts work again at 1.15 and goes home at exactly 4.30. Every day he follows the same routine and tomorrow will be no exception.",
+      "passageEn": "Andy goes to work every day. He leaves home at 8 o'clock and arrives at work at about 8.45. He starts work immediately and continues until 12.30 when he has lunch (which takes about half an hour). He starts work again at 1.15 and goes home at exactly 4.30. Every day he follows the same routine and tomorrow will be no exception.",
+      "examples": [
+        {
+          "label": "1a",
+          "context": "At 7.45",
+          "prompt": "He'll be leaving the house. ___",
+          "answer": "False"
+        },
+        {
+          "label": "1b",
+          "context": "At 7.45",
+          "prompt": "He'll have left the house. ___",
+          "answer": "False"
+        },
+        {
+          "label": "1c",
+          "context": "At 7.45",
+          "prompt": "He'll be at home. ___",
+          "answer": "True"
+        },
+        {
+          "label": "1d",
+          "context": "At 7.45",
+          "prompt": "He'll be having breakfast. ___",
+          "answer": "False"
+        }
+      ],
+      "items": [
+        {
+          "label": "2a",
+          "context": "At 8.15",
+          "before": "He'll be leaving the house.",
+          "after": "",
+          "options": [
+            "True",
+            "False"
+          ],
+          "answer": "False"
+        },
+        {
+          "label": "2b",
+          "context": "At 8.15",
+          "before": "He'll have left the house.",
+          "after": "",
+          "options": [
+            "True",
+            "False"
+          ],
+          "answer": "True"
+        },
+        {
+          "label": "2c",
+          "context": "At 8.15",
+          "before": "He'll have arrived at work.",
+          "after": "",
+          "options": [
+            "True",
+            "False"
+          ],
+          "answer": "False"
+        },
+        {
+          "label": "2d",
+          "context": "At 8.15",
+          "before": "He'll be arriving at work.",
+          "after": "",
+          "options": [
+            "True",
+            "False"
+          ],
+          "answer": "False"
+        },
+        {
+          "label": "3a",
+          "context": "At 9.15",
+          "before": "He'll be working.",
+          "after": "",
+          "options": [
+            "True",
+            "False"
+          ],
+          "answer": "True"
+        },
+        {
+          "label": "3b",
+          "context": "At 9.15",
+          "before": "He'll start work.",
+          "after": "",
+          "options": [
+            "True",
+            "False"
+          ],
+          "answer": "False"
+        },
+        {
+          "label": "3c",
+          "context": "At 9.15",
+          "before": "He'll have started work.",
+          "after": "",
+          "options": [
+            "True",
+            "False"
+          ],
+          "answer": "True"
+        },
+        {
+          "label": "3d",
+          "context": "At 9.15",
+          "before": "He'll be arriving at work.",
+          "after": "",
+          "options": [
+            "True",
+            "False"
+          ],
+          "answer": "False"
+        },
+        {
+          "label": "4a",
+          "context": "At 12.45",
+          "before": "He'll have lunch.",
+          "after": "",
+          "options": [
+            "True",
+            "False"
+          ],
+          "answer": "False"
+        },
+        {
+          "label": "4b",
+          "context": "At 12.45",
+          "before": "He'll be having lunch.",
+          "after": "",
+          "options": [
+            "True",
+            "False"
+          ],
+          "answer": "True"
+        },
+        {
+          "label": "4c",
+          "context": "At 12.45",
+          "before": "He'll have finished his lunch.",
+          "after": "",
+          "options": [
+            "True",
+            "False"
+          ],
+          "answer": "False"
+        },
+        {
+          "label": "4d",
+          "context": "At 12.45",
+          "before": "He'll have started his lunch.",
+          "after": "",
+          "options": [
+            "True",
+            "False"
+          ],
+          "answer": "True"
+        },
+        {
+          "label": "5a",
+          "context": "At 4 o'clock",
+          "before": "He'll have finished work.",
+          "after": "",
+          "options": [
+            "True",
+            "False"
+          ],
+          "answer": "False"
+        },
+        {
+          "label": "5b",
+          "context": "At 4 o'clock",
+          "before": "He'll finish work.",
+          "after": "",
+          "options": [
+            "True",
+            "False"
+          ],
+          "answer": "False"
+        },
+        {
+          "label": "5c",
+          "context": "At 4 o'clock",
+          "before": "He'll be working.",
+          "after": "",
+          "options": [
+            "True",
+            "False"
+          ],
+          "answer": "True"
+        },
+        {
+          "label": "5d",
+          "context": "At 4 o'clock",
+          "before": "He won't have finished work.",
+          "after": "",
+          "options": [
+            "True",
+            "False"
+          ],
+          "answer": "True"
+        },
+        {
+          "label": "6a",
+          "context": "At 4.45",
+          "before": "He'll leave work.",
+          "after": "",
+          "options": [
+            "True",
+            "False"
+          ],
+          "answer": "False"
+        },
+        {
+          "label": "6b",
+          "context": "At 4.45",
+          "before": "He'll be leaving work.",
+          "after": "",
+          "options": [
+            "True",
+            "False"
+          ],
+          "answer": "False"
+        },
+        {
+          "label": "6c",
+          "context": "At 4.45",
+          "before": "He'll have left work.",
+          "after": "",
+          "options": [
+            "True",
+            "False"
+          ],
+          "answer": "True"
+        },
+        {
+          "label": "6d",
+          "context": "At 4.45",
+          "before": "He'll have arrived home.",
+          "after": "",
+          "options": [
+            "True",
+            "False"
+          ],
+          "answer": "False"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "24.2 · Chọn trong khung",
+      "titleEn": "24.2 · Choose from the box",
+      "instructions": "Hoàn thành các câu, chọn trong khung cho sẵn.",
+      "instructionsEn": "Complete the sentences. Choose from the box.",
+      "wordBank": [
+        "be watching",
+        "will be landing",
+        "won't be playing",
+        "will be starting",
+        "will you be voting",
+        "won't be going",
+        "be going",
+        "will you be doing"
+      ],
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "There's an election next week. Who ___ for?",
+          "answer": "will you be voting"
+        }
+      ],
+      "startNumber": 2,
+      "items": [
+        {
+          "prompt": "I'll ___ shopping later. Can I get you anything?",
+          "answer": "be going"
+        },
+        {
+          "prompt": "Emily is not well, so she ___ volleyball tomorrow.",
+          "answer": "won't be playing"
+        },
+        {
+          "prompt": "Little Emma ___ school soon. She's growing up fast.",
+          "answer": "will be starting"
+        },
+        {
+          "prompt": "The match is on TV tonight. Will you ___ it?",
+          "answer": "be watching"
+        },
+        {
+          "prompt": "What ___ in your new job? The same as before?",
+          "answer": "will you be doing"
+        },
+        {
+          "prompt": "I ___ to the wedding. I'll be away on holiday.",
+          "answer": "won't be going"
+        },
+        {
+          "prompt": "Please fasten your seat belts. The plane ___ in ten minutes.",
+          "answer": "will be landing"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "24.3 · will be (do)ing hay will have (done)",
+      "titleEn": "24.3 · will be (do)ing or will have (done)",
+      "instructions": "Chia động từ trong ngoặc ở dạng will be (do)ing hoặc will have (done).",
+      "instructionsEn": "Put the verb into the correct form, will be (do)ing or will have (done).",
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "Don't phone between 7 and 8. ___ then. (we / eat)",
+          "answer": "we'll be eating"
+        }
+      ],
+      "startNumber": 2,
+      "items": [
+        {
+          "context": "Tomorrow afternoon we're going to play tennis from 3 o'clock until 4.30.",
+          "prompt": "So at 4 o'clock, ___ tennis. (we / play)",
+          "answer": "we'll be playing",
+          "accept": [
+            "we will be playing"
+          ]
+        },
+        {
+          "context": "Sarah will meet you at the station.",
+          "prompt": "___ for you when you arrive. (she / wait)",
+          "answer": "She'll be waiting",
+          "accept": [
+            "She will be waiting"
+          ]
+        },
+        {
+          "context": "The meeting starts at 9.30 and won't last longer than an hour.",
+          "prompt": "You can be sure that ___ by 11 o'clock. (it / finish)",
+          "answer": "it will have finished",
+          "accept": [
+            "it'll have finished",
+            "it will be finished"
+          ]
+        },
+        {
+          "prompt": "Do you think ___ in the same place in ten years' time? (you / still / live)",
+          "answer": "you'll still be living",
+          "accept": [
+            "you will still be living"
+          ]
+        },
+        {
+          "context": "Lisa is travelling in Europe and so far she has travelled about 1,000 miles.",
+          "prompt": "By the end of the trip, ___ more than 3,000 miles. (she / travel)",
+          "answer": "she'll have travelled",
+          "accept": [
+            "she will have travelled"
+          ]
+        },
+        {
+          "prompt": "If you need to contact me, ___ at the Lion Hotel until Friday. (I / stay)",
+          "answer": "I'll be staying",
+          "accept": [
+            "I will be staying"
+          ]
+        },
+        {
+          "context": "Ben is on holiday and is spending his money very quickly.",
+          "prompt": "If he continues like this, ___ all his money before the end of his holiday. (he / spend)",
+          "answer": "he'll have spent",
+          "accept": [
+            "he will have spent"
+          ]
+        },
+        {
+          "prompt": "I'm fed up with my job. I hope ___ it much longer. (I / not / do)",
+          "answer": "I won't be doing",
+          "accept": [
+            "I will not be doing"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh về giờ này tuần sau hoặc năm sau: lúc đó bạn sẽ đang làm gì (will be doing), và việc gì bạn sẽ đã hoàn thành xong (will have done).",
+      "instructionsEn": "Write 2-3 English sentences about this time next week or next year: what you will be doing then (will be doing), and what you will have finished by then (will have done).",
+      "ruleSummary": "This unit practises will be doing (future continuous) and will have done (future perfect). will be doing says that at a future time you will be in the middle of an activity (Don't phone between 7 and 8, we'll be eating; This time next week I'll be lying on the beach); it is also used for complete future actions in a neutral, often formal way (Later in the programme, I'll be talking to the Minister; He won't be playing on Saturday). will have done says an action will already be complete before a future time (She'll have gone to work by 9 o'clock; The film will already have started by the time we get there; Next year they will have been married for 25 years). A correct student sentence must build will be + -ing or will have + past participle correctly, must anchor the sentence to a future time, and must choose the continuous for an activity in progress and the perfect for something finished by then."
+    }
+  ]
+};
+
+const UNIT_25_WHEN_I_DO_AND_WHEN_IVE_DONE: GrammarUnit = {
+  "unit": 25,
+  "slug": "when-i-do-and-when-ive-done",
+  "title": "when I do and when I've done, if and when",
+  "topic": "Future",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "Sau when dùng thì hiện tại, không dùng will",
+          "headingEn": "After when we use the present, not will",
+          "intro": "Study this example:",
+          "introVi": "Hãy xem ví dụ sau:",
+          "body": "Amy is on a train. She's calling a friend: 'I**'ll** call you again later **when** I **arrive**.'\n\nThis sentence has two parts: the main part (I'll call you again later) and the **when ...** part (when I arrive). The time is future, but we say **when I do** something (not when I will do) and **when something happens** (not when something will happen).\n\nThe same thing happens after **while**, **before**, **after**, **as soon as** and **until**.",
+          "bodyVi": "Amy đang ở trên tàu. Cô ấy gọi cho một người bạn: 'Lát nữa đến nơi tôi sẽ gọi lại cho bạn.'\n\nCâu này có hai phần: phần chính (I'll call you again later) và phần when ... (when I arrive). Thời gian nói tới là tương lai, nhưng chúng ta nói when I do something (không nói when I will do) và when something happens (không nói when something will happen).\n\nSau while, before, after, as soon as và until cũng vậy.",
+          "examples": [
+            {
+              "en": "We'll go out **when** it **stops** raining.",
+              "note": "not when it will stop",
+              "vi": "Tạnh mưa là bọn mình đi."
+            },
+            {
+              "en": "**When** you **are** here again, you must come and see us.",
+              "note": "not When you will be",
+              "vi": "Lần sau bạn tới đây, nhớ ghé thăm bọn tôi nhé."
+            },
+            {
+              "en": "Don't forget to lock the door **when** you **go** out.",
+              "note": "not will go",
+              "vi": "Nhớ khoá cửa khi ra ngoài nhé."
+            },
+            {
+              "en": "What are you going to do **while** I**'m** away?",
+              "note": "not while I will be",
+              "vi": "Lúc tôi đi vắng bạn định làm gì?"
+            },
+            {
+              "en": "**Before** you **go**, there's something I want to ask you.",
+              "vi": "Trước khi bạn đi, tôi có chuyện muốn hỏi."
+            },
+            {
+              "en": "Wait here **until** I **come** back. or ... **till** I **come** back.",
+              "vi": "Chờ ở đây đến khi tôi quay lại nhé."
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "Có thể dùng hiện tại hoàn thành sau when / after / until / as soon as",
+          "headingEn": "The present perfect is possible after when / after / until / as soon as",
+          "body": "You can also use the present perfect (**have done**) after **when**, **after**, **until** and **as soon as**.\n\nWe use the present perfect to show that one thing is complete before the other, so the two things do not happen together. Do not use the present perfect if the two things happen together.\n\nIt is often possible to use either the present simple or the present perfect.",
+          "bodyVi": "Sau when, after, until và as soon as, bạn cũng có thể dùng thì hiện tại hoàn thành (have done).\n\nChúng ta dùng hiện tại hoàn thành để cho thấy việc này xong rồi mới đến việc kia, tức là hai việc không diễn ra cùng lúc. Đừng dùng hiện tại hoàn thành nếu hai việc xảy ra cùng lúc.\n\nNhiều khi dùng hiện tại đơn hay hiện tại hoàn thành đều được.",
+          "examples": [
+            {
+              "en": "Can I have the newspaper when you**'ve finished** with it?",
+              "vi": "Bạn đọc xong báo thì cho tôi mượn nhé?"
+            },
+            {
+              "en": "Don't say anything while Ian is here. Wait until he **has gone**.",
+              "vi": "Đừng nói gì khi Ian còn ở đây. Chờ anh ấy đi hẳn đã."
+            },
+            {
+              "en": "**When** I**'ve phoned** Kate, we can go out.",
+              "note": "= first I'll phone Kate and after that we can go out",
+              "vi": "Gọi cho Kate xong là bọn mình đi được."
+            },
+            {
+              "en": "**When** I **phone** Kate, I'll ask her about the party.",
+              "note": "not when I've phoned",
+              "vi": "Lúc gọi cho Kate tôi sẽ hỏi cô ấy về bữa tiệc."
+            },
+            {
+              "en": "I'll come as soon as I **finish**. or I'll come as soon as I**'ve finished**.",
+              "vi": "Xong việc là tôi đến ngay."
+            },
+            {
+              "en": "You'll feel better after you **have** something to eat. or ... after you**'ve had** something to eat.",
+              "vi": "Ăn gì đó vào là bạn sẽ thấy khá hơn."
+            }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "if và when",
+          "headingEn": "if and when",
+          "body": "After **if**, we normally use the present (**if I do**, **if I see** etc.) for the future.\n\nWe use **if** (not when) for things that will possibly happen or possibly not happen. We use **when** for things which are sure to happen.\n\nCompare:",
+          "bodyVi": "Sau if, để nói về tương lai chúng ta thường dùng thì hiện tại (if I do, if I see ...).\n\nChúng ta dùng if (không dùng when) cho những việc có thể xảy ra hoặc có thể không. Chúng ta dùng when cho những việc chắc chắn xảy ra.\n\nSo sánh:",
+          "examples": [
+            {
+              "en": "I'll be angry **if** it **happens** again.",
+              "note": "not if it will happen",
+              "vi": "Chuyện đó mà xảy ra nữa là tôi giận đấy."
+            },
+            {
+              "en": "Hurry up! **If** we **don't** hurry, we'll be late.",
+              "vi": "Nhanh lên! Không nhanh là bọn mình muộn mất."
+            },
+            {
+              "en": "**If** it **is raining** this evening, I won't go out.",
+              "note": "not when it is raining",
+              "vi": "Tối nay mà mưa thì tôi không ra ngoài."
+            },
+            {
+              "en": "Don't worry **if** I**'m** late tonight.",
+              "note": "not when I'm late",
+              "vi": "Tối nay tôi có về muộn thì bạn đừng lo nhé."
+            },
+            {
+              "en": "I might go out later. **If** I go out, I'll get some bread.",
+              "note": "it's possible",
+              "vi": "Lát nữa có thể tôi ra ngoài. Nếu ra ngoài tôi sẽ mua ít bánh mì."
+            },
+            {
+              "en": "I'm going out later. **When** I go out, I'll get some bread.",
+              "note": "for sure",
+              "vi": "Lát nữa tôi ra ngoài. Lúc ra ngoài tôi sẽ mua ít bánh mì."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "fill_mc",
+      "title": "25.1 · Chọn cách nói đúng",
+      "titleEn": "25.1 · Which is correct?",
+      "instructions": "Chọn cách diễn đạt đúng trong mỗi cặp.",
+      "instructionsEn": "Choose the correct form in each pair.",
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "Don't forget to lock the door when ___.",
+          "answer": "you go out"
+        }
+      ],
+      "startNumber": 2,
+      "items": [
+        {
+          "before": "As soon as we get any more information,",
+          "after": "you know.",
+          "options": [
+            "we let",
+            "we'll let"
+          ],
+          "answer": "we'll let"
+        },
+        {
+          "before": "I want to get to the cinema before the film",
+          "after": ".",
+          "options": [
+            "starts",
+            "will start"
+          ],
+          "answer": "starts"
+        },
+        {
+          "before": "Don't drive through a red light. Wait until",
+          "after": "to green.",
+          "options": [
+            "it changes",
+            "it will change"
+          ],
+          "answer": "it changes"
+        },
+        {
+          "before": "Sarah will be here soon.",
+          "after": "some coffee when she comes.",
+          "options": [
+            "I make",
+            "I'll make"
+          ],
+          "answer": "I'll make"
+        },
+        {
+          "before": "I'm 20 now. I wonder where I'll be when",
+          "after": ".",
+          "options": [
+            "I'm 40",
+            "I'll be 40"
+          ],
+          "answer": "I'm 40"
+        },
+        {
+          "before": "",
+          "after": "for you until you're ready, but don't be long.",
+          "options": [
+            "I wait",
+            "I'll wait"
+          ],
+          "answer": "I'll wait"
+        },
+        {
+          "before": "Oliver is five years old. He wants to be a TV presenter when",
+          "after": ".",
+          "options": [
+            "he grows up",
+            "he'll grow up"
+          ],
+          "answer": "he grows up"
+        },
+        {
+          "before": "We could meet for coffee tomorrow morning if",
+          "after": "free.",
+          "options": [
+            "you're",
+            "you will be"
+          ],
+          "answer": "you're"
+        },
+        {
+          "before": "If the weather",
+          "after": "nice tomorrow, we're going to the beach.",
+          "options": [
+            "is",
+            "will be"
+          ],
+          "answer": "is"
+        },
+        {
+          "before": "Vicky",
+          "after": "very disappointed if she doesn't get a place at university.",
+          "options": [
+            "is",
+            "will be"
+          ],
+          "answer": "will be"
+        },
+        {
+          "before": "You'll feel better after",
+          "after": "something to eat.",
+          "options": [
+            "you've had",
+            "you'll have"
+          ],
+          "answer": "you've had"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "25.2 · will/won't hay thì hiện tại",
+      "titleEn": "25.2 · will/won't or the present",
+      "instructions": "Hoàn thành các câu bằng các động từ trong ngoặc. Dùng will/won't hoặc thì hiện tại (see, plays, are ...).",
+      "instructionsEn": "Complete the sentences using the verbs in brackets. Use will/won't or the present (see, plays, are etc.).",
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "When ___ (you / be) here again, you must come and see us.",
+          "answer": "you are"
+        }
+      ],
+      "startNumber": 2,
+      "items": [
+        {
+          "prompt": "I want to see Sophie before ___ (she / go) away next week.",
+          "answer": "she goes"
+        },
+        {
+          "prompt": "Call me when ___ (you / know) what time you're going to get here.",
+          "answer": "you know"
+        },
+        {
+          "prompt": "There's no need to hurry. ___ (I / wait) for you until ___ (you / be) ready.",
+          "answer": "I'll wait",
+          "accept": [
+            "I will wait"
+          ],
+          "extraBlanks": [
+            {
+              "answer": "you're",
+              "accept": [
+                "you are"
+              ]
+            }
+          ]
+        },
+        {
+          "prompt": "I'm going out for about an hour. ___ (you / still / be) here when ___ (I / get) back?",
+          "answer": "Will you still be",
+          "extraBlanks": [
+            {
+              "answer": "I get"
+            }
+          ]
+        },
+        {
+          "prompt": "I think everything will be fine, but if ___ (there / be) any problems, ___ (I / let) you know, OK?",
+          "answer": "there are",
+          "extraBlanks": [
+            {
+              "answer": "I'll let",
+              "accept": [
+                "I will let"
+              ]
+            }
+          ]
+        },
+        {
+          "prompt": "Kate looks completely different now. ___ (you / not / recognise) her when ___ (you / see) her again.",
+          "answer": "You won't recognise",
+          "accept": [
+            "You will not recognise"
+          ],
+          "extraBlanks": [
+            {
+              "answer": "you see"
+            }
+          ]
+        },
+        {
+          "prompt": "I'm going to be away for a few days. If ___ (you / need) to contact me while ___ (I / be) away, you can call me.",
+          "answer": "you need",
+          "extraBlanks": [
+            {
+              "answer": "I'm",
+              "accept": [
+                "I am"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "25.3 · Đọc tình huống và hoàn thành câu",
+      "titleEn": "25.3 · Read the situations and complete the sentences",
+      "instructions": "Đọc tình huống rồi hoàn thành câu.",
+      "instructionsEn": "Read the situations and complete the sentences.",
+      "examples": [
+        {
+          "label": "1",
+          "context": "You and a friend want to go out, but it's raining hard. You don't want to get wet. You say:",
+          "prompt": "Let's wait until ___.",
+          "answer": "it stops raining"
+        }
+      ],
+      "startNumber": 2,
+      "items": [
+        {
+          "context": "You're visiting a friend. It's going to get dark soon, and you want to leave before that. You say:",
+          "prompt": "I'd better go now before ___.",
+          "answer": "it gets dark"
+        },
+        {
+          "context": "You want to sell your car. Mark is interested in buying it, but he hasn't decided yet. You ask:",
+          "prompt": "Let me know as soon as ___.",
+          "answer": "you decide",
+          "accept": [
+            "you've decided",
+            "you have decided"
+          ]
+        },
+        {
+          "context": "Your friends are going to Hong Kong soon. You want to know where they're going to stay. You ask:",
+          "prompt": "Where are you going to stay when ___?",
+          "answer": "you're in Hong Kong",
+          "accept": [
+            "you are in Hong Kong",
+            "you go to Hong Kong",
+            "you get to Hong Kong"
+          ]
+        },
+        {
+          "context": "The traffic is bad in your town, but they are going to build a new road. You say:",
+          "prompt": "I think things will be better when they ___.",
+          "answer": "build the new road",
+          "accept": [
+            "have built the new road",
+            "'ve built the new road"
+          ]
+        },
+        {
+          "context": "Someone you know has been very rude to you. You want her to apologise. You say (to someone else):",
+          "prompt": "I won't speak to her until ___.",
+          "answer": "she apologises",
+          "accept": [
+            "she has apologised",
+            "she's apologised"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "fill_mc",
+      "title": "25.4 · when hay if",
+      "titleEn": "25.4 · when or if",
+      "instructions": "Điền when hoặc if vào chỗ trống.",
+      "instructionsEn": "Put in when or if.",
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "Don't worry ___ I'm late tonight.",
+          "answer": "if"
+        }
+      ],
+      "startNumber": 2,
+      "items": [
+        {
+          "before": "Be careful. You'll hurt yourself",
+          "after": "you fall.",
+          "options": [
+            "when",
+            "if"
+          ],
+          "answer": "if"
+        },
+        {
+          "before": "I'm going shopping.",
+          "after": "you want anything, I can get it for you.",
+          "options": [
+            "When",
+            "If"
+          ],
+          "answer": "If"
+        },
+        {
+          "before": "I'm going away for a few days. I'll call you",
+          "after": "I get back.",
+          "options": [
+            "when",
+            "if"
+          ],
+          "answer": "when"
+        },
+        {
+          "before": "",
+          "after": "I don't see you tomorrow, when will I see you again?",
+          "options": [
+            "When",
+            "If"
+          ],
+          "answer": "If"
+        },
+        {
+          "before": "I'm watching a programme on TV right now.",
+          "after": "it finishes, I'm going to bed.",
+          "options": [
+            "When",
+            "If"
+          ],
+          "answer": "When"
+        },
+        {
+          "before": "We can eat at home or,",
+          "after": "you prefer, we can go to a restaurant.",
+          "options": [
+            "when",
+            "if"
+          ],
+          "answer": "if"
+        },
+        {
+          "before": "I hope Sarah can come to the party. It will be a shame",
+          "after": "she can't come.",
+          "options": [
+            "when",
+            "if"
+          ],
+          "answer": "if"
+        }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh về kế hoạch của bạn, mỗi câu có một mệnh đề bắt đầu bằng when, before, after, as soon as, until hoặc if. Nhớ rằng sau những từ này phải dùng thì hiện tại, không dùng will.",
+      "instructionsEn": "Write 2-3 English sentences about your plans, each with a clause beginning when, before, after, as soon as, until or if. Remember that these take a present tense, not will.",
+      "ruleSummary": "This unit practises when I do / when I've done, and if versus when. In a clause introduced by when, while, before, after, as soon as or until, we use a PRESENT tense for future time, never will: We'll go out when it stops raining (not when it will stop); Wait here until I come back; What are you going to do while I'm away? The present perfect is also possible after when, after, until and as soon as, and shows that one thing is finished before the other happens (Can I have the newspaper when you've finished with it?); it must not be used when the two things happen together (When I phone Kate, I'll ask her, not when I've phoned). After if we likewise use a present tense for the future (I'll be angry if it happens again, not if it will happen). if is for what may or may not happen, when for what is sure to happen. A correct student sentence must keep will out of the when/if clause while allowing will in the main clause."
+    }
+  ]
+};
+
 export const UNITS_META: GrammarUnitMeta[] = [
   { unit: 1, slug: UNIT_1_PRESENT_CONTINUOUS.slug, title: UNIT_1_PRESENT_CONTINUOUS.title, topic: UNIT_1_PRESENT_CONTINUOUS.topic, available: true },
   { unit: 2, slug: UNIT_2_PRESENT_SIMPLE.slug, title: UNIT_2_PRESENT_SIMPLE.title, topic: UNIT_2_PRESENT_SIMPLE.topic, available: true },
@@ -8284,9 +10504,14 @@ export const UNITS_META: GrammarUnitMeta[] = [
   { unit: 18, slug: UNIT_18_USED_TO.slug, title: UNIT_18_USED_TO.title, topic: UNIT_18_USED_TO.topic, available: true },
   { unit: 19, slug: UNIT_19_PRESENT_TENSES_FOR_THE_FUTURE.slug, title: UNIT_19_PRESENT_TENSES_FOR_THE_FUTURE.title, topic: UNIT_19_PRESENT_TENSES_FOR_THE_FUTURE.topic, available: true },
   { unit: 20, slug: UNIT_20_IM_GOING_TO.slug, title: UNIT_20_IM_GOING_TO.title, topic: UNIT_20_IM_GOING_TO.topic, available: true },
+  { unit: 21, slug: UNIT_21_WILL_AND_SHALL_1.slug, title: UNIT_21_WILL_AND_SHALL_1.title, topic: UNIT_21_WILL_AND_SHALL_1.topic, available: true },
+  { unit: 22, slug: UNIT_22_WILL_AND_SHALL_2.slug, title: UNIT_22_WILL_AND_SHALL_2.title, topic: UNIT_22_WILL_AND_SHALL_2.topic, available: true },
+  { unit: 23, slug: UNIT_23_I_WILL_AND_IM_GOING_TO.slug, title: UNIT_23_I_WILL_AND_IM_GOING_TO.title, topic: UNIT_23_I_WILL_AND_IM_GOING_TO.topic, available: true },
+  { unit: 24, slug: UNIT_24_WILL_BE_DOING_AND_WILL_HAVE_DONE.slug, title: UNIT_24_WILL_BE_DOING_AND_WILL_HAVE_DONE.title, topic: UNIT_24_WILL_BE_DOING_AND_WILL_HAVE_DONE.topic, available: true },
+  { unit: 25, slug: UNIT_25_WHEN_I_DO_AND_WHEN_IVE_DONE.slug, title: UNIT_25_WHEN_I_DO_AND_WHEN_IVE_DONE.title, topic: UNIT_25_WHEN_I_DO_AND_WHEN_IVE_DONE.topic, available: true },
 ];
 
-export const GRAMMAR_UNITS: GrammarUnit[] = [UNIT_1_PRESENT_CONTINUOUS, UNIT_2_PRESENT_SIMPLE, UNIT_3_PRESENT_CONTINUOUS_AND_SIMPLE_1, UNIT_4_PRESENT_CONTINUOUS_AND_SIMPLE_2, UNIT_5_PAST_SIMPLE, UNIT_6_PAST_CONTINUOUS, UNIT_7_PRESENT_PERFECT_1, UNIT_8_PRESENT_PERFECT_2, UNIT_9_PRESENT_PERFECT_CONTINUOUS, UNIT_10_PRESENT_PERFECT_CONTINUOUS_AND_SIMPLE, UNIT_11_HOW_LONG_HAVE_YOU_BEEN, UNIT_12_FOR_AND_SINCE, UNIT_13_PRESENT_PERFECT_AND_PAST_1, UNIT_14_PRESENT_PERFECT_AND_PAST_2, UNIT_15_PAST_PERFECT, UNIT_16_PAST_PERFECT_CONTINUOUS, UNIT_17_HAVE_AND_HAVE_GOT, UNIT_18_USED_TO, UNIT_19_PRESENT_TENSES_FOR_THE_FUTURE, UNIT_20_IM_GOING_TO];
+export const GRAMMAR_UNITS: GrammarUnit[] = [UNIT_1_PRESENT_CONTINUOUS, UNIT_2_PRESENT_SIMPLE, UNIT_3_PRESENT_CONTINUOUS_AND_SIMPLE_1, UNIT_4_PRESENT_CONTINUOUS_AND_SIMPLE_2, UNIT_5_PAST_SIMPLE, UNIT_6_PAST_CONTINUOUS, UNIT_7_PRESENT_PERFECT_1, UNIT_8_PRESENT_PERFECT_2, UNIT_9_PRESENT_PERFECT_CONTINUOUS, UNIT_10_PRESENT_PERFECT_CONTINUOUS_AND_SIMPLE, UNIT_11_HOW_LONG_HAVE_YOU_BEEN, UNIT_12_FOR_AND_SINCE, UNIT_13_PRESENT_PERFECT_AND_PAST_1, UNIT_14_PRESENT_PERFECT_AND_PAST_2, UNIT_15_PAST_PERFECT, UNIT_16_PAST_PERFECT_CONTINUOUS, UNIT_17_HAVE_AND_HAVE_GOT, UNIT_18_USED_TO, UNIT_19_PRESENT_TENSES_FOR_THE_FUTURE, UNIT_20_IM_GOING_TO, UNIT_21_WILL_AND_SHALL_1, UNIT_22_WILL_AND_SHALL_2, UNIT_23_I_WILL_AND_IM_GOING_TO, UNIT_24_WILL_BE_DOING_AND_WILL_HAVE_DONE, UNIT_25_WHEN_I_DO_AND_WHEN_IVE_DONE];
 
 export function getGrammarUnit(slug: string): GrammarUnit | undefined {
   return GRAMMAR_UNITS.find((u) => u.slug === slug);

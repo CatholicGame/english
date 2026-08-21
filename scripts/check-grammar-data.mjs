@@ -49,6 +49,31 @@ for (const [, name, json] of blocks) {
   );
 
   for (const step of unit.steps) {
+    if (step.kind === "rule") {
+      for (const block of step.blocks) {
+        const at = `Unit ${unit.unit} rule block ${block.label}`;
+        check(block.parts?.length > 0, `${at}: has no parts`);
+        for (const [i, part] of (block.parts ?? []).entries()) {
+          // An explanation line inside an example list is the shape the parts
+          // model exists to prevent: it renders as a sentence to imitate.
+          if (part.kind === "examples") {
+            check(part.items.length > 0, `${at} part ${i}: empty examples list`);
+            for (const ex of part.items) {
+              check(
+                !(/:\s*$/.test(ex.en) && !ex.note),
+                `${at} part ${i}: "${ex.en}" is an explanation line, not an example - make it a text part`,
+              );
+            }
+          }
+          if (part.kind === "text") check(part.text.trim() !== "", `${at} part ${i}: empty text`);
+          if (part.kind === "table") {
+            const widths = new Set(part.table.rows.map((r) => r.length));
+            check(widths.size === 1, `${at} part ${i}: table rows have differing column counts`);
+          }
+        }
+      }
+      continue;
+    }
     if (!PRACTICE.includes(step.kind)) continue;
 
     // The book's exercise number heads the title, for cross-referencing.

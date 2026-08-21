@@ -9,6 +9,9 @@ import {
   type JudgeCorrectStep,
   type MatchPairsStep,
   type RuleBlock,
+  type RuleExamples,
+  type RulePart,
+  type RuleSituation,
   type RuleStep,
   type RuleTable,
   type TypeFillItem,
@@ -97,10 +100,32 @@ function renderRich(text: string): React.ReactNode {
   });
 }
 
+/** Vietnamese gloss under an English line, shown only on a Vietnamese UI. */
+function ViLine({ text }: { text?: string }) {
+  const { lang } = useUiLang();
+  if (lang === "en" || !text) return null;
+  return <span className="mt-0.5 block text-[12.5px] text-neutral-500 italic">{renderRich(text)}</span>;
+}
+
 function RuleTableView({ table }: { table: RuleTable }) {
+  // The book's indented label-and-value list ("the main part: I'll call you
+  // again later") is a list, not a box: borders around it read as a grid of
+  // data and lose the "this is one idea broken in two" shape.
+  if (table.variant === "list") {
+    return (
+      <div className="border-l-2 pl-3" style={{ borderColor: "var(--color-accent-300)" }}>
+        {table.rows.map((row, i) => (
+          <div key={i} className={`flex flex-wrap gap-x-3 text-[13.5px] leading-relaxed ${i > 0 ? "mt-1" : ""}`}>
+            <span className="min-w-[110px] flex-none text-neutral-500">{renderRich(row[0])}</span>
+            <span className="min-w-0 flex-1">{renderRich(row[1])}</span>
+          </div>
+        ))}
+      </div>
+    );
+  }
   return (
     <div
-      className="mt-2.5 overflow-hidden overflow-x-auto rounded-md border"
+      className="overflow-hidden overflow-x-auto rounded-md border"
       style={{ borderColor: "var(--color-accent-300)", background: "var(--color-accent-100)" }}
     >
       <table className="w-full border-collapse text-[13px]">
@@ -139,11 +164,99 @@ function RuleTableView({ table }: { table: RuleTable }) {
   );
 }
 
+/** The book's illustrated setup: the scene, then what the people in it say,
+ * drawn as speech bubbles. Kept visually separate from the explanation, since
+ * it is the thing being explained, not part of the explanation. */
+function RuleSituationView({ part }: { part: RuleSituation }) {
+  return (
+    <div className="rounded-lg border p-3" style={{ borderColor: "var(--color-divider)", background: "var(--color-bg)" }}>
+      <p className="text-[13.5px] leading-relaxed text-neutral-700">
+        {renderRich(part.text)}
+        <ViLine text={part.vi} />
+      </p>
+      {part.quotes?.map((q, i) => (
+        <div key={i} className="mt-2.5">
+          {q.speaker && <span className="label-xs mb-0.5 block text-neutral-500">{q.speaker}</span>}
+          <div
+            className="relative inline-block rounded-xl border px-3 py-2 text-[13.5px] leading-relaxed"
+            style={{ borderColor: "var(--color-accent-300)", background: "var(--color-accent-100)", color: "var(--color-accent-800)" }}
+          >
+            {renderRich(q.text)}
+            <span
+              className="absolute -bottom-[6px] left-5 h-[10px] w-[10px] rotate-45 border-r border-b"
+              style={{ borderColor: "var(--color-accent-300)", background: "var(--color-accent-100)" }}
+            />
+          </div>
+          <ViLine text={q.vi} />
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function RuleExamplesView({ part }: { part: RuleExamples }) {
+  const { lang } = useUiLang();
+  const showVi = lang !== "en";
+  return (
+    <div>
+      {part.heading && (
+        <span className="label-xs mb-1 block text-accent">
+          {part.heading}
+          {showVi && part.headingVi && (
+            <span className="ml-1.5 font-normal text-neutral-500 normal-case">({part.headingVi})</span>
+          )}
+        </span>
+      )}
+      <ul className="flex flex-col gap-1.5">
+        {part.items.map((ex, j) => (
+          <li key={j} className="border-l-2 border-neutral-300 pl-2.5 text-[13.5px]">
+            <div>
+              {renderRich(ex.en)}
+              {ex.note && <span className="ml-1.5 text-neutral-500">({renderRich(ex.note)})</span>}
+            </div>
+            <ViLine text={ex.vi} />
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function RulePartView({ part }: { part: RulePart }) {
+  switch (part.kind) {
+    case "situation":
+      return <RuleSituationView part={part} />;
+    case "text":
+      return (
+        <p className="text-[13.5px] leading-relaxed text-neutral-700">
+          {renderRich(part.text)}
+          <ViLine text={part.vi} />
+        </p>
+      );
+    case "table":
+      return <RuleTableView table={part.table} />;
+    case "words":
+      return (
+        <div className="flex flex-wrap gap-1.5">
+          {part.words.map((w, k) => (
+            <span
+              key={k}
+              className="rounded-full border px-2.5 py-1 text-[12px]"
+              style={{ borderColor: "var(--color-divider)", color: "var(--color-neutral-700)" }}
+            >
+              {w}
+            </span>
+          ))}
+        </div>
+      );
+    case "examples":
+      return <RuleExamplesView part={part} />;
+  }
+}
+
 function RuleBlockView({ block: b }: { block: RuleBlock }) {
   const { lang } = useUiLang();
   const showVi = lang !== "en";
-  const bodyParas = b.body.split("\n\n");
-  const bodyParasVi = b.bodyVi?.split("\n\n");
 
   return (
     <div className="overflow-hidden rounded-lg bg-surface">
@@ -159,48 +272,16 @@ function RuleBlockView({ block: b }: { block: RuleBlock }) {
           )}
         </div>
       )}
-      <div className="p-3">
+      <div className="flex flex-col gap-2.5 p-3">
         {b.intro && (
-          <p className="mb-1.5 text-[12.5px] font-bold text-neutral-500">
+          <p className="text-[12.5px] font-bold text-neutral-500">
             {b.intro}
             {showVi && b.introVi && <span className="ml-1.5 font-normal">({b.introVi})</span>}
           </p>
         )}
-        {bodyParas.map((para, k) => (
-          <p key={k} className={`text-[13.5px] leading-relaxed text-neutral-700 ${k > 0 ? "mt-2" : ""}`}>
-            {renderRich(para)}
-            {showVi && bodyParasVi?.[k] && (
-              <span className="mt-0.5 block text-[12.5px] text-neutral-500 italic">{renderRich(bodyParasVi[k])}</span>
-            )}
-          </p>
+        {b.parts.map((part, i) => (
+          <RulePartView key={i} part={part} />
         ))}
-        {b.table && <RuleTableView table={b.table} />}
-        {b.wordList && b.wordList.length > 0 && (
-          <div className="mt-2.5 flex flex-wrap gap-1.5">
-            {b.wordList.map((w, k) => (
-              <span
-                key={k}
-                className="rounded-full border px-2.5 py-1 text-[12px]"
-                style={{ borderColor: "var(--color-divider)", color: "var(--color-neutral-700)" }}
-              >
-                {w}
-              </span>
-            ))}
-          </div>
-        )}
-        {b.examples.length > 0 && (
-          <ul className="mt-2.5 flex flex-col gap-1.5">
-            {b.examples.map((ex, j) => (
-              <li key={j} className="border-l-2 border-neutral-300 pl-2.5 text-[13.5px]">
-                <div>
-                  {renderRich(ex.en)}
-                  {ex.note && <span className="ml-1.5 text-neutral-500">({renderRich(ex.note)})</span>}
-                </div>
-                {showVi && ex.vi && <div className="mt-0.5 text-[12.5px] text-neutral-500 italic">{renderRich(ex.vi)}</div>}
-              </li>
-            ))}
-          </ul>
-        )}
       </div>
     </div>
   );

@@ -101,27 +101,56 @@ exercise is fundamentally "pair these two lists up", it's `match_pairs`, full st
 
 ## 5. Rule block structure
 
-Each `RuleBlock` (`src/data/english-grammar-in-use.ts`):
+A `RuleBlock` is the book's lettered section (A, B, C ...), and its content is an ORDERED
+`parts: RulePart[]` array, not a fixed prose-then-examples shape. This is the part of the module
+that has been got wrong most often, so read this before writing one.
+
+Block-level fields:
 
 - `label` — "A"/"B"/"C"/"D", matching the book's lettered sections.
 - `heading` (Vietnamese) + `headingEn` — a short Vietnamese label summarizing the block's point.
   This is *not* a translation of the book's own (often terse) heading; write a clear one.
-- `intro` + `introVi` — a short standalone lead-in line the book prints before a worked scenario,
-  e.g. "Study this example situation:". Only set this when the block genuinely has a lead-in
-  line; most B/C/D blocks don't.
-- `body` (English, the book's own prose, lightly edited for clarity) + `bodyVi` — one or more
-  paragraphs, separated by `"\n\n"`. **`bodyVi` must have the exact same number of `"\n\n"`
-  paragraphs, in the same order**, so each Vietnamese paragraph lines up with its English
-  counterpart when rendered. Never merge the book's own paragraph breaks into one dense block —
-  if the book shows it on its own line, it's its own `"\n\n"`-separated paragraph here.
-- `table` — use this, not prose, whenever the book prints a verb-conjugation grid (am/is/are + -ing,
-  have/has been + -ing, etc.). `rows: string[][]`, optional `headers`. Never translate table cells —
+- `intro` + `introVi` — the short standalone lead-in line the book prints above the block, e.g.
+  "Study this example situation:". Only set this when the block genuinely has one; most B/C/D
+  blocks don't.
+
+Then one `parts` entry per thing the book actually prints, **in the book's own order**:
+
+| `kind` | Use for | Fields |
+|---|---|---|
+| `text` | One line or paragraph of explanation | `text` (English, the book's prose) + `vi` |
+| `examples` | The example sentences illustrating the line above it | `items: GrammarExample[]`, optional `heading` + `headingVi` for the book's own sub-heading over a group ("Offering to do something") |
+| `table` | A verb-conjugation grid or two-column comparison | `table: { headers?, rows, variant? }` |
+| `words` | The book's boxed word list (getting, becoming, changing ...) | `words: string[]` |
+| `situation` | The book's illustrated setup: the scene, plus what people in it say | `text` + `vi`, optional `quotes: [{ speaker?, text, vi? }]` |
+
+The rules that matter:
+
+- **One explanation line, then the examples for that line, then the next line.** The book
+  alternates; so must the parts array. A block that is one giant `text` followed by one giant
+  `examples` list is the wall-of-text shape this model replaced, even if every sentence is present.
+- **Never put an explanation line inside an `examples` part.** Lines like "We also use used to for
+  things that were true, but are not true any more:" or "Compare:" are `text` parts. Smuggling them
+  in as a fake example renders them as a sentence for the learner to imitate. `npm run
+  check:grammar` fails on any example ending in a colon without a `note`, which catches the common
+  case, but a prose line without a colon still has to be spotted by eye.
+- **`situation` is for the setup, not the explanation.** Several blocks carry a "Study this example
+  situation:" intro and then open straight into explanation; those have no `situation` part. Only
+  use it when the first thing the book shows is the scene itself. If the scene includes somebody
+  speaking (the book draws a speech bubble), split it: the scene goes in `text`, the utterance goes
+  in `quotes`.
+- **`table.variant`**: `"grid"` (the default) is the bordered box for a conjugation or a two-column
+  comparison. `"list"` is the book's indented label-and-value list ("the main part: I'll call you
+  again later"), which is a list and reads wrong inside table borders. Never translate table cells:
   they're the target grammar forms themselves, not explanation prose.
-- `wordList` — use this, not a comma-separated sentence, whenever the book prints a word bank
-  ("getting, becoming, changing, improving, ..."). Rendered as wrapped pill tags.
-- `examples: GrammarExample[]` — every example needs `en` (required), `note?` (the book's own
-  parenthetical, e.g. "not I try"), and **`vi`** (a natural Vietnamese translation of the example
-  sentence — required, not optional polish; see §6).
+- `GrammarExample` needs `en` (required), `note?` (the book's own parenthetical, e.g. "not I try"),
+  and **`vi`** (a natural Vietnamese translation of the sentence — required, not optional polish;
+  see §6). Use `note` for the book's "(not ...)" warnings rather than folding them into the
+  sentence.
+
+Unit 25 block A is the reference for a fully structured block (scene with a speech bubble, an
+explanation line, an indented two-part list, a form/warning pair, and the examples), and unit 21
+block B is the reference for sub-headed example groups.
 
 ## 6. Bilingual coverage — the rule that actually matters
 
@@ -129,9 +158,9 @@ The UI language setting (`useUiLang()`) must be respected **everywhere** in a un
 rule/theory section. Two different conventions apply depending on which half of the content you're
 touching, and mixing them up is the single most common mistake made while building this module:
 
-**Grammar explanation content is English-first.** `body`, `intro`, and `GrammarExample.en` are the
+**Grammar explanation content is English-first.** A rule part's `text`, the block's `intro`, and `GrammarExample.en` are the
 book's own English prose — that never changes. Add the Vietnamese explanation as the sibling field
-(`bodyVi`, `introVi`, `GrammarExample.vi`). Rendered: Vietnamese UI shows English + a muted
+(the part's own `vi`, `introVi`, `GrammarExample.vi`). Rendered: Vietnamese UI shows English + a muted
 Vietnamese line underneath; English UI shows English only, nothing Vietnamese mixed in.
 
 **Instructional/UI-facing content is Vietnamese-first.** `title`, `instructions`, `passage`, and
@@ -146,7 +175,7 @@ Rendering both conventions goes through the same two primitives in `UnitClient.t
 
 - `loc(vi, en, lang)` — returns `en` when `lang === "en"` (falling back to `vi` if `en` is
   missing), otherwise `vi`. Use for every `title`/`instructions`/`passage`/`heading`.
-- `showVi = lang !== "en"` — gates the Vietnamese *addition* fields (`bodyVi`, `introVi`,
+- `showVi = lang !== "en"` — gates the Vietnamese *addition* fields (a part's `vi`, `introVi`,
   `GrammarExample.vi`). Never show these when the UI language is English.
 
 Generic exercise chrome (button labels like "Check"/"Result", placeholders, score-summary text) is
@@ -158,7 +187,7 @@ every unit, not just the one you're authoring.
 ## 7. Bold/italic markup
 
 `renderRich()` in `UnitClient.tsx` parses a small non-markdown inline syntax applied to
-`body`/`bodyVi`, `table` cells, `GrammarExample.en`/`vi`, `instructions`, `passage`, and item
+rule part `text`/`vi`, `table` cells, `GrammarExample.en`/`vi`, `instructions`, `passage`, and item
 `prompt`/`before`/`after` text:
 
 - `**bold**` → the grammar form actually being taught, every time it appears — in the table, in
@@ -205,7 +234,7 @@ Run all of these — they've each caught a real mistake made while building this
 4. Every `JudgeCorrectItem.underlined` is a substring of its `sentence` (see §8).
 5. No `answer` field starts with a bare `'` (see §8).
 6. Grep the unit's block for Vietnamese-only fields missing their `*En`/`*Vi` sibling — every
-   `title`/`instructions`/`passage`/`heading` needs an `*En`, every `body`/`intro`/example needs a
+   `title`/`instructions`/`passage`/`heading` needs an `*En`, every rule part `text`/`intro`/example needs a
    `*Vi`/`vi`.
 7. If you touched `UnitClient.tsx` itself, grep it for raw Vietnamese characters
    (`[À-ỹ]`) outside of comments — there should be none; everything user-facing routes through

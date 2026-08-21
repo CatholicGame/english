@@ -7189,6 +7189,1080 @@ const UNIT_17_HAVE_AND_HAVE_GOT: GrammarUnit = {
   ]
 };
 
+// Exercise 18.4 ("Write sentences about yourself. Begin I used to ...") is open
+// composition with no fixed answer, so it is folded into this unit's ai_practice
+// step instead of being digitized as an exact-match exercise.
+const UNIT_18_USED_TO: GrammarUnit = {
+  "unit": 18,
+  "slug": "used-to",
+  "title": "used to (do)",
+  "topic": "Present perfect and past",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "used to: trước kia thường làm, bây giờ không còn",
+          "headingEn": "used to: often in the past, but not any more",
+          "intro": "Study this example situation:",
+          "introVi": "Hãy xem tình huống ví dụ sau:",
+          "body": "Nicola doesn't travel much these days. She prefers to stay at home.\n\nBut she **used to** travel a lot. She **used to** go away two or three times a year.\n\nShe **used to** travel a lot = she travelled often in the past, but she doesn't do this any more.",
+          "bodyVi": "Nicola bây giờ ít đi đây đó. Cô ấy thích ở nhà hơn.\n\nNhưng trước kia cô ấy đi rất nhiều. Trước kia cô ấy thường đi xa hai hoặc ba lần mỗi năm.\n\nShe used to travel a lot nghĩa là ngày trước cô ấy đi nhiều, còn bây giờ thì không nữa.",
+          "examples": [
+            {
+              "en": "She **used to** travel a lot.",
+              "vi": "Trước kia cô ấy thường đi du lịch nhiều."
+            },
+            {
+              "en": "She **used to** go away two or three times a year.",
+              "vi": "Trước kia cô ấy thường đi xa hai ba lần mỗi năm."
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "I used to do something: việc từng làm thường xuyên, hoặc điều từng đúng",
+          "headingEn": "I used to do something: what I did often, or what was true",
+          "body": "**I used to do** something = I did it often in the past, but not any more:",
+          "bodyVi": "I used to do something nghĩa là trước kia tôi thường làm việc đó, nhưng bây giờ thì không còn:",
+          "examples": [
+            {
+              "en": "I **used to** play tennis a lot, but I don't play very much now.",
+              "vi": "Trước kia tôi chơi tennis nhiều, nhưng bây giờ tôi ít chơi."
+            },
+            {
+              "en": "David **used to** spend a lot of money on clothes. These days he can't afford it.",
+              "vi": "Trước kia David tiêu rất nhiều tiền vào quần áo. Bây giờ anh ấy không kham nổi."
+            },
+            {
+              "en": "'Do you go to the cinema much?' 'Not now, but I **used to**.'",
+              "note": "= I used to go",
+              "vi": "'Bạn có hay đi xem phim không?' 'Bây giờ thì không, nhưng trước kia thì có.'"
+            },
+            {
+              "en": "We also use **used to** for things that were true, but are not true any more:",
+              "vi": "Chúng ta cũng dùng used to cho những điều trước kia đúng, nhưng bây giờ không còn đúng nữa:"
+            },
+            {
+              "en": "This building is now a furniture shop. It **used to** be a cinema.",
+              "vi": "Toà nhà này bây giờ là cửa hàng nội thất. Trước kia nó là rạp chiếu phim."
+            },
+            {
+              "en": "I **used to** think Mark was unfriendly, but now I realise he's a very nice person.",
+              "vi": "Trước kia tôi nghĩ Mark khó gần, nhưng giờ tôi nhận ra anh ấy rất dễ mến."
+            },
+            {
+              "en": "I've started drinking coffee recently. I never **used to** like it before.",
+              "vi": "Gần đây tôi bắt đầu uống cà phê. Trước kia tôi chưa bao giờ thích nó."
+            },
+            {
+              "en": "Lisa **used to** have very long hair when she was a child.",
+              "vi": "Hồi nhỏ Lisa để tóc rất dài."
+            }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "used to chỉ có ở quá khứ, không có dạng hiện tại",
+          "headingEn": "used to is past only: there is no present form",
+          "body": "'**I used to do** something' is past. There is no present. You cannot say 'I use to do'.\n\nTo talk about the present, we use the present simple (**I do**).\n\nCompare:",
+          "bodyVi": "I used to do something là thì quá khứ. Không có dạng hiện tại. Không được nói 'I use to do'.\n\nĐể nói về hiện tại, chúng ta dùng thì hiện tại đơn (I do).\n\nSo sánh:",
+          "table": {
+            "headers": [
+              "past",
+              "present"
+            ],
+            "rows": [
+              [
+                "he **used to** play",
+                "he **plays**"
+              ],
+              [
+                "we **used to** live",
+                "we **live**"
+              ],
+              [
+                "there **used to** be",
+                "there **is**"
+              ]
+            ]
+          },
+          "examples": [
+            {
+              "en": "We **used to** live in a small village, but now we **live** in a city.",
+              "vi": "Trước kia chúng tôi sống ở một ngôi làng nhỏ, còn bây giờ sống ở thành phố."
+            },
+            {
+              "en": "There **used to** be four cinemas in the town. Now there **is** only one.",
+              "vi": "Trước kia trong thị trấn có bốn rạp chiếu phim. Bây giờ chỉ còn một."
+            }
+          ]
+        },
+        {
+          "label": "D",
+          "heading": "Câu hỏi và câu phủ định: did you use to ... ?",
+          "headingEn": "Questions and negatives: did you use to ... ?",
+          "body": "The normal question form is **did (you) use to ...?**\n\nThe negative form is **didn't use to ...** (**used not to ...** is also possible).",
+          "bodyVi": "Dạng câu hỏi thông thường là did (you) use to ...?\n\nDạng phủ định là didn't use to ... (cũng có thể nói used not to ...).",
+          "examples": [
+            {
+              "en": "**Did** you **use to** eat a lot of sweets when you were a child?",
+              "note": "= did you do this often?",
+              "vi": "Hồi nhỏ bạn có hay ăn nhiều kẹo không?"
+            },
+            {
+              "en": "I **didn't use to** like him.",
+              "note": "or I used not to like him.",
+              "vi": "Trước kia tôi không thích anh ta."
+            }
+          ]
+        },
+        {
+          "label": "E",
+          "heading": "Phân biệt I used to do và I was doing",
+          "headingEn": "I used to do and I was doing compared",
+          "body": "Compare **I used to do** and **I was doing**:",
+          "bodyVi": "So sánh I used to do và I was doing:",
+          "examples": [
+            {
+              "en": "I **used to watch** TV a lot.",
+              "note": "= I watched TV often in the past, but I don't do this any more",
+              "vi": "Trước kia tôi hay xem TV."
+            },
+            {
+              "en": "I **was watching** TV when Rob called.",
+              "note": "= I was in the middle of watching TV",
+              "vi": "Tôi đang xem TV thì Rob gọi."
+            }
+          ]
+        },
+        {
+          "label": "F",
+          "heading": "Đừng nhầm I used to do với I am used to doing",
+          "headingEn": "Do not confuse I used to do with I am used to doing",
+          "body": "Do not confuse **I used to do** and **I am used to doing**. The structures and the meanings are different.",
+          "bodyVi": "Đừng nhầm I used to do với I am used to doing. Cấu trúc và nghĩa của hai cái khác nhau.",
+          "examples": [
+            {
+              "en": "I **used to live** alone.",
+              "note": "= I lived alone in the past, but I no longer live alone.",
+              "vi": "Trước kia tôi sống một mình, bây giờ thì không."
+            },
+            {
+              "en": "I **am used to living** alone.",
+              "note": "= I live alone, and it's not a problem for me because I've lived alone for some time.",
+              "vi": "Tôi đã quen với việc sống một mình rồi."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "18.1 · Hoàn thành câu với used to",
+      "titleEn": "18.1 · Complete the sentences with used to",
+      "instructions": "Hoàn thành các câu bằng used to cùng một động từ phù hợp.",
+      "instructionsEn": "Complete the sentences with used to and a suitable verb.",
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "Nicola ___ a lot, but she doesn't go away much these days.",
+          "answer": "used to travel"
+        }
+      ],
+      "startNumber": 2,
+      "items": [
+        {
+          "prompt": "Sophie ___ a motorbike, but last year she sold it and bought a car.",
+          "answer": "used to have",
+          "accept": [
+            "used to ride"
+          ]
+        },
+        {
+          "context": "Our friends moved to Spain a few years ago.",
+          "prompt": "They ___ in Paris.",
+          "answer": "used to live"
+        },
+        {
+          "prompt": "Jackie ___ my best friend, but we aren't friends any more.",
+          "answer": "used to be"
+        },
+        {
+          "prompt": "I rarely eat ice cream now, but I ___ it when I was a child.",
+          "answer": "used to eat",
+          "accept": [
+            "used to like",
+            "used to love"
+          ]
+        },
+        {
+          "context": "It only takes me about 40 minutes to get to work now that the new road is open.",
+          "prompt": "It ___ more than an hour.",
+          "answer": "used to take"
+        },
+        {
+          "prompt": "There ___ a hotel near the airport, but it closed a long time ago.",
+          "answer": "used to be"
+        },
+        {
+          "prompt": "I ___ in a factory. It wasn't my favourite job.",
+          "answer": "used to work"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "18.2 · Chọn từ trong khung",
+      "titleEn": "18.2 · Choose from the box",
+      "instructions": "Hoàn thành các câu, chọn trong khung cho sẵn.",
+      "instructionsEn": "Complete the sentences. Choose from the box.",
+      "wordBank": [
+        "did",
+        "didn't",
+        "to",
+        "use",
+        "used",
+        "used to",
+        "used to be",
+        "used to have",
+        "be able"
+      ],
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "Lisa ___ very long hair when she was a child.",
+          "answer": "used to have"
+        }
+      ],
+      "startNumber": 2,
+      "items": [
+        {
+          "prompt": "We ___ to watch TV a lot, but we don't have a TV any more.",
+          "answer": "used"
+        },
+        {
+          "context": "Lisa works in a shop now.",
+          "prompt": "She ___ a receptionist in a hotel.",
+          "answer": "used to be"
+        },
+        {
+          "prompt": "What games ___ you use to play when you were a child?",
+          "answer": "did"
+        },
+        {
+          "prompt": "I ___ like big cities, but now I prefer the countryside.",
+          "answer": "used to"
+        },
+        {
+          "prompt": "In your last job, how many hours a day did you ___ to work?",
+          "answer": "use"
+        },
+        {
+          "prompt": "I don't travel very much these days, but I used ___.",
+          "answer": "to"
+        },
+        {
+          "prompt": "I used to ___ to run ten kilometres, but I can't run that far now.",
+          "answer": "be able"
+        },
+        {
+          "prompt": "These days I eat more than before. I ___ use to eat as much.",
+          "answer": "didn't"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "18.3 · Karen đã thay đổi thế nào",
+      "titleEn": "18.3 · How Karen has changed",
+      "instructions": "So sánh những gì Karen nói mười năm trước với những gì cô ấy nói hôm nay, rồi viết về sự thay đổi của cô ấy. Vế đầu của câu phải dùng used to, didn't use to hoặc never used to.",
+      "instructionsEn": "Compare what Karen said ten years ago with what she says today, then write about how she has changed. Use used to / didn't use to / never used to in the first part of the sentence.",
+      "passage": "TEN YEARS AGO: I travel a lot. I play the piano. I'm very lazy. I never drink tea. I don't like cheese. I have a dog.\n\nTODAY: I don't go away much these days. I haven't played the piano for a long time. I work very hard these days. Tea's great! I like it now. I eat lots of cheese now. My dog died two years ago.",
+      "passageEn": "TEN YEARS AGO: I travel a lot. I play the piano. I'm very lazy. I never drink tea. I don't like cheese. I have a dog.\n\nTODAY: I don't go away much these days. I haven't played the piano for a long time. I work very hard these days. Tea's great! I like it now. I eat lots of cheese now. My dog died two years ago.",
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "___, but she doesn't go away much these days.",
+          "answer": "She used to travel a lot"
+        }
+      ],
+      "startNumber": 2,
+      "items": [
+        {
+          "prompt": "___, but she hasn't played the piano for a long time.",
+          "answer": "She used to play the piano"
+        },
+        {
+          "prompt": "___, but she works very hard these days.",
+          "answer": "She used to be very lazy"
+        },
+        {
+          "prompt": "___, but she likes it now.",
+          "answer": "She didn't use to drink tea",
+          "accept": [
+            "She never used to drink tea",
+            "She used not to drink tea"
+          ]
+        },
+        {
+          "prompt": "___, but she eats lots of cheese now.",
+          "answer": "She didn't use to like cheese",
+          "accept": [
+            "She never used to like cheese",
+            "She used not to like cheese"
+          ]
+        },
+        {
+          "prompt": "___, but it died two years ago.",
+          "answer": "She used to have a dog"
+        }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh về chính bạn, dùng used to, didn't use to hoặc never used to: điều gì trước kia bạn thường làm hoặc từng đúng với bạn, nhưng bây giờ không còn nữa.",
+      "instructionsEn": "Write 2-3 English sentences about yourself using used to, didn't use to or never used to: something you did often, or something that was true, in the past but is not any more.",
+      "ruleSummary": "This unit practises used to (do). I used to do something means I did it often in the past, or it was true in the past, but it is not so any more (I used to play tennis a lot; This building used to be a cinema). It is a past form only: there is no present form, so I use to do is always wrong, and the present simple (I play, we live, there is) is what describes the present. Questions are did (you) use to ...? and negatives are didn't use to ... or the less usual used not to ...; note that after did the spelling is use to, not used to. never used to is also natural. A correct student sentence must contrast a past habit or past state with the present, must not write I use to do for the present, must spell did/didn't + use to without the -d, and must not confuse used to do with be/get used to doing (which means to be accustomed to something)."
+    }
+  ]
+};
+
+// Exercise 19.3 ("Have you arranged to do anything at these times? Write
+// sentences about yourself") is open composition with no fixed answer, so it is
+// folded into this unit's ai_practice step; the numbering therefore runs
+// 19.1, 19.2, 19.4.
+const UNIT_19_PRESENT_TENSES_FOR_THE_FUTURE: GrammarUnit = {
+  "unit": 19,
+  "slug": "present-tenses-for-the-future",
+  "title": "Present tenses (I am doing / I do) for the future",
+  "topic": "Future",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "Hiện tại tiếp diễn cho tương lai: việc đã quyết định và sắp xếp",
+          "headingEn": "Present continuous for the future: already decided and arranged",
+          "intro": "Study this example situation:",
+          "introVi": "Hãy xem tình huống ví dụ sau:",
+          "body": "This is Ben's diary for next week. He **is playing** tennis on Monday afternoon. He **is going** to the dentist on Tuesday morning. He **is meeting** Kate on Friday.\n\nIn all these examples, Ben has already decided and arranged to do these things.\n\n**I'm doing** something (tomorrow etc.) = I have already decided and arranged to do it:",
+          "bodyVi": "Đây là lịch của Ben cho tuần tới. Thứ Hai chiều anh ấy chơi tennis. Sáng thứ Ba anh ấy đi nha sĩ. Thứ Sáu anh ấy gặp Kate.\n\nTrong tất cả các ví dụ này, Ben đã quyết định và đã sắp xếp trước những việc đó.\n\nI'm doing something (tomorrow ...) nghĩa là tôi đã quyết định và đã sắp xếp để làm việc đó:",
+          "examples": [
+            {
+              "en": "a: What **are** you **doing** on Saturday evening? b: I**'m going** to the cinema.",
+              "note": "not What do you do ... I go",
+              "vi": "a: Tối thứ Bảy bạn làm gì? b: Tôi đi xem phim."
+            },
+            {
+              "en": "a: What time **is** Katherine **arriving** tomorrow? b: Half past ten. We**'re meeting** her at the station.",
+              "vi": "a: Mai mấy giờ Katherine tới? b: Mười giờ rưỡi. Chúng tôi đón cô ấy ở nhà ga."
+            },
+            {
+              "en": "I**'m not working** tomorrow, so we can go out somewhere.",
+              "vi": "Mai tôi không đi làm, nên chúng ta có thể đi chơi đâu đó."
+            },
+            {
+              "en": "Steve **isn't playing** football next Saturday. He's hurt his leg.",
+              "vi": "Thứ Bảy tới Steve không đá bóng. Anh ấy bị đau chân."
+            },
+            {
+              "en": "We do not normally use **will** to talk about what we have arranged to do:",
+              "vi": "Thường thì chúng ta không dùng will để nói về việc đã sắp xếp sẵn:"
+            },
+            {
+              "en": "What **are** you **doing** tonight?",
+              "note": "not What will you do",
+              "vi": "Tối nay bạn làm gì?"
+            },
+            {
+              "en": "Alex **is getting** married next month.",
+              "note": "not will get",
+              "vi": "Tháng sau Alex cưới."
+            },
+            {
+              "en": "We also use the present continuous for an action just before you start to do it, especially with verbs of movement (go/come/leave etc.):",
+              "vi": "Chúng ta cũng dùng hiện tại tiếp diễn cho hành động sắp làm ngay lúc đó, nhất là với các động từ chỉ sự di chuyển (go, come, leave ...):"
+            },
+            {
+              "en": "I'm tired. I**'m going** to bed now. Goodnight.",
+              "note": "not I go to bed now",
+              "vi": "Tôi mệt rồi. Tôi đi ngủ đây. Chúc ngủ ngon."
+            },
+            {
+              "en": "'Tina, are you ready yet?' 'Yes, I**'m coming**.'",
+              "note": "not I come",
+              "vi": "'Tina, xong chưa?' 'Rồi, tôi ra ngay đây.'"
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "Hiện tại đơn cho tương lai: lịch trình, thời gian biểu",
+          "headingEn": "Present simple for the future: timetables and programmes",
+          "body": "We use the present simple when we talk about timetables and programmes (for example, transport or cinema times).\n\nYou can use the present simple to talk about people if their plans are fixed like a timetable. But the continuous is more usual for other personal arrangements.\n\nCompare:",
+          "bodyVi": "Chúng ta dùng thì hiện tại đơn khi nói về lịch trình, chương trình (ví dụ giờ tàu xe hoặc giờ chiếu phim).\n\nCó thể dùng hiện tại đơn cho con người nếu kế hoạch của họ cố định như một thời gian biểu. Nhưng với các sắp xếp cá nhân khác thì hiện tại tiếp diễn thông dụng hơn.\n\nSo sánh:",
+          "table": {
+            "headers": [
+              "Present continuous",
+              "Present simple"
+            ],
+            "rows": [
+              [
+                "What time **are** you **arriving**?",
+                "What time **does** the train **arrive**?"
+              ],
+              [
+                "I**'m going** to the cinema this evening.",
+                "The film **starts** at 8.15."
+              ]
+            ]
+          },
+          "examples": [
+            {
+              "en": "I have to go. My train **leaves** at 11.30.",
+              "vi": "Tôi phải đi đây. Tàu của tôi chạy lúc 11 giờ 30."
+            },
+            {
+              "en": "What time **does** the film **start** tonight?",
+              "vi": "Tối nay phim chiếu lúc mấy giờ?"
+            },
+            {
+              "en": "The meeting **is** at nine o'clock tomorrow.",
+              "vi": "Cuộc họp là vào chín giờ sáng mai."
+            },
+            {
+              "en": "You can use the present simple for people whose plans are fixed like a timetable:",
+              "vi": "Có thể dùng hiện tại đơn cho người nếu kế hoạch của họ cố định như thời gian biểu:"
+            },
+            {
+              "en": "I **start** my new job on Monday.",
+              "vi": "Thứ Hai tôi bắt đầu công việc mới."
+            },
+            {
+              "en": "What time **do** you **finish** work tomorrow?",
+              "vi": "Mai mấy giờ bạn tan làm?"
+            },
+            {
+              "en": "But the continuous is more usual for other personal arrangements:",
+              "vi": "Nhưng với các sắp xếp cá nhân khác thì hiện tại tiếp diễn thông dụng hơn:"
+            },
+            {
+              "en": "What time **are** you **meeting** Kate tomorrow?",
+              "note": "not do you meet",
+              "vi": "Mai mấy giờ bạn gặp Kate?"
+            },
+            {
+              "en": "When you talk about appointments, lessons or exams, you can use **I have** or **I've got**:",
+              "vi": "Khi nói về lịch hẹn, buổi học hay kỳ thi, bạn có thể dùng I have hoặc I've got:"
+            },
+            {
+              "en": "I **have** an exam next week. or I**'ve got** an exam next week.",
+              "vi": "Tuần sau tôi có một kỳ thi."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "19.1 · Hỏi Anna về kế hoạch nghỉ của cô ấy",
+      "titleEn": "19.1 · Ask Anna about her holiday plans",
+      "instructions": "Dựa vào câu trả lời của Anna, viết câu hỏi của bạn ở thì hiện tại tiếp diễn, dùng các từ trong ngoặc.",
+      "instructionsEn": "Using Anna's answers, write your questions in the present continuous with the words in brackets.",
+      "examples": [
+        {
+          "label": "1",
+          "context": "ANNA: Scotland.",
+          "prompt": "(where / go?) ___",
+          "answer": "Where are you going?"
+        }
+      ],
+      "startNumber": 2,
+      "items": [
+        {
+          "context": "ANNA: Ten days.",
+          "prompt": "(how long / go for?) ___",
+          "answer": "How long are you going for?"
+        },
+        {
+          "context": "ANNA: Next Friday.",
+          "prompt": "(when / leave?) ___",
+          "answer": "When are you leaving?"
+        },
+        {
+          "context": "ANNA: No, with a friend.",
+          "prompt": "(go / alone?) ___",
+          "answer": "Are you going alone?"
+        },
+        {
+          "context": "ANNA: No, by train.",
+          "prompt": "(travel / by car?) ___",
+          "answer": "Are you travelling by car?"
+        },
+        {
+          "context": "ANNA: In a hotel.",
+          "prompt": "(where / stay?) ___",
+          "answer": "Where are you staying?"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "19.2 · Hoàn thành câu",
+      "titleEn": "19.2 · Complete the sentences",
+      "instructions": "Chia động từ trong ngoặc ở thì hiện tại tiếp diễn để nói về tương lai.",
+      "instructionsEn": "Put the verb in brackets into the present continuous with a future meaning.",
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "Steve ___ (not / play) football on Saturday. He's hurt his leg.",
+          "answer": "isn't playing"
+        }
+      ],
+      "startNumber": 2,
+      "items": [
+        {
+          "prompt": "___ (We / have) a party next week. We've invited all our friends.",
+          "answer": "We're having",
+          "accept": [
+            "We are having"
+          ]
+        },
+        {
+          "prompt": "___ (I / not / work) tomorrow. It's a public holiday.",
+          "answer": "I'm not working",
+          "accept": [
+            "I am not working"
+          ]
+        },
+        {
+          "prompt": "___ (I / leave) now. I've come to say goodbye.",
+          "answer": "I'm leaving",
+          "accept": [
+            "I am leaving"
+          ]
+        },
+        {
+          "prompt": "'What time ___ (you / go) out this evening?' 'Seven o'clock.'",
+          "answer": "are you going"
+        },
+        {
+          "prompt": "___ (Laura / not / come) to the party tomorrow. She isn't well.",
+          "answer": "Laura isn't coming",
+          "accept": [
+            "Laura's not coming",
+            "Laura is not coming"
+          ]
+        },
+        {
+          "prompt": "I love New York. ___ (I / go) there soon.",
+          "answer": "I'm going",
+          "accept": [
+            "I am going"
+          ]
+        },
+        {
+          "prompt": "Ben can't meet us on Monday. ___ (He / work) late.",
+          "answer": "He's working",
+          "accept": [
+            "He is working"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "19.4 · Hiện tại tiếp diễn hay hiện tại đơn",
+      "titleEn": "19.4 · Present continuous or present simple",
+      "instructions": "Hoàn thành các đoạn hội thoại. Dùng thì hiện tại tiếp diễn hoặc hiện tại đơn cho phù hợp.",
+      "instructionsEn": "Complete the conversations. Use the present continuous or the present simple.",
+      "examples": [
+        {
+          "label": "1",
+          "context": "a: Tina, are you ready yet?",
+          "prompt": "b: Yes, ___ (I / come).",
+          "answer": "I'm coming"
+        }
+      ],
+      "startNumber": 2,
+      "items": [
+        {
+          "prompt": "a: ___ (you / go) to Sam's party on Saturday? b: No, I haven't been invited.",
+          "answer": "Are you going"
+        },
+        {
+          "context": "a: Has Jack moved into his new apartment yet?",
+          "prompt": "b: Not yet, but ___ (he / move) soon, probably at the end of the month.",
+          "answer": "he's moving",
+          "accept": [
+            "he is moving"
+          ]
+        },
+        {
+          "prompt": "a: ___ (I / go) to a concert tonight. b: That's nice. What time ___ (it / start)?",
+          "answer": "I'm going",
+          "accept": [
+            "I am going"
+          ],
+          "extraBlanks": [
+            {
+              "answer": "does it start"
+            }
+          ]
+        },
+        {
+          "context": "a: Have you seen Chris recently?",
+          "prompt": "b: No, but ___ (we / meet) for lunch next week.",
+          "answer": "we're meeting",
+          "accept": [
+            "we are meeting"
+          ]
+        },
+        {
+          "prompt": "a: ___ (you / do) anything tomorrow morning? b: No, I'm free. Why?",
+          "answer": "Are you doing"
+        },
+        {
+          "prompt": "a: When ___ (this term / end)? b: Next Friday. And next term ___ (start) four weeks after that.",
+          "answer": "does this term end",
+          "extraBlanks": [
+            {
+              "answer": "starts"
+            }
+          ]
+        },
+        {
+          "prompt": "a: ___ (We / go) to a wedding at the weekend. b: Really? ___ (Who / get) married?",
+          "answer": "We're going",
+          "accept": [
+            "We are going"
+          ],
+          "extraBlanks": [
+            {
+              "answer": "Who's getting",
+              "accept": [
+                "Who is getting"
+              ]
+            }
+          ]
+        },
+        {
+          "prompt": "a: There's football on TV later tonight. ___ (you / watch) it? b: No, I'm not interested.",
+          "answer": "Are you watching"
+        },
+        {
+          "context": "a: What time is your train tomorrow?",
+          "prompt": "b: It ___ (leave) at 9.35 and ___ (arrive) at 12.47.",
+          "answer": "leaves",
+          "extraBlanks": [
+            {
+              "answer": "arrives"
+            }
+          ]
+        },
+        {
+          "context": "a: I'd like to go and see the exhibition at the museum. How long is it on for?",
+          "prompt": "b: ___ (It / finish) next week.",
+          "answer": "It finishes"
+        },
+        {
+          "context": "a: Do you need the car this evening?",
+          "prompt": "b: No, you can have it. ___ (I / not / use) it.",
+          "answer": "I'm not using",
+          "accept": [
+            "I am not using"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Bạn đã sắp xếp làm gì vào tối nay, ngày mai hoặc cuối tuần này chưa? Hãy viết 2-3 câu tiếng Anh về chính bạn, dùng hiện tại tiếp diễn cho những việc đã hẹn trước, và hiện tại đơn cho những việc theo lịch trình cố định (giờ tàu, giờ chiếu phim, giờ học).",
+      "instructionsEn": "Have you arranged to do anything this evening, tomorrow or at the weekend? Write 2-3 English sentences about yourself, using the present continuous for arrangements you have made and the present simple for anything fixed like a timetable (train times, film times, class times).",
+      "ruleSummary": "This unit practises the present tenses used with a future meaning. The present continuous (I'm doing) is for something already decided AND arranged: I'm going to the cinema tonight; We're meeting her at the station; I'm not working tomorrow. will is not normally used for such arrangements (not What will you do tonight). The present simple (I do) is for timetables and programmes, and for people whose plans are as fixed as a timetable: My train leaves at 11.30; The film starts at 8.15; I start my new job on Monday. For other personal arrangements the continuous is the usual choice (What time are you meeting Kate tomorrow, not do you meet). A correct student sentence must use a future time reference with a present-tense form, must not use will for an arrangement already made, and must not use the present simple for an ordinary personal arrangement that is not timetabled."
+    }
+  ]
+};
+
+const UNIT_20_IM_GOING_TO: GrammarUnit = {
+  "unit": 20,
+  "slug": "im-going-to",
+  "title": "I'm going to (do)",
+  "topic": "Future",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "I am going to do something: đã quyết định, có ý định làm",
+          "headingEn": "I am going to do something: I have decided to do it",
+          "body": "**I am going to do** something = I have already decided to do it, I intend to do it:",
+          "bodyVi": "I am going to do something nghĩa là tôi đã quyết định làm việc đó, tôi có ý định làm việc đó:",
+          "examples": [
+            {
+              "en": "'**Are** you **going to** eat anything?' 'No, I'm not hungry.'",
+              "vi": "'Bạn có định ăn gì không?' 'Không, tôi không đói.'"
+            },
+            {
+              "en": "a: I hear Sarah won the lottery. What **is** she **going to** do with the money? b: She**'s going to** buy a new car.",
+              "vi": "a: Nghe nói Sarah trúng số. Cô ấy định làm gì với số tiền đó? b: Cô ấy định mua xe mới."
+            },
+            {
+              "en": "I'm just **going to** make a quick phone call. Can you wait for me?",
+              "vi": "Tôi định gọi nhanh một cuộc điện thoại. Bạn đợi tôi được không?"
+            },
+            {
+              "en": "This cheese smells horrible. I**'m not going to** eat it.",
+              "vi": "Miếng phô mai này mùi kinh quá. Tôi không ăn đâu."
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "Phân biệt I am doing và I am going to do",
+          "headingEn": "I am doing and I am going to do compared",
+          "body": "**I am doing** = it is already fixed or arranged. For example, you have arranged to go somewhere or to meet somebody:",
+          "bodyVi": "I am doing nghĩa là việc đó đã cố định hoặc đã được sắp xếp. Ví dụ bạn đã hẹn đi đâu đó hoặc gặp ai đó:",
+          "examples": [
+            {
+              "en": "I**'m leaving** next week. I've booked my flight.",
+              "vi": "Tuần sau tôi đi. Tôi đã đặt vé máy bay rồi."
+            },
+            {
+              "en": "What time **are** you **meeting** Emily this evening?",
+              "vi": "Tối nay mấy giờ bạn gặp Emily?"
+            },
+            {
+              "en": "**I am going to do** something = I've decided to do it. Maybe I've arranged to do it, maybe not:",
+              "vi": "I am going to do something nghĩa là tôi đã quyết định làm việc đó. Có thể tôi đã sắp xếp, cũng có thể chưa:"
+            },
+            {
+              "en": "a: Your shoes are dirty. b: Yes, I know. I**'m going to** clean them.",
+              "note": "= I've decided to clean them, but I haven't arranged this with anybody",
+              "vi": "a: Giày của bạn bẩn kìa. b: Ừ, tôi biết. Tôi định lau chúng."
+            },
+            {
+              "en": "I don't want to stay here. Tomorrow I**'m going to** look for somewhere else to stay.",
+              "vi": "Tôi không muốn ở đây. Mai tôi sẽ tìm chỗ khác để ở."
+            },
+            {
+              "en": "Compare:",
+              "vi": "So sánh:"
+            },
+            {
+              "en": "I don't know what I**'m doing** tomorrow.",
+              "note": "= I don't know my schedule or plans",
+              "vi": "Tôi không biết mai lịch của tôi thế nào."
+            },
+            {
+              "en": "I don't know what I**'m going to** do about the problem.",
+              "note": "= I haven't decided what to do",
+              "vi": "Tôi chưa biết sẽ xử lý vấn đề đó ra sao."
+            },
+            {
+              "en": "Often the difference is small and either form is possible.",
+              "vi": "Nhiều khi khác biệt rất nhỏ và dùng dạng nào cũng được."
+            }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "something is going to happen: tình hình hiện tại cho thấy điều đó",
+          "headingEn": "something is going to happen: the situation now makes it clear",
+          "body": "You can also say that '**something is going to happen**' in the future. For example: a man isn't looking where he is going, so he **is going to** walk into the wall.\n\nWhen we say that 'something **is going to** happen', the situation now makes this clear. The man is walking towards the wall now, so we can see that he is going to walk into it.",
+          "bodyVi": "Bạn cũng có thể nói 'something is going to happen' để nói một việc sắp xảy ra. Ví dụ: một người đàn ông không nhìn đường, nên anh ta sắp đâm vào tường.\n\nKhi nói 'something is going to happen', chính tình hình lúc này cho thấy điều đó. Anh ta đang đi về phía bức tường, nên ta thấy rõ là anh ta sắp đâm vào.",
+          "examples": [
+            {
+              "en": "Look at those black clouds! It**'s going to** rain.",
+              "note": "we can see the clouds now",
+              "vi": "Nhìn mấy đám mây đen kia kìa! Trời sắp mưa."
+            },
+            {
+              "en": "I feel terrible. I think I**'m going to** be sick.",
+              "note": "I feel terrible now",
+              "vi": "Tôi thấy rất khó chịu. Tôi nghĩ tôi sắp nôn mất."
+            },
+            {
+              "en": "The economic situation is bad now and things **are going to** get worse.",
+              "vi": "Tình hình kinh tế bây giờ đang xấu và mọi thứ sắp còn tệ hơn."
+            }
+          ]
+        },
+        {
+          "label": "D",
+          "heading": "I was going to do something: từng định làm nhưng đã không làm",
+          "headingEn": "I was going to do something: I intended to, but did not do it",
+          "body": "**I was going to do** something = I intended to do it, but I didn't do it:",
+          "bodyVi": "I was going to do something nghĩa là tôi đã định làm việc đó, nhưng rốt cuộc không làm:",
+          "examples": [
+            {
+              "en": "We **were going to** travel by train, but then we decided to drive instead.",
+              "vi": "Chúng tôi đã định đi tàu, nhưng sau đó quyết định lái xe."
+            },
+            {
+              "en": "I **was** just **going to** cross the road when somebody shouted 'Stop!'",
+              "vi": "Tôi vừa định băng qua đường thì có người hét lên 'Dừng lại!'"
+            },
+            {
+              "en": "You can also say that 'something **was going to** happen' but didn't happen:",
+              "vi": "Bạn cũng có thể nói 'something was going to happen' cho việc tưởng sẽ xảy ra nhưng đã không xảy ra:"
+            },
+            {
+              "en": "I thought it **was going to** rain, but it didn't.",
+              "vi": "Tôi tưởng trời sắp mưa, nhưng rồi không mưa."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "20.1 · Viết câu hỏi với going to",
+      "titleEn": "20.1 · Write questions with going to",
+      "instructions": "Viết câu hỏi với going to, dùng các từ trong ngoặc.",
+      "instructionsEn": "Write questions with going to, using the words in brackets.",
+      "examples": [
+        {
+          "label": "1",
+          "context": "Your friend has won some money. You ask:",
+          "prompt": "(what / do?) ___",
+          "answer": "What are you going to do with it?"
+        }
+      ],
+      "startNumber": 2,
+      "items": [
+        {
+          "context": "Your friend is going to a wedding next week. You ask:",
+          "prompt": "(what / wear?) ___",
+          "answer": "What are you going to wear?"
+        },
+        {
+          "context": "Your friend has just bought a new table. You ask:",
+          "prompt": "(where / put?) ___",
+          "answer": "Where are you going to put it?"
+        },
+        {
+          "context": "Your friend has decided to have a party. You ask:",
+          "prompt": "(who / invite?) ___",
+          "answer": "Who are you going to invite?"
+        },
+        {
+          "context": "Your friend has bought some fish for dinner. You ask:",
+          "prompt": "(how / cook?) ___",
+          "answer": "How are you going to cook it?"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "20.2 · I'm going to ... / I'm not going to ...",
+      "titleEn": "20.2 · I'm going to ... / I'm not going to ...",
+      "instructions": "Hoàn thành các câu bằng I'm going to ... hoặc I'm not going to ..., chọn động từ trong khung.",
+      "instructionsEn": "Complete the sentences using I'm going to ... or I'm not going to ... . Choose a verb from the box.",
+      "wordBank": [
+        "complain",
+        "learn",
+        "run",
+        "say",
+        "try",
+        "wash",
+        "not / accept",
+        "not / eat",
+        "not / tell"
+      ],
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "This cheese smells horrible. ___ it.",
+          "answer": "I'm not going to eat"
+        }
+      ],
+      "startNumber": 2,
+      "items": [
+        {
+          "prompt": "I haven't been trying hard enough. From now on ___ harder.",
+          "answer": "I'm going to try",
+          "accept": [
+            "I am going to try"
+          ]
+        },
+        {
+          "prompt": "I have to make a speech tomorrow, but I don't know what ___.",
+          "answer": "I'm going to say",
+          "accept": [
+            "I am going to say"
+          ]
+        },
+        {
+          "prompt": "'The car is very dirty.' 'I know. ___ it.'",
+          "answer": "I'm going to wash",
+          "accept": [
+            "I am going to wash"
+          ]
+        },
+        {
+          "prompt": "I've been offered a job, but ___ it. The pay is too low.",
+          "answer": "I'm not going to accept",
+          "accept": [
+            "I am not going to accept"
+          ]
+        },
+        {
+          "prompt": "___ a language, but I haven't decided yet which one.",
+          "answer": "I'm going to learn",
+          "accept": [
+            "I am going to learn"
+          ]
+        },
+        {
+          "prompt": "One day ___ in a marathon. It's my ambition.",
+          "answer": "I'm going to run",
+          "accept": [
+            "I am going to run"
+          ]
+        },
+        {
+          "prompt": "The food in this restaurant is awful. ___.",
+          "answer": "I'm going to complain",
+          "accept": [
+            "I am going to complain"
+          ]
+        },
+        {
+          "prompt": "Ben doesn't need to know what happened, so ___ him.",
+          "answer": "I'm not going to tell",
+          "accept": [
+            "I am not going to tell"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "20.3 · Chuyện gì sắp xảy ra?",
+      "titleEn": "20.3 · What is going to happen?",
+      "instructions": "Trong mỗi tình huống, chuyện gì sắp xảy ra? Viết câu với going to, dùng từ trong ngoặc.",
+      "instructionsEn": "What is going to happen in each situation? Write a sentence with going to, using the words in brackets.",
+      "examples": [
+        {
+          "label": "1",
+          "context": "There are a lot of black clouds in the sky.",
+          "prompt": "(rain) ___",
+          "answer": "It's going to rain"
+        }
+      ],
+      "startNumber": 2,
+      "items": [
+        {
+          "context": "It is 8.30. Tom is leaving home. He has to be at work at 8.45, but the journey takes 30 minutes.",
+          "prompt": "(late) He ___.",
+          "answer": "is going to be late",
+          "accept": [
+            "'s going to be late"
+          ]
+        },
+        {
+          "context": "There is a hole in the bottom of the boat. A lot of water is coming in through the hole.",
+          "prompt": "(sink) The boat ___.",
+          "answer": "is going to sink",
+          "accept": [
+            "'s going to sink"
+          ]
+        },
+        {
+          "context": "Amy and Ben are driving. The tank is nearly empty. It's a long way to the nearest petrol station.",
+          "prompt": "(run out) They ___.",
+          "answer": "are going to run out of petrol",
+          "accept": [
+            "'re going to run out of petrol"
+          ]
+        },
+        {
+          "context": "Sarah's car was badly damaged in an accident. Now it has to be repaired.",
+          "prompt": "(cost a lot) It ___ to repair the car.",
+          "answer": "is going to cost a lot",
+          "accept": [
+            "'s going to cost a lot",
+            "is going to cost a lot of money"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "20.4 · was/were going to",
+      "titleEn": "20.4 · was/were going to",
+      "instructions": "Hoàn thành các câu bằng was going to hoặc were going to, chọn động từ trong khung.",
+      "instructionsEn": "Complete the sentences with was/were going to. Choose a verb from the box.",
+      "wordBank": [
+        "be",
+        "buy",
+        "give up",
+        "phone",
+        "play",
+        "say",
+        "travel"
+      ],
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "We ___ by train, but then we decided to go by car instead.",
+          "answer": "were going to travel"
+        }
+      ],
+      "startNumber": 2,
+      "items": [
+        {
+          "prompt": "I ___ some new clothes yesterday, but I didn't have time to go to the shops.",
+          "answer": "was going to buy"
+        },
+        {
+          "prompt": "Tom and I ___ tennis last week, but he'd hurt his knee and had to cancel.",
+          "answer": "were going to play"
+        },
+        {
+          "prompt": "I ___ Jane, but I sent her an email instead.",
+          "answer": "was going to phone"
+        },
+        {
+          "prompt": "I thought the exam ___ hard, but it was easier than I expected.",
+          "answer": "was going to be"
+        },
+        {
+          "prompt": "Peter ___ his job, but in the end he decided to stay where he was.",
+          "answer": "was going to give up"
+        },
+        {
+          "prompt": "I'm sorry I interrupted you. What ___?",
+          "answer": "were you going to say"
+        }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng going to: điều bạn đã quyết định sẽ làm, điều bạn thấy sắp xảy ra dựa vào tình hình hiện tại, hoặc điều bạn từng định làm mà rốt cuộc không làm (was/were going to).",
+      "instructionsEn": "Write 2-3 English sentences using going to: something you have decided to do, something you can see is about to happen from the situation now, or something you intended to do but did not do (was/were going to).",
+      "ruleSummary": "This unit practises (I'm) going to (do). I am going to do something means I have already decided to do it or I intend to do it (She's going to buy a new car; I'm not going to eat it). It contrasts with the present continuous for the future: I am doing is for what is already fixed or arranged (I'm leaving next week, I've booked my flight), while I am going to do only requires that the decision has been made, arranged or not; the difference is often small and either form can be right. going to is also used to say that something is about to happen because the situation now shows it (Look at those black clouds! It's going to rain; I think I'm going to be sick). was/were going to describes an intention that was not carried out (We were going to travel by train, but we decided to drive instead; I thought it was going to rain, but it didn't). A correct student sentence must use a form of be plus going to plus the base verb, must not write going to plus a past or -ing form, and must use was/were going to only for an intention that did not happen."
+    }
+  ]
+};
+
 export const UNITS_META: GrammarUnitMeta[] = [
   { unit: 1, slug: UNIT_1_PRESENT_CONTINUOUS.slug, title: UNIT_1_PRESENT_CONTINUOUS.title, topic: UNIT_1_PRESENT_CONTINUOUS.topic, available: true },
   { unit: 2, slug: UNIT_2_PRESENT_SIMPLE.slug, title: UNIT_2_PRESENT_SIMPLE.title, topic: UNIT_2_PRESENT_SIMPLE.topic, available: true },
@@ -7207,9 +8281,12 @@ export const UNITS_META: GrammarUnitMeta[] = [
   { unit: 15, slug: UNIT_15_PAST_PERFECT.slug, title: UNIT_15_PAST_PERFECT.title, topic: UNIT_15_PAST_PERFECT.topic, available: true },
   { unit: 16, slug: UNIT_16_PAST_PERFECT_CONTINUOUS.slug, title: UNIT_16_PAST_PERFECT_CONTINUOUS.title, topic: UNIT_16_PAST_PERFECT_CONTINUOUS.topic, available: true },
   { unit: 17, slug: UNIT_17_HAVE_AND_HAVE_GOT.slug, title: UNIT_17_HAVE_AND_HAVE_GOT.title, topic: UNIT_17_HAVE_AND_HAVE_GOT.topic, available: true },
+  { unit: 18, slug: UNIT_18_USED_TO.slug, title: UNIT_18_USED_TO.title, topic: UNIT_18_USED_TO.topic, available: true },
+  { unit: 19, slug: UNIT_19_PRESENT_TENSES_FOR_THE_FUTURE.slug, title: UNIT_19_PRESENT_TENSES_FOR_THE_FUTURE.title, topic: UNIT_19_PRESENT_TENSES_FOR_THE_FUTURE.topic, available: true },
+  { unit: 20, slug: UNIT_20_IM_GOING_TO.slug, title: UNIT_20_IM_GOING_TO.title, topic: UNIT_20_IM_GOING_TO.topic, available: true },
 ];
 
-export const GRAMMAR_UNITS: GrammarUnit[] = [UNIT_1_PRESENT_CONTINUOUS, UNIT_2_PRESENT_SIMPLE, UNIT_3_PRESENT_CONTINUOUS_AND_SIMPLE_1, UNIT_4_PRESENT_CONTINUOUS_AND_SIMPLE_2, UNIT_5_PAST_SIMPLE, UNIT_6_PAST_CONTINUOUS, UNIT_7_PRESENT_PERFECT_1, UNIT_8_PRESENT_PERFECT_2, UNIT_9_PRESENT_PERFECT_CONTINUOUS, UNIT_10_PRESENT_PERFECT_CONTINUOUS_AND_SIMPLE, UNIT_11_HOW_LONG_HAVE_YOU_BEEN, UNIT_12_FOR_AND_SINCE, UNIT_13_PRESENT_PERFECT_AND_PAST_1, UNIT_14_PRESENT_PERFECT_AND_PAST_2, UNIT_15_PAST_PERFECT, UNIT_16_PAST_PERFECT_CONTINUOUS, UNIT_17_HAVE_AND_HAVE_GOT];
+export const GRAMMAR_UNITS: GrammarUnit[] = [UNIT_1_PRESENT_CONTINUOUS, UNIT_2_PRESENT_SIMPLE, UNIT_3_PRESENT_CONTINUOUS_AND_SIMPLE_1, UNIT_4_PRESENT_CONTINUOUS_AND_SIMPLE_2, UNIT_5_PAST_SIMPLE, UNIT_6_PAST_CONTINUOUS, UNIT_7_PRESENT_PERFECT_1, UNIT_8_PRESENT_PERFECT_2, UNIT_9_PRESENT_PERFECT_CONTINUOUS, UNIT_10_PRESENT_PERFECT_CONTINUOUS_AND_SIMPLE, UNIT_11_HOW_LONG_HAVE_YOU_BEEN, UNIT_12_FOR_AND_SINCE, UNIT_13_PRESENT_PERFECT_AND_PAST_1, UNIT_14_PRESENT_PERFECT_AND_PAST_2, UNIT_15_PAST_PERFECT, UNIT_16_PAST_PERFECT_CONTINUOUS, UNIT_17_HAVE_AND_HAVE_GOT, UNIT_18_USED_TO, UNIT_19_PRESENT_TENSES_FOR_THE_FUTURE, UNIT_20_IM_GOING_TO];
 
 export function getGrammarUnit(slug: string): GrammarUnit | undefined {
   return GRAMMAR_UNITS.find((u) => u.slug === slug);

@@ -110,84 +110,90 @@ function DiscussPanel({ onClose }: { onClose: () => void }) {
 
   return (
     <Modal onClose={onClose} contentClassName="lg:max-w-[600px]">
-      <div className="mb-2 text-[15px] font-extrabold">💬 Hỏi đáp nhanh</div>
+      {/* ponytail: 40px is Modal's p-5 top+bottom padding, so this column exactly
+          fills the sheet's 75vh cap and the message list below stays the ONE
+          scroller. Two nested scrollers left the inner chat list unscrollable on
+          touch, so a thread stayed stuck at its first message. */}
+      <div className="flex h-[calc(75vh-40px)] flex-col">
+        <div className="mb-2 flex-none text-[15px] font-extrabold">💬 Hỏi đáp nhanh</div>
 
-      <div className="mb-3 flex gap-1.5 overflow-x-auto pb-1">
-        <button
-          type="button"
-          onClick={() => openThread(null)}
-          className="flex-none rounded px-2.5 py-1 text-[12px] font-extrabold whitespace-nowrap"
-          style={{
-            background: threadId === null ? "var(--color-accent-100)" : "var(--color-surface)",
-            color: threadId === null ? "var(--color-accent-800)" : "var(--color-text)",
-          }}
-        >
-          + Mới
-        </button>
-        {threads.map((c) => (
-          <span
-            key={c.id}
-            className="inline-flex flex-none items-center gap-1 rounded px-2.5 py-1 text-[12px] font-bold whitespace-nowrap"
+        <div className="mb-3 flex flex-none gap-1.5 overflow-x-auto pb-1">
+          <button
+            type="button"
+            onClick={() => openThread(null)}
+            className="flex-none rounded px-2.5 py-1 text-[12px] font-extrabold whitespace-nowrap"
             style={{
-              background: c.id === threadId ? "var(--color-accent-100)" : "var(--color-surface)",
-              color: c.id === threadId ? "var(--color-accent-800)" : "var(--color-text)",
+              background: threadId === null ? "var(--color-accent-100)" : "var(--color-surface)",
+              color: threadId === null ? "var(--color-accent-800)" : "var(--color-text)",
             }}
           >
-            <button type="button" className="max-w-[110px] truncate" onClick={() => openThread(c.id)}>
-              {c.itemLabel || "Đoạn chat"}
-            </button>
-            <button type="button" className="text-neutral-500 hover:text-neutral-700" onClick={() => removeThread(c.id)}>
-              ✕
-            </button>
-          </span>
-        ))}
-      </div>
-
-      <div className="mb-2 flex max-h-[320px] min-h-[80px] flex-col gap-2 overflow-y-auto">
-        {chat.length === 0 && (
-          <p className="text-[13px] text-neutral-600">Đặt câu hỏi bất kỳ, mình trả lời ngắn gọn theo dạng gạch đầu dòng.</p>
-        )}
-        {chat.map((m, i) => (
-          <div
-            key={i}
-            className="rounded p-2 text-[12px] leading-relaxed"
-            style={{
-              background: m.role === "user" ? "var(--color-accent-100)" : "var(--color-surface)",
-              alignSelf: m.role === "user" ? "flex-end" : "flex-start",
-              maxWidth: "85%",
-            }}
-          >
-            <span className="label-xs mb-0.5 block">{m.role === "user" ? "Bạn" : "AI"}</span>
-            <p className="whitespace-pre-wrap">{m.content}</p>
-          </div>
-        ))}
-        {sending && (
-          <div className="rounded p-2" style={{ background: "var(--color-surface)", alignSelf: "flex-start" }}>
-            <span className="inline-flex items-center gap-1">
-              {[0, 1, 2].map((i) => (
-                <span
-                  key={i}
-                  className="inline-block h-1.5 w-1.5 animate-bounce rounded-full bg-current opacity-60"
-                  style={{ animationDelay: `${i * 150}ms` }}
-                />
-              ))}
+            + Mới
+          </button>
+          {threads.map((c) => (
+            <span
+              key={c.id}
+              className="inline-flex flex-none items-center gap-1 rounded px-2.5 py-1 text-[12px] font-bold whitespace-nowrap"
+              style={{
+                background: c.id === threadId ? "var(--color-accent-100)" : "var(--color-surface)",
+                color: c.id === threadId ? "var(--color-accent-800)" : "var(--color-text)",
+              }}
+            >
+              <button type="button" className="max-w-[110px] truncate" onClick={() => openThread(c.id)}>
+                {c.itemLabel || "Đoạn chat"}
+              </button>
+              <button type="button" className="text-neutral-500 hover:text-neutral-700" onClick={() => removeThread(c.id)}>
+                ✕
+              </button>
             </span>
-          </div>
-        )}
-        <div ref={chatEndRef} />
-      </div>
+          ))}
+        </div>
 
-      {error && <p className="mb-2 text-[12px] text-accent-700">{error}</p>}
+        <div className="mb-2 flex min-h-0 flex-1 flex-col gap-2 overflow-y-auto">
+          {chat.length === 0 && (
+            <p className="text-[13px] text-neutral-600">Đặt câu hỏi bất kỳ, mình trả lời ngắn gọn theo dạng gạch đầu dòng.</p>
+          )}
+          {chat.map((m, i) => (
+            <div
+              key={i}
+              className="rounded p-2 text-[12px] leading-relaxed"
+              style={{
+                background: m.role === "user" ? "var(--color-accent-100)" : "var(--color-surface)",
+                alignSelf: m.role === "user" ? "flex-end" : "flex-start",
+                maxWidth: "85%",
+              }}
+            >
+              <span className="label-xs mb-0.5 block">{m.role === "user" ? "Bạn" : "AI"}</span>
+              <p className="whitespace-pre-wrap">{m.content}</p>
+            </div>
+          ))}
+          {sending && (
+            <div className="rounded p-2" style={{ background: "var(--color-surface)", alignSelf: "flex-start" }}>
+              <span className="inline-flex items-center gap-1">
+                {[0, 1, 2].map((i) => (
+                  <span
+                    key={i}
+                    className="inline-block h-1.5 w-1.5 animate-bounce rounded-full bg-current opacity-60"
+                    style={{ animationDelay: `${i * 150}ms` }}
+                  />
+                ))}
+              </span>
+            </div>
+          )}
+          <div ref={chatEndRef} />
+        </div>
 
-      <div className="flex items-end gap-2">
-        <ChatInput value={input} onChange={setInput} onSend={sendMessage} disabled={sending || !input.trim()} placeholder="Hỏi bất kỳ điều gì..." />
-        <button
-          className="btn btn-primary px-3 py-2.5 text-[13px] font-extrabold disabled:opacity-40"
-          disabled={sending || !input.trim()}
-          onClick={sendMessage}
-        >
-          Gửi
-        </button>
+        {error && <p className="mb-2 flex-none text-[12px] text-accent-700">{error}</p>}
+
+        <div className="flex flex-none items-end gap-2">
+          <ChatInput value={input} onChange={setInput} onSend={sendMessage} disabled={sending || !input.trim()} placeholder="Hỏi bất kỳ điều gì..." />
+          <button
+            className="btn btn-primary px-3 py-2.5 text-[13px] font-extrabold disabled:opacity-40"
+            disabled={sending || !input.trim()}
+            onClick={sendMessage}
+          >
+            Gửi
+          </button>
+        </div>
       </div>
     </Modal>
   );

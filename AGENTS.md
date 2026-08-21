@@ -33,6 +33,7 @@ These apply to every AI-practice feature (collocations/phrasal-verbs, Cambridge 
 - `npm run check:grammar` asserts all of the above; run it after touching this data.
 - **Every unit must be bilingual, not just the rule/theory section.** Grammar explanation content (a rule part's `text`, `intro`, example `en`) is English-first with a `*Vi`/`vi` sibling added; instructional content (`title`, `instructions`, `passage`, `heading`) is Vietnamese-first with an `*En` sibling added. A unit whose exercises still show Vietnamese instructions under an English UI setting is not done.
 - A rule block is an ordered `parts` array (text / examples / table / words / situation) following the book's own layout: one explanation line, then the examples for it, then the next line. Never one prose blob plus one example list, and never an explanation line smuggled into an `examples` part.
+- A rule page shows ONE language at a time, decided by `ruleLine()` (`src/lib/grammar-rule-line.ts`): explanation prose in Vietnamese with an EN chip, the book's own sentences in English with a VI chip, and a "Bản gốc" toggle that puts the whole page in English. Never stack both languages on a line.
 - Rule blocks use `**bold**` for the grammar form being taught and `*italic*` for spoken-emphasis/terminology words, matching the book's own emphasis, parsed by `renderRich()`.
 - Extraction is done with `pdftotext -layout` (the only PDF tool available here; the Read tool's PDF rendering needs poppler's `pdftoppm`, which isn't installed).
 

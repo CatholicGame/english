@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, useSyncExternalStore } from "react";
 import { useRouter } from "next/navigation";
 import {
   getGrammarUnit,
@@ -17,6 +17,7 @@ import {
   type TypeFillItem,
   type TypeFillStep,
   type WorkedExample,
+  type GrammarExample,
   type GrammarUnitStep,
 } from "@/data/english-grammar-in-use";
 import { useProgress } from "@/lib/progress-context";
@@ -30,6 +31,7 @@ import { useSubscriptionStore } from "@/lib/use-subscription-store";
 import { isGrammarUnitLocked } from "@/lib/content-access";
 import { ProPaywallNotice } from "@/components/ProPaywallNotice";
 import { ActionBarScreen, useActionBar } from "@/components/ActionBar";
+import { ruleLine } from "@/lib/grammar-rule-line";
 
 const MODULE_KEY = "english-grammar-in-use";
 
@@ -100,11 +102,116 @@ function renderRich(text: string): React.ReactNode {
   });
 }
 
-/** Vietnamese gloss under an English line, shown only on a Vietnamese UI. */
-function ViLine({ text }: { text?: string }) {
-  const { lang } = useUiLang();
-  if (lang === "en" || !text) return null;
-  return <span className="mt-0.5 block text-[12.5px] text-neutral-500 italic">{renderRich(text)}</span>;
+// ---------- Rule language preference ----------
+
+/** Whether the rule pages show the book's own English prose instead of the
+ * Vietnamese explanation. Persisted, so a learner sets it once for the module,
+ * and read through useSyncExternalStore for the same hydration-safe reason
+ * `useUiLang` does it that way. */
+const ORIGINAL_KEY = "english-grammar-original";
+let originalCache: boolean | null = null;
+const originalListeners = new Set<() => void>();
+
+function loadShowOriginal(): boolean {
+  if (originalCache === null) {
+    try {
+      originalCache = localStorage.getItem(ORIGINAL_KEY) === "1";
+    } catch {
+      originalCache = false; // private mode / quota
+    }
+  }
+  return originalCache;
+}
+
+function setShowOriginal(value: boolean) {
+  originalCache = value;
+  try {
+    localStorage.setItem(ORIGINAL_KEY, value ? "1" : "0");
+  } catch {
+    // quota / private mode
+  }
+  originalListeners.forEach((l) => l());
+}
+
+function subscribeShowOriginal(fn: () => void) {
+  originalListeners.add(fn);
+  return () => {
+    originalListeners.delete(fn);
+  };
+}
+
+function useShowOriginal(): boolean {
+  return useSyncExternalStore(subscribeShowOriginal, loadShowOriginal, () => false);
+}
+
+/** One line of rule content, showing ONE language with the other a tap away on
+ * a small chip. Stacking English and Vietnamese on every single line (which is
+ * what this replaced) doubles the length of an explanation page and buries the
+ * sentence the learner is actually meant to read. */
+function Reveal({
+  children,
+  alt,
+  altLabel,
+  altTitle,
+  className,
+}: {
+  children: React.ReactNode;
+  alt?: string;
+  altLabel?: string;
+  altTitle?: string;
+  className?: string;
+}) {
+  const [shown, setShown] = useState(false);
+  return (
+    <span className={className}>
+      {children}
+      {alt && (
+        <>
+          <button
+            onClick={() => setShown((v) => !v)}
+            aria-expanded={shown}
+            aria-label={altTitle}
+            title={altTitle}
+            className="mx-1 inline-block -translate-y-px rounded px-1 py-px align-middle text-[10px] font-extrabold"
+            style={
+              shown
+                ? { background: "var(--color-accent)", color: "var(--color-bg)" }
+                : { background: "var(--color-neutral-300)", color: "var(--color-neutral-700)" }
+            }
+          >
+            {altLabel}
+          </button>
+          {shown && <span className="mt-0.5 block text-[12.5px] text-neutral-500 italic">{renderRich(alt)}</span>}
+        </>
+      )}
+    </span>
+  );
+}
+
+/** Explanation prose: Vietnamese on a Vietnamese UI, the book's English behind
+ * the chip. Switching the step to "Bản gốc" makes English the main text and
+ * drops the chip, so that view is entirely in one language too. */
+function Explanation({ en, vi, className }: { en: string; vi?: string; className?: string }) {
+  const { lang, t } = useUiLang();
+  const line = ruleLine("explanation", en, vi, lang, useShowOriginal());
+  return (
+    <Reveal className={className} alt={line.alt} altLabel="EN" altTitle={t("grammar.showOriginalLine")}>
+      {renderRich(line.main)}
+    </Reveal>
+  );
+}
+
+/** A sentence from the book. Always English: reading it is the point of the
+ * module. Its Vietnamese meaning sits behind the chip. */
+function BookSentence({ example, className }: { example: GrammarExample; className?: string }) {
+  const { lang, t } = useUiLang();
+  const line = ruleLine("book", example.en, example.vi, lang, useShowOriginal());
+  return (
+    <Reveal className={className} alt={line.alt} altLabel="VI" altTitle={t("grammar.showViLine")}>
+      {renderRich(line.main)}
+      {example.note && <span className="ml-1.5 text-neutral-500">({renderRich(example.note)})</span>}
+    </Reveal>
+  );
 }
 
 function RuleTableView({ table }: { table: RuleTable }) {
@@ -168,12 +275,12 @@ function RuleTableView({ table }: { table: RuleTable }) {
  * drawn as speech bubbles. Kept visually separate from the explanation, since
  * it is the thing being explained, not part of the explanation. */
 function RuleSituationView({ part }: { part: RuleSituation }) {
+  const { lang, t } = useUiLang();
+  const original = useShowOriginal();
+  const quote = (q: { text: string; vi?: string }) => ruleLine("book", q.text, q.vi, lang, original);
   return (
     <div className="rounded-lg border p-3" style={{ borderColor: "var(--color-divider)", background: "var(--color-bg)" }}>
-      <p className="text-[13.5px] leading-relaxed text-neutral-700">
-        {renderRich(part.text)}
-        <ViLine text={part.vi} />
-      </p>
+      <Explanation en={part.text} vi={part.vi} className="block text-[13.5px] leading-relaxed text-neutral-700" />
       {part.quotes?.map((q, i) => (
         <div key={i} className="mt-2.5">
           {q.speaker && <span className="label-xs mb-0.5 block text-neutral-500">{q.speaker}</span>}
@@ -181,13 +288,14 @@ function RuleSituationView({ part }: { part: RuleSituation }) {
             className="relative inline-block rounded-xl border px-3 py-2 text-[13.5px] leading-relaxed"
             style={{ borderColor: "var(--color-accent-300)", background: "var(--color-accent-100)", color: "var(--color-accent-800)" }}
           >
-            {renderRich(q.text)}
+            <Reveal alt={quote(q).alt} altLabel="VI" altTitle={t("grammar.showViLine")}>
+              {renderRich(quote(q).main)}
+            </Reveal>
             <span
               className="absolute -bottom-[6px] left-5 h-[10px] w-[10px] rotate-45 border-r border-b"
               style={{ borderColor: "var(--color-accent-300)", background: "var(--color-accent-100)" }}
             />
           </div>
-          <ViLine text={q.vi} />
         </div>
       ))}
     </div>
@@ -195,26 +303,15 @@ function RuleSituationView({ part }: { part: RuleSituation }) {
 }
 
 function RuleExamplesView({ part }: { part: RuleExamples }) {
-  const { lang } = useUiLang();
-  const showVi = lang !== "en";
   return (
     <div>
       {part.heading && (
-        <span className="label-xs mb-1 block text-accent">
-          {part.heading}
-          {showVi && part.headingVi && (
-            <span className="ml-1.5 font-normal text-neutral-500 normal-case">({part.headingVi})</span>
-          )}
-        </span>
+        <Explanation en={part.heading} vi={part.headingVi} className="label-xs mb-1 block text-accent" />
       )}
       <ul className="flex flex-col gap-1.5">
         {part.items.map((ex, j) => (
           <li key={j} className="border-l-2 border-neutral-300 pl-2.5 text-[13.5px]">
-            <div>
-              {renderRich(ex.en)}
-              {ex.note && <span className="ml-1.5 text-neutral-500">({renderRich(ex.note)})</span>}
-            </div>
-            <ViLine text={ex.vi} />
+            <BookSentence example={ex} />
           </li>
         ))}
       </ul>
@@ -227,12 +324,7 @@ function RulePartView({ part }: { part: RulePart }) {
     case "situation":
       return <RuleSituationView part={part} />;
     case "text":
-      return (
-        <p className="text-[13.5px] leading-relaxed text-neutral-700">
-          {renderRich(part.text)}
-          <ViLine text={part.vi} />
-        </p>
-      );
+      return <Explanation en={part.text} vi={part.vi} className="block text-[13.5px] leading-relaxed text-neutral-700" />;
     case "table":
       return <RuleTableView table={part.table} />;
     case "words":
@@ -256,7 +348,7 @@ function RulePartView({ part }: { part: RulePart }) {
 
 function RuleBlockView({ block: b }: { block: RuleBlock }) {
   const { lang } = useUiLang();
-  const showVi = lang !== "en";
+  const original = useShowOriginal();
 
   return (
     <div className="overflow-hidden rounded-lg bg-surface">
@@ -268,21 +360,48 @@ function RuleBlockView({ block: b }: { block: RuleBlock }) {
             </span>
           )}
           {b.heading && (
-            <span className="text-[14px] leading-snug font-extrabold text-white">{loc(b.heading, b.headingEn, lang)}</span>
+            <span className="text-[14px] leading-snug font-extrabold text-white">
+              {loc(b.heading, b.headingEn, original ? "en" : lang)}
+            </span>
           )}
         </div>
       )}
       <div className="flex flex-col gap-2.5 p-3">
         {b.intro && (
-          <p className="text-[12.5px] font-bold text-neutral-500">
-            {b.intro}
-            {showVi && b.introVi && <span className="ml-1.5 font-normal">({b.introVi})</span>}
-          </p>
+          <Explanation en={b.intro} vi={b.introVi} className="block text-[12.5px] font-bold text-neutral-500" />
         )}
         {b.parts.map((part, i) => (
           <RulePartView key={i} part={part} />
         ))}
       </div>
+    </div>
+  );
+}
+
+/** Switches the whole rule page between the Vietnamese explanation and the
+ * book's original English. Only offered on a Vietnamese UI: an English UI has
+ * nothing to switch between. */
+function RuleLangToggle() {
+  const { lang, t } = useUiLang();
+  const original = useShowOriginal();
+  if (lang === "en") return null;
+  return (
+    <div className="mb-3 flex items-center justify-end gap-1">
+      {[false, true].map((value) => (
+        <button
+          key={String(value)}
+          onClick={() => setShowOriginal(value)}
+          aria-pressed={original === value}
+          className="rounded-full border px-2.5 py-1 text-[11px] font-bold"
+          style={
+            original === value
+              ? { borderColor: "var(--color-accent)", background: "var(--color-accent-100)", color: "var(--color-accent-800)" }
+              : { borderColor: "var(--color-divider)", background: "var(--color-surface)", color: "var(--color-neutral-600)" }
+          }
+        >
+          {value ? t("grammar.viewOriginal") : t("grammar.viewVietnamese")}
+        </button>
+      ))}
     </div>
   );
 }
@@ -296,6 +415,7 @@ function RuleStepView({ step, onNext }: { step: RuleStep; onNext: (score?: Score
   );
   return (
     <div className="flex flex-1 flex-col p-4">
+      <RuleLangToggle />
       <div className="flex flex-col gap-4">
         {step.blocks.map((b, i) => (
           <RuleBlockView key={i} block={b} />

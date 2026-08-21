@@ -13,6 +13,7 @@
 // loader/bundler is wired up for scripts here).
 
 import { readFileSync } from "node:fs";
+import { ruleLine } from "../src/lib/grammar-rule-line.ts";
 
 const SRC = "src/data/english-grammar-in-use.ts";
 const PRACTICE = ["fill_mc", "type_fill", "judge_correct", "match_pairs"];
@@ -20,6 +21,25 @@ const errors = [];
 
 function check(cond, message) {
   if (!cond) errors.push(message);
+}
+
+// A rule page must read in ONE language at a time. Every branch of that choice
+// is checked here, because getting one wrong shows the learner the wrong
+// language (or both at once, which is what this replaced).
+for (const [label, got, want] of [
+  ["vi explanation", ruleLine("explanation", "EN", "VI", "vi", false), { main: "VI", alt: "EN" }],
+  ["vi book sentence", ruleLine("book", "EN", "VI", "vi", false), { main: "EN", alt: "VI" }],
+  ["original explanation", ruleLine("explanation", "EN", "VI", "vi", true), { main: "EN" }],
+  ["original book sentence", ruleLine("book", "EN", "VI", "vi", true), { main: "EN" }],
+  ["english UI explanation", ruleLine("explanation", "EN", "VI", "en", false), { main: "EN" }],
+  ["english UI book sentence", ruleLine("book", "EN", "VI", "en", false), { main: "EN" }],
+  ["untranslated explanation", ruleLine("explanation", "EN", undefined, "vi", false), { main: "EN" }],
+  ["untranslated book sentence", ruleLine("book", "EN", undefined, "vi", false), { main: "EN" }],
+]) {
+  check(
+    JSON.stringify(got) === JSON.stringify(want),
+    `ruleLine ${label}: got ${JSON.stringify(got)}, expected ${JSON.stringify(want)}`,
+  );
 }
 
 const text = readFileSync(SRC, "utf8");

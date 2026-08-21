@@ -158,10 +158,21 @@ The UI language setting (`useUiLang()`) must be respected **everywhere** in a un
 rule/theory section. Two different conventions apply depending on which half of the content you're
 touching, and mixing them up is the single most common mistake made while building this module:
 
-**Grammar explanation content is English-first.** A rule part's `text`, the block's `intro`, and `GrammarExample.en` are the
-book's own English prose — that never changes. Add the Vietnamese explanation as the sibling field
-(the part's own `vi`, `introVi`, `GrammarExample.vi`). Rendered: Vietnamese UI shows English + a muted
-Vietnamese line underneath; English UI shows English only, nothing Vietnamese mixed in.
+**Grammar explanation content is English-first.** A rule part's `text`, the block's `intro`, and
+`GrammarExample.en` are the book's own English prose — that never changes. Add the Vietnamese
+explanation as the sibling field (the part's own `vi`, `introVi`, `GrammarExample.vi`).
+
+**A rule page shows ONE language at a time**, decided by `ruleLine()`
+(`src/lib/grammar-rule-line.ts`), not both stacked on every line — that doubled the length of every
+explanation page and buried the sentence the learner is meant to read:
+
+| | Vietnamese UI | "Bản gốc" toggle on | English UI |
+|---|---|---|---|
+| Explanation (`intro`, `heading`, `text`, a situation's scene) | Vietnamese, chip **EN** reveals the book's English | English, no chip | English |
+| The book's own sentences (`examples`, speech bubbles) | English, chip **VI** reveals the meaning | English, no chip | English |
+
+The book's sentences stay English on every screen, because reading them is the point of the module.
+So `vi` on a `GrammarExample` is still required (§5): it is what the VI chip shows.
 
 **Instructional/UI-facing content is Vietnamese-first.** `title`, `instructions`, `passage`, and
 `heading` on every step are authored in Vietnamese by default (that's how this module started), so
@@ -175,8 +186,10 @@ Rendering both conventions goes through the same two primitives in `UnitClient.t
 
 - `loc(vi, en, lang)` — returns `en` when `lang === "en"` (falling back to `vi` if `en` is
   missing), otherwise `vi`. Use for every `title`/`instructions`/`passage`/`heading`.
-- `showVi = lang !== "en"` — gates the Vietnamese *addition* fields (a part's `vi`, `introVi`,
-  `GrammarExample.vi`). Never show these when the UI language is English.
+- `ruleLine(role, en, vi, lang, original)` (`src/lib/grammar-rule-line.ts`) — returns
+  `{ main, alt? }` for one line of rule content: which language to print and what its chip reveals.
+  Use it for every `vi`/`introVi`/`GrammarExample.vi`, never a hand-rolled `lang !== "en"` check, or
+  the two roles drift apart again. `npm run check:grammar` asserts all eight of its branches.
 
 Generic exercise chrome (button labels like "Check"/"Result", placeholders, score-summary text) is
 **not** per-unit data — it's already covered by the `grammar.*` keys in `src/lib/i18n.ts`'s

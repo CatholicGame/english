@@ -989,9 +989,18 @@ function VocabStepView({ step, onNext }: { step: VocabStep; onNext: (score?: Sco
     <div className="flex flex-1 flex-col p-4">
       <div className="mb-3 flex items-center justify-between gap-3">
         <span className="text-[13px] text-neutral-700">{step.instructions ?? "Study each card, then move to the next word."}</span>
-        <span className="label-xs whitespace-nowrap">
-          {i + 1}/{step.words.length}
-        </span>
+        <select
+          className="input label-xs w-auto whitespace-nowrap py-1"
+          aria-label="Jump to word"
+          value={i}
+          onChange={(e) => goTo(Number(e.target.value))}
+        >
+          {step.words.map((word, idx) => (
+            <option key={word.term} value={idx}>
+              {idx + 1}/{step.words.length} · {word.term}
+            </option>
+          ))}
+        </select>
       </div>
 
       <div className="bg-surface p-5 lg:flex lg:flex-row lg:items-start lg:gap-8 lg:p-8">

@@ -439,6 +439,7 @@ function grammarLookup(payload: Record<string, unknown>): PromptResult {
   const context = payload.context as string | undefined;
   const category = payload.category as string | undefined;
   const history = payload.history as string | undefined;
+  const knownCategories = payload.knownCategories as string[] | undefined;
 
   // Follow-up question about an already-classified grammar point.
   if (history) {
@@ -464,6 +465,11 @@ function grammarLookup(payload: Record<string, unknown>): PromptResult {
       feedbackLangNote(payload),
     userMessage:
       `Selected text: "${text}"\nSurrounding context: "${context ?? ""}"\n\n` +
+      (knownCategories && knownCategories.length
+        ? `The learner has already looked up these grammar categories before: ${knownCategories.map((c) => `"${c}"`).join(", ")}. ` +
+          "If the selection shows the SAME structure as one of these, reuse that EXACT string (same spelling/casing) as \"category\" instead of rephrasing it. " +
+          "Only invent a new category string if it's genuinely a different structure.\n\n"
+        : "") +
       "Respond in JSON only:\n" +
       "{\n" +
       "  \"isGrammar\": boolean,\n" +

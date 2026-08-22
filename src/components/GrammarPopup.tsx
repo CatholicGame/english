@@ -76,7 +76,16 @@ export function GrammarPopup({ text, context, onClose }: Props) {
     if (cachedEntry) return; // already resolved above
     let cancelled = false;
 
-    callAi({ text, context })
+    // Dedup existing category labels so the AI can reuse the exact same
+    // string for the same structure instead of re-phrasing it (e.g. "So +
+    // Adjective + That Clause" vs "Result Clause (so...that)") — without
+    // this, the sidebar's exact-string match below never resurfaces earlier
+    // lookups of the same grammar point.
+    const knownCategories = Array.from(
+      new Map(Object.values(entries).map((e) => [normalizeCategory(e.category), e.category])).values(),
+    );
+
+    callAi({ text, context, knownCategories })
       .then((d: ClassifyResult) => {
         if (cancelled) return;
         setFreshResult(d);

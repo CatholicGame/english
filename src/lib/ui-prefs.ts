@@ -9,11 +9,17 @@ export interface UiPrefs {
 }
 
 const STORAGE_KEY = "english-ui-prefs";
-// 1.3 (not 1): text at 100% read too small without the personal size slider,
-// which most people never touch. Anyone with an existing saved preference
-// (including an old 1) keeps it - this default only applies to visits with
-// nothing saved yet.
-export const DEFAULT_UI_PREFS: UiPrefs = { fontId: "archivo", zoom: 1.3 };
+// ponytail: back to 1 - raising this to 1.3 by default made every screen
+// built on ActionBarScreen/Modal genuinely overflow the real viewport by the
+// zoom factor. CSS `zoom` scales ANY length value rendered within its
+// subtree, including an explicit height/max-height computed from a "correct"
+// measurement (vh, dvh, or even a JS-measured --real-vh) - only offsets on a
+// position:fixed element (anchored to the true viewport, not to zoom's
+// scaled coordinate space) are safe from this, which is why the settings
+// dropdown fix holds at any zoom but the scrollable content areas don't.
+// Fixing that for real needs the app's font sizes off zoom entirely (a
+// rem-based scale), not a bigger default multiplier - out of scope here.
+export const DEFAULT_UI_PREFS: UiPrefs = { fontId: "archivo", zoom: 1 };
 
 export function loadUiPrefs(): UiPrefs {
   try {

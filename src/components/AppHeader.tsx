@@ -318,7 +318,7 @@ export function AppHeader() {
               <input
                 type="range"
                 min={0.875}
-                max={1.5}
+                max={1.25}
                 step={0.025}
                 value={prefs.zoom}
                 onChange={(e) => updatePrefs({ zoom: Number(e.target.value) })}

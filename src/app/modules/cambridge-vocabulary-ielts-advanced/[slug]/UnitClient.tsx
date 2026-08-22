@@ -1025,7 +1025,7 @@ function VocabStepView({ step, onNext }: { step: VocabStep; onNext: (score?: Sco
         </div>
 
         {revealed && (
-          <div className="animate-pop mt-4 lg:mt-0 lg:flex-1">
+          <div key={i} className="animate-pop mt-4 lg:mt-0 lg:flex-1">
             <div className="mb-4 border-l-2 border-accent pl-3">
               <div className="text-[13px] leading-relaxed text-neutral-700">{w.usageNote}</div>
               <div className="mt-1 text-[15px] font-extrabold text-accent-700">{w.vi}</div>
@@ -1050,9 +1050,9 @@ function VocabStepView({ step, onNext }: { step: VocabStep; onNext: (score?: Sco
               {w.ieltsTip}
             </div>
 
-            <IeltsVocabSample key={w.term} word={w} />
+            <IeltsVocabSample word={w} />
 
-            <VocabAiPractice key={w.term} word={w} />
+            <VocabAiPractice word={w} />
           </div>
         )}
       </div>

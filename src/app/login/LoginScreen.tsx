@@ -93,7 +93,7 @@ export function LoginScreen() {
   const [showFeatures, setShowFeatures] = useState(false);
 
   return (
-    <div className="relative mx-auto flex min-h-screen w-full max-w-[480px] flex-col justify-center bg-bg px-4 lg:max-w-[880px] lg:flex-row lg:items-center lg:gap-16 lg:border-x-2 lg:border-[color:var(--color-divider)] lg:px-8">
+    <div className="relative mx-auto flex min-h-screen w-full max-w-[480px] flex-col justify-center bg-bg px-4 lg:max-w-[1320px] lg:flex-row lg:items-center lg:gap-16 lg:border-x-2 lg:border-[color:var(--color-divider)] lg:px-8">
       <div
         className="absolute right-4 top-4 z-10 inline-flex items-center gap-0.5 rounded-full border p-0.5"
         style={{ borderColor: "var(--color-divider)", background: "var(--color-surface)" }}
@@ -149,7 +149,7 @@ export function LoginScreen() {
         </p>
       </div>
       {showFeatures && (
-        <Modal onClose={() => setShowFeatures(false)} contentClassName="lg:max-w-[720px]">
+        <Modal onClose={() => setShowFeatures(false)} contentClassName="lg:max-w-[1080px]">
           <h2 className="mb-1 text-[20px] font-extrabold">{t("login.why")}</h2>
           <p className="mb-4 text-[13px] leading-relaxed text-neutral-600">
             {t("login.whyBody")}

@@ -30,20 +30,6 @@
 
   --font-user: var(--font-archivo);
   --ui-zoom: 1;
-  /* ponytail: desktop screens rendered the app at the same physical size as
-     mobile, so every text-[Npx] utility (there's no rem-based font scale to
-     bump centrally) read tiny and the max-w-[...] content column left large
-     empty margins - the fix users were already applying by hand was to
-     browser-zoom to ~150%. --desktop-zoom reproduces exactly that via the
-     same `zoom` mechanism the personal size slider already uses, scoped to
-     the lg breakpoint so mobile (already sized correctly) is untouched. */
-  --desktop-zoom: 1;
-}
-
-@media (min-width: 1024px) {
-  :root {
-    --desktop-zoom: 1.5;
-  }
 }
 
 @theme inline {
@@ -88,7 +74,7 @@
     color: var(--color-text);
     font-family: var(--font-user), system-ui, sans-serif;
     margin: 0;
-    zoom: calc(var(--ui-zoom, 1) * var(--desktop-zoom, 1));
+    zoom: var(--ui-zoom, 1);
   }
 
   h1, h2, h3, h4, h5, h6 {

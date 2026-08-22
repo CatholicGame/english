@@ -121,7 +121,7 @@ function DiscussPanel({ onClose }: { onClose: () => void }) {
   }
 
   return (
-    <Modal onClose={onClose} contentClassName="lg:max-w-[600px]">
+    <Modal onClose={onClose} contentClassName="lg:max-w-[900px]">
       {/* ponytail: 40px is Modal's p-5 top+bottom padding, so this column exactly
           fills the sheet's 75vh cap and the message list below stays the ONE
           scroller. Two nested scrollers left the inner chat list unscrollable on

@@ -335,7 +335,7 @@ export function RunClient() {
         // stretches the card to fill the whole remaining viewport height on a tall
         // desktop window (min-h-screen further up), leaving a huge empty gap around
         // the short "Tap to reveal" text and pushing the grade buttons below the fold.
-        <div className="flex flex-1 flex-col p-4 lg:mx-auto lg:w-full lg:max-w-[640px] lg:flex-none">
+        <div className="flex flex-1 flex-col p-4 lg:mx-auto lg:w-full lg:max-w-[960px] lg:flex-none">
           <button
             onClick={() => {
               if (!flipped) speak(q.item.term);
@@ -531,7 +531,7 @@ export function RunClient() {
                   ? { bg: ACC, bc: ACC, fg: BG }
                   : { bg: SURF, bc: LINE, fg: INK };
           return (
-            <div className="flex-1 p-4 lg:mx-auto lg:w-full lg:max-w-[640px]">
+            <div className="flex-1 p-4 lg:mx-auto lg:w-full lg:max-w-[960px]">
               <div className="mb-4 text-[13px] text-neutral-700">Tap a phrase, then its meaning.</div>
               {mq.items.map((it, i) => {
                 const right = mq.right[i];

@@ -56,7 +56,7 @@ export function Modal({ onClose, children, contentClassName }: Props) {
       <div className="absolute inset-0 bg-black/40" />
       <div
         ref={contentRef}
-        className={`divider-t relative mx-auto w-full max-w-[480px] max-h-[75vh] overflow-y-auto bg-bg p-5 lg:max-w-[560px] ${contentClassName ?? ""}`}
+        className={`divider-t relative mx-auto w-full max-w-[480px] max-h-[75vh] overflow-y-auto bg-bg p-5 lg:max-w-[840px] ${contentClassName ?? ""}`}
         onClick={(e) => e.stopPropagation()}
         style={{ overscrollBehavior: "contain" }}
       >

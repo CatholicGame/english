@@ -16,7 +16,7 @@ export default function DictionaryPage() {
   const [query, setQuery] = useState("");
 
   return (
-    <div className="mx-auto flex min-h-screen w-full max-w-[480px] flex-col bg-bg lg:max-w-[720px] lg:border-x-2 lg:border-[color:var(--color-divider)]">
+    <div className="mx-auto flex min-h-screen w-full max-w-[480px] flex-col bg-bg lg:max-w-[1080px] lg:border-x-2 lg:border-[color:var(--color-divider)]">
       <div className="divider-b px-4 py-6">
         <h1 className="text-[24px]">Từ điển của tôi</h1>
         <p className="mt-1 text-[13px] text-neutral-600">

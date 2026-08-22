@@ -124,7 +124,7 @@ function HomePageContent() {
   const paymentStatus = usePaymentReturn(refetch, isPaidNow);
 
   return (
-    <div className="mx-auto flex min-h-screen w-full max-w-[480px] flex-col bg-bg lg:max-w-[1040px] lg:border-x-2 lg:border-[color:var(--color-divider)]">
+    <div className="mx-auto flex min-h-screen w-full max-w-[480px] flex-col bg-bg lg:max-w-[1560px] lg:border-x-2 lg:border-[color:var(--color-divider)]">
       <div className="divider-b px-4 py-6">
         <h1 className="text-[30px]">Vocabulary Builder Pro</h1>
         <p className="mt-1 text-[13px] text-neutral-600">Choose a topic to start practicing.</p>

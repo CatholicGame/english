@@ -1022,7 +1022,7 @@ function VocabStepView({ step, onNext }: { step: VocabStep; onNext: (score?: Sco
       </div>
 
       <div className="fixed inset-x-0 bottom-0 bg-bg">
-        <div className="divider-t mx-auto max-w-[480px] p-4 lg:max-w-[1040px]">
+        <div className="divider-t mx-auto max-w-[480px] p-4 lg:max-w-[1560px]">
           <div className="flex gap-0.5">
             <button
               className="btn btn-secondary flex-1 justify-center px-4 py-3"
@@ -1711,7 +1711,7 @@ function SpeakingStepView({
   const footerClaimed = useActionBar(footerContent);
 
   return (
-    <div className="flex flex-1 flex-col p-4 lg:mx-auto lg:w-full lg:max-w-[640px]">
+    <div className="flex flex-1 flex-col p-4 lg:mx-auto lg:w-full lg:max-w-[960px]">
       <div className="mb-4 bg-surface p-4">
         <div className="label-xs mb-2 text-accent">Cue card</div>
         <div className="mb-3 text-[16px] font-extrabold leading-snug">{step.prompt}</div>
@@ -1903,7 +1903,7 @@ function WritingTaskStepView({
   const footerClaimed = useActionBar(footerContent);
 
   return (
-    <div className="flex flex-1 flex-col p-4 lg:mx-auto lg:w-full lg:max-w-[720px]">
+    <div className="flex flex-1 flex-col p-4 lg:mx-auto lg:w-full lg:max-w-[1080px]">
       <div className="mb-4 bg-surface p-4">
         <div className="label-xs mb-2 text-accent">{step.taskLabel}</div>
         <div className="mb-3 text-[14px] leading-relaxed font-extrabold">{step.prompt}</div>
@@ -2120,7 +2120,7 @@ export function UnitClient({ slug }: { slug: string }) {
     >
       {showStepList && (
         <div className="fixed inset-0 z-[60] bg-bg">
-          <div className="mx-auto flex h-full max-w-[480px] flex-col lg:max-w-[1040px]">
+          <div className="mx-auto flex h-full max-w-[480px] flex-col lg:max-w-[1560px]">
             <div className="divider-b flex items-center justify-between px-4 py-3">
               <span className="text-[16px] font-extrabold">Exercises in this unit</span>
               <button className="btn btn-ghost" onClick={() => setShowStepList(false)}>

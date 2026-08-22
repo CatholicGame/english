@@ -68,7 +68,7 @@ export function NotesList({ moduleKey, itemKey }: { moduleKey: string; itemKey: 
 
       {editing && (
         <div className="fixed inset-0 z-[60] bg-bg">
-          <div className="mx-auto flex h-full max-w-[480px] flex-col lg:max-w-[720px]">
+          <div className="mx-auto flex h-full max-w-[480px] flex-col lg:max-w-[1080px]">
             <div className="divider-b flex items-center justify-between px-4 py-3">
               <span className="text-[16px] font-extrabold">{editing.note ? "Edit note" : "New note"}</span>
               <button className="btn btn-ghost" onClick={() => setEditing(null)}>

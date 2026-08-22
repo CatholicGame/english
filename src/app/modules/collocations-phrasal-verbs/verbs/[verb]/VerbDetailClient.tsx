@@ -45,7 +45,7 @@ function AiSection({ item }: { item: { term: string; type: string; en: string; v
 
       {open && (
         <div className="fixed inset-0 z-[60] bg-bg">
-          <div className="mx-auto h-full max-w-[480px] lg:max-w-[720px]">
+          <div className="mx-auto h-full max-w-[480px] lg:max-w-[1080px]">
             <ActionBarScreen
               fullViewport
               header={

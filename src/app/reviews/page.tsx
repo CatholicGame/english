@@ -46,7 +46,7 @@ export default function ReviewsPage() {
   }
 
   return (
-    <div className="mx-auto flex min-h-screen w-full max-w-[480px] flex-col bg-bg lg:max-w-[720px] lg:border-x-2 lg:border-[color:var(--color-divider)]">
+    <div className="mx-auto flex min-h-screen w-full max-w-[480px] flex-col bg-bg lg:max-w-[1080px] lg:border-x-2 lg:border-[color:var(--color-divider)]">
       <div className="divider-b px-4 py-6">
         <h1 className="text-[24px]">{t("reviews.title")}</h1>
       </div>

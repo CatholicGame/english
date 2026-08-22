@@ -688,7 +688,7 @@ export function LessonClient({ slug }: { slug: string }) {
 
         {showStepList && (
           <div className="fixed inset-0 z-[60] bg-bg">
-            <div className="mx-auto flex h-full max-w-[480px] flex-col lg:max-w-[720px]">
+            <div className="mx-auto flex h-full max-w-[480px] flex-col lg:max-w-[1080px]">
               <div className="divider-b flex items-center justify-between px-4 py-3">
                 <span className="text-[16px] font-extrabold">Steps in this lesson</span>
                 <button className="btn btn-ghost" onClick={() => setShowStepList(false)}>
@@ -759,7 +759,7 @@ export function LessonClient({ slug }: { slug: string }) {
               (sticky under the header, visible on every step) already covers
               play/pause plus seeking, so a second big "Tap to listen" control
               here was pure duplication. */}
-          <div className="lg:mx-auto lg:w-full lg:max-w-[720px]">
+          <div className="lg:mx-auto lg:w-full lg:max-w-[1080px]">
               <div className="flex flex-wrap gap-2">
                 <button className="btn btn-secondary lg:hidden" onClick={() => setShowScript((v) => !v)}>
                   {showScript ? "Hide script" : "Show script"}
@@ -851,7 +851,7 @@ export function LessonClient({ slug }: { slug: string }) {
               )}
           </div>
           <div className="fixed inset-x-0 bottom-0 bg-bg">
-            <div className="divider-t mx-auto max-w-[480px] p-4 lg:max-w-[720px]">
+            <div className="divider-t mx-auto max-w-[480px] p-4 lg:max-w-[1080px]">
               <button
                 className="btn btn-primary btn-block px-4 py-3"
                 onClick={() => {
@@ -870,7 +870,7 @@ export function LessonClient({ slug }: { slug: string }) {
         <>
         <div className="flex flex-1 flex-col p-4 pb-[96px]">
           {hasCustomCloze && (
-            <div className="mb-3 flex gap-1.5 lg:mx-auto lg:w-full lg:max-w-[720px]">
+            <div className="mb-3 flex gap-1.5 lg:mx-auto lg:w-full lg:max-w-[1080px]">
               {(["default", "custom"] as const).map((v) => (
                 <button
                   key={v}
@@ -887,7 +887,7 @@ export function LessonClient({ slug }: { slug: string }) {
               ))}
             </div>
           )}
-          <div className="mb-4 bg-surface p-4 text-[16px] leading-[2.75] text-pretty lg:mx-auto lg:max-w-[720px]">
+          <div className="mb-4 bg-surface p-4 text-[16px] leading-[2.75] text-pretty lg:mx-auto lg:max-w-[1080px]">
             {segments.map((s, i) => {
               if ("text" in s) return <span key={i}>{s.text}</span>;
               const idx = blankIndexBySegment[i];
@@ -925,7 +925,7 @@ export function LessonClient({ slug }: { slug: string }) {
           )}
         </div>
         <div className="fixed inset-x-0 bottom-0 bg-bg">
-          <div className="divider-t mx-auto max-w-[480px] p-4 lg:max-w-[720px]">
+          <div className="divider-t mx-auto max-w-[480px] p-4 lg:max-w-[1080px]">
             {gapSubmitted ? (
               <div className="flex gap-3">
                 <button className="btn btn-secondary flex-1 px-4 py-3" onClick={() => setGapSubmitted(false)}>
@@ -987,7 +987,7 @@ export function LessonClient({ slug }: { slug: string }) {
             </div>
           )}
           <div className="fixed inset-x-0 bottom-0 bg-bg">
-            <div className="divider-t mx-auto max-w-[480px] p-4 lg:max-w-[720px]">
+            <div className="divider-t mx-auto max-w-[480px] p-4 lg:max-w-[1080px]">
               {spellSubmitted ? (
                 <button className="btn btn-primary btn-block px-4 py-3" onClick={() => setStep(4)}>
                   Continue
@@ -1034,7 +1034,7 @@ export function LessonClient({ slug }: { slug: string }) {
           </div>
           <LessonDiscussion lesson={lesson} />
           <div className="fixed inset-x-0 bottom-0 bg-bg">
-            <div className="divider-t mx-auto max-w-[480px] p-4 lg:max-w-[720px]">
+            <div className="divider-t mx-auto max-w-[480px] p-4 lg:max-w-[1080px]">
               <button className="btn btn-primary btn-block px-4 py-3" onClick={finish}>
                 Finish lesson
               </button>
@@ -1045,7 +1045,7 @@ export function LessonClient({ slug }: { slug: string }) {
 
       {sampleKey && (
         <div className="fixed inset-0 z-[60] bg-bg">
-          <div className="mx-auto flex h-full max-w-[480px] flex-col lg:max-w-[720px]">
+          <div className="mx-auto flex h-full max-w-[480px] flex-col lg:max-w-[1080px]">
             <div className="divider-b flex items-center justify-between px-4 py-3">
               <span className="text-[16px] font-extrabold">{sampleKey === "vocab" ? "Từ vựng trong bài" : "Sample"}</span>
               <button className="btn btn-ghost" onClick={() => setSampleKey(null)}>

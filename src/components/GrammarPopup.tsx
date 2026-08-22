@@ -123,7 +123,7 @@ export function GrammarPopup({ text, context, onClose }: Props) {
   const showSidebar = sameCategoryEntries.length > 1;
 
   return (
-    <Modal onClose={onClose} contentClassName="lg:max-w-[720px]">
+    <Modal onClose={onClose} contentClassName="lg:max-w-[1080px]">
       {loading && isViewingOriginal ? (
         <p className="animate-pulse text-[13px] text-neutral-600">Đang phân tích ngữ pháp...</p>
       ) : error && isViewingOriginal ? (

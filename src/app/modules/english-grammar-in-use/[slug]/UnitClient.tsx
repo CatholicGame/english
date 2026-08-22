@@ -833,7 +833,7 @@ function MatchPairsStepView({ step, onNext }: { step: MatchPairsStep; onNext: (s
   }
 
   return (
-    <div className="flex flex-1 flex-col p-4 lg:mx-auto lg:w-full lg:max-w-[640px]">
+    <div className="flex flex-1 flex-col p-4 lg:mx-auto lg:w-full lg:max-w-[960px]">
       <ExerciseHeader step={step} />
       <div className="grid grid-cols-2 gap-2.5">
         <div className="flex flex-col gap-1.5">
@@ -1311,7 +1311,7 @@ export function UnitClient({ slug }: { slug: string }) {
     >
       {showStepList && (
         <div className="fixed inset-0 z-[60] bg-bg">
-          <div className="mx-auto flex h-full max-w-[480px] flex-col lg:max-w-[1040px]">
+          <div className="mx-auto flex h-full max-w-[480px] flex-col lg:max-w-[1560px]">
             <div className="divider-b flex items-center justify-between px-4 py-3">
               <span className="text-[16px] font-extrabold">{t("grammar.stepListTitle")}</span>
               <button className="btn btn-ghost" onClick={() => setShowStepList(false)}>

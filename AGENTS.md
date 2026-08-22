@@ -10,6 +10,10 @@ This version has breaking changes — APIs, conventions, and file structure may 
 - Also avoid other decorative/informal typography in user-facing copy: arrows ("→"), en dashes in ranges ("–"; use a hyphen: "6.5-9", "A-Z"), and multi-symbol separators.
 - Applies everywhere: `STRINGS` in `src/lib/i18n.ts`, component labels, chat replies, and docs. When writing or reviewing copy, scan for these characters and replace them with plain punctuation.
 
+# Git workflow
+
+- When the user replies with a bare confirmation ("OK", "ok", "Okay") to work just completed in the session, treat it as standing authorization to commit the current changes and push to the current branch's remote, without asking again. Still follow the normal commit process: stage only the relevant files, write a clear commit message, never force-push, and never skip hooks.
+
 # Vocabulary Builder Pro feature conventions
 
 These apply to every AI-practice feature (collocations/phrasal-verbs, Cambridge IELTS advanced, and any future module) — follow them by default, don't wait to be asked.

@@ -19003,6 +19003,4226 @@ const UNIT_40_IF_I_HAD_KNOWN_I_WISH_I_HAD_KNOWN: GrammarUnit = {
   ]
 };
 
+const UNIT_41_WISH: GrammarUnit = {
+  "unit": 41,
+  "slug": "wish",
+  "title": "wish",
+  "topic": "if and wish",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "wish somebody something: dùng hope, không dùng wish + mệnh đề",
+          "headingEn": "wish somebody something, but hope for a clause",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "We say **wish somebody luck / all the best / success** etc.:",
+              "vi": "Chúng ta nói **wish somebody luck / all the best / success** ...:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I **wish** you all the best in the future.",
+                  "vi": "Tôi chúc bạn mọi điều tốt lành trong tương lai."
+                },
+                {
+                  "en": "I saw Mark before the exam and he **wished** me luck.",
+                  "vi": "Tôi gặp Mark trước kỳ thi và anh ấy chúc tôi may mắn."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "We say '**wish somebody something**' (luck, happiness etc.), but we do not say 'I wish something happens'. We use **hope** in this situation:",
+              "vi": "Chúng ta nói 'wish somebody something' (chúc ai điều gì: luck, happiness ...), nhưng không nói 'I wish something happens'. Trong trường hợp này ta dùng **hope**:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I'm sorry you're not well. I **hope** you feel better soon.",
+                  "note": "not I wish you feel",
+                  "vi": "Tôi rất tiếc là bạn không được khỏe. Tôi hy vọng bạn sẽ khỏe hơn sớm."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "Compare *I wish* and *I hope*:",
+              "vi": "So sánh *I wish* và *I hope*:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I **wish** you a pleasant stay at this hotel.",
+                  "vi": "Tôi chúc bạn có một kỳ nghỉ dễ chịu tại khách sạn này."
+                },
+                {
+                  "en": "I **hope** you enjoy your stay at this hotel.",
+                  "note": "not I wish you enjoy",
+                  "vi": "Tôi hy vọng bạn có một kỳ nghỉ vui vẻ tại khách sạn này."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "wish + quá khứ: tiếc về hiện tại, wish + had + p.p: tiếc về quá khứ",
+          "headingEn": "wish + past for now, wish + had + past participle for before",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "We also use **wish** to say that we regret something, that something is not as we would like it.",
+              "vi": "Chúng ta cũng dùng **wish** để nói rằng mình tiếc về điều gì đó, rằng mọi việc không được như mình mong muốn."
+            },
+            {
+              "kind": "text",
+              "text": "When we use wish in this way, we use the past (**knew**/**lived** etc.), but the meaning is present:",
+              "vi": "Khi dùng wish theo cách này, chúng ta dùng thì quá khứ (**knew**/**lived** ...), nhưng nghĩa là hiện tại:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I **wish** I **knew** what to do about the problem.",
+                  "note": "but I don't know",
+                  "vi": "Ước gì tôi biết phải làm gì với vấn đề này."
+                },
+                {
+                  "en": "I **wish** you **didn't have to** go so soon.",
+                  "note": "but you have to go",
+                  "vi": "Ước gì bạn không phải đi sớm như vậy."
+                },
+                {
+                  "en": "Do you **wish** you **lived** near the sea?",
+                  "note": "you don't live near the sea",
+                  "vi": "Bạn có ước mình sống gần biển không?"
+                },
+                {
+                  "en": "Jack's going on a trip to Mexico soon. I **wish** I **was** going too.",
+                  "note": "but I'm not going",
+                  "vi": "Jack sắp đi du lịch Mexico. Ước gì tôi cũng được đi."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "To say that we regret something that happened before, we use **wish + had known / had said** etc.:",
+              "vi": "Để nói mình tiếc về điều đã xảy ra trước đó, chúng ta dùng **wish + had known / had said** ...:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I **wish** I**'d known** about the party. I'd have gone if I'd known.",
+                  "note": "but I didn't know",
+                  "vi": "Ước gì tôi biết về buổi tiệc đó. Nếu biết thì tôi đã đến rồi."
+                },
+                {
+                  "en": "It was a stupid thing to say. I **wish** I **hadn't said** it.",
+                  "note": "but I said it",
+                  "vi": "Đó là một điều ngốc nghếch khi nói ra. Ước gì tôi đã không nói điều đó."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "See also Units 39 and 40.",
+              "vi": "Xem thêm Unit 39 và Unit 40."
+            }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "wish I could / wish I could have: tiếc là không thể làm gì",
+          "headingEn": "wish I could / wish I could have",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "**I wish I could** (do something) = I regret that I cannot do it:",
+              "vi": "**I wish I could** (làm gì) = tôi tiếc là mình không thể làm điều đó:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I'm sorry you have to go. I **wish** you **could** stay longer.",
+                  "note": "but you can't",
+                  "vi": "Tôi rất tiếc là bạn phải đi. Ước gì bạn có thể ở lại lâu hơn."
+                },
+                {
+                  "en": "I've met that man before. I **wish** I **could** remember his name.",
+                  "note": "but I can't",
+                  "vi": "Tôi đã gặp người đó trước đây rồi. Ước gì tôi nhớ được tên anh ta."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "**I wish I could have** (done something) = I regret that I could not do it:",
+              "vi": "**I wish I could have** (đã làm gì) = tôi tiếc là mình đã không thể làm điều đó:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I hear the party was great. I **wish** I **could have gone**.",
+                  "note": "but I couldn't go",
+                  "vi": "Tôi nghe nói buổi tiệc rất hay. Ước gì tôi đã có thể đến đó."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "D",
+          "heading": "wish + would: muốn điều gì đó xảy ra hoặc thay đổi",
+          "headingEn": "wish + would to want something to happen or change",
+          "parts": [
+            {
+              "kind": "situation",
+              "text": "It's been raining all day. Tanya doesn't like it. She says:",
+              "vi": "Trời đã mưa suốt cả ngày. Tanya không thích điều đó. Cô ấy nói:",
+              "quotes": [
+                {
+                  "text": "I wish it **would** stop raining.",
+                  "vi": "Ước gì trời tạnh mưa."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "Tanya would like the rain to stop, but this will probably not happen. We use **I wish ... would** when we would like something to happen or change.",
+              "vi": "Tanya muốn trời tạnh mưa, nhưng điều này có thể sẽ không xảy ra. Chúng ta dùng **I wish ... would** khi muốn điều gì đó xảy ra hoặc thay đổi."
+            },
+            {
+              "kind": "text",
+              "text": "We often use I wish ... would to complain about a situation:",
+              "vi": "Chúng ta thường dùng I wish ... would để phàn nàn về một tình huống:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "The phone has been ringing for five minutes. I **wish** somebody **would** answer it.",
+                  "vi": "Điện thoại đã kêu suốt năm phút rồi. Ước gì có ai đó trả lời nó."
+                },
+                {
+                  "en": "I **wish** you'd do (= you would do) something instead of just sitting and doing nothing.",
+                  "vi": "Ước gì bạn làm gì đó thay vì chỉ ngồi không."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "You can use **I wish ... wouldn't ...** to complain about things that people do repeatedly:",
+              "vi": "Bạn có thể dùng **I wish ... wouldn't ...** để phàn nàn về những việc người khác lặp đi lặp lại:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I **wish** you **wouldn't** keep interrupting me.",
+                  "note": "= please stop interrupting me",
+                  "vi": "Ước gì bạn đừng ngắt lời tôi mãi thế."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "E",
+          "heading": "wish ... would (muốn thay đổi) khác với wish + quá khứ (mô tả)",
+          "headingEn": "wish ... would (wanting change) vs wish + past (describing)",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "We use **I wish ... would ...** to say that we want something to happen. We do not use I wish ... would ... to say how we would like things to be. Compare:",
+              "vi": "Chúng ta dùng **I wish ... would ...** để nói rằng mình muốn điều gì đó xảy ra. Chúng ta không dùng I wish ... would ... để nói mình muốn mọi việc như thế nào. So sánh:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I **wish** Sarah **would** come.",
+                  "note": "= I want her to come",
+                  "vi": "Ước gì Sarah đến."
+                },
+                {
+                  "en": "but I **wish** Sarah **was** (or **were**) here now.",
+                  "note": "not I wish Sarah would be",
+                  "vi": "nhưng: Ước gì bây giờ Sarah có ở đây."
+                },
+                {
+                  "en": "I **wish** somebody **would** buy me a car.",
+                  "vi": "Ước gì có ai đó mua xe cho tôi."
+                },
+                {
+                  "en": "but I **wish** I **had** a car.",
+                  "note": "not I wish I would have",
+                  "vi": "nhưng: Ước gì tôi có một chiếc xe."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "fill_mc",
+      "title": "41.1 · Điền wish(ed) hoặc hope(d)",
+      "titleEn": "41.1 · Put in wish(ed) or hope(d)",
+      "instructions": "Điền wish, wished, hope hoặc hoped vào chỗ trống.",
+      "instructionsEn": "Put in wish(ed) or hope(d).",
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "I ___ you a pleasant stay at this hotel.",
+          "answer": "wish"
+        }
+      ],
+      "startNumber": 2,
+      "items": [
+        {
+          "before": "Enjoy your holiday. I",
+          "after": "you have a great time.",
+          "options": ["wish", "wished", "hope", "hoped"],
+          "answer": "hope"
+        },
+        {
+          "before": "Goodbye. I",
+          "after": "you all the best for the future.",
+          "options": ["wish", "wished", "hope", "hoped"],
+          "answer": "wish"
+        },
+        {
+          "before": "We said goodbye to each other and",
+          "after": "each other luck.",
+          "options": ["wish", "wished", "hope", "hoped"],
+          "answer": "wished"
+        },
+        {
+          "before": "We're going to have a picnic tomorrow, so I",
+          "after": "the weather is nice.",
+          "options": ["wish", "wished", "hope", "hoped"],
+          "answer": "hope"
+        },
+        {
+          "before": "Congratulations on your new job. I",
+          "after": "you every success.",
+          "options": ["wish", "wished", "hope", "hoped"],
+          "answer": "wish"
+        },
+        {
+          "before": "Good luck in your new job. I",
+          "after": "it works out well for you.",
+          "options": ["wish", "wished", "hope", "hoped"],
+          "answer": "hope"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "41.2 · Hoàn thành câu",
+      "titleEn": "41.2 · Complete the sentences",
+      "instructions": "Hoàn thành các câu, dùng wish + quá khứ.",
+      "instructionsEn": "Complete the sentences.",
+      "examples": [
+        {
+          "context": "Jack's going on a trip to Mexico soon.",
+          "prompt": "I wish I ___ going too.",
+          "answer": "was"
+        }
+      ],
+      "items": [
+        {
+          "context": "I'm very tired and I have so much to do.",
+          "prompt": "I wish I ___ so tired.",
+          "answer": "wasn't",
+          "accept": ["weren't"]
+        },
+        {
+          "context": "You didn't tell me you were ill. Why not?",
+          "prompt": "I wish you ___ me.",
+          "answer": "had told",
+          "accept": ["'d told"]
+        },
+        {
+          "context": "I don't have enough free time.",
+          "prompt": "I wish I ___ more free time.",
+          "answer": "had"
+        },
+        {
+          "context": "I can't make up my mind what to do.",
+          "prompt": "I wish I ___ decide.",
+          "answer": "could"
+        },
+        {
+          "context": "I bought these shoes, but now I don't like them.",
+          "prompt": "I wish I ___ them.",
+          "answer": "hadn't bought"
+        },
+        {
+          "context": "We have to go out now and I don't want to go.",
+          "prompt": "I wish we ___ to go out now.",
+          "answer": "didn't have"
+        },
+        {
+          "context": "Unfortunately I couldn't go to the wedding last month.",
+          "prompt": "I wish I could ___.",
+          "answer": "have gone"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "41.3 · Viết câu với I wish ... would / wouldn't ...",
+      "titleEn": "41.3 · Write sentences with I wish ... would / wouldn't ...",
+      "instructions": "Bạn sẽ nói gì trong những tình huống này? Viết câu với I wish ... would ... (câu 2-4), sau đó viết câu với I wish ... wouldn't ... (câu 5-7).",
+      "instructionsEn": "What do you say in these situations? Write sentences with I wish ... would ... (2-4), then write sentences with I wish ... wouldn't ... (5-7).",
+      "examples": [
+        {
+          "context": "It's raining. You want to go out, but not in the rain.",
+          "prompt": "You say: ___",
+          "answer": "I wish it would stop raining."
+        }
+      ],
+      "items": [
+        {
+          "context": "You're waiting for Jane. She's late and you're getting impatient.",
+          "prompt": "You say to yourself: I wish she ___.",
+          "answer": "would come",
+          "accept": ["'d come", "would hurry up"]
+        },
+        {
+          "context": "You're looking for a job, so far without success. Nobody will give you a job.",
+          "prompt": "You say: I wish somebody ___.",
+          "answer": "would give me a job",
+          "accept": ["would offer me a job"]
+        },
+        {
+          "context": "You can hear a dog barking. It's been barking a long time and you're trying to study.",
+          "prompt": "You say: ___",
+          "answer": "I wish that dog would stop barking.",
+          "accept": ["I wish the dog would stop barking.", "I wish somebody would stop that dog barking."]
+        },
+        {
+          "context": "Your friend is driving very fast. She always drives fast and you don't like this.",
+          "prompt": "You say to her: I wish you ___.",
+          "answer": "wouldn't drive so fast"
+        },
+        {
+          "context": "Joe leaves the door open all the time. This annoys you.",
+          "prompt": "You say to Joe: ___",
+          "answer": "I wish you wouldn't leave the door open."
+        },
+        {
+          "context": "A lot of people drop litter in the street. You don't like this.",
+          "prompt": "You say: I wish people ___.",
+          "answer": "wouldn't drop litter",
+          "accept": ["wouldn't drop litter in the street"]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "41.4 · Chia động từ ở dạng đúng",
+      "titleEn": "41.4 · Put the verb into the correct form",
+      "instructions": "Chia động từ trong ngoặc ở dạng đúng.",
+      "instructionsEn": "Put the verb into the correct form.",
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "It was a stupid thing to say. I wish I ___ it. (I / not / say)",
+          "answer": "hadn't said"
+        },
+        {
+          "label": "2",
+          "prompt": "I'm fed up with this rain. I wish it ___. (it / stop)",
+          "answer": "would stop"
+        }
+      ],
+      "items": [
+        {
+          "prompt": "It's a difficult question. I wish ___ the answer. (I / know)",
+          "answer": "I knew"
+        },
+        {
+          "prompt": "I really didn't enjoy the party. I wish ___. (we / not / go)",
+          "answer": "we hadn't gone"
+        },
+        {
+          "prompt": "I wish ___. We've been waiting for 20 minutes. (the bus / come)",
+          "answer": "the bus would come"
+        },
+        {
+          "prompt": "You're lucky to be going away. I wish ___ with you. (I / can / come)",
+          "answer": "I could come"
+        },
+        {
+          "prompt": "Our flat is rather small. I wish ___ a bit bigger. (it / be)",
+          "answer": "it was",
+          "accept": ["it were"]
+        },
+        {
+          "prompt": "I should have listened to you. I wish ___ your advice. (I / take)",
+          "answer": "I had taken",
+          "accept": ["I'd taken"]
+        },
+        {
+          "prompt": "You keep interrupting me! I wish ___. (you / listen)",
+          "answer": "you would listen",
+          "accept": ["you'd listen"]
+        },
+        {
+          "prompt": "You're always complaining. I wish ___ all the time. (you / not / complain)",
+          "answer": "you wouldn't complain"
+        },
+        {
+          "prompt": "It's freezing today. I wish ___ so cold. I hate cold weather. (it / not / be)",
+          "answer": "it wasn't",
+          "accept": ["it weren't"]
+        },
+        {
+          "prompt": "I wish ___. It's horrible! (the weather / change)",
+          "answer": "the weather would change"
+        },
+        {
+          "prompt": "I wish ___ a piano. I'd love to have one. (I / have)",
+          "answer": "I had"
+        },
+        {
+          "prompt": "When we were in London last year, we didn't have time to see all the things we wanted to see. I wish ___ there longer. (we / can / stay)",
+          "answer": "we could stay"
+        }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng wish: một câu tiếc về hiện tại hoặc quá khứ (I wish I ...), và một câu muốn ai đó hoặc điều gì thay đổi (I wish ... would/wouldn't ...).",
+      "instructionsEn": "Write 2-3 English sentences using wish: one regretting something now or in the past (I wish I ...), and one wanting somebody or something to change (I wish ... would/wouldn't ...).",
+      "ruleSummary": "This unit practises wish. To wish somebody luck/success/happiness etc. we use wish + object + noun (I wish you all the best), but to say we want a future event to happen we use hope, not wish (I hope you feel better soon, not I wish you feel). To regret how something is now, wish is followed by the past (I wish I knew, I wish I was/were going too); to regret something that happened or didn't happen before, wish is followed by had + past participle (I wish I'd known, I wish I hadn't said it), matching units 39 and 40. wish I could (do) regrets a present inability and wish I could have (done) regrets a past one. wish + would is used to say we want something to happen or change, often to complain about a repeated situation or something someone keeps doing (I wish somebody would answer it, I wish you wouldn't keep interrupting me) - it is not used to describe how we would like things to be in general, where wish + past is used instead (I wish Sarah would come = I want her to come, but I wish Sarah was/were here now, not I wish Sarah would be). A correct student sentence must use had + past participle (not just past simple) for a past regret, and would/wouldn't + base verb (never wish + would + past tense) for the change one wants."
+    }
+  ]
+};
+
+
+const UNIT_42_PASSIVE_1: GrammarUnit = {
+  "unit": 42,
+  "slug": "passive-1-is-done-was-done",
+  "title": "Passive 1 (is done / was done)",
+  "topic": "the passive",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "Câu chủ động và câu bị động: chủ ngữ làm gì so với điều xảy ra với chủ ngữ",
+          "headingEn": "Active vs passive: what the subject does vs what happens to it",
+          "intro": "Study this example:",
+          "introVi": "Hãy xem ví dụ sau:",
+          "parts": [
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "This house **was built** in 1981.",
+                  "vi": "Căn nhà này được xây vào năm 1981."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "'This house was built' is *passive*.",
+              "vi": "'This house was built' là câu *bị động*."
+            },
+            {
+              "kind": "text",
+              "text": "Compare active and passive:",
+              "vi": "So sánh câu chủ động và câu bị động:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "Somebody **built** this house in 1981.",
+                  "note": "active - subject: somebody, object: this house",
+                  "vi": "Ai đó đã xây căn nhà này vào năm 1981. (câu chủ động)"
+                },
+                {
+                  "en": "This house **was built** in 1981.",
+                  "note": "passive - subject: this house",
+                  "vi": "Căn nhà này được xây vào năm 1981. (câu bị động)"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "When we use an active verb, we say what the subject does:",
+              "vi": "Khi dùng động từ ở dạng chủ động, chúng ta nói chủ ngữ làm gì:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "My grandfather was a builder. He **built** this house in 1981.",
+                  "vi": "Ông tôi là thợ xây. Ông đã xây căn nhà này vào năm 1981."
+                },
+                {
+                  "en": "It's a big company. It **employs** two hundred people.",
+                  "vi": "Đó là một công ty lớn. Công ty đó có hai trăm nhân viên."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "When we use a passive verb, we say what happens to the subject:",
+              "vi": "Khi dùng động từ ở dạng bị động, chúng ta nói điều gì xảy ra với chủ ngữ:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "'How old is this house?' 'It **was built** in 1981.'",
+                  "vi": "'Căn nhà này bao nhiêu tuổi rồi?' 'Nó được xây vào năm 1981.'"
+                },
+                {
+                  "en": "Two hundred people **are employed** by the company.",
+                  "vi": "Hai trăm người được công ty đó thuê làm việc."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "Dùng by khi cần nói rõ ai/điều gì gây ra hành động",
+          "headingEn": "Use by when you need to say who or what causes the action",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "When we use the passive, who or what causes the action is often unknown or unimportant:",
+              "vi": "Khi dùng câu bị động, ai hoặc điều gì gây ra hành động thường không rõ hoặc không quan trọng:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "A lot of money **was stolen** in the robbery.",
+                  "note": "somebody stole it, but we don't know who",
+                  "vi": "Rất nhiều tiền đã bị đánh cắp trong vụ cướp đó."
+                },
+                {
+                  "en": "**Is** this room **cleaned** every day?",
+                  "note": "does somebody clean it? it's not important who",
+                  "vi": "Phòng này có được dọn mỗi ngày không?"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "If we want to say who does or what causes the action, we use **by**:",
+              "vi": "Nếu muốn nói rõ ai làm hoặc điều gì gây ra hành động, chúng ta dùng **by**:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "This house **was built by** my grandfather.",
+                  "vi": "Căn nhà này được ông tôi xây."
+                },
+                {
+                  "en": "Two hundred people **are employed by** the company.",
+                  "vi": "Hai trăm người được công ty đó thuê làm việc."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "Cách thành lập câu bị động: be + phân từ hai",
+          "headingEn": "Formation: be + past participle",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "The passive is **be** (is/was etc.) + **past participle** (done/cleaned/seen etc.):",
+              "vi": "Câu bị động có dạng **be** (is/was ...) + **phân từ hai** (done/cleaned/seen ...):"
+            },
+            {
+              "kind": "words",
+              "words": ["(be) done", "(be) cleaned", "(be) damaged", "(be) built", "(be) seen"]
+            },
+            {
+              "kind": "text",
+              "text": "The past participle often ends in **-ed** (cleaned/damaged etc.), but many important verbs are irregular (built/done/stolen etc.). See Appendix 1.",
+              "vi": "Phân từ hai thường có đuôi **-ed** (cleaned/damaged ...), nhưng nhiều động từ quan trọng lại bất quy tắc (built/done/stolen ...). Xem Phụ lục 1."
+            },
+            {
+              "kind": "text",
+              "text": "Compare active and passive, present simple and past simple:",
+              "vi": "So sánh chủ động và bị động, thì hiện tại đơn và quá khứ đơn:"
+            },
+            {
+              "kind": "table",
+              "table": {
+                "headers": ["", "active", "passive"],
+                "rows": [
+                  ["Present simple", "clean(s) / see(s) etc.", "am/is/are + cleaned/seen etc."],
+                  ["Past simple", "cleaned/saw etc.", "was/were + cleaned/seen etc."]
+                ]
+              }
+            },
+            {
+              "kind": "examples",
+              "heading": "Present simple",
+              "headingVi": "Hiện tại đơn",
+              "items": [
+                {
+                  "en": "Somebody **cleans** this room every day.",
+                  "vi": "Có ai đó dọn phòng này mỗi ngày."
+                },
+                {
+                  "en": "This room **is cleaned** every day.",
+                  "vi": "Phòng này được dọn mỗi ngày."
+                },
+                {
+                  "en": "Many accidents **are caused** by careless driving.",
+                  "vi": "Nhiều tai nạn là do lái xe cẩu thả gây ra."
+                },
+                {
+                  "en": "I'**m not invited** to parties very often.",
+                  "vi": "Tôi không thường được mời đến các buổi tiệc."
+                },
+                {
+                  "en": "How **is** this word **pronounced**?",
+                  "vi": "Từ này được phát âm như thế nào?"
+                }
+              ]
+            },
+            {
+              "kind": "examples",
+              "heading": "Past simple",
+              "headingVi": "Quá khứ đơn",
+              "items": [
+                {
+                  "en": "Somebody **cleaned** this room yesterday.",
+                  "vi": "Có ai đó đã dọn phòng này hôm qua."
+                },
+                {
+                  "en": "This room **was cleaned** yesterday.",
+                  "vi": "Phòng này đã được dọn hôm qua."
+                },
+                {
+                  "en": "We **were woken up** by a loud noise during the night.",
+                  "vi": "Chúng tôi bị đánh thức bởi một tiếng động lớn trong đêm."
+                },
+                {
+                  "en": "'Did you go to the party?' 'No, I **wasn't invited**.'",
+                  "vi": "'Bạn có đi dự tiệc không?' 'Không, tôi không được mời.'"
+                },
+                {
+                  "en": "How much money **was stolen** in the robbery?",
+                  "vi": "Bao nhiêu tiền đã bị đánh cắp trong vụ cướp đó?"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "42.1 · Hoàn thành câu với động từ cho sẵn ở dạng bị động",
+      "titleEn": "42.1 · Complete the sentences with the given verbs, passive",
+      "instructions": "Hoàn thành các câu, dùng những động từ sau ở dạng đúng (bị động, hiện tại hoặc quá khứ).",
+      "instructionsEn": "Complete the sentences. Use these verbs in the correct form, present or past:",
+      "wordBank": ["cause", "damage", "find", "hold", "injure", "invite", "make", "overtake", "own", "send", "show", "surround"],
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "Many accidents ___ by careless driving.",
+          "answer": "are caused"
+        }
+      ],
+      "startNumber": 2,
+      "items": [
+        {
+          "prompt": "Cheese ___ from milk.",
+          "answer": "is made"
+        },
+        {
+          "prompt": "The roof of the building ___ in a storm a few days ago.",
+          "answer": "was damaged"
+        },
+        {
+          "prompt": "A cinema is a place where films ___.",
+          "answer": "are shown"
+        },
+        {
+          "prompt": "You ___ to the party. Why didn't you go?",
+          "answer": "were invited"
+        },
+        {
+          "prompt": "This plant is very rare. It ___ in very few places.",
+          "answer": "is found"
+        },
+        {
+          "prompt": "Although we were driving fast, we ___ by a lot of other cars.",
+          "answer": "were overtaken"
+        },
+        {
+          "prompt": "In the US, elections for president ___ every four years.",
+          "answer": "are held"
+        },
+        {
+          "prompt": "There was an accident last night, but fortunately nobody ___.",
+          "answer": "was injured"
+        },
+        {
+          "prompt": "You can't see the house from the road. It ___ by trees.",
+          "answer": "is surrounded"
+        },
+        {
+          "prompt": "I never received the letter. It ___ to the wrong address.",
+          "answer": "was sent"
+        },
+        {
+          "prompt": "The company I work for ___ by a much larger company.",
+          "answer": "is owned"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "42.2 · Viết câu hỏi ở dạng bị động",
+      "titleEn": "42.2 · Write questions using the passive",
+      "instructions": "Viết câu hỏi ở dạng bị động. Một số câu ở hiện tại, một số ở quá khứ.",
+      "instructionsEn": "Write questions using the passive. Some are present and some are past.",
+      "examples": [
+        {
+          "context": "Ask about glass.",
+          "prompt": "___ (how / make?)",
+          "answer": "How is glass made?"
+        }
+      ],
+      "items": [
+        {
+          "context": "Ask about television.",
+          "prompt": "___ (when / invent?)",
+          "answer": "When was television invented?"
+        },
+        {
+          "context": "Ask about mountains.",
+          "prompt": "___ (how / form?)",
+          "answer": "How are mountains formed?"
+        },
+        {
+          "context": "Ask about DNA.",
+          "prompt": "___ (when / discover?)",
+          "answer": "When was DNA discovered?"
+        },
+        {
+          "context": "Ask about silver.",
+          "prompt": "___ (what / use for?)",
+          "answer": "What is silver used for?"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "42.3 · Chia động từ ở dạng đúng, chủ động hoặc bị động",
+      "titleEn": "42.3 · Put the verb into the correct form, active or passive",
+      "instructions": "Chia động từ trong ngoặc ở dạng đúng: hiện tại hoặc quá khứ, chủ động hoặc bị động.",
+      "instructionsEn": "Put the verb into the correct form, present or past, active or passive.",
+      "examples": [
+        {
+          "label": "1a",
+          "prompt": "Two hundred people ___ by the company. (employ)",
+          "answer": "are employed"
+        },
+        {
+          "label": "1b",
+          "prompt": "The company ___ 200 people. (employ)",
+          "answer": "employs"
+        }
+      ],
+      "items": [
+        {
+          "label": "2a",
+          "prompt": "Water ___ most of the earth's surface. (cover)",
+          "answer": "covers"
+        },
+        {
+          "label": "2b",
+          "prompt": "How much of the earth's surface ___ by water? (cover)",
+          "answer": "is covered"
+        },
+        {
+          "label": "3a",
+          "context": "While I was on holiday, my camera ___ from my hotel room. (steal)",
+          "prompt": "___",
+          "answer": "was stolen"
+        },
+        {
+          "label": "3b",
+          "context": "While I was on holiday, my camera ___ from my hotel room. (disappear)",
+          "prompt": "___",
+          "answer": "disappeared"
+        },
+        {
+          "label": "4a",
+          "prompt": "Robert's parents ___ when he was very young. (die)",
+          "answer": "died"
+        },
+        {
+          "label": "4b",
+          "prompt": "Robert and his sister ___ by their grandparents. (bring up)",
+          "answer": "were brought up"
+        },
+        {
+          "label": "5a",
+          "prompt": "The boat hit a rock and ___ quickly. (sink)",
+          "answer": "sank"
+        },
+        {
+          "label": "5b",
+          "prompt": "Fortunately everybody ___. (rescue)",
+          "answer": "was rescued"
+        },
+        {
+          "label": "6a",
+          "context": "Bill ___. He wasn't very good at it. (fire)",
+          "prompt": "___",
+          "answer": "was fired"
+        },
+        {
+          "label": "6b",
+          "prompt": "Sue ___ from her job because she didn't enjoy it any more. (resign)",
+          "answer": "resigned"
+        },
+        {
+          "label": "7a",
+          "context": "It can be noisy living here, but it ___ me. (not / bother)",
+          "prompt": "___",
+          "answer": "doesn't bother"
+        },
+        {
+          "label": "7b",
+          "context": "It can be noisy living here, but I ___ by it. (not / bother)",
+          "prompt": "___",
+          "answer": "am not bothered",
+          "accept": ["'m not bothered"]
+        },
+        {
+          "label": "8a",
+          "context": "Maria had an accident.",
+          "prompt": "She ___ off her bike. (knock)",
+          "answer": "was knocked"
+        },
+        {
+          "label": "8b",
+          "context": "Maria had an accident.",
+          "prompt": "She ___ off her bike. (fall)",
+          "answer": "fell"
+        },
+        {
+          "label": "9a",
+          "context": "I haven't seen these flowers before.",
+          "prompt": "What ___? (they / call)",
+          "answer": "are they called"
+        },
+        {
+          "label": "9b",
+          "context": "I haven't seen these flowers before.",
+          "prompt": "What ___ them? (you / call)",
+          "answer": "do you call"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "42.4 · Viết lại câu ở dạng bị động",
+      "titleEn": "42.4 · Write a passive sentence instead",
+      "instructions": "Thay vì dùng somebody, they, people ..., hãy viết lại câu ở dạng bị động.",
+      "instructionsEn": "Instead of using somebody, they, people etc., write a passive sentence.",
+      "examples": [
+        {
+          "context": "Somebody cleans the room every day.",
+          "prompt": "___",
+          "answer": "The room is cleaned every day."
+        }
+      ],
+      "items": [
+        {
+          "context": "They cancelled all flights because of fog.",
+          "prompt": "___",
+          "answer": "All flights were cancelled because of fog."
+        },
+        {
+          "context": "Somebody accused me of stealing money.",
+          "prompt": "___",
+          "answer": "I was accused of stealing money."
+        },
+        {
+          "context": "How do you use this word?",
+          "prompt": "___",
+          "answer": "How is this word used?"
+        },
+        {
+          "context": "The price includes all taxes.",
+          "prompt": "___",
+          "answer": "All taxes are included in the price."
+        },
+        {
+          "context": "People warned us not to go out alone.",
+          "prompt": "___",
+          "answer": "We were warned not to go out alone."
+        },
+        {
+          "context": "We don't use this office any more.",
+          "prompt": "___",
+          "answer": "This office isn't used any more."
+        },
+        {
+          "context": "They invited five hundred people to the wedding.",
+          "prompt": "___",
+          "answer": "Five hundred people were invited to the wedding."
+        }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh ở dạng bị động về những sự việc quanh bạn: một câu ở hiện tại đơn bị động và một câu ở quá khứ đơn bị động.",
+      "instructionsEn": "Write 2-3 English sentences in the passive about things around you: one in the present simple passive and one in the past simple passive.",
+      "ruleSummary": "This unit practises the passive with is/are done (present simple) and was/were done (past simple). The passive is formed with be + past participle (is cleaned, was built), and be changes for tense and number the same way it does elsewhere (am/is/are for present, was/were for past). The passive is used when who or what causes the action is unknown or unimportant (A lot of money was stolen in the robbery); when the doer needs to be named, by + agent is added at the end (This house was built by my grandfather). A correct student sentence must use the right form of be for its subject and tense plus the past participle of the main verb, and must not put the main verb in its active form (not This room clean every day, not This room cleaned by somebody every day with an extra active-looking verb)."
+    }
+  ]
+};
+
+const UNIT_43_PASSIVE_2: GrammarUnit = {
+  "unit": 43,
+  "slug": "passive-2-be-done-been-done-being-done",
+  "title": "Passive 2 (be done / been done / being done)",
+  "topic": "the passive",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "Dạng nguyên thể bị động: (to) be + phân từ hai",
+          "headingEn": "Infinitive passive: (to) be + past participle",
+          "parts": [
+            {
+              "kind": "table",
+              "table": {
+                "headers": ["", "active", "passive"],
+                "rows": [
+                  ["Infinitive", "(to) do/clean/see etc.", "(to) **be** + done/cleaned/seen etc."]
+                ]
+              }
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "The situation is serious. Something **must be done** before it's too late.",
+                  "vi": "Tình hình nghiêm trọng. Phải làm gì đó trước khi quá muộn."
+                },
+                {
+                  "en": "A mystery is something that **can't be explained**.",
+                  "vi": "Một điều bí ẩn là điều không thể giải thích được."
+                },
+                {
+                  "en": "The music was very loud and **could be heard** from a long way away.",
+                  "vi": "Nhạc rất to và có thể nghe thấy từ xa."
+                },
+                {
+                  "en": "A new supermarket **is going to be built** next year.",
+                  "vi": "Một siêu thị mới sẽ được xây vào năm sau."
+                },
+                {
+                  "en": "Please go away. I **want to be left** alone.",
+                  "vi": "Xin hãy đi đi. Tôi muốn được ở một mình."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "Dạng nguyên thể hoàn thành bị động: (to) have been + phân từ hai",
+          "headingEn": "Perfect infinitive passive: (to) have been + past participle",
+          "parts": [
+            {
+              "kind": "table",
+              "table": {
+                "headers": ["", "active", "passive"],
+                "rows": [
+                  ["Perfect infinitive", "(to) have + done/cleaned/seen etc.", "(to) **have been** + done/cleaned/seen etc."]
+                ]
+              }
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I haven't received the letter yet. It **might have been sent** to the wrong address.",
+                  "vi": "Tôi vẫn chưa nhận được lá thư. Có thể nó đã bị gửi nhầm địa chỉ."
+                },
+                {
+                  "en": "If you had locked the car, it **wouldn't have been stolen**.",
+                  "vi": "Nếu bạn đã khóa xe thì nó đã không bị mất."
+                },
+                {
+                  "en": "There were some problems at first, but they **seem to have been solved**.",
+                  "vi": "Ban đầu có một số vấn đề, nhưng hình như chúng đã được giải quyết."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "Hiện tại hoàn thành và quá khứ hoàn thành bị động: have/had been + phân từ hai",
+          "headingEn": "Present perfect and past perfect passive: have/had been + past participle",
+          "parts": [
+            {
+              "kind": "table",
+              "table": {
+                "headers": ["", "active", "passive"],
+                "rows": [
+                  ["Present perfect", "have/has + done etc.", "have/has **been** + done etc."],
+                  ["Past perfect", "had + done etc.", "had **been** + done etc."]
+                ]
+              }
+            },
+            {
+              "kind": "examples",
+              "heading": "Present perfect",
+              "headingVi": "Hiện tại hoàn thành",
+              "items": [
+                {
+                  "en": "Have you heard? The trip **has been cancelled**.",
+                  "vi": "Bạn nghe chưa? Chuyến đi đã bị hủy rồi."
+                },
+                {
+                  "en": "Have you ever **been bitten** by a dog?",
+                  "vi": "Bạn đã từng bị chó cắn chưa?"
+                },
+                {
+                  "en": "'Are you going to the party?' 'No, I **haven't been invited**.'",
+                  "vi": "'Bạn có đi dự tiệc không?' 'Không, tôi không được mời.'"
+                }
+              ]
+            },
+            {
+              "kind": "examples",
+              "heading": "Past perfect",
+              "headingVi": "Quá khứ hoàn thành",
+              "items": [
+                {
+                  "en": "The vegetables didn't taste good. They **had been cooked** too long.",
+                  "vi": "Rau ăn không ngon. Chúng đã bị nấu quá lâu."
+                },
+                {
+                  "en": "The car was three years old, but **hadn't been used** very much.",
+                  "vi": "Chiếc xe đã ba năm tuổi, nhưng không được dùng nhiều."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "D",
+          "heading": "Hiện tại và quá khứ tiếp diễn bị động: am/is/are/was/were being + phân từ hai",
+          "headingEn": "Present and past continuous passive: am/is/are/was/were being + past participle",
+          "parts": [
+            {
+              "kind": "table",
+              "table": {
+                "headers": ["", "active", "passive"],
+                "rows": [
+                  ["Present continuous", "am/is/are + (do)ing", "am/is/are + **being** (done)"],
+                  ["Past continuous", "was/were + (do)ing", "was/were + **being** (done)"]
+                ]
+              }
+            },
+            {
+              "kind": "examples",
+              "heading": "Present continuous",
+              "headingVi": "Hiện tại tiếp diễn",
+              "items": [
+                {
+                  "en": "There's somebody walking behind us. I think we **are being followed**.",
+                  "vi": "Có ai đó đang đi theo sau chúng ta. Tôi nghĩ chúng ta đang bị theo dõi."
+                },
+                {
+                  "en": "A new bridge **is being built** across the river. It will be finished next year.",
+                  "vi": "Một cây cầu mới đang được xây qua sông. Nó sẽ hoàn thành vào năm sau."
+                }
+              ]
+            },
+            {
+              "kind": "examples",
+              "heading": "Past continuous",
+              "headingVi": "Quá khứ tiếp diễn",
+              "items": [
+                {
+                  "en": "There was somebody walking behind us. I think we **were being followed**.",
+                  "vi": "Có ai đó đã đi theo sau chúng ta. Tôi nghĩ chúng tôi đã bị theo dõi."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "43.1 · Hoàn thành câu với động từ cho sẵn ở dạng bị động",
+      "titleEn": "43.1 · Complete the sentences with the given verbs, passive",
+      "instructions": "Hoàn thành các câu, dùng các động từ sau ở dạng bị động. Một số câu cần have (might have, would have ...).",
+      "instructionsEn": "Use the following verbs in the passive. Sometimes you need have (might have, would have etc.):",
+      "wordBank": ["arrest", "carry", "cause", "delay", "do", "forget", "keep", "knock", "know", "make", "repair", "send"],
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "The situation is serious. Something must ___ before it's too late.",
+          "answer": "be done"
+        },
+        {
+          "label": "2",
+          "prompt": "I haven't received the letter yet. It might ___ to the wrong address.",
+          "answer": "have been sent"
+        }
+      ],
+      "items": [
+        {
+          "prompt": "A decision will not ___ until the next meeting.",
+          "answer": "be made"
+        },
+        {
+          "prompt": "These documents are important. They should always ___ in a safe place.",
+          "answer": "be kept"
+        },
+        {
+          "prompt": "This road is in bad condition. It should ___ a long time ago.",
+          "answer": "have been repaired"
+        },
+        {
+          "prompt": "The injured man couldn't walk and had to ___.",
+          "answer": "be carried"
+        },
+        {
+          "prompt": "If you hadn't shouted at the policeman, you wouldn't ___.",
+          "answer": "have been arrested"
+        },
+        {
+          "prompt": "I'm not sure what time I'll arrive tomorrow. I may ___.",
+          "answer": "be delayed"
+        },
+        {
+          "prompt": "It's not certain how the fire started. It might ___ by an electrical fault.",
+          "answer": "have been caused"
+        },
+        {
+          "prompt": "A new school is being built. The old one is going to ___ down.",
+          "answer": "be knocked"
+        },
+        {
+          "prompt": "The election is next Sunday. The full results will ___ on Tuesday.",
+          "answer": "be known"
+        },
+        {
+          "context": "Last week they weren't speaking to one another. Now they're happy again.",
+          "prompt": "The problem seems to ___.",
+          "answer": "have been forgotten"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "43.2 · Đặt câu từ các từ gợi ý",
+      "titleEn": "43.2 · Make sentences from the words in brackets",
+      "instructions": "Đặt câu từ các từ trong ngoặc. Có câu chủ động, có câu bị động.",
+      "instructionsEn": "Make sentences from the words in brackets. Sometimes the verb is active, sometimes passive.",
+      "examples": [
+        {
+          "context": "There's somebody behind us.",
+          "prompt": "___ (we / follow)",
+          "answer": "We're being followed."
+        },
+        {
+          "context": "This door is a different colour, isn't it?",
+          "prompt": "___ (you / paint?)",
+          "answer": "Have you painted it?"
+        }
+      ],
+      "items": [
+        {
+          "context": "My bike has disappeared.",
+          "prompt": "___ (it / steal!)",
+          "answer": "It's been stolen!",
+          "accept": ["It has been stolen!"]
+        },
+        {
+          "context": "My umbrella has disappeared.",
+          "prompt": "___ (somebody / take)",
+          "answer": "Somebody's taken it.",
+          "accept": ["Somebody has taken it."]
+        },
+        {
+          "context": "A neighbour of mine disappeared six months ago.",
+          "prompt": "___ (he / not / see / since then)",
+          "answer": "He hasn't been seen since then."
+        },
+        {
+          "context": "I wonder how Jessica is these days.",
+          "prompt": "___ (I / not / see / for ages)",
+          "answer": "I haven't seen her for ages."
+        },
+        {
+          "context": "A friend of mine was stung by a bee recently.",
+          "prompt": "___ (you / ever / sting / bee?)",
+          "answer": "Have you ever been stung by a bee?"
+        },
+        {
+          "context": "The bridge was damaged recently.",
+          "prompt": "___ (it / repair / at the moment)",
+          "answer": "It's being repaired at the moment.",
+          "accept": ["It is being repaired at the moment."]
+        },
+        {
+          "context": "Tom's car was stolen recently.",
+          "prompt": "___ (it / not / find / yet)",
+          "answer": "It hasn't been found yet."
+        },
+        {
+          "context": "I went into the room and saw that the table and chairs were not in the same place.",
+          "prompt": "___ (the furniture / move)",
+          "answer": "The furniture had been moved."
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "43.3 · Viết lại câu ở dạng bị động",
+      "titleEn": "43.3 · Write a passive sentence instead",
+      "instructions": "Thay vì dùng somebody, they ..., hãy viết lại câu ở dạng bị động.",
+      "instructionsEn": "Instead of using somebody, they etc., write a passive sentence.",
+      "examples": [
+        {
+          "context": "Somebody has cleaned the room.",
+          "prompt": "___",
+          "answer": "The room has been cleaned."
+        }
+      ],
+      "items": [
+        {
+          "context": "They are building a new road around the city.",
+          "prompt": "___",
+          "answer": "A new road is being built around the city."
+        },
+        {
+          "context": "They have built two new hotels near the airport.",
+          "prompt": "___",
+          "answer": "Two new hotels have been built near the airport."
+        },
+        {
+          "context": "When I last visited, they were building some new houses here.",
+          "prompt": "___",
+          "answer": "When I last visited, some new houses were being built here."
+        },
+        {
+          "context": "The meeting is now on 15 April. They have changed the date.",
+          "prompt": "___",
+          "answer": "The date of the meeting has been changed to 15 April."
+        },
+        {
+          "context": "I didn't know that somebody was recording our conversation.",
+          "prompt": "___",
+          "answer": "I didn't know that our conversation was being recorded."
+        },
+        {
+          "context": "Is anyone doing anything about the problem?",
+          "prompt": "___",
+          "answer": "Is anything being done about the problem?"
+        },
+        {
+          "context": "The windows were very dirty. Nobody had cleaned them for ages.",
+          "prompt": "The windows were very dirty. ___",
+          "answer": "They hadn't been cleaned for ages."
+        }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh ở dạng bị động: một câu với modal + be done (must be done, might be sent ...) và một câu ở hiện tại/quá khứ tiếp diễn bị động (is being built, was being repaired ...).",
+      "instructionsEn": "Write 2-3 English sentences in the passive: one with a modal + be done (must be done, might be sent etc.) and one in the present/past continuous passive (is being built, was being repaired etc.).",
+      "ruleSummary": "This unit extends the passive to the infinitive, the perfect infinitive, the perfect tenses and the continuous tenses. The infinitive passive is (to) be + past participle, used after modals and similar structures (must be done, can't be explained, is going to be built, want to be left alone). The perfect infinitive passive is (to) have been + past participle (might have been sent, wouldn't have been stolen, seem to have been solved). The present perfect passive is have/has been + past participle (has been cancelled, haven't been invited) and the past perfect passive is had been + past participle (had been cooked, hadn't been used). The present continuous passive is am/is/are + being + past participle (is being built, are being followed) and the past continuous passive is was/were + being + past participle (was being repaired, were being followed). A correct student sentence must keep be/been/being in the right form for its tense and put the past participle after it, never the -ing form of the main verb in a passive slot."
+    }
+  ]
+};
+
+const UNIT_44_PASSIVE_3: GrammarUnit = {
+  "unit": 44,
+  "slug": "passive-3",
+  "title": "Passive 3",
+  "topic": "the passive",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "I was offered ... / we were given ...: động từ có hai tân ngữ",
+          "headingEn": "I was offered ... / we were given ...: verbs with two objects",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "Some verbs can have two objects. For example, **give**:",
+              "vi": "Một số động từ có thể có hai tân ngữ. Ví dụ, **give**:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "My grandfather gave me this watch.",
+                  "note": "object 1: me, object 2: this watch",
+                  "vi": "Ông tôi đã cho tôi chiếc đồng hồ này."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "It is possible to make two passive sentences:",
+              "vi": "Có thể tạo ra hai câu bị động:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "**I was given** this watch (by my grandfather).",
+                  "vi": "Tôi được (ông tôi) cho chiếc đồng hồ này."
+                },
+                {
+                  "en": "or **This watch was given** to me (by my grandfather).",
+                  "vi": "hoặc: Chiếc đồng hồ này được (ông tôi) cho tôi."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "Other verbs which can have two objects are:",
+              "vi": "Các động từ khác cũng có thể có hai tân ngữ:"
+            },
+            {
+              "kind": "words",
+              "words": ["ask", "offer", "pay", "show", "tell"]
+            },
+            {
+              "kind": "text",
+              "text": "When we use these verbs in the passive, most often we begin with the person:",
+              "vi": "Khi dùng các động từ này ở dạng bị động, chúng ta thường bắt đầu câu bằng người:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I**'ve been offered** the job, but I don't think I want it.",
+                  "note": "= somebody has offered me the job",
+                  "vi": "Tôi được đề nghị công việc đó, nhưng tôi không nghĩ mình muốn nhận."
+                },
+                {
+                  "en": "You **will be given** plenty of time to decide.",
+                  "note": "= we will give you plenty of time",
+                  "vi": "Bạn sẽ được cho nhiều thời gian để quyết định."
+                },
+                {
+                  "en": "I didn't see the original document, but I **was shown** a copy.",
+                  "note": "= somebody showed me a copy",
+                  "vi": "Tôi không thấy văn bản gốc, nhưng tôi được cho xem một bản sao."
+                },
+                {
+                  "en": "Tim has an easy job. He**'s paid** a lot of money to do very little.",
+                  "note": "= somebody pays him a lot",
+                  "vi": "Tim có một công việc dễ dàng. Anh ấy được trả nhiều tiền để làm rất ít việc."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "I don't like being ...: dạng bị động của doing/seeing",
+          "headingEn": "I don't like being ...: the passive of doing/seeing",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "The passive of doing/seeing etc. is **being done / being seen** etc. Compare:",
+              "vi": "Dạng bị động của doing/seeing ... là **being done / being seen** ... So sánh:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "active: I don't like people telling me what to do.",
+                  "vi": "chủ động: Tôi không thích người khác bảo tôi phải làm gì."
+                },
+                {
+                  "en": "passive: I don't like **being told** what to do.",
+                  "vi": "bị động: Tôi không thích bị bảo phải làm gì."
+                }
+              ]
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I remember **being taken** to the zoo when I was a child.",
+                  "note": "= I remember somebody taking me to the zoo",
+                  "vi": "Tôi nhớ mình đã được đưa đến sở thú khi còn nhỏ."
+                },
+                {
+                  "en": "Steve hates **being kept** waiting.",
+                  "note": "= he hates people keeping him waiting",
+                  "vi": "Steve ghét bị bắt phải chờ."
+                },
+                {
+                  "en": "We climbed over the wall without **being seen**.",
+                  "note": "= without anybody seeing us",
+                  "vi": "Chúng tôi leo qua tường mà không bị ai nhìn thấy."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "I was born ...",
+          "headingEn": "I was born ...",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "We say '**I was born** ...' (not I am born):",
+              "vi": "Chúng ta nói '**I was born** ...' (không nói I am born):"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I **was born** in Chicago.",
+                  "note": "past",
+                  "vi": "Tôi sinh ra ở Chicago."
+                },
+                {
+                  "en": "Where **were** you **born**?",
+                  "note": "not Where are you born?",
+                  "vi": "Bạn sinh ra ở đâu?"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "but:",
+              "vi": "nhưng:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "How many babies **are born** every day?",
+                  "note": "present",
+                  "vi": "Mỗi ngày có bao nhiêu em bé được sinh ra?"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "D",
+          "heading": "get: dùng cho bị động trong văn nói thân mật",
+          "headingEn": "get for the passive, informal spoken English",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "You can use **get** for the passive:",
+              "vi": "Bạn có thể dùng **get** để tạo câu bị động:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "There was a fight, but nobody **got hurt**.",
+                  "note": "= nobody was hurt",
+                  "vi": "Đã có một cuộc đấu đả, nhưng không ai bị thương."
+                },
+                {
+                  "en": "I don't **get invited** to many parties.",
+                  "note": "= I'm not invited",
+                  "vi": "Tôi không thường được mời đến các buổi tiệc."
+                },
+                {
+                  "en": "I'm surprised Liz didn't **get offered** the job.",
+                  "note": "= Liz wasn't offered the job",
+                  "vi": "Tôi ngạc nhiên là Liz không được đề nghị công việc đó."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "We use get only when things happen. For example, you cannot use get in these sentences:",
+              "vi": "Chúng ta chỉ dùng get khi có một sự việc *xảy ra*. Ví dụ, không thể dùng get trong các câu sau:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "Jessica is liked by everybody.",
+                  "note": "not gets liked - this is not a 'happening'",
+                  "vi": "Jessica được mọi người yêu thích."
+                },
+                {
+                  "en": "Peter was a mystery man. Very little was known about him.",
+                  "note": "not got known",
+                  "vi": "Peter là một người bí ẩn. Người ta biết rất ít về anh ta."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "We use get mainly in informal spoken English. You can use be in all situations.",
+              "vi": "Chúng ta chủ yếu dùng get trong văn nói thân mật. Bạn có thể dùng be trong mọi tình huống."
+            },
+            {
+              "kind": "text",
+              "text": "We also use get in the following expressions (which are not passive in meaning):",
+              "vi": "Chúng ta cũng dùng get trong các cụm từ sau (không mang nghĩa bị động):"
+            },
+            {
+              "kind": "words",
+              "words": ["get married", "get divorced", "get lost", "get dressed", "get changed"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "44.1 · Hoàn thành câu ở dạng đúng của động từ",
+      "titleEn": "44.1 · Complete the sentences using the correct form of the verb",
+      "instructions": "Hoàn thành các câu ở dạng đúng của động từ trong ngoặc.",
+      "instructionsEn": "Complete the sentences using the correct form of the verb.",
+      "examples": [
+        {
+          "context": "I tried to contact Tom.",
+          "prompt": "I called his office but I was ___ that he was in a meeting. (tell)",
+          "answer": "told"
+        }
+      ],
+      "items": [
+        {
+          "context": "Amy retired from her job recently.",
+          "prompt": "She ___ a present by her colleagues. (give)",
+          "answer": "was given"
+        },
+        {
+          "context": "I didn't know there was a meeting yesterday.",
+          "prompt": "I ___ about it. (not / tell)",
+          "answer": "wasn't told"
+        },
+        {
+          "context": "Sarah's salary is very low.",
+          "prompt": "I don't understand why she ___ so little. (pay)",
+          "answer": "is paid"
+        },
+        {
+          "context": "You will need to use this machine.",
+          "prompt": "Have you ___ how it works? (show)",
+          "answer": "been shown"
+        },
+        {
+          "context": "I had an interview for a job recently. It wasn't easy.",
+          "prompt": "I ___ some questions that were very hard for me to answer. (ask)",
+          "answer": "was asked"
+        },
+        {
+          "context": "They didn't tell us much about the project.",
+          "prompt": "We ___ enough information. (not / give)",
+          "answer": "weren't given"
+        },
+        {
+          "context": "I was surprised to get the job I applied for.",
+          "prompt": "I didn't expect ___ it. (offer)",
+          "answer": "to be offered"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "44.2 · Hoàn thành câu với being + động từ cho sẵn",
+      "titleEn": "44.2 · Complete the sentences using being + the given verbs",
+      "instructions": "Hoàn thành các câu, dùng being + động từ sau ở dạng đúng.",
+      "instructionsEn": "Complete the sentences using being + the following verbs (in the correct form):",
+      "wordBank": ["bite", "give", "invite", "keep", "knock down", "stick", "treat"],
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "Steve hates ___ waiting.",
+          "answer": "being kept"
+        }
+      ],
+      "startNumber": 2,
+      "items": [
+        {
+          "prompt": "We went to the wedding without ___.",
+          "answer": "being invited"
+        },
+        {
+          "prompt": "I like giving presents and I also like ___ them.",
+          "answer": "being given"
+        },
+        {
+          "prompt": "It's a busy road and I don't like crossing it. I'm afraid of ___.",
+          "answer": "being knocked down"
+        },
+        {
+          "prompt": "How do you avoid ___ by mosquitoes?",
+          "answer": "being bitten"
+        },
+        {
+          "prompt": "I'm an adult. I don't like ___ like a child.",
+          "answer": "being treated"
+        },
+        {
+          "prompt": "You can't do anything about ___ in a traffic jam.",
+          "answer": "being stuck"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "44.3 · Hoàn thành câu với get/got + động từ cho sẵn",
+      "titleEn": "44.3 · Complete the sentences using get or got + the given verbs",
+      "instructions": "Hoàn thành các câu, dùng get hoặc got + động từ sau ở dạng đúng.",
+      "instructionsEn": "Complete the sentences using get or got + the following verbs (in the correct form):",
+      "wordBank": ["ask", "break", "hurt", "pay", "steal", "sting", "stop", "use"],
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "There was a fight, but nobody ___.",
+          "answer": "got hurt"
+        }
+      ],
+      "startNumber": 2,
+      "items": [
+        {
+          "prompt": "Alex ___ by a bee while he was sitting in the garden.",
+          "answer": "got stung"
+        },
+        {
+          "prompt": "These tennis courts don't ___ very often. Not many people want to play here.",
+          "answer": "get used"
+        },
+        {
+          "prompt": "I used to have a bike, but it ___ a few months ago.",
+          "answer": "got stolen"
+        },
+        {
+          "prompt": "Rachel works hard, but she doesn't ___ very much.",
+          "answer": "get paid"
+        },
+        {
+          "prompt": "Please pack these things very carefully. I don't want anything to ___.",
+          "answer": "get broken"
+        },
+        {
+          "prompt": "People often want to know what my job is. I ___ that question a lot.",
+          "answer": "get asked"
+        },
+        {
+          "context": "Last night I ___ by the police as I was driving home. One of the lights on my car wasn't working.",
+          "prompt": "___",
+          "answer": "got stopped"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "44.4 · Hoàn thành câu",
+      "titleEn": "44.4 · Complete the sentences",
+      "instructions": "Hoàn thành các câu.",
+      "instructionsEn": "Complete the sentences.",
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "___",
+          "answer": "I've been offered the job, but I don't think I'll accept it."
+        },
+        {
+          "label": "2",
+          "prompt": "___",
+          "answer": "I don't get invited to many parties."
+        }
+      ],
+      "items": [
+        {
+          "prompt": "Which year ___ you born in?",
+          "answer": "were"
+        },
+        {
+          "prompt": "I haven't been ___ any information yet.",
+          "answer": "given"
+        },
+        {
+          "prompt": "I didn't know the way, so I got ___.",
+          "answer": "lost"
+        },
+        {
+          "prompt": "He doesn't like ___ interrupted when he's speaking.",
+          "answer": "being"
+        },
+        {
+          "prompt": "How did the window ___ broken? What happened?",
+          "answer": "get"
+        },
+        {
+          "prompt": "She's a voluntary worker. She ___ get paid.",
+          "answer": "doesn't"
+        },
+        {
+          "prompt": "I ___ born in a small town in the north of the country.",
+          "answer": "was"
+        },
+        {
+          "context": "We had to do what we did.",
+          "prompt": "We ___ given any choice.",
+          "answer": "weren't"
+        }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh: một câu bị động bắt đầu bằng người với một động từ có hai tân ngữ (I was given / I've been offered ...), và một câu dùng being + phân từ hai sau like/hate/without (I don't like being ..., without being seen).",
+      "instructionsEn": "Write 2-3 English sentences: one passive sentence beginning with the person, using a verb with two objects (I was given / I've been offered ...), and one using being + past participle after like/hate/without (I don't like being ..., without being seen).",
+      "ruleSummary": "This unit covers three passive patterns. First, verbs that can have two objects (give, ask, offer, pay, show, tell) can form a passive that begins with the person rather than the thing (I was given this watch / I've been offered the job / I was shown a copy). Second, the passive of doing/seeing after like, hate, remember, without etc. is being done/being seen (I don't like being told what to do, without being seen). Third, I was born (not I am born) is fixed in the past for an individual, though the present are born is used for a general habitual fact (How many babies are born every day?). The unit also covers get as an informal alternative to be in the passive, but only for things that happen (nobody got hurt, I don't get invited), never for a state (not Jessica gets liked by everybody), plus fixed expressions like get married and get dressed that look passive but are not. A correct student sentence must put being (not be) after like/hate/without, and must not use get for a non-happening state."
+    }
+  ]
+};
+
+const UNIT_45_SUPPOSED_TO: GrammarUnit = {
+  "unit": 45,
+  "slug": "it-is-said-that-he-is-supposed-to",
+  "title": "it is said that ... he is supposed to ...",
+  "topic": "the passive",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "it is said that ... = he is said to ...: người ta nói rằng",
+          "headingEn": "it is said that ... = he is said to ...: people say that",
+          "intro": "Study this example situation:",
+          "introVi": "Hãy xem tình huống ví dụ sau:",
+          "parts": [
+            {
+              "kind": "situation",
+              "text": "George is very old. Nobody knows exactly how old he is, but:",
+              "vi": "George đã rất già. Không ai biết chính xác ông ấy bao nhiêu tuổi, nhưng:",
+              "quotes": [
+                {
+                  "text": "It is said that he is 108 years old.",
+                  "vi": "Người ta nói rằng ông ấy đã 108 tuổi."
+                },
+                {
+                  "text": "or He is said to be 108 years old.",
+                  "vi": "hoặc: Ông ấy được cho là đã 108 tuổi."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "Both these sentences mean: 'People say that he is 108 years old.'",
+              "vi": "Cả hai câu này đều có nghĩa: 'Người ta nói rằng ông ấy đã 108 tuổi.'"
+            },
+            {
+              "kind": "text",
+              "text": "You can use these structures with a number of other verbs, especially:",
+              "vi": "Bạn có thể dùng các cấu trúc này với một số động từ khác, đặc biệt là:"
+            },
+            {
+              "kind": "words",
+              "words": ["alleged", "believed", "considered", "expected", "known", "reported", "thought", "understood"]
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "It is said that she runs 10 miles a day. = **She is said to run** 10 miles a day.",
+                  "note": "Cathy loves running",
+                  "vi": "Người ta nói rằng cô ấy chạy 10 dặm mỗi ngày."
+                },
+                {
+                  "en": "It is believed that the boy is wearing a white sweater and blue jeans. = **The boy is believed to be wearing** a white sweater and blue jeans.",
+                  "note": "the police are looking for a missing boy",
+                  "vi": "Người ta tin rằng cậu bé đang mặc áo len trắng và quần jeans xanh."
+                },
+                {
+                  "en": "It is expected that it will end soon. = **The strike is expected to end** soon.",
+                  "note": "the strike started three weeks ago",
+                  "vi": "Người ta dự đoán rằng cuộc đình công sẽ sớm kết thúc."
+                },
+                {
+                  "en": "It is alleged that he stole a car. = **He is alleged to have stolen** a car.",
+                  "note": "a friend of mine has been arrested",
+                  "vi": "Người ta cáo buộc rằng anh ấy đã lấy trộm một chiếc xe."
+                },
+                {
+                  "en": "It is said that there is a secret tunnel between them. = **There is said to be a secret tunnel** between them.",
+                  "note": "the two houses belong to the same family",
+                  "vi": "Người ta nói rằng có một đường hầm bí mật giữa hai ngôi nhà đó."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "These structures are often used in news reports. For example, in a report about an accident:",
+              "vi": "Các cấu trúc này thường được dùng trong các bản tin. Ví dụ, trong một bản tin về một vụ tai nạn:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "It is reported that two people were injured in the explosion. = **Two people are reported to have been injured** in the explosion.",
+                  "vi": "Có tin cho biết hai người đã bị thương trong vụ nổ."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "supposed to: dùng như said to, hoặc để nói điều được dự định/sắp đặt",
+          "headingEn": "supposed to: like said to, or to say what is intended/arranged",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "You can use **supposed to ...** in the same way as **said to ...**:",
+              "vi": "Bạn có thể dùng **supposed to ...** theo cách giống như **said to ...**:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I want to see that film. It'**s supposed to be** good.",
+                  "note": "= people say it's good",
+                  "vi": "Tôi muốn xem bộ phim đó. Nghe nói nó hay."
+                },
+                {
+                  "en": "There are many stories about Joe. He'**s supposed to have robbed** a bank many years ago.",
+                  "vi": "Có nhiều câu chuyện về Joe. Nghe nói anh ta đã cướp ngân hàng nhiều năm trước."
+                },
+                {
+                  "en": "Fireworks **are supposed to have been invented** in China. Is it true?",
+                  "vi": "Nghe nói pháo hoa được phát minh ở Trung Quốc. Có đúng không?"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "Sometimes supposed to ... has a different meaning. We use **supposed to** to say what is *intended*, *arranged* or *expected*. Often this is different from the real situation:",
+              "vi": "Đôi khi supposed to ... mang nghĩa khác. Chúng ta dùng **supposed to** để nói điều gì được *dự định*, *sắp đặt* hoặc *mong đợi*. Thường điều này khác với thực tế:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "The plan **is supposed to be** a secret, but everybody seems to know about it.",
+                  "note": "= the plan is intended to be a secret",
+                  "vi": "Kế hoạch này được cho là phải giữ bí mật, nhưng có vẻ ai cũng biết về nó."
+                },
+                {
+                  "en": "What are you doing at work? You'**re supposed to be** on holiday.",
+                  "note": "= you arranged to be on holiday",
+                  "vi": "Bạn đang làm gì ở đây? Bạn phải đang đi nghỉ mới đúng."
+                },
+                {
+                  "en": "Our guests **were supposed to come** at 7.30, but they were late.",
+                  "vi": "Khách của chúng tôi đáng ra phải đến lúc 7 giờ 30, nhưng họ đến muộn."
+                },
+                {
+                  "en": "Jane **was supposed to phone** me last night, but she didn't.",
+                  "vi": "Đáng ra Jane phải gọi cho tôi tối qua, nhưng cô ấy không gọi."
+                },
+                {
+                  "en": "I'd better hurry. I'**m supposed to be meeting** Chris in ten minutes.",
+                  "vi": "Tôi phải nhanh lên thôi. Tôi phải gặp Chris trong mười phút nữa."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "**You're not supposed to** do something = it is not allowed or advised:",
+              "vi": "**You're not supposed to** làm gì đó = việc đó không được phép hoặc không nên làm:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "You'**re not supposed to park** your car here. It's private parking only.",
+                  "vi": "Bạn không được đỗ xe ở đây. Đây là khu đỗ xe riêng."
+                },
+                {
+                  "en": "Joe is much better after his illness, but he'**s not supposed to exercise** too hard.",
+                  "vi": "Joe đã khỏe hơn nhiều sau khi bị bệnh, nhưng anh ấy không nên tập luyện quá sức."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "45.1 · Viết lại câu, bắt đầu bằng từ được gạch dưới",
+      "titleEn": "45.1 · Write the sentences in another way, beginning as shown",
+      "instructions": "Viết lại các câu sau theo cách khác, bắt đầu như đã cho, dùng từ được gạch dưới mỗi lần.",
+      "instructionsEn": "Write these sentences in another way, beginning as shown. Use the underlined word each time.",
+      "examples": [
+        {
+          "context": "It is expected that the strike will end soon.",
+          "prompt": "The strike ___.",
+          "answer": "is expected to end soon"
+        }
+      ],
+      "items": [
+        {
+          "context": "It is reported that many people are homeless after the floods.",
+          "prompt": "Many people ___.",
+          "answer": "are reported to be homeless after the floods"
+        },
+        {
+          "context": "It is thought that the thieves got in through a window in the roof.",
+          "prompt": "The thieves ___.",
+          "answer": "are thought to have got in through a window in the roof"
+        },
+        {
+          "context": "It is alleged that the driver of the car was driving at 110 miles an hour.",
+          "prompt": "The driver ___.",
+          "answer": "is alleged to have been driving at 110 miles an hour"
+        },
+        {
+          "context": "It is reported that the building has been badly damaged by the fire.",
+          "prompt": "The building ___.",
+          "answer": "is reported to have been badly damaged by the fire"
+        },
+        {
+          "context": "It is said that the company is losing a lot of money.",
+          "prompt": "The company ___.",
+          "answer": "is said to be losing a lot of money"
+        },
+        {
+          "context": "It is believed that the company lost a lot of money last year.",
+          "prompt": "The company ___.",
+          "answer": "is believed to have lost a lot of money last year"
+        },
+        {
+          "context": "It is expected that the company will make a loss this year.",
+          "prompt": "The company ___.",
+          "answer": "is expected to make a loss this year"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "45.2 · Hoàn thành câu",
+      "titleEn": "45.2 · Complete the sentences",
+      "instructions": "Hoàn thành các câu, dùng từ trong ngoặc và thêm những từ cần thiết khác.",
+      "instructionsEn": "Complete the sentences. Use the words in brackets and any other necessary words.",
+      "examples": [
+        {
+          "context": "a: What's the City Hotel like? Can you recommend it?",
+          "prompt": "b: I've never stayed there, but ___ very good. (it / supposed)",
+          "answer": "it's supposed to be"
+        }
+      ],
+      "items": [
+        {
+          "context": "a: How much are these paintings worth?",
+          "prompt": "b: I'm not sure, but ___ very valuable. (they / supposed)",
+          "answer": "they're supposed to be",
+          "accept": ["they are supposed to be"]
+        },
+        {
+          "context": "a: This looks an interesting building.",
+          "prompt": "b: Yes, ___ a prison a long time ago. (it / supposed)",
+          "answer": "it's supposed to have been",
+          "accept": ["it is supposed to have been"]
+        },
+        {
+          "context": "a: Is it true that your neighbours were lucky in the lottery?",
+          "prompt": "b: Yes, ___ a lot of money. (they / supposed / win)",
+          "answer": "they're supposed to have won",
+          "accept": ["they are supposed to have won"]
+        },
+        {
+          "context": "a: Is it possible to climb to the top of the tower?",
+          "prompt": "b: Yes, ___ very nice. (the view / supposed)",
+          "answer": "the view is supposed to be"
+        },
+        {
+          "context": "a: I heard that Laura has gone away.",
+          "prompt": "b: Yes, ___ in London now. (she / supposed / living)",
+          "answer": "she's supposed to be living",
+          "accept": ["she is supposed to be living"]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "45.3 · Viết câu với supposed to be + từ cho sẵn",
+      "titleEn": "45.3 · Write sentences using supposed to be + the given words",
+      "instructions": "Viết câu với supposed to be, dùng các từ sau.",
+      "instructionsEn": "Write sentences using supposed to be + the following:",
+      "wordBank": ["on a diet", "a flower", "my friend", "a joke", "open every day", "a secret", "working"],
+      "examples": [
+        {
+          "context": "How is it that everybody knows about the plan?",
+          "prompt": "___",
+          "answer": "It's supposed to be a secret."
+        }
+      ],
+      "items": [
+        {
+          "context": "You shouldn't criticise me all the time.",
+          "prompt": "___",
+          "answer": "You're supposed to be my friend."
+        },
+        {
+          "context": "I shouldn't be eating this cake really.",
+          "prompt": "___",
+          "answer": "I'm supposed to be on a diet."
+        },
+        {
+          "context": "I'm sorry for what I said. I was trying to be funny.",
+          "prompt": "___",
+          "answer": "It was supposed to be a joke."
+        },
+        {
+          "context": "What's this drawing? Is it a tree?",
+          "prompt": "___",
+          "answer": "Maybe it's supposed to be a flower."
+        },
+        {
+          "context": "You shouldn't be playing a game now.",
+          "prompt": "___",
+          "answer": "You're supposed to be working."
+        },
+        {
+          "context": "That's strange. The museum seems to be closed.",
+          "prompt": "___",
+          "answer": "It's supposed to be open every day."
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "45.4 · Viết câu với supposed to hoặc not supposed to",
+      "titleEn": "45.4 · Write sentences with supposed to ... or not supposed to ...",
+      "instructions": "Viết câu với supposed to ... hoặc not supposed to ..., chọn động từ trong danh sách sau.",
+      "instructionsEn": "Write sentences with supposed to ... or not supposed to ... . Choose from the following verbs:",
+      "wordBank": ["depart", "lift", "park", "phone", "put", "start"],
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "You ___ your car here. It's private parking only.",
+          "answer": "'re not supposed to park"
+        }
+      ],
+      "startNumber": 2,
+      "items": [
+        {
+          "prompt": "We ___ work at 8.15, but we rarely do anything before 8.30.",
+          "answer": "are supposed to start",
+          "accept": ["'re supposed to start"]
+        },
+        {
+          "prompt": "I ___ Helen last night, but I completely forgot.",
+          "answer": "was supposed to phone"
+        },
+        {
+          "prompt": "This door is a fire exit. We ___ anything in front of it.",
+          "answer": "aren't supposed to put",
+          "accept": ["are not supposed to put"]
+        },
+        {
+          "prompt": "My flight ___ at 10.15, but it didn't leave until 11.30.",
+          "answer": "was supposed to depart"
+        },
+        {
+          "prompt": "Jonathan has a problem with his back. He ___ anything heavy.",
+          "answer": "isn't supposed to lift",
+          "accept": ["is not supposed to lift"]
+        }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh: một câu dùng is said to / is believed to / is expected to (điều người ta nói hoặc dự đoán), và một câu dùng (not) supposed to (điều được dự định, sắp đặt, hoặc không được phép).",
+      "instructionsEn": "Write 2-3 English sentences: one using is said to / is believed to / is expected to (something people say or predict), and one using (not) supposed to (something intended, arranged, or not allowed).",
+      "ruleSummary": "This unit covers it is said/believed/expected/reported etc. that ... and its equivalent subject + be + said/believed/expected to (do/be doing/have done). Both forms mean the same (It is said that he is 108 = He is said to be 108), and the infinitive after to matches the tense/aspect of the that-clause: to be doing for a continuous meaning, to have done for a past meaning. The unit then covers supposed to, which can work exactly like said to (It's supposed to be good = people say it's good), but more often means something was intended, arranged or expected, often contrasted with what actually happened (Our guests were supposed to come at 7.30, but they were late), and you're not supposed to do something means it isn't allowed or advised. A correct student sentence must keep the infinitive form after to (be/have been/have done), not a finite verb, and must not confuse the said-to (reporting) meaning of supposed to with its arranged/not-allowed meaning without contextual support for either."
+    }
+  ]
+};
+
+const UNIT_46_HAVE_SOMETHING_DONE: GrammarUnit = {
+  "unit": 46,
+  "slug": "have-something-done",
+  "title": "have something done",
+  "topic": "the passive",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "have something done: sắp đặt để người khác làm việc gì cho mình",
+          "headingEn": "have something done: arranging for somebody else to do something",
+          "intro": "Study this example situation:",
+          "introVi": "Hãy xem tình huống ví dụ sau:",
+          "parts": [
+            {
+              "kind": "situation",
+              "text": "The roof of Lisa's house was damaged. So she called a builder, and yesterday he came and repaired it.",
+              "vi": "Mái nhà của Lisa bị hư. Vì vậy cô gọi một người thợ xây, và hôm qua anh ta đến sửa nó.",
+              "quotes": [
+                {
+                  "text": "Lisa **had the roof repaired** yesterday.",
+                  "vi": "Lisa đã cho sửa lại mái nhà hôm qua."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "This means: Lisa arranged for somebody else to repair the roof. She didn't repair it herself.",
+              "vi": "Điều này có nghĩa: Lisa đã sắp đặt để người khác sửa mái nhà. Cô ấy không tự sửa nó."
+            },
+            {
+              "kind": "text",
+              "text": "If you **have something done**, you arrange for somebody to do it for you.",
+              "vi": "Nếu bạn **have something done**, có nghĩa là bạn sắp đặt để ai đó làm việc đó cho bạn."
+            },
+            {
+              "kind": "text",
+              "text": "Compare:",
+              "vi": "So sánh:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "Lisa **repaired** the roof.",
+                  "note": "= she repaired it herself",
+                  "vi": "Lisa đã tự sửa mái nhà. (cô ấy tự làm)"
+                },
+                {
+                  "en": "Lisa **had the roof repaired**.",
+                  "note": "= she arranged for somebody else to repair it",
+                  "vi": "Lisa đã cho sửa mái nhà. (cô ấy sắp đặt để người khác làm)"
+                },
+                {
+                  "en": "a: Did you make those curtains yourself? b: Yes, I like making things.",
+                  "vi": "a: Bạn tự làm những cái màn đó phải không? b: Đúng vậy, tôi thích tự làm đồ."
+                },
+                {
+                  "en": "a: Did you **have** those curtains **made**? b: No, I made them myself.",
+                  "vi": "a: Bạn đã đặt làm những cái màn đó phải không? b: Không, tôi tự làm chúng."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "Trật tự từ: have + tân ngữ + phân từ hai",
+          "headingEn": "Word order: have + object + past participle",
+          "parts": [
+            {
+              "kind": "table",
+              "table": {
+                "variant": "list",
+                "rows": [
+                  ["Lisa **had** the roof **repaired**."],
+                  ["Where did you **have** your hair **cut**?"],
+                  ["We are **having** that coat **cleaned**."],
+                  ["I think you should **have** my picture **taken**."],
+                  ["I don't like **having** the house **painted**."]
+                ]
+              }
+            },
+            {
+              "kind": "text",
+              "text": "We say:",
+              "vi": "Chúng ta nói:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "How often do you **have** your car **serviced**?",
+                  "note": "not have serviced your car",
+                  "vi": "Bạn mang xe đi bảo dưỡng bao lâu một lần?"
+                },
+                {
+                  "en": "Our neighbour is **having** a garage **built**.",
+                  "note": "not having built a garage",
+                  "vi": "Nhà hàng xóm của tôi đang cho xây một cái ga-ra."
+                },
+                {
+                  "en": "Your hair looks nice. Did you **have** it **cut**?",
+                  "vi": "Tóc bạn trông đẹp đấy. Bạn mới đi cắt tóc à?"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "get something done: thay cho have something done",
+          "headingEn": "get something done instead of have something done",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "You can say '**get something done**' instead of 'have something done':",
+              "vi": "Bạn có thể nói '**get something done**' thay cho 'have something done':"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "When are you going to **get** the roof **repaired**?",
+                  "note": "= have the roof repaired",
+                  "vi": "Khi nào bạn sẽ cho sửa mái nhà?"
+                },
+                {
+                  "en": "I think you should **get** your hair **cut** really short.",
+                  "vi": "Tôi nghĩ bạn nên đi cắt tóc thật ngắn."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "D",
+          "heading": "have something done với nghĩa khác: điều gì đó xảy ra với ai",
+          "headingEn": "have something done with a different meaning: something happens to somebody",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "We also use have something done with a different meaning. For example:",
+              "vi": "Chúng ta cũng dùng have something done với một nghĩa khác. Ví dụ:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "Paul and Karen **had their bags stolen** while they were travelling.",
+                  "vi": "Paul và Karen đã bị mất túi trong khi đang đi du lịch."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "This does not mean that they arranged for somebody to steal their bags. 'They had their bags stolen' means only: 'Their bags were stolen'.",
+              "vi": "Điều này không có nghĩa là họ đã sắp đặt để ai đó lấy trộm túi của họ. 'They had their bags stolen' chỉ có nghĩa: 'Túi của họ đã bị lấy trộm'."
+            },
+            {
+              "kind": "text",
+              "text": "With this meaning, we use have something done to say that something happens to somebody or their belongings:",
+              "vi": "Với nghĩa này, chúng ta dùng have something done để nói rằng điều gì đó xảy ra với ai đó hoặc đồ đạc của họ:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "Gary **had his nose broken** in a fight.",
+                  "note": "= his nose was broken",
+                  "vi": "Gary đã bị gãy mũi trong một cuộc đánh nhau."
+                },
+                {
+                  "en": "Have you ever **had your bike stolen**?",
+                  "vi": "Bạn đã từng bị mất xe đạp bao giờ chưa?"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "46.2 · Sắp xếp các từ theo đúng thứ tự",
+      "titleEn": "46.2 · Put the words in the correct order",
+      "instructions": "Sắp xếp các từ trong ngoặc theo đúng thứ tự để tạo thành câu hoàn chỉnh.",
+      "instructionsEn": "Put the words in the correct order.",
+      "examples": [
+        {
+          "prompt": "We ___. (painted / had / a few weeks ago / the house)",
+          "answer": "had the house painted a few weeks ago"
+        }
+      ],
+      "items": [
+        {
+          "prompt": "Sarah ___. (serviced / car / once a year / her / has)",
+          "answer": "has her car serviced once a year"
+        },
+        {
+          "prompt": "Have ___? (had / your / recently / tested / eyes / you?)",
+          "answer": "you had your eyes tested recently"
+        },
+        {
+          "prompt": "I ___. (like / cut / my / having / don't / hair)",
+          "answer": "don't like having my hair cut"
+        },
+        {
+          "prompt": "It ___. (fifteen pounds / have / cleaned / my suit / cost / to)",
+          "answer": "cost fifteen pounds to have my suit cleaned"
+        },
+        {
+          "prompt": "You ___. (as soon as possible / need / translated / to get / this document)",
+          "answer": "need to get this document translated as soon as possible"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "46.3 · Viết câu theo mẫu",
+      "titleEn": "46.3 · Write sentences in the way shown",
+      "instructions": "Viết lại câu theo mẫu, dùng have something done.",
+      "instructionsEn": "Write sentences in the way shown.",
+      "examples": [
+        {
+          "context": "Lisa didn't repair the roof herself.",
+          "prompt": "___",
+          "answer": "She had it repaired."
+        }
+      ],
+      "items": [
+        {
+          "context": "I didn't cut my hair myself.",
+          "prompt": "___",
+          "answer": "I had it cut."
+        },
+        {
+          "context": "We didn't clean the carpets ourselves.",
+          "prompt": "___",
+          "answer": "We had them cleaned."
+        },
+        {
+          "context": "Ben didn't build that wall himself.",
+          "prompt": "___",
+          "answer": "He had it built."
+        },
+        {
+          "context": "I didn't deliver the flowers myself.",
+          "prompt": "___",
+          "answer": "I had them delivered."
+        },
+        {
+          "context": "Sarah didn't repair her shoes herself.",
+          "prompt": "___",
+          "answer": "She had them repaired."
+        }
+      ]
+    },
+    {
+      "kind": "match_pairs",
+      "title": "46.4 · Nối các câu tương ứng",
+      "titleEn": "46.4 · Which goes with which?",
+      "instructions": "Nối mỗi câu ở cột trái với câu tương ứng ở cột phải.",
+      "instructionsEn": "Which goes with which?",
+      "left": [
+        "My hair is getting long.",
+        "I really like this picture.",
+        "The washing machine is broken.",
+        "I want to wear earrings.",
+        "Can you recommend a dentist?",
+        "I've lost my key."
+      ],
+      "right": [
+        "I need to get it fixed.",
+        "I'll have to get a new one made.",
+        "I need to get my teeth checked.",
+        "I should get it cut.",
+        "I'm going to get my ears pierced.",
+        "I'm going to get it framed."
+      ],
+      "answers": [
+        "I should get it cut.",
+        "I'm going to get it framed.",
+        "I need to get it fixed.",
+        "I'm going to get my ears pierced.",
+        "I need to get my teeth checked.",
+        "I'll have to get a new one made."
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "46.5 · Hoàn thành câu với từ gợi ý",
+      "titleEn": "46.5 · Use the words in brackets to complete the sentences",
+      "instructions": "Dùng các từ trong ngoặc để hoàn thành câu (have something done với nghĩa điều gì đó xảy ra với ai).",
+      "instructionsEn": "Use the words in brackets to complete the sentences.",
+      "examples": [
+        {
+          "context": "Did I tell you about Paul and Karen?",
+          "prompt": "___ (they / their bags / steal)",
+          "answer": "They had their bags stolen."
+        }
+      ],
+      "items": [
+        {
+          "context": "Security at the airport was strict.",
+          "prompt": "___ (we / our bags / search)",
+          "answer": "We had our bags searched."
+        },
+        {
+          "context": "I've had some good news!",
+          "prompt": "I ___. (I / my salary / increase)",
+          "answer": "have had my salary increased",
+          "accept": ["'ve had my salary increased"]
+        },
+        {
+          "context": "Joe can't get a visa.",
+          "prompt": "___ (he / his application / refuse)",
+          "answer": "He's had his application refused.",
+          "accept": ["He has had his application refused."]
+        }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng have/get something done: một câu về việc bạn sắp đặt cho người khác làm (had my hair cut, got the car serviced), và một câu về điều gì đó (không mong muốn) đã xảy ra với bạn hoặc đồ đạc của bạn (had my phone stolen).",
+      "instructionsEn": "Write 2-3 English sentences using have/get something done: one about arranging for somebody else to do something (had my hair cut, got the car serviced), and one about something (unwanted) that happened to you or your belongings (had my phone stolen).",
+      "ruleSummary": "This unit covers have something done: have + object + past participle, meaning you arrange for somebody else to do something for you (Lisa had the roof repaired = she arranged for somebody else to repair it, not she repaired it herself). The word order is fixed as have/having/had + object + past participle (have your car serviced, not have serviced your car). get something done can replace have something done, especially in more informal or urgent contexts (get the roof repaired, get your hair cut). The same have something done pattern is also used with a different meaning: to say that something (often unwanted) happens to somebody or their belongings, with no arranging involved (Paul and Karen had their bags stolen = their bags were stolen; Gary had his nose broken in a fight = his nose was broken). A correct student sentence must keep the past participle (not the base form or -ing form) right after the object, and the intended meaning (arranging vs something happening) should be clear from context."
+    }
+  ]
+};
+
+const UNIT_47_REPORTED_SPEECH_1: GrammarUnit = {
+  "unit": 47,
+  "slug": "reported-speech-1-he-said-that",
+  "title": "Reported speech 1 (he said that ...)",
+  "topic": "reported speech",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "Câu trực tiếp và câu tường thuật",
+          "headingEn": "Direct speech and reported speech",
+          "intro": "Study this example situation:",
+          "introVi": "Hãy xem tình huống ví dụ sau:",
+          "parts": [
+            {
+              "kind": "situation",
+              "text": "You saw Paul yesterday and you want to tell somebody what he said. There are two ways of doing this. You can repeat Paul's words (direct speech):",
+              "vi": "Hôm qua bạn gặp Paul và bạn muốn kể cho ai đó nghe điều anh ấy đã nói. Có hai cách để làm điều này. Bạn có thể lặp lại chính lời của Paul (câu trực tiếp):",
+              "quotes": [
+                {
+                  "speaker": "Paul",
+                  "text": "I'm feeling ill.",
+                  "vi": "Tôi đang cảm thấy không khỏe."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "Paul said, 'I'm feeling ill.' Or you can use reported speech:",
+              "vi": "Paul said, 'I'm feeling ill.' Hoặc bạn có thể dùng câu tường thuật:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "Paul said that he was feeling ill.",
+                  "vi": "Paul nói rằng anh ấy đang cảm thấy không khỏe."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "Compare:",
+              "vi": "So sánh:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "direct: Paul said, 'I **am** feeling ill.'",
+                  "note": "in writing we use quotation marks to show direct speech",
+                  "vi": "trực tiếp: Paul nói, 'Tôi đang cảm thấy không khỏe.'"
+                },
+                {
+                  "en": "reported: Paul said that he **was** feeling ill.",
+                  "vi": "tường thuật: Paul nói rằng anh ấy đang cảm thấy không khỏe."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "Động từ chính ở quá khứ, thì trong câu tường thuật cũng lùi về quá khứ",
+          "headingEn": "The main verb is past, and the rest of the sentence usually shifts back too",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "When we use reported speech, the main verb of the sentence is usually past (Paul said that ... / I told her that ... etc.). The rest of the sentence is usually past too:",
+              "vi": "Khi dùng câu tường thuật, động từ chính của câu thường ở quá khứ (Paul said that ... / I told her that ...). Phần còn lại của câu cũng thường ở quá khứ:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "Paul said that he **was** feeling ill.",
+                  "vi": "Paul nói rằng anh ấy đang cảm thấy không khỏe."
+                },
+                {
+                  "en": "I told Lisa that I **didn't have** any money.",
+                  "vi": "Tôi nói với Lisa rằng tôi không có tiền."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "You can leave out *that*. So you can say:",
+              "vi": "Bạn có thể bỏ *that*. Vậy bạn có thể nói:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "Paul said that he was feeling ill. or Paul said he was feeling ill.",
+                  "vi": "Paul said that he was feeling ill. hoặc Paul said he was feeling ill."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "In general, the present in direct speech changes to the past in reported speech:",
+              "vi": "Nói chung, thì hiện tại trong câu trực tiếp chuyển thành quá khứ trong câu tường thuật:"
+            },
+            {
+              "kind": "table",
+              "table": {
+                "headers": ["direct", "reported"],
+                "rows": [
+                  ["am/is", "was"],
+                  ["are", "were"],
+                  ["do/does", "did"],
+                  ["have/has", "had"],
+                  ["will", "would"],
+                  ["can", "could"],
+                  ["want/like/know/go etc.", "wanted/liked/knew/went etc."]
+                ]
+              }
+            },
+            {
+              "kind": "text",
+              "text": "See also Unit 48A.",
+              "vi": "Xem thêm Unit 48A."
+            },
+            {
+              "kind": "text",
+              "text": "Compare direct and reported speech. You met Anna. Here are some of the things she said in direct speech, and later you tell somebody what Anna said, using reported speech:",
+              "vi": "So sánh câu trực tiếp và câu tường thuật. Bạn gặp Anna. Đây là một số điều cô ấy nói ở câu trực tiếp, và sau đó bạn kể lại cho người khác bằng câu tường thuật:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "'I've lost my phone.' = Anna said that **she had lost her phone**.",
+                  "vi": "'Tôi bị mất điện thoại rồi.' = Anna nói rằng cô ấy đã bị mất điện thoại."
+                },
+                {
+                  "en": "'I want to buy a car.' = She said that **she wanted to buy a car**.",
+                  "vi": "'Tôi muốn mua một chiếc xe.' = Cô ấy nói rằng cô ấy muốn mua một chiếc xe."
+                },
+                {
+                  "en": "'I can't come to the party on Friday.' = She said that **she couldn't come** to the party on Friday.",
+                  "vi": "'Tôi không thể đến dự tiệc vào thứ Sáu.' = Cô ấy nói rằng cô ấy không thể đến dự tiệc vào thứ Sáu."
+                },
+                {
+                  "en": "'I don't have much free time.' = She said that **she didn't have** much free time.",
+                  "vi": "'Tôi không có nhiều thời gian rảnh.' = Cô ấy nói rằng cô ấy không có nhiều thời gian rảnh."
+                },
+                {
+                  "en": "'My parents are fine.' = She said that **her parents were** fine.",
+                  "vi": "'Bố mẹ tôi vẫn khỏe.' = Cô ấy nói rằng bố mẹ cô ấy vẫn khỏe."
+                },
+                {
+                  "en": "'I'm going away for a few days. I'll phone you when I get back.' = She said that **she was going away** for a few days and **would phone** me when she got back.",
+                  "vi": "'Tôi sẽ đi xa vài ngày. Tôi sẽ gọi cho bạn khi tôi về.' = Cô ấy nói rằng cô ấy sẽ đi xa vài ngày và sẽ gọi cho tôi khi cô ấy về."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "Quá khứ đơn có thể giữ nguyên hoặc lùi thành quá khứ hoàn thành",
+          "headingEn": "The past simple can stay the same, or shift to the past perfect",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "The past simple (did/saw/knew etc.) can stay the same in reported speech, or you can change it to the past perfect (had done / had seen / had known etc.):",
+              "vi": "Thì quá khứ đơn (did/saw/knew ...) có thể giữ nguyên trong câu tường thuật, hoặc bạn có thể chuyển nó thành quá khứ hoàn thành (had done / had seen / had known ...):"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "direct: Paul said: 'I woke up feeling ill, so I didn't go to work.'",
+                  "vi": "trực tiếp: Paul nói: 'Tôi thức dậy thấy không khỏe, nên tôi không đi làm.'"
+                },
+                {
+                  "en": "reported: Paul said (that) he **woke up** feeling ill, so he **didn't go** to work.",
+                  "vi": "tường thuật: Paul nói (rằng) anh ấy thức dậy thấy không khỏe, nên anh ấy không đi làm."
+                },
+                {
+                  "en": "or: Paul said (that) he **had woken up** feeling ill, so he **hadn't gone** to work.",
+                  "vi": "hoặc: Paul nói (rằng) anh ấy đã thức dậy thấy không khỏe, nên anh ấy đã không đi làm."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "47.1 · Hoàn thành câu tường thuật",
+      "titleEn": "47.1 · Complete the reported speech sentences",
+      "instructions": "Bạn đã nói chuyện với một số người bạn (Paul, Tom, Anna ...). Đọc điều họ nói ở cột trái (câu trực tiếp). Sau đó (cùng ngày) bạn kể lại cho một người bạn khác điều họ đã nói (câu tường thuật). Hoàn thành các câu.",
+      "instructionsEn": "You talked to some friends of yours (Paul, Tom, Anna etc.). Read what they said (direct speech). Later the same day you tell another friend what they said (reported speech). Complete the sentences.",
+      "examples": [
+        {
+          "context": "you: Are you going to work today, Paul? paul: No, I'm feeling ill.",
+          "prompt": "Paul didn't go to work today. He said ___.",
+          "answer": "he was feeling ill"
+        }
+      ],
+      "items": [
+        {
+          "context": "you: Shall we walk to the station? tom: No, it's too far. Let's get a taxi.",
+          "prompt": "I wanted to walk to the station, but Tom said ___ far.",
+          "answer": "it was too"
+        },
+        {
+          "context": "you: Have you been invited to the party? anna: Yes, but I don't want to go.",
+          "prompt": "Anna has been invited to the party but she told me ___ to go.",
+          "answer": "she didn't want"
+        },
+        {
+          "context": "you: When are you going away, Dan? dan: I'll let you know next week.",
+          "prompt": "I asked Dan about his travel plans. He said ___ next week.",
+          "answer": "he would let me know",
+          "accept": ["he'd let me know"]
+        },
+        {
+          "context": "you: Do you ever see Rachel these days? ben: I haven't seen her for a while.",
+          "prompt": "I asked Ben about Rachel, but he told me ___ for a while.",
+          "answer": "he hadn't seen her"
+        },
+        {
+          "context": "you: Where can I borrow a guitar? kate: You can borrow mine.",
+          "prompt": "I needed to borrow a guitar and Kate said ___.",
+          "answer": "I could borrow hers"
+        },
+        {
+          "context": "you: How's your job, Sue? sue: I'm not enjoying it very much.",
+          "prompt": "I asked Sue about her job. She said ___ very much.",
+          "answer": "she wasn't enjoying it"
+        },
+        {
+          "context": "you: Do you still have your car? james: No, I sold it a few months ago.",
+          "prompt": "I asked James about his car. He told me ___ a few months ago.",
+          "answer": "he had sold it",
+          "accept": ["he'd sold it"]
+        },
+        {
+          "context": "you: What's the name of the cafe we went to? sarah: I don't know.",
+          "prompt": "I asked Sarah the name of the cafe we went to but she said ___.",
+          "answer": "she didn't know"
+        },
+        {
+          "context": "you: How many students are there in your class, Amy? amy: Twenty.",
+          "prompt": "I asked Amy about her school and she told me ___ class.",
+          "answer": "there were twenty students in her"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "47.2 · Hoàn thành câu tường thuật trái ngược với điều bạn nghe",
+      "titleEn": "47.2 · Complete the reported speech that contradicts what you hear",
+      "instructions": "Ai đó nói với bạn điều gì đó khác với điều bạn nghĩ. Hoàn thành câu trả lời của bạn bằng câu tường thuật, dùng ý của riêng bạn.",
+      "instructionsEn": "Somebody says something to you which is not what you expected. Complete your answers using reported speech, in your own words.",
+      "examples": [
+        {
+          "context": "a: It's quite a long way from the hotel to the city centre.",
+          "prompt": "b: Is it? ___",
+          "answer": "The man on the reception desk said it was only five minutes' walk."
+        }
+      ],
+      "items": [
+        {
+          "context": "a: Sue is coming to the party tonight.",
+          "prompt": "b: Is she? I saw her a few days ago and she said she ___.",
+          "answer": "wasn't coming",
+          "accept": ["was not coming", "wouldn't be coming", "would not be coming"]
+        },
+        {
+          "context": "a: Sarah gets on fine with Paul.",
+          "prompt": "b: Does she? Last week you said ___ each other.",
+          "answer": "they didn't like",
+          "accept": ["they did not like", "they didn't get on with"]
+        },
+        {
+          "context": "a: Joe knows lots of people.",
+          "prompt": "b: That's not what he told me. He said ___ anyone.",
+          "answer": "he didn't know",
+          "accept": ["he did not know"]
+        },
+        {
+          "context": "a: Jane will be here next week.",
+          "prompt": "b: Oh, really? When I spoke to her, she said ___ away.",
+          "answer": "she was going",
+          "accept": ["she would be", "she'd be"]
+        },
+        {
+          "context": "a: I'm going out tonight.",
+          "prompt": "b: Are you? I thought you said ___ at home.",
+          "answer": "you were staying",
+          "accept": ["you would be staying", "you'd be staying"]
+        },
+        {
+          "context": "a: I speak French quite well.",
+          "prompt": "b: Do you? But earlier you said ___ any other languages.",
+          "answer": "you couldn't speak",
+          "accept": ["you could not speak", "you didn't speak"]
+        },
+        {
+          "context": "a: I haven't seen Ben recently.",
+          "prompt": "b: That's strange. He told me ___ last weekend.",
+          "answer": "he'd seen you",
+          "accept": ["he had seen you", "he saw you"]
+        }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy nghĩ ra một câu ai đó đã nói với bạn (câu trực tiếp), rồi viết lại thành câu tường thuật (reported speech) với said/told.",
+      "instructionsEn": "Think of a sentence somebody said to you (direct speech), then rewrite it as reported speech with said/told.",
+      "ruleSummary": "This unit practises reported speech: he/she said (that) ... / told somebody (that) .... The main verb is past, and the rest of the sentence usually shifts back a tense too: am/is/are becomes was/were, do/does becomes did, have/has becomes had, will becomes would, can becomes could, and want/like/know/go etc. become wanted/liked/knew/went etc. that is optional and can be left out (Paul said he was feeling ill). The past simple in direct speech can either stay the past simple in reported speech or shift further back to the past perfect (Paul said he woke up feeling ill OR Paul said he had woken up feeling ill - both are correct). A correct student sentence must back-shift the reported clause's tense to match a past reporting verb (said/told), keep pronouns and possessives adjusted to the new speaker's point of view (I becomes he/she, my becomes his/her), and must not leave a present-tense verb inside a reported clause introduced by a past said/told."
+    }
+  ]
+};
+
+const UNIT_48_REPORTED_SPEECH_2: GrammarUnit = {
+  "unit": 48,
+  "slug": "reported-speech-2",
+  "title": "Reported speech 2",
+  "topic": "reported speech",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "Không phải lúc nào cũng cần lùi thì nếu tình huống vẫn còn đúng",
+          "headingEn": "You don't always need to shift the tense if the situation is still true",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "We do not always change the verb in reported speech. If the situation is still the same, it is not necessary to change the verb to the past. For example:",
+              "vi": "Chúng ta không phải luôn luôn đổi động từ trong câu tường thuật. Nếu tình huống vẫn không thay đổi, không cần chuyển động từ về quá khứ. Ví dụ:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "direct: Paul said, 'My new job is boring.'",
+                  "vi": "trực tiếp: Paul nói, 'Công việc mới của tôi thật nhàm chán.'"
+                },
+                {
+                  "en": "reported: Paul said that his new job **is** boring.",
+                  "note": "the situation is still the same - his job is still boring now",
+                  "vi": "tường thuật: Paul nói rằng công việc mới của anh ấy nhàm chán."
+                },
+                {
+                  "en": "direct: Helen said, 'I want to go to Canada next year.'",
+                  "vi": "trực tiếp: Helen nói, 'Tôi muốn đi Canada năm sau.'"
+                },
+                {
+                  "en": "reported: Helen told me that she **wants** to go to Canada next year.",
+                  "note": "Helen still wants to go to Canada next year",
+                  "vi": "tường thuật: Helen nói với tôi rằng cô ấy muốn đi Canada năm sau."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "You can also change the verb to the past:",
+              "vi": "Bạn cũng có thể chuyển động từ về quá khứ:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "Paul said that his new job **was** boring.",
+                  "vi": "Paul nói rằng công việc mới của anh ấy nhàm chán."
+                },
+                {
+                  "en": "Helen told me that she **wanted** to go to Canada next year.",
+                  "vi": "Helen nói với tôi rằng cô ấy muốn đi Canada năm sau."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "But if the situation has changed or finished, you need to use a past verb. Compare:",
+              "vi": "Nhưng nếu tình huống đã thay đổi hoặc đã kết thúc, bạn cần dùng động từ ở quá khứ. So sánh:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "Paul left the room suddenly. He said 'I have to go.'",
+                  "note": "direct speech",
+                  "vi": "Paul rời khỏi phòng đột ngột. Anh ấy nói, 'Tôi phải đi.'"
+                },
+                {
+                  "en": "Paul left the room suddenly. He said (that) he **had to go**.",
+                  "note": "not has to go",
+                  "vi": "Paul rời khỏi phòng đột ngột. Anh ấy nói rằng anh ấy phải đi."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "Cần dùng quá khứ khi điều được kể khác với sự thật",
+          "headingEn": "You need the past when what was said differs from what is really true",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "You need to use the past in reported speech when what was said is different from what is really true. For example: you met Rachel a few days ago. She said:",
+              "vi": "Bạn cần dùng quá khứ trong câu tường thuật khi điều được kể khác với sự thật hiện tại. Ví dụ: bạn gặp Rachel vài ngày trước. Cô ấy nói:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "Have you heard? Joe is in hospital.",
+                  "vi": "Bạn nghe chưa? Joe đang ở trong bệnh viện."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "Later that day you meet Joe in the street. You say:",
+              "vi": "Sau đó cùng ngày bạn gặp Joe trên đường. Bạn nói:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "Joe, this is a surprise. Rachel said you **were** in hospital.",
+                  "note": "not 'you are in hospital' - it's clear that he isn't",
+                  "vi": "Joe, thật bất ngờ. Rachel nói bạn đang ở trong bệnh viện."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "say và tell",
+          "headingEn": "say and tell",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "If you say who somebody is talking to, use **tell**:",
+              "vi": "Nếu bạn nói rõ đang nói với ai, dùng **tell**:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "Rachel **told** me that you were in hospital.",
+                  "note": "not Rachel said me",
+                  "vi": "Rachel đã nói với tôi rằng bạn đang ở bệnh viện."
+                },
+                {
+                  "en": "What did you **tell** the police?",
+                  "note": "not say the police",
+                  "vi": "Bạn đã nói gì với cảnh sát?"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "Otherwise use **say**:",
+              "vi": "Nếu không, dùng **say**:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "Rachel **said** that you were in hospital.",
+                  "note": "not Rachel told that ...",
+                  "vi": "Rachel nói rằng bạn đang ở bệnh viện."
+                },
+                {
+                  "en": "What did you **say**?",
+                  "vi": "Bạn đã nói gì?"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "You can 'say something **to** somebody':",
+              "vi": "Bạn có thể nói 'say something to somebody':"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "Anna **said** goodbye **to** me and left.",
+                  "note": "not Anna said me goodbye",
+                  "vi": "Anna đã chào tạm biệt tôi rồi đi."
+                },
+                {
+                  "en": "What did you **say to** the police?",
+                  "vi": "Bạn đã nói gì với cảnh sát?"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "D",
+          "heading": "tell/ask somebody to ...",
+          "headingEn": "tell/ask somebody to ...",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "We say 'tell somebody **to** ...' and 'ask somebody **to** ...'. Compare direct and reported speech:",
+              "vi": "Chúng ta nói 'tell somebody to ...' và 'ask somebody to ...'. So sánh câu trực tiếp và câu tường thuật:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "direct: 'Drink plenty of water,' the doctor said to me.",
+                  "vi": "trực tiếp: 'Hãy uống nhiều nước,' bác sĩ nói với tôi."
+                },
+                {
+                  "en": "reported: The doctor **told** me **to drink** plenty of water.",
+                  "vi": "tường thuật: Bác sĩ bảo tôi uống nhiều nước."
+                },
+                {
+                  "en": "direct: 'Don't work too hard,' I said to Joe.",
+                  "vi": "trực tiếp: 'Đừng làm việc quá sức,' tôi nói với Joe."
+                },
+                {
+                  "en": "reported: I **told** Joe **not to work** too hard.",
+                  "vi": "tường thuật: Tôi bảo Joe đừng làm việc quá sức."
+                },
+                {
+                  "en": "direct: 'Can you help me, please,' Jackie said to me.",
+                  "vi": "trực tiếp: 'Bạn giúp tôi được không,' Jackie nói với tôi."
+                },
+                {
+                  "en": "reported: Jackie **asked** me **to help** her.",
+                  "vi": "tường thuật: Jackie nhờ tôi giúp cô ấy."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "You can also say 'Somebody said (not) to do something':",
+              "vi": "Bạn cũng có thể nói 'Somebody said (not) to do something':"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "Paul **said not to worry** about him.",
+                  "note": "but not Paul said me",
+                  "vi": "Paul nói đừng lo cho anh ấy."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "48.1 · Nói lại điều Sarah đã nói bằng câu tường thuật",
+      "titleEn": "48.1 · Say what Sarah told you before, in reported speech",
+      "instructions": "Đây là những điều Sarah đã nói với bạn trước đó (xem danh sách). Nhưng sau đó Sarah lại nói điều khác. Bạn nói gì?",
+      "instructionsEn": "Here are some things that Sarah said to you earlier (see the list). But later Sarah says something different. What do you say?",
+      "wordBank": [
+        "I've never been to the United States.",
+        "I don't have any brothers or sisters.",
+        "I can't drive.",
+        "I don't like fish.",
+        "Jane has a very well-paid job.",
+        "I'm working tomorrow evening.",
+        "Jane is a friend of mine.",
+        "Dave is lazy."
+      ],
+      "examples": [
+        {
+          "context": "Sarah: Dave works very hard.",
+          "prompt": "You: But you said ___.",
+          "answer": "he was lazy"
+        }
+      ],
+      "items": [
+        {
+          "context": "Sarah: Let's have fish for dinner.",
+          "prompt": "You: But you said ___.",
+          "answer": "you didn't like fish"
+        },
+        {
+          "context": "Sarah: I'm going to buy a car.",
+          "prompt": "You: But you said ___.",
+          "answer": "you couldn't drive"
+        },
+        {
+          "context": "Sarah: Jane is always short of money.",
+          "prompt": "You: But you said ___.",
+          "answer": "she had a very well-paid job"
+        },
+        {
+          "context": "Sarah: My sister lives in Paris.",
+          "prompt": "You: But you said ___.",
+          "answer": "you didn't have any brothers or sisters"
+        },
+        {
+          "context": "Sarah: I think New York is a great place.",
+          "prompt": "You: But you said ___.",
+          "answer": "you'd never been to the United States",
+          "accept": ["you had never been to the United States"]
+        },
+        {
+          "context": "Sarah: Let's go out tomorrow evening.",
+          "prompt": "You: But you said ___.",
+          "answer": "you were working tomorrow evening"
+        },
+        {
+          "context": "Sarah: I've never spoken to Jane.",
+          "prompt": "You: But you said ___.",
+          "answer": "she was a friend of yours"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "48.2 · Hoàn thành câu với say hoặc tell",
+      "titleEn": "48.2 · Complete the sentences with say or tell",
+      "instructions": "Hoàn thành các câu với say hoặc tell ở dạng đúng. Mỗi chỗ trống chỉ dùng một từ.",
+      "instructionsEn": "Complete the sentences with say or tell (in the correct form). Use only one word each time.",
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "Anna ___ goodbye to me and left.",
+          "answer": "said"
+        }
+      ],
+      "startNumber": 2,
+      "items": [
+        {
+          "context": "Did you have a nice time?",
+          "prompt": "___ us about your holiday.",
+          "answer": "Tell"
+        },
+        {
+          "prompt": "Don't just stand there! ___ something!",
+          "answer": "Say"
+        },
+        {
+          "prompt": "I wonder where Sue is. She ___ she would be here at 8 o'clock.",
+          "answer": "said"
+        },
+        {
+          "prompt": "Dan ___ me that he was bored with his job.",
+          "answer": "told"
+        },
+        {
+          "prompt": "The doctor ___ that I should rest for at least a week.",
+          "answer": "said"
+        },
+        {
+          "context": "Gary couldn't help me.",
+          "prompt": "He ___ me to ask Chris.",
+          "answer": "told"
+        },
+        {
+          "context": "Gary couldn't help me.",
+          "prompt": "He ___ to ask Chris.",
+          "answer": "said"
+        },
+        {
+          "prompt": "Don't ___ anybody what I ___. It's a secret just between us.",
+          "answer": "tell",
+          "extraBlanks": [{ "answer": "said" }]
+        },
+        {
+          "prompt": "'Did Kate ___ you what happened?' 'No, she didn't ___ anything to me.'",
+          "answer": "tell",
+          "extraBlanks": [{ "answer": "say" }]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "48.3 · Chọn câu trực tiếp phù hợp và viết lại bằng câu tường thuật",
+      "titleEn": "48.3 · Choose the matching direct speech and complete with reported speech",
+      "instructions": "Chọn một trong các câu trực tiếp sau để hoàn thành mỗi câu dưới đây. Dùng câu tường thuật.",
+      "instructionsEn": "Choose one of these direct-speech sentences to complete each sentence below. Use reported speech.",
+      "wordBank": [
+        "Don't wait for me if I'm late.",
+        "Mind your own business.",
+        "Please slow down!",
+        "Can you open your bag, please?",
+        "Don't worry, Sue.",
+        "Hurry up!",
+        "Will you marry me?",
+        "Do you think you could give me a hand, Tom?"
+      ],
+      "examples": [
+        {
+          "prompt": "Will was taking a long time to get ready, so I told him ___.",
+          "answer": "to hurry up"
+        }
+      ],
+      "items": [
+        {
+          "prompt": "Sarah was driving too fast, so I asked ___.",
+          "answer": "her to slow down"
+        },
+        {
+          "context": "Sue was nervous about the situation.",
+          "prompt": "I told ___.",
+          "answer": "her not to worry"
+        },
+        {
+          "prompt": "I couldn't move the piano alone, so I ___.",
+          "answer": "asked Tom to give me a hand"
+        },
+        {
+          "prompt": "The security guard looked at me suspiciously and ___.",
+          "answer": "asked me to open my bag"
+        },
+        {
+          "prompt": "The man started asking me personal questions, so I ___.",
+          "answer": "told him to mind his own business"
+        },
+        {
+          "context": "Carl was in love with Maria.",
+          "prompt": "He ___.",
+          "answer": "asked her to marry him"
+        },
+        {
+          "prompt": "I didn't want to delay Helen, so I ___.",
+          "answer": "told her not to wait for me"
+        }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng câu tường thuật: một câu với said/told (kể lại điều ai đó nói) và một câu với told/asked somebody to ... (kể lại một yêu cầu hoặc lời đề nghị).",
+      "instructionsEn": "Write 2-3 English sentences using reported speech: one with said/told (reporting what somebody said) and one with told/asked somebody to ... (reporting a request or an instruction).",
+      "ruleSummary": "This unit extends reported speech. The tense does not always have to shift back: if the situation reported is still true or unchanged, the original tense can stay (Paul said that his new job is boring, since it's still boring), though shifting it back is also correct; but if the situation has changed or finished, a past tense is required (he said he had to go, not has to go), and the past must be used whenever what was said differs from what is actually true now (Rachel said you were in hospital, not are, once it's clear the listener is not in hospital). say and tell differ only in whether the listener is named: tell somebody (Rachel told me), say to somebody or just say with no listener named (Rachel said / say something to the police); say never takes a direct object person (not said me). Reported requests and instructions use tell/ask somebody (not) to + infinitive (The doctor told me to drink plenty of water, I told Joe not to work too hard, Jackie asked me to help her), or say (not) to do something with no object. A correct student sentence must not use say with a direct person object and must keep the infinitive (to do / not to do) after a reported tell/ask, never a that-clause with a finite verb."
+    }
+  ]
+};
+
+const UNIT_49_QUESTIONS_1: GrammarUnit = {
+  "unit": 49,
+  "slug": "questions-1",
+  "title": "Questions 1",
+  "topic": "questions",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "Chủ ngữ thường nằm sau động từ đầu tiên",
+          "headingEn": "The subject is usually after the first verb",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "In questions the subject is usually after the first verb:",
+              "vi": "Trong câu hỏi, chủ ngữ thường nằm sau động từ đầu tiên:"
+            },
+            {
+              "kind": "table",
+              "table": {
+                "headers": ["subject + verb", "verb + subject", ""],
+                "rows": [
+                  ["Tom will", "will Tom?", "**Will** Tom be here tomorrow?"],
+                  ["you have", "have you?", "**Have** you been working hard?"],
+                  ["the house was", "was the house?", "When **was** the house built?"]
+                ]
+              }
+            },
+            {
+              "kind": "text",
+              "text": "The subject is after the first verb:",
+              "vi": "Chủ ngữ nằm sau động từ đầu tiên:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "**Is** Katherine **working** today?",
+                  "note": "not Is working Katherine",
+                  "vi": "Hôm nay Katherine có đang làm việc không?"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "do/does/did, trừ khi who/what ... là chủ ngữ",
+          "headingEn": "do/does/did, unless who/what etc. is the subject",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "In present simple questions, we use **do/does**:",
+              "vi": "Trong câu hỏi thì hiện tại đơn, chúng ta dùng **do/does**:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "**Do** you **live** near here?",
+                  "vi": "Bạn có sống gần đây không?"
+                },
+                {
+                  "en": "What time **does** the film **start**?",
+                  "vi": "Mấy giờ bộ phim bắt đầu?"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "In past simple questions, we use **did**:",
+              "vi": "Trong câu hỏi thì quá khứ đơn, chúng ta dùng **did**:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "**Did** you **sell** your car?",
+                  "vi": "Bạn đã bán xe rồi phải không?"
+                },
+                {
+                  "en": "Why **did** the train **stop**?",
+                  "vi": "Tại sao tàu lại dừng lại?"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "But do not use do/does/did if who/what etc. is the subject of the sentence. Compare:",
+              "vi": "Nhưng không dùng do/does/did nếu who/what ... là chủ ngữ của câu. So sánh:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "Emma phoned somebody.",
+                  "note": "somebody = object",
+                  "vi": "Emma đã gọi cho ai đó. (somebody là tân ngữ)"
+                },
+                {
+                  "en": "Somebody phoned Emma.",
+                  "note": "somebody = subject",
+                  "vi": "Có ai đó đã gọi cho Emma. (somebody là chủ ngữ)"
+                },
+                {
+                  "en": "**Who did** Emma **phone**?",
+                  "note": "who = object",
+                  "vi": "Emma đã gọi cho ai? (who là tân ngữ)"
+                },
+                {
+                  "en": "**Who phoned** Emma?",
+                  "note": "who = subject",
+                  "vi": "Ai đã gọi cho Emma? (who là chủ ngữ)"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "In these examples, who/what etc. is the subject:",
+              "vi": "Trong các ví dụ sau, who/what ... là chủ ngữ:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "**Who wants** something to eat?",
+                  "note": "not Who does want",
+                  "vi": "Ai muốn ăn gì đó không?"
+                },
+                {
+                  "en": "**What happened** to you last night?",
+                  "note": "not What did happen",
+                  "vi": "Tối qua có chuyện gì xảy ra với bạn?"
+                },
+                {
+                  "en": "**How many people came** to the party?",
+                  "note": "not did come",
+                  "vi": "Có bao nhiêu người đến dự tiệc?"
+                },
+                {
+                  "en": "**Which bus goes** to the centre?",
+                  "note": "not does go",
+                  "vi": "Xe buýt nào đi đến trung tâm?"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "Giới từ thường đứng cuối câu hỏi who/what/which/where",
+          "headingEn": "Prepositions usually go at the end of who/what/which/where questions",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "In questions beginning who/what/which/where, prepositions (in, for etc.) usually go at the end:",
+              "vi": "Trong câu hỏi bắt đầu bằng who/what/which/where, giới từ (in, for ...) thường đứng ở cuối câu:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "Where are you **from**?",
+                  "vi": "Bạn từ đâu đến?"
+                },
+                {
+                  "en": "What was the weather **like**?",
+                  "vi": "Thời tiết như thế nào?"
+                },
+                {
+                  "en": "Who do you want to speak **to**?",
+                  "vi": "Bạn muốn nói chuyện với ai?"
+                },
+                {
+                  "en": "Which job has Tina applied **for**?",
+                  "vi": "Tina đã ứng tuyển công việc nào?"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "You can use **preposition + whom** in formal style:",
+              "vi": "Bạn có thể dùng **giới từ + whom** trong văn phong trang trọng:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "**To whom** do you wish to speak?",
+                  "vi": "Ông/bà muốn nói chuyện với ai?"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "D",
+          "heading": "Câu hỏi phủ định: isn't it ... ? / didn't you ... ?",
+          "headingEn": "Negative questions: isn't it ... ? / didn't you ... ?",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "We use negative questions especially to show surprise:",
+              "vi": "Chúng ta dùng câu hỏi phủ định đặc biệt để thể hiện sự ngạc nhiên:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "**Didn't** you **hear** the doorbell? I rang it three times.",
+                  "vi": "Bạn không nghe thấy tiếng chuông cửa sao? Tôi đã bấm ba lần rồi."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "or when we expect the listener to agree with us:",
+              "vi": "hoặc khi chúng ta mong người nghe đồng ý với mình:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "'**Haven't** we **met** before?' 'Yes, I think we have.'",
+                  "vi": "'Chúng ta đã gặp nhau trước đây rồi phải không?' 'Đúng vậy, tôi nghĩ là có.'"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "Note the meaning of yes and no in answers to negative questions:",
+              "vi": "Chú ý nghĩa của yes và no khi trả lời câu hỏi phủ định:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "'Don't you want to go?' 'Yes.'",
+                  "note": "= Yes, I want to go",
+                  "vi": "'Bạn không muốn đi sao?' 'Có.' (= Có, tôi muốn đi)"
+                },
+                {
+                  "en": "'Don't you want to go?' 'No.'",
+                  "note": "= No, I don't want to go",
+                  "vi": "'Bạn không muốn đi sao?' 'Không.' (= Không, tôi không muốn đi)"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "We often use negative questions with **Why ... ?**:",
+              "vi": "Chúng ta thường dùng câu hỏi phủ định với **Why ... ?**:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "**Why don't we** eat out tonight?",
+                  "note": "not Why we don't eat",
+                  "vi": "Sao chúng ta không đi ăn ngoài tối nay?"
+                },
+                {
+                  "en": "**Why wasn't** Emma at work yesterday?",
+                  "note": "not Why Emma wasn't",
+                  "vi": "Sao hôm qua Emma không đi làm?"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "49.1 · Đặt câu hỏi cho Joe",
+      "titleEn": "49.1 · Ask Joe questions",
+      "instructions": "Dùng từ gợi ý trong ngoặc để đặt câu hỏi cho Joe, dựa trên câu trả lời của anh ấy.",
+      "instructionsEn": "Use the words in brackets to ask Joe questions, based on his answers.",
+      "examples": [
+        {
+          "context": "Joe's answer: In Manchester.",
+          "prompt": "___ (where / live)",
+          "answer": "Where do you live?"
+        }
+      ],
+      "items": [
+        {
+          "context": "Joe's answer: No, I was born in London.",
+          "prompt": "___ (born there?)",
+          "answer": "Were you born there?"
+        },
+        {
+          "context": "Joe's answer: Yes.",
+          "prompt": "___ (married?)",
+          "answer": "Are you married?"
+        },
+        {
+          "context": "Joe's answer: 17 years.",
+          "prompt": "___ (how long?)",
+          "answer": "How long have you been married?"
+        },
+        {
+          "context": "Joe's answer: I'm a journalist.",
+          "prompt": "___ (what / do?)",
+          "answer": "What do you do?"
+        },
+        {
+          "context": "Joe's answer: She's a doctor.",
+          "prompt": "___ (what / wife / do?)",
+          "answer": "What does your wife do?"
+        },
+        {
+          "context": "Joe's answer: Yes, two boys.",
+          "prompt": "___ (children?)",
+          "answer": "Do you have any children?",
+          "accept": ["Have you got any children?"]
+        },
+        {
+          "context": "Joe's answer: 12 and 15.",
+          "prompt": "___ (how old?)",
+          "answer": "How old are they?"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "49.2 · Đặt câu hỏi với who hoặc what",
+      "titleEn": "49.2 · Make questions with who or what",
+      "instructions": "Đặt câu hỏi với who hoặc what cho mỗi câu sau.",
+      "instructionsEn": "Make questions with who or what.",
+      "examples": [
+        {
+          "context": "Somebody hit me.",
+          "prompt": "___",
+          "answer": "Who hit you?"
+        },
+        {
+          "context": "I hit somebody.",
+          "prompt": "___",
+          "answer": "Who did you hit?"
+        }
+      ],
+      "items": [
+        {
+          "context": "Somebody paid the bill.",
+          "prompt": "___",
+          "answer": "Who paid the bill?"
+        },
+        {
+          "context": "I'm worried about something.",
+          "prompt": "___",
+          "answer": "What are you worried about?"
+        },
+        {
+          "context": "Something happened.",
+          "prompt": "___",
+          "answer": "What happened?"
+        },
+        {
+          "context": "Diane said something.",
+          "prompt": "___",
+          "answer": "What did Diane say?"
+        },
+        {
+          "context": "This book belongs to somebody.",
+          "prompt": "___",
+          "answer": "Who does this book belong to?"
+        },
+        {
+          "context": "Somebody lives in that house.",
+          "prompt": "___",
+          "answer": "Who lives in that house?"
+        },
+        {
+          "context": "I fell over something.",
+          "prompt": "___",
+          "answer": "What did you fall over?"
+        },
+        {
+          "context": "Something fell off the shelf.",
+          "prompt": "___",
+          "answer": "What fell off the shelf?"
+        },
+        {
+          "context": "This word means something.",
+          "prompt": "___",
+          "answer": "What does this word mean?"
+        },
+        {
+          "context": "Sarah was with somebody.",
+          "prompt": "___",
+          "answer": "Who was Sarah with?"
+        },
+        {
+          "context": "I'm looking for something.",
+          "prompt": "___",
+          "answer": "What are you looking for?"
+        },
+        {
+          "context": "Emma reminds me of somebody.",
+          "prompt": "___",
+          "answer": "Who does Emma remind you of?"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "49.3 · Sắp xếp các từ theo đúng thứ tự",
+      "titleEn": "49.3 · Put the words in the correct order",
+      "instructions": "Sắp xếp các từ trong ngoặc theo đúng thứ tự để tạo thành câu hỏi.",
+      "instructionsEn": "Put the words in brackets in the correct order.",
+      "examples": [
+        {
+          "prompt": "___ (when / was / built / this house?)",
+          "answer": "When was this house built?"
+        }
+      ],
+      "items": [
+        {
+          "prompt": "___ (how / cheese / is / made?)",
+          "answer": "How is cheese made?"
+        },
+        {
+          "prompt": "___ (why / Sue / working / isn't / today?)",
+          "answer": "Why isn't Sue working today?"
+        },
+        {
+          "prompt": "___ (what time / arriving / your friends / are?)",
+          "answer": "What time are your friends arriving?"
+        },
+        {
+          "prompt": "___ (why / was / cancelled / the meeting?)",
+          "answer": "Why was the meeting cancelled?"
+        },
+        {
+          "prompt": "___ (when / invented / paper / was?)",
+          "answer": "When was paper invented?"
+        },
+        {
+          "prompt": "___ (where / your parents / were / born?)",
+          "answer": "Where were your parents born?"
+        },
+        {
+          "prompt": "___ (why / you / to the party / didn't / come?)",
+          "answer": "Why didn't you come to the party?"
+        },
+        {
+          "prompt": "___ (how / the accident / did / happen?)",
+          "answer": "How did the accident happen?"
+        },
+        {
+          "prompt": "___ (why / happy / you / aren't?)",
+          "answer": "Why aren't you happy?"
+        },
+        {
+          "prompt": "___ (how many / speak / can / languages / you?)",
+          "answer": "How many languages can you speak?"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "49.4 · Viết câu hỏi phủ định thể hiện sự ngạc nhiên",
+      "titleEn": "49.4 · Write negative questions showing surprise",
+      "instructions": "Viết câu hỏi phủ định từ các từ trong ngoặc. Trong mỗi tình huống, bạn đang ngạc nhiên.",
+      "instructionsEn": "Write negative questions from the words in brackets. In each situation you are surprised.",
+      "examples": [
+        {
+          "context": "a: We won't see Lisa this evening.",
+          "prompt": "b: Why not? ___ (she / not / come / out with us?)",
+          "answer": "Isn't she coming out with us?"
+        }
+      ],
+      "items": [
+        {
+          "context": "a: I hope we don't meet Luke tonight.",
+          "prompt": "b: Why? ___ (you / not / like / him?)",
+          "answer": "Don't you like him?"
+        },
+        {
+          "context": "a: Don't go and see that film.",
+          "prompt": "b: Why not? ___ (it / not / good?)",
+          "answer": "Isn't it good?"
+        },
+        {
+          "context": "a: I'll have to borrow some money.",
+          "prompt": "b: Why? ___ (you / not / have / any?)",
+          "answer": "Don't you have any?",
+          "accept": ["Haven't you got any?"]
+        }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu hỏi tiếng Anh: một câu hỏi với who/what làm chủ ngữ (không dùng do/does/did), và một câu hỏi phủ định thể hiện sự ngạc nhiên (Didn't you ... ? / Isn't it ... ?).",
+      "instructionsEn": "Write 2-3 English questions: one with who/what as the subject (no do/does/did), and one negative question showing surprise (Didn't you ... ? / Isn't it ... ?).",
+      "ruleSummary": "This unit covers basic question word order. The subject normally comes right after the first verb (Will Tom be here? Have you been working hard? When was the house built?), and do/does/did is added to make a question in the present/past simple (Do you live near here? Did you sell your car?) - except when who/what/which/how many etc. is itself the subject of the sentence, in which case there is no do/does/did and normal statement word order follows the question word (Who phoned Emma? What happened? How many people came?), contrasted with when who/what is the object (Who did Emma phone?). In who/what/which/where questions, a preposition usually goes at the end (Where are you from? Who do you want to speak to?), with preposition + whom as a formal alternative. Negative questions (Didn't you hear the doorbell? Haven't we met before?) show surprise or expect agreement, and yes/no in the answer still refers to the positive fact, not to the negative wording. A correct student sentence must never add do/does/did in front of a who/what/which subject question, and must keep a preposition at the end (not moved to the front) in ordinary style."
+    }
+  ]
+};
+
+const UNIT_50_QUESTIONS_2: GrammarUnit = {
+  "unit": 50,
+  "slug": "questions-2",
+  "title": "Questions 2 (do you know where ... ? / he asked me where ...)",
+  "topic": "questions",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "Do you know where ... ? / I don't know why ... / Could you tell me what ... ?",
+          "headingEn": "Do you know where ... ? / I don't know why ... / Could you tell me what ... ?",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "We say:",
+              "vi": "Chúng ta nói:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "Where has Tom gone?",
+                  "vi": "Tom đã đi đâu rồi?"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "but:",
+              "vi": "nhưng:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "Do you know **where Tom has gone**?",
+                  "note": "not has Tom gone",
+                  "vi": "Bạn có biết Tom đã đi đâu không?"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "When the question (Where has Tom gone?) is part of a longer sentence (Do you know ... ? / I don't know ... / Can you tell me ... ? etc.), the word order changes. We say:",
+              "vi": "Khi câu hỏi (Where has Tom gone?) trở thành một phần của câu dài hơn (Do you know ... ? / I don't know ... / Can you tell me ... ?), trật tự từ sẽ thay đổi. Chúng ta nói:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "What time is it? but Do you know **what time it is**?",
+                  "vi": "What time is it? nhưng: Do you know what time it is?"
+                },
+                {
+                  "en": "Who are those people? I don't know **who those people are**.",
+                  "vi": "Who are those people? nhưng: I don't know who those people are."
+                },
+                {
+                  "en": "Where can I find Louise? Can you tell me **where I can find Louise**?",
+                  "vi": "Where can I find Louise? nhưng: Can you tell me where I can find Louise?"
+                },
+                {
+                  "en": "How much will it cost? Do you have any idea **how much it will cost**?",
+                  "vi": "How much will it cost? nhưng: Do you have any idea how much it will cost?"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "Be careful with do/does/did questions. We say:",
+              "vi": "Cẩn thận với câu hỏi có do/does/did. Chúng ta nói:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "What time does the film start? but Do you know **what time the film starts**?",
+                  "note": "not does the film start",
+                  "vi": "What time does the film start? nhưng: Do you know what time the film starts?"
+                },
+                {
+                  "en": "What do you mean? Please explain **what you mean**.",
+                  "vi": "What do you mean? nhưng: Please explain what you mean."
+                },
+                {
+                  "en": "Why did she leave early? I wonder **why she left early**.",
+                  "vi": "Why did she leave early? nhưng: I wonder why she left early."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "Use **if** or **whether** where there is no other question word (what, why etc.):",
+              "vi": "Dùng **if** hoặc **whether** khi không có từ hỏi khác (what, why ...):"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "Did anybody see you? but I don't know **if** anybody saw me. or ... **whether** anybody saw me.",
+                  "vi": "Did anybody see you? nhưng: I don't know if anybody saw me. hoặc: ... whether anybody saw me."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "He asked me where ...: câu hỏi trong câu tường thuật",
+          "headingEn": "He asked me where ...: questions in reported speech",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "The same changes in word order happen in questions in reported speech. Compare:",
+              "vi": "Những thay đổi trật tự từ tương tự cũng xảy ra trong câu hỏi ở câu tường thuật. So sánh:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "direct: The police officer said to us 'Where are you going?'",
+                  "vi": "trực tiếp: Cảnh sát nói với chúng tôi, 'Các bạn đang đi đâu?'"
+                },
+                {
+                  "en": "reported: The police officer asked us **where we were going**.",
+                  "vi": "tường thuật: Cảnh sát hỏi chúng tôi đang đi đâu."
+                },
+                {
+                  "en": "direct: Clare asked 'What time do the shops close?'",
+                  "vi": "trực tiếp: Clare hỏi, 'Mấy giờ các cửa hàng đóng cửa?'"
+                },
+                {
+                  "en": "reported: Clare wanted to know **what time the shops closed**.",
+                  "vi": "tường thuật: Clare muốn biết mấy giờ các cửa hàng đóng cửa."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "In reported speech the verb usually changes to the past (were, closed etc.). See Unit 47.",
+              "vi": "Trong câu tường thuật, động từ thường chuyển về quá khứ (were, closed ...). Xem Unit 47."
+            },
+            {
+              "kind": "text",
+              "text": "Study these examples. You had a job interview and the interviewer asked you these questions:",
+              "vi": "Hãy xem các ví dụ sau. Bạn có một buổi phỏng vấn xin việc và người phỏng vấn hỏi bạn những câu sau:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "Are you willing to travel?",
+                  "vi": "Bạn có sẵn sàng đi công tác không?"
+                },
+                {
+                  "en": "What do you do in your spare time?",
+                  "vi": "Bạn làm gì trong thời gian rảnh?"
+                },
+                {
+                  "en": "How long have you been working in your present job?",
+                  "vi": "Bạn đã làm công việc hiện tại được bao lâu rồi?"
+                },
+                {
+                  "en": "Why did you apply for the job?",
+                  "vi": "Tại sao bạn ứng tuyển công việc này?"
+                },
+                {
+                  "en": "Can you speak any other languages?",
+                  "vi": "Bạn có nói được ngoại ngữ nào khác không?"
+                },
+                {
+                  "en": "Do you have a driving licence?",
+                  "vi": "Bạn có bằng lái xe không?"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "Later you tell a friend what the interviewer asked you. You use reported speech:",
+              "vi": "Sau đó bạn kể cho một người bạn nghe những gì người phỏng vấn đã hỏi. Bạn dùng câu tường thuật:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "She asked **if** (or **whether**) I was willing to travel.",
+                  "vi": "Cô ấy hỏi tôi có sẵn sàng đi công tác không."
+                },
+                {
+                  "en": "She wanted to know **what** I did in my spare time.",
+                  "vi": "Cô ấy muốn biết tôi làm gì trong thời gian rảnh."
+                },
+                {
+                  "en": "She asked **how long** I had been working in my present job.",
+                  "vi": "Cô ấy hỏi tôi đã làm công việc hiện tại được bao lâu."
+                },
+                {
+                  "en": "She asked **why** I had applied for the job. or ... why I applied ...",
+                  "vi": "Cô ấy hỏi tại sao tôi ứng tuyển công việc này."
+                },
+                {
+                  "en": "She wanted to know **if** (or **whether**) I could speak any other languages.",
+                  "vi": "Cô ấy muốn biết tôi có nói được ngoại ngữ nào khác không."
+                },
+                {
+                  "en": "She asked **if** (or **whether**) I had a driving licence.",
+                  "vi": "Cô ấy hỏi tôi có bằng lái xe không."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "fill_mc",
+      "title": "50.1 · Chọn câu đúng",
+      "titleEn": "50.1 · Which is right?",
+      "instructions": "Chọn phương án đúng.",
+      "instructionsEn": "Which is right? Tick the correct alternative.",
+      "items": [
+        {
+          "before": "",
+          "after": "",
+          "options": [
+            "Do you know what time the film starts?",
+            "Do you know what time does the film start?",
+            "Do you know what time starts the film?"
+          ],
+          "answer": "Do you know what time the film starts?"
+        },
+        {
+          "before": "",
+          "after": "",
+          "options": [
+            "Why Amy does get up so early every day?",
+            "Why Amy gets up so early every day?",
+            "Why does Amy get up so early every day?"
+          ],
+          "answer": "Why does Amy get up so early every day?"
+        },
+        {
+          "before": "",
+          "after": "",
+          "options": [
+            "I want to know what this word means.",
+            "I want to know what does this word mean.",
+            "I want to know what means this word."
+          ],
+          "answer": "I want to know what this word means."
+        },
+        {
+          "before": "",
+          "after": "",
+          "options": [
+            "I can't remember where did I park the car.",
+            "I can't remember where I parked the car.",
+            "I can't remember where I did park the car."
+          ],
+          "answer": "I can't remember where I parked the car."
+        },
+        {
+          "before": "",
+          "after": "",
+          "options": [
+            "Why you didn't phone me yesterday?",
+            "Why didn't you phone me yesterday?",
+            "Why you not phoned me yesterday?"
+          ],
+          "answer": "Why didn't you phone me yesterday?"
+        },
+        {
+          "before": "",
+          "after": "",
+          "options": [
+            "Do you know where does Helen work?",
+            "Do you know where Helen does work?",
+            "Do you know where Helen works?"
+          ],
+          "answer": "Do you know where Helen works?"
+        },
+        {
+          "before": "",
+          "after": "",
+          "options": [
+            "How much it costs to park here?",
+            "How much does it cost to park here?",
+            "How much it does cost to park here?"
+          ],
+          "answer": "How much does it cost to park here?"
+        },
+        {
+          "before": "",
+          "after": "",
+          "options": [
+            "Tell me what you want.",
+            "Tell me what you do want.",
+            "Tell me what do you want."
+          ],
+          "answer": "Tell me what you want."
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "50.2 · Sắp xếp các từ theo đúng thứ tự",
+      "titleEn": "50.2 · Put the words in the correct order",
+      "instructions": "Sắp xếp các từ trong ngoặc theo đúng thứ tự.",
+      "instructionsEn": "Put the words in the correct order.",
+      "examples": [
+        {
+          "prompt": "___ (it / you / what time / know / is)",
+          "answer": "Do you know what time it is?"
+        }
+      ],
+      "items": [
+        {
+          "prompt": "How ___? (is / to the airport / far / it)",
+          "answer": "far is it to the airport"
+        },
+        {
+          "prompt": "I ___. (wonder / is / how / old / Tom)",
+          "answer": "wonder how old Tom is"
+        },
+        {
+          "prompt": "How long ___? (they / married / been / have)",
+          "answer": "have they been married"
+        },
+        {
+          "prompt": "Do you ___? (they / married / how long / been / have / know)",
+          "answer": "know how long they have been married"
+        },
+        {
+          "prompt": "Could ___? (tell / the station / you / me / is / where)",
+          "answer": "you tell me where the station is"
+        },
+        {
+          "prompt": "I ___. (in the accident / injured / anyone / don't / whether / know / was)",
+          "answer": "don't know whether anyone was injured in the accident"
+        },
+        {
+          "prompt": "Do ___? (what / tomorrow / know / time / will / arrive / you / you)",
+          "answer": "you know what time you will arrive tomorrow"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "50.3 · Kể lại những câu hỏi bằng câu tường thuật",
+      "titleEn": "50.3 · Report the questions people asked you",
+      "instructions": "Bạn đang tham quan London. Nhiều người đã hỏi bạn nhiều câu hỏi. Hãy kể lại cho một người bạn những gì họ đã hỏi, dùng câu tường thuật.",
+      "instructionsEn": "You were visiting London. A lot of people asked you a lot of questions. Now tell a friend what they asked you, using reported speech.",
+      "examples": [
+        {
+          "context": "Where are you from?",
+          "prompt": "___",
+          "answer": "He asked me where I was from."
+        }
+      ],
+      "items": [
+        {
+          "context": "How long have you been in London?",
+          "prompt": "___",
+          "answer": "She asked me how long I had been in London.",
+          "accept": ["She asked me how long I'd been in London.", "He asked me how long I had been in London.", "They asked me how long I had been in London."]
+        },
+        {
+          "context": "Have you been to London before?",
+          "prompt": "___",
+          "answer": "They asked me if I had been to London before.",
+          "accept": ["They asked me whether I had been to London before.", "He asked me if I had been to London before.", "She asked me if I had been to London before."]
+        },
+        {
+          "context": "Do you like London?",
+          "prompt": "___",
+          "answer": "He asked me if I liked London.",
+          "accept": ["He asked me whether I liked London.", "She asked me if I liked London.", "They asked me if I liked London."]
+        },
+        {
+          "context": "Where are you staying?",
+          "prompt": "___",
+          "answer": "She asked me where I was staying.",
+          "accept": ["He asked me where I was staying.", "They asked me where I was staying."]
+        },
+        {
+          "context": "How long are you going to stay?",
+          "prompt": "___",
+          "answer": "They asked me how long I was going to stay.",
+          "accept": ["He asked me how long I was going to stay.", "She asked me how long I was going to stay."]
+        },
+        {
+          "context": "Do you think London is expensive?",
+          "prompt": "___",
+          "answer": "He asked me if I thought London was expensive.",
+          "accept": ["He asked me whether I thought London was expensive.", "She asked me if I thought London was expensive.", "They asked me if I thought London was expensive."]
+        },
+        {
+          "context": "Why did you come to London?",
+          "prompt": "___",
+          "answer": "She asked me why I had come to London.",
+          "accept": ["She asked me why I came to London.", "He asked me why I had come to London.", "They asked me why I had come to London."]
+        }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh: một câu hỏi lồng bên trong câu khác (Do you know ... ? / Can you tell me ... ?), và một câu tường thuật lại một câu hỏi ai đó đã hỏi bạn (He/She asked me ...).",
+      "instructionsEn": "Write 2-3 English sentences: one question embedded inside another sentence (Do you know ... ? / Can you tell me ... ?), and one reporting a question somebody asked you (He/She asked me ...).",
+      "ruleSummary": "This unit covers embedded and reported questions. When a question (Where has Tom gone?) becomes part of a longer sentence (Do you know ... ? / I don't know ... / Can you tell me ... ?), the word order changes to normal statement order with the subject before the verb (Do you know where Tom has gone?, not has Tom gone), and do/does/did disappears, its meaning absorbed into the main verb (Do you know what time the film starts?, not does the film start). if or whether introduces an embedded or reported yes/no question when there is no other question word (I don't know if/whether anybody saw me). The same word-order change applies in reported questions, which additionally usually back-shift the tense (The police officer asked us where we were going; she asked how long I had been working there), following the same rules as Units 47-48. A correct student sentence must never keep question word order (verb before subject) or do/does/did inside an embedded or reported question, and must use if/whether rather than a bare yes/no clause when there is no wh-word."
+    }
+  ]
+};
+
 export const UNITS_META: GrammarUnitMeta[] = [
   { unit: 1, slug: UNIT_1_PRESENT_CONTINUOUS.slug, title: UNIT_1_PRESENT_CONTINUOUS.title, topic: UNIT_1_PRESENT_CONTINUOUS.topic, available: true },
   { unit: 2, slug: UNIT_2_PRESENT_SIMPLE.slug, title: UNIT_2_PRESENT_SIMPLE.title, topic: UNIT_2_PRESENT_SIMPLE.topic, available: true },
@@ -19044,9 +23264,19 @@ export const UNITS_META: GrammarUnitMeta[] = [
   { unit: 38, slug: UNIT_38_IF_I_DO_AND_IF_I_DID.slug, title: UNIT_38_IF_I_DO_AND_IF_I_DID.title, topic: UNIT_38_IF_I_DO_AND_IF_I_DID.topic, available: true },
   { unit: 39, slug: UNIT_39_IF_I_KNEW_I_WISH_I_KNEW.slug, title: UNIT_39_IF_I_KNEW_I_WISH_I_KNEW.title, topic: UNIT_39_IF_I_KNEW_I_WISH_I_KNEW.topic, available: true },
   { unit: 40, slug: UNIT_40_IF_I_HAD_KNOWN_I_WISH_I_HAD_KNOWN.slug, title: UNIT_40_IF_I_HAD_KNOWN_I_WISH_I_HAD_KNOWN.title, topic: UNIT_40_IF_I_HAD_KNOWN_I_WISH_I_HAD_KNOWN.topic, available: true },
+  { unit: 41, slug: UNIT_41_WISH.slug, title: UNIT_41_WISH.title, topic: UNIT_41_WISH.topic, available: true },
+  { unit: 42, slug: UNIT_42_PASSIVE_1.slug, title: UNIT_42_PASSIVE_1.title, topic: UNIT_42_PASSIVE_1.topic, available: true },
+  { unit: 43, slug: UNIT_43_PASSIVE_2.slug, title: UNIT_43_PASSIVE_2.title, topic: UNIT_43_PASSIVE_2.topic, available: true },
+  { unit: 44, slug: UNIT_44_PASSIVE_3.slug, title: UNIT_44_PASSIVE_3.title, topic: UNIT_44_PASSIVE_3.topic, available: true },
+  { unit: 45, slug: UNIT_45_SUPPOSED_TO.slug, title: UNIT_45_SUPPOSED_TO.title, topic: UNIT_45_SUPPOSED_TO.topic, available: true },
+  { unit: 46, slug: UNIT_46_HAVE_SOMETHING_DONE.slug, title: UNIT_46_HAVE_SOMETHING_DONE.title, topic: UNIT_46_HAVE_SOMETHING_DONE.topic, available: true },
+  { unit: 47, slug: UNIT_47_REPORTED_SPEECH_1.slug, title: UNIT_47_REPORTED_SPEECH_1.title, topic: UNIT_47_REPORTED_SPEECH_1.topic, available: true },
+  { unit: 48, slug: UNIT_48_REPORTED_SPEECH_2.slug, title: UNIT_48_REPORTED_SPEECH_2.title, topic: UNIT_48_REPORTED_SPEECH_2.topic, available: true },
+  { unit: 49, slug: UNIT_49_QUESTIONS_1.slug, title: UNIT_49_QUESTIONS_1.title, topic: UNIT_49_QUESTIONS_1.topic, available: true },
+  { unit: 50, slug: UNIT_50_QUESTIONS_2.slug, title: UNIT_50_QUESTIONS_2.title, topic: UNIT_50_QUESTIONS_2.topic, available: true },
 ];
 
-export const GRAMMAR_UNITS: GrammarUnit[] = [UNIT_1_PRESENT_CONTINUOUS, UNIT_2_PRESENT_SIMPLE, UNIT_3_PRESENT_CONTINUOUS_AND_SIMPLE_1, UNIT_4_PRESENT_CONTINUOUS_AND_SIMPLE_2, UNIT_5_PAST_SIMPLE, UNIT_6_PAST_CONTINUOUS, UNIT_7_PRESENT_PERFECT_1, UNIT_8_PRESENT_PERFECT_2, UNIT_9_PRESENT_PERFECT_CONTINUOUS, UNIT_10_PRESENT_PERFECT_CONTINUOUS_AND_SIMPLE, UNIT_11_HOW_LONG_HAVE_YOU_BEEN, UNIT_12_FOR_AND_SINCE, UNIT_13_PRESENT_PERFECT_AND_PAST_1, UNIT_14_PRESENT_PERFECT_AND_PAST_2, UNIT_15_PAST_PERFECT, UNIT_16_PAST_PERFECT_CONTINUOUS, UNIT_17_HAVE_AND_HAVE_GOT, UNIT_18_USED_TO, UNIT_19_PRESENT_TENSES_FOR_THE_FUTURE, UNIT_20_IM_GOING_TO, UNIT_21_WILL_AND_SHALL_1, UNIT_22_WILL_AND_SHALL_2, UNIT_23_I_WILL_AND_IM_GOING_TO, UNIT_24_WILL_BE_DOING_AND_WILL_HAVE_DONE, UNIT_25_WHEN_I_DO_AND_WHEN_IVE_DONE, UNIT_26_CAN_COULD_AND_BE_ABLE_TO, UNIT_27_COULD_DO_AND_COULD_HAVE_DONE, UNIT_28_MUST_AND_CANT, UNIT_29_MAY_AND_MIGHT_1, UNIT_30_MAY_AND_MIGHT_2, UNIT_31_HAVE_TO_AND_MUST, UNIT_32_MUST_MUSTNT_NEEDNT, UNIT_33_SHOULD_1, UNIT_34_SHOULD_2, UNIT_35_ID_BETTER_ITS_TIME, UNIT_36_WOULD, UNIT_37_REQUESTS_OFFERS_PERMISSION_INVITATIONS, UNIT_38_IF_I_DO_AND_IF_I_DID, UNIT_39_IF_I_KNEW_I_WISH_I_KNEW, UNIT_40_IF_I_HAD_KNOWN_I_WISH_I_HAD_KNOWN];
+export const GRAMMAR_UNITS: GrammarUnit[] = [UNIT_1_PRESENT_CONTINUOUS, UNIT_2_PRESENT_SIMPLE, UNIT_3_PRESENT_CONTINUOUS_AND_SIMPLE_1, UNIT_4_PRESENT_CONTINUOUS_AND_SIMPLE_2, UNIT_5_PAST_SIMPLE, UNIT_6_PAST_CONTINUOUS, UNIT_7_PRESENT_PERFECT_1, UNIT_8_PRESENT_PERFECT_2, UNIT_9_PRESENT_PERFECT_CONTINUOUS, UNIT_10_PRESENT_PERFECT_CONTINUOUS_AND_SIMPLE, UNIT_11_HOW_LONG_HAVE_YOU_BEEN, UNIT_12_FOR_AND_SINCE, UNIT_13_PRESENT_PERFECT_AND_PAST_1, UNIT_14_PRESENT_PERFECT_AND_PAST_2, UNIT_15_PAST_PERFECT, UNIT_16_PAST_PERFECT_CONTINUOUS, UNIT_17_HAVE_AND_HAVE_GOT, UNIT_18_USED_TO, UNIT_19_PRESENT_TENSES_FOR_THE_FUTURE, UNIT_20_IM_GOING_TO, UNIT_21_WILL_AND_SHALL_1, UNIT_22_WILL_AND_SHALL_2, UNIT_23_I_WILL_AND_IM_GOING_TO, UNIT_24_WILL_BE_DOING_AND_WILL_HAVE_DONE, UNIT_25_WHEN_I_DO_AND_WHEN_IVE_DONE, UNIT_26_CAN_COULD_AND_BE_ABLE_TO, UNIT_27_COULD_DO_AND_COULD_HAVE_DONE, UNIT_28_MUST_AND_CANT, UNIT_29_MAY_AND_MIGHT_1, UNIT_30_MAY_AND_MIGHT_2, UNIT_31_HAVE_TO_AND_MUST, UNIT_32_MUST_MUSTNT_NEEDNT, UNIT_33_SHOULD_1, UNIT_34_SHOULD_2, UNIT_35_ID_BETTER_ITS_TIME, UNIT_36_WOULD, UNIT_37_REQUESTS_OFFERS_PERMISSION_INVITATIONS, UNIT_38_IF_I_DO_AND_IF_I_DID, UNIT_39_IF_I_KNEW_I_WISH_I_KNEW, UNIT_40_IF_I_HAD_KNOWN_I_WISH_I_HAD_KNOWN, UNIT_41_WISH, UNIT_42_PASSIVE_1, UNIT_43_PASSIVE_2, UNIT_44_PASSIVE_3, UNIT_45_SUPPOSED_TO, UNIT_46_HAVE_SOMETHING_DONE, UNIT_47_REPORTED_SPEECH_1, UNIT_48_REPORTED_SPEECH_2, UNIT_49_QUESTIONS_1, UNIT_50_QUESTIONS_2];
 
 export function getGrammarUnit(slug: string): GrammarUnit | undefined {
   return GRAMMAR_UNITS.find((u) => u.slug === slug);

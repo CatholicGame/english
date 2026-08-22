@@ -65,7 +65,9 @@ function DiscussPanel({ onClose }: { onClose: () => void }) {
   const [input, setInput] = useState("");
   const [sending, setSending] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [historyOpen, setHistoryOpen] = useState(false);
   const chatEndRef = useRef<HTMLDivElement>(null);
+  const historyRef = useRef<HTMLDivElement>(null);
 
   const activeThread = threads.find((c) => c.id === threadId) ?? null;
 
@@ -73,10 +75,20 @@ function DiscussPanel({ onClose }: { onClose: () => void }) {
     chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [chat]);
 
+  useEffect(() => {
+    if (!historyOpen) return;
+    function onClick(e: MouseEvent) {
+      if (historyRef.current && !historyRef.current.contains(e.target as Node)) setHistoryOpen(false);
+    }
+    document.addEventListener("mousedown", onClick);
+    return () => document.removeEventListener("mousedown", onClick);
+  }, [historyOpen]);
+
   function openThread(id: string | null) {
     setThreadId(id);
     setChat(id ? threads.find((c) => c.id === id)?.messages ?? [] : []);
     setError(null);
+    setHistoryOpen(false);
   }
 
   function removeThread(id: string) {
@@ -117,7 +129,7 @@ function DiscussPanel({ onClose }: { onClose: () => void }) {
       <div className="flex h-[calc(75vh-40px)] flex-col">
         <div className="mb-2 flex-none text-[15px] font-extrabold">💬 Hỏi đáp nhanh</div>
 
-        <div className="mb-3 flex flex-none gap-1.5 overflow-x-auto pb-1">
+        <div className="mb-3 flex flex-none items-center gap-1.5">
           <button
             type="button"
             onClick={() => openThread(null)}
@@ -129,23 +141,49 @@ function DiscussPanel({ onClose }: { onClose: () => void }) {
           >
             + Mới
           </button>
-          {threads.map((c) => (
-            <span
-              key={c.id}
-              className="inline-flex flex-none items-center gap-1 rounded px-2.5 py-1 text-[12px] font-bold whitespace-nowrap"
-              style={{
-                background: c.id === threadId ? "var(--color-accent-100)" : "var(--color-surface)",
-                color: c.id === threadId ? "var(--color-accent-800)" : "var(--color-text)",
-              }}
+
+          <div className="relative flex-none" ref={historyRef}>
+            <button
+              type="button"
+              onClick={() => setHistoryOpen((v) => !v)}
+              className="flex-none rounded px-2.5 py-1 text-[12px] font-extrabold whitespace-nowrap"
+              style={{ background: "var(--color-surface)", color: "var(--color-text)" }}
             >
-              <button type="button" className="max-w-[110px] truncate" onClick={() => openThread(c.id)}>
-                {c.itemLabel || "Đoạn chat"}
-              </button>
-              <button type="button" className="text-neutral-500 hover:text-neutral-700" onClick={() => removeThread(c.id)}>
-                ✕
-              </button>
-            </span>
-          ))}
+              🕘 Lịch sử{threads.length > 0 ? ` (${threads.length})` : ""}
+            </button>
+            {historyOpen && (
+              <div
+                className="absolute left-0 top-full z-10 mt-1 max-h-64 w-64 overflow-y-auto rounded-lg border shadow-lg"
+                style={{ background: "var(--color-surface)", borderColor: "var(--color-divider)" }}
+              >
+                {threads.length === 0 ? (
+                  <p className="p-3 text-[12px] text-neutral-500">Chưa có đoạn chat nào.</p>
+                ) : (
+                  threads.map((c) => (
+                    <div
+                      key={c.id}
+                      className="flex items-center gap-1 px-2 py-1.5"
+                      style={{ background: c.id === threadId ? "var(--color-accent-100)" : "transparent" }}
+                    >
+                      <button
+                        type="button"
+                        className="flex-1 truncate text-left text-[12px] font-bold"
+                        style={{ color: c.id === threadId ? "var(--color-accent-800)" : "var(--color-text)" }}
+                        onClick={() => openThread(c.id)}
+                      >
+                        {c.itemLabel || "Đoạn chat"}
+                      </button>
+                      <button type="button" className="text-neutral-500 hover:text-neutral-700" onClick={() => removeThread(c.id)}>
+                        ✕
+                      </button>
+                    </div>
+                  ))
+                )}
+              </div>
+            )}
+          </div>
+
+          {activeThread && <span className="min-w-0 flex-1 truncate text-[12px] font-bold text-neutral-600">{activeThread.itemLabel}</span>}
         </div>
 
         <div className="mb-2 flex min-h-0 flex-1 flex-col gap-2 overflow-y-auto">

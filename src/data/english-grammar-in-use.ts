@@ -23223,6 +23223,4231 @@ const UNIT_50_QUESTIONS_2: GrammarUnit = {
   ]
 };
 
+const UNIT_51_I_THINK_SO_I_HOPE_SO: GrammarUnit = {
+  "unit": 51,
+  "slug": "i-think-so-i-hope-so",
+  "title": "I think so / I hope so etc.",
+  "topic": "auxiliary verbs",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "Dùng trợ động từ để tránh lặp lại",
+          "headingEn": "Using an auxiliary verb to avoid repeating something",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "In these sentences there is an auxiliary verb and a main verb. In 'She **has** lost her keys' / 'The hotel **can't** come to the party' / 'Why **was** built ten years ago' / 'do you **want** to go home', have/can't/was/do are auxiliary (= helping) verbs.",
+              "vi": "Trong các câu này có một trợ động từ và một động từ chính. Trong 'She has lost her keys' / 'The hotel can't come to the party' / 'Why was built ten years ago' / 'do you want to go home', have/can't/was/do là trợ động từ (trợ giúp)."
+            },
+            {
+              "kind": "text",
+              "text": "You can use an auxiliary verb when you don't want to repeat something:",
+              "vi": "Bạn có thể dùng trợ động từ khi không muốn lặp lại điều gì đó:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "'Have you locked the door?' 'Yes, I **have**.'",
+                  "note": "= I have locked the door",
+                  "vi": "'Bạn đã khóa cửa chưa?' 'Rồi, tôi đã khóa.'"
+                },
+                {
+                  "en": "Gary wasn't working, but Laura **was**.",
+                  "note": "= Laura was working",
+                  "vi": "Gary không làm việc, nhưng Laura có làm."
+                },
+                {
+                  "en": "Jessica could lend me the money, but she **won't**.",
+                  "note": "= she won't lend me the money",
+                  "vi": "Jessica có thể cho tôi vay tiền, nhưng cô ấy sẽ không làm vậy."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "We use **do/does/did** for the present and past simple:",
+              "vi": "Chúng ta dùng **do/does/did** cho thì hiện tại đơn và quá khứ đơn:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "'Do you like onions?' 'Yes, I **do**.'",
+                  "note": "= I like onions",
+                  "vi": "'Bạn có thích hành tây không?' 'Có, tôi thích.'"
+                },
+                {
+                  "en": "'Does Simon live in London?' 'He **did**, but he **doesn't** any more.'",
+                  "vi": "'Simon có sống ở London không?' 'Trước có, nhưng bây giờ không còn nữa.'"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "You can use auxiliary verbs to deny what somebody says (= say it is not true):",
+              "vi": "Bạn có thể dùng trợ động từ để phản đối điều ai đó nói (= nói rằng điều đó không đúng):"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "'You're sitting in my place.' 'No, I'm **not**.'",
+                  "note": "= I'm not sitting in your place",
+                  "vi": "'Bạn đang ngồi vào chỗ của tôi.' 'Không, tôi không có.'"
+                },
+                {
+                  "en": "'You didn't lock the door before you left.' 'Yes, I **did**.'",
+                  "note": "= I locked the door",
+                  "vi": "'Bạn đã không khóa cửa trước khi đi.' 'Có, tôi đã khóa rồi.'"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "have you? / isn't she? / are they?: thể hiện sự quan tâm hoặc ngạc nhiên",
+          "headingEn": "have you? / isn't she? / are they?: showing interest or surprise",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "We use have you? / isn't she? / are they? etc. to show that we are interested in what somebody has said, or to show surprise:",
+              "vi": "Chúng ta dùng have you? / isn't she? / are they? ... để thể hiện rằng mình quan tâm đến điều ai đó vừa nói, hoặc để thể hiện sự ngạc nhiên:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "'I've just seen Steven.' '**Oh, have you?** How is he?'",
+                  "vi": "'Tôi mới gặp Steven.' 'Ồ, thế á? Anh ấy thế nào?'"
+                },
+                {
+                  "en": "'Lisa isn't very well today.' '**Isn't she?** What's wrong with her?'",
+                  "vi": "'Hôm nay Lisa không khỏe.' 'Vậy sao? Cô ấy bị sao thế?'"
+                },
+                {
+                  "en": "'It rained every day during our holiday.' '**Did it?** What a shame!'",
+                  "vi": "'Kỳ nghỉ của chúng tôi ngày nào cũng mưa.' 'Vậy sao? Đáng tiếc thật!'"
+                },
+                {
+                  "en": "'James and Tanya are getting married.' '**Are they?** Really?'",
+                  "vi": "'James và Tanya sắp cưới rồi.' 'Thật sao? Thật á?'"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "so và neither với trợ động từ",
+          "headingEn": "so and neither with auxiliary verbs",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "We use auxiliary verbs with **so** and **neither**:",
+              "vi": "Chúng ta dùng trợ động từ với **so** và **neither**:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "'I'm tired.' '**So am I**.'",
+                  "note": "= I'm tired too",
+                  "vi": "'Tôi mệt quá.' 'Tôi cũng vậy.'"
+                },
+                {
+                  "en": "'I never read newspapers.' '**Neither do I**.'",
+                  "note": "= I never read newspapers either",
+                  "vi": "'Tôi không bao giờ đọc báo.' 'Tôi cũng không.'"
+                },
+                {
+                  "en": "Sarah can't drive and **neither can** Mark.",
+                  "vi": "Sarah không biết lái xe và Mark cũng vậy."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "Note the word order after so and neither (verb before subject):",
+              "vi": "Chú ý trật tự từ sau so và neither (động từ trước chủ ngữ):"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I passed the exam and **so did** Paul.",
+                  "note": "not so Paul did",
+                  "vi": "Tôi đã đỗ kỳ thi và Paul cũng vậy."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "Instead of neither, you can use **nor**. You can also use **not ... either**:",
+              "vi": "Thay cho neither, bạn có thể dùng **nor**. Bạn cũng có thể dùng **not ... either**:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "'I don't know.' '**Neither do I**.' or '**Nor do I**.' or 'I **don't either**.'",
+                  "vi": "'Tôi không biết.' 'Tôi cũng không biết.'"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "D",
+          "heading": "I think so / I suppose so ...",
+          "headingEn": "I think so / I suppose so ...",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "You can say I think so / I suppose so etc. when we don't want to repeat something:",
+              "vi": "Bạn có thể nói I think so / I suppose so ... khi không muốn lặp lại điều gì đó:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "'Are those people Korean?' '**I think so**.'",
+                  "note": "= I think they are Korean",
+                  "vi": "'Những người đó là người Hàn Quốc phải không?' 'Tôi nghĩ vậy.'"
+                },
+                {
+                  "en": "'Is Kate working tomorrow?' '**I suppose so**.'",
+                  "note": "= I suppose she is working tomorrow",
+                  "vi": "'Ngày mai Kate có làm việc không?' 'Tôi nghĩ là có.'"
+                },
+                {
+                  "en": "'Will you be at home this evening?' '**I expect so**.'",
+                  "note": "= I expect I'll be at home ...",
+                  "vi": "'Tối nay bạn có ở nhà không?' 'Tôi nghĩ là có.'"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "In the same way we say: **I hope so**, **I guess so** and **I'm afraid so**.",
+              "vi": "Tương tự, chúng ta nói: **I hope so**, **I guess so** và **I'm afraid so**."
+            },
+            {
+              "kind": "text",
+              "text": "The usual negative forms are:",
+              "vi": "Các dạng phủ định thường dùng là:"
+            },
+            {
+              "kind": "table",
+              "table": {
+                "headers": ["positive", "negative"],
+                "rows": [
+                  ["I think so / I expect so", "I don't think so / I don't expect so"],
+                  ["I hope so / I'm afraid so", "I hope not / I'm afraid not"],
+                  ["I guess so / I suppose so", "I guess not / I suppose not"]
+                ]
+              }
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "'Is that woman American?' '**I think so.** / **I don't think so.**'",
+                  "vi": "'Người phụ nữ đó là người Mỹ phải không?' 'Tôi nghĩ vậy. / Tôi không nghĩ vậy.'"
+                },
+                {
+                  "en": "'Do you think it will rain?' '**I hope so.** / **I hope not.**'",
+                  "note": "not I don't hope so",
+                  "vi": "'Bạn nghĩ trời sẽ mưa không?' 'Tôi mong là có. / Tôi mong là không.'"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "51.1 · Hoàn thành câu với trợ động từ",
+      "titleEn": "51.1 · Complete each sentence with an auxiliary verb",
+      "instructions": "Hoàn thành mỗi câu với một trợ động từ (do/was/could/might ...). Đôi khi động từ phải ở dạng phủ định (don't/wasn't ...).",
+      "instructionsEn": "Complete each sentence with an auxiliary verb (do/was/could/might etc.). Sometimes the verb must be negative (don't/wasn't etc.).",
+      "examples": [
+        {
+          "prompt": "I wasn't tired, but my friends ___.",
+          "answer": "were"
+        }
+      ],
+      "items": [
+        {
+          "prompt": "I like hot weather, but Ann ___.",
+          "answer": "doesn't"
+        },
+        {
+          "context": "a: Is Andy here?",
+          "prompt": "b: He ___ five minutes ago, but I think he's gone home now.",
+          "answer": "was"
+        },
+        {
+          "prompt": "I haven't travelled much, but Gary ___.",
+          "answer": "has"
+        },
+        {
+          "prompt": "Lisa said she might come and see us tomorrow, but I don't think she ___.",
+          "answer": "will"
+        },
+        {
+          "prompt": "I don't know whether to apply for the job or not. Do you think I ___?",
+          "answer": "should"
+        },
+        {
+          "context": "a: Please don't tell anybody what happened.",
+          "prompt": "b: Don't worry. I ___.",
+          "answer": "won't"
+        },
+        {
+          "context": "a: You never listen to me.",
+          "prompt": "b: Yes, I ___!",
+          "answer": "do"
+        },
+        {
+          "prompt": "I usually work on Saturdays, but last Saturday I ___.",
+          "answer": "didn't"
+        },
+        {
+          "context": "a: Do you think it's going to rain?",
+          "prompt": "b: It ___. Take an umbrella in case.",
+          "answer": "might"
+        },
+        {
+          "context": "a: Are you and Chris going to the party?",
+          "prompt": "b: I ___, but Chris ___.",
+          "answer": "am",
+          "extraBlanks": [{ "answer": "isn't" }]
+        },
+        {
+          "context": "a: Please help me.",
+          "prompt": "b: I'm sorry. I ___ if I ___, but I ___.",
+          "answer": "would",
+          "extraBlanks": [{ "answer": "could" }, { "answer": "can't" }]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "51.2 · Trả lời theo mẫu (luôn không đồng ý với Amy)",
+      "titleEn": "51.2 · Answer in the way shown (you never agree with Amy)",
+      "instructions": "Bạn không bao giờ đồng ý với Amy. Trả lời theo mẫu.",
+      "instructionsEn": "You never agree with Amy. Answer in the way shown.",
+      "examples": [
+        {
+          "context": "Amy: I'm hungry.",
+          "prompt": "You: ___",
+          "answer": "Are you? I'm not."
+        },
+        {
+          "context": "Amy: I don't like driving.",
+          "prompt": "You: ___",
+          "answer": "Don't you? I do."
+        }
+      ],
+      "items": [
+        {
+          "context": "Amy: I like football.",
+          "prompt": "You: ___",
+          "answer": "Do you? I don't."
+        },
+        {
+          "context": "Amy: I didn't enjoy the film.",
+          "prompt": "You: ___",
+          "answer": "Didn't you? I did."
+        },
+        {
+          "context": "Amy: I'm not tired.",
+          "prompt": "You: ___",
+          "answer": "Aren't you? I am."
+        },
+        {
+          "context": "Amy: I thought the exam was easy.",
+          "prompt": "You: ___",
+          "answer": "Did you? I didn't."
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "51.4 · Trả lời Sam với I think so, I hope not ...",
+      "titleEn": "51.4 · What do you say to Sam? Use I think so, I hope not etc.",
+      "instructions": "Dùng cụm từ trong ngoặc (hope/think/suppose/afraid) để trả lời Sam.",
+      "instructionsEn": "Use the word in brackets (hope/think/suppose/afraid) to answer Sam.",
+      "examples": [
+        {
+          "context": "You don't like rain. Sam: Is it going to rain?",
+          "prompt": "You: ___ (hope)",
+          "answer": "I hope not."
+        }
+      ],
+      "items": [
+        {
+          "context": "You need more money. Sam: Do you think you'll get a pay rise?",
+          "prompt": "You: ___ (hope)",
+          "answer": "I hope so."
+        },
+        {
+          "context": "You're going to a party. You can't stand John. Sam: Will John be at the party?",
+          "prompt": "You: ___ (hope)",
+          "answer": "I hope not."
+        },
+        {
+          "context": "You're not sure whether Amy is married, but she probably isn't. Sam: Is Amy married?",
+          "prompt": "You: ___ (think)",
+          "answer": "I don't think so."
+        },
+        {
+          "context": "Jane has lived in Italy for many years. Sam: Does Jane speak Italian?",
+          "prompt": "You: ___ (suppose)",
+          "answer": "I suppose so."
+        },
+        {
+          "context": "You have to leave Sam's party early. Sam: Do you have to leave already?",
+          "prompt": "You: ___ (afraid)",
+          "answer": "I'm afraid so."
+        },
+        {
+          "context": "You're not sure what time the film begins, but it's probably 7.30. Sam: What time is the film? 7.30?",
+          "prompt": "You: ___ (think)",
+          "answer": "I think so."
+        },
+        {
+          "context": "You are the receptionist at a hotel. The hotel is full. Sam: Do you have a room for tonight?",
+          "prompt": "You: ___ (afraid)",
+          "answer": "I'm afraid not."
+        }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh: một câu dùng So/Neither + trợ động từ để nói bạn giống ai đó (So do I / Neither can I ...), và một câu trả lời một câu hỏi bằng I think so / I hope not / I'm afraid so ... Nếu muốn, hãy kể một điều có thật về bạn rồi phản hồi lại như đang nói chuyện với một người bạn không đồng ý với bạn (như bài 51.2/51.3), ví dụ 'I like coffee.' 'Do you? I don't.'",
+      "instructionsEn": "Write 2-3 English sentences: one using So/Neither + an auxiliary verb to say you're the same as somebody (So do I / Neither can I ...), and one answering a question with I think so / I hope not / I'm afraid so etc. If you like, share something true about yourself and reply as if talking to a friend who disagrees with you (like exercises 51.2/51.3), e.g. 'I like coffee.' 'Do you? I don't.'",
+      "ruleSummary": "This unit practises auxiliary verbs used to avoid repeating a verb: short answers (Yes, I have / No, I'm not), interested/surprised echo questions (Oh, have you? Isn't she? Did it?), so/neither + auxiliary to agree (So am I = me too, Neither do I = me neither, with the word order verb-before-subject after so/neither: so did Paul, not so Paul did), and I think so / I hope so / I suppose so / I guess so / I'm afraid so to avoid repeating a whole clause, each with its own negative form (I don't think so, I hope not, I'm afraid not - not I don't hope so). A correct student sentence must pick the auxiliary that matches the verb being replaced (do/does/did for simple tenses, have/has/had, will, can, etc.), and must use the fixed negative form for so-phrases (hope not / think not idioms) rather than a regular don't-negation where the fixed form is required."
+    }
+  ]
+};
+
+const UNIT_52_QUESTION_TAGS: GrammarUnit = {
+  "unit": 52,
+  "slug": "question-tags",
+  "title": "Question tags (do you? isn't it? etc.)",
+  "topic": "auxiliary verbs",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "Question tag: câu hỏi ngắn thêm vào cuối câu",
+          "headingEn": "Question tags: mini-questions added to the end of a sentence",
+          "intro": "Study these examples:",
+          "introVi": "Hãy xem các ví dụ sau:",
+          "parts": [
+            {
+              "kind": "situation",
+              "text": "You haven't seen Lisa today, have you?",
+              "vi": "Bạn chưa gặp Lisa hôm nay phải không?",
+              "quotes": [
+                {
+                  "text": "No, I haven't.",
+                  "vi": "Chưa, tôi chưa gặp."
+                }
+              ]
+            },
+            {
+              "kind": "situation",
+              "text": "It was a good film, wasn't it?",
+              "vi": "Bộ phim đó hay phải không?",
+              "quotes": [
+                {
+                  "text": "Yes, it was great.",
+                  "vi": "Đúng vậy, nó rất hay."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "**Have you?** and **wasn't it?** are question tags. These are mini-questions that you can put on the end of a sentence. In question tags, we use an auxiliary verb (have/was/will etc.).",
+              "vi": "**Have you?** và **wasn't it?** là các question tag. Đây là những câu hỏi ngắn có thể thêm vào cuối một câu. Trong question tag, chúng ta dùng trợ động từ (have/was/will ...)."
+            },
+            {
+              "kind": "text",
+              "text": "We use do/does/did for the present and past simple (see Unit 51):",
+              "vi": "Chúng ta dùng do/does/did cho thì hiện tại đơn và quá khứ đơn (xem Unit 51):"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "'Karen plays the piano, **doesn't she?**' 'Well, yes, but not very well.'",
+                  "vi": "'Karen chơi piano phải không?' 'À, đúng, nhưng không hay lắm.'"
+                },
+                {
+                  "en": "'You didn't lock the door, **did you?**' 'No, I forgot.'",
+                  "vi": "'Bạn đã không khóa cửa phải không?' 'Đúng vậy, tôi quên rồi.'"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "Câu khẳng định + tag phủ định, câu phủ định + tag khẳng định",
+          "headingEn": "Positive sentence + negative tag, negative sentence + positive tag",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "Normally we use a negative question tag after a positive sentence, and a positive question tag after a negative sentence:",
+              "vi": "Thông thường chúng ta dùng question tag phủ định sau câu khẳng định, và question tag khẳng định sau câu phủ định:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "Kate will be here soon, **won't she?**",
+                  "note": "positive sentence + negative tag",
+                  "vi": "Kate sẽ đến sớm phải không?"
+                },
+                {
+                  "en": "Kate won't be late, **will she?**",
+                  "note": "negative sentence + positive tag",
+                  "vi": "Kate sẽ không đến muộn phải không?"
+                },
+                {
+                  "en": "There was a lot of traffic, **wasn't there?**",
+                  "vi": "Có rất nhiều xe cộ phải không?"
+                },
+                {
+                  "en": "They don't like us, **do they?**",
+                  "vi": "Họ không thích chúng ta phải không?"
+                },
+                {
+                  "en": "Joe should pass the exam, **shouldn't he?**",
+                  "vi": "Joe nên đỗ kỳ thi này phải không?"
+                },
+                {
+                  "en": "You haven't eaten yet, **have you?**",
+                  "vi": "Bạn chưa ăn phải không?"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "Notice the meaning of yes and no in answer to a negative sentence:",
+              "vi": "Chú ý nghĩa của yes và no khi trả lời một câu phủ định:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "'You're not going out this morning, are you?' '**Yes.**'",
+                  "note": "= Yes, I am going out",
+                  "vi": "'Sáng nay bạn không đi ra ngoài phải không?' 'Có.' (= Có, tôi có đi ra ngoài)"
+                },
+                {
+                  "en": "'You're not going out this morning, are you?' '**No.**'",
+                  "note": "= No, I am not going out",
+                  "vi": "'Sáng nay bạn không đi ra ngoài phải không?' 'Không.' (= Không, tôi không đi ra ngoài)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "Ý nghĩa của question tag phụ thuộc vào cách lên/xuống giọng",
+          "headingEn": "The meaning of a question tag depends on how you say it",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "The meaning of a question tag depends on how you say it. If your voice goes down, you are not really asking a question. You expect the listener to agree with you:",
+              "vi": "Ý nghĩa của một question tag phụ thuộc vào cách bạn nói nó. Nếu giọng bạn xuống, bạn không thực sự đang hỏi. Bạn mong người nghe đồng ý với bạn:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "'It's a nice day, isn't it?' 'Yes, beautiful.'",
+                  "vi": "'Hôm nay đẹp trời phải không?' 'Đúng vậy, đẹp lắm.'"
+                },
+                {
+                  "en": "'Paul doesn't look well today, does he?' 'No, he looks very tired.'",
+                  "vi": "'Hôm nay Paul trông không khỏe phải không?' 'Đúng, anh ấy trông rất mệt.'"
+                },
+                {
+                  "en": "'Lisa's very funny. She's got a great sense of humour, hasn't she?' 'Yes, she has.'",
+                  "vi": "'Lisa rất hài hước. Cô ấy có óc hài hước tuyệt vời phải không?' 'Đúng vậy.'"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "But if the voice goes up, it is a real question:",
+              "vi": "Nhưng nếu giọng lên, đó là một câu hỏi thật:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "'You haven't seen Kate today, have you?' 'No, I haven't.'",
+                  "note": "= Have you seen Kate today?",
+                  "vi": "'Bạn chưa gặp Kate hôm nay phải không?' 'Chưa, tôi chưa gặp.'"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "You can use a negative sentence + positive tag to ask for things or information, or to ask somebody to do something. The voice goes up at the end of the tag:",
+              "vi": "Bạn có thể dùng câu phủ định + tag khẳng định để hỏi xin điều gì đó hoặc thông tin, hoặc để nhờ ai đó làm việc gì. Giọng lên ở cuối tag:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "'You couldn't do me a favour, could you?' 'It depends what it is.'",
+                  "vi": "'Bạn giúp tôi một việc được không?' 'Còn tùy việc gì.'"
+                },
+                {
+                  "en": "'You don't know where Karen is, do you?' 'Sorry, I have no idea.'",
+                  "vi": "'Bạn có biết Karen ở đâu không?' 'Xin lỗi, tôi không biết.'"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "D",
+          "heading": "Tag đặc biệt sau Let's ..., Don't ... và I'm ...",
+          "headingEn": "Special tags after Let's ..., Don't ... and I'm ...",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "After **Let's ...** (= Let us) the question tag is **shall we**:",
+              "vi": "Sau **Let's ...** (= Let us), question tag là **shall we**:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "Let's go for a walk, **shall we?**",
+                  "note": "the voice goes up",
+                  "vi": "Chúng ta đi dạo nhé?"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "After **Don't ...**, the question tag is **will you**:",
+              "vi": "Sau **Don't ...**, question tag là **will you**:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "Don't be late, **will you?**",
+                  "note": "the voice goes down",
+                  "vi": "Đừng đến muộn nhé?"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "After **I'm ...**, the negative question tag is **aren't I?** (= am I not?):",
+              "vi": "Sau **I'm ...**, question tag phủ định là **aren't I?** (= am I not?):"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "'I'm right, **aren't I?**' 'Yes, you are.'",
+                  "vi": "'Tôi đúng phải không?' 'Đúng vậy.'"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "52.1 · Hoàn thành câu với question tag",
+      "titleEn": "52.1 · Complete these sentences with a question tag",
+      "instructions": "Hoàn thành các câu sau với question tag phù hợp.",
+      "instructionsEn": "Complete these sentences with a question tag.",
+      "examples": [
+        {
+          "prompt": "Kate won't be late, ___? No, she's never late.",
+          "answer": "will she"
+        }
+      ],
+      "items": [
+        {
+          "prompt": "You're tired, ___? Yes, a little.",
+          "answer": "aren't you"
+        },
+        {
+          "prompt": "You travel a lot, ___? Yes, I love travelling.",
+          "answer": "don't you"
+        },
+        {
+          "prompt": "You weren't listening, ___? Yes, I was!",
+          "answer": "were you"
+        },
+        {
+          "prompt": "Sarah doesn't know Ann, ___? No, they've never met.",
+          "answer": "does she"
+        },
+        {
+          "prompt": "Jack's on holiday, ___? Yes, he's in Australia.",
+          "answer": "isn't he"
+        },
+        {
+          "prompt": "It didn't take long to get here, ___? No, just ten minutes.",
+          "answer": "did it"
+        },
+        {
+          "prompt": "You can speak German, ___? Yes, but not fluently.",
+          "answer": "can't you"
+        },
+        {
+          "prompt": "They won't mind if I take a picture, ___? No, of course they won't.",
+          "answer": "will they"
+        },
+        {
+          "prompt": "There are a lot of people here, ___? Yes, more than I expected.",
+          "answer": "aren't there"
+        },
+        {
+          "prompt": "Let's go and have coffee, ___? Yes, let's do that.",
+          "answer": "shall we"
+        },
+        {
+          "prompt": "This isn't very interesting, ___? No, not really.",
+          "answer": "is it"
+        },
+        {
+          "prompt": "I'm too impatient, ___? Yes, you are sometimes.",
+          "answer": "aren't I"
+        },
+        {
+          "prompt": "You wouldn't tell anyone, ___? No, of course not.",
+          "answer": "would you"
+        },
+        {
+          "prompt": "Helen has lived here a long time, ___? Yes, 20 years.",
+          "answer": "hasn't she"
+        },
+        {
+          "prompt": "I shouldn't have lost my temper, ___? No, but that's all right.",
+          "answer": "should I"
+        },
+        {
+          "prompt": "He'd never met her before, ___? No, that was the first time.",
+          "answer": "had he"
+        },
+        {
+          "prompt": "Don't forget to call me, ___? No, I won't forget.",
+          "answer": "will you"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "52.2 · Viết câu với question tag mong người nghe đồng ý",
+      "titleEn": "52.2 · Write sentences with a question tag, expecting agreement",
+      "instructions": "Trong các tình huống sau, bạn mong bạn của mình đồng ý với bạn. Dùng question tag trong câu của bạn.",
+      "instructionsEn": "In these situations you expect your friend to agree with you. Use a question tag in your sentences.",
+      "examples": [
+        {
+          "context": "You look out of the window. The sky is blue and the sun is shining. You say to your friend:",
+          "prompt": "___ (beautiful day)",
+          "answer": "It's a beautiful day, isn't it?"
+        }
+      ],
+      "items": [
+        {
+          "context": "You're with a friend outside a restaurant. You're looking at the prices, which are very high. You say:",
+          "prompt": "___ (expensive)",
+          "answer": "It's expensive, isn't it?"
+        },
+        {
+          "context": "You and a colleague have just finished a training course. You really enjoyed it. You say to your colleague:",
+          "prompt": "___ (great)",
+          "answer": "The course was great, wasn't it?"
+        },
+        {
+          "context": "Your friend's hair is much shorter than when you last met. You say to her/him:",
+          "prompt": "___ (have / your hair / cut)",
+          "answer": "You've had your hair cut, haven't you?"
+        },
+        {
+          "context": "You're listening to a woman singing. You like her voice very much. You say to your friend:",
+          "prompt": "___ (a good voice)",
+          "answer": "She's got a good voice, hasn't she?"
+        },
+        {
+          "context": "You're trying on a jacket in a shop. You look in the mirror and you don't like what you see. You say to your friend:",
+          "prompt": "___ (not / look / right)",
+          "answer": "It doesn't look right, does it?"
+        },
+        {
+          "context": "You and a friend are walking over a small wooden bridge. The bridge is old and some parts are broken. You say:",
+          "prompt": "___ (not / very safe)",
+          "answer": "This bridge isn't very safe, is it?"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "52.3 · Hỏi xin thông tin hoặc nhờ giúp đỡ với question tag",
+      "titleEn": "52.3 · Ask for information or a favour, using a question tag",
+      "instructions": "Trong các tình huống sau, bạn đang hỏi xin thông tin, nhờ ai đó làm việc gì ... Dùng câu phủ định + question tag khẳng định.",
+      "instructionsEn": "In these situations you are asking for information, asking people to do things etc.",
+      "examples": [
+        {
+          "context": "You need a pen. Perhaps Jane has one. Ask her.",
+          "prompt": "Jane, ___?",
+          "answer": "you don't have a pen I could borrow, do you"
+        }
+      ],
+      "items": [
+        {
+          "context": "You have to move a heavy table. You want Joe to help you with it. Ask him.",
+          "prompt": "Joe, ___?",
+          "answer": "you couldn't help me move this table, could you"
+        },
+        {
+          "context": "You're looking for Sarah. Perhaps Lisa knows where she is. Ask her.",
+          "prompt": "Lisa, ___?",
+          "answer": "you don't know where Sarah is, do you"
+        },
+        {
+          "context": "You want to borrow a tennis racket. Perhaps Helen has one. Ask her.",
+          "prompt": "Helen, ___?",
+          "answer": "you don't have a tennis racket I could borrow, do you"
+        },
+        {
+          "context": "Anna has a car and you need a lift to the station. Perhaps she'll take you. Ask her.",
+          "prompt": "Anna, ___?",
+          "answer": "you couldn't give me a lift to the station, could you"
+        },
+        {
+          "context": "You're looking for your keys. Perhaps Robert has seen them. Ask him.",
+          "prompt": "Robert, ___?",
+          "answer": "you haven't seen my keys, have you"
+        }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng question tag: một câu khẳng định + tag phủ định mong người nghe đồng ý (It's a nice day, isn't it?), và một câu phủ định + tag khẳng định để hỏi xin điều gì đó hoặc nhờ giúp đỡ (You couldn't ..., could you?).",
+      "instructionsEn": "Write 2-3 English sentences using question tags: one positive sentence + negative tag expecting agreement (It's a nice day, isn't it?), and one negative sentence + positive tag to ask for something or a favour (You couldn't ..., could you?).",
+      "ruleSummary": "This unit practises question tags: a mini-question added to the end of a sentence, using an auxiliary verb that matches the main sentence (do/does/did for the simple present/past, otherwise the same auxiliary as the main clause: have, was, will, should etc.). The normal pattern is a positive sentence + negative tag (Kate will be here soon, won't she?) or a negative sentence + positive tag (Kate won't be late, will she?) - never the same polarity twice. Special fixed tags: shall we after Let's ..., will you after Don't ..., and aren't I after I'm .... The tag's meaning depends on intonation: voice down means you expect agreement (not really a question), voice up means a genuine question or a polite request (You couldn't do me a favour, could you?). yes/no in an answer to a negative sentence still refers to the underlying positive/negative fact, not the tag's wording. A correct student sentence must switch polarity between the main clause and the tag (except after Let's/Don't/I'm, which have their own fixed tag) and must use the auxiliary that actually matches the main verb's tense/modal."
+    }
+  ]
+};
+
+const UNIT_53_VERB_ING: GrammarUnit = {
+  "unit": 53,
+  "slug": "verb-ing-enjoy-doing-stop-doing",
+  "title": "Verb + -ing (enjoy doing / stop doing etc.)",
+  "topic": "verb patterns",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "enjoy, mind, suggest + -ing",
+          "headingEn": "enjoy, mind, suggest + -ing",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "We say:",
+              "vi": "Chúng ta nói:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I **enjoy reading**.",
+                  "note": "not I enjoy to read",
+                  "vi": "Tôi thích đọc sách."
+                },
+                {
+                  "en": "Would you **mind closing** the door?",
+                  "note": "not mind to close",
+                  "vi": "Bạn đóng cửa lại được không?"
+                },
+                {
+                  "en": "Chris **suggested going** to the cinema.",
+                  "note": "not suggested to go",
+                  "vi": "Chris đề nghị đi xem phim."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "After **enjoy**, **mind** and **suggest**, we use -ing (not to ...). Some more verbs that are followed by -ing:",
+              "vi": "Sau **enjoy**, **mind** và **suggest**, chúng ta dùng -ing (không dùng to ...). Một số động từ khác cũng được theo sau bởi -ing:"
+            },
+            {
+              "kind": "words",
+              "words": ["stop", "finish", "recommend", "consider", "admit", "deny", "avoid", "risk", "imagine", "fancy"]
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "Suddenly everybody **stopped talking**. There was silence.",
+                  "vi": "Bất chợt mọi người ngừng nói chuyện. Không gian im lặng."
+                },
+                {
+                  "en": "I'll do the shopping when I'**ve finished cleaning** the flat.",
+                  "vi": "Tôi sẽ đi mua sắm sau khi dọn dẹp xong căn hộ."
+                },
+                {
+                  "en": "He tried to **avoid answering** my question.",
+                  "vi": "Anh ấy cố tránh trả lời câu hỏi của tôi."
+                },
+                {
+                  "en": "I don't **fancy going** out this evening.",
+                  "note": "= I'm not enthusiastic about it",
+                  "vi": "Tối nay tôi không muốn đi ra ngoài."
+                },
+                {
+                  "en": "Have you ever **considered going** to live in another country?",
+                  "vi": "Bạn đã từng nghĩ đến việc đi sống ở một nước khác chưa?"
+                },
+                {
+                  "en": "They said they were innocent. They **denied doing** anything wrong.",
+                  "vi": "Họ nói họ vô tội. Họ phủ nhận đã làm điều gì sai."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "The negative form is **not -ing**:",
+              "vi": "Dạng phủ định là **not -ing**:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "When I'm on holiday, I enjoy **not having to** get up early.",
+                  "vi": "Khi đi nghỉ, tôi thích việc không phải dậy sớm."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "give up, put off, go on / carry on, keep / keep on + -ing",
+          "headingEn": "give up, put off, go on / carry on, keep / keep on + -ing",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "We also use -ing after:",
+              "vi": "Chúng ta cũng dùng -ing sau:"
+            },
+            {
+              "kind": "words",
+              "words": ["give up (= stop)", "put off (= delay until later)", "go on / carry on (= continue)", "keep / keep on (= do something continuously or repeatedly)"]
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I'**ve given up buying** newspapers. I don't read them any more.",
+                  "vi": "Tôi đã bỏ việc mua báo. Tôi không đọc báo nữa."
+                },
+                {
+                  "en": "You shouldn't **put off telling** him what happened. You need to tell him now.",
+                  "vi": "Bạn không nên trì hoãn việc nói cho anh ấy biết chuyện gì đã xảy ra. Bạn cần nói ngay bây giờ."
+                },
+                {
+                  "en": "Katherine doesn't want to retire. She wants to **go on working**. or ... to **carry on working**.",
+                  "vi": "Katherine không muốn nghỉ hưu. Cô ấy muốn tiếp tục làm việc."
+                },
+                {
+                  "en": "You **keep interrupting** when I'm talking. or You **keep on interrupting** ...",
+                  "vi": "Bạn cứ ngắt lời tôi mãi khi tôi đang nói."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "verb + somebody + -ing",
+          "headingEn": "verb + somebody + -ing",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "With some verbs you can use the structure **verb + somebody + -ing**:",
+              "vi": "Với một số động từ, bạn có thể dùng cấu trúc **verb + somebody + -ing**:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "You can't **stop people doing** what they want.",
+                  "vi": "Bạn không thể ngăn người khác làm điều họ muốn."
+                },
+                {
+                  "en": "I can't **imagine George riding** a motorbike.",
+                  "vi": "Tôi không thể hình dung George cưỡi xe máy."
+                },
+                {
+                  "en": "Did she really say that? I don't **remember her saying** that.",
+                  "vi": "Cô ấy có thực sự nói vậy không? Tôi không nhớ cô ấy đã nói điều đó."
+                },
+                {
+                  "en": "Sorry to **keep you waiting** so long.",
+                  "vi": "Xin lỗi vì đã để bạn phải chờ lâu."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "D",
+          "heading": "having done/stolen/said với hành động đã hoàn thành",
+          "headingEn": "having done/stolen/said for a finished action",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "When you talk about finished actions, you can say **having done/stolen/said** etc.:",
+              "vi": "Khi nói về hành động đã hoàn thành, bạn có thể nói **having done/stolen/said** ...:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "They admitted **having stolen** the money.",
+                  "vi": "Họ thừa nhận đã lấy trộm số tiền đó."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "But it is not necessary to use having (done). You can say:",
+              "vi": "Nhưng không cần thiết phải dùng having (done). Bạn có thể nói:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "They admitted **stealing** the money.",
+                  "vi": "Họ thừa nhận đã lấy trộm số tiền đó."
+                },
+                {
+                  "en": "I now regret **saying** that. or I now regret **having said** that.",
+                  "vi": "Giờ tôi hối hận vì đã nói điều đó."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "E",
+          "heading": "Cấu trúc khác với admit, deny, suggest, recommend",
+          "headingEn": "Other structures with admit, deny, suggest and recommend",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "Other structures are possible with admit, deny, suggest and recommend. For example, you can say:",
+              "vi": "Cũng có thể dùng các cấu trúc khác với admit, deny, suggest và recommend. Ví dụ, bạn có thể nói:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "They denied (that) they had done anything wrong.",
+                  "note": "= They denied doing ...",
+                  "vi": "Họ phủ nhận việc đã làm điều gì sai."
+                },
+                {
+                  "en": "Chris suggested (that) we go to the cinema.",
+                  "note": "= Chris suggested going ...",
+                  "vi": "Chris đề nghị chúng tôi đi xem phim."
+                },
+                {
+                  "en": "I recommend (that) you travel by train.",
+                  "note": "= I recommend travelling ...",
+                  "vi": "Tôi khuyên bạn nên đi bằng tàu."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "53.1 · Hoàn thành câu cho mỗi tình huống",
+      "titleEn": "53.1 · Complete the sentences for each situation",
+      "instructions": "Hoàn thành các câu cho mỗi tình huống. Dùng -ing.",
+      "instructionsEn": "Complete the sentences for each situation. Use -ing.",
+      "examples": [
+        {
+          "context": "'What shall we do?' 'We could go to the zoo.'",
+          "prompt": "___",
+          "answer": "She suggested going to the zoo."
+        }
+      ],
+      "items": [
+        {
+          "context": "'Do you want to play tennis?' 'No, not really.'",
+          "prompt": "___",
+          "answer": "He didn't fancy playing tennis."
+        },
+        {
+          "context": "'Let's go for a walk.' 'Good idea!'",
+          "prompt": "___",
+          "answer": "She suggested going for a walk."
+        },
+        {
+          "context": "'You caused the accident.' 'No, I didn't.'",
+          "prompt": "___",
+          "answer": "He denied causing the accident."
+        },
+        {
+          "context": "'Can you wait a few minutes?' 'Sure, no problem.'",
+          "prompt": "___",
+          "answer": "They didn't mind waiting a few minutes."
+        },
+        {
+          "context": "'You didn't tell the truth.' 'That's right. I didn't.'",
+          "prompt": "___",
+          "answer": "She admitted not telling the truth."
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "53.2 · Hoàn thành câu với động từ cho sẵn ở dạng -ing",
+      "titleEn": "53.2 · Complete the sentences with the given verbs, -ing",
+      "instructions": "Hoàn thành các câu, chọn từ những động từ sau ở dạng đúng.",
+      "instructionsEn": "Complete the sentences. Choose from these verbs (in the correct form):",
+      "wordBank": ["answer", "apply", "forget", "interrupt", "listen", "live", "lose", "make", "pay", "read", "travel", "try"],
+      "examples": [
+        {
+          "prompt": "He tried to avoid ___ my question.",
+          "answer": "answering"
+        }
+      ],
+      "items": [
+        {
+          "prompt": "I'm trying to concentrate. Please stop ___ so much noise!",
+          "answer": "making"
+        },
+        {
+          "prompt": "I enjoy ___ to music.",
+          "answer": "listening"
+        },
+        {
+          "prompt": "I considered ___ for the job, but in the end I decided against it.",
+          "answer": "applying"
+        },
+        {
+          "prompt": "Have you finished ___ the newspaper yet?",
+          "answer": "reading"
+        },
+        {
+          "prompt": "We need to change our routine. We can't go on ___ like this.",
+          "answer": "living"
+        },
+        {
+          "prompt": "It's better to avoid ___ during the rush hour.",
+          "answer": "travelling"
+        },
+        {
+          "prompt": "My memory is getting worse. I keep ___ things.",
+          "answer": "forgetting"
+        },
+        {
+          "prompt": "I've put off ___ this bill so many times. I really must do it today.",
+          "answer": "paying"
+        },
+        {
+          "prompt": "I've given up ___ to learn Japanese. I was making no progress.",
+          "answer": "trying"
+        },
+        {
+          "prompt": "If you gamble, you risk ___ your money.",
+          "answer": "losing"
+        },
+        {
+          "prompt": "Would you mind not ___ me all the time? Let me speak!",
+          "answer": "interrupting"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "53.3 · Sắp xếp các từ theo đúng thứ tự",
+      "titleEn": "53.3 · Put the words in the right order",
+      "instructions": "Sắp xếp các từ trong ngoặc theo đúng thứ tự.",
+      "instructionsEn": "Put the words in the right order.",
+      "examples": [
+        {
+          "context": "Did she really say that?",
+          "prompt": "I ___. (that / remember / her / saying / don't)",
+          "answer": "don't remember her saying that"
+        }
+      ],
+      "items": [
+        {
+          "context": "It's OK if you want to drive my car.",
+          "prompt": "I ___. (driving / don't / it / you / mind)",
+          "answer": "don't mind you driving it"
+        },
+        {
+          "context": "What a stupid thing to do!",
+          "prompt": "Can ___? (imagine / so stupid / being / you / anybody)",
+          "answer": "you imagine anybody being so stupid"
+        },
+        {
+          "context": "We can't control the weather.",
+          "prompt": "We ___. (raining / stop / it / can't)",
+          "answer": "can't stop it raining"
+        },
+        {
+          "context": "I'll be as quick as I can.",
+          "prompt": "I ___. (waiting / want / keep / you / don't / to)",
+          "answer": "don't want to keep you waiting"
+        }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh về chính bạn, dùng verb + -ing: ví dụ một điều bạn enjoy/fancy doing, một điều bạn đã given up hoặc keep doing, hoặc một điều bạn would suggest doing.",
+      "instructionsEn": "Write 2-3 English sentences about yourself, using verb + -ing: for example something you enjoy/fancy doing, something you've given up or keep doing, or something you'd suggest doing.",
+      "ruleSummary": "This unit practises verbs followed by the -ing form rather than to + infinitive: enjoy, mind, suggest, stop, finish, recommend, consider, admit, deny, avoid, risk, imagine, fancy, and the phrasal verbs give up, put off, go on/carry on, keep/keep on. The negative is not -ing (I enjoy not having to get up early). Some of these verbs also allow verb + somebody + -ing (stop people doing, imagine George riding, remember her saying, keep you waiting). For a finished action, having done/stolen/said is possible after some of these verbs but not required (they admitted having stolen the money = they admitted stealing the money). admit, deny, suggest and recommend also allow a that-clause instead of -ing (Chris suggested that we go to the cinema, I recommend that you travel by train). A correct student sentence must never use to + infinitive after enjoy/mind/suggest/stop(doing)/admit/deny/avoid etc., since that is the exact mistake this unit corrects."
+    }
+  ]
+};
+
+const UNIT_54_VERB_TO: GrammarUnit = {
+  "unit": 54,
+  "slug": "verb-to-decide-to-forget-to",
+  "title": "Verb + to ... (decide to ... / forget to ... etc.)",
+  "topic": "verb patterns",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "Động từ + to ...",
+          "headingEn": "Verb + to ...",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "After these verbs you can use to ... (infinitive):",
+              "vi": "Sau các động từ này, bạn có thể dùng to ... (nguyên thể):"
+            },
+            {
+              "kind": "words",
+              "words": ["offer", "agree", "refuse", "decide", "plan", "arrange", "hope", "forget", "manage", "fail", "promise", "threaten", "deserve", "afford", "learn", "tend"]
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "It was a long way to walk, so we **decided to take** a taxi home.",
+                  "vi": "Đi bộ thì xa quá, nên chúng tôi quyết định bắt taxi về nhà."
+                },
+                {
+                  "en": "Dan **tends to talk** too much.",
+                  "vi": "Dan có xu hướng nói quá nhiều."
+                },
+                {
+                  "en": "Simon was in a difficult situation, so I **agreed to help** him.",
+                  "vi": "Simon đang gặp khó khăn, nên tôi đồng ý giúp anh ấy."
+                },
+                {
+                  "en": "I waved to Karen, but **failed to attract** her attention.",
+                  "vi": "Tôi vẫy tay với Karen, nhưng không thu hút được sự chú ý của cô ấy."
+                },
+                {
+                  "en": "How old were you when you **learnt to drive**? or ... **learnt how to drive**?",
+                  "vi": "Bạn học lái xe từ khi mấy tuổi?"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "The negative is **not to ...**:",
+              "vi": "Dạng phủ định là **not to ...**:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "We **decided not to go** out because of the weather.",
+                  "vi": "Chúng tôi quyết định không ra ngoài vì thời tiết."
+                },
+                {
+                  "en": "I **promised not to be** late.",
+                  "vi": "Tôi đã hứa sẽ không đến muộn."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "After some verbs, we use -ing (not to ...). For example, enjoy/think/suggest:",
+              "vi": "Sau một số động từ, chúng ta dùng -ing (không dùng to ...). Ví dụ, enjoy/think/suggest:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I **enjoy reading**.",
+                  "note": "not enjoy to read",
+                  "vi": "Tôi thích đọc sách."
+                },
+                {
+                  "en": "Andy **suggested meeting** for coffee.",
+                  "note": "not suggested to meet",
+                  "vi": "Andy đề nghị gặp nhau uống cà phê."
+                },
+                {
+                  "en": "Are you **thinking of buying** a car?",
+                  "note": "not thinking to buy",
+                  "vi": "Bạn đang tính mua xe hơi phải không?"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "For verb + -ing, see Units 53 and 62.",
+              "vi": "Về verb + -ing, xem Unit 53 và Unit 62."
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "dare (to)",
+          "headingEn": "dare (to)",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "After **dare** you can use the infinitive with or without to:",
+              "vi": "Sau **dare**, bạn có thể dùng nguyên thể có hoặc không có to:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I **didn't dare to tell** him. or I **didn't dare tell** him.",
+                  "vi": "Tôi không dám nói với anh ấy."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "But after **dare not** (or **daren't**), we do not use to:",
+              "vi": "Nhưng sau **dare not** (hoặc **daren't**), chúng ta không dùng to:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I **daren't tell** him what happened.",
+                  "note": "not I daren't to tell him",
+                  "vi": "Tôi không dám nói với anh ấy điều đã xảy ra."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "seem, appear, pretend, claim + to ...",
+          "headingEn": "seem, appear, pretend, claim + to ...",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "We also use to ... after **seem**, **appear**, **pretend** and **claim**. For example:",
+              "vi": "Chúng ta cũng dùng to ... sau **seem**, **appear**, **pretend** và **claim**. Ví dụ:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "They **seem to have** plenty of money.",
+                  "vi": "Họ có vẻ có nhiều tiền."
+                },
+                {
+                  "en": "Ann **pretended not to see** me when she passed me in the street.",
+                  "vi": "Ann giả vờ không thấy tôi khi cô ấy đi qua tôi trên đường."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "You can also use **to be -ing** (continuous infinitive) and **to have (done)** (perfect infinitive):",
+              "vi": "Bạn cũng có thể dùng **to be -ing** (nguyên thể tiếp diễn) và **to have (done)** (nguyên thể hoàn thành):"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I **pretended to be reading** the newspaper.",
+                  "note": "= I pretended that I was reading",
+                  "vi": "Tôi giả vờ đang đọc báo."
+                },
+                {
+                  "en": "Have you seen my keys? I **seem to have lost** them.",
+                  "note": "= it seems that I have lost them",
+                  "vi": "Bạn có thấy chìa khóa của tôi không? Hình như tôi làm mất nó rồi."
+                },
+                {
+                  "en": "She **claimed not to have seen** me.",
+                  "note": "= she claimed that she hadn't seen me",
+                  "vi": "Cô ấy khẳng định là không thấy tôi."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "D",
+          "heading": "Động từ + từ hỏi (what/how ...) + to ...",
+          "headingEn": "Verb + question word (what/how etc.) + to ...",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "After these verbs you can use a question word (what/how etc.) + to ...:",
+              "vi": "Sau các động từ này, bạn có thể dùng từ hỏi (what/how ...) + to ...:"
+            },
+            {
+              "kind": "words",
+              "words": ["ask", "know", "decide", "remember", "forget", "learn", "explain", "understand", "wonder"]
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "We asked **how to get** to the station.",
+                  "vi": "Chúng tôi hỏi đường đến trạm như thế nào."
+                },
+                {
+                  "en": "Have you decided **where to go** on holiday?",
+                  "vi": "Bạn đã quyết định đi nghỉ ở đâu chưa?"
+                },
+                {
+                  "en": "I don't know **whether to apply** for the job or not.",
+                  "vi": "Tôi không biết có nên ứng tuyển công việc này hay không."
+                },
+                {
+                  "en": "Do you understand **what to do**?",
+                  "vi": "Bạn có hiểu phải làm gì không?"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "Also **show/tell/ask/advise/teach somebody what/how/where to do something**:",
+              "vi": "Cũng có **show/tell/ask/advise/teach somebody what/how/where to do something**:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "Can somebody **show me how to use** this camera?",
+                  "vi": "Có ai chỉ tôi cách dùng máy ảnh này không?"
+                },
+                {
+                  "en": "Ask Jack. He'll **tell you what to do**.",
+                  "vi": "Hỏi Jack đi. Anh ấy sẽ nói cho bạn biết phải làm gì."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "54.1 · Hoàn thành câu cho mỗi tình huống",
+      "titleEn": "54.1 · Complete the sentences for these situations",
+      "instructions": "Hoàn thành các câu cho mỗi tình huống.",
+      "instructionsEn": "Complete the sentences for these situations.",
+      "examples": [
+        {
+          "context": "'Shall we get married?' 'Yes, let's.'",
+          "prompt": "___",
+          "answer": "They decided to get married."
+        }
+      ],
+      "items": [
+        {
+          "context": "'Please help me.' 'OK.'",
+          "prompt": "___",
+          "answer": "She agreed to help me."
+        },
+        {
+          "context": "'Can I carry your bag for you?' 'No, thanks. I can manage.'",
+          "prompt": "___",
+          "answer": "He offered to carry her bag."
+        },
+        {
+          "context": "'Let's meet at 8 o'clock.' 'OK, fine.'",
+          "prompt": "___",
+          "answer": "They arranged to meet at 8 o'clock."
+        },
+        {
+          "context": "'What's your name?' 'I'm not going to tell you.'",
+          "prompt": "___",
+          "answer": "She refused to tell him her name."
+        },
+        {
+          "context": "'Please don't tell anyone.' 'I won't. I promise.'",
+          "prompt": "___",
+          "answer": "She promised not to tell anyone."
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "54.2 · Hoàn thành câu với động từ phù hợp",
+      "titleEn": "54.2 · Complete the sentences with a suitable verb",
+      "instructions": "Hoàn thành các câu, dùng một động từ phù hợp.",
+      "instructionsEn": "Complete the sentences. Use a suitable verb.",
+      "examples": [
+        {
+          "prompt": "Don't forget ___ the door when you go out. (lock)",
+          "answer": "to lock"
+        }
+      ],
+      "items": [
+        {
+          "prompt": "There was a lot of traffic, but we managed ___ to the airport in time.",
+          "answer": "to get"
+        },
+        {
+          "prompt": "We couldn't afford ___ in London. It's too expensive.",
+          "answer": "to live"
+        },
+        {
+          "prompt": "I can't play a musical instrument, but I'd like to learn ___ the guitar.",
+          "answer": "to play"
+        },
+        {
+          "prompt": "I don't want Mark to know what happened. I decided not ___ him.",
+          "answer": "to tell"
+        },
+        {
+          "prompt": "We were all afraid to speak. Nobody dared ___ anything.",
+          "answer": "say",
+          "accept": ["to say"]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "54.3 · Chia động từ ở dạng to ... hoặc -ing",
+      "titleEn": "54.3 · Put the verb into the correct form, to ... or -ing",
+      "instructions": "Chia động từ trong ngoặc ở dạng đúng, to ... hoặc -ing. (Xem Unit 53 về verb + -ing.)",
+      "instructionsEn": "Put the verb into the correct form, to ... or -ing. (See Unit 53 for verbs + -ing.)",
+      "examples": [
+        {
+          "prompt": "When I'm tired, I enjoy ___ TV. It's relaxing. (watch)",
+          "answer": "watching"
+        }
+      ],
+      "items": [
+        {
+          "prompt": "I've decided ___ for another job. I need a change. (look)",
+          "answer": "to look"
+        },
+        {
+          "prompt": "I'm not going anywhere! I refuse ___. (move)",
+          "answer": "to move"
+        },
+        {
+          "prompt": "I'm not in a hurry. I don't mind ___. (wait)",
+          "answer": "waiting"
+        },
+        {
+          "prompt": "Tina ran in a marathon last week, but she failed ___. (finish)",
+          "answer": "to finish"
+        },
+        {
+          "prompt": "I wish that dog would stop ___. It's driving me crazy. (bark)",
+          "answer": "barking"
+        },
+        {
+          "prompt": "They didn't know I was listening to them. I pretended ___ asleep. (be)",
+          "answer": "to be"
+        },
+        {
+          "prompt": "We were hungry, so I suggested ___ dinner early. (have)",
+          "answer": "having"
+        },
+        {
+          "prompt": "Hurry up! I don't want to risk ___ the train. (miss)",
+          "answer": "missing"
+        },
+        {
+          "prompt": "David is very quiet. He tends not ___ much. (say)",
+          "answer": "to say"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "54.4 · Viết câu mới với động từ trong ngoặc",
+      "titleEn": "54.4 · Make a new sentence using the verb in brackets",
+      "instructions": "Viết lại câu mới bằng động từ trong ngoặc.",
+      "instructionsEn": "Make a new sentence using the verb in brackets.",
+      "examples": [
+        {
+          "context": "I've lost my keys.",
+          "prompt": "___ (seem)",
+          "answer": "I seem to have lost my keys."
+        }
+      ],
+      "items": [
+        {
+          "context": "Tom is worried about something.",
+          "prompt": "___ (appear)",
+          "answer": "Tom appears to be worried about something."
+        },
+        {
+          "context": "You know a lot of people.",
+          "prompt": "___ (seem)",
+          "answer": "You seem to know a lot of people."
+        },
+        {
+          "context": "My English is getting better.",
+          "prompt": "___ (seem)",
+          "answer": "My English seems to be getting better."
+        },
+        {
+          "context": "That car has broken down.",
+          "prompt": "___ (appear)",
+          "answer": "That car appears to have broken down."
+        },
+        {
+          "context": "Rachel is enjoying her job.",
+          "prompt": "___ (seem)",
+          "answer": "Rachel seems to be enjoying her job."
+        },
+        {
+          "context": "They have solved the problem.",
+          "prompt": "___ (claim)",
+          "answer": "They claim to have solved the problem."
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "54.5 · Hoàn thành câu với what/how/where/whether + động từ cho sẵn",
+      "titleEn": "54.5 · Complete each sentence using what/how/where/whether + the given verbs",
+      "instructions": "Hoàn thành mỗi câu bằng what/how/where/whether + các động từ sau.",
+      "instructionsEn": "Complete each sentence using what/how/where/whether + these verbs:",
+      "wordBank": ["do", "get", "go", "put", "ride", "use"],
+      "examples": [
+        {
+          "prompt": "Do you know ___ to the airport from here?",
+          "answer": "how to get"
+        }
+      ],
+      "items": [
+        {
+          "prompt": "Would you know ___ if there was a fire in the building?",
+          "answer": "what to do"
+        },
+        {
+          "prompt": "You'll never forget ___ a bike once you've learnt.",
+          "answer": "how to ride"
+        },
+        {
+          "prompt": "I've been invited to the party, but I haven't decided ___ or not.",
+          "answer": "whether to go"
+        },
+        {
+          "prompt": "My room is very untidy. I've got so many things and I don't know ___ them.",
+          "answer": "where to put"
+        },
+        {
+          "prompt": "I have some clothes to wash. Can you show me ___ the washing machine?",
+          "answer": "how to use"
+        }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng verb + to ...: một câu với decide/agree/offer/promise + to ..., và một câu với seem/appear + to ... hoặc một câu hỏi cách làm gì (how/what to do ...).",
+      "instructionsEn": "Write 2-3 English sentences using verb + to ...: one with decide/agree/offer/promise + to ..., and one with seem/appear + to ... or a question about how to do something (how/what to do ...).",
+      "ruleSummary": "This unit practises verbs followed by to + infinitive: offer, agree, refuse, decide, plan, arrange, hope, forget, manage, fail, promise, threaten, deserve, afford, learn, tend, with the negative not to (decided not to go, promised not to be late) - contrasted with verbs like enjoy/suggest/think of that take -ing instead (Unit 53). dare allows the infinitive with or without to (didn't dare to tell / didn't dare tell), but dare not/daren't never takes to. seem, appear, pretend and claim also take to, including the continuous infinitive to be -ing and the perfect infinitive to have (done) (seem to have lost, pretended to be reading, claimed not to have seen). ask, know, decide, remember, forget, learn, explain, understand and wonder can be followed by a question word (what/how/where/whether) + to (know how to get, decided where to go, don't know whether to apply), and show/tell/ask/advise/teach somebody follows the same pattern (show me how to use, tell you what to do). A correct student sentence must use to + infinitive (not -ing) after these verbs, and must place not before to for a negative infinitive, not after it."
+    }
+  ]
+};
+
+const UNIT_55_VERB_OBJECT_TO: GrammarUnit = {
+  "unit": 55,
+  "slug": "verb-object-to-i-want-you-to",
+  "title": "Verb (+ object) + to ... (I want you to ...)",
+  "topic": "verb patterns",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "want/expect/ask/help + to ..., hoặc + tân ngữ + to ...",
+          "headingEn": "want/expect/ask/help + to ..., or + object + to ...",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "We say:",
+              "vi": "Chúng ta nói:"
+            },
+            {
+              "kind": "table",
+              "table": {
+                "headers": ["verb + to ...", "verb + object + to ..."],
+                "rows": [
+                  ["want", "want"],
+                  ["expect **to go**", "expect **somebody to go**"],
+                  ["ask **to be**", "ask **somebody to be**"],
+                  ["help **to work**", "help **something to work**"],
+                  ["would like / would prefer etc.", "would like / would prefer + object etc."]
+                ]
+              }
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "We **expected to be** late.",
+                  "vi": "Chúng tôi tưởng mình sẽ đến muộn."
+                },
+                {
+                  "en": "We **expected Dan to be** late.",
+                  "vi": "Chúng tôi tưởng Dan sẽ đến muộn."
+                },
+                {
+                  "en": "Would you **like to go** now?",
+                  "vi": "Bạn muốn đi ngay bây giờ không?"
+                },
+                {
+                  "en": "Would you **like me to go** now?",
+                  "vi": "Bạn có muốn tôi đi ngay bây giờ không?"
+                },
+                {
+                  "en": "He doesn't **want to know**.",
+                  "vi": "Anh ấy không muốn biết."
+                },
+                {
+                  "en": "He doesn't **want anybody to know**.",
+                  "vi": "Anh ấy không muốn ai biết."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "We do not usually say 'want that':",
+              "vi": "Chúng ta thường không nói 'want that':"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "Do you **want me to come** with you?",
+                  "note": "not want that I come",
+                  "vi": "Bạn có muốn tôi đi cùng bạn không?"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "You can use **help** with or without to. You can say:",
+              "vi": "Bạn có thể dùng **help** có hoặc không có to. Bạn có thể nói:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "Can you **help me to move** this table? or Can you **help me move** this table?",
+                  "vi": "Bạn giúp tôi dời cái bàn này được không?"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "tell/advise/remind/warn/invite ... + tân ngữ + to ...",
+          "headingEn": "tell/advise/remind/warn/invite ... + object + to ...",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "These verbs have the structure **verb + object + to ...**:",
+              "vi": "Các động từ sau có cấu trúc **verb + object + to ...**:"
+            },
+            {
+              "kind": "words",
+              "words": ["tell", "advise", "remind", "warn", "invite", "encourage", "persuade", "get", "force", "teach", "allow", "enable"]
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "It's not a nice hotel. I **wouldn't advise you to stay** there.",
+                  "vi": "Đó không phải là một khách sạn tốt. Tôi khuyên bạn không nên ở đó."
+                },
+                {
+                  "en": "Can you **remind me to call** Sam tomorrow?",
+                  "vi": "Bạn nhắc tôi gọi cho Sam ngày mai được không?"
+                },
+                {
+                  "en": "Joe said the switch was dangerous and **warned me not to touch** it.",
+                  "vi": "Joe nói cái công tắc đó nguy hiểm và cảnh báo tôi không được đụng vào nó."
+                },
+                {
+                  "en": "I didn't move the piano by myself. I **got somebody to help** me.",
+                  "vi": "Tôi không tự dời cái piano một mình. Tôi nhờ ai đó giúp tôi."
+                },
+                {
+                  "en": "Who **taught you to drive**?",
+                  "vi": "Ai đã dạy bạn lái xe?"
+                },
+                {
+                  "en": "They don't **allow people to park** in front of the building.",
+                  "vi": "Họ không cho phép đậu xe trước tòa nhà."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "In these examples, the verb is passive (I was warned / we are allowed etc.):",
+              "vi": "Trong các ví dụ sau, động từ ở dạng bị động (I was warned / we are allowed ...):"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I **was warned not to touch** the switch.",
+                  "vi": "Tôi được cảnh báo không được đụng vào công tắc đó."
+                },
+                {
+                  "en": "**Are we allowed to park** here?",
+                  "vi": "Chúng ta có được đậu xe ở đây không?"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "We do not use **suggest** with to ...:",
+              "vi": "Chúng ta không dùng **suggest** với to ...:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "Jane suggested that I ask you for advice.",
+                  "note": "not Jane suggested me to ask",
+                  "vi": "Jane đề nghị tôi hỏi ý kiến bạn."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "make/let somebody do something (không có to)",
+          "headingEn": "make/let somebody do something (without to)",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "We say '**make somebody do something**', '**let somebody do something**' (without to):",
+              "vi": "Chúng ta nói '**make somebody do something**', '**let somebody do something**' (không có to):"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I **made him promise** that he wouldn't tell anybody what happened.",
+                  "note": "not made him to promise",
+                  "vi": "Tôi bắt anh ấy hứa là sẽ không nói cho ai biết điều đã xảy ra."
+                },
+                {
+                  "en": "Hot weather **makes me feel** tired.",
+                  "note": "= causes me to feel tired",
+                  "vi": "Thời tiết nóng làm tôi cảm thấy mệt mỏi."
+                },
+                {
+                  "en": "Her parents **wouldn't let her go** out alone.",
+                  "note": "= wouldn't allow her to go out",
+                  "vi": "Cha mẹ cô ấy không cho cô ấy đi ra ngoài một mình."
+                },
+                {
+                  "en": "**Let me carry** your bag for you.",
+                  "vi": "Để tôi xách túi cho bạn."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "We say 'make somebody do', but in the passive we say '**(be) made to do**' (with to):",
+              "vi": "Chúng ta nói 'make somebody do', nhưng ở dạng bị động chúng ta nói '**(be) made to do**' (có to):"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "We **were made to wait** for two hours.",
+                  "note": "= They made us wait ...",
+                  "vi": "Chúng tôi bị bắt phải chờ hai giờ đồng hồ."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "55.1 · Hoàn thành câu hỏi với do you want me to ... ? / would you like me to ... ?",
+      "titleEn": "55.1 · Complete the questions with do you want me to ... ? / would you like me to ... ?",
+      "instructions": "Hoàn thành các câu hỏi. Dùng do you want me to ... ? hoặc would you like me to ... ? với các động từ sau (và các từ cần thiết khác).",
+      "instructionsEn": "Complete the questions. Use do you want me to ... ? or would you like me to ... ? with these verbs (and any other necessary words):",
+      "wordBank": ["come", "lend", "repeat", "show", "shut", "wait"],
+      "examples": [
+        {
+          "prompt": "Do you want to go alone, or ___?",
+          "answer": "do you want me to come with you"
+        }
+      ],
+      "items": [
+        {
+          "prompt": "Do you have enough money, or ___?",
+          "answer": "do you want me to lend you some"
+        },
+        {
+          "prompt": "Shall I leave the window open, or ___?",
+          "answer": "would you like me to shut it"
+        },
+        {
+          "prompt": "Do you know how to use the printer, or ___?",
+          "answer": "would you like me to show you"
+        },
+        {
+          "prompt": "Did you hear what I said, or ___?",
+          "answer": "do you want me to repeat it"
+        },
+        {
+          "prompt": "Can I go now, or ___?",
+          "answer": "do you want me to wait"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "55.2 · Hoàn thành câu cho mỗi tình huống",
+      "titleEn": "55.2 · Complete the sentences for these situations",
+      "instructions": "Hoàn thành các câu cho mỗi tình huống.",
+      "instructionsEn": "Complete the sentences for these situations.",
+      "examples": [
+        {
+          "context": "'Meet me at the station.' 'OK.'",
+          "prompt": "___",
+          "answer": "She told him to meet her at the station."
+        }
+      ],
+      "items": [
+        {
+          "context": "'Why don't you come and stay with us?' 'That would be nice.'",
+          "prompt": "___",
+          "answer": "They invited him to come and stay with them."
+        },
+        {
+          "context": "'Don't forget to call Joe.' 'No, I won't forget.'",
+          "prompt": "___",
+          "answer": "He reminded her to call Joe."
+        },
+        {
+          "context": "'Be careful.' 'Don't worry. I will.'",
+          "prompt": "___",
+          "answer": "She warned him to be careful."
+        },
+        {
+          "context": "'Can you give me a hand?' 'Sure.'",
+          "prompt": "___",
+          "answer": "He asked her to give him a hand."
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "55.3 · Hoàn thành câu thứ hai với nghĩa tương tự câu thứ nhất",
+      "titleEn": "55.3 · Complete the second sentence so the meaning is similar",
+      "instructions": "Hoàn thành câu thứ hai sao cho nghĩa tương tự câu thứ nhất.",
+      "instructionsEn": "Complete the second sentence so that the meaning is similar to the first sentence.",
+      "examples": [
+        {
+          "context": "My father said I could use his car.",
+          "prompt": "___",
+          "answer": "My father allowed me to use his car."
+        }
+      ],
+      "items": [
+        {
+          "context": "I was surprised that it rained.",
+          "prompt": "I didn't expect ___.",
+          "answer": "it to rain"
+        },
+        {
+          "context": "Don't stop him doing what he wants.",
+          "prompt": "___",
+          "answer": "Let him do what he wants."
+        },
+        {
+          "context": "Tom looks older when he wears glasses.",
+          "prompt": "Tom's glasses make ___.",
+          "answer": "him look older"
+        },
+        {
+          "context": "I think you should know the truth.",
+          "prompt": "I want ___.",
+          "answer": "you to know the truth"
+        },
+        {
+          "context": "At first I didn't want to apply for the job, but Sarah persuaded me.",
+          "prompt": "Sarah persuaded ___.",
+          "answer": "me to apply for the job"
+        },
+        {
+          "context": "My lawyer said I shouldn't say anything to the police.",
+          "prompt": "My lawyer advised ___.",
+          "answer": "me not to say anything to the police"
+        },
+        {
+          "context": "I was told that I shouldn't believe everything he says.",
+          "prompt": "I was warned ___.",
+          "answer": "not to believe everything he says"
+        },
+        {
+          "context": "If you've got a car, you are able to get around more easily.",
+          "prompt": "Having a car enables ___.",
+          "answer": "you to get around more easily"
+        }
+      ]
+    },
+    {
+      "kind": "fill_mc",
+      "title": "55.4 · Chọn phương án đúng",
+      "titleEn": "55.4 · Which is right?",
+      "instructions": "Chọn phương án đúng.",
+      "instructionsEn": "Which is right?",
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "You aren't allowed ___ pictures here.",
+          "answer": "to take"
+        }
+      ],
+      "items": [
+        {
+          "before": "I'm in a difficult position. What do you advise me",
+          "after": "?",
+          "options": ["do", "to do"],
+          "answer": "to do"
+        },
+        {
+          "before": "The film was very sad. It made me",
+          "after": ".",
+          "options": ["cry", "to cry"],
+          "answer": "cry"
+        },
+        {
+          "before": "Lisa's parents always encouraged her",
+          "after": "hard at school.",
+          "options": ["study", "to study"],
+          "answer": "to study"
+        },
+        {
+          "before": "Please don't interrupt me. Let me",
+          "after": ".",
+          "options": ["finish", "to finish"],
+          "answer": "finish"
+        },
+        {
+          "before": "You can't make people",
+          "after": "things they don't want to do.",
+          "options": ["do", "to do"],
+          "answer": "do"
+        },
+        {
+          "before": "You can't force people",
+          "after": "things they don't want to do.",
+          "options": ["do", "to do"],
+          "answer": "to do"
+        },
+        {
+          "before": "Sarah won't let me",
+          "after": "her car. She doesn't trust me.",
+          "options": ["drive", "to drive"],
+          "answer": "drive"
+        },
+        {
+          "before": "Why did you change your decision? What made you",
+          "after": "your mind?",
+          "options": ["change", "to change"],
+          "answer": "change"
+        },
+        {
+          "before": "If you enter a country with a tourist visa, you are not allowed",
+          "after": "there.",
+          "options": ["work", "to work"],
+          "answer": "to work"
+        }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng verb + object + to ...: một câu với want/expect/would like + somebody + to ..., và một câu với tell/advise/warn/remind + somebody + to ..., hoặc make/let + somebody + do (không có to).",
+      "instructionsEn": "Write 2-3 English sentences using verb + object + to ...: one with want/expect/would like + somebody + to ..., and one with tell/advise/warn/remind + somebody + to ..., or make/let + somebody + do (without to).",
+      "ruleSummary": "This unit covers verb + object + to. want, expect, would like/prefer and ask can take either to (I expected to be late) or object + to (I expected Dan to be late), and help works with or without to (help me to move / help me move). tell, advise, remind, warn, invite, encourage, persuade, get, force, teach, allow and enable always take object + to (advise you to stay, remind me to call, taught you to drive), including in the passive (I was warned not to touch it, are we allowed to park here). suggest never takes to (Jane suggested that I ask you, not suggested me to ask). make and let take a bare infinitive with no to in the active (made him promise, let her go), but the passive of make switches to with to (we were made to wait). A correct student sentence must never add to after make/let in the active voice, and must never drop to after tell/advise/warn/remind/allow etc. or after make in the passive."
+    }
+  ]
+};
+
+const UNIT_56_VERB_ING_OR_TO_1: GrammarUnit = {
+  "unit": 56,
+  "slug": "verb-ing-or-to-1-remember-regret",
+  "title": "Verb + -ing or to ... 1 (remember, regret etc.)",
+  "topic": "verb patterns",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "Một số động từ theo sau bởi -ing, một số theo sau bởi to ...",
+          "headingEn": "Some verbs take -ing, some take to ...",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "Some verbs are followed by -ing and some are followed by to ....",
+              "vi": "Một số động từ được theo sau bởi -ing và một số được theo sau bởi to ..."
+            },
+            {
+              "kind": "text",
+              "text": "Verbs that you can use with -ing (not to ...):",
+              "vi": "Các động từ dùng với -ing (không dùng to ...):"
+            },
+            {
+              "kind": "words",
+              "words": ["admit", "avoid", "consider", "deny", "enjoy", "fancy", "finish", "imagine", "keep (on)", "mind", "postpone", "risk", "stop", "suggest"]
+            },
+            {
+              "kind": "text",
+              "text": "For examples, see Unit 53.",
+              "vi": "Xem ví dụ ở Unit 53."
+            },
+            {
+              "kind": "text",
+              "text": "Verbs that you can use with to ...:",
+              "vi": "Các động từ dùng với to ...:"
+            },
+            {
+              "kind": "words",
+              "words": ["afford", "agree", "arrange", "decide", "deserve", "fail", "forget", "hope", "learn", "manage", "offer", "plan", "promise", "refuse", "tend"]
+            },
+            {
+              "kind": "text",
+              "text": "For examples, see Unit 54.",
+              "vi": "Xem ví dụ ở Unit 54."
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "remember, regret, go on: khác nghĩa giữa -ing và to ...",
+          "headingEn": "remember, regret, go on: -ing and to ... with a different meaning",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "Some verbs can be followed by -ing or to ... with a difference of meaning.",
+              "vi": "Một số động từ có thể theo sau bởi -ing hoặc to ..., nhưng mang nghĩa khác nhau."
+            },
+            {
+              "kind": "text",
+              "text": "**remember**: I remember doing something = I did it and now I remember this. You remember doing something *after* you have done it. I remembered to do something = I remembered that I had to do it, so I did it. You remember to do something *before* you do it.",
+              "vi": "**remember**: I remember doing something = tôi đã làm điều đó và giờ tôi nhớ lại. Bạn remember doing something *sau khi* đã làm nó. I remembered to do something = tôi nhớ là mình phải làm điều đó, nên tôi đã làm. Bạn remember to do something *trước khi* làm nó."
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I know I locked the door. I clearly **remember locking** it.",
+                  "note": "= I locked it, and now I remember this",
+                  "vi": "Tôi biết mình đã khóa cửa. Tôi nhớ rõ là đã khóa nó."
+                },
+                {
+                  "en": "He could **remember driving** along the road just before the accident, but he couldn't remember the accident itself.",
+                  "vi": "Anh ấy có thể nhớ là mình đã lái xe trên đường ngay trước khi xảy ra tai nạn, nhưng không thể nhớ được vụ tai nạn."
+                },
+                {
+                  "en": "I **remembered to lock** the door, but I forgot to shut the windows.",
+                  "note": "= I remembered that I had to lock it, and so I locked it",
+                  "vi": "Tôi nhớ khóa cửa, nhưng lại quên đóng cửa sổ."
+                },
+                {
+                  "en": "**Remember to buy** some bananas.",
+                  "note": "= Don't forget to buy them",
+                  "vi": "Nhớ mua chuối nhé."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "**regret**: I regret doing something = I did it and now I am sorry about it. I regret to say / to tell you / to inform you = I am sorry that I have to say:",
+              "vi": "**regret**: I regret doing something = tôi đã làm điều đó và giờ tôi hối hận về nó. I regret to say / to tell you / to inform you = tôi rất tiếc phải nói rằng:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I now **regret saying** what I said. I shouldn't have said it.",
+                  "vi": "Giờ tôi hối hận vì đã nói điều đó. Tôi không nên nói vậy."
+                },
+                {
+                  "en": "Do you **regret not going** to college?",
+                  "vi": "Bạn có hối hận vì không học đại học không?"
+                },
+                {
+                  "en": "(from a formal letter) I **regret to say** that we are unable to accept your offer.",
+                  "vi": "(trong thư trang trọng) Tôi rất tiếc phải nói rằng chúng tôi không thể nhận đề nghị của bạn."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "**go on**: go on doing something = continue doing the same thing. go on to do something = do or say something new:",
+              "vi": "**go on**: go on doing something = tiếp tục làm điều đang làm. go on to do something = làm hoặc nói điều gì mới:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "The president paused for a moment and then **went on talking**.",
+                  "vi": "Vị tổng thống ngừng lại một chút rồi tiếp tục nói."
+                },
+                {
+                  "en": "We need to change. We can't **go on living** like this.",
+                  "vi": "Chúng ta cần thay đổi. Chúng ta không thể tiếp tục sống như thế này."
+                },
+                {
+                  "en": "After discussing the economy, the president **went on to talk** about foreign policy.",
+                  "vi": "Sau khi thảo luận về kinh tế, tổng thống chuyển sang nói về chính sách đối ngoại."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "begin, start, continue, intend, bother: không khác nghĩa",
+          "headingEn": "begin, start, continue, intend, bother: no difference in meaning",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "We use the following verbs with -ing or to ... with no difference of meaning:",
+              "vi": "Chúng ta dùng các động từ sau với -ing hoặc to ... mà không khác nghĩa:"
+            },
+            {
+              "kind": "words",
+              "words": ["begin", "start", "continue", "intend", "bother"]
+            },
+            {
+              "kind": "text",
+              "text": "So you can say:",
+              "vi": "Vậy bạn có thể nói:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "It **started raining**. or It **started to rain**.",
+                  "vi": "Trời bắt đầu mưa."
+                },
+                {
+                  "en": "Andy **intends buying** a house. or Andy **intends to buy** ...",
+                  "vi": "Andy có ý định mua nhà."
+                },
+                {
+                  "en": "Don't **bother locking** the door. or Don't **bother to lock** ...",
+                  "vi": "Đừng bận tâm khóa cửa làm gì."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "Normally we do not use -ing after -ing:",
+              "vi": "Thông thường chúng ta không dùng -ing sau -ing:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "It'**s starting to rain**.",
+                  "note": "not usually It's starting raining",
+                  "vi": "Trời đang bắt đầu mưa."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "56.1 · Chia động từ ở dạng -ing hoặc to ...",
+      "titleEn": "56.1 · Put the verb into the correct form, -ing or to ...",
+      "instructions": "Chia động từ trong ngoặc ở dạng đúng, -ing hoặc to ...",
+      "instructionsEn": "Put the verb into the correct form, -ing or to ... .",
+      "examples": [
+        {
+          "prompt": "They denied ___ the money. (steal)",
+          "answer": "stealing"
+        }
+      ],
+      "items": [
+        {
+          "prompt": "I don't enjoy ___ very much. (drive)",
+          "answer": "driving"
+        },
+        {
+          "prompt": "I can't afford ___ away. I don't have enough money. (go)",
+          "answer": "to go"
+        },
+        {
+          "prompt": "Have you ever considered ___ to live in another country? (go)",
+          "answer": "going"
+        },
+        {
+          "context": "We were unlucky to lose the game. We played well",
+          "prompt": "and deserved ___. (win)",
+          "answer": "to win"
+        },
+        {
+          "prompt": "Why do you keep ___ me questions? Leave me alone! (ask)",
+          "answer": "asking"
+        },
+        {
+          "prompt": "Please stop ___ me questions! (ask)",
+          "answer": "asking"
+        },
+        {
+          "prompt": "I refuse ___ any more questions. (answer)",
+          "answer": "to answer"
+        },
+        {
+          "prompt": "The driver of one of the cars admitted ___ the accident. (cause)",
+          "answer": "causing"
+        },
+        {
+          "prompt": "Mark needed our help, and we promised ___ what we could. (do)",
+          "answer": "to do"
+        },
+        {
+          "prompt": "I don't mind ___ alone, but I'd rather be with other people. (be)",
+          "answer": "being"
+        },
+        {
+          "prompt": "The wall was quite high, but I managed ___ over it. (climb)",
+          "answer": "to climb"
+        },
+        {
+          "prompt": "Sarah doesn't know about the meeting. I forgot ___ her. (tell)",
+          "answer": "to tell"
+        },
+        {
+          "prompt": "I've enjoyed ___ to you. I hope ___ you again soon. (talk, see)",
+          "answer": "talking",
+          "extraBlanks": [{ "answer": "to see" }]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "56.2 · Viết câu với He remembers ... hoặc He doesn't remember ...",
+      "titleEn": "56.2 · Write sentences with He remembers ... or He doesn't remember ...",
+      "instructions": "Tom nhớ được một số điều về thời thơ ấu, nhưng không nhớ những điều khác. Viết câu với He remembers ... hoặc He doesn't remember ...",
+      "instructionsEn": "Tom can remember some things about his childhood, but he can't remember others. Write sentences with He remembers ... or He doesn't remember ...",
+      "examples": [
+        {
+          "context": "He was in hospital when he was a small child. He can still remember this.",
+          "prompt": "___",
+          "answer": "He remembers being in hospital when he was a small child."
+        }
+      ],
+      "items": [
+        {
+          "context": "He cried on his first day at school. He doesn't remember this.",
+          "prompt": "___",
+          "answer": "He doesn't remember crying on his first day at school."
+        },
+        {
+          "context": "Once he fell into the river. He remembers this.",
+          "prompt": "___",
+          "answer": "He remembers falling into the river."
+        },
+        {
+          "context": "He said he wanted to be a doctor. He doesn't remember this.",
+          "prompt": "___",
+          "answer": "He doesn't remember saying he wanted to be a doctor."
+        },
+        {
+          "context": "Once he was bitten by a dog. He doesn't remember this.",
+          "prompt": "___",
+          "answer": "He doesn't remember being bitten by a dog."
+        },
+        {
+          "context": "His sister was born when he was four. He remembers this.",
+          "prompt": "___",
+          "answer": "He remembers his sister being born when he was four."
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "56.3 · Hoàn thành câu với động từ phù hợp, -ing hoặc to ...",
+      "titleEn": "56.3 · Complete the sentences with a suitable verb, -ing or to ...",
+      "instructions": "Hoàn thành các câu với một động từ phù hợp ở dạng đúng, -ing hoặc to ...",
+      "instructionsEn": "Complete the sentences with a suitable verb in the correct form, -ing or to ... .",
+      "examples": [
+        {
+          "label": "1a",
+          "prompt": "Please remember ___ the door when you go out. (lock)",
+          "answer": "to lock"
+        }
+      ],
+      "items": [
+        {
+          "label": "1b",
+          "prompt": "He says we've met before, but I don't remember ___ him.",
+          "answer": "meeting",
+          "accept": ["seeing"]
+        },
+        {
+          "label": "1c",
+          "context": "Someone must have taken my bag.",
+          "prompt": "I clearly remember ___ it by the window and now it isn't there.",
+          "answer": "leaving",
+          "accept": ["putting"]
+        },
+        {
+          "label": "1d",
+          "prompt": "When you see Steve, remember ___ hello to him from me.",
+          "answer": "to say"
+        },
+        {
+          "label": "1e",
+          "context": "a: You lent me some money a few months ago.",
+          "prompt": "b: Did I? Are you sure? I don't remember ___ you any money.",
+          "answer": "lending",
+          "accept": ["giving"]
+        },
+        {
+          "label": "1f",
+          "context": "b: No, I forgot. I'll phone her tomorrow.",
+          "prompt": "a: Did you remember ___ your sister?",
+          "answer": "to phone",
+          "accept": ["to call"]
+        },
+        {
+          "label": "2a",
+          "prompt": "The course I did wasn't very good, but I don't regret ___ it.",
+          "answer": "doing"
+        },
+        {
+          "label": "2b",
+          "prompt": "I knew they were in trouble, but I regret ___ I did nothing to help them.",
+          "answer": "to say"
+        },
+        {
+          "label": "2c",
+          "prompt": "It started to get cold, and he regretted not ___ his coat.",
+          "answer": "bringing",
+          "accept": ["taking"]
+        },
+        {
+          "label": "2d",
+          "prompt": "I now regret ___ my job. It was a big mistake.",
+          "answer": "leaving"
+        },
+        {
+          "label": "3a",
+          "context": "Ben joined the company nine years ago. He became assistant manager after two years,",
+          "prompt": "and a few years later he went on ___ manager of the company.",
+          "answer": "to become"
+        },
+        {
+          "label": "3b",
+          "prompt": "I can't go on ___ here any more. I want a different job.",
+          "answer": "working",
+          "accept": ["staying"]
+        },
+        {
+          "label": "3c",
+          "context": "When I came into the room, Lisa was reading a book. She looked up and said hello,",
+          "prompt": "and then went on ___ her book.",
+          "answer": "reading"
+        },
+        {
+          "label": "3d",
+          "context": "Food prices have gone up again.",
+          "prompt": "How are we going to manage if prices go on ___?",
+          "answer": "rising",
+          "accept": ["going up", "increasing"]
+        }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng remember/regret/go on + -ing hoặc to ...: một câu remember doing (nhớ lại đã làm) và một câu remember to do (nhớ để làm), làm rõ sự khác biệt về nghĩa.",
+      "instructionsEn": "Write 2-3 English sentences using remember/regret/go on + -ing or to ...: one with remember doing (recalling having done it) and one with remember to do (not forgetting to do it), making the difference in meaning clear.",
+      "ruleSummary": "This unit covers verbs where -ing and to have different meanings. remember doing something means you did it and now recall it (I clearly remember locking it - the memory comes after the action); remember to do something means you didn't forget to do what was necessary (I remembered to lock the door - the remembering comes before the action). regret doing something means you did it and are now sorry (I regret saying that); regret to say/tell/inform is a fixed formal way of introducing bad news, not a memory of a past action. go on doing something means continuing the same activity (went on talking); go on to do something means moving to something new (went on to talk about foreign policy). begin, start, continue, intend and bother can take either -ing or to with no difference in meaning, except that -ing is normally avoided right after another -ing (it's starting to rain, not usually starting raining). A correct student sentence must pick the form that matches the intended meaning for remember/regret/go on, since choosing the wrong one changes what the sentence says, not just its style."
+    }
+  ]
+};
+
+const UNIT_57_VERB_ING_OR_TO_2: GrammarUnit = {
+  "unit": 57,
+  "slug": "verb-ing-or-to-2-try-need-help",
+  "title": "Verb + -ing or to ... 2 (try, need, help)",
+  "topic": "verb patterns",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "try to ... và try -ing",
+          "headingEn": "try to ... and try -ing",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "**try to do** = attempt to do, make an effort to do:",
+              "vi": "**try to do** = cố gắng làm, nỗ lực để làm:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I was very tired. I **tried to keep** my eyes open, but I couldn't.",
+                  "vi": "Tôi rất mệt. Tôi cố mở mắt nhưng không được."
+                },
+                {
+                  "en": "Please **try to be** quiet when you come home. Everyone will be asleep.",
+                  "vi": "Hãy cố giữ im lặng khi bạn về nhà. Mọi người sẽ đang ngủ."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "**try something** or **try doing something** = do it as an experiment or test:",
+              "vi": "**try something** hoặc **try doing something** = làm điều đó như một cách thử nghiệm:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "These cakes are delicious. You should **try one**.",
+                  "note": "= have one to see if you like it",
+                  "vi": "Những cái bánh này ngon lắm. Bạn nên thử một cái."
+                },
+                {
+                  "en": "We couldn't find anywhere to stay. We **tried every hotel** in the town, but they were all full.",
+                  "note": "= we went to every hotel to see if they had a room",
+                  "vi": "Chúng tôi không tìm được nơi nào để ở. Chúng tôi đã thử mọi khách sạn trong thành phố, nhưng đều hết phòng."
+                },
+                {
+                  "en": "'The photocopier doesn't seem to be working.' '**Try pressing** the green button.'",
+                  "note": "press the green button - perhaps this will help to solve the problem",
+                  "vi": "'Máy photocopy có vẻ không hoạt động.' 'Thử nhấn nút màu xanh xem.'"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "Compare:",
+              "vi": "So sánh:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I **tried to move** the table, but it was too heavy.",
+                  "note": "so I couldn't move it",
+                  "vi": "Tôi cố di chuyển cái bàn, nhưng nó quá nặng."
+                },
+                {
+                  "en": "I didn't like the way the furniture was arranged, so I **tried moving** the table to the other side of the room. But it didn't look right, so I moved it back again.",
+                  "note": "I tried moving it = I moved it to see if it looked better",
+                  "vi": "Tôi không thích cách bố trí đồ đạc, nên tôi đã thử dời cái bàn sang phía khác của phòng. Nhưng nó không đẹp mắt, nên tôi dời nó về lại vị trí cũ."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "need to ... và need -ing",
+          "headingEn": "need to ... and need -ing",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "**I need to do** something = it is necessary for me to do it:",
+              "vi": "**I need to do** something = tôi cần phải làm điều đó:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "He **needs to work** harder if he wants to make progress.",
+                  "vi": "Anh ấy cần làm việc chăm chỉ hơn nếu muốn tiến bộ."
+                },
+                {
+                  "en": "I don't **need to come** to the meeting, do I?",
+                  "vi": "Tôi không cần phải đến buổi họp phải không?"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "You can say that something **needs -ing**:",
+              "vi": "Bạn có thể nói một điều gì đó **needs -ing**:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "My phone **needs charging**.",
+                  "note": "= it needs to be charged",
+                  "vi": "Điện thoại của tôi cần được sạc."
+                },
+                {
+                  "en": "Does your suit **need cleaning**?",
+                  "note": "= ... need to be cleaned",
+                  "vi": "Bộ đồ của bạn có cần giặt không?"
+                },
+                {
+                  "en": "It's a difficult problem. It **needs thinking about** carefully.",
+                  "note": "= it needs to be thought about carefully",
+                  "vi": "Đó là một vấn đề khó. Nó cần được suy nghĩ kỹ."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "Compare:",
+              "vi": "So sánh:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I **need to charge** my phone.",
+                  "vi": "Tôi cần sạc điện thoại của mình."
+                },
+                {
+                  "en": "but: My phone **needs charging**.",
+                  "vi": "nhưng: Điện thoại của tôi cần được sạc."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "help và can't help",
+          "headingEn": "help and can't help",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "You can say **help to do** or **help do** (with or without to):",
+              "vi": "Bạn có thể nói **help to do** hoặc **help do** (có hoặc không có to):"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "Everybody **helped to clean up** after the party. or Everybody **helped clean up** ...",
+                  "vi": "Mọi người đều giúp dọn dẹp sau buổi tiệc."
+                },
+                {
+                  "en": "Can you **help me move** this table? or Can you **help me to move** ...",
+                  "vi": "Bạn giúp tôi dời cái bàn này được không?"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "**I can't help doing** something = I can't stop myself doing it:",
+              "vi": "**I can't help doing** something = tôi không thể ngăn mình làm điều đó:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I don't like him, but he has a lot of problems. I **can't help feeling** sorry for him.",
+                  "vi": "Tôi không thích anh ta, nhưng anh ta gặp nhiều khó khăn. Tôi không thể không cảm thấy thương cho anh ta."
+                },
+                {
+                  "en": "She tried to be serious, but she **couldn't help laughing**.",
+                  "note": "= she couldn't stop herself laughing",
+                  "vi": "Cô ấy cố nghiêm túc, nhưng không thể ngừng cười."
+                },
+                {
+                  "en": "I'm sorry I'm so nervous. I **can't help it**.",
+                  "note": "= I can't help being nervous",
+                  "vi": "Xin lỗi vì tôi lo lắng quá. Tôi không thể kiểm soát được."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "57.1 · Chia động từ ở dạng đúng",
+      "titleEn": "57.1 · Put the verb into the correct form",
+      "instructions": "Chia động từ trong ngoặc ở dạng đúng.",
+      "instructionsEn": "Put the verb into the correct form.",
+      "examples": [
+        {
+          "prompt": "I was very tired. I tried ___ my eyes open, but I couldn't. (keep)",
+          "answer": "to keep"
+        }
+      ],
+      "items": [
+        {
+          "prompt": "I tried ___ the shelf, but I wasn't tall enough. (reach)",
+          "answer": "to reach"
+        },
+        {
+          "prompt": "I rang the doorbell, but there was no answer. Then I tried ___ on the window, but there was still no answer. (knock)",
+          "answer": "knocking"
+        },
+        {
+          "prompt": "We tried ___ the fire out, but without success. We had to call the fire brigade. (put)",
+          "answer": "putting"
+        },
+        {
+          "prompt": "Please leave me alone. I'm trying ___. (concentrate)",
+          "answer": "to concentrate"
+        },
+        {
+          "prompt": "Sue needed to borrow some money. She tried ___ Carl, but he didn't have any. (ask)",
+          "answer": "asking"
+        },
+        {
+          "prompt": "Mr Bennett isn't here right now. Please try ___ later. (call)",
+          "answer": "calling"
+        },
+        {
+          "prompt": "The woman's face was familiar. I tried ___ where I'd seen her before. (remember)",
+          "answer": "to remember"
+        },
+        {
+          "prompt": "If you have a problem with the computer, try ___ it. (restart)",
+          "answer": "restarting"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "57.2 · Viết câu với need(s) + động từ cho sẵn",
+      "titleEn": "57.2 · Write a sentence with need(s) + one of the given verbs",
+      "instructions": "Viết một câu với need(s) + một trong các động từ sau.",
+      "instructionsEn": "Write a sentence with need(s) + one of the following verbs:",
+      "wordBank": ["clean", "cut", "empty", "paint", "tighten"],
+      "examples": [
+        {
+          "context": "This room isn't very nice.",
+          "prompt": "It ___.",
+          "answer": "needs painting"
+        }
+      ],
+      "items": [
+        {
+          "context": "The grass is very long.",
+          "prompt": "It ___.",
+          "answer": "needs cutting"
+        },
+        {
+          "context": "The windows are dirty.",
+          "prompt": "They ___.",
+          "answer": "need cleaning"
+        },
+        {
+          "context": "The screws are loose.",
+          "prompt": "___",
+          "answer": "They need tightening."
+        },
+        {
+          "context": "The bin is full.",
+          "prompt": "___",
+          "answer": "It needs emptying."
+        }
+      ]
+    },
+    {
+      "kind": "fill_mc",
+      "title": "57.3 · Chọn phương án đúng",
+      "titleEn": "57.3 · Which is right?",
+      "instructions": "Chọn phương án đúng.",
+      "instructionsEn": "Which is right?",
+      "examples": [
+        {
+          "prompt": "We spend too much time sitting down. We need ___ more exercise.",
+          "answer": "to get"
+        }
+      ],
+      "items": [
+        {
+          "before": "These clothes are dirty. They all need",
+          "after": ".",
+          "options": ["washing", "to wash"],
+          "answer": "washing"
+        },
+        {
+          "before": "My grandmother isn't able to look after herself any more. She needs",
+          "after": "after.",
+          "options": ["looking", "to look"],
+          "answer": "looking"
+        },
+        {
+          "before": "I can't make a decision right now. I need",
+          "after": "about it.",
+          "options": ["thinking", "to think"],
+          "answer": "to think"
+        },
+        {
+          "before": "Your hair is getting very long. It will need",
+          "after": "soon.",
+          "options": ["cutting", "to cut"],
+          "answer": "cutting"
+        },
+        {
+          "before": "I need a change. I need",
+          "after": "away for a while.",
+          "options": ["going", "to go"],
+          "answer": "to go"
+        },
+        {
+          "before": "That shirt looks fine. You don't need",
+          "after": "it.",
+          "options": ["ironing", "to iron"],
+          "answer": "to iron"
+        },
+        {
+          "before": "That shirt looks fine. It doesn't need",
+          "after": ".",
+          "options": ["ironing", "to iron"],
+          "answer": "ironing"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "57.4 · Chia động từ ở dạng đúng",
+      "titleEn": "57.4 · Put the verb into the correct form",
+      "instructions": "Chia động từ trong ngoặc ở dạng đúng.",
+      "instructionsEn": "Put the verb into the correct form.",
+      "examples": [
+        {
+          "prompt": "I don't like him, but I can't help ___ sorry for him. (feel)",
+          "answer": "feeling"
+        }
+      ],
+      "items": [
+        {
+          "prompt": "I've lost my phone. Can you help me ___ for it? (look)",
+          "answer": "look",
+          "accept": ["to look"]
+        },
+        {
+          "prompt": "They were talking very loudly. We couldn't help ___ what they said. (overhear)",
+          "answer": "overhearing"
+        },
+        {
+          "prompt": "He looks so funny. Whenever I see him, I can't help ___. (smile)",
+          "answer": "smiling"
+        },
+        {
+          "prompt": "The fine weather helped ___ it a really nice holiday. (make)",
+          "answer": "make",
+          "accept": ["to make"]
+        },
+        {
+          "prompt": "Did you help ___ the meeting? (organise)",
+          "answer": "organise",
+          "accept": ["to organise"]
+        },
+        {
+          "prompt": "I think about what happened all the time. I can't help ___ about it. (think)",
+          "answer": "thinking"
+        },
+        {
+          "prompt": "I can't help you ___ a job. You have to find one yourself. (get)",
+          "answer": "get",
+          "accept": ["to get"]
+        }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng try/need/help: một câu try to do (cố gắng làm) hoặc try doing (thử làm để xem kết quả), và một câu something needs -ing (điều gì đó cần được làm) hoặc I can't help doing (không thể ngăn mình làm gì).",
+      "instructionsEn": "Write 2-3 English sentences using try/need/help: one with try to do (making an effort) or try doing (testing something out), and one with something needs -ing (something that needs to be done) or I can't help doing (something you can't stop yourself doing).",
+      "ruleSummary": "This unit covers try, need and help with -ing or to, where the choice can change the meaning. try to do means make an effort (tried to keep my eyes open, but couldn't); try doing/try something means do it as an experiment (tried every hotel in town = went to check; try pressing the green button = do it and see). need to do means it is necessary for the subject to do it (he needs to work harder); something needs -ing is the passive-like idiom meaning it needs to be done to (my phone needs charging = needs to be charged - the subject of needs is the thing being acted on, not the doer). help to do / help do work interchangeably with or without to (helped to clean up / helped clean up); can't help doing means can't stop yourself doing it (couldn't help laughing), unrelated to the ordinary sense of help. A correct student sentence must not confuse need to do (I act) with needs doing (something is acted upon), and must recognize that try to vs try -ing changes the meaning, not just the style."
+    }
+  ]
+};
+
+const UNIT_58_VERB_ING_OR_TO_3: GrammarUnit = {
+  "unit": 58,
+  "slug": "verb-ing-or-to-3-like-would-like",
+  "title": "Verb + -ing or to ... 3 (like / would like etc.)",
+  "topic": "verb patterns",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "like / love / hate + -ing hoặc to ...",
+          "headingEn": "like / love / hate + -ing or to ...",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "When you talk about repeated actions, you can use -ing or to ... after these verbs. So you can say:",
+              "vi": "Khi nói về những hành động lặp lại, bạn có thể dùng -ing hoặc to ... sau các động từ này. Vậy bạn có thể nói:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "Do you **like getting up** early? or Do you **like to get up** early?",
+                  "vi": "Bạn có thích dậy sớm không?"
+                },
+                {
+                  "en": "Stephanie **hates flying**. or Stephanie **hates to fly**.",
+                  "vi": "Stephanie ghét đi máy bay."
+                },
+                {
+                  "en": "I **love meeting** people. or I **love to meet** people.",
+                  "vi": "Tôi thích gặp gỡ mọi người."
+                },
+                {
+                  "en": "I don't **like being kept** waiting. or ... **like to be kept** waiting.",
+                  "vi": "Tôi không thích bị bắt phải chờ."
+                },
+                {
+                  "en": "I don't **like friends calling** me at work. or ... **friends to call** me at work.",
+                  "vi": "Tôi không thích bạn bè gọi cho tôi khi đang làm việc."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "but (1) We use -ing (not to ...) when we talk about a situation that already exists (or existed). For example:",
+              "vi": "nhưng (1) Chúng ta dùng -ing (không dùng to ...) khi nói về một tình huống đang tồn tại (hoặc đã tồn tại). Ví dụ:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "Paul lives in Berlin now. He **likes living** there.",
+                  "note": "he lives there now and he likes it",
+                  "vi": "Paul hiện đang sống ở Berlin. Anh ấy thích sống ở đó."
+                },
+                {
+                  "en": "Do you **like being** a student?",
+                  "note": "you are a student - do you like it?",
+                  "vi": "Bạn có thích là sinh viên không?"
+                },
+                {
+                  "en": "The office I worked in was horrible. I **hated working** there.",
+                  "note": "I worked there and I hated it",
+                  "vi": "Văn phòng tôi từng làm việc rất tệ. Tôi ghét làm việc ở đó."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "(2) There is sometimes a difference between I like to do and I like doing. **I like doing** something = I do it and I enjoy it:",
+              "vi": "(2) Đôi khi có sự khác biệt giữa I like to do và I like doing. **I like doing** something = tôi làm điều đó và tôi thích nó:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I **like cleaning** the kitchen.",
+                  "note": "= I enjoy it",
+                  "vi": "Tôi thích dọn bếp. (= tôi thấy vui khi làm việc đó)"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "**I like to do** something = I choose to do it (but maybe I don't enjoy it):",
+              "vi": "**I like to do** something = tôi chọn làm điều đó (nhưng có thể tôi không thấy vui khi làm):"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "It's not my favourite job, but I **like to clean** the kitchen as often as possible.",
+                  "vi": "Đó không phải là việc tôi thích nhất, nhưng tôi muốn dọn bếp thường xuyên nếu có thể."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "Note that we use -ing (not to ...) with **enjoy** and **mind**:",
+              "vi": "Chú ý là chúng ta dùng -ing (không dùng to ...) với **enjoy** và **mind**:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I **enjoy cleaning** the kitchen.",
+                  "note": "not I enjoy to clean",
+                  "vi": "Tôi thích dọn bếp."
+                },
+                {
+                  "en": "I don't **mind cleaning** the kitchen.",
+                  "note": "not I don't mind to clean",
+                  "vi": "Tôi không ngại dọn bếp."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "would like / would love / would hate / would prefer + to ...",
+          "headingEn": "would like / would love / would hate / would prefer + to ...",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "Would like / would love etc. are usually followed by **to ...**:",
+              "vi": "Would like / would love ... thường được theo sau bởi **to ...**:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I'd (= I would) **like to go away** for a few days.",
+                  "vi": "Tôi muốn đi xa vài ngày."
+                },
+                {
+                  "en": "What would you **like to do** this evening?",
+                  "vi": "Tối nay bạn muốn làm gì?"
+                },
+                {
+                  "en": "I wouldn't **like to go** on holiday alone.",
+                  "vi": "Tôi không muốn đi nghỉ một mình."
+                },
+                {
+                  "en": "I'd **love to meet** your family.",
+                  "vi": "Tôi rất muốn gặp gia đình bạn."
+                },
+                {
+                  "en": "Would you **prefer to eat** now or later?",
+                  "vi": "Bạn muốn ăn ngay bây giờ hay để sau?"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "Compare I like and I would like (I'd like):",
+              "vi": "So sánh I like và I would like (I'd like):"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I **like playing** tennis. / I **like to play** tennis.",
+                  "note": "= I like it in general",
+                  "vi": "Tôi thích chơi tennis. (= nói chung tôi thích môn này)"
+                },
+                {
+                  "en": "I'**d like to play** tennis today.",
+                  "note": "= I want to play today",
+                  "vi": "Tôi muốn chơi tennis hôm nay. (= tôi muốn chơi ngay hôm nay)"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "**Would mind** is followed by -ing:",
+              "vi": "**Would mind** được theo sau bởi -ing:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "Would you **mind closing** the door, please?",
+                  "note": "not mind to close",
+                  "vi": "Bạn đóng cửa lại được không?"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "I would like to have (done something): tiếc vì đã không làm",
+          "headingEn": "I would like to have (done something): regretting not doing it",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "**I would like to have done** something = I regret now that I didn't or couldn't do it:",
+              "vi": "**I would like to have done** something = giờ tôi tiếc là mình đã không hoặc không thể làm điều đó:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "It's a shame we didn't see Anna. I **would like to have seen** her again.",
+                  "vi": "Tiếc là chúng tôi không gặp được Anna. Tôi rất muốn gặp lại cô ấy."
+                },
+                {
+                  "en": "We'd **like to have gone** away, but we were too busy at home.",
+                  "vi": "Chúng tôi muốn đi đâu đó, nhưng lại quá bận việc ở nhà."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "We use the same structure after **would love / would hate / would prefer**:",
+              "vi": "Chúng ta dùng cấu trúc tương tự sau **would love / would hate / would prefer**:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "Poor David! I **would hate to have been** in his position.",
+                  "vi": "David đáng thương thật! Tôi rất ghét nếu phải ở vào vị trí của anh ấy."
+                },
+                {
+                  "en": "I'd **love to have gone** to the party, but it was impossible.",
+                  "vi": "Tôi rất muốn đến buổi tiệc đó, nhưng không thể được."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "58.2 · Đặt câu với -ing hoặc to ...",
+      "titleEn": "58.2 · Make sentences using -ing or to ...",
+      "instructions": "Đặt câu bằng -ing hoặc to ... từ các từ gợi ý. Đôi khi cả hai dạng đều có thể dùng được.",
+      "instructionsEn": "Make sentences using -ing or to ... from the words in brackets. Sometimes either form is possible.",
+      "examples": [
+        {
+          "context": "Paul lives in Berlin now. It's nice. He likes it.",
+          "prompt": "___ (he / like / live / there)",
+          "answer": "He likes living there."
+        }
+      ],
+      "items": [
+        {
+          "context": "Jane is a biology teacher. She likes her job.",
+          "prompt": "___ (she / like / teach / biology)",
+          "answer": "She likes teaching biology.",
+          "accept": ["She likes to teach biology."]
+        },
+        {
+          "context": "Joe always has his camera with him and takes a lot of pictures.",
+          "prompt": "___ (he / like / take / pictures)",
+          "answer": "He likes taking pictures.",
+          "accept": ["He likes to take pictures."]
+        },
+        {
+          "context": "I used to work in a supermarket. I didn't like it much.",
+          "prompt": "___ (I / not / like / work / there)",
+          "answer": "I didn't like working there.",
+          "accept": ["I didn't like to work there."]
+        },
+        {
+          "context": "Rachel is studying medicine. She likes it.",
+          "prompt": "___ (she / like / study / medicine)",
+          "answer": "She likes studying medicine.",
+          "accept": ["She likes to study medicine."]
+        },
+        {
+          "context": "Dan is famous, but he doesn't like it.",
+          "prompt": "___ (he / not / like / be / famous)",
+          "answer": "He doesn't like being famous.",
+          "accept": ["He doesn't like to be famous."]
+        },
+        {
+          "context": "Jennifer is a very careful person. She doesn't take many risks.",
+          "prompt": "___ (she / not / like / take / risks)",
+          "answer": "She doesn't like taking risks.",
+          "accept": ["She doesn't like to take risks."]
+        },
+        {
+          "context": "I don't like surprises.",
+          "prompt": "___ (I / like / know / things / in advance)",
+          "answer": "I like to know things in advance.",
+          "accept": ["I like knowing things in advance."]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "58.3 · Hoàn thành câu với động từ ở dạng đúng, -ing hoặc to ...",
+      "titleEn": "58.3 · Complete the sentences with a verb in the correct form, -ing or to ...",
+      "instructions": "Hoàn thành các câu với một động từ ở dạng đúng, -ing hoặc to ... Trong hai câu, cả hai dạng đều có thể dùng được.",
+      "instructionsEn": "Complete the sentences with a verb in the correct form, -ing or to ... . In two sentences either form is possible.",
+      "examples": [
+        {
+          "prompt": "It's fun to go to new places. I enjoy ___. (travel)",
+          "answer": "travelling"
+        }
+      ],
+      "items": [
+        {
+          "context": "'No, thanks. I'll stand.'",
+          "prompt": "'Would you like ___ down?'",
+          "answer": "to sit"
+        },
+        {
+          "prompt": "The music is very loud. Would you mind ___ it down?",
+          "answer": "turning"
+        },
+        {
+          "prompt": "How do you relax? What do you like ___ in your spare time?",
+          "answer": "doing"
+        },
+        {
+          "context": "When I have to take a train, I'm always worried that I'll miss it.",
+          "prompt": "So I like ___ to the station in plenty of time.",
+          "answer": "to get"
+        },
+        {
+          "prompt": "I enjoy ___ busy. I don't like it when there's nothing to do.",
+          "answer": "being"
+        },
+        {
+          "prompt": "I would love ___ to your wedding, but I'm afraid I'll be away.",
+          "answer": "to come"
+        },
+        {
+          "prompt": "I don't like ___ in this part of town. I want to move somewhere else.",
+          "answer": "living"
+        },
+        {
+          "prompt": "Do you have a minute? I'd like ___ to you about something.",
+          "answer": "to talk"
+        },
+        {
+          "prompt": "If there's bad news and good news, I like ___ the bad news first.",
+          "answer": "to hear",
+          "accept": ["hearing"]
+        },
+        {
+          "prompt": "Shall we leave now, or would you prefer ___ a little?",
+          "answer": "to wait"
+        },
+        {
+          "context": "Steve wants to win every time.",
+          "prompt": "He hates ___.",
+          "answer": "losing"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "58.4 · Viết câu với would ... to have (done)",
+      "titleEn": "58.4 · Write sentences using would ... to have (done)",
+      "instructions": "Viết câu với would ... to have (done), dùng động từ trong ngoặc.",
+      "instructionsEn": "Write sentences using would ... to have (done). Use the verbs in brackets.",
+      "examples": [
+        {
+          "context": "It's a shame I couldn't go to the party.",
+          "prompt": "___ (like)",
+          "answer": "I would like to have gone to the party."
+        }
+      ],
+      "items": [
+        {
+          "context": "It's a shame I didn't see the programme.",
+          "prompt": "___ (like)",
+          "answer": "I would like to have seen the programme."
+        },
+        {
+          "context": "I'm glad I didn't lose my watch.",
+          "prompt": "___ (hate)",
+          "answer": "I would hate to have lost my watch."
+        },
+        {
+          "context": "It's too bad I didn't meet your parents.",
+          "prompt": "___ (love)",
+          "answer": "I would love to have met your parents."
+        },
+        {
+          "context": "I'm glad I wasn't alone.",
+          "prompt": "___ (not / like)",
+          "answer": "I wouldn't like to have been alone.",
+          "accept": ["I would not like to have been alone."]
+        },
+        {
+          "context": "We should have travelled by train.",
+          "prompt": "___ (prefer)",
+          "answer": "We would prefer to have travelled by train."
+        }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh về những điều bạn like/love/hate/enjoy/don't mind làm (ví dụ: flying, playing cards, being alone, going to museums, cooking, getting up early), dùng -ing hoặc to ... Thêm một câu với would like/would love + to have (done) để nói về điều bạn tiếc vì đã không làm được.",
+      "instructionsEn": "Write 2-3 English sentences about things you like/love/hate/enjoy/don't mind doing (e.g. flying, playing cards, being alone, going to museums, cooking, getting up early), using -ing or to ... . Add one sentence with would like/would love + to have (done) about something you regret not being able to do.",
+      "ruleSummary": "This unit covers like/love/hate + -ing or to for repeated actions, where either form is usually fine (like getting up early / like to get up early), except -ing is required for a situation that already exists (Paul likes living in Berlin, since he already lives there) and enjoy/mind always take -ing, never to. There is a subtle difference: I like doing something means I do it and enjoy it, while I like to do something means I choose to do it, which may not always be enjoyable. would like/would love/would hate/would prefer are normally followed by to, not -ing (I'd like to go away), and would mind is followed by -ing (would you mind closing the door). would like/would love/would hate/would prefer + to have + past participle expresses a present regret about something that didn't or couldn't happen (I would like to have seen her again, I'd love to have gone to the party). A correct student sentence must use to (not -ing) after would like/would love/would hate/would prefer, and -ing (not to) after would mind, enjoy and mind."
+    }
+  ]
+};
+
+const UNIT_59_PREFER_WOULD_RATHER: GrammarUnit = {
+  "unit": 59,
+  "slug": "prefer-and-would-rather",
+  "title": "prefer and would rather",
+  "topic": "verb patterns",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "prefer to ... và prefer -ing: thích điều gì nói chung",
+          "headingEn": "prefer to ... and prefer -ing: preferences in general",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "When you say what you prefer in general, you can use **prefer to ...** or **prefer -ing**:",
+              "vi": "Khi nói về điều mình thích nói chung, bạn có thể dùng **prefer to ...** hoặc **prefer -ing**:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I don't like cities. I **prefer to live** in the country. or I **prefer living** in the country.",
+                  "vi": "Tôi không thích thành phố. Tôi thích sống ở vùng nông thôn hơn."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "You can say: **prefer something to something else** / **prefer doing something to doing something else** (or **rather than (doing) something else**) / **prefer to do something rather than (do) something else**.",
+              "vi": "Bạn có thể nói: **prefer something to something else** / **prefer doing something to doing something else** (hoặc **rather than (doing) something else**) / **prefer to do something rather than (do) something else**."
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I **prefer** this coat **to** the other one.",
+                  "vi": "Tôi thích cái áo khoác này hơn cái kia."
+                },
+                {
+                  "en": "I **prefer driving to** travelling by train. or I **prefer driving rather than** travelling by train.",
+                  "vi": "Tôi thích lái xe hơn là đi tàu."
+                },
+                {
+                  "en": "I **prefer to drive rather than** travel by train.",
+                  "vi": "Tôi thích lái xe hơn là đi tàu."
+                },
+                {
+                  "en": "Sarah **prefers to live** in the country **rather than** in a city.",
+                  "vi": "Sarah thích sống ở nông thôn hơn là ở thành phố."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "would prefer: điều ai đó muốn trong một tình huống cụ thể",
+          "headingEn": "would prefer: what somebody wants in a specific situation",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "We use **would prefer** to say what somebody wants in a specific situation (not in general):",
+              "vi": "Chúng ta dùng **would prefer** để nói điều ai đó muốn trong một tình huống cụ thể (không phải nói chung):"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "'Would you prefer tea or coffee?' 'Coffee, please.'",
+                  "vi": "'Bạn muốn trà hay cà phê?' 'Cà phê nhé.'"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "We say 'would prefer to do something' (not usually would prefer doing):",
+              "vi": "Chúng ta nói 'would prefer to do something' (không thường nói would prefer doing):"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "'Shall we go by train?' 'I'd **prefer to drive**.'",
+                  "note": "= I would prefer ...",
+                  "vi": "'Chúng ta đi bằng tàu nhé?' 'Tôi muốn lái xe hơn.'"
+                },
+                {
+                  "en": "I'd **prefer to stay** at home tonight rather than go to the cinema.",
+                  "vi": "Tối nay tôi muốn ở nhà hơn là đi xem phim."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "would rather + động từ nguyên thể không to",
+          "headingEn": "would rather + bare infinitive",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "**I'd rather** = I would rather. **I'd rather do** something = I'd prefer to do it. We say **I'd rather do** (not to do). Compare:",
+              "vi": "**I'd rather** = I would rather. **I'd rather do** something = tôi thích làm điều đó hơn. Chúng ta nói **I'd rather do** (không nói to do). So sánh:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "'Shall we go by train?' 'I'd **rather drive**.'",
+                  "note": "not to drive",
+                  "vi": "'Chúng ta đi bằng tàu nhé?' 'Tôi muốn lái xe hơn.'"
+                },
+                {
+                  "en": "'Shall we go by train?' 'I'd **prefer to drive**.'",
+                  "vi": "'Chúng ta đi bằng tàu nhé?' 'Tôi muốn lái xe hơn.'"
+                },
+                {
+                  "en": "Which **would you rather do**, go to the cinema or go shopping? / Which **would you prefer to do**, go to the cinema or go shopping?",
+                  "vi": "Bạn muốn làm gì hơn, đi xem phim hay đi mua sắm?"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "The negative is '**I'd rather not ...**':",
+              "vi": "Dạng phủ định là '**I'd rather not ...**':"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I'm tired. I'**d rather not go** out this evening, if you don't mind.",
+                  "vi": "Tôi mệt rồi. Tối nay tôi không muốn ra ngoài, nếu bạn không phiền."
+                },
+                {
+                  "en": "'Do you want to go out this evening?' 'I'**d rather not**.'",
+                  "vi": "'Tối nay bạn có muốn ra ngoài không?' 'Tôi không muốn.'"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "We say 'I'd rather do one thing **than** do another':",
+              "vi": "Chúng ta nói 'I'd rather do one thing **than** do another':"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I'**d rather** stay at home tonight **than** go to the cinema.",
+                  "vi": "Tối nay tôi muốn ở nhà hơn là đi xem phim."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "D",
+          "heading": "I'd rather somebody did something",
+          "headingEn": "I'd rather somebody did something",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "We say 'I'd rather **you did** something' (not I'd rather you do):",
+              "vi": "Chúng ta nói 'I'd rather **you did** something' (không nói I'd rather you do):"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "'Who's going to drive, you or me?' 'I'd rather **you drove**.'",
+                  "note": "= I would prefer this",
+                  "vi": "'Ai sẽ lái xe, bạn hay tôi?' 'Tôi muốn bạn lái hơn.'"
+                },
+                {
+                  "en": "'Jack says he'll repair your bike tomorrow, OK?' 'I'd rather **he did** it today.'",
+                  "vi": "'Jack nói anh ấy sẽ sửa xe của bạn vào ngày mai, được không?' 'Tôi muốn anh ấy sửa hôm nay hơn.'"
+                },
+                {
+                  "en": "Are you going to tell Anna what happened, or would you rather **I told** her?",
+                  "vi": "Bạn sẽ nói cho Anna biết chuyện gì đã xảy ra, hay bạn muốn tôi nói với cô ấy hơn?"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "We use the past (drove, did etc.) here, but the meaning is present not past. Compare:",
+              "vi": "Chúng ta dùng thì quá khứ (drove, did ...) ở đây, nhưng nghĩa là hiện tại, không phải quá khứ. So sánh:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I'd **rather make** dinner now.",
+                  "vi": "Tôi muốn tự làm bữa tối bây giờ hơn."
+                },
+                {
+                  "en": "I'd rather **you made** dinner now.",
+                  "note": "not I'd rather you make",
+                  "vi": "Tôi muốn bạn làm bữa tối bây giờ hơn."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "**I'd rather you didn't** (do something) = I'd prefer you not to do it:",
+              "vi": "**I'd rather you didn't** (làm gì) = tôi muốn bạn không làm điều đó hơn:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I'd rather **you didn't tell** anyone what I said.",
+                  "vi": "Tôi muốn bạn không nói cho ai biết điều tôi đã nói hơn."
+                },
+                {
+                  "en": "'Shall I tell Anna what happened?' 'I'd rather **you didn't**.'",
+                  "vi": "'Tôi có nên nói cho Anna biết chuyện gì đã xảy ra không?' 'Tôi muốn bạn không nói hơn.'"
+                },
+                {
+                  "en": "'Are you going to tell Anna what happened?' 'No. I'd rather **she didn't know**.'",
+                  "vi": "'Bạn sẽ nói cho Anna biết chuyện gì đã xảy ra không?' 'Không. Tôi muốn cô ấy không biết hơn.'"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "59.1 · Viết câu với I prefer (something) to (something else)",
+      "titleEn": "59.1 · Write sentences using I prefer (something) to (something else)",
+      "instructions": "Bạn thích điều gì hơn? Viết câu dùng 'I prefer (something) to (something else)'.",
+      "instructionsEn": "Which do you prefer? Write sentences using 'I prefer (something) to (something else)'.",
+      "examples": [
+        {
+          "prompt": "___ (driving / travelling by train)",
+          "answer": "I prefer driving to travelling by train."
+        }
+      ],
+      "items": [
+        {
+          "prompt": "___ (basketball / football)",
+          "answer": "I prefer basketball to football.",
+          "accept": ["I prefer football to basketball."]
+        },
+        {
+          "prompt": "___ (going to the cinema / watching movies at home)",
+          "answer": "I prefer going to the cinema to watching movies at home.",
+          "accept": ["I prefer watching movies at home to going to the cinema."]
+        },
+        {
+          "prompt": "___ (being very busy / having nothing to do)",
+          "answer": "I prefer being very busy to having nothing to do.",
+          "accept": ["I prefer having nothing to do to being very busy."]
+        },
+        {
+          "context": "Now rewrite sentence 3 using rather than.",
+          "prompt": "I prefer ___",
+          "answer": "going to the cinema rather than watching movies at home",
+          "accept": ["to go to the cinema rather than watch movies at home"]
+        },
+        {
+          "context": "Now rewrite sentence 4 using rather than.",
+          "prompt": "I prefer ___",
+          "answer": "being very busy rather than having nothing to do",
+          "accept": ["to be very busy rather than have nothing to do"]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "59.2 · Hoàn thành câu với I'd rather hoặc I'd prefer",
+      "titleEn": "59.2 · Complete the sentences with I'd rather or I'd prefer",
+      "instructions": "Hoàn thành các câu. Đôi khi bạn cần một từ, đôi khi cần nhiều hơn.",
+      "instructionsEn": "Complete the sentences. Sometimes you need one word, sometimes more.",
+      "examples": [
+        {
+          "context": "Shall we walk home?",
+          "prompt": "___",
+          "answer": "I'd rather get a taxi."
+        },
+        {
+          "context": "Do you want to eat now?",
+          "prompt": "___",
+          "answer": "I'd prefer to wait till later."
+        }
+      ],
+      "items": [
+        {
+          "context": "Would you like to watch TV?",
+          "prompt": "I'd ___ to listen to some music.",
+          "answer": "prefer"
+        },
+        {
+          "context": "Do you want to go to a restaurant?",
+          "prompt": "I'd rather ___ at home.",
+          "answer": "eat"
+        },
+        {
+          "context": "Let's go now.",
+          "prompt": "___ wait a few minutes.",
+          "answer": "I'd rather"
+        },
+        {
+          "context": "What about a game of tennis?",
+          "prompt": "I'd prefer ___ for a swim.",
+          "answer": "to go"
+        },
+        {
+          "context": "I think we should decide now.",
+          "prompt": "I'd ___ think about it for a while.",
+          "answer": "rather"
+        },
+        {
+          "context": "Would you like to sit down?",
+          "prompt": "___ to stand.",
+          "answer": "I'd prefer"
+        },
+        {
+          "context": "Do you want me to come with you?",
+          "prompt": "I'd rather ___ alone.",
+          "answer": "go"
+        },
+        {
+          "context": "Based on: 'Would you like to watch TV?'",
+          "prompt": "I'd rather ___ some music",
+          "answer": "listen to than watch TV"
+        },
+        {
+          "context": "Based on: 'Do you want to go to a restaurant?'",
+          "prompt": "I'd prefer ___ at home",
+          "answer": "to eat rather than go to a restaurant"
+        },
+        {
+          "context": "Based on: 'What about a game of tennis?'",
+          "prompt": "I'd rather ___ for a swim",
+          "answer": "go than play tennis"
+        },
+        {
+          "context": "Based on: 'I think we should decide now.'",
+          "prompt": "I'd prefer ___ about it for a while",
+          "answer": "to think rather than decide now"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "59.3 · Hoàn thành câu với would you rather I ...",
+      "titleEn": "59.3 · Complete the sentences using would you rather I ...",
+      "instructions": "Hoàn thành các câu, dùng would you rather I ...",
+      "instructionsEn": "Complete the sentences using would you rather I ... .",
+      "examples": [
+        {
+          "prompt": "Are you going to make dinner or ___?",
+          "answer": "would you rather I made it"
+        }
+      ],
+      "items": [
+        {
+          "prompt": "Are you going to pay the bill or ___?",
+          "answer": "would you rather I paid it"
+        },
+        {
+          "prompt": "Are you going to do the shopping or ___?",
+          "answer": "would you rather I did it"
+        },
+        {
+          "prompt": "Are you going to phone Tina or ___?",
+          "answer": "would you rather I phoned her"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "59.4 · Hoàn thành câu với I'd rather / I'd prefer",
+      "titleEn": "59.4 · Complete the sentences with I'd rather / I'd prefer",
+      "instructions": "Hoàn thành các câu sau (dùng một hoặc hai từ phù hợp với ngữ cảnh).",
+      "instructionsEn": "Complete the sentences (using one or two words that fit the context).",
+      "examples": [
+        {
+          "context": "'Shall I tell Anna what happened?'",
+          "prompt": "'No, I'd rather she ___ know.'",
+          "answer": "didn't"
+        }
+      ],
+      "items": [
+        {
+          "prompt": "You can stay here if you want to, but I'd rather you ___ with us.",
+          "answer": "came"
+        },
+        {
+          "prompt": "I don't like this programme. I'd rather not ___ it.",
+          "answer": "watch"
+        },
+        {
+          "prompt": "I'd rather work outdoors ___ work in an office.",
+          "answer": "than"
+        },
+        {
+          "prompt": "This is a private matter. I'd rather you ___ tell anybody else.",
+          "answer": "didn't"
+        },
+        {
+          "prompt": "The weather here isn't bad, but I'd rather it ___ a little warmer.",
+          "answer": "were"
+        },
+        {
+          "prompt": "I don't want to go to the match. I'd prefer ___ it on TV.",
+          "answer": "to watch"
+        },
+        {
+          "context": "'Do you mind if I open the window?'",
+          "prompt": "'I'd rather you ___. I'm feeling cold.'",
+          "answer": "didn't"
+        },
+        {
+          "prompt": "I hate doing the shopping. I'd rather somebody else ___ it.",
+          "answer": "did"
+        },
+        {
+          "prompt": "I'd prefer to go to the beach ___ go shopping.",
+          "answer": "rather than"
+        }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng prefer/would rather: một câu prefer (something) to (something else) hoặc would prefer to do, và một câu I'd rather + động từ nguyên thể không to (I'd rather drive) hoặc I'd rather you + quá khứ (I'd rather you came).",
+      "instructionsEn": "Write 2-3 English sentences using prefer/would rather: one with prefer (something) to (something else) or would prefer to do, and one with I'd rather + bare infinitive (I'd rather drive) or I'd rather you + past (I'd rather you came).",
+      "ruleSummary": "This unit covers prefer and would rather. prefer to do / prefer doing (in general) both work, using prefer X to Y or prefer to do X rather than (do) Y. would prefer is used for a specific situation and is followed by to (would prefer to drive), not usually -ing. would rather (I'd rather) is followed by the bare infinitive, never to (I'd rather drive, not to drive), with the negative I'd rather not and the comparison I'd rather do one thing than do another. When a different person is involved, I'd rather somebody did something uses the past tense form with a present meaning (I'd rather you drove, not I'd rather you do), and I'd rather you didn't means I'd prefer you not to. A correct student sentence must never put to after would rather (except when rather itself is absent, i.e. would prefer to), and must use the past-tense form (not the base form) after I'd rather + a different subject."
+    }
+  ]
+};
+
+const UNIT_60_PREPOSITION_ING: GrammarUnit = {
+  "unit": 60,
+  "slug": "preposition-ing",
+  "title": "Preposition (in/for/about etc.) + -ing",
+  "topic": "verb patterns",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "Giới từ + -ing",
+          "headingEn": "Preposition + -ing",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "If a preposition (in/for/about etc.) is followed by a verb, the verb ends in **-ing**:",
+              "vi": "Nếu một giới từ (in/for/about ...) được theo sau bởi một động từ, động từ đó có đuôi **-ing**:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "Are you **interested in working** for us?",
+                  "vi": "Bạn có muốn làm việc cho chúng tôi không?"
+                },
+                {
+                  "en": "I'm not **good at learning** languages.",
+                  "vi": "Tôi không giỏi học ngoại ngữ."
+                },
+                {
+                  "en": "Kate must be **fed up with studying**.",
+                  "vi": "Kate hẳn là đã chán học rồi."
+                },
+                {
+                  "en": "What are the **advantages of having** a car?",
+                  "vi": "Có xe hơi thì có lợi ích gì?"
+                },
+                {
+                  "en": "Thanks very much **for inviting** me to your party.",
+                  "vi": "Cảm ơn bạn rất nhiều vì đã mời tôi đến buổi tiệc của bạn."
+                },
+                {
+                  "en": "How **about meeting** for lunch tomorrow?",
+                  "vi": "Ngày mai gặp nhau ăn trưa nhé?"
+                },
+                {
+                  "en": "Why don't you go out **instead of sitting** at home all the time?",
+                  "vi": "Sao bạn không ra ngoài, thay vì cứ ngồi ở nhà mãi thế?"
+                },
+                {
+                  "en": "Amy went to work **in spite of feeling** ill.",
+                  "vi": "Amy vẫn đi làm mặc dù cảm thấy không khỏe."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "You can also say 'instead of somebody doing something', 'fed up with people doing something' etc.:",
+              "vi": "Bạn cũng có thể nói 'instead of somebody doing something', 'fed up with people doing something' ...:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I'm **fed up with people telling** me what to do.",
+                  "vi": "Tôi chán việc người khác cứ bảo tôi phải làm gì rồi."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "before/after/by/without + -ing",
+          "headingEn": "before/after/by/without + -ing",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "We say **before -ing**, **after -ing**:",
+              "vi": "Chúng ta nói **before -ing**, **after -ing**:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "**Before going** out, I phoned Sarah.",
+                  "note": "not Before to go out",
+                  "vi": "Trước khi ra ngoài, tôi đã gọi cho Sarah."
+                },
+                {
+                  "en": "What did you do **after leaving** school?",
+                  "vi": "Bạn đã làm gì sau khi tốt nghiệp trung học?"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "You can also say 'Before I went out ...' and '... after you left school'.",
+              "vi": "Bạn cũng có thể nói 'Before I went out ...' và '... after you left school'."
+            },
+            {
+              "kind": "text",
+              "text": "**by -ing** (to say how something happens):",
+              "vi": "**by -ing** (để nói điều gì đó xảy ra như thế nào):"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "You can improve your English **by reading** more.",
+                  "vi": "Bạn có thể cải thiện tiếng Anh bằng cách đọc nhiều hơn."
+                },
+                {
+                  "en": "She made herself ill **by not eating** properly.",
+                  "vi": "Cô ấy làm mình bị bệnh vì không ăn uống đầy đủ."
+                },
+                {
+                  "en": "Many accidents are caused **by people driving** too fast.",
+                  "vi": "Nhiều vụ tai nạn xảy ra do người ta lái xe quá nhanh."
+                },
+                {
+                  "en": "The burglars got into the house **by breaking** a window and **climbing** in.",
+                  "vi": "Những kẻ trộm đột nhập vào nhà bằng cách đập vỡ một cửa sổ rồi leo vào."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "**without -ing**:",
+              "vi": "**without -ing**:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "We ran ten kilometres **without stopping**.",
+                  "vi": "Chúng tôi chạy mười cây số mà không dừng lại."
+                },
+                {
+                  "en": "It was a stupid thing to say. I said it **without thinking**.",
+                  "vi": "Đó là một điều ngốc nghếch khi nói ra. Tôi nói mà không suy nghĩ."
+                },
+                {
+                  "en": "She needs to work **without people disturbing** her. or ... **without being disturbed**.",
+                  "vi": "Cô ấy cần làm việc mà không bị ai làm phiền."
+                },
+                {
+                  "en": "I have enough problems of my own **without having to worry** about yours.",
+                  "vi": "Tôi đã có đủ vấn đề của riêng mình rồi, không cần phải lo thêm vấn đề của bạn nữa."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "to + -ing (look forward to doing something)",
+          "headingEn": "to + -ing (look forward to doing something)",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "We often use to + infinitive (to do / to see etc.):",
+              "vi": "Chúng ta thường dùng to + nguyên thể (to do / to see ...):"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "We decided **to travel** by train.",
+                  "vi": "Chúng tôi quyết định đi bằng tàu."
+                },
+                {
+                  "en": "Would you like **to meet** for lunch tomorrow?",
+                  "vi": "Ngày mai bạn có muốn gặp nhau ăn trưa không?"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "But **to** is also a preposition (like in/for/about/with etc.). For example:",
+              "vi": "Nhưng **to** cũng là một giới từ (giống in/for/about/with ...). Ví dụ:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "We went **from** Paris **to** Geneva.",
+                  "vi": "Chúng tôi đi từ Paris đến Geneva."
+                },
+                {
+                  "en": "I prefer tea **to** coffee.",
+                  "vi": "Tôi thích trà hơn cà phê."
+                },
+                {
+                  "en": "Are you looking forward **to** the weekend?",
+                  "vi": "Bạn có đang mong chờ đến cuối tuần không?"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "If we use a preposition + verb, the verb ends in -ing:",
+              "vi": "Nếu chúng ta dùng giới từ + động từ, động từ đó có đuôi -ing:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I'm **fed up with travelling** by train.",
+                  "vi": "Tôi chán đi tàu rồi."
+                },
+                {
+                  "en": "**How about going** away this weekend?",
+                  "vi": "Cuối tuần này đi đâu đó nhé?"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "So, when **to** is a preposition and it is followed by a verb, we use **to -ing**:",
+              "vi": "Vậy, khi **to** là một giới từ và được theo sau bởi một động từ, chúng ta dùng **to -ing**:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I **prefer driving to travelling** by train.",
+                  "note": "not to travel",
+                  "vi": "Tôi thích lái xe hơn là đi tàu."
+                },
+                {
+                  "en": "Are you **looking forward to going** on holiday?",
+                  "note": "not looking forward to go",
+                  "vi": "Bạn có đang mong chờ đi nghỉ không?"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "60.1 · Hoàn thành câu thứ hai với nghĩa tương tự câu thứ nhất",
+      "titleEn": "60.1 · Complete the second sentence so it means the same as the first",
+      "instructions": "Hoàn thành câu thứ hai sao cho nghĩa tương tự câu thứ nhất.",
+      "instructionsEn": "Complete the second sentence so that it means the same as the first.",
+      "examples": [
+        {
+          "context": "Why is it useful to have a car?",
+          "prompt": "What are the advantages of ___?",
+          "answer": "having a car"
+        }
+      ],
+      "items": [
+        {
+          "context": "I don't intend to apply for the job.",
+          "prompt": "I have no intention of ___.",
+          "answer": "applying for the job"
+        },
+        {
+          "context": "Helen has a good memory for names.",
+          "prompt": "Helen is good at ___.",
+          "answer": "remembering names"
+        },
+        {
+          "context": "You probably won't win the lottery. You have little chance.",
+          "prompt": "You have little chance of ___.",
+          "answer": "winning the lottery"
+        },
+        {
+          "context": "Did you get into trouble because you were late?",
+          "prompt": "Did you get into trouble for ___?",
+          "answer": "being late"
+        },
+        {
+          "context": "We didn't eat at home. We went to a restaurant instead.",
+          "prompt": "We went to a restaurant instead of ___.",
+          "answer": "eating at home"
+        },
+        {
+          "context": "We got into the exhibition. We didn't have to queue.",
+          "prompt": "We got into the exhibition without ___.",
+          "answer": "queuing"
+        },
+        {
+          "context": "Amy is 90 years old, but she's fit and healthy.",
+          "prompt": "Amy is fit and healthy despite ___.",
+          "answer": "being 90 years old"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "60.2 · Hoàn thành câu với by + động từ cho sẵn ở dạng -ing",
+      "titleEn": "60.2 · Complete the sentences using by -ing with the given verbs",
+      "instructions": "Hoàn thành các câu bằng by -ing, chọn từ những động từ sau.",
+      "instructionsEn": "Complete the sentences using by -ing. Choose from these verbs:",
+      "wordBank": ["borrow", "break", "drive", "press", "put", "stand"],
+      "examples": [
+        {
+          "prompt": "The burglars got into the house ___ a window.",
+          "answer": "by breaking"
+        }
+      ],
+      "items": [
+        {
+          "prompt": "I was able to reach the top shelf ___ on a chair.",
+          "answer": "by standing"
+        },
+        {
+          "prompt": "You turn on the computer ___ the button at the back.",
+          "answer": "by pressing"
+        },
+        {
+          "prompt": "Kevin got himself into financial trouble ___ too much money.",
+          "answer": "by borrowing"
+        },
+        {
+          "prompt": "You can put people's lives in danger ___ too fast.",
+          "answer": "by driving"
+        },
+        {
+          "prompt": "We made the room look nicer ___ some pictures on the walls.",
+          "answer": "by putting"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "60.3 · Hoàn thành câu với một từ phù hợp",
+      "titleEn": "60.3 · Complete the sentences with a suitable word",
+      "instructions": "Hoàn thành các câu với một từ phù hợp. Mỗi chỗ trống chỉ dùng một từ.",
+      "instructionsEn": "Complete the sentences with a suitable word. Use only one word each time.",
+      "examples": [
+        {
+          "prompt": "We ran ten kilometres without ___. (stop)",
+          "answer": "stopping"
+        }
+      ],
+      "items": [
+        {
+          "prompt": "Dan left the hotel without ___ his bill. (pay)",
+          "answer": "paying"
+        },
+        {
+          "prompt": "It's a nice morning. How about ___ for a walk? (go)",
+          "answer": "going"
+        },
+        {
+          "prompt": "You need to think carefully before ___ an important decision. (make)",
+          "answer": "making"
+        },
+        {
+          "prompt": "It was a long trip. We were tired after ___ on a train for 36 hours. (travel)",
+          "answer": "travelling"
+        },
+        {
+          "prompt": "I'm not looking forward to ___ away. I'd prefer to stay here. (go)",
+          "answer": "going"
+        },
+        {
+          "prompt": "I was annoyed because the decision was made without anybody ___ me. (ask)",
+          "answer": "asking"
+        },
+        {
+          "prompt": "After ___ the same job for ten years, Ellie felt she needed a change. (do)",
+          "answer": "doing"
+        },
+        {
+          "prompt": "We got lost because we went straight on instead of ___ left. (turn)",
+          "answer": "turning"
+        },
+        {
+          "prompt": "I like these pictures you took. You're good at ___ pictures. (take)",
+          "answer": "taking"
+        },
+        {
+          "prompt": "Can you touch your toes without ___ your knees? (bend)",
+          "answer": "bending"
+        },
+        {
+          "prompt": "We've decided to sell our car. Are you interested in ___ it? (buy)",
+          "answer": "buying"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "60.4 · Viết câu với I'm (not) looking forward to",
+      "titleEn": "60.4 · Write a sentence with I'm (not) looking forward to",
+      "instructions": "Với mỗi tình huống, viết một câu với I'm (not) looking forward to.",
+      "instructionsEn": "For each situation, write a sentence with I'm (not) looking forward to.",
+      "examples": [
+        {
+          "context": "You are going on holiday next week. How do you feel?",
+          "prompt": "___",
+          "answer": "I'm looking forward to going on holiday."
+        }
+      ],
+      "items": [
+        {
+          "context": "A good friend of yours is coming to visit you soon. It will be good to see her again. How do you feel?",
+          "prompt": "___",
+          "answer": "I'm looking forward to seeing her again."
+        },
+        {
+          "context": "You're going to the dentist tomorrow. You don't enjoy visits to the dentist. How do you feel?",
+          "prompt": "___",
+          "answer": "I'm not looking forward to going to the dentist."
+        },
+        {
+          "context": "Rachel doesn't like school, but she's leaving next summer. How does she feel?",
+          "prompt": "___",
+          "answer": "She's looking forward to leaving school."
+        },
+        {
+          "context": "Joe and Helen are moving to a new apartment soon. It's much nicer than where they live now. How do they feel?",
+          "prompt": "___",
+          "answer": "They're looking forward to moving to a new apartment."
+        }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng giới từ + -ing: một câu với by -ing (cách làm điều gì đó), without -ing, hoặc before/after -ing, và một câu với look forward to -ing.",
+      "instructionsEn": "Write 2-3 English sentences using preposition + -ing: one with by -ing (how something happens), without -ing, or before/after -ing, and one with look forward to -ing.",
+      "ruleSummary": "This unit covers preposition + -ing: whenever a verb directly follows a preposition (in, for, about, at, with, of, instead of, in spite of, before, after, by, without, and to when it is a preposition rather than part of an infinitive), that verb takes the -ing form, never the bare or to-infinitive form (interested in working, good at learning, fed up with studying, before going out, by reading more, without stopping). to is ambiguous: after decide/would like etc. it introduces an infinitive (decided to travel), but after look forward to, prefer ... to and other prepositional uses of to it takes -ing (looking forward to going, prefer driving to travelling, not looking forward to go). A correct student sentence must use -ing (not the base form or to + infinitive) immediately after any preposition, and must recognize when to is functioning as a preposition rather than as the infinitive marker."
+    }
+  ]
+};
+
 export const UNITS_META: GrammarUnitMeta[] = [
   { unit: 1, slug: UNIT_1_PRESENT_CONTINUOUS.slug, title: UNIT_1_PRESENT_CONTINUOUS.title, topic: UNIT_1_PRESENT_CONTINUOUS.topic, available: true },
   { unit: 2, slug: UNIT_2_PRESENT_SIMPLE.slug, title: UNIT_2_PRESENT_SIMPLE.title, topic: UNIT_2_PRESENT_SIMPLE.topic, available: true },
@@ -23274,9 +27499,19 @@ export const UNITS_META: GrammarUnitMeta[] = [
   { unit: 48, slug: UNIT_48_REPORTED_SPEECH_2.slug, title: UNIT_48_REPORTED_SPEECH_2.title, topic: UNIT_48_REPORTED_SPEECH_2.topic, available: true },
   { unit: 49, slug: UNIT_49_QUESTIONS_1.slug, title: UNIT_49_QUESTIONS_1.title, topic: UNIT_49_QUESTIONS_1.topic, available: true },
   { unit: 50, slug: UNIT_50_QUESTIONS_2.slug, title: UNIT_50_QUESTIONS_2.title, topic: UNIT_50_QUESTIONS_2.topic, available: true },
+  { unit: 51, slug: UNIT_51_I_THINK_SO_I_HOPE_SO.slug, title: UNIT_51_I_THINK_SO_I_HOPE_SO.title, topic: UNIT_51_I_THINK_SO_I_HOPE_SO.topic, available: true },
+  { unit: 52, slug: UNIT_52_QUESTION_TAGS.slug, title: UNIT_52_QUESTION_TAGS.title, topic: UNIT_52_QUESTION_TAGS.topic, available: true },
+  { unit: 53, slug: UNIT_53_VERB_ING.slug, title: UNIT_53_VERB_ING.title, topic: UNIT_53_VERB_ING.topic, available: true },
+  { unit: 54, slug: UNIT_54_VERB_TO.slug, title: UNIT_54_VERB_TO.title, topic: UNIT_54_VERB_TO.topic, available: true },
+  { unit: 55, slug: UNIT_55_VERB_OBJECT_TO.slug, title: UNIT_55_VERB_OBJECT_TO.title, topic: UNIT_55_VERB_OBJECT_TO.topic, available: true },
+  { unit: 56, slug: UNIT_56_VERB_ING_OR_TO_1.slug, title: UNIT_56_VERB_ING_OR_TO_1.title, topic: UNIT_56_VERB_ING_OR_TO_1.topic, available: true },
+  { unit: 57, slug: UNIT_57_VERB_ING_OR_TO_2.slug, title: UNIT_57_VERB_ING_OR_TO_2.title, topic: UNIT_57_VERB_ING_OR_TO_2.topic, available: true },
+  { unit: 58, slug: UNIT_58_VERB_ING_OR_TO_3.slug, title: UNIT_58_VERB_ING_OR_TO_3.title, topic: UNIT_58_VERB_ING_OR_TO_3.topic, available: true },
+  { unit: 59, slug: UNIT_59_PREFER_WOULD_RATHER.slug, title: UNIT_59_PREFER_WOULD_RATHER.title, topic: UNIT_59_PREFER_WOULD_RATHER.topic, available: true },
+  { unit: 60, slug: UNIT_60_PREPOSITION_ING.slug, title: UNIT_60_PREPOSITION_ING.title, topic: UNIT_60_PREPOSITION_ING.topic, available: true },
 ];
 
-export const GRAMMAR_UNITS: GrammarUnit[] = [UNIT_1_PRESENT_CONTINUOUS, UNIT_2_PRESENT_SIMPLE, UNIT_3_PRESENT_CONTINUOUS_AND_SIMPLE_1, UNIT_4_PRESENT_CONTINUOUS_AND_SIMPLE_2, UNIT_5_PAST_SIMPLE, UNIT_6_PAST_CONTINUOUS, UNIT_7_PRESENT_PERFECT_1, UNIT_8_PRESENT_PERFECT_2, UNIT_9_PRESENT_PERFECT_CONTINUOUS, UNIT_10_PRESENT_PERFECT_CONTINUOUS_AND_SIMPLE, UNIT_11_HOW_LONG_HAVE_YOU_BEEN, UNIT_12_FOR_AND_SINCE, UNIT_13_PRESENT_PERFECT_AND_PAST_1, UNIT_14_PRESENT_PERFECT_AND_PAST_2, UNIT_15_PAST_PERFECT, UNIT_16_PAST_PERFECT_CONTINUOUS, UNIT_17_HAVE_AND_HAVE_GOT, UNIT_18_USED_TO, UNIT_19_PRESENT_TENSES_FOR_THE_FUTURE, UNIT_20_IM_GOING_TO, UNIT_21_WILL_AND_SHALL_1, UNIT_22_WILL_AND_SHALL_2, UNIT_23_I_WILL_AND_IM_GOING_TO, UNIT_24_WILL_BE_DOING_AND_WILL_HAVE_DONE, UNIT_25_WHEN_I_DO_AND_WHEN_IVE_DONE, UNIT_26_CAN_COULD_AND_BE_ABLE_TO, UNIT_27_COULD_DO_AND_COULD_HAVE_DONE, UNIT_28_MUST_AND_CANT, UNIT_29_MAY_AND_MIGHT_1, UNIT_30_MAY_AND_MIGHT_2, UNIT_31_HAVE_TO_AND_MUST, UNIT_32_MUST_MUSTNT_NEEDNT, UNIT_33_SHOULD_1, UNIT_34_SHOULD_2, UNIT_35_ID_BETTER_ITS_TIME, UNIT_36_WOULD, UNIT_37_REQUESTS_OFFERS_PERMISSION_INVITATIONS, UNIT_38_IF_I_DO_AND_IF_I_DID, UNIT_39_IF_I_KNEW_I_WISH_I_KNEW, UNIT_40_IF_I_HAD_KNOWN_I_WISH_I_HAD_KNOWN, UNIT_41_WISH, UNIT_42_PASSIVE_1, UNIT_43_PASSIVE_2, UNIT_44_PASSIVE_3, UNIT_45_SUPPOSED_TO, UNIT_46_HAVE_SOMETHING_DONE, UNIT_47_REPORTED_SPEECH_1, UNIT_48_REPORTED_SPEECH_2, UNIT_49_QUESTIONS_1, UNIT_50_QUESTIONS_2];
+export const GRAMMAR_UNITS: GrammarUnit[] = [UNIT_1_PRESENT_CONTINUOUS, UNIT_2_PRESENT_SIMPLE, UNIT_3_PRESENT_CONTINUOUS_AND_SIMPLE_1, UNIT_4_PRESENT_CONTINUOUS_AND_SIMPLE_2, UNIT_5_PAST_SIMPLE, UNIT_6_PAST_CONTINUOUS, UNIT_7_PRESENT_PERFECT_1, UNIT_8_PRESENT_PERFECT_2, UNIT_9_PRESENT_PERFECT_CONTINUOUS, UNIT_10_PRESENT_PERFECT_CONTINUOUS_AND_SIMPLE, UNIT_11_HOW_LONG_HAVE_YOU_BEEN, UNIT_12_FOR_AND_SINCE, UNIT_13_PRESENT_PERFECT_AND_PAST_1, UNIT_14_PRESENT_PERFECT_AND_PAST_2, UNIT_15_PAST_PERFECT, UNIT_16_PAST_PERFECT_CONTINUOUS, UNIT_17_HAVE_AND_HAVE_GOT, UNIT_18_USED_TO, UNIT_19_PRESENT_TENSES_FOR_THE_FUTURE, UNIT_20_IM_GOING_TO, UNIT_21_WILL_AND_SHALL_1, UNIT_22_WILL_AND_SHALL_2, UNIT_23_I_WILL_AND_IM_GOING_TO, UNIT_24_WILL_BE_DOING_AND_WILL_HAVE_DONE, UNIT_25_WHEN_I_DO_AND_WHEN_IVE_DONE, UNIT_26_CAN_COULD_AND_BE_ABLE_TO, UNIT_27_COULD_DO_AND_COULD_HAVE_DONE, UNIT_28_MUST_AND_CANT, UNIT_29_MAY_AND_MIGHT_1, UNIT_30_MAY_AND_MIGHT_2, UNIT_31_HAVE_TO_AND_MUST, UNIT_32_MUST_MUSTNT_NEEDNT, UNIT_33_SHOULD_1, UNIT_34_SHOULD_2, UNIT_35_ID_BETTER_ITS_TIME, UNIT_36_WOULD, UNIT_37_REQUESTS_OFFERS_PERMISSION_INVITATIONS, UNIT_38_IF_I_DO_AND_IF_I_DID, UNIT_39_IF_I_KNEW_I_WISH_I_KNEW, UNIT_40_IF_I_HAD_KNOWN_I_WISH_I_HAD_KNOWN, UNIT_41_WISH, UNIT_42_PASSIVE_1, UNIT_43_PASSIVE_2, UNIT_44_PASSIVE_3, UNIT_45_SUPPOSED_TO, UNIT_46_HAVE_SOMETHING_DONE, UNIT_47_REPORTED_SPEECH_1, UNIT_48_REPORTED_SPEECH_2, UNIT_49_QUESTIONS_1, UNIT_50_QUESTIONS_2, UNIT_51_I_THINK_SO_I_HOPE_SO, UNIT_52_QUESTION_TAGS, UNIT_53_VERB_ING, UNIT_54_VERB_TO, UNIT_55_VERB_OBJECT_TO, UNIT_56_VERB_ING_OR_TO_1, UNIT_57_VERB_ING_OR_TO_2, UNIT_58_VERB_ING_OR_TO_3, UNIT_59_PREFER_WOULD_RATHER, UNIT_60_PREPOSITION_ING];
 
 export function getGrammarUnit(slug: string): GrammarUnit | undefined {
   return GRAMMAR_UNITS.find((u) => u.slug === slug);

@@ -313,6 +313,10 @@ export function AppHeader() {
                 ))}
               </div>
             </div>
+            {/* UI size slider disabled: zoom scaling broke viewport-height layout
+                (see ui-prefs.ts note) across several fix commits. Keeping the
+                control commented instead of deleted in case it's revisited with
+                a rem-based scale instead of CSS zoom.
             <div className="divider-t px-3 py-2">
               <div className="label-xs mb-1.5">{t("settings.size", { pct: Math.round(prefs.zoom * 100) })}</div>
               <input
@@ -326,6 +330,7 @@ export function AppHeader() {
                 aria-label="UI size"
               />
             </div>
+            */}
           </div>
         )}
       </div>

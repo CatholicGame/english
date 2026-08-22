@@ -1041,7 +1041,7 @@ function VocabStepView({ step, onNext }: { step: VocabStep; onNext: (score?: Sco
               {w.ieltsTip}
             </div>
 
-            <IeltsVocabSample word={w} />
+            <IeltsVocabSample key={w.term} word={w} />
 
             <VocabAiPractice key={w.term} word={w} />
           </div>

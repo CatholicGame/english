@@ -66,7 +66,12 @@ export function ActionBarScreen({
 
   return (
     <ActionBarContext.Provider value={setFooter}>
-      <div className={`flex flex-col ${fullViewport ? "h-full" : "h-[calc(100svh-3rem)]"}`}>
+      {/* --real-vh (set by AppHeader from window.innerHeight) instead of a
+          bare 100svh: the personal UI-size slider zooms this whole subtree,
+          which inflates a viewport-unit-based height by the zoom factor even
+          though the unit itself is still measuring the true viewport - only
+          a JS-measured height is immune to that. */}
+      <div className={`flex flex-col ${fullViewport ? "h-full" : "h-[calc(var(--real-vh,100vh)-3rem)]"}`}>
         {header && <div className="flex-none">{header}</div>}
         <div className="flex min-h-0 flex-1 flex-col" style={{ paddingBottom: footer ? footerHeight : 0 }}>
           {children}

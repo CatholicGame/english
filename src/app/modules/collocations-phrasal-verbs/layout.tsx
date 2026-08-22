@@ -18,19 +18,20 @@ export default function ModuleLayout({ children }: { children: React.ReactNode }
     <ProgressProvider storageKey={MODULE_KEY}>
       {/* ponytail: min-h-screen double-counted AppHeader's in-flow 3rem (sticky,
           not fixed) on ActionBarScreen-based screens (e.g. write/page.tsx),
-          adding a stray outer page scrollbar next to its own inner 100svh-3rem
-          scroll region. Harmless on the plain-scroll pages sharing this layout,
-          since min-h-[calc(100svh-3rem)] still fills the same visible space. */}
-      <div className="min-h-[calc(100svh-3rem)] bg-bg lg:mx-auto lg:flex lg:w-full lg:max-w-[1560px] lg:flex-row lg:items-start lg:border-x-2 lg:border-[color:var(--color-divider)]">
+          adding a stray outer page scrollbar next to its own inner scroll
+          region. Harmless on the plain-scroll pages sharing this layout, since
+          the replacement still fills the same visible space. --real-vh (not a
+          bare vh unit) for the same zoom reason documented in AppHeader.tsx. */}
+      <div className="min-h-[calc(var(--real-vh,100vh)-3rem)] bg-bg lg:mx-auto lg:flex lg:w-full lg:max-w-[1560px] lg:flex-row lg:items-start lg:border-x-2 lg:border-[color:var(--color-divider)]">
         {!hideNav && (
-          <div className="fixed right-0 bottom-0 left-0 bg-bg lg:sticky lg:inset-auto lg:top-12 lg:h-[calc(100vh-3rem)] lg:w-[220px] lg:flex-none lg:border-r-2 lg:border-[color:var(--color-divider)]">
+          <div className="fixed right-0 bottom-0 left-0 bg-bg lg:sticky lg:inset-auto lg:top-12 lg:h-[calc(var(--real-vh,100vh)-3rem)] lg:w-[220px] lg:flex-none lg:border-r-2 lg:border-[color:var(--color-divider)]">
             <div className="mx-auto max-w-[480px] lg:mx-0 lg:h-full lg:max-w-none">
               <BottomNav />
             </div>
           </div>
         )}
         <div
-          className={`mx-auto flex min-h-[calc(100svh-3rem)] w-full max-w-[480px] flex-col bg-bg lg:mx-0 lg:max-w-none lg:flex-1 ${
+          className={`mx-auto flex min-h-[calc(var(--real-vh,100vh)-3rem)] w-full max-w-[480px] flex-col bg-bg lg:mx-0 lg:max-w-none lg:flex-1 ${
             hideNav ? "" : "pb-[74px] lg:pb-0"
           }`}
         >

@@ -1411,7 +1411,7 @@ function ReadingTfNgStepView({ step, onNext }: { step: ReadingTfNgStep; onNext: 
             {showPassage ? "Hide passage" : "Show passage"}
           </button>
           <div
-            className={`mb-4 max-h-[280px] overflow-y-auto bg-surface p-4 lg:mb-0 lg:block lg:max-h-[calc(100vh-140px)] ${showPassage ? "block" : "hidden"}`}
+            className={`mb-4 max-h-[280px] overflow-y-auto bg-surface p-4 lg:mb-0 lg:block lg:max-h-[calc(var(--real-vh,100vh)-140px)] ${showPassage ? "block" : "hidden"}`}
           >
             <div className="mb-2 text-[14px] font-extrabold">{step.passageTitle}</div>
             <div className="text-[13px] leading-relaxed whitespace-pre-line text-neutral-800">{step.passage}</div>

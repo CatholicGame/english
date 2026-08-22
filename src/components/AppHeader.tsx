@@ -9,7 +9,7 @@ import { AuthStatus } from "./AuthStatus";
 import { GlobalScoreBadge } from "./GlobalScoreBadge";
 import { VoiceSettings } from "./VoiceSettings";
 import { SubscriptionSettings } from "./SubscriptionSettings";
-import { loadUiPrefs, saveUiPrefs, applyUiPrefs, type UiPrefs, type FontId } from "@/lib/ui-prefs";
+import { loadUiPrefs, saveUiPrefs, applyUiPrefs, DEFAULT_UI_PREFS, type UiPrefs, type FontId } from "@/lib/ui-prefs";
 import { loadAiLangPrefs, saveAiLangPrefs, type AiLang } from "@/lib/ai-lang-prefs";
 import { useUiLang } from "@/lib/i18n";
 import { ShareButton } from "./ShareButton";
@@ -72,7 +72,7 @@ function FullscreenExitIcon() {
 export function AppHeader() {
   const pathname = usePathname();
   const router = useRouter();
-  const [prefs, setPrefs] = useState<UiPrefs>({ fontId: "archivo", zoom: 1 });
+  const [prefs, setPrefs] = useState<UiPrefs>(DEFAULT_UI_PREFS);
   const [aiLang, setAiLang] = useState<AiLang>("vi");
   const [settingsOpen, setSettingsOpen] = useState(false);
   const settingsRef = useRef<HTMLDivElement>(null);
@@ -85,6 +85,28 @@ export function AppHeader() {
     setPrefs(p);
     applyUiPrefs(p);
     setAiLang(loadAiLangPrefs().lang);
+  }, []);
+
+  // ponytail: 100vh/100svh/100dvh are always measured against the TRUE
+  // browser viewport, never against an ancestor's CSS zoom - but body's
+  // `zoom: var(--ui-zoom, 1)` (the personal size slider above) still scales
+  // the RENDERED size of anything sized from one of those units, since the
+  // element computing e.g. h-[calc(100svh-3rem)] is itself a zoomed
+  // descendant. Net effect: at any zoom other than 100%, every screen built
+  // on ActionBarScreen ends up genuinely taller than the real viewport by
+  // exactly the zoom factor, which is what caused the double-scroll bug this
+  // fixes. window.innerHeight is a plain JS/browser API, untouched by any
+  // element's CSS zoom, so mirroring it into --real-vh and switching the
+  // shared height calcs (ActionBar.tsx, Modal.tsx, GlobalDiscussChat.tsx,
+  // each module layout.tsx) to use it instead of vh/svh/dvh sidesteps the
+  // mismatch entirely, and unblocks raising the size slider's default.
+  useEffect(() => {
+    function syncRealVh() {
+      document.documentElement.style.setProperty("--real-vh", `${window.innerHeight}px`);
+    }
+    syncRealVh();
+    window.addEventListener("resize", syncRealVh);
+    return () => window.removeEventListener("resize", syncRealVh);
   }, []);
 
   useEffect(() => {
@@ -190,7 +212,16 @@ export function AppHeader() {
             // w-64 dropdown anchored to the gear icon left a lopsided gap on
             // the opposite side of a phone-width screen. From sm: up, back to
             // the compact anchored dropdown (there's room for it to float).
-            className="fixed inset-x-0 top-12 max-h-[calc(100dvh-3rem)] overflow-y-auto overscroll-contain border-t border-[color:var(--color-divider)] bg-bg shadow-lg sm:absolute sm:inset-x-auto sm:top-full sm:right-0 sm:mt-2 sm:w-64 sm:max-h-[calc(100dvh-56px)] sm:border"
+            //
+            // ponytail: bounded by bottom-0/bottom-4 (a second fixed edge)
+            // instead of max-h-[calc(100dvh-Npx)] - a computed height sourced
+            // from dvh reads wrong once the personal UI-size slider's `zoom`
+            // is anything but 100%, since dvh gets measured in the zoomed
+            // coordinate space while the panel's own rendered box does not,
+            // so the box can end up taller than what actually fits with no
+            // way to reach the rest by scrolling. Anchoring both edges needs
+            // no viewport-height arithmetic at all, so it can't drift with zoom.
+            className="fixed inset-x-0 top-12 bottom-0 overflow-y-auto overscroll-contain border-t border-[color:var(--color-divider)] bg-bg shadow-lg sm:inset-x-auto sm:top-14 sm:right-2 sm:bottom-4 sm:w-64 sm:border"
           >
             <div className="divider-b px-3 py-2">
               <ShareButton
@@ -287,7 +318,7 @@ export function AppHeader() {
               <input
                 type="range"
                 min={0.875}
-                max={1.25}
+                max={1.5}
                 step={0.025}
                 value={prefs.zoom}
                 onChange={(e) => updatePrefs({ zoom: Number(e.target.value) })}

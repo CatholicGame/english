@@ -123,10 +123,11 @@ function DiscussPanel({ onClose }: { onClose: () => void }) {
   return (
     <Modal onClose={onClose} contentClassName="lg:max-w-[900px]">
       {/* ponytail: 40px is Modal's p-5 top+bottom padding, so this column exactly
-          fills the sheet's 75vh cap and the message list below stays the ONE
-          scroller. Two nested scrollers left the inner chat list unscrollable on
-          touch, so a thread stayed stuck at its first message. */}
-      <div className="flex h-[calc(75vh-40px)] flex-col">
+          fills the sheet's 75%-of-real-viewport cap and the message list below
+          stays the ONE scroller. Two nested scrollers left the inner chat list
+          unscrollable on touch, so a thread stayed stuck at its first message.
+          --real-vh (not a bare vh unit) for the same reason as Modal's own cap. */}
+      <div className="flex h-[calc(var(--real-vh,100vh)*0.75-40px)] flex-col">
         <div className="mb-2 flex-none text-[15px] font-extrabold">💬 Hỏi đáp nhanh</div>
 
         <div className="mb-3 flex flex-none items-center gap-1.5">

@@ -9,16 +9,20 @@ export interface UiPrefs {
 }
 
 const STORAGE_KEY = "english-ui-prefs";
-const DEFAULT_PREFS: UiPrefs = { fontId: "archivo", zoom: 1 };
+// 1.3 (not 1): text at 100% read too small without the personal size slider,
+// which most people never touch. Anyone with an existing saved preference
+// (including an old 1) keeps it - this default only applies to visits with
+// nothing saved yet.
+export const DEFAULT_UI_PREFS: UiPrefs = { fontId: "archivo", zoom: 1.3 };
 
 export function loadUiPrefs(): UiPrefs {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
-    if (raw) return { ...DEFAULT_PREFS, ...JSON.parse(raw) };
+    if (raw) return { ...DEFAULT_UI_PREFS, ...JSON.parse(raw) };
   } catch {
     // ignore
   }
-  return DEFAULT_PREFS;
+  return DEFAULT_UI_PREFS;
 }
 
 export function saveUiPrefs(prefs: UiPrefs) {

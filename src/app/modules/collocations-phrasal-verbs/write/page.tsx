@@ -316,7 +316,7 @@ function WritingContent({
         )}
       </div>
 
-      <div className="max-h-[30vh] flex-none overflow-y-auto rounded bg-accent-100 p-3 text-[13px] leading-relaxed text-accent-800">{passage}</div>
+      <div className="max-h-[calc(var(--real-vh,100vh)*0.3)] flex-none overflow-y-auto rounded bg-accent-100 p-3 text-[13px] leading-relaxed text-accent-800">{passage}</div>
 
       <div className="flex min-h-0 flex-1 flex-col gap-1.5">
         <textarea

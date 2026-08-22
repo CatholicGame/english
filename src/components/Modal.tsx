@@ -10,8 +10,9 @@ interface Props {
 
 /** Dialog-style popup shared by every full-screen overlay in the app
  * (word lookup, conversation feedback, key features, ...). Vertically centered
- * with the sheet capped at 75vh, so content never gets anchored to the bottom
- * leaving an empty top. Click the backdrop or ✕ to close.
+ * with the sheet capped at 75% of the real viewport height (via --real-vh,
+ * not a bare vh unit - see AppHeader's comment on why), so content never gets
+ * anchored to the bottom leaving an empty top. Click the backdrop or ✕ to close.
  * While open, the background page is scroll-locked three ways so swiping/wheel
  * can never drag the page behind the sheet:
  *   1. body overflow:hidden for the whole mount,
@@ -56,7 +57,7 @@ export function Modal({ onClose, children, contentClassName }: Props) {
       <div className="absolute inset-0 bg-black/40" />
       <div
         ref={contentRef}
-        className={`divider-t relative mx-auto w-full max-w-[480px] max-h-[75vh] overflow-y-auto bg-bg p-5 lg:max-w-[840px] ${contentClassName ?? ""}`}
+        className={`divider-t relative mx-auto w-full max-w-[480px] max-h-[calc(var(--real-vh,100vh)*0.75)] overflow-y-auto bg-bg p-5 lg:max-w-[840px] ${contentClassName ?? ""}`}
         onClick={(e) => e.stopPropagation()}
         style={{ overscrollBehavior: "contain" }}
       >

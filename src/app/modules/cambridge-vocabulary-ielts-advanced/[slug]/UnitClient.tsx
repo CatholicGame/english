@@ -2127,7 +2127,7 @@ export function UnitClient({ slug }: { slug: string }) {
                 Close
               </button>
             </div>
-            <div className="flex-1 overflow-y-auto">
+            <div className="flex-1 overflow-y-auto overscroll-contain">
               {steps.map((s, i) => (
                 <button
                   key={i}
@@ -2154,8 +2154,12 @@ export function UnitClient({ slug }: { slug: string }) {
       {/* Scrollable step content. Most step kinds render their own "Continue"
           button inline here, unchanged — only Writing/Speaking tasks (long
           textarea + AI feedback) claim the pinned footer below, via
-          useActionBar() in WritingTaskStepView/SpeakingStepView. */}
-      <div className="min-h-0 flex-1 overflow-y-auto">
+          useActionBar() in WritingTaskStepView/SpeakingStepView.
+          overscroll-contain: without it, scrolling past this div's own end
+          (e.g. reaching the bottom of a vocab card) chains the wheel/touch
+          scroll to the page behind it, which visibly moves even though the
+          outer layout is sized to never need to. */}
+      <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain">
         {step.kind === "vocab" && <VocabStepView key={stepIndex} step={step} onNext={handleNext} />}
         {step.kind === "listening_cloze" && <ListeningClozeStepView key={stepIndex} step={step} onNext={handleNext} />}
         {step.kind === "sort" && <SortStepView key={stepIndex} step={step} onNext={handleNext} />}

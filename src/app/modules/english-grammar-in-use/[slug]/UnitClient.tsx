@@ -1318,7 +1318,7 @@ export function UnitClient({ slug }: { slug: string }) {
                 {t("grammar.close")}
               </button>
             </div>
-            <div className="flex-1 overflow-y-auto">
+            <div className="flex-1 overflow-y-auto overscroll-contain">
               {steps.map((s, i) => {
                 const done = scores[i] !== undefined;
                 return (
@@ -1349,7 +1349,10 @@ export function UnitClient({ slug }: { slug: string }) {
         </div>
       )}
 
-      <div className="min-h-0 flex-1 overflow-y-auto">
+      {/* overscroll-contain: without it, scrolling past this div's own end
+          chains the wheel/touch scroll to the page behind it, which visibly
+          moves even though the outer layout is sized to never need to. */}
+      <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain">
         {step.kind === "rule" && <RuleStepView key={stepIndex} step={step} onNext={handleNext} />}
         {step.kind === "fill_mc" && <FillMcStepView key={stepIndex} step={step} onNext={handleNext} />}
         {step.kind === "type_fill" && <TypeFillStepView key={stepIndex} step={step} onNext={handleNext} />}

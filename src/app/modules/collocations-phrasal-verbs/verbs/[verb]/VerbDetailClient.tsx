@@ -63,7 +63,7 @@ function AiSection({ item }: { item: { term: string; type: string; en: string; v
               {/* Scrollable content — the current mode's primary action (Check
                   with AI, Send/End, ...) is pulled out of this flow into the
                   screen's pinned footer by AiSentencePractice's useActionBar(). */}
-              <div className="min-h-0 flex-1 overflow-y-auto px-4 py-4">
+              <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 py-4">
                 <AiSentencePractice item={item} moduleKey="collocations-phrasal-verbs" />
               </div>
             </ActionBarScreen>

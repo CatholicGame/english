@@ -1275,93 +1275,102 @@ export function UnitClient({ slug }: { slug: string }) {
     );
   }
 
+  // ponytail: fixed inset-0 + fullViewport, same fix as the Cambridge module -
+  // see that file's comment. Avoids ever subtracting AppHeader's assumed
+  // 3rem, which drifted under any zoom (real browser zoom included) and
+  // caused the double-scroll bug.
   return (
-    <ActionBarScreen
-      header={
-        <>
-          <div className="flex items-center gap-3 px-4 py-3">
-            <button onClick={goBack} className="relative h-[18px] w-[18px] flex-none text-neutral-600 hover:text-accent">
-              <BackIcon />
-            </button>
-            <div className="h-1.5 flex-1 bg-neutral-300">
-              <div className="h-full bg-accent" style={{ width: `${((stepIndex + 1) / steps.length) * 100}%` }} />
-            </div>
-            <button
-              className="flex flex-none items-center gap-1 text-[11px] tabular-nums text-neutral-600 hover:text-accent"
-              onClick={() => setShowStepList(true)}
-              aria-label={t("grammar.stepListAria")}
-            >
-              <ListIcon />
-              {stepIndex + 1}/{steps.length}
-            </button>
-          </div>
-          <div className="divider-b flex items-center justify-between gap-3 px-4 pb-2">
-            <span className="label-xs truncate text-accent">
-              Unit {unit.unit} · {unit.title} · {stepKindLabel(step.kind, t)}
-            </span>
-            <button
-              className="btn btn-ghost flex-none px-0 text-[11px]"
-              onClick={() => router.push("/modules/english-grammar-in-use")}
-            >
-              {t("grammar.exit")}
-            </button>
-          </div>
-        </>
-      }
-    >
-      {showStepList && (
-        <div className="fixed inset-0 z-[60] bg-bg">
-          <div className="mx-auto flex h-full max-w-[480px] flex-col lg:max-w-[1560px]">
-            <div className="divider-b flex items-center justify-between px-4 py-3">
-              <span className="text-[16px] font-extrabold">{t("grammar.stepListTitle")}</span>
-              <button className="btn btn-ghost" onClick={() => setShowStepList(false)}>
-                {t("grammar.close")}
-              </button>
-            </div>
-            <div className="flex-1 overflow-y-auto overscroll-contain">
-              {steps.map((s, i) => {
-                const done = scores[i] !== undefined;
-                return (
-                  <button
-                    key={i}
-                    onClick={() => {
-                      setStepIndex(i);
-                      setShowStepList(false);
-                    }}
-                    className="divider-b flex w-full items-center gap-3 px-4 py-3 text-left hover:bg-surface"
-                    style={i === stepIndex ? { background: "var(--color-accent-100)" } : undefined}
-                  >
-                    <span className="label-xs w-6 flex-none text-neutral-600">{i + 1}</span>
-                    <span className="flex-1">
-                      <span className="block text-[14px] font-extrabold">{loc(s.title, s.titleEn, lang)}</span>
-                      <span className="label-xs mt-0.5 block text-neutral-600">{stepKindLabel(s.kind, t)}</span>
-                    </span>
-                    {done && (
-                      <span className="label-xs flex-none text-accent">
-                        {scores[i].correct}/{scores[i].total}
-                      </span>
-                    )}
+    <div className="fixed inset-0 z-[60] bg-bg">
+      <div className="mx-auto h-full max-w-[480px] lg:max-w-[1560px]">
+        <ActionBarScreen
+          fullViewport
+          header={
+            <>
+              <div className="flex items-center gap-3 px-4 py-3">
+                <button onClick={goBack} className="relative h-[18px] w-[18px] flex-none text-neutral-600 hover:text-accent">
+                  <BackIcon />
+                </button>
+                <div className="h-1.5 flex-1 bg-neutral-300">
+                  <div className="h-full bg-accent" style={{ width: `${((stepIndex + 1) / steps.length) * 100}%` }} />
+                </div>
+                <button
+                  className="flex flex-none items-center gap-1 text-[11px] tabular-nums text-neutral-600 hover:text-accent"
+                  onClick={() => setShowStepList(true)}
+                  aria-label={t("grammar.stepListAria")}
+                >
+                  <ListIcon />
+                  {stepIndex + 1}/{steps.length}
+                </button>
+              </div>
+              <div className="divider-b flex items-center justify-between gap-3 px-4 pb-2">
+                <span className="label-xs truncate text-accent">
+                  Unit {unit.unit} · {unit.title} · {stepKindLabel(step.kind, t)}
+                </span>
+                <button
+                  className="btn btn-ghost flex-none px-0 text-[11px]"
+                  onClick={() => router.push("/modules/english-grammar-in-use")}
+                >
+                  {t("grammar.exit")}
+                </button>
+              </div>
+            </>
+          }
+        >
+          {showStepList && (
+            <div className="fixed inset-0 z-[60] bg-bg">
+              <div className="mx-auto flex h-full max-w-[480px] flex-col lg:max-w-[1560px]">
+                <div className="divider-b flex items-center justify-between px-4 py-3">
+                  <span className="text-[16px] font-extrabold">{t("grammar.stepListTitle")}</span>
+                  <button className="btn btn-ghost" onClick={() => setShowStepList(false)}>
+                    {t("grammar.close")}
                   </button>
-                );
-              })}
+                </div>
+                <div className="flex-1 overflow-y-auto overscroll-contain">
+                  {steps.map((s, i) => {
+                    const done = scores[i] !== undefined;
+                    return (
+                      <button
+                        key={i}
+                        onClick={() => {
+                          setStepIndex(i);
+                          setShowStepList(false);
+                        }}
+                        className="divider-b flex w-full items-center gap-3 px-4 py-3 text-left hover:bg-surface"
+                        style={i === stepIndex ? { background: "var(--color-accent-100)" } : undefined}
+                      >
+                        <span className="label-xs w-6 flex-none text-neutral-600">{i + 1}</span>
+                        <span className="flex-1">
+                          <span className="block text-[14px] font-extrabold">{loc(s.title, s.titleEn, lang)}</span>
+                          <span className="label-xs mt-0.5 block text-neutral-600">{stepKindLabel(s.kind, t)}</span>
+                        </span>
+                        {done && (
+                          <span className="label-xs flex-none text-accent">
+                            {scores[i].correct}/{scores[i].total}
+                          </span>
+                        )}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      )}
+          )}
 
-      {/* overscroll-contain: without it, scrolling past this div's own end
-          chains the wheel/touch scroll to the page behind it, which visibly
-          moves even though the outer layout is sized to never need to. */}
-      <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain">
-        {step.kind === "rule" && <RuleStepView key={stepIndex} step={step} onNext={handleNext} />}
-        {step.kind === "fill_mc" && <FillMcStepView key={stepIndex} step={step} onNext={handleNext} />}
-        {step.kind === "type_fill" && <TypeFillStepView key={stepIndex} step={step} onNext={handleNext} />}
-        {step.kind === "judge_correct" && <JudgeCorrectStepView key={stepIndex} step={step} onNext={handleNext} />}
-        {step.kind === "match_pairs" && <MatchPairsStepView key={stepIndex} step={step} onNext={handleNext} />}
-        {step.kind === "ai_practice" && (
-          <AiPracticeStepView key={stepIndex} step={step} unitTitle={unit.title} itemKey={unit.slug} onNext={handleNext} />
-        )}
+          {/* overscroll-contain: without it, scrolling past this div's own end
+              chains the wheel/touch scroll to the page behind it, which visibly
+              moves even though the outer layout is sized to never need to. */}
+          <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain">
+            {step.kind === "rule" && <RuleStepView key={stepIndex} step={step} onNext={handleNext} />}
+            {step.kind === "fill_mc" && <FillMcStepView key={stepIndex} step={step} onNext={handleNext} />}
+            {step.kind === "type_fill" && <TypeFillStepView key={stepIndex} step={step} onNext={handleNext} />}
+            {step.kind === "judge_correct" && <JudgeCorrectStepView key={stepIndex} step={step} onNext={handleNext} />}
+            {step.kind === "match_pairs" && <MatchPairsStepView key={stepIndex} step={step} onNext={handleNext} />}
+            {step.kind === "ai_practice" && (
+              <AiPracticeStepView key={stepIndex} step={step} unitTitle={unit.title} itemKey={unit.slug} onNext={handleNext} />
+            )}
+          </div>
+        </ActionBarScreen>
       </div>
-    </ActionBarScreen>
+    </div>
   );
 }

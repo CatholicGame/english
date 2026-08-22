@@ -2076,117 +2076,129 @@ export function UnitClient({ slug }: { slug: string }) {
     );
   }
 
+  // ponytail: fixed inset-0 + fullViewport (not the plain in-flow return this
+  // used to be) so this screen's own height never depends on subtracting
+  // AppHeader's assumed 3rem - any rounding drift in that assumption (any
+  // zoom, real browser zoom included, not just the app's own --ui-zoom) was
+  // exactly what caused the double-scroll bug. inset-0 needs no such
+  // assumption: 0 is 0 regardless of zoom. Same pattern VerbDetailClient's AI
+  // Practice overlay already uses successfully.
   return (
-    <ActionBarScreen
-      header={
-        <>
-          <div className="divider-b flex items-center gap-3 px-4 py-3">
-            <button onClick={goBack} className="relative h-[18px] w-[18px] flex-none text-neutral-600 hover:text-accent">
-              <BackIcon />
-            </button>
-            <div className="h-1.5 flex-1 bg-neutral-300">
-              <div className="h-full bg-accent" style={{ width: `${(stepIndex / steps.length) * 100}%` }} />
-            </div>
-          </div>
-          <div className="px-4 pt-3">
-            <span className="label-xs block text-accent">
-              Unit {unit.unit} · {unit.title} — {step.title}
-            </span>
-          </div>
-          <div className="flex items-center justify-between gap-3 px-4 pt-2">
-            <button
-              className="btn btn-ghost px-0 text-[11px]"
-              onClick={() => router.push("/modules/cambridge-vocabulary-ielts-advanced")}
-            >
-              ← Thoát
-            </button>
-            <div className="flex flex-none items-center gap-3">
-              <button
-                className="flex items-center gap-1 text-[11px] tabular-nums text-neutral-600 hover:text-accent"
-                onClick={() => setShowStepList(true)}
-                aria-label="Jump to exercise"
-              >
-                <ListIcon />
-                {stepIndex + 1}/{steps.length}
-              </button>
-              {stepIndex + 1 < steps.length && (
-                <button className="btn btn-ghost px-0 text-[11px]" onClick={() => handleNext()}>
-                  Skip →
+    <div className="fixed inset-0 z-[60] bg-bg">
+      <div className="mx-auto h-full max-w-[480px] lg:max-w-[1560px]">
+        <ActionBarScreen
+          fullViewport
+          header={
+            <>
+              <div className="divider-b flex items-center gap-3 px-4 py-3">
+                <button onClick={goBack} className="relative h-[18px] w-[18px] flex-none text-neutral-600 hover:text-accent">
+                  <BackIcon />
                 </button>
-              )}
-            </div>
-          </div>
-        </>
-      }
-    >
-      {showStepList && (
-        <div className="fixed inset-0 z-[60] bg-bg">
-          <div className="mx-auto flex h-full max-w-[480px] flex-col lg:max-w-[1560px]">
-            <div className="divider-b flex items-center justify-between px-4 py-3">
-              <span className="text-[16px] font-extrabold">Exercises in this unit</span>
-              <button className="btn btn-ghost" onClick={() => setShowStepList(false)}>
-                Close
-              </button>
-            </div>
-            <div className="flex-1 overflow-y-auto overscroll-contain">
-              {steps.map((s, i) => (
+                <div className="h-1.5 flex-1 bg-neutral-300">
+                  <div className="h-full bg-accent" style={{ width: `${(stepIndex / steps.length) * 100}%` }} />
+                </div>
+              </div>
+              <div className="px-4 pt-3">
+                <span className="label-xs block text-accent">
+                  Unit {unit.unit} · {unit.title} — {step.title}
+                </span>
+              </div>
+              <div className="flex items-center justify-between gap-3 px-4 pt-2">
                 <button
-                  key={i}
-                  onClick={() => {
-                    setStepIndex(i);
-                    setShowStepList(false);
-                  }}
-                  className="divider-b flex w-full items-center gap-3 px-4 py-3 text-left hover:bg-surface"
-                  style={i === stepIndex ? { background: "var(--color-accent-100)" } : undefined}
+                  className="btn btn-ghost px-0 text-[11px]"
+                  onClick={() => router.push("/modules/cambridge-vocabulary-ielts-advanced")}
                 >
-                  <span className="label-xs w-6 flex-none text-neutral-600">{i + 1}</span>
-                  <span className="flex-1">
-                    <span className="block text-[14px] font-extrabold">{s.title}</span>
-                    <span className="label-xs mt-0.5 block text-neutral-600">{STEP_KIND_LABELS[s.kind]}</span>
-                  </span>
-                  {i < stepIndex && <span className="label-xs text-accent">Done</span>}
+                  ← Thoát
                 </button>
-              ))}
+                <div className="flex flex-none items-center gap-3">
+                  <button
+                    className="flex items-center gap-1 text-[11px] tabular-nums text-neutral-600 hover:text-accent"
+                    onClick={() => setShowStepList(true)}
+                    aria-label="Jump to exercise"
+                  >
+                    <ListIcon />
+                    {stepIndex + 1}/{steps.length}
+                  </button>
+                  {stepIndex + 1 < steps.length && (
+                    <button className="btn btn-ghost px-0 text-[11px]" onClick={() => handleNext()}>
+                      Skip →
+                    </button>
+                  )}
+                </div>
+              </div>
+            </>
+          }
+        >
+          {showStepList && (
+            <div className="fixed inset-0 z-[60] bg-bg">
+              <div className="mx-auto flex h-full max-w-[480px] flex-col lg:max-w-[1560px]">
+                <div className="divider-b flex items-center justify-between px-4 py-3">
+                  <span className="text-[16px] font-extrabold">Exercises in this unit</span>
+                  <button className="btn btn-ghost" onClick={() => setShowStepList(false)}>
+                    Close
+                  </button>
+                </div>
+                <div className="flex-1 overflow-y-auto overscroll-contain">
+                  {steps.map((s, i) => (
+                    <button
+                      key={i}
+                      onClick={() => {
+                        setStepIndex(i);
+                        setShowStepList(false);
+                      }}
+                      className="divider-b flex w-full items-center gap-3 px-4 py-3 text-left hover:bg-surface"
+                      style={i === stepIndex ? { background: "var(--color-accent-100)" } : undefined}
+                    >
+                      <span className="label-xs w-6 flex-none text-neutral-600">{i + 1}</span>
+                      <span className="flex-1">
+                        <span className="block text-[14px] font-extrabold">{s.title}</span>
+                        <span className="label-xs mt-0.5 block text-neutral-600">{STEP_KIND_LABELS[s.kind]}</span>
+                      </span>
+                      {i < stepIndex && <span className="label-xs text-accent">Done</span>}
+                    </button>
+                  ))}
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      )}
+          )}
 
-      {/* Scrollable step content. Most step kinds render their own "Continue"
-          button inline here, unchanged — only Writing/Speaking tasks (long
-          textarea + AI feedback) claim the pinned footer below, via
-          useActionBar() in WritingTaskStepView/SpeakingStepView.
-          overscroll-contain: without it, scrolling past this div's own end
-          (e.g. reaching the bottom of a vocab card) chains the wheel/touch
-          scroll to the page behind it, which visibly moves even though the
-          outer layout is sized to never need to. */}
-      <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain">
-        {step.kind === "vocab" && <VocabStepView key={stepIndex} step={step} onNext={handleNext} />}
-        {step.kind === "listening_cloze" && <ListeningClozeStepView key={stepIndex} step={step} onNext={handleNext} />}
-        {step.kind === "sort" && <SortStepView key={stepIndex} step={step} onNext={handleNext} />}
-        {step.kind === "type_fill" && <TypeFillStepView key={stepIndex} step={step} onNext={handleNext} />}
-        {step.kind === "fill_mc" && <FillMcStepView key={stepIndex} step={step} onNext={handleNext} />}
-        {step.kind === "reading_tfng" && <ReadingTfNgStepView key={stepIndex} step={step} onNext={handleNext} />}
-        {step.kind === "reveal_pairs" && <RevealPairsStepView key={stepIndex} step={step} onNext={handleNext} />}
-        {step.kind === "speaking" && (
-          <SpeakingStepView
-            key={stepIndex}
-            step={step}
-            onNext={handleNext}
-            itemKey={`${unit.slug}:${step.title}`}
-            unitVocab={unitVocab}
-          />
-        )}
-        {step.kind === "writing_task" && (
-          <WritingTaskStepView
-            key={stepIndex}
-            step={step}
-            onNext={handleNext}
-            itemKey={`${unit.slug}:${step.title}`}
-            unitVocab={unitVocab}
-          />
-        )}
+          {/* Scrollable step content. Most step kinds render their own "Continue"
+              button inline here, unchanged — only Writing/Speaking tasks (long
+              textarea + AI feedback) claim the pinned footer below, via
+              useActionBar() in WritingTaskStepView/SpeakingStepView.
+              overscroll-contain: without it, scrolling past this div's own end
+              (e.g. reaching the bottom of a vocab card) chains the wheel/touch
+              scroll to the page behind it, which visibly moves even though the
+              outer layout is sized to never need to. */}
+          <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain">
+            {step.kind === "vocab" && <VocabStepView key={stepIndex} step={step} onNext={handleNext} />}
+            {step.kind === "listening_cloze" && <ListeningClozeStepView key={stepIndex} step={step} onNext={handleNext} />}
+            {step.kind === "sort" && <SortStepView key={stepIndex} step={step} onNext={handleNext} />}
+            {step.kind === "type_fill" && <TypeFillStepView key={stepIndex} step={step} onNext={handleNext} />}
+            {step.kind === "fill_mc" && <FillMcStepView key={stepIndex} step={step} onNext={handleNext} />}
+            {step.kind === "reading_tfng" && <ReadingTfNgStepView key={stepIndex} step={step} onNext={handleNext} />}
+            {step.kind === "reveal_pairs" && <RevealPairsStepView key={stepIndex} step={step} onNext={handleNext} />}
+            {step.kind === "speaking" && (
+              <SpeakingStepView
+                key={stepIndex}
+                step={step}
+                onNext={handleNext}
+                itemKey={`${unit.slug}:${step.title}`}
+                unitVocab={unitVocab}
+              />
+            )}
+            {step.kind === "writing_task" && (
+              <WritingTaskStepView
+                key={stepIndex}
+                step={step}
+                onNext={handleNext}
+                itemKey={`${unit.slug}:${step.title}`}
+                unitVocab={unitVocab}
+              />
+            )}
+          </div>
+        </ActionBarScreen>
       </div>
-    </ActionBarScreen>
+    </div>
   );
 }

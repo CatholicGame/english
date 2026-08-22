@@ -543,35 +543,43 @@ export default function WritePage() {
     setSelected(new Set());
   }
 
+  // ponytail: fixed inset-0 + fullViewport, same fix as the Cambridge /
+  // Grammar in Use exercise screens - avoids ActionBarScreen's non-fullViewport
+  // height calc, which assumed AppHeader is exactly 3rem and drifted under zoom.
   return (
     <>
-      <ActionBarScreen header={<div className="flex-none px-4 pt-4 pb-1 lg:px-6 lg:pt-6"><h1 className="text-[26px]">✍️ Write</h1></div>}>
-        <SelectContent
-          topics={topics}
-          selectedTopic={selectedTopic}
-          setSelectedTopic={setSelectedTopic}
-          newTopic={newTopic}
-          setNewTopic={setNewTopic}
-          onAddTopic={handleAddTopic}
-          wordCount={wordCount}
-          setWordCount={setWordCount}
-          query={query}
-          setQuery={setQuery}
-          group={group}
-          setGroup={setGroup}
-          listVerbs={listVerbs}
-          selected={selected}
-          onToggleVerb={toggleVerb}
-          isUnlocked={isUnlocked}
-          t={t}
-          lang={lang}
-          error={writing ? null : error}
-          loading={loading && !writing}
-          onGenerate={generate}
-          onContinueWriting={resumeWriting}
-          activeCid={writing ? cid : null}
-        />
-      </ActionBarScreen>
+      <div className="fixed inset-0 z-[60] bg-bg">
+        <ActionBarScreen
+          fullViewport
+          header={<div className="flex-none px-4 pt-4 pb-1 lg:px-6 lg:pt-6"><h1 className="text-[26px]">✍️ Write</h1></div>}
+        >
+          <SelectContent
+            topics={topics}
+            selectedTopic={selectedTopic}
+            setSelectedTopic={setSelectedTopic}
+            newTopic={newTopic}
+            setNewTopic={setNewTopic}
+            onAddTopic={handleAddTopic}
+            wordCount={wordCount}
+            setWordCount={setWordCount}
+            query={query}
+            setQuery={setQuery}
+            group={group}
+            setGroup={setGroup}
+            listVerbs={listVerbs}
+            selected={selected}
+            onToggleVerb={toggleVerb}
+            isUnlocked={isUnlocked}
+            t={t}
+            lang={lang}
+            error={writing ? null : error}
+            loading={loading && !writing}
+            onGenerate={generate}
+            onContinueWriting={resumeWriting}
+            activeCid={writing ? cid : null}
+          />
+        </ActionBarScreen>
+      </div>
 
       {writing && (
         <div className="fixed inset-0 z-[60] bg-bg">

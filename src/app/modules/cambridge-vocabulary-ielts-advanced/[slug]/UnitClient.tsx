@@ -987,10 +987,10 @@ function VocabStepView({ step, onNext }: { step: VocabStep; onNext: (score?: Sco
 
   return (
     <div className="flex flex-1 flex-col p-4">
-      <div className="mb-3 flex items-center justify-between gap-3">
-        <span className="text-[13px] text-neutral-700">{step.instructions ?? "Study each card, then move to the next word."}</span>
+      <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
+        <span className="min-w-0 text-[13px] text-neutral-700">{step.instructions ?? "Study each card, then move to the next word."}</span>
         <select
-          className="input label-xs w-auto whitespace-nowrap py-1"
+          className="input label-xs w-auto max-w-full py-1"
           aria-label="Jump to word"
           value={i}
           onChange={(e) => goTo(Number(e.target.value))}

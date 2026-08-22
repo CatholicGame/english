@@ -958,8 +958,35 @@ function VocabStepView({ step, onNext }: { step: VocabStep; onNext: (score?: Sco
     setI(next);
   }
 
+  // Claim ActionBarScreen's own pinned footer instead of hardcoding a second
+  // `fixed inset-x-0 bottom-0` bar with a guessed pb-[96px] reservation on the
+  // scroll content: a static guess drifts out of sync with the bar's real
+  // rendered height (grows with the personal size slider, font choice, ...),
+  // silently clipping the last bit of content - exactly the "can't reach the
+  // Check with AI button" bug this replaces. useActionBar measures the real
+  // height via ResizeObserver and reserves exactly that, every time.
+  useActionBar(
+    <div className="mx-auto flex max-w-[480px] gap-0.5 lg:max-w-[1560px]">
+      <button className="btn btn-secondary flex-1 justify-center px-4 py-3" disabled={i === 0} onClick={() => goTo(Math.max(0, i - 1))}>
+        Previous
+      </button>
+      <button
+        className="btn btn-primary flex-1 justify-center px-4 py-3"
+        onClick={() => {
+          if (last) {
+            onNext();
+            return;
+          }
+          goTo(i + 1);
+        }}
+      >
+        {last ? "Continue" : "Next word"}
+      </button>
+    </div>,
+  );
+
   return (
-    <div className="flex flex-1 flex-col p-4 pb-[96px]">
+    <div className="flex flex-1 flex-col p-4">
       <div className="mb-3 flex items-center justify-between gap-3">
         <span className="text-[13px] text-neutral-700">{step.instructions ?? "Study each card, then move to the next word."}</span>
         <span className="label-xs whitespace-nowrap">
@@ -1019,32 +1046,6 @@ function VocabStepView({ step, onNext }: { step: VocabStep; onNext: (score?: Sco
             <VocabAiPractice key={w.term} word={w} />
           </div>
         )}
-      </div>
-
-      <div className="fixed inset-x-0 bottom-0 bg-bg">
-        <div className="divider-t mx-auto max-w-[480px] p-4 lg:max-w-[1560px]">
-          <div className="flex gap-0.5">
-            <button
-              className="btn btn-secondary flex-1 justify-center px-4 py-3"
-              disabled={i === 0}
-              onClick={() => goTo(Math.max(0, i - 1))}
-            >
-              Previous
-            </button>
-            <button
-              className="btn btn-primary flex-1 justify-center px-4 py-3"
-              onClick={() => {
-                if (last) {
-                  onNext();
-                  return;
-                }
-                goTo(i + 1);
-              }}
-            >
-              {last ? "Continue" : "Next word"}
-            </button>
-          </div>
-        </div>
       </div>
     </div>
   );

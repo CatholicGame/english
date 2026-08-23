@@ -13,7 +13,7 @@ export default function ModuleLayout({ children }: { children: React.ReactNode }
           here keeps this div's minimum from ever exceeding what's actually left
           below the header. --real-vh (not a bare vh unit) for the same zoom
           reason documented in AppHeader.tsx. */}
-      <div className="mx-auto flex min-h-[calc(var(--real-vh,100vh)-3rem)] w-full max-w-[480px] flex-col bg-bg lg:max-w-[1560px] lg:border-x-2 lg:border-[color:var(--color-divider)]">
+      <div className="mx-auto flex min-h-[calc(var(--real-vh,100vh)-3rem)] w-full max-w-[480px] flex-col bg-bg lg:max-w-[min(90vw,2400px)] lg:border-x-2 lg:border-[color:var(--color-divider)]">
         {children}
       </div>
     </ProgressProvider>

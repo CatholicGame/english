@@ -1281,7 +1281,7 @@ export function UnitClient({ slug }: { slug: string }) {
   // caused the double-scroll bug.
   return (
     <div className="fixed inset-0 z-[60] bg-bg">
-      <div className="mx-auto h-full max-w-[480px] lg:max-w-[1560px]">
+      <div className="mx-auto h-full max-w-[480px] lg:max-w-[min(90vw,2400px)]">
         <ActionBarScreen
           fullViewport
           header={
@@ -1318,7 +1318,7 @@ export function UnitClient({ slug }: { slug: string }) {
         >
           {showStepList && (
             <div className="fixed inset-0 z-[60] bg-bg">
-              <div className="mx-auto flex h-full max-w-[480px] flex-col lg:max-w-[1560px]">
+              <div className="mx-auto flex h-full max-w-[480px] flex-col lg:max-w-[min(90vw,2400px)]">
                 <div className="divider-b flex items-center justify-between px-4 py-3">
                   <span className="text-[16px] font-extrabold">{t("grammar.stepListTitle")}</span>
                   <button className="btn btn-ghost" onClick={() => setShowStepList(false)}>

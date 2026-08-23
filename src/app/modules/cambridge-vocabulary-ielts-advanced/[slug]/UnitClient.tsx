@@ -966,7 +966,7 @@ function VocabStepView({ step, onNext }: { step: VocabStep; onNext: (score?: Sco
   // Check with AI button" bug this replaces. useActionBar measures the real
   // height via ResizeObserver and reserves exactly that, every time.
   useActionBar(
-    <div className="mx-auto flex max-w-[480px] gap-0.5 lg:max-w-[1560px]">
+    <div className="mx-auto flex max-w-[480px] gap-0.5 lg:max-w-[min(90vw,2400px)]">
       <button className="btn btn-secondary flex-1 justify-center px-4 py-3" disabled={i === 0} onClick={() => goTo(Math.max(0, i - 1))}>
         Previous
       </button>
@@ -2094,7 +2094,7 @@ export function UnitClient({ slug }: { slug: string }) {
   // Practice overlay already uses successfully.
   return (
     <div className="fixed inset-0 z-[60] bg-bg">
-      <div className="mx-auto h-full max-w-[480px] lg:max-w-[1560px]">
+      <div className="mx-auto h-full max-w-[480px] lg:max-w-[min(90vw,2400px)]">
         <ActionBarScreen
           fullViewport
           header={
@@ -2140,7 +2140,7 @@ export function UnitClient({ slug }: { slug: string }) {
         >
           {showStepList && (
             <div className="fixed inset-0 z-[60] bg-bg">
-              <div className="mx-auto flex h-full max-w-[480px] flex-col lg:max-w-[1560px]">
+              <div className="mx-auto flex h-full max-w-[480px] flex-col lg:max-w-[min(90vw,2400px)]">
                 <div className="divider-b flex items-center justify-between px-4 py-3">
                   <span className="text-[16px] font-extrabold">Exercises in this unit</span>
                   <button className="btn btn-ghost" onClick={() => setShowStepList(false)}>

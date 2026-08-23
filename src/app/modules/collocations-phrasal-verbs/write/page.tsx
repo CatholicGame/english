@@ -549,7 +549,7 @@ export default function WritePage() {
   return (
     <>
       <div className="fixed inset-0 z-[60] bg-bg">
-        <div className="mx-auto h-full max-w-[480px] lg:max-w-[1560px]">
+        <div className="mx-auto h-full max-w-[480px] lg:max-w-[min(90vw,2400px)]">
           <ActionBarScreen
             fullViewport
             header={<div className="flex-none px-4 pt-4 pb-1 lg:px-6 lg:pt-6"><h1 className="text-[26px]">✍️ Write</h1></div>}
@@ -585,7 +585,7 @@ export default function WritePage() {
 
       {writing && (
         <div className="fixed inset-0 z-[60] bg-bg">
-          <div className="mx-auto h-full max-w-[480px] lg:max-w-[1560px]">
+          <div className="mx-auto h-full max-w-[480px] lg:max-w-[min(90vw,2400px)]">
             <ActionBarScreen
               fullViewport
               header={

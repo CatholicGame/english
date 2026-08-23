@@ -20,7 +20,7 @@ export function UnitClient({ slug }: { slug: string }) {
   if (!unit) {
     return (
       <div className="p-4">
-        <p className="text-[13px] text-neutral-600">Unit not found.</p>
+        <p className="text-[15px] text-neutral-600">Unit not found.</p>
         <button className="btn btn-ghost mt-3" onClick={() => router.push("/modules/idioms")}>
           All units
         </button>
@@ -59,7 +59,7 @@ export function UnitClient({ slug }: { slug: string }) {
         <div className="label-xs mt-2 text-accent">{unit.titleVi}</div>
         <div className="mt-3 flex items-baseline justify-between">
           <span className="label-xs">Đã học</span>
-          <span className="text-[11px] tabular-nums text-neutral-600">
+          <span className="text-[13px] tabular-nums text-neutral-600">
             {learned}/{items.length} từ · {pct}%
           </span>
         </div>
@@ -69,7 +69,7 @@ export function UnitClient({ slug }: { slug: string }) {
       </div>
 
       {items.length === 0 && (
-        <div className="px-4 py-8 text-[13px] text-neutral-600">
+        <div className="px-4 py-8 text-[15px] text-neutral-600">
           Nội dung unit này đang được soạn, vui lòng quay lại sau.
         </div>
       )}
@@ -84,8 +84,8 @@ export function UnitClient({ slug }: { slug: string }) {
               className="divider-b flex items-center gap-3 px-4 py-3 hover:bg-surface"
             >
               <span className="min-w-0 flex-1">
-                <span className="block text-[15px] font-extrabold leading-snug">{it.term}</span>
-                <span className="mt-0.5 block truncate text-[12px] text-neutral-600">{it.vi}</span>
+                <span className="block text-[17px] font-extrabold leading-snug">{it.term}</span>
+                <span className="mt-0.5 block truncate text-[14px] text-neutral-600">{it.vi}</span>
               </span>
               <span className="flex flex-none gap-0.5">
                 {[0, 1, 2, 3, 4].map((n) => (

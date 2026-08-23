@@ -38,7 +38,7 @@ export function DriveQuotaWarning() {
 
   return (
     <div
-      className="px-3 py-2 text-center text-[12px] font-bold"
+      className="px-3 py-2 text-center text-[14px] font-bold"
       style={{
         background: "var(--color-accent-100)",
         color: "var(--color-accent-800)",

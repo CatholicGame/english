@@ -83,7 +83,7 @@ export default function TodayPage() {
       <div className="divider-b px-4 py-4">
         <div className="mb-2 flex items-baseline justify-between">
           <span className="label-xs">Daily goal</span>
-          <span className="text-[12px] tabular-nums">
+          <span className="text-[14px] tabular-nums">
             {todayDone} / {DAILY_GOAL}
           </span>
         </div>
@@ -94,7 +94,7 @@ export default function TodayPage() {
           {week.map((d, i) => (
             <div key={i} className="flex flex-1 flex-col items-stretch gap-1.5">
               <div style={{ background: d.color, height: `${d.h}px` }} />
-              <span className="text-center text-[9px] tracking-wider text-neutral-600">{d.label}</span>
+              <span className="text-center text-[11px] tracking-wider text-neutral-600">{d.label}</span>
             </div>
           ))}
         </div>
@@ -102,7 +102,7 @@ export default function TodayPage() {
 
       <div className="divider-b px-4 py-4">
         <button
-          className="btn btn-primary btn-block px-4 py-3 text-[15px]"
+          className="btn btn-primary btn-block px-4 py-3 text-[17px]"
           onClick={() => router.push(`/modules/collocations-phrasal-verbs/run?mode=mix`)}
         >
           <span className="flex-1">Start review</span>
@@ -119,12 +119,12 @@ export default function TodayPage() {
             <path d="m12 5 7 7-7 7" />
           </svg>
         </button>
-        <div className="mt-2 text-[11px] text-neutral-600">{due} phrases still to master</div>
+        <div className="mt-2 text-[13px] text-neutral-600">{due} phrases still to master</div>
 
         {hasMistakes && (
           <div className="mt-3">
             <button
-              className="btn btn-accent btn-block px-4 py-2.5 text-[13px]"
+              className="btn btn-accent btn-block px-4 py-2.5 text-[15px]"
               onClick={() => {
                 router.push(`/modules/collocations-phrasal-verbs/run?mode=mix&mistakes=1`);
               }}
@@ -147,8 +147,8 @@ export default function TodayPage() {
             className="bg-bg p-4 text-left hover:bg-surface"
             onClick={() => router.push(`/modules/collocations-phrasal-verbs/run?mode=${m.mode}`)}
           >
-            <span className="block text-[15px] font-extrabold">{m.title}</span>
-            <span className="mt-1 block text-[11px] text-neutral-600">{m.sub}</span>
+            <span className="block text-[17px] font-extrabold">{m.title}</span>
+            <span className="mt-1 block text-[13px] text-neutral-600">{m.sub}</span>
           </button>
         ))}
       </div>

@@ -35,8 +35,8 @@ export default async function SharedConversationPage({ params }: Props) {
   if (!data) {
     return (
       <main className="flex flex-1 flex-col items-center justify-center gap-2 p-6 text-center">
-        <p className="text-[14px] font-extrabold">Link không hợp lệ hoặc đã hỏng</p>
-        <p className="text-[12px] text-neutral-500">Nội dung được chia sẻ không thể đọc được.</p>
+        <p className="text-[16px] font-extrabold">Link không hợp lệ hoặc đã hỏng</p>
+        <p className="text-[14px] text-neutral-500">Nội dung được chia sẻ không thể đọc được.</p>
       </main>
     );
   }
@@ -47,7 +47,7 @@ export default async function SharedConversationPage({ params }: Props) {
         <span className="label-xs text-neutral-500">
           {INTENT_LABELS[data.intent] || data.intent} · {fmtDate(data.sharedAt)}
         </span>
-        <h1 className="text-[16px] font-extrabold">{data.itemLabel}</h1>
+        <h1 className="text-[18px] font-extrabold">{data.itemLabel}</h1>
       </div>
       {data.feedback ? (
         <ConversationFeedback messages={data.messages} feedback={data.feedback} />
@@ -56,7 +56,7 @@ export default async function SharedConversationPage({ params }: Props) {
           {data.messages.map((m, i) => (
             <div
               key={i}
-              className="max-w-[92%] rounded p-2.5 text-[13px] leading-relaxed"
+              className="max-w-[92%] rounded p-2.5 text-[15px] leading-relaxed"
               style={{
                 background: m.role === "user" ? "var(--color-accent-100)" : "var(--color-surface)",
                 alignSelf: m.role === "user" ? "flex-end" : "flex-start",
@@ -70,7 +70,7 @@ export default async function SharedConversationPage({ params }: Props) {
           ))}
         </div>
       )}
-      <p className="mt-2 border-t pt-2 text-center text-[11px] text-neutral-400" style={{ borderColor: "var(--color-divider)" }}>
+      <p className="mt-2 border-t pt-2 text-center text-[13px] text-neutral-400" style={{ borderColor: "var(--color-divider)" }}>
         Shared from Vocabulary Builder Pro
       </p>
     </main>

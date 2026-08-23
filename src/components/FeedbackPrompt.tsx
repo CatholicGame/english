@@ -52,12 +52,12 @@ export function FeedbackPrompt() {
 
   return (
     <Modal onClose={notNow}>
-      <h2 className="text-center text-[17px] font-extrabold">{t("reviews.prompt.title")}</h2>
-      <p className="mt-1 text-center text-[13px] text-neutral-600">{t("reviews.prompt.body")}</p>
+      <h2 className="text-center text-[19px] font-extrabold">{t("reviews.prompt.title")}</h2>
+      <p className="mt-1 text-center text-[15px] text-neutral-600">{t("reviews.prompt.body")}</p>
       <div className="mt-4">
         <ReviewForm initial={null} defaultName={user?.name} onSubmitted={submitted} />
       </div>
-      <button type="button" className="btn btn-ghost mt-3 w-full text-center text-[12px] text-neutral-500" onClick={neverAgain}>
+      <button type="button" className="btn btn-ghost mt-3 w-full text-center text-[14px] text-neutral-500" onClick={neverAgain}>
         {t("reviews.neverAgain")}
       </button>
     </Modal>

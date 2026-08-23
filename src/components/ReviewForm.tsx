@@ -54,8 +54,8 @@ export function ReviewForm({ initial, defaultName, onSubmitted }: Props) {
   if (done) {
     return (
       <div className="text-center">
-        <p className="text-[15px] font-extrabold">{t("reviews.thanks")}</p>
-        <button type="button" className="btn btn-ghost mt-2 text-[13px]" onClick={() => setDone(false)}>
+        <p className="text-[17px] font-extrabold">{t("reviews.thanks")}</p>
+        <button type="button" className="btn btn-ghost mt-2 text-[15px]" onClick={() => setDone(false)}>
           {t("reviews.editAgain")}
         </button>
       </div>
@@ -81,7 +81,7 @@ export function ReviewForm({ initial, defaultName, onSubmitted }: Props) {
           placeholder={t("reviews.commentPlaceholder")}
         />
       </div>
-      {error && <p className="text-[13px] text-accent-700">{error}</p>}
+      {error && <p className="text-[15px] text-accent-700">{error}</p>}
       <button
         type="button"
         className="btn btn-primary w-full max-w-[320px] disabled:opacity-40"

@@ -127,22 +127,22 @@ function HomePageContent() {
     <div className="mx-auto flex min-h-screen w-full max-w-[480px] flex-col bg-bg lg:max-w-[min(90vw,2400px)] lg:border-x-2 lg:border-[color:var(--color-divider)]">
       <div className="divider-b px-4 py-6">
         <h1 className="text-[30px]">Vocabulary Builder Pro</h1>
-        <p className="mt-1 text-[13px] text-neutral-600">Choose a topic to start practicing.</p>
+        <p className="mt-1 text-[15px] text-neutral-600">Choose a topic to start practicing.</p>
       </div>
 
       {paymentStatus !== "idle" && (
-        <div className="divider-b bg-accent-100 px-4 py-2.5 text-[12px] font-bold text-accent-800">
+        <div className="divider-b bg-accent-100 px-4 py-2.5 text-[14px] font-bold text-accent-800">
           {t(`pay.${paymentStatus}`)}
         </div>
       )}
 
       {trialDaysLeft > 0 && (
         <div className="divider-b flex items-center justify-between gap-3 bg-accent-100 px-4 py-2.5">
-          <span className="text-[12px] font-bold text-accent-800">
+          <span className="text-[14px] font-bold text-accent-800">
             {t("home.trialLeft", { n: trialDaysLeft })}
           </span>
           <button
-            className="btn btn-primary flex-none px-3 py-1.5 text-[11px]"
+            className="btn btn-primary flex-none px-3 py-1.5 text-[13px]"
             onClick={() => setShowPurchase(true)}
           >
             {t("home.viewPlans")}
@@ -170,7 +170,7 @@ function HomePageContent() {
           {dashboard.weekBars.map((bar, i) => (
             <div key={i} className="flex flex-1 flex-col items-stretch gap-1">
               <div style={{ background: bar.color, height: `${bar.h}px` }} />
-              <span className="text-center text-[9px] tracking-wider text-neutral-600">{bar.label}</span>
+              <span className="text-center text-[11px] tracking-wider text-neutral-600">{bar.label}</span>
             </div>
           ))}
         </div>
@@ -187,21 +187,21 @@ function HomePageContent() {
                 className="block border border-transparent bg-surface p-4 transition-colors hover:border-accent"
               >
                 <div className="flex items-baseline justify-between gap-3">
-                  <h2 className="text-[19px]">{m.title}</h2>
+                  <h2 className="text-[21px]">{m.title}</h2>
                   <span className="label-xs whitespace-nowrap text-accent">{m.subtitle}</span>
                 </div>
-                <p className="mt-2 text-[13px] leading-relaxed text-neutral-700">{m.description}</p>
-                <div className="mt-3 text-[11px] font-bold text-accent-800">
+                <p className="mt-2 text-[15px] leading-relaxed text-neutral-700">{m.description}</p>
+                <div className="mt-3 text-[13px] font-bold text-accent-800">
                   {moduleStatLabel(m.slug, dashboard, t) ?? m.statsLabel}
                 </div>
               </Link>
             ) : (
               <div key={m.slug} className="border border-dashed border-neutral-400 p-4 opacity-60">
                 <div className="flex items-baseline justify-between gap-3">
-                  <h2 className="text-[19px]">{m.title}</h2>
+                  <h2 className="text-[21px]">{m.title}</h2>
                   <span className="label-xs whitespace-nowrap">Soon</span>
                 </div>
-                <p className="mt-2 text-[13px] leading-relaxed text-neutral-700">{m.description}</p>
+                <p className="mt-2 text-[15px] leading-relaxed text-neutral-700">{m.description}</p>
               </div>
             ),
           )}

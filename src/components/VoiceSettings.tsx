@@ -33,7 +33,7 @@ export function VoiceSettings() {
     <div className="px-3 py-2">
       <div className="label-xs mb-1.5">{t("settings.voice")}</div>
       <select
-        className="input text-[13px]"
+        className="input text-[15px]"
         value={selected}
         onChange={(e) => handleChange(e.target.value)}
       >

@@ -172,7 +172,7 @@ function Reveal({
             aria-expanded={shown}
             aria-label={altTitle}
             title={altTitle}
-            className="mx-1 inline-block -translate-y-px rounded px-1 py-px align-middle text-[10px] font-extrabold"
+            className="mx-1 inline-block -translate-y-px rounded px-1 py-px align-middle text-[12px] font-extrabold"
             style={
               shown
                 ? { background: "var(--color-accent)", color: "var(--color-bg)" }
@@ -181,7 +181,7 @@ function Reveal({
           >
             {altLabel}
           </button>
-          {shown && <span className="mt-0.5 block text-[12.5px] text-neutral-500 italic">{renderRich(alt)}</span>}
+          {shown && <span className="mt-0.5 block text-[14.5px] text-neutral-500 italic">{renderRich(alt)}</span>}
         </>
       )}
     </span>
@@ -222,7 +222,7 @@ function RuleTableView({ table }: { table: RuleTable }) {
     return (
       <div className="border-l-2 pl-3" style={{ borderColor: "var(--color-accent-300)" }}>
         {table.rows.map((row, i) => (
-          <div key={i} className={`flex flex-wrap gap-x-3 text-[13.5px] leading-relaxed ${i > 0 ? "mt-1" : ""}`}>
+          <div key={i} className={`flex flex-wrap gap-x-3 text-[15.5px] leading-relaxed ${i > 0 ? "mt-1" : ""}`}>
             <span className="min-w-[110px] flex-none text-neutral-500">{renderRich(row[0])}</span>
             <span className="min-w-0 flex-1">{renderRich(row[1])}</span>
           </div>
@@ -235,7 +235,7 @@ function RuleTableView({ table }: { table: RuleTable }) {
       className="overflow-hidden overflow-x-auto rounded-md border"
       style={{ borderColor: "var(--color-accent-300)", background: "var(--color-accent-100)" }}
     >
-      <table className="w-full border-collapse text-[13px]">
+      <table className="w-full border-collapse text-[15px]">
         {table.headers && (
           <thead>
             <tr>
@@ -280,12 +280,12 @@ function RuleSituationView({ part }: { part: RuleSituation }) {
   const quote = (q: { text: string; vi?: string }) => ruleLine("book", q.text, q.vi, lang, original);
   return (
     <div className="rounded-lg border p-3" style={{ borderColor: "var(--color-divider)", background: "var(--color-bg)" }}>
-      <Explanation en={part.text} vi={part.vi} className="block text-[13.5px] leading-relaxed text-neutral-700" />
+      <Explanation en={part.text} vi={part.vi} className="block text-[15.5px] leading-relaxed text-neutral-700" />
       {part.quotes?.map((q, i) => (
         <div key={i} className="mt-2.5">
           {q.speaker && <span className="label-xs mb-0.5 block text-neutral-500">{q.speaker}</span>}
           <div
-            className="relative inline-block rounded-xl border px-3 py-2 text-[13.5px] leading-relaxed"
+            className="relative inline-block rounded-xl border px-3 py-2 text-[15.5px] leading-relaxed"
             style={{ borderColor: "var(--color-accent-300)", background: "var(--color-accent-100)", color: "var(--color-accent-800)" }}
           >
             <Reveal alt={quote(q).alt} altLabel="VI" altTitle={t("grammar.showViLine")}>
@@ -310,7 +310,7 @@ function RuleExamplesView({ part }: { part: RuleExamples }) {
       )}
       <ul className="flex flex-col gap-1.5">
         {part.items.map((ex, j) => (
-          <li key={j} className="border-l-2 border-neutral-300 pl-2.5 text-[13.5px]">
+          <li key={j} className="border-l-2 border-neutral-300 pl-2.5 text-[15.5px]">
             <BookSentence example={ex} />
           </li>
         ))}
@@ -324,7 +324,7 @@ function RulePartView({ part }: { part: RulePart }) {
     case "situation":
       return <RuleSituationView part={part} />;
     case "text":
-      return <Explanation en={part.text} vi={part.vi} className="block text-[13.5px] leading-relaxed text-neutral-700" />;
+      return <Explanation en={part.text} vi={part.vi} className="block text-[15.5px] leading-relaxed text-neutral-700" />;
     case "table":
       return <RuleTableView table={part.table} />;
     case "words":
@@ -333,7 +333,7 @@ function RulePartView({ part }: { part: RulePart }) {
           {part.words.map((w, k) => (
             <span
               key={k}
-              className="rounded-full border px-2.5 py-1 text-[12px]"
+              className="rounded-full border px-2.5 py-1 text-[14px]"
               style={{ borderColor: "var(--color-divider)", color: "var(--color-neutral-700)" }}
             >
               {w}
@@ -355,12 +355,12 @@ function RuleBlockView({ block: b }: { block: RuleBlock }) {
       {(b.label || b.heading) && (
         <div className="flex items-center gap-2 px-3 py-2" style={{ background: "var(--color-accent)" }}>
           {b.label && (
-            <span className="flex h-5 w-5 flex-none items-center justify-center rounded-full bg-white/25 text-[12px] font-extrabold text-white">
+            <span className="flex h-5 w-5 flex-none items-center justify-center rounded-full bg-white/25 text-[14px] font-extrabold text-white">
               {b.label}
             </span>
           )}
           {b.heading && (
-            <span className="text-[14px] leading-snug font-extrabold text-white">
+            <span className="text-[16px] leading-snug font-extrabold text-white">
               {loc(b.heading, b.headingEn, original ? "en" : lang)}
             </span>
           )}
@@ -368,7 +368,7 @@ function RuleBlockView({ block: b }: { block: RuleBlock }) {
       )}
       <div className="flex flex-col gap-2.5 p-3">
         {b.intro && (
-          <Explanation en={b.intro} vi={b.introVi} className="block text-[12.5px] font-bold text-neutral-500" />
+          <Explanation en={b.intro} vi={b.introVi} className="block text-[14.5px] font-bold text-neutral-500" />
         )}
         {b.parts.map((part, i) => (
           <RulePartView key={i} part={part} />
@@ -392,7 +392,7 @@ function RuleLangToggle() {
           key={String(value)}
           onClick={() => setShowOriginal(value)}
           aria-pressed={original === value}
-          className="rounded-full border px-2.5 py-1 text-[11px] font-bold"
+          className="rounded-full border px-2.5 py-1 text-[13px] font-bold"
           style={
             original === value
               ? { borderColor: "var(--color-accent)", background: "var(--color-accent-100)", color: "var(--color-accent-800)" }
@@ -449,13 +449,13 @@ function ExerciseHeader({ step, onPickWord }: { step: ChromeStep; onPickWord?: (
   const passage = loc(step.passage ?? "", step.passageEn, lang);
   return (
     <div className="mb-4">
-      <h2 className="text-[15px] leading-snug font-extrabold">{loc(step.title, step.titleEn, lang)}</h2>
-      <p className="mt-1 text-[13px] leading-relaxed text-neutral-600">
+      <h2 className="text-[17px] leading-snug font-extrabold">{loc(step.title, step.titleEn, lang)}</h2>
+      <p className="mt-1 text-[15px] leading-relaxed text-neutral-600">
         {renderRich(loc(step.instructions, step.instructionsEn, lang))}
       </p>
       {passage && (
         <div
-          className="mt-3 rounded-md border-l-[3px] bg-surface px-3 py-2.5 text-[13px] leading-relaxed"
+          className="mt-3 rounded-md border-l-[3px] bg-surface px-3 py-2.5 text-[15px] leading-relaxed"
           style={{ borderColor: "var(--color-accent)" }}
         >
           <span className="label-xs mb-1 block text-neutral-500">{t("grammar.reading")}</span>
@@ -478,7 +478,7 @@ function ExerciseHeader({ step, onPickWord }: { step: ChromeStep; onPickWord?: (
                 <button
                   key={w}
                   onClick={() => onPickWord(w)}
-                  className="rounded-full border bg-surface px-2.5 py-1 text-[12.5px] font-bold"
+                  className="rounded-full border bg-surface px-2.5 py-1 text-[14.5px] font-bold"
                   style={{ borderColor: "var(--color-accent-300)" }}
                 >
                   {w}
@@ -486,7 +486,7 @@ function ExerciseHeader({ step, onPickWord }: { step: ChromeStep; onPickWord?: (
               ) : (
                 <span
                   key={w}
-                  className="rounded-full border bg-surface px-2.5 py-1 text-[12.5px] font-bold"
+                  className="rounded-full border bg-surface px-2.5 py-1 text-[14.5px] font-bold"
                   style={{ borderColor: "var(--color-accent-300)" }}
                 >
                   {w}
@@ -494,7 +494,7 @@ function ExerciseHeader({ step, onPickWord }: { step: ChromeStep; onPickWord?: (
               ),
             )}
           </div>
-          {onPickWord && <p className="mt-1.5 text-[11px] text-neutral-500">{t("grammar.wordBankHint")}</p>}
+          {onPickWord && <p className="mt-1.5 text-[13px] text-neutral-500">{t("grammar.wordBankHint")}</p>}
         </div>
       )}
     </div>
@@ -517,7 +517,7 @@ function ItemRow({ label, tone = "idle", children }: { label: string; tone?: Ite
   return (
     <div className="flex gap-2.5 py-1.5">
       <span
-        className="mt-[3px] flex h-[22px] min-w-[22px] flex-none items-center justify-center rounded-full px-1 text-[11px] font-extrabold tabular-nums"
+        className="mt-[3px] flex h-[22px] min-w-[22px] flex-none items-center justify-center rounded-full px-1 text-[13px] font-extrabold tabular-nums"
         style={TONE_BADGE[tone]}
       >
         {label}
@@ -535,13 +535,13 @@ function PromptLine({ prompt, renderBlank }: { prompt: string; renderBlank?: (bl
   const parts = prompt.split("___");
   const gaps = parts.length - 1;
   return (
-    <span className="text-[14px] leading-relaxed">
+    <span className="text-[16px] leading-relaxed">
       {parts.map((part, i) => (
         <span key={i}>
           {i > 0 &&
             (renderBlank?.(i - 1) ?? (
               <span
-                className="mx-1 inline-block w-[72px] border-b-2 border-dashed text-center align-middle text-[10px] leading-[14px] font-extrabold text-accent"
+                className="mx-1 inline-block w-[72px] border-b-2 border-dashed text-center align-middle text-[12px] leading-[14px] font-extrabold text-accent"
                 style={{ borderColor: "var(--color-accent-300)" }}
               >
                 {gaps > 1 ? i : ""}
@@ -572,7 +572,7 @@ function YourAnswer({ text, label }: { text: string | null; label?: number }) {
   const { t } = useUiLang();
   if (!text?.trim()) return null;
   return (
-    <div className="mt-0.5 text-[12px] text-neutral-500">
+    <div className="mt-0.5 text-[14px] text-neutral-500">
       {label != null && <span className="mr-1 font-extrabold">{label}</span>}
       {t("grammar.yourAnswer")} <span className="line-through">{text}</span>
     </div>
@@ -601,7 +601,7 @@ function ContextGroup({ of, children }: { of: Contextual; children: React.ReactN
   if (!of.context) return <>{children}</>;
   return (
     <div className="mb-3 overflow-hidden rounded-lg border" style={{ borderColor: "var(--color-divider)" }}>
-      <p className="bg-surface px-3 py-2 text-[13px] leading-relaxed text-neutral-700">
+      <p className="bg-surface px-3 py-2 text-[15px] leading-relaxed text-neutral-700">
         {renderRich(loc(of.context, of.contextEn, lang))}
       </p>
       <div className="px-3 py-1.5">{children}</div>
@@ -656,7 +656,7 @@ function PracticeFooter({
     return (
       <>
         {total != null && done != null && (
-          <div className="mb-1.5 text-center text-[11px] tabular-nums text-neutral-500">
+          <div className="mb-1.5 text-center text-[13px] tabular-nums text-neutral-500">
             {t("grammar.filledCount", { done, total })}
           </div>
         )}
@@ -669,7 +669,7 @@ function PracticeFooter({
   return (
     <>
       {correct != null && total != null && (
-        <div className="mb-1.5 flex items-center justify-center gap-1.5 text-[12px]">
+        <div className="mb-1.5 flex items-center justify-center gap-1.5 text-[14px]">
           <span className="label-xs text-neutral-500">{t("grammar.result")}</span>
           <span className="font-extrabold text-accent">{t("grammar.scoreCorrect", { correct, total })}</span>
         </div>
@@ -749,7 +749,7 @@ function FillMcStepView({ step, onNext }: { step: FillMcStep; onNext: (score?: S
                         return (
                           <button
                             key={o}
-                            className="rounded-full border px-3 py-1.5 text-[13px] font-bold"
+                            className="rounded-full border px-3 py-1.5 text-[15px] font-bold"
                             style={{
                               borderColor: isPicked ? "var(--color-accent)" : "var(--color-divider)",
                               background: isPicked ? "var(--color-accent-100)" : "var(--color-surface)",
@@ -842,7 +842,7 @@ function MatchPairsStepView({ step, onNext }: { step: MatchPairsStep; onNext: (s
               key={i}
               disabled={doneLeft[i] !== undefined}
               style={styleFor("l", i)}
-              className="rounded-md border px-2.5 py-2 text-left text-[12.5px] leading-snug"
+              className="rounded-md border px-2.5 py-2 text-left text-[14.5px] leading-snug"
               onClick={() => pick("l", i)}
             >
               <span className="mr-1.5 opacity-60">{i + 1}</span>
@@ -856,7 +856,7 @@ function MatchPairsStepView({ step, onNext }: { step: MatchPairsStep; onNext: (s
               key={i}
               disabled={matchedRight.has(i)}
               style={styleFor("r", i)}
-              className="rounded-md border px-2.5 py-2 text-left text-[12.5px] leading-snug"
+              className="rounded-md border px-2.5 py-2 text-left text-[14.5px] leading-snug"
               onClick={() => pick("r", i)}
             >
               <span className="mr-1.5 opacity-60">{QUIZ_LETTERS_LOWER[i]}</span>
@@ -947,7 +947,7 @@ function TypeFillStepView({ step, onNext }: { step: TypeFillStep; onNext: (score
                   {!checked &&
                     row.map((_, j) => (
                       <div key={j} className="mt-1 flex items-center gap-1.5">
-                        {row.length > 1 && <span className="w-3 flex-none text-[11px] font-extrabold text-accent">{j + 1}</span>}
+                        {row.length > 1 && <span className="w-3 flex-none text-[13px] font-extrabold text-accent">{j + 1}</span>}
                         <input
                           className="input flex-1"
                           value={inputs[i][j]}
@@ -1017,7 +1017,7 @@ function JudgeCorrectStepView({ step, onNext }: { step: JudgeCorrectStep; onNext
           const tone: ItemTone = !checked ? "idle" : ok ? "correct" : "wrong";
           return (
             <ItemRow key={i} label={it.label ?? String(startNumber + i)} tone={tone}>
-              <div className="text-[14px] leading-relaxed">
+              <div className="text-[16px] leading-relaxed">
                 {parts[0]}
                 <span
                   className="font-extrabold underline decoration-2 underline-offset-2"
@@ -1037,7 +1037,7 @@ function JudgeCorrectStepView({ step, onNext }: { step: JudgeCorrectStep; onNext
                     return (
                       <button
                         key={opt.label}
-                        className="rounded-full border px-3 py-1 text-[12px] font-bold"
+                        className="rounded-full border px-3 py-1 text-[14px] font-bold"
                         style={{
                           borderColor: picked ? "var(--color-accent)" : "var(--color-divider)",
                           background: picked ? "var(--color-accent-100)" : "var(--color-surface)",
@@ -1060,7 +1060,7 @@ function JudgeCorrectStepView({ step, onNext }: { step: JudgeCorrectStep; onNext
                 />
               )}
               {checked && (
-                <div className="mt-1 text-[12.5px]">
+                <div className="mt-1 text-[14.5px]">
                   {it.ok ? (
                     <span className="text-neutral-500">{t("grammar.alreadyCorrect")}</span>
                   ) : (
@@ -1164,7 +1164,7 @@ function AiPracticeStepView({
         </div>
       )}
       {result != null && xpEarned != null && (
-        <div className="mt-2 text-[13px] font-extrabold text-accent">+{xpEarned} XP</div>
+        <div className="mt-2 text-[15px] font-extrabold text-accent">+{xpEarned} XP</div>
       )}
       {inlineAction}
     </div>
@@ -1207,7 +1207,7 @@ export function UnitClient({ slug }: { slug: string }) {
   if (!unit) {
     return (
       <div className="p-4">
-        <p className="text-[13px] text-neutral-600">{t("grammar.unitNotFound")}</p>
+        <p className="text-[15px] text-neutral-600">{t("grammar.unitNotFound")}</p>
         <button className="btn btn-ghost mt-3" onClick={() => router.push("/modules/english-grammar-in-use")}>
           {t("grammar.allUnits")}
         </button>
@@ -1256,7 +1256,7 @@ export function UnitClient({ slug }: { slug: string }) {
           <div className="label-xs text-accent">{t("grammar.unitComplete")}</div>
           <div className="mt-2 text-[30px] leading-tight font-extrabold">{unit.title}</div>
           <div className="mt-3 text-[64px] leading-[0.95] font-extrabold tracking-tight">{pct}%</div>
-          <div className="mt-2 text-[13px] text-neutral-600">
+          <div className="mt-2 text-[15px] text-neutral-600">
             {sub} {t("grammar.correctInPractice", { correct: tally.correct, total: tally.total })}
           </div>
         </div>
@@ -1294,7 +1294,7 @@ export function UnitClient({ slug }: { slug: string }) {
                   <div className="h-full bg-accent" style={{ width: `${((stepIndex + 1) / steps.length) * 100}%` }} />
                 </div>
                 <button
-                  className="flex flex-none items-center gap-1 text-[11px] tabular-nums text-neutral-600 hover:text-accent"
+                  className="flex flex-none items-center gap-1 text-[13px] tabular-nums text-neutral-600 hover:text-accent"
                   onClick={() => setShowStepList(true)}
                   aria-label={t("grammar.stepListAria")}
                 >
@@ -1307,7 +1307,7 @@ export function UnitClient({ slug }: { slug: string }) {
                   Unit {unit.unit} · {unit.title} · {stepKindLabel(step.kind, t)}
                 </span>
                 <button
-                  className="btn btn-ghost flex-none px-0 text-[11px]"
+                  className="btn btn-ghost flex-none px-0 text-[13px]"
                   onClick={() => router.push("/modules/english-grammar-in-use")}
                 >
                   {t("grammar.exit")}
@@ -1320,7 +1320,7 @@ export function UnitClient({ slug }: { slug: string }) {
             <div className="fixed inset-0 z-[60] bg-bg">
               <div className="mx-auto flex h-full max-w-[480px] flex-col lg:max-w-[min(90vw,2400px)]">
                 <div className="divider-b flex items-center justify-between px-4 py-3">
-                  <span className="text-[16px] font-extrabold">{t("grammar.stepListTitle")}</span>
+                  <span className="text-[18px] font-extrabold">{t("grammar.stepListTitle")}</span>
                   <button className="btn btn-ghost" onClick={() => setShowStepList(false)}>
                     {t("grammar.close")}
                   </button>
@@ -1340,7 +1340,7 @@ export function UnitClient({ slug }: { slug: string }) {
                       >
                         <span className="label-xs w-6 flex-none text-neutral-600">{i + 1}</span>
                         <span className="flex-1">
-                          <span className="block text-[14px] font-extrabold">{loc(s.title, s.titleEn, lang)}</span>
+                          <span className="block text-[16px] font-extrabold">{loc(s.title, s.titleEn, lang)}</span>
                           <span className="label-xs mt-0.5 block text-neutral-600">{stepKindLabel(s.kind, t)}</span>
                         </span>
                         {done && (

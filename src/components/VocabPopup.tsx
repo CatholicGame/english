@@ -99,7 +99,7 @@ export function VocabPopup({ word, context, onClose }: Props) {
   return (
     <Modal onClose={onClose}>
       {loading || !result ? (
-        <p className="text-[13px] text-neutral-600 animate-pulse">Đang tra &quot;{word}&quot;...</p>
+        <p className="text-[15px] text-neutral-600 animate-pulse">Đang tra &quot;{word}&quot;...</p>
       ) : result.type === "translation" ? (
         <TranslationDetail
           text={result.data.text}

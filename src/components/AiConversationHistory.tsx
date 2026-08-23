@@ -40,10 +40,10 @@ function KeyVocab({ vocab }: { vocab: { word: string; vi: string }[] }) {
   return (
     <div className="mt-2 flex flex-wrap gap-1.5">
       {vocab.map((v, i) => (
-        <span key={i} className="rounded border px-2 py-1 text-[11px] font-bold leading-tight"
+        <span key={i} className="rounded border px-2 py-1 text-[13px] font-bold leading-tight"
           style={{ borderColor: "var(--color-accent-800)", color: "var(--color-accent-800)" }}>
           <span className="block">📖 {v.word}</span>
-          {v.vi && <span className="block text-[10px] font-normal opacity-80">{v.vi}</span>}
+          {v.vi && <span className="block text-[12px] font-normal opacity-80">{v.vi}</span>}
         </span>
       ))}
     </div>
@@ -74,13 +74,13 @@ export function BatchReviewContent({ data }: { data: Record<string, unknown> }) 
           <div key={i} className="flex items-start gap-1.5">
             <span>{r.ok ? "✅" : "❌"}</span>
             <div>
-              {src?.vi && <p className="text-[11px] text-neutral-500">{src.vi}</p>}
+              {src?.vi && <p className="text-[13px] text-neutral-500">{src.vi}</p>}
               {src?.user && <p className="italic">Your: {src.user}</p>}
               {r.feedback && <p>{r.feedback}</p>}
               {r.corrected && (
                 <p className="flex flex-wrap items-center gap-1.5 italic text-accent-800">
                   <span>→ {r.corrected}</span>
-                  <CopyButton text={r.corrected} className="rounded-full border px-2 py-0.5 text-[11px] font-bold not-italic" style={{ borderColor: "var(--color-accent-800)", color: "var(--color-accent-800)" }} />
+                  <CopyButton text={r.corrected} className="rounded-full border px-2 py-0.5 text-[13px] font-bold not-italic" style={{ borderColor: "var(--color-accent-800)", color: "var(--color-accent-800)" }} />
                 </p>
               )}
             </div>
@@ -89,7 +89,7 @@ export function BatchReviewContent({ data }: { data: Record<string, unknown> }) 
       })}
       {overall && <p className="mt-1 border-t pt-1.5" style={{ borderColor: "var(--color-divider)" }}>{overall}</p>}
       {(best != null || needsWork != null) && (
-        <p className="text-[11px]">
+        <p className="text-[13px]">
           {best != null && <>⭐ Best: #{best + 1}&nbsp;&nbsp;</>}
           {needsWork != null && <>⚠️ Work on: #{needsWork + 1}</>}
         </p>
@@ -98,14 +98,14 @@ export function BatchReviewContent({ data }: { data: Record<string, unknown> }) 
       {((usedPhrases && usedPhrases.length > 0) || (missedPhrases && missedPhrases.length > 0)) && (
         <div className="mt-1 flex flex-wrap gap-1.5">
           {usedPhrases?.map((p, i) => (
-            <span key={`used-${i}`} className="rounded-full border px-2 py-0.5 text-[11px] font-bold" style={{ borderColor: "var(--color-accent)", color: "var(--color-accent)" }}>✅ {p}</span>
+            <span key={`used-${i}`} className="rounded-full border px-2 py-0.5 text-[13px] font-bold" style={{ borderColor: "var(--color-accent)", color: "var(--color-accent)" }}>✅ {p}</span>
           ))}
           {missedPhrases?.map((p, i) => (
-            <span key={`missed-${i}`} className="rounded-full border px-2 py-0.5 text-[11px] font-bold text-neutral-500" style={{ borderColor: "var(--color-divider)" }}>— {p}</span>
+            <span key={`missed-${i}`} className="rounded-full border px-2 py-0.5 text-[13px] font-bold text-neutral-500" style={{ borderColor: "var(--color-divider)" }}>— {p}</span>
           ))}
         </div>
       )}
-      {xpEarned != null && <p className="text-[11px] font-extrabold text-accent">+{xpEarned} XP</p>}
+      {xpEarned != null && <p className="text-[13px] font-extrabold text-accent">+{xpEarned} XP</p>}
     </div>
   );
 }
@@ -126,11 +126,11 @@ function SentenceCheckContent({ data }: { data: Record<string, unknown> }) {
       {correction && (
         <p className="flex flex-wrap items-center gap-1.5 italic text-accent-800">
           <span>→ {correction}</span>
-          <CopyButton text={correction} className="rounded-full border px-2 py-0.5 text-[11px] font-bold not-italic" style={{ borderColor: "var(--color-accent-800)", color: "var(--color-accent-800)" }} />
+          <CopyButton text={correction} className="rounded-full border px-2 py-0.5 text-[13px] font-bold not-italic" style={{ borderColor: "var(--color-accent-800)", color: "var(--color-accent-800)" }} />
         </p>
       )}
-      {tip && <p className="text-[11px]">💡 {tip}</p>}
-      {alternative && <p className="text-[11px]">📝 {alternative}</p>}
+      {tip && <p className="text-[13px]">💡 {tip}</p>}
+      {alternative && <p className="text-[13px]">📝 {alternative}</p>}
       {vocab && vocab.length > 0 && <KeyVocab vocab={vocab} />}
     </div>
   );
@@ -159,7 +159,7 @@ function GrammarAnalysisContent({ data }: { data: Record<string, unknown> }) {
       {category && <p className="font-extrabold text-accent-800">📐 {category}</p>}
       {explanation && <p>{explanation}</p>}
       {example && (
-        <p className="text-[11px] text-neutral-600">
+        <p className="text-[13px] text-neutral-600">
           {example.en} — {example.vi}
         </p>
       )}
@@ -185,14 +185,14 @@ function QuizReviewContent({ data }: { data: Record<string, unknown> }) {
         const correct = picked != null && picked === q.answerIndex;
         return (
           <div key={i} className="rounded border p-2" style={{ borderColor: "var(--color-divider)" }}>
-            <p className="text-[12px] font-extrabold">
+            <p className="text-[14px] font-extrabold">
               {i + 1}. {q.question} {picked != null && (correct ? "✅" : "❌")}
             </p>
             <div className="mt-1 flex flex-col gap-0.5">
               {q.options.map((opt, oi) => (
                 <p
                   key={oi}
-                  className="text-[11px]"
+                  className="text-[13px]"
                   style={{
                     color: oi === q.answerIndex ? "var(--color-accent)" : picked === oi ? "var(--color-accent-800)" : "var(--color-neutral-600)",
                   }}
@@ -201,14 +201,14 @@ function QuizReviewContent({ data }: { data: Record<string, unknown> }) {
                 </p>
               ))}
             </div>
-            {q.explanation && <p className="mt-1 text-[11px] text-neutral-500">{q.explanation}</p>}
+            {q.explanation && <p className="mt-1 text-[13px] text-neutral-500">{q.explanation}</p>}
           </div>
         );
       })}
       {score != null && total != null && (
-        <p className="text-[12px] font-extrabold">Score: {score}/{total}</p>
+        <p className="text-[14px] font-extrabold">Score: {score}/{total}</p>
       )}
-      {xpEarned != null && <p className="text-[11px] font-extrabold text-accent">+{xpEarned} XP</p>}
+      {xpEarned != null && <p className="text-[13px] font-extrabold text-accent">+{xpEarned} XP</p>}
     </div>
   );
 }
@@ -225,7 +225,7 @@ function WritingPassageContent({ data }: { data: Record<string, unknown> }) {
       {terms.length > 0 && (
         <div className="flex flex-wrap gap-1.5">
           {terms.map((t) => (
-            <span key={t.term} className="rounded-full border px-2 py-0.5 text-[11px] font-bold" style={{ borderColor: "var(--color-accent-800)", color: "var(--color-accent-800)" }}>
+            <span key={t.term} className="rounded-full border px-2 py-0.5 text-[13px] font-bold" style={{ borderColor: "var(--color-accent-800)", color: "var(--color-accent-800)" }}>
               {t.term}
             </span>
           ))}
@@ -245,10 +245,10 @@ function ExamplesContent({ data }: { data: Record<string, unknown> }) {
         <div key={i} className="rounded border p-2" style={{ borderColor: "var(--color-divider)" }}>
           <div className="mb-1 flex items-center justify-between gap-2">
             <span className="label-xs block text-accent">{ex.context}</span>
-            <CopyButton text={ex.sentence} className="rounded-full border px-2 py-0.5 text-[11px] font-bold" style={{ borderColor: "var(--color-accent)", color: "var(--color-accent)" }} />
+            <CopyButton text={ex.sentence} className="rounded-full border px-2 py-0.5 text-[13px] font-bold" style={{ borderColor: "var(--color-accent)", color: "var(--color-accent)" }} />
           </div>
-          <p className="text-[13px] leading-relaxed font-extrabold">{ex.sentence}</p>
-          {ex.note && <p className="mt-1 text-[11px] italic text-neutral-500">{ex.note}</p>}
+          <p className="text-[15px] leading-relaxed font-extrabold">{ex.sentence}</p>
+          {ex.note && <p className="mt-1 text-[13px] italic text-neutral-500">{ex.note}</p>}
         </div>
       ))}
     </div>
@@ -278,7 +278,7 @@ export function AiHistoryMessage({ content }: { content: string }) {
   if (obj.feedback !== undefined || obj.correction !== undefined || obj.correct !== undefined) {
     return <SentenceCheckContent data={obj} />;
   }
-  return <pre className="whitespace-pre-wrap text-[11px]">{JSON.stringify(obj, null, 2)}</pre>;
+  return <pre className="whitespace-pre-wrap text-[13px]">{JSON.stringify(obj, null, 2)}</pre>;
 }
 
 interface Props {
@@ -383,7 +383,7 @@ function AiConversationHistoryImpl({ moduleKey, itemKey, filterIntent, onContinu
         <span className="label-xs text-neutral-600">📚 History ({convos.length})</span>
         {!confirmClear ? (
           <button
-            className="rounded-full border px-2 py-0.5 text-[11px] font-bold"
+            className="rounded-full border px-2 py-0.5 text-[13px] font-bold"
             style={{ borderColor: "var(--color-divider)", color: "var(--color-neutral-600)" }}
             onClick={() => setConfirmClear(true)}
           >
@@ -391,16 +391,16 @@ function AiConversationHistoryImpl({ moduleKey, itemKey, filterIntent, onContinu
           </button>
         ) : (
           <span className="flex items-center gap-1">
-            <span className="text-[11px] font-bold text-accent-800">Sure?</span>
+            <span className="text-[13px] font-bold text-accent-800">Sure?</span>
             <button
-              className="rounded-full border px-2 py-0.5 text-[11px] font-extrabold"
+              className="rounded-full border px-2 py-0.5 text-[13px] font-extrabold"
               style={{ borderColor: "var(--color-accent-800)", background: "var(--color-accent-800)", color: "#fff" }}
               onClick={() => { clearAllForItem(itemKey); setConfirmClear(false); }}
             >
               Yes
             </button>
             <button
-              className="rounded-full border px-2 py-0.5 text-[11px] font-bold"
+              className="rounded-full border px-2 py-0.5 text-[13px] font-bold"
               style={{ borderColor: "var(--color-divider)", color: "var(--color-text)" }}
               onClick={() => setConfirmClear(false)}
             >
@@ -415,12 +415,12 @@ function AiConversationHistoryImpl({ moduleKey, itemKey, filterIntent, onContinu
           <div key={c.id} className="rounded border p-2.5" style={{ borderColor: "var(--color-divider)" }}>
             <div className="flex items-center justify-between">
               <button
-                className="text-[12px] font-extrabold text-left hover:text-accent"
+                className="text-[14px] font-extrabold text-left hover:text-accent"
                 onClick={() => setViewingConvo(c)}
               >
                 {INTENT_LABELS[c.intent] || c.intent} · {fmtDate(c.createdAt)}
                 {unresolved && (
-                  <span className="ml-1.5 rounded-full px-2 py-0.5 text-[10px] font-bold" style={{ background: "var(--color-accent-100)", color: "var(--color-accent-800)" }}>
+                  <span className="ml-1.5 rounded-full px-2 py-0.5 text-[12px] font-bold" style={{ background: "var(--color-accent-100)", color: "var(--color-accent-800)" }}>
                     ⏳ Chưa giải quyết
                   </span>
                 )}
@@ -428,7 +428,7 @@ function AiConversationHistoryImpl({ moduleKey, itemKey, filterIntent, onContinu
               <span className="flex items-center gap-2">
                 {feedback && (
                   <button
-                    className="rounded-full border px-2 py-0.5 text-[11px] font-bold"
+                    className="rounded-full border px-2 py-0.5 text-[13px] font-bold"
                     style={{ borderColor: "var(--color-accent-800)", color: "var(--color-accent-800)" }}
                     onClick={() => setViewingFeedback(c)}
                   >
@@ -436,7 +436,7 @@ function AiConversationHistoryImpl({ moduleKey, itemKey, filterIntent, onContinu
                   </button>
                 )}
                 <ShareButton
-                  className="rounded-full border px-2 py-0.5 text-[11px] font-bold"
+                  className="rounded-full border px-2 py-0.5 text-[13px] font-bold"
                   style={{ borderColor: "var(--color-accent)", color: "var(--color-accent)" }}
                   title={c.itemLabel}
                   text={`${INTENT_LABELS[c.intent] || c.intent} · ${c.itemLabel}`}
@@ -446,16 +446,16 @@ function AiConversationHistoryImpl({ moduleKey, itemKey, filterIntent, onContinu
                 />
                 {confirmDeleteId === c.id ? (
                   <span className="flex items-center gap-1">
-                    <span className="text-[11px] font-bold text-accent-800">Sure?</span>
+                    <span className="text-[13px] font-bold text-accent-800">Sure?</span>
                     <button
-                      className="rounded-full border px-2 py-0.5 text-[11px] font-extrabold"
+                      className="rounded-full border px-2 py-0.5 text-[13px] font-extrabold"
                       style={{ borderColor: "var(--color-accent-800)", background: "var(--color-accent-800)", color: "#fff" }}
                       onClick={() => { deleteConversation(itemKey, c.id); setConfirmDeleteId(null); }}
                     >
                       Yes
                     </button>
                     <button
-                      className="rounded-full border px-2 py-0.5 text-[11px] font-bold"
+                      className="rounded-full border px-2 py-0.5 text-[13px] font-bold"
                       style={{ borderColor: "var(--color-divider)", color: "var(--color-text)" }}
                       onClick={() => setConfirmDeleteId(null)}
                     >
@@ -464,7 +464,7 @@ function AiConversationHistoryImpl({ moduleKey, itemKey, filterIntent, onContinu
                   </span>
                 ) : (
                   <button
-                    className="rounded-full border px-2 py-0.5 text-[11px] font-bold"
+                    className="rounded-full border px-2 py-0.5 text-[13px] font-bold"
                     style={{ borderColor: "var(--color-accent-800)", color: "var(--color-accent-800)" }}
                     onClick={() => setConfirmDeleteId(c.id)}
                     title="Delete"
@@ -475,7 +475,7 @@ function AiConversationHistoryImpl({ moduleKey, itemKey, filterIntent, onContinu
               </span>
             </div>
             {c.messages.length > 0 && (
-              <p className="mt-1 truncate text-[11px] text-neutral-500">
+              <p className="mt-1 truncate text-[13px] text-neutral-500">
                 {c.messages[0].content.slice(0, 80)}...
               </p>
             )}
@@ -491,13 +491,13 @@ function AiConversationHistoryImpl({ moduleKey, itemKey, filterIntent, onContinu
           <Modal onClose={() => setViewingConvo(null)}>
             <div className="mb-3">
               <span className="label-xs text-neutral-500">{INTENT_LABELS[viewingConvo.intent] || viewingConvo.intent} · {fmtDate(viewingConvo.createdAt)}</span>
-              <h3 className="text-[14px] font-extrabold">{viewingConvo.itemLabel}</h3>
+              <h3 className="text-[16px] font-extrabold">{viewingConvo.itemLabel}</h3>
             </div>
             <div className="flex flex-col gap-2">
               {displayMessages.map((m, i) => (
                 <div
                   key={i}
-                  className="rounded p-2 text-[12px] leading-relaxed"
+                  className="rounded p-2 text-[14px] leading-relaxed"
                   style={{
                     background: m.role === "user" ? "var(--color-accent-100)" : "var(--color-surface)",
                     alignSelf: m.role === "user" ? "flex-end" : "flex-start",
@@ -514,7 +514,7 @@ function AiConversationHistoryImpl({ moduleKey, itemKey, filterIntent, onContinu
               onContinue &&
               viewingConvo.id !== activeConvoId && (
               <button
-                className="btn btn-primary mt-3 w-full px-3 py-1.5 text-[12px] font-extrabold"
+                className="btn btn-primary mt-3 w-full px-3 py-1.5 text-[14px] font-extrabold"
                 onClick={() => { const c = viewingConvo; setViewingConvo(null); onContinue(c); }}
               >
                 {canResumeWriting ? "✍️ Continue writing" : "💬 Continue this conversation"}
@@ -531,7 +531,7 @@ function AiConversationHistoryImpl({ moduleKey, itemKey, filterIntent, onContinu
           <Modal onClose={() => setViewingFeedback(null)}>
             <div className="mb-3">
               <span className="label-xs text-neutral-500">{INTENT_LABELS[viewingFeedback.intent] || viewingFeedback.intent}</span>
-              <h3 className="text-[14px] font-extrabold">{viewingFeedback.itemLabel}</h3>
+              <h3 className="text-[16px] font-extrabold">{viewingFeedback.itemLabel}</h3>
             </div>
             <ConversationFeedback
               messages={displayMessages}

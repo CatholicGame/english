@@ -44,7 +44,7 @@ export function StarPicker({ value, onChange }: { value: number; onChange: (v: n
           </button>
         ))}
       </div>
-      <span className={`text-[13px] font-bold ${shown ? "text-accent-700" : "text-neutral-500"}`}>
+      <span className={`text-[15px] font-bold ${shown ? "text-accent-700" : "text-neutral-500"}`}>
         {shown ? t(CAPTION_KEYS[shown]) : t("reviews.picker.prompt")}
       </span>
     </div>

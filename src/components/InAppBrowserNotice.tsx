@@ -22,14 +22,14 @@ export function InAppBrowserNotice() {
 
   return (
     <div
-      className="mb-4 w-full rounded-xl border p-3 text-[12px] leading-relaxed"
+      className="mb-4 w-full rounded-xl border p-3 text-[14px] leading-relaxed"
       style={{ borderColor: "var(--color-accent)", background: "var(--color-surface)" }}
     >
       <p className="font-bold text-accent-800">{t("login.inAppWarning", { app })}</p>
       {android ? (
         <a
           href={androidChromeIntentUrl(window.location.href)}
-          className="btn btn-primary mt-2 inline-block px-3 py-1.5 text-[12px]"
+          className="btn btn-primary mt-2 inline-block px-3 py-1.5 text-[14px]"
         >
           {t("login.inAppOpenChrome")}
         </a>

@@ -99,18 +99,18 @@ export function SubscriptionSettings() {
       <div className="label-xs mb-1.5">{t("subs.plan")}</div>
 
       {paidActive ? (
-        <div className="mb-3 text-[12px] font-bold text-accent-800">
+        <div className="mb-3 text-[14px] font-bold text-accent-800">
           {t("subs.activeUntil", { date: new Date(subscription.paidUntil!).toLocaleDateString(lang === "en" ? "en-US" : "vi-VN") })}
         </div>
       ) : trialActive ? (
-        <div className="mb-3 text-[12px] font-bold text-accent-800">
+        <div className="mb-3 text-[14px] font-bold text-accent-800">
           {t("subs.trialLeft", { n: daysLeft })}
         </div>
       ) : (
-        <div className="mb-3 text-[12px] font-bold text-neutral-600">{t("subs.trialExpired")}</div>
+        <div className="mb-3 text-[14px] font-bold text-neutral-600">{t("subs.trialExpired")}</div>
       )}
 
-      <div className="mb-3 rounded bg-accent-100 px-3 py-2 text-[12px] leading-relaxed font-bold text-accent-800">
+      <div className="mb-3 rounded bg-accent-100 px-3 py-2 text-[14px] leading-relaxed font-bold text-accent-800">
         {t("subs.valueHook")}
       </div>
 
@@ -131,22 +131,22 @@ export function SubscriptionSettings() {
             >
               <div>
                 <div className="flex items-center gap-1.5">
-                  <span className="text-[13px] font-extrabold">{t(`plan.${plan.cycle}`)}</span>
+                  <span className="text-[15px] font-extrabold">{t(`plan.${plan.cycle}`)}</span>
                   {plan.cycle === "yearly" && (
-                    <span className="rounded-full bg-accent px-1.5 py-0.5 text-[9px] font-extrabold tracking-wide text-white uppercase">
+                    <span className="rounded-full bg-accent px-1.5 py-0.5 text-[11px] font-extrabold tracking-wide text-white uppercase">
                       {t("subs.bestValue")}
                     </span>
                   )}
                 </div>
                 {plan.hook ? (
-                  <div className="text-[10px] font-bold text-accent">{t(`plan_hook.${plan.cycle}`)}</div>
+                  <div className="text-[12px] font-bold text-accent">{t(`plan_hook.${plan.cycle}`)}</div>
                 ) : savings != null ? (
-                  <div className="text-[10px] font-bold text-accent">{t("subs.savePct", { pct: savings })}</div>
+                  <div className="text-[12px] font-bold text-accent">{t("subs.savePct", { pct: savings })}</div>
                 ) : null}
               </div>
               <div className="text-right">
-                <div className="text-[14px] font-extrabold tabular-nums">{formatVnd(plan.priceVnd)}</div>
-                <div className="text-[10px] font-bold text-neutral-500 tabular-nums">{formatUsd(plan.priceUsd)}</div>
+                <div className="text-[16px] font-extrabold tabular-nums">{formatVnd(plan.priceVnd)}</div>
+                <div className="text-[12px] font-bold text-neutral-500 tabular-nums">{formatUsd(plan.priceUsd)}</div>
               </div>
             </button>
           );
@@ -157,17 +157,17 @@ export function SubscriptionSettings() {
         <div className="mb-3">
           <button
             type="button"
-            className="btn btn-primary btn-block px-4 py-2.5 text-[13px]"
+            className="btn btn-primary btn-block px-4 py-2.5 text-[15px]"
             onClick={checkout}
             disabled={status === "loading"}
           >
             {status === "loading" ? t("subs.creatingLink") : t("subs.payPayos", { price: formatVnd(selectedPlan.priceVnd) })}
           </button>
           {status === "error" && (
-            <div className="mt-1.5 text-[11px] text-red-600">{t("subs.payosError")}</div>
+            <div className="mt-1.5 text-[13px] text-red-600">{t("subs.payosError")}</div>
           )}
 
-          <div className="my-2.5 flex items-center gap-2 text-[10px] font-bold uppercase tracking-wide text-neutral-400">
+          <div className="my-2.5 flex items-center gap-2 text-[12px] font-bold uppercase tracking-wide text-neutral-400">
             <span className="h-px flex-1 bg-[color:var(--color-divider)]" />
             {t("subs.or")}
             <span className="h-px flex-1 bg-[color:var(--color-divider)]" />
@@ -175,7 +175,7 @@ export function SubscriptionSettings() {
 
           <button
             type="button"
-            className="btn btn-block px-4 py-2.5 text-[13px]"
+            className="btn btn-block px-4 py-2.5 text-[15px]"
             style={{ background: "#ffc439", color: "#003087", borderColor: "var(--color-divider)" }}
             onClick={checkoutPaypal}
             disabled={paypalStatus === "loading"}
@@ -183,13 +183,13 @@ export function SubscriptionSettings() {
             {paypalStatus === "loading" ? t("subs.creatingPaypal") : t("subs.payPaypal", { price: formatUsd(selectedPlan.priceUsd) })}
           </button>
           {paypalStatus === "error" && (
-            <div className="mt-1.5 text-[11px] text-red-600">{t("subs.paypalError")}</div>
+            <div className="mt-1.5 text-[13px] text-red-600">{t("subs.paypalError")}</div>
           )}
         </div>
       )}
 
       {!isUnlocked && !selectedPlan && (
-        <p className="text-[11px] text-neutral-600">{t("subs.footer")}</p>
+        <p className="text-[13px] text-neutral-600">{t("subs.footer")}</p>
       )}
     </div>
   );

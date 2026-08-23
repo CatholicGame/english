@@ -12,7 +12,7 @@ function LangToggle({ lang, setLang }: { lang: AiLang; setLang: (l: AiLang) => v
         <button
           key={l}
           onClick={() => setLang(l)}
-          className="rounded-full px-2.5 py-0.5 text-[11px] font-extrabold"
+          className="rounded-full px-2.5 py-0.5 text-[13px] font-extrabold"
           style={{
             background: lang === l ? "var(--color-accent)" : "var(--color-surface)",
             color: lang === l ? "#fff" : "var(--color-text)",
@@ -30,13 +30,13 @@ export default function TermsContent() {
   const [lang, setLang] = useState<AiLang>(() => detectBrowserLang());
 
   return (
-    <div className="mx-auto max-w-[720px] px-4 py-8 text-[14px] leading-relaxed">
+    <div className="mx-auto max-w-[720px] px-4 py-8 text-[16px] leading-relaxed">
       <LangToggle lang={lang} setLang={setLang} />
 
       {lang === "vi" ? (
         <>
           <h1 className="mt-2 text-[22px] font-extrabold">Điều khoản dịch vụ</h1>
-          <p className="mt-1 text-[12px] text-neutral-600">Cập nhật lần cuối: 17/08/2026</p>
+          <p className="mt-1 text-[14px] text-neutral-600">Cập nhật lần cuối: 17/08/2026</p>
 
           <p className="mt-4">
             Khi sử dụng Vocabulary Builder Pro, bạn đồng ý với các điều khoản dưới đây. Xem thêm{" "}
@@ -44,19 +44,19 @@ export default function TermsContent() {
             dữ liệu của bạn được thu thập và lưu trữ.
           </p>
 
-          <h2 className="mt-6 text-[16px] font-extrabold">1. Dịch vụ</h2>
+          <h2 className="mt-6 text-[18px] font-extrabold">1. Dịch vụ</h2>
           <p className="mt-2">
             Vocabulary Builder Pro là ứng dụng học từ vựng, ngữ pháp và kỹ năng tiếng Anh, sử dụng AI để ra bài tập, chấm
             điểm và trò chuyện luyện tập.
           </p>
 
-          <h2 className="mt-6 text-[16px] font-extrabold">2. Tài khoản</h2>
+          <h2 className="mt-6 text-[18px] font-extrabold">2. Tài khoản</h2>
           <p className="mt-2">
             Bạn cần đăng nhập bằng tài khoản Google để dùng ứng dụng — không có chế độ dùng thử ẩn danh. Bạn chịu trách
             nhiệm bảo mật tài khoản Google của mình.
           </p>
 
-          <h2 className="mt-6 text-[16px] font-extrabold">3. Dùng thử &amp; thanh toán</h2>
+          <h2 className="mt-6 text-[18px] font-extrabold">3. Dùng thử &amp; thanh toán</h2>
           <ul className="mt-2 list-disc pl-5">
             <li>Mỗi tài khoản mới được dùng thử miễn phí toàn bộ tính năng trong {TRIAL_DAYS} ngày kể từ lần đầu đăng nhập.</li>
             <li>
@@ -74,25 +74,25 @@ export default function TermsContent() {
             </li>
           </ul>
 
-          <h2 className="mt-6 text-[16px] font-extrabold">4. Nội dung do AI tạo ra</h2>
+          <h2 className="mt-6 text-[18px] font-extrabold">4. Nội dung do AI tạo ra</h2>
           <p className="mt-2">
             Bài chấm điểm, nhận xét, và nội dung hội thoại do AI tạo ra chỉ mang tính hỗ trợ học tập, có thể không hoàn
             toàn chính xác. Đây không phải nguồn tham khảo chính thức thay thế giáo viên hay tài liệu ngôn ngữ học chuẩn
             (ví dụ: điểm band IELTS do AI chấm chỉ mang tính tham khảo, không phải điểm thi thật).
           </p>
 
-          <h2 className="mt-6 text-[16px] font-extrabold">5. Hành vi bị cấm</h2>
+          <h2 className="mt-6 text-[18px] font-extrabold">5. Hành vi bị cấm</h2>
           <p className="mt-2">
             Không được cố tình lạm dụng hệ thống (ví dụ: gọi API AI vượt giới hạn cho phép bằng công cụ tự động) hoặc can
             thiệp trái phép vào tài khoản người dùng khác. Vi phạm có thể dẫn đến khoá tài khoản.
           </p>
 
-          <h2 className="mt-6 text-[16px] font-extrabold">6. Thay đổi điều khoản</h2>
+          <h2 className="mt-6 text-[18px] font-extrabold">6. Thay đổi điều khoản</h2>
           <p className="mt-2">
             Điều khoản có thể được cập nhật theo thời gian. Phiên bản mới nhất luôn được đăng tại trang này.
           </p>
 
-          <h2 className="mt-6 text-[16px] font-extrabold">7. Liên hệ</h2>
+          <h2 className="mt-6 text-[18px] font-extrabold">7. Liên hệ</h2>
           <p className="mt-2">
             Mọi thắc mắc về điều khoản dịch vụ, vui lòng liên hệ:{" "}
             <a href="mailto:nguyencongnam506@gmail.com" className="font-bold text-accent underline">
@@ -103,7 +103,7 @@ export default function TermsContent() {
       ) : (
         <>
           <h1 className="mt-2 text-[22px] font-extrabold">Terms of Service</h1>
-          <p className="mt-1 text-[12px] text-neutral-600">Last updated: August 17, 2026</p>
+          <p className="mt-1 text-[14px] text-neutral-600">Last updated: August 17, 2026</p>
 
           <p className="mt-4">
             By using Vocabulary Builder Pro, you agree to the terms below. See also our{" "}
@@ -111,19 +111,19 @@ export default function TermsContent() {
             is collected and stored.
           </p>
 
-          <h2 className="mt-6 text-[16px] font-extrabold">1. Service</h2>
+          <h2 className="mt-6 text-[18px] font-extrabold">1. Service</h2>
           <p className="mt-2">
             Vocabulary Builder Pro is an app for learning vocabulary, grammar, and English skills, using AI to
             generate exercises, score answers, and hold practice conversations.
           </p>
 
-          <h2 className="mt-6 text-[16px] font-extrabold">2. Account</h2>
+          <h2 className="mt-6 text-[18px] font-extrabold">2. Account</h2>
           <p className="mt-2">
             You need to sign in with a Google account to use the app — there is no anonymous/guest mode. You are
             responsible for keeping your Google account secure.
           </p>
 
-          <h2 className="mt-6 text-[16px] font-extrabold">3. Trial &amp; payment</h2>
+          <h2 className="mt-6 text-[18px] font-extrabold">3. Trial &amp; payment</h2>
           <ul className="mt-2 list-disc pl-5">
             <li>Every new account gets a free trial of every feature for {TRIAL_DAYS} days from first sign-in.</li>
             <li>
@@ -142,26 +142,26 @@ export default function TermsContent() {
             </li>
           </ul>
 
-          <h2 className="mt-6 text-[16px] font-extrabold">4. AI-generated content</h2>
+          <h2 className="mt-6 text-[18px] font-extrabold">4. AI-generated content</h2>
           <p className="mt-2">
             Scoring, feedback, and conversation content generated by AI is for learning support only and may not be
             fully accurate. It is not an official reference and does not replace a teacher or a standard linguistic
             source (e.g. an AI-scored IELTS band is only a rough estimate, not an official exam score).
           </p>
 
-          <h2 className="mt-6 text-[16px] font-extrabold">5. Prohibited conduct</h2>
+          <h2 className="mt-6 text-[18px] font-extrabold">5. Prohibited conduct</h2>
           <p className="mt-2">
             You may not deliberately abuse the system (e.g. calling the AI API beyond the allowed limit using
             automated tools) or interfere with another user&apos;s account without authorization. Violations may
             result in account suspension.
           </p>
 
-          <h2 className="mt-6 text-[16px] font-extrabold">6. Changes to these terms</h2>
+          <h2 className="mt-6 text-[18px] font-extrabold">6. Changes to these terms</h2>
           <p className="mt-2">
             These terms may be updated over time. The latest version is always published on this page.
           </p>
 
-          <h2 className="mt-6 text-[16px] font-extrabold">7. Contact</h2>
+          <h2 className="mt-6 text-[18px] font-extrabold">7. Contact</h2>
           <p className="mt-2">
             For any questions about these terms, please contact:{" "}
             <a href="mailto:nguyencongnam506@gmail.com" className="font-bold text-accent underline">

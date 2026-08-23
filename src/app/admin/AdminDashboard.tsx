@@ -74,7 +74,7 @@ function AccountActions({
     <div className="flex flex-col gap-1.5">
       <div className="flex gap-1.5">
         <select
-          className="min-w-0 flex-1 rounded-md border px-1.5 py-1 text-[12px] sm:flex-none"
+          className="min-w-0 flex-1 rounded-md border px-1.5 py-1 text-[14px] sm:flex-none"
           style={{ borderColor: "var(--color-divider)" }}
           value={cycle}
           onChange={(e) => onCycleChange(e.target.value as BillingCycle)}
@@ -96,7 +96,7 @@ function AccountActions({
       </div>
       <div className="flex gap-1.5">
         <button
-          className="flex-1 rounded-full px-2.5 py-1 text-[12px] font-bold sm:flex-none"
+          className="flex-1 rounded-full px-2.5 py-1 text-[14px] font-bold sm:flex-none"
           disabled={busy}
           style={{
             background: row.debugOverride === "unlocked" ? "var(--color-accent)" : "var(--color-surface)",
@@ -108,7 +108,7 @@ function AccountActions({
           Ép mở khoá
         </button>
         <button
-          className="flex-1 rounded-full px-2.5 py-1 text-[12px] font-bold sm:flex-none"
+          className="flex-1 rounded-full px-2.5 py-1 text-[14px] font-bold sm:flex-none"
           disabled={busy}
           style={{
             background: row.debugOverride === "locked" ? "var(--color-accent)" : "var(--color-surface)",
@@ -262,7 +262,7 @@ export function AdminDashboard({
           <button
             key={tb.id}
             type="button"
-            className="px-3 py-3 text-[13px] font-extrabold"
+            className="px-3 py-3 text-[15px] font-extrabold"
             style={{
               color: tab === tb.id ? "var(--color-accent)" : "var(--color-neutral-600)",
               borderBottom: tab === tb.id ? "2px solid var(--color-accent)" : "2px solid transparent",
@@ -283,7 +283,7 @@ export function AdminDashboard({
       {tab === "subscriptions" && (
       <>
       <h1 className="mt-6 text-[22px] font-extrabold">Quản lý subscription</h1>
-      <p className="mt-1 text-[13px] text-neutral-600">
+      <p className="mt-1 text-[15px] text-neutral-600">
         {search ? `${filtered.length}/${subscriptions.length}` : subscriptions.length} tài khoản
         {totalPages > 1 && ` — trang ${safePage}/${totalPages}`}.{" "}
         {!isSuper && "Bạn có quyền xem — không thể gia hạn hay khoá/mở khoá."}
@@ -291,8 +291,8 @@ export function AdminDashboard({
 
       {isSuper && (
         <div className="mt-4">
-          <h2 className="text-[14px] font-extrabold">Cấp tài khoản miễn phí (unlock toàn bộ)</h2>
-          <p className="mt-1 text-[13px] text-neutral-600">
+          <h2 className="text-[16px] font-extrabold">Cấp tài khoản miễn phí (unlock toàn bộ)</h2>
+          <p className="mt-1 text-[15px] text-neutral-600">
             Nhập email Google bất kỳ — kể cả email chưa từng đăng nhập app — để cấp quyền dùng full miễn phí ngay lập
             tức (không cần thanh toán). Có thể thu hồi lại bằng &ldquo;Ép khoá&rdquo; ở bảng dưới sau khi họ xuất hiện
             trong danh sách.
@@ -301,7 +301,7 @@ export function AdminDashboard({
             <input
               type="email"
               placeholder="email@vidu.com"
-              className="min-w-0 flex-1 rounded-md border px-2 py-1.5 text-[13px]"
+              className="min-w-0 flex-1 rounded-md border px-2 py-1.5 text-[15px]"
               style={{ borderColor: "var(--color-divider)" }}
               value={newFreeEmail}
               onChange={(e) => setNewFreeEmail(e.target.value)}
@@ -316,21 +316,21 @@ export function AdminDashboard({
       <input
         type="search"
         placeholder="Tìm theo email..."
-        className="mt-4 w-full rounded-md border px-2 py-1.5 text-[13px] sm:max-w-xs"
+        className="mt-4 w-full rounded-md border px-2 py-1.5 text-[15px] sm:max-w-xs"
         style={{ borderColor: "var(--color-divider)" }}
         value={search}
         onChange={(e) => updateSearch(e.target.value)}
       />
 
       {filtered.length === 0 && (
-        <p className="mt-4 text-[13px] text-neutral-600">Không tìm thấy tài khoản nào khớp với &ldquo;{search}&rdquo;.</p>
+        <p className="mt-4 text-[15px] text-neutral-600">Không tìm thấy tài khoản nào khớp với &ldquo;{search}&rdquo;.</p>
       )}
 
       {/* Desktop / tablet: table. Hidden below sm — a data table with 5+
           columns just doesn't fit a portrait phone screen without horizontal
           scrolling, which is what made this unusable on mobile. */}
       <div className="mt-4 hidden overflow-x-auto sm:block">
-        <table className="w-full min-w-[860px] text-left text-[13px]">
+        <table className="w-full min-w-[860px] text-left text-[15px]">
           <thead>
             <tr className="divider-b text-neutral-600">
               <th className="py-2 pr-3 font-bold">Email</th>
@@ -350,7 +350,7 @@ export function AdminDashboard({
                 <tr key={row.email} className="divider-b align-top">
                   <td className="py-2.5 pr-3 font-semibold">{row.email}</td>
                   <td className="py-2.5 pr-3">
-                    <span className="rounded-full px-2 py-0.5 text-[12px] font-bold" style={{ color: status.color }}>
+                    <span className="rounded-full px-2 py-0.5 text-[14px] font-bold" style={{ color: status.color }}>
                       {status.label}
                     </span>
                   </td>
@@ -394,13 +394,13 @@ export function AdminDashboard({
               <div className="flex items-start justify-between gap-2">
                 <span className="min-w-0 flex-1 font-semibold break-all">{row.email}</span>
                 <span
-                  className="flex-none rounded-full px-2 py-0.5 text-[12px] font-bold"
+                  className="flex-none rounded-full px-2 py-0.5 text-[14px] font-bold"
                   style={{ color: status.color }}
                 >
                   {status.label}
                 </span>
               </div>
-              <dl className="mt-2 grid grid-cols-2 gap-x-2 gap-y-1 text-[12px] text-neutral-600">
+              <dl className="mt-2 grid grid-cols-2 gap-x-2 gap-y-1 text-[14px] text-neutral-600">
                 <div>
                   <dt className="inline">Trial hết hạn: </dt>
                   <dd className="inline text-ink">{fmtDate(row.trialStartedAt || undefined)}</dd>
@@ -441,7 +441,7 @@ export function AdminDashboard({
       </div>
 
       {totalPages > 1 && (
-        <div className="mt-3 flex items-center justify-center gap-3 text-[13px]">
+        <div className="mt-3 flex items-center justify-center gap-3 text-[15px]">
           <button className="btn btn-secondary" disabled={safePage <= 1} onClick={() => setPage(safePage - 1)}>
             ‹ Trước
           </button>
@@ -460,8 +460,8 @@ export function AdminDashboard({
 
       {isSuper && (
         <div className="mt-8">
-          <h2 className="text-[16px] font-extrabold">Sub-admin (chỉ xem)</h2>
-          <p className="mt-1 text-[13px] text-neutral-600">
+          <h2 className="text-[18px] font-extrabold">Sub-admin (chỉ xem)</h2>
+          <p className="mt-1 text-[15px] text-neutral-600">
             Sub-admin thấy được bảng trên nhưng không gia hạn hay khoá/mở khoá được.
           </p>
 
@@ -469,7 +469,7 @@ export function AdminDashboard({
             <input
               type="email"
               placeholder="email@vidu.com"
-              className="min-w-0 flex-1 rounded-md border px-2 py-1.5 text-[13px]"
+              className="min-w-0 flex-1 rounded-md border px-2 py-1.5 text-[15px]"
               style={{ borderColor: "var(--color-divider)" }}
               value={newAdminEmail}
               onChange={(e) => setNewAdminEmail(e.target.value)}
@@ -480,9 +480,9 @@ export function AdminDashboard({
           </div>
 
           <ul className="mt-3 flex flex-col gap-1.5">
-            {subAdmins.length === 0 && <li className="text-[13px] text-neutral-600">Chưa có sub-admin nào.</li>}
+            {subAdmins.length === 0 && <li className="text-[15px] text-neutral-600">Chưa có sub-admin nào.</li>}
             {subAdmins.map((a) => (
-              <li key={a.email} className="flex flex-col gap-1 text-[13px] sm:flex-row sm:items-center sm:justify-between sm:gap-2">
+              <li key={a.email} className="flex flex-col gap-1 text-[15px] sm:flex-row sm:items-center sm:justify-between sm:gap-2">
                 <span className="break-all">
                   {a.email} <span className="text-neutral-500">— thêm bởi {a.addedBy}, {fmtDate(a.addedAt)}</span>
                 </span>
@@ -522,7 +522,7 @@ function ReplyBox({ review, onSaved }: { review: ReviewRow; onSaved: () => void 
 
   if (!open) {
     return (
-      <button type="button" className="btn btn-ghost mt-2 text-[12px]" onClick={() => setOpen(true)}>
+      <button type="button" className="btn btn-ghost mt-2 text-[14px]" onClick={() => setOpen(true)}>
         {review.reply ? "Sửa phản hồi" : "↩ Trả lời"}
       </button>
     );
@@ -531,17 +531,17 @@ function ReplyBox({ review, onSaved }: { review: ReviewRow; onSaved: () => void 
   return (
     <div className="mt-2 flex flex-col gap-1.5">
       <textarea
-        className="input w-full resize-none text-[13px]"
+        className="input w-full resize-none text-[15px]"
         rows={2}
         placeholder="Viết phản hồi công khai tới người đánh giá này..."
         value={message}
         onChange={(e) => setMessage(e.target.value)}
       />
       <div className="flex gap-1.5">
-        <button type="button" className="btn btn-primary text-[12px]" disabled={saving} onClick={save}>
+        <button type="button" className="btn btn-primary text-[14px]" disabled={saving} onClick={save}>
           {saving ? "Đang lưu..." : "Lưu phản hồi"}
         </button>
-        <button type="button" className="btn btn-secondary text-[12px]" disabled={saving} onClick={() => setOpen(false)}>
+        <button type="button" className="btn btn-secondary text-[14px]" disabled={saving} onClick={() => setOpen(false)}>
           Huỷ
         </button>
       </div>
@@ -565,17 +565,17 @@ function RevenueTab({ orders }: { orders: RevenueOrder[] }) {
   return (
     <div className="mt-6">
       <h1 className="text-[22px] font-extrabold">Doanh thu</h1>
-      <p className="mt-1 text-[13px] text-neutral-600">
+      <p className="mt-1 text-[15px] text-neutral-600">
         {orders.length} giao dịch đã thanh toán. Tổng: {fmtMoney(totalVnd, "VND")}
         {totalUsd > 0 && ` + ${fmtMoney(totalUsd, "USD")}`}
         {totalPages > 1 && `, trang ${safePage}/${totalPages}`}.
       </p>
 
-      {orders.length === 0 && <p className="mt-4 text-[13px] text-neutral-600">Chưa có giao dịch nào.</p>}
+      {orders.length === 0 && <p className="mt-4 text-[15px] text-neutral-600">Chưa có giao dịch nào.</p>}
 
       {orders.length > 0 && (
         <div className="mt-4 overflow-x-auto">
-          <table className="w-full min-w-[640px] text-left text-[13px]">
+          <table className="w-full min-w-[640px] text-left text-[15px]">
             <thead>
               <tr className="divider-b text-neutral-600">
                 <th className="py-2 pr-3 font-bold">Email</th>
@@ -601,7 +601,7 @@ function RevenueTab({ orders }: { orders: RevenueOrder[] }) {
       )}
 
       {totalPages > 1 && (
-        <div className="mt-3 flex items-center justify-center gap-3 text-[13px]">
+        <div className="mt-3 flex items-center justify-center gap-3 text-[15px]">
           <button className="btn btn-secondary" disabled={safePage <= 1} onClick={() => setPage(safePage - 1)}>
             ‹ Trước
           </button>
@@ -642,14 +642,14 @@ function ReviewsTab({ reviews, isSuper }: { reviews: ReviewRow[]; isSuper: boole
   return (
     <div className="mt-6">
       <h1 className="text-[22px] font-extrabold">Đánh giá (công khai trên /reviews)</h1>
-      <p className="mt-1 text-[13px] text-neutral-600">
+      <p className="mt-1 text-[15px] text-neutral-600">
         {reviews.length} đánh giá
         {reviews.length > 0 && ` — trung bình ${avgRating.toFixed(1)}/5 ⭐`}
         {totalPages > 1 && ` — trang ${safePage}/${totalPages}`}.{" "}
         {!isSuper && "Bạn có quyền xem — không thể xoá."}
       </p>
 
-      {reviews.length === 0 && <p className="mt-4 text-[13px] text-neutral-600">Chưa có đánh giá nào.</p>}
+      {reviews.length === 0 && <p className="mt-4 text-[15px] text-neutral-600">Chưa có đánh giá nào.</p>}
 
       <div className="mt-4 flex flex-col gap-3">
         {pageItems.map((r) => (
@@ -658,16 +658,16 @@ function ReviewsTab({ reviews, isSuper }: { reviews: ReviewRow[]; isSuper: boole
               <span className="flex flex-col gap-0.5">
                 <span className="flex items-center gap-2">
                   <Stars value={r.rating} size={15} />
-                  <span className="text-[13px] font-extrabold">{r.name || "Ẩn danh"}</span>
+                  <span className="text-[15px] font-extrabold">{r.name || "Ẩn danh"}</span>
                 </span>
-                <span className="text-[12px] font-bold text-neutral-500">{r.email}</span>
+                <span className="text-[14px] font-bold text-neutral-500">{r.email}</span>
               </span>
               <span className="flex flex-none flex-col items-end gap-1">
-                <span className="text-[12px] text-neutral-500">{new Date(r.updatedAt).toLocaleString("vi-VN")}</span>
+                <span className="text-[14px] text-neutral-500">{new Date(r.updatedAt).toLocaleString("vi-VN")}</span>
                 {isSuper && (
                   <button
                     type="button"
-                    className="btn btn-ghost text-[12px] text-red-600"
+                    className="btn btn-ghost text-[14px] text-red-600"
                     disabled={deleting === r.id}
                     onClick={() => remove(r.id)}
                   >
@@ -676,11 +676,11 @@ function ReviewsTab({ reviews, isSuper }: { reviews: ReviewRow[]; isSuper: boole
                 )}
               </span>
             </div>
-            {r.comment && <p className="mt-2 text-[13px] leading-relaxed">{r.comment}</p>}
+            {r.comment && <p className="mt-2 text-[15px] leading-relaxed">{r.comment}</p>}
             {r.reply && (
               <div className="mt-2 border-l-2 pl-2.5" style={{ borderColor: "var(--color-accent)" }}>
                 <span className="label-xs text-accent">Phản hồi của bạn</span>
-                <p className="mt-0.5 text-[13px] leading-relaxed">{r.reply.message}</p>
+                <p className="mt-0.5 text-[15px] leading-relaxed">{r.reply.message}</p>
               </div>
             )}
             {isSuper && <ReplyBox review={r} onSaved={() => router.refresh()} />}
@@ -689,7 +689,7 @@ function ReviewsTab({ reviews, isSuper }: { reviews: ReviewRow[]; isSuper: boole
       </div>
 
       {totalPages > 1 && (
-        <div className="mt-3 flex items-center justify-center gap-3 text-[13px]">
+        <div className="mt-3 flex items-center justify-center gap-3 text-[15px]">
           <button className="btn btn-secondary" disabled={safePage <= 1} onClick={() => setPage(safePage - 1)}>
             ‹ Trước
           </button>
@@ -819,7 +819,7 @@ function TokenChart({ data }: { data: { date: string; tokens: number }[] }) {
       </svg>
       {hoverIdx != null && (
         <div
-          className="pointer-events-none absolute rounded px-2 py-1 text-[11px] font-bold whitespace-nowrap text-white"
+          className="pointer-events-none absolute rounded px-2 py-1 text-[13px] font-bold whitespace-nowrap text-white"
           style={{
             background: "var(--color-text)",
             left: `${((padLeft + slot * hoverIdx + slot / 2) / VB_W) * 100}%`,
@@ -880,7 +880,7 @@ function TokenUsageTab({ usage }: { usage: DailyTokenUsage[] }) {
   return (
     <div className="mt-6">
       <h1 className="text-[22px] font-extrabold">Mức tiêu thụ token AI</h1>
-      <p className="mt-1 text-[13px] text-neutral-600">
+      <p className="mt-1 text-[15px] text-neutral-600">
         Tổng hợp token DeepSeek theo tài khoản, để phát hiện chi phí bất thường (ví dụ: reasoning mode âm thầm bật lại).
       </p>
 
@@ -891,7 +891,7 @@ function TokenUsageTab({ usage }: { usage: DailyTokenUsage[] }) {
           <button
             key={p.id}
             type="button"
-            className="rounded-full px-3 py-1.5 text-[12px] font-bold"
+            className="rounded-full px-3 py-1.5 text-[14px] font-bold"
             style={{
               background: range === p.id ? "var(--color-accent)" : "var(--color-surface)",
               color: range === p.id ? "#fff" : "var(--color-text)",
@@ -923,16 +923,16 @@ function TokenUsageTab({ usage }: { usage: DailyTokenUsage[] }) {
       </div>
 
       {dailyTotals.length === 0 ? (
-        <p className="mt-4 text-[13px] text-neutral-600">Chưa có dữ liệu token trong khoảng thời gian này.</p>
+        <p className="mt-4 text-[15px] text-neutral-600">Chưa có dữ liệu token trong khoảng thời gian này.</p>
       ) : (
         <div className="mt-4">
           <TokenChart data={dailyTotals} />
-          <button type="button" className="btn btn-ghost mt-1 text-[12px]" onClick={() => setShowTable((v) => !v)}>
+          <button type="button" className="btn btn-ghost mt-1 text-[14px]" onClick={() => setShowTable((v) => !v)}>
             {showTable ? "Ẩn bảng theo ngày" : "Xem bảng theo ngày"}
           </button>
           {showTable && (
             <div className="mt-2 max-h-[240px] overflow-y-auto rounded border" style={{ borderColor: "var(--color-divider)" }}>
-              <table className="w-full text-left text-[12px]">
+              <table className="w-full text-left text-[14px]">
                 <thead>
                   <tr className="divider-b text-neutral-600">
                     <th className="px-2 py-1.5 font-bold">Ngày</th>
@@ -953,12 +953,12 @@ function TokenUsageTab({ usage }: { usage: DailyTokenUsage[] }) {
         </div>
       )}
 
-      <h2 className="mt-6 text-[16px] font-extrabold">Theo tài khoản</h2>
+      <h2 className="mt-6 text-[18px] font-extrabold">Theo tài khoản</h2>
       {perUser.length === 0 ? (
-        <p className="mt-2 text-[13px] text-neutral-600">Không có dữ liệu.</p>
+        <p className="mt-2 text-[15px] text-neutral-600">Không có dữ liệu.</p>
       ) : (
         <div className="mt-2 overflow-x-auto">
-          <table className="w-full min-w-[560px] text-left text-[13px]">
+          <table className="w-full min-w-[560px] text-left text-[15px]">
             <thead>
               <tr className="divider-b text-neutral-600">
                 <th className="py-2 pr-3 font-bold">Email</th>
@@ -982,7 +982,7 @@ function TokenUsageTab({ usage }: { usage: DailyTokenUsage[] }) {
       )}
 
       {totalPages > 1 && (
-        <div className="mt-3 flex items-center justify-center gap-3 text-[13px]">
+        <div className="mt-3 flex items-center justify-center gap-3 text-[15px]">
           <button className="btn btn-secondary" disabled={safePage <= 1} onClick={() => setPage(safePage - 1)}>
             ‹ Trước
           </button>

@@ -61,7 +61,7 @@ export function Modal({ onClose, children, contentClassName }: Props) {
         onClick={(e) => e.stopPropagation()}
         style={{ overscrollBehavior: "contain" }}
       >
-        <button className="absolute right-3 top-3 text-[18px] text-neutral-500 hover:text-neutral-700" onClick={onClose}>✕</button>
+        <button className="absolute right-3 top-3 text-[20px] text-neutral-500 hover:text-neutral-700" onClick={onClose}>✕</button>
         {children}
       </div>
     </div>

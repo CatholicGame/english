@@ -47,8 +47,8 @@ export function DictionaryReview({ entries, dueKeys, onReview, onClose }: Props)
   if (liveQueue.length === 0) {
     return (
       <Modal onClose={onClose}>
-        <h2 className="text-[18px] font-extrabold">Ôn tập từ điển</h2>
-        <p className="mt-2 text-[13px] text-neutral-600">Không có từ nào đến hạn ôn tập ngay bây giờ — quay lại sau nhé!</p>
+        <h2 className="text-[20px] font-extrabold">Ôn tập từ điển</h2>
+        <p className="mt-2 text-[15px] text-neutral-600">Không có từ nào đến hạn ôn tập ngay bây giờ — quay lại sau nhé!</p>
       </Modal>
     );
   }
@@ -56,11 +56,11 @@ export function DictionaryReview({ entries, dueKeys, onReview, onClose }: Props)
   if (done) {
     return (
       <Modal onClose={onClose}>
-        <h2 className="text-[18px] font-extrabold">Xong! 🎉</h2>
-        <p className="mt-2 text-[14px]">
+        <h2 className="text-[20px] font-extrabold">Xong! 🎉</h2>
+        <p className="mt-2 text-[16px]">
           Đã ôn {liveQueue.length} từ, nhớ đúng {correct}/{liveQueue.length}.
         </p>
-        <p className="mt-1 text-[14px] font-extrabold text-accent">+{xpEarned} XP</p>
+        <p className="mt-1 text-[16px] font-extrabold text-accent">+{xpEarned} XP</p>
         <button type="button" className="btn btn-primary mt-4 w-full" onClick={onClose}>
           Đóng
         </button>
@@ -83,7 +83,7 @@ export function DictionaryReview({ entries, dueKeys, onReview, onClose }: Props)
             <h2 className="text-[26px] font-extrabold">{entry.word}</h2>
             <CategoryBadge category={entry.category} />
           </div>
-          {entry.ipa && <span className="text-[13px] text-neutral-600">{entry.ipa}</span>}
+          {entry.ipa && <span className="text-[15px] text-neutral-600">{entry.ipa}</span>}
           <button type="button" className="btn btn-primary mt-2 px-6" onClick={() => setRevealed(true)}>
             Xem đáp án
           </button>
@@ -94,7 +94,7 @@ export function DictionaryReview({ entries, dueKeys, onReview, onClose }: Props)
           <div className="mt-5 flex gap-2">
             <button
               type="button"
-              className="flex-1 border py-2.5 text-[13px] font-extrabold text-red-600"
+              className="flex-1 border py-2.5 text-[15px] font-extrabold text-red-600"
               style={{ borderColor: "var(--color-divider)" }}
               onClick={() => handleGrade(false)}
             >
@@ -102,7 +102,7 @@ export function DictionaryReview({ entries, dueKeys, onReview, onClose }: Props)
             </button>
             <button
               type="button"
-              className="btn btn-primary flex-1 py-2.5 text-[13px]"
+              className="btn btn-primary flex-1 py-2.5 text-[15px]"
               onClick={() => handleGrade(true)}
             >
               😊 Nhớ rồi

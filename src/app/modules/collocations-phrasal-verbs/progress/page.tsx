@@ -38,7 +38,7 @@ export default function ProgressPage() {
             <div key={i} className="flex-1" style={{ background: d.color, height: `${d.h}px` }} />
           ))}
         </div>
-        <div className="mt-1.5 flex justify-between text-[9px] tracking-wider text-neutral-600 uppercase">
+        <div className="mt-1.5 flex justify-between text-[11px] tracking-wider text-neutral-600 uppercase">
           <span>{fromLabel}</span>
           <span>Today</span>
         </div>
@@ -49,7 +49,7 @@ export default function ProgressPage() {
           <div className="label-xs mb-3">Mastery</div>
           {mastery.map((m) => (
             <div key={m.label} className="mb-3">
-              <div className="mb-1 flex justify-between text-[12px]">
+              <div className="mb-1 flex justify-between text-[14px]">
                 <span>{m.label}</span>
                 <span className="tabular-nums text-neutral-600">{m.n}</span>
               </div>
@@ -64,7 +64,7 @@ export default function ProgressPage() {
           <div className="label-xs mb-3">By group</div>
           {groups.map((g) => (
             <div key={g.label} className="mb-3">
-              <div className="mb-1 flex justify-between gap-3 text-[12px]">
+              <div className="mb-1 flex justify-between gap-3 text-[14px]">
                 <span className="truncate">{g.label}</span>
                 <span className="flex-none tabular-nums text-neutral-600">{g.n}</span>
               </div>

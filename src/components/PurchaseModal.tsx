@@ -12,8 +12,8 @@ export function PurchaseModal({ onClose }: { onClose: () => void }) {
   const { t } = useUiLang();
   return (
     <Modal onClose={onClose}>
-      <h2 className="mb-1 text-[17px] font-extrabold">{t("purchase.title")}</h2>
-      <p className="mb-3 text-[13px] text-neutral-600">{t("purchase.sub")}</p>
+      <h2 className="mb-1 text-[19px] font-extrabold">{t("purchase.title")}</h2>
+      <p className="mb-3 text-[15px] text-neutral-600">{t("purchase.sub")}</p>
       <SubscriptionSettings />
     </Modal>
   );

@@ -85,7 +85,7 @@ export function ConversationFeedback({ messages, feedback, onReset, share }: Pro
               <button
                 key={l}
                 onClick={() => setLang(l)}
-                className="rounded-full px-2.5 py-0.5 text-[11px] font-extrabold"
+                className="rounded-full px-2.5 py-0.5 text-[13px] font-extrabold"
                 style={{
                   background: lang === l ? "var(--color-accent)" : "var(--color-surface)",
                   color: lang === l ? "#fff" : "var(--color-text)",
@@ -99,7 +99,7 @@ export function ConversationFeedback({ messages, feedback, onReset, share }: Pro
         )}
         {share && (
           <ShareButton
-            className="rounded-full border px-2 py-0.5 text-[11px] font-bold"
+            className="rounded-full border px-2 py-0.5 text-[13px] font-bold"
             style={{ borderColor: "var(--color-accent)", color: "var(--color-accent)" }}
             title={share.title}
             text={share.text}
@@ -118,7 +118,7 @@ export function ConversationFeedback({ messages, feedback, onReset, share }: Pro
           return (
             <div key={i} className="flex flex-col" style={{ alignItems: isUser ? "flex-end" : "flex-start" }}>
               <div
-                className="max-w-[92%] rounded p-2.5 text-[13px] leading-relaxed"
+                className="max-w-[92%] rounded p-2.5 text-[15px] leading-relaxed"
                 style={{ background: isUser ? "var(--color-accent-100)" : "var(--color-surface)" }}
               >
                 <span className="label-xs mb-0.5 block">{isUser ? "You" : m.role === "assistant" ? "AI" : "System"}</span>
@@ -126,21 +126,21 @@ export function ConversationFeedback({ messages, feedback, onReset, share }: Pro
               </div>
               {turn && ((turn.corrections && turn.corrections.length > 0) || comment || turn.betterExample) && (
                 <div
-                  className="mt-1 max-w-[92%] rounded border-l-2 p-2 text-[12px] leading-relaxed"
+                  className="mt-1 max-w-[92%] rounded border-l-2 p-2 text-[14px] leading-relaxed"
                   style={{ borderColor: "var(--color-accent)", background: "var(--color-accent-100)", color: "var(--color-accent-800)" }}
                 >
                   <span className="label-xs mb-0.5 block text-accent-700">{t.aiFeedback}</span>
                   {turn.corrections?.map((c, j) => (
                     <p key={j} className="flex flex-wrap items-center gap-1.5">
                       <span>❌ &quot;{c.wrong}&quot; → <span className="font-bold">✅ &quot;{c.correct}&quot;</span></span>
-                      <CopyButton text={c.correct} className="rounded-full border px-2 py-0.5 text-[11px] font-bold" style={{ borderColor: "var(--color-accent-800)", color: "var(--color-accent-800)" }} />
+                      <CopyButton text={c.correct} className="rounded-full border px-2 py-0.5 text-[13px] font-bold" style={{ borderColor: "var(--color-accent-800)", color: "var(--color-accent-800)" }} />
                     </p>
                   ))}
                   {comment && <p className={turn.corrections && turn.corrections.length > 0 ? "mt-1" : ""}>{comment}</p>}
                   {turn.betterExample && (
                     <p className="mt-1 flex flex-wrap items-center gap-1.5">
                       <span><span className="font-bold">{t.betterExample}:</span> &quot;{turn.betterExample}&quot;</span>
-                      <CopyButton text={turn.betterExample} className="rounded-full border px-2 py-0.5 text-[11px] font-bold" style={{ borderColor: "var(--color-accent-800)", color: "var(--color-accent-800)" }} />
+                      <CopyButton text={turn.betterExample} className="rounded-full border px-2 py-0.5 text-[13px] font-bold" style={{ borderColor: "var(--color-accent-800)", color: "var(--color-accent-800)" }} />
                     </p>
                   )}
                 </div>
@@ -150,7 +150,7 @@ export function ConversationFeedback({ messages, feedback, onReset, share }: Pro
         })}
       </div>
 
-      <div className="rounded border bg-surface p-4 text-[13px] leading-relaxed" style={{ borderColor: "var(--color-divider)" }}>
+      <div className="rounded border bg-surface p-4 text-[15px] leading-relaxed" style={{ borderColor: "var(--color-divider)" }}>
         <span className="label-xs mb-2 block text-accent">{t.heading}</span>
 
         {feedback.phrasesOk !== undefined && (
@@ -161,12 +161,12 @@ export function ConversationFeedback({ messages, feedback, onReset, share }: Pro
           <div className="mb-3">
             <p className="mb-1.5 font-extrabold">{t.styleTitle}</p>
             {style && style.length > 0 && (
-              <ul className="list-disc pl-4 text-[12px]">
+              <ul className="list-disc pl-4 text-[14px]">
                 {style.map((s, i) => <li key={i}>{s}</li>)}
               </ul>
             )}
             {styleHighlight && (
-              <p className="mt-1 text-[12px] font-bold" style={{ color: "var(--color-accent)" }}>✅ {styleHighlight}</p>
+              <p className="mt-1 text-[14px] font-bold" style={{ color: "var(--color-accent)" }}>✅ {styleHighlight}</p>
             )}
           </div>
         )}
@@ -177,8 +177,8 @@ export function ConversationFeedback({ messages, feedback, onReset, share }: Pro
             <div className="flex flex-col gap-1.5">
               {suggestions.map((sug, i) => (
                 <div key={i}>
-                  <p className="text-[12px] font-bold">{sug.category}</p>
-                  <ul className="list-disc pl-4 text-[12px]">
+                  <p className="text-[14px] font-bold">{sug.category}</p>
+                  <ul className="list-disc pl-4 text-[14px]">
                     {sug.phrases?.map((p, j) => <li key={j}>{p}</li>)}
                   </ul>
                 </div>
@@ -190,16 +190,16 @@ export function ConversationFeedback({ messages, feedback, onReset, share }: Pro
         {progress && progress.length > 0 && (
           <div className="mb-1">
             <p className="mb-1.5 font-extrabold">{t.progressTitle}</p>
-            <ul className="list-disc pl-4 text-[12px] italic">
+            <ul className="list-disc pl-4 text-[14px] italic">
               {progress.map((p, i) => <li key={i}>{p}</li>)}
             </ul>
           </div>
         )}
 
         {typeof feedback.xpEarned === "number" && (
-          <p className="mt-2 text-[11px] font-extrabold text-accent">+{feedback.xpEarned} XP</p>
+          <p className="mt-2 text-[13px] font-extrabold text-accent">+{feedback.xpEarned} XP</p>
         )}
-        {onReset && <button className="btn btn-ghost mt-3 text-[12px]" onClick={onReset}>{t.tryAgain}</button>}
+        {onReset && <button className="btn btn-ghost mt-3 text-[14px]" onClick={onReset}>{t.tryAgain}</button>}
       </div>
     </div>
   );

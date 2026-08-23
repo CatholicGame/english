@@ -19,7 +19,7 @@ export default function DictionaryPage() {
     <div className="mx-auto flex min-h-screen w-full max-w-[480px] flex-col bg-bg lg:max-w-[1080px] lg:border-x-2 lg:border-[color:var(--color-divider)]">
       <div className="divider-b px-4 py-6">
         <h1 className="text-[24px]">Từ điển của tôi</h1>
-        <p className="mt-1 text-[13px] text-neutral-600">
+        <p className="mt-1 text-[15px] text-neutral-600">
           Chọn (bôi đen) bất kỳ từ hay đoạn văn tiếng Anh nào trên trang để tra cứu — AI sẽ tự nhận biết đó là từ vựng hay câu cần dịch. Bấm &quot;📐 Ngữ pháp&quot; để phân tích cấu trúc ngữ pháp của cả câu và thảo luận thêm với AI.
         </p>
       </div>
@@ -33,7 +33,7 @@ export default function DictionaryPage() {
           <button
             key={t.id}
             type="button"
-            className="px-3 py-3 text-[13px] font-extrabold"
+            className="px-3 py-3 text-[15px] font-extrabold"
             style={{
               color: tab === t.id ? "var(--color-accent)" : "var(--color-neutral-600)",
               borderBottom: tab === t.id ? "2px solid var(--color-accent)" : "2px solid transparent",
@@ -77,7 +77,7 @@ function VocabTab({ query }: { query: string }) {
 
   if (list.length === 0) {
     return (
-      <p className="text-[13px] text-neutral-500">
+      <p className="text-[15px] text-neutral-500">
         {query ? "Không tìm thấy từ nào." : "Bạn chưa tra từ nào. Hãy bôi đen bất kỳ từ tiếng Anh nào trên trang để tra và lưu."}
       </p>
     );
@@ -87,7 +87,7 @@ function VocabTab({ query }: { query: string }) {
     <div className="flex flex-col gap-2">
       <button
         type="button"
-        className="btn btn-primary mb-1 w-full py-2.5 text-[13px]"
+        className="btn btn-primary mb-1 w-full py-2.5 text-[15px]"
         onClick={() => setReviewing(true)}
       >
         🔁 Ôn tập {dueKeys.length > 0 ? `(${dueKeys.length} từ đến hạn)` : "(không có từ đến hạn)"}
@@ -113,21 +113,21 @@ function VocabTab({ query }: { query: string }) {
             onClick={() => setOpenKey((k) => (k === key ? null : key))}
           >
             <span className="flex flex-wrap items-baseline gap-x-2">
-              <span className="text-[16px] font-extrabold">{entry.word}</span>
+              <span className="text-[18px] font-extrabold">{entry.word}</span>
               <CategoryBadge category={entry.category} />
-              {entry.senses?.[0]?.pos && <span className="text-[12px] italic text-neutral-600">{entry.senses[0].pos}</span>}
+              {entry.senses?.[0]?.pos && <span className="text-[14px] italic text-neutral-600">{entry.senses[0].pos}</span>}
             </span>
             <span className="label-xs whitespace-nowrap text-accent">{openKey === key ? "Thu gọn" : "Xem"}</span>
           </button>
           {entry.senses?.[0]?.vi && openKey !== key && (
-            <p className="mt-1 truncate text-[13px] text-neutral-700">{entry.senses[0].vi}</p>
+            <p className="mt-1 truncate text-[15px] text-neutral-700">{entry.senses[0].vi}</p>
           )}
           {openKey === key && (
             <div className="mt-3 border-t pt-3" style={{ borderColor: "var(--color-divider)" }}>
               <VocabEntryDetail data={entry} fallbackWord={entry.word} />
               <button
                 type="button"
-                className="btn btn-ghost mt-2 text-[12px] text-red-600"
+                className="btn btn-ghost mt-2 text-[14px] text-red-600"
                 onClick={() => { deleteEntry(key); setOpenKey(null); }}
               >
                 Xoá khỏi từ điển
@@ -153,7 +153,7 @@ function GrammarTab({ query }: { query: string }) {
 
   if (list.length === 0) {
     return (
-      <p className="text-[13px] text-neutral-500">
+      <p className="text-[15px] text-neutral-500">
         {query
           ? "Không tìm thấy cấu trúc nào."
           : "Bạn chưa tra ngữ pháp nào. Bôi đen 1 câu/mệnh đề trên trang, bấm \"📐 Ngữ pháp\" để phân tích."}
@@ -172,20 +172,20 @@ function GrammarTab({ query }: { query: string }) {
           >
             <span className="min-w-0">
               <span className="flex flex-wrap items-baseline gap-x-2">
-                <span className="text-[13px] font-extrabold text-accent-800">📐 {entry.category}</span>
+                <span className="text-[15px] font-extrabold text-accent-800">📐 {entry.category}</span>
                 {entry.discussed ? (
                   <span className="label-xs text-accent">✓ Đã thảo luận</span>
                 ) : (
                   <span className="label-xs text-neutral-500">Chưa thảo luận</span>
                 )}
               </span>
-              <p className="mt-1 truncate text-[13px] text-neutral-700">{entry.text}</p>
+              <p className="mt-1 truncate text-[15px] text-neutral-700">{entry.text}</p>
             </span>
             <span className="label-xs flex-none whitespace-nowrap text-accent">Xem</span>
           </button>
           <button
             type="button"
-            className="btn btn-ghost mt-2 text-[12px] text-red-600"
+            className="btn btn-ghost mt-2 text-[14px] text-red-600"
             onClick={() => deleteEntry(key)}
           >
             Xoá khỏi từ điển
@@ -209,7 +209,7 @@ function TranslationsTab({ query }: { query: string }) {
 
   if (list.length === 0) {
     return (
-      <p className="text-[13px] text-neutral-500">
+      <p className="text-[15px] text-neutral-500">
         {query ? "Không tìm thấy đoạn nào." : "Bạn chưa lưu đoạn dịch nào. Bôi đen 1 câu/đoạn văn, bấm \"Lưu bản dịch\" để giữ lại ở đây."}
       </p>
     );
@@ -219,11 +219,11 @@ function TranslationsTab({ query }: { query: string }) {
     <div className="flex flex-col gap-2">
       {list.map(([key, entry]) => (
         <div key={key} className="border border-transparent bg-surface p-3">
-          <p className="text-[14px] leading-relaxed">{entry.text}</p>
-          <p className="mt-1.5 text-[13px] leading-relaxed text-neutral-700">{entry.translation}</p>
+          <p className="text-[16px] leading-relaxed">{entry.text}</p>
+          <p className="mt-1.5 text-[15px] leading-relaxed text-neutral-700">{entry.translation}</p>
           <button
             type="button"
-            className="btn btn-ghost mt-2 text-[12px] text-red-600"
+            className="btn btn-ghost mt-2 text-[14px] text-red-600"
             onClick={() => deleteEntry(key)}
           >
             Xoá bản dịch

@@ -18,8 +18,8 @@ export function ProPaywallNotice({ what }: { what: string }) {
       <div className="mb-2 flex justify-center text-neutral-500">
         <LockIcon className="block h-8 w-8" />
       </div>
-      <div className="mb-1 text-[16px] font-extrabold">{t("paywall.locked")}</div>
-      <p className="mb-4 text-[13px] text-neutral-600">{t("paywall.body", { what })}</p>
+      <div className="mb-1 text-[18px] font-extrabold">{t("paywall.locked")}</div>
+      <p className="mb-4 text-[15px] text-neutral-600">{t("paywall.body", { what })}</p>
       <div className="border border-[color:var(--color-divider)] text-left">
         <SubscriptionSettings />
       </div>

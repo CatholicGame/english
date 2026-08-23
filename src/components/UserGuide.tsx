@@ -19,13 +19,13 @@ export function UserGuide({ onClose }: { onClose: () => void }) {
   const { t } = useUiLang();
   return (
     <Modal onClose={onClose}>
-      <h2 className="mb-1 text-[17px] font-extrabold">{t("guide.title")}</h2>
-      <p className="mb-3 text-[12px] text-neutral-600">{t("guide.subtitle")}</p>
+      <h2 className="mb-1 text-[19px] font-extrabold">{t("guide.title")}</h2>
+      <p className="mb-3 text-[14px] text-neutral-600">{t("guide.subtitle")}</p>
       <div className="flex flex-col gap-3">
         {GUIDE_SECTIONS.map((s) => (
           <div key={s.titleKey} className="divider-b pb-3 last:border-b-0 last:pb-0">
-            <div className="mb-1 text-[13px] font-extrabold text-accent">{t(s.titleKey)}</div>
-            <p className="text-[12px] leading-relaxed text-neutral-600">{t(s.bodyKey)}</p>
+            <div className="mb-1 text-[15px] font-extrabold text-accent">{t(s.titleKey)}</div>
+            <p className="text-[14px] leading-relaxed text-neutral-600">{t(s.bodyKey)}</p>
           </div>
         ))}
       </div>

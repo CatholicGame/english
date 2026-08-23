@@ -26,6 +26,8 @@ interface Term {
   vi: string;
 }
 
+type WriteMode = "passage" | "sentences";
+
 interface Draft {
   sessionId: string;
   // Conversation id of the pending history record created when the passage was
@@ -38,6 +40,21 @@ interface Draft {
   terms: Term[];
   passage: string;
   translation: string;
+  mode?: WriteMode;
+  // Per-sentence translations for "sentences" mode, aligned index-for-index
+  // with splitSentences(passage) — kept separate from `translation` (which
+  // stays whatever "passage" mode last had) so switching modes never clobbers
+  // the other mode's in-progress text.
+  sentenceTranslations?: string[];
+}
+
+/** Splits a passage into sentences for "sentences" mode — one input box per
+ * sentence instead of one textarea for the whole passage. Good enough for the
+ * simple, learner-level prose this module generates; doesn't try to handle
+ * abbreviations like "TP.HCM" since those essentially never appear here. */
+function splitSentences(text: string): string[] {
+  const matches = text.match(/[^.!?]+[.!?]+(?:\s+|$)|[^.!?]+$/g);
+  return (matches ?? [text]).map((s) => s.trim()).filter(Boolean);
 }
 
 function newSessionId(): string {
@@ -258,16 +275,32 @@ function SelectContent({
  * action, rendered inside the full-screen writing overlay. Same
  * separate-component-for-useActionBar reasoning as SelectContent above. */
 function WritingContent({
-  terms, passage, translation, setTranslation, error, loading, onSubmit,
+  terms, passage, translation, setTranslation, mode, setMode,
+  sentenceTranslations, setSentenceTranslations, error, loading, onSubmit,
 }: {
   terms: Term[];
   passage: string;
   translation: string;
   setTranslation: (v: string) => void;
+  mode: WriteMode;
+  setMode: (v: WriteMode) => void;
+  sentenceTranslations: string[];
+  setSentenceTranslations: React.Dispatch<React.SetStateAction<string[]>>;
   error: string | null;
   loading: boolean;
   onSubmit: () => void;
 }) {
+  const sentences = useMemo(() => splitSentences(passage), [passage]);
+
+  // Keep sentenceTranslations aligned with the current passage's sentence
+  // count whenever it drifts (a fresh passage, or an old draft saved before
+  // this field existed) instead of requiring every caller to size it exactly.
+  useEffect(() => {
+    setSentenceTranslations((prev) => (prev.length === sentences.length ? prev : sentences.map((_, i) => prev[i] ?? "")));
+  }, [sentences.length, setSentenceTranslations]);
+
+  const translationText = mode === "sentences" ? sentenceTranslations.join(" ").trim() : translation.trim();
+
   const footerContent = (
     <>
       {loading && (
@@ -278,7 +311,7 @@ function WritingContent({
       )}
       <button
         className="btn btn-primary btn-block px-4 py-2.5 text-[16px] font-extrabold disabled:opacity-40"
-        disabled={loading || !translation.trim()}
+        disabled={loading || !translationText}
         onClick={onSubmit}
       >
         {loading ? "Reviewing..." : "Submit & Get Feedback"}
@@ -317,26 +350,67 @@ function WritingContent({
         )}
       </div>
 
-      <div className="max-h-[calc(var(--real-vh,100vh)*0.3)] flex-none overflow-y-auto rounded bg-accent-100 p-3 text-[16px] leading-relaxed text-accent-800">{passage}</div>
-
-      <div className="flex min-h-0 flex-1 flex-col gap-1.5">
-        <textarea
-          className="input min-h-0 flex-1 resize-none overflow-y-auto"
-          placeholder="Translate the passage into English..."
-          value={translation}
-          onChange={(e) => setTranslation(e.target.value)}
-        />
-        <p className="flex-none text-[16px] text-neutral-500">
-          {translation.trim() ? translation.trim().split(/\s+/).length : 0} words · 💾 Draft is saved automatically
-        </p>
-
-        {error && (
-          <div className="flex-none rounded bg-accent-100 p-4 text-[16px] leading-relaxed text-accent-800">
-            <p className="font-extrabold">Error</p>
-            <p className="mt-1">{error}</p>
-          </div>
-        )}
+      <div className="flex flex-none gap-1.5">
+        <button
+          onClick={() => setMode("passage")}
+          className={`flex-1 px-3 py-1.5 text-[16px] font-extrabold ${mode === "passage" ? "bg-ink text-bg" : "bg-surface text-ink"}`}
+        >
+          📄 Whole passage
+        </button>
+        <button
+          onClick={() => setMode("sentences")}
+          className={`flex-1 px-3 py-1.5 text-[16px] font-extrabold ${mode === "sentences" ? "bg-ink text-bg" : "bg-surface text-ink"}`}
+        >
+          ✂️ Sentence by sentence
+        </button>
       </div>
+
+      {mode === "passage" ? (
+        <>
+          <div className="max-h-[calc(var(--real-vh,100vh)*0.3)] flex-none overflow-y-auto rounded bg-accent-100 p-3 text-[16px] leading-relaxed text-accent-800">{passage}</div>
+
+          <div className="flex min-h-0 flex-1 flex-col gap-1.5">
+            <textarea
+              className="input min-h-0 flex-1 resize-none overflow-y-auto"
+              placeholder="Translate the passage into English..."
+              value={translation}
+              onChange={(e) => setTranslation(e.target.value)}
+            />
+          </div>
+        </>
+      ) : (
+        <div className="flex min-h-0 flex-1 flex-col gap-2 overflow-y-auto">
+          {sentences.map((s, i) => (
+            <div key={i} className="flex flex-none flex-col gap-1.5">
+              <div className="rounded bg-accent-100 px-3 py-2 text-[16px] leading-relaxed text-accent-800">
+                <span className="label-xs mr-2 text-accent-700">{i + 1}.</span>
+                {s}
+              </div>
+              <input
+                className="input"
+                placeholder="Your English translation..."
+                value={sentenceTranslations[i] || ""}
+                onChange={(e) => {
+                  const next = [...sentenceTranslations];
+                  next[i] = e.target.value;
+                  setSentenceTranslations(next);
+                }}
+              />
+            </div>
+          ))}
+        </div>
+      )}
+
+      <p className="flex-none text-[16px] text-neutral-500">
+        {translationText ? translationText.split(/\s+/).length : 0} words · 💾 Draft is saved automatically
+      </p>
+
+      {error && (
+        <div className="flex-none rounded bg-accent-100 p-4 text-[16px] leading-relaxed text-accent-800">
+          <p className="font-extrabold">Error</p>
+          <p className="mt-1">{error}</p>
+        </div>
+      )}
     </div>
   );
 }
@@ -366,6 +440,8 @@ export default function WritePage() {
   const [terms, setTerms] = useState<Term[]>([]);
   const [passage, setPassage] = useState("");
   const [translation, setTranslation] = useState("");
+  const [writeMode, setWriteMode] = useState<WriteMode>("passage");
+  const [sentenceTranslations, setSentenceTranslations] = useState<string[]>([]);
 
   // Result popup — shown right after submit; past results are reopened the
   // same way from History (AiConversationHistory has its own view-record popup).
@@ -382,6 +458,8 @@ export default function WritePage() {
       setTerms(draft.terms);
       setPassage(draft.passage);
       setTranslation(draft.translation);
+      setWriteMode(draft.mode ?? "passage");
+      setSentenceTranslations(draft.sentenceTranslations ?? []);
       setWriting(true);
     }
   }, []);
@@ -390,10 +468,13 @@ export default function WritePage() {
   useEffect(() => {
     if (!writing) return;
     const timer = setTimeout(() => {
-      saveDraft({ sessionId, cid, topic: selectedTopic ?? "", wordCount, terms, passage, translation });
+      saveDraft({
+        sessionId, cid, topic: selectedTopic ?? "", wordCount, terms, passage, translation,
+        mode: writeMode, sentenceTranslations,
+      });
     }, 800);
     return () => clearTimeout(timer);
-  }, [writing, sessionId, cid, selectedTopic, wordCount, terms, passage, translation]);
+  }, [writing, sessionId, cid, selectedTopic, wordCount, terms, passage, translation, writeMode, sentenceTranslations]);
 
   const ql = query.trim().toLowerCase();
   const listVerbs = useMemo(
@@ -458,6 +539,7 @@ export default function WritePage() {
       setTerms(finalTerms);
       setPassage(d.passage);
       setTranslation("");
+      setSentenceTranslations(new Array(splitSentences(d.passage).length).fill(""));
       setSessionId(newSessionId());
       // Saved immediately (not just on submit) so an attempt that's generated
       // but never finished still shows up in History — flagged "unresolved"
@@ -476,8 +558,9 @@ export default function WritePage() {
   }, [selected, selectedTopic, wordCount, lang, appendMessages]);
 
   const submit = useCallback(async () => {
-    if (!translation.trim()) return;
-    const d = await callAi("cpv_writing_review", { terms, passage, translation: translation.trim() });
+    const translationText = writeMode === "sentences" ? sentenceTranslations.join(" ").trim() : translation.trim();
+    if (!translationText) return;
+    const d = await callAi("cpv_writing_review", { terms, passage, translation: translationText });
     if (d) {
       const results = Array.isArray(d.results) ? (d.results as { ok: boolean }[]) : [];
       const usedPhrases = Array.isArray(d.usedPhrases) ? (d.usedPhrases as string[]) : [];
@@ -491,14 +574,14 @@ export default function WritePage() {
         cid,
         "cpv_writing_passage",
         [
-          { role: "user", content: translation.trim(), timestamp: Date.now() },
+          { role: "user", content: translationText, timestamp: Date.now() },
           { role: "assistant", content: JSON.stringify(enriched), timestamp: Date.now() },
         ],
       );
       setWriting(false);
       setResultModal(enriched);
     }
-  }, [translation, terms, passage, selectedTopic, cid, appendMessages]);
+  }, [writeMode, sentenceTranslations, translation, terms, passage, selectedTopic, cid, appendMessages]);
 
   // Reopens the writing overlay on an unresolved (not-yet-submitted) history
   // record — see AiConversationHistory's "✍️ Continue writing" button. The
@@ -517,13 +600,20 @@ export default function WritePage() {
       }
       if (!parsed.passage || !Array.isArray(parsed.terms)) return;
       const existingDraft = loadDraft();
+      const sameDraft = existingDraft?.cid === convo.id;
       setCid(convo.id);
       setSelectedTopic(parsed.topic ?? selectedTopic);
       setWordCount(parsed.wordCount ?? wordCount);
       setTerms(parsed.terms);
       setPassage(parsed.passage);
-      setTranslation(existingDraft?.cid === convo.id ? existingDraft.translation : "");
-      setSessionId(existingDraft?.cid === convo.id ? existingDraft.sessionId : newSessionId());
+      setTranslation(sameDraft ? existingDraft.translation : "");
+      setWriteMode(sameDraft ? (existingDraft.mode ?? "passage") : "passage");
+      setSentenceTranslations(
+        sameDraft && existingDraft.sentenceTranslations
+          ? existingDraft.sentenceTranslations
+          : new Array(splitSentences(parsed.passage).length).fill(""),
+      );
+      setSessionId(sameDraft ? existingDraft.sessionId : newSessionId());
       setError(null);
       setWriting(true);
     },
@@ -613,6 +703,10 @@ export default function WritePage() {
                 passage={passage}
                 translation={translation}
                 setTranslation={setTranslation}
+                mode={writeMode}
+                setMode={setWriteMode}
+                sentenceTranslations={sentenceTranslations}
+                setSentenceTranslations={setSentenceTranslations}
                 error={error}
                 loading={loading}
                 onSubmit={submit}

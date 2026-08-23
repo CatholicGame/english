@@ -100,7 +100,7 @@ export default function ListenAMinutePage() {
         <div className="mb-3">
           <div className="mb-1 flex items-baseline justify-between">
             <span className="label-xs">Progress</span>
-            <span className="text-[13px] tabular-nums text-neutral-600">
+            <span className="text-[16px] tabular-nums text-neutral-600">
               {doneCount}/{total} · {donePct}%
             </span>
           </div>
@@ -117,7 +117,7 @@ export default function ListenAMinutePage() {
             <span className="label-xs mb-0.5 block text-accent-700">Continue</span>
             <span className="flex items-baseline justify-between gap-3">
               <span className="font-extrabold">{currentLesson.title}</span>
-              <span className="text-[13px] tabular-nums">Step {current!.step}/4</span>
+              <span className="text-[16px] tabular-nums">Step {current!.step}/4</span>
             </span>
           </Link>
         )}
@@ -129,10 +129,10 @@ export default function ListenAMinutePage() {
           placeholder="Search a topic"
         />
         <div className="mt-2 flex gap-4">
-          <button className="btn btn-ghost px-0 text-[13px]" onClick={() => setAllCollapsed(false)}>
+          <button className="btn btn-ghost px-0 text-[16px]" onClick={() => setAllCollapsed(false)}>
             Expand all
           </button>
-          <button className="btn btn-ghost px-0 text-[13px]" onClick={() => setAllCollapsed(true)}>
+          <button className="btn btn-ghost px-0 text-[16px]" onClick={() => setAllCollapsed(true)}>
             Collapse all
           </button>
         </div>
@@ -158,7 +158,7 @@ export default function ListenAMinutePage() {
                     const locked = isListenLessonLocked(lesson.slug, isUnlocked);
                     const body = (
                       <>
-                        <span className="text-[18px] font-extrabold">{lesson.title}</span>
+                        <span className="text-[19px] font-extrabold">{lesson.title}</span>
                         {done ? (
                           <span className="label-xs text-accent">Done</span>
                         ) : locked ? (
@@ -192,7 +192,7 @@ export default function ListenAMinutePage() {
             </div>
           );
         })}
-        {filtered.length === 0 && <div className="px-4 py-8 text-[15px] text-neutral-600">No match.</div>}
+        {filtered.length === 0 && <div className="px-4 py-8 text-[16px] text-neutral-600">No match.</div>}
       </div>
       {showPurchase && <PurchaseModal onClose={() => setShowPurchase(false)} />}
     </div>

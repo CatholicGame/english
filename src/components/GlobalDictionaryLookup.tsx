@@ -201,21 +201,21 @@ export function GlobalDictionaryLookup() {
           className="fixed z-[65] flex items-center gap-1 border bg-bg px-3 py-1.5 shadow-lg"
           style={{ left: pill.x, top: pill.y, transform: "translateX(-50%)", borderColor: "var(--color-divider)" }}
         >
-          <span className="max-w-[120px] truncate text-[14px] font-extrabold">{pill.word}</span>
+          <span className="max-w-[120px] truncate text-[16px] font-extrabold">{pill.word}</span>
           <button
-            className="bg-accent px-2.5 py-0.5 text-[13px] font-extrabold whitespace-nowrap text-white"
+            className="bg-accent px-2.5 py-0.5 text-[16px] font-extrabold whitespace-nowrap text-white"
             onClick={() => { setActive({ kind: "vocab", word: pill.word, context: pill.context }); setPill(null); }}
           >
             {t("lookup.lookup")}
           </button>
           <button
-            className="whitespace-nowrap px-2.5 py-0.5 text-[13px] font-extrabold text-white"
+            className="whitespace-nowrap px-2.5 py-0.5 text-[16px] font-extrabold text-white"
             style={{ background: "#00897b" }}
             onClick={() => { setActive({ kind: "grammar", word: pill.word, context: pill.context }); setPill(null); }}
           >
             {t("lookup.grammar")}
           </button>
-          <button className="text-[16px] text-neutral-500 hover:text-neutral-700" onClick={() => setPill(null)}>✕</button>
+          <button className="text-[17px] text-neutral-500 hover:text-neutral-700" onClick={() => setPill(null)}>✕</button>
         </div>
       )}
       {active?.kind === "vocab" && <VocabPopup word={active.word} context={active.context} onClose={() => setActive(null)} />}

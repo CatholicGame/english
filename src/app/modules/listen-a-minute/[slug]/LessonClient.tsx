@@ -144,39 +144,39 @@ function VocabList({ lesson }: { lesson: ListenLesson }) {
     <div className="flex flex-col gap-5">
       {entries.map((e, i) =>
         !e ? (
-          <div key={i} className="divider-b pb-4 text-[15px] text-neutral-500 last:border-b-0">
+          <div key={i} className="divider-b pb-4 text-[16px] text-neutral-500 last:border-b-0">
             {lesson.spellingWords[i]} — đang tra từ điển…
           </div>
         ) : (
         <div key={i} className="divider-b pb-4 last:border-b-0">
           <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
-            <span className="text-[18px] font-extrabold">{e.word}</span>
-            {e.phonetic && <span className="text-[15px] text-neutral-600">{e.phonetic}</span>}
-            {e.partOfSpeech && <span className="text-[14px] italic text-neutral-600">{e.partOfSpeech}</span>}
+            <span className="text-[19px] font-extrabold">{e.word}</span>
+            {e.phonetic && <span className="text-[16px] text-neutral-600">{e.phonetic}</span>}
+            {e.partOfSpeech && <span className="text-[16px] italic text-neutral-600">{e.partOfSpeech}</span>}
           </div>
-          {e.definition && <div className="mt-1.5 text-[15px] leading-relaxed">{e.definition}</div>}
+          {e.definition && <div className="mt-1.5 text-[16px] leading-relaxed">{e.definition}</div>}
           {e.vi && (
-            <div className="mt-1.5 text-[15px] leading-relaxed text-accent-700">
+            <div className="mt-1.5 text-[16px] leading-relaxed text-accent-700">
               <span className="font-extrabold">Nghĩa: </span>
               {e.vi}
             </div>
           )}
           {e.contextSentence ? (
-            <div className="mt-2 bg-surface p-2.5 text-[15px] leading-relaxed">
+            <div className="mt-2 bg-surface p-2.5 text-[16px] leading-relaxed">
               <span className="label-xs mb-1 block">Ví dụ trong bài</span>
               <span className="italic">&ldquo;{e.contextSentence}&rdquo;</span>
               {e.contextSentenceVi && <div className="mt-0.5 text-neutral-600">→ {e.contextSentenceVi}</div>}
             </div>
           ) : (
             e.dictExample && (
-              <div className="mt-2 bg-surface p-2.5 text-[15px] leading-relaxed">
+              <div className="mt-2 bg-surface p-2.5 text-[16px] leading-relaxed">
                 <span className="label-xs mb-1 block">Ví dụ</span>
                 <span className="italic">&ldquo;{e.dictExample}&rdquo;</span>
               </div>
             )
           )}
           {!e.found && (
-            <div className="mt-1.5 text-[14px] text-neutral-500">Không tra được nghĩa cho từ này.</div>
+            <div className="mt-1.5 text-[16px] text-neutral-500">Không tra được nghĩa cho từ này.</div>
           )}
         </div>
         ),
@@ -272,13 +272,13 @@ function LessonDiscussion({ lesson }: { lesson: ListenLesson }) {
       {phase === "practicing" && (
         <div className="flex flex-col gap-3">
           {chat.length === 0 && (
-            <p className="text-[14px] text-neutral-600">
+            <p className="text-[16px] text-neutral-600">
               {t("discussion.prompt", { term: lesson.title })}
             </p>
           )}
           <div className="flex max-h-[300px] flex-col gap-3 overflow-y-auto rounded border p-3" style={{ borderColor: "var(--color-divider)" }}>
             {chat.map((m, i) => (
-              <div key={i} className="rounded p-2.5 text-[15px] leading-relaxed"
+              <div key={i} className="rounded p-2.5 text-[16px] leading-relaxed"
                 style={{ background: m.role === "user" ? "var(--color-accent-100)" : "var(--color-surface)", alignSelf: m.role === "user" ? "flex-end" : "flex-start", maxWidth: "85%" }}>
                 <span className="label-xs mb-0.5 block">{m.role === "user" ? "You" : "Partner"}</span>
                 <p className="whitespace-pre-wrap">{m.content}</p>
@@ -297,15 +297,15 @@ function LessonDiscussion({ lesson }: { lesson: ListenLesson }) {
             <div ref={chatEndRef} />
           </div>
           {busy === "end" ? (
-            <div className="flex items-center justify-center gap-2 rounded border p-3 text-[14px] text-neutral-600" style={{ borderColor: "var(--color-divider)" }}>
+            <div className="flex items-center justify-center gap-2 rounded border p-3 text-[16px] text-neutral-600" style={{ borderColor: "var(--color-divider)" }}>
               <span className="inline-block h-3.5 w-3.5 animate-spin rounded-full border-2 border-current border-t-transparent" />
               Analyzing your discussion...
             </div>
           ) : (
             <div className="flex items-end gap-2">
               <ChatInput value={chatIn} onChange={setChatIn} onSend={sendMessage} disabled={loading || !chatIn.trim()} />
-              <button className="btn btn-primary px-3 py-2.5 text-[15px] font-extrabold disabled:opacity-40" disabled={loading || !chatIn.trim()} onClick={sendMessage}>Send</button>
-              <button className="btn btn-ghost px-3 py-2.5 text-[14px]" disabled={loading || !chat.some((m) => m.role === "user")} onClick={endDiscussion}>End</button>
+              <button className="btn btn-primary px-3 py-2.5 text-[16px] font-extrabold disabled:opacity-40" disabled={loading || !chatIn.trim()} onClick={sendMessage}>Send</button>
+              <button className="btn btn-ghost px-3 py-2.5 text-[16px]" disabled={loading || !chat.some((m) => m.role === "user")} onClick={endDiscussion}>End</button>
             </div>
           )}
         </div>
@@ -523,7 +523,7 @@ export function LessonClient({ slug }: { slug: string }) {
   if (!lesson) {
     return (
       <div className="p-4">
-        <p className="text-[15px] text-neutral-600">Lesson not found.</p>
+        <p className="text-[16px] text-neutral-600">Lesson not found.</p>
         <button className="btn btn-ghost mt-3" onClick={() => router.push("/modules/listen-a-minute")}>
           All topics
         </button>
@@ -674,7 +674,7 @@ export function LessonClient({ slug }: { slug: string }) {
             <div className="h-full bg-accent" style={{ width: `${(step / TOTAL_STEPS) * 100}%` }} />
           </div>
           <button
-            className="flex flex-none items-center gap-1 text-[13px] tabular-nums text-neutral-600 hover:text-accent"
+            className="flex flex-none items-center gap-1 text-[16px] tabular-nums text-neutral-600 hover:text-accent"
             onClick={() => setShowStepList(true)}
             aria-label="Jump to step"
           >
@@ -690,7 +690,7 @@ export function LessonClient({ slug }: { slug: string }) {
           <div className="fixed inset-0 z-[60] bg-bg">
             <div className="mx-auto flex h-full max-w-[480px] flex-col lg:max-w-[1080px]">
               <div className="divider-b flex items-center justify-between px-4 py-3">
-                <span className="text-[18px] font-extrabold">Steps in this lesson</span>
+                <span className="text-[19px] font-extrabold">Steps in this lesson</span>
                 <button className="btn btn-ghost" onClick={() => setShowStepList(false)}>
                   Close
                 </button>
@@ -706,7 +706,7 @@ export function LessonClient({ slug }: { slug: string }) {
                       style={target === step ? { background: "var(--color-accent-100)" } : undefined}
                     >
                       <span className="label-xs w-6 flex-none text-neutral-600">{target}</span>
-                      <span className="flex-1 text-[16px] font-extrabold">{label}</span>
+                      <span className="flex-1 text-[17px] font-extrabold">{label}</span>
                       {target < step && <span className="label-xs text-accent">Done</span>}
                     </button>
                   );
@@ -736,7 +736,7 @@ export function LessonClient({ slug }: { slug: string }) {
           >
             {playing ? <PauseIcon className="block h-5 w-5" /> : <SpeakerIcon className="block h-5 w-5" />}
           </button>
-          <span className="w-8 flex-none text-right text-[13px] tabular-nums text-neutral-600">
+          <span className="w-8 flex-none text-right text-[16px] tabular-nums text-neutral-600">
             {formatTime(currentTime)}
           </span>
           <input
@@ -749,7 +749,7 @@ export function LessonClient({ slug }: { slug: string }) {
             className="h-1 flex-1 accent-[var(--color-accent)]"
             aria-label="Seek audio"
           />
-          <span className="w-8 flex-none text-[13px] tabular-nums text-neutral-600">{formatTime(duration)}</span>
+          <span className="w-8 flex-none text-[16px] tabular-nums text-neutral-600">{formatTime(duration)}</span>
         </div>
       </div>
 
@@ -775,28 +775,28 @@ export function LessonClient({ slug }: { slug: string }) {
                 <div className={showScript || pickerMode ? "contents" : "hidden lg:contents"}>
                   {pickerMode ? (
                     <>
-                      <button className="btn btn-primary px-3 py-1.5 text-[14px]" onClick={saveCustomCloze}>
+                      <button className="btn btn-primary px-3 py-1.5 text-[16px]" onClick={saveCustomCloze}>
                         Lưu ({pickedWords.size} từ)
                       </button>
-                      <button className="btn btn-ghost px-3 py-1.5 text-[14px]" onClick={() => setPickerMode(false)}>
+                      <button className="btn btn-ghost px-3 py-1.5 text-[16px]" onClick={() => setPickerMode(false)}>
                         Huỷ
                       </button>
                     </>
                   ) : (
-                    <button className="btn btn-ghost px-3 py-1.5 text-[14px]" onClick={openPicker}>
+                    <button className="btn btn-ghost px-3 py-1.5 text-[16px]" onClick={openPicker}>
                       ✂️ Tạo bài fill của tôi
                     </button>
                   )}
                 </div>
                 {!pickerMode && hasCustomCloze && (
-                  <button className="btn btn-ghost px-3 py-1.5 text-[14px] text-accent-700" onClick={deleteCustomCloze}>
+                  <button className="btn btn-ghost px-3 py-1.5 text-[16px] text-accent-700" onClick={deleteCustomCloze}>
                     Xoá bản của tôi
                   </button>
                 )}
               </div>
 
               {pickerMode ? (
-                <div className="mt-3 bg-surface p-4 text-[17px] leading-[2] text-pretty select-none" style={{ touchAction: "pan-y" }}>
+                <div className="mt-3 bg-surface p-4 text-[18px] leading-[2] text-pretty select-none" style={{ touchAction: "pan-y" }}>
                   <p className="label-xs mb-2">Chạm hoặc kéo qua các từ bạn muốn ẩn đi để tự luyện fill-in-the-blank:</p>
                   {tokenizeWords(plainText).map((t, i) =>
                     t.wordIndex === null ? (
@@ -829,7 +829,7 @@ export function LessonClient({ slug }: { slug: string }) {
                         <button
                           key={i}
                           onClick={() => playSentence(i)}
-                          className="divider-b block w-full px-4 py-2.5 text-left text-[17px] leading-relaxed"
+                          className="divider-b block w-full px-4 py-2.5 text-left text-[18px] leading-relaxed"
                           style={{
                             background: i === activeSentence ? "var(--color-accent-100)" : "var(--color-surface)",
                             color: i === activeSentence ? "var(--color-accent-800)" : "var(--color-text)",
@@ -842,7 +842,7 @@ export function LessonClient({ slug }: { slug: string }) {
                   )}
                   {lesson.sentences.length === 0 && (
                     <div
-                      className={`mt-3 bg-surface p-4 text-[17px] leading-relaxed lg:mt-0 lg:block ${showScript ? "block" : "hidden"}`}
+                      className={`mt-3 bg-surface p-4 text-[18px] leading-relaxed lg:mt-0 lg:block ${showScript ? "block" : "hidden"}`}
                     >
                       {renderClozePlain(lesson.clozeTemplate)}
                     </div>
@@ -875,7 +875,7 @@ export function LessonClient({ slug }: { slug: string }) {
                 <button
                   key={v}
                   onClick={() => changeClozeVersion(v)}
-                  className="flex-1 px-3 py-1.5 text-[14px] font-extrabold tracking-wide uppercase"
+                  className="flex-1 px-3 py-1.5 text-[16px] font-extrabold tracking-wide uppercase"
                   style={{
                     background: clozeVersion === v ? "var(--color-ink)" : "var(--color-bg)",
                     color: clozeVersion === v ? "var(--color-bg)" : "var(--color-ink)",
@@ -887,7 +887,7 @@ export function LessonClient({ slug }: { slug: string }) {
               ))}
             </div>
           )}
-          <div className="mb-4 bg-surface p-4 text-[18px] leading-[2.75] text-pretty lg:mx-auto lg:max-w-[1080px]">
+          <div className="mb-4 bg-surface p-4 text-[19px] leading-[2.75] text-pretty lg:mx-auto lg:max-w-[1080px]">
             {segments.map((s, i) => {
               if ("text" in s) return <span key={i}>{s.text}</span>;
               const idx = blankIndexBySegment[i];
@@ -916,7 +916,7 @@ export function LessonClient({ slug }: { slug: string }) {
             })}
           </div>
           {gapSubmitted && (
-            <div className="mb-3 bg-accent-100 px-4 py-3 text-[15px] leading-relaxed text-accent-800">
+            <div className="mb-3 bg-accent-100 px-4 py-3 text-[16px] leading-relaxed text-accent-800">
               <span className="label-xs mb-0.5 block">Score</span>
               <span className="font-extrabold">
                 {gapCorrect}/{blankAnswers.length} correct
@@ -947,7 +947,7 @@ export function LessonClient({ slug }: { slug: string }) {
 
       {step === 3 && (
         <div className="flex flex-1 flex-col p-4 pb-[96px]">
-          <div className="mb-2 text-[15px] text-neutral-700">
+          <div className="mb-2 text-[16px] text-neutral-700">
             Unscramble the letters to spell each word correctly.
           </div>
           <div className="lg:grid lg:grid-cols-2 lg:gap-x-6">
@@ -970,7 +970,7 @@ export function LessonClient({ slug }: { slug: string }) {
                     placeholder="Type the correct spelling"
                   />
                   {bad && (
-                    <div className="mt-1 text-[14px] text-accent-700">
+                    <div className="mt-1 text-[16px] text-accent-700">
                       Answer: <span className="font-extrabold">{word}</span>
                     </div>
                   )}
@@ -979,7 +979,7 @@ export function LessonClient({ slug }: { slug: string }) {
             })}
           </div>
           {spellSubmitted && (
-            <div className="mb-3 bg-accent-100 px-4 py-3 text-[15px] leading-relaxed text-accent-800">
+            <div className="mb-3 bg-accent-100 px-4 py-3 text-[16px] leading-relaxed text-accent-800">
               <span className="label-xs mb-0.5 block">Score</span>
               <span className="font-extrabold">
                 {spellCorrect}/{lesson.spellingWords.length} correct
@@ -1004,7 +1004,7 @@ export function LessonClient({ slug }: { slug: string }) {
 
       {step === 4 && (
         <div className="flex flex-1 flex-col p-4 pb-[96px]">
-          <div className="mb-3 text-[15px] text-neutral-700">
+          <div className="mb-3 text-[16px] text-neutral-700">
             Extend what you have learned with these follow-up tasks.
           </div>
           <div className="lg:grid lg:grid-cols-2 lg:gap-x-6">
@@ -1018,11 +1018,11 @@ export function LessonClient({ slug }: { slug: string }) {
                       checked={!!checked[t.key]}
                       onChange={(e) => setChecked((c) => ({ ...c, [t.key]: e.target.checked }))}
                     />
-                    <span className="text-[15px] leading-relaxed">{t.label}</span>
+                    <span className="text-[16px] leading-relaxed">{t.label}</span>
                   </label>
                   <button
                     type="button"
-                    className="btn btn-ghost flex-none self-start px-3 py-1 text-[14px]"
+                    className="btn btn-ghost flex-none self-start px-3 py-1 text-[16px]"
                     onClick={() => setSampleKey(t.key)}
                   >
                     Show
@@ -1047,7 +1047,7 @@ export function LessonClient({ slug }: { slug: string }) {
         <div className="fixed inset-0 z-[60] bg-bg">
           <div className="mx-auto flex h-full max-w-[480px] flex-col lg:max-w-[1080px]">
             <div className="divider-b flex items-center justify-between px-4 py-3">
-              <span className="text-[18px] font-extrabold">{sampleKey === "vocab" ? "Từ vựng trong bài" : "Sample"}</span>
+              <span className="text-[19px] font-extrabold">{sampleKey === "vocab" ? "Từ vựng trong bài" : "Sample"}</span>
               <button className="btn btn-ghost" onClick={() => setSampleKey(null)}>
                 Close
               </button>
@@ -1057,7 +1057,7 @@ export function LessonClient({ slug }: { slug: string }) {
                 <VocabList lesson={lesson} />
               ) : (
                 <>
-                  <div className="whitespace-pre-wrap text-[16px] leading-relaxed">
+                  <div className="whitespace-pre-wrap text-[17px] leading-relaxed">
                     {extensionSample(sampleKey, lesson)}
                   </div>
                   {extensionLanguageNotes(sampleKey).length > 0 && (
@@ -1065,9 +1065,9 @@ export function LessonClient({ slug }: { slug: string }) {
                       <div className="label-xs mb-2">Collocations, phrasal verbs & idioms</div>
                       <div className="flex flex-col gap-2.5">
                         {extensionLanguageNotes(sampleKey).map((n, i) => (
-                          <div key={i} className="text-[15px] leading-relaxed">
+                          <div key={i} className="text-[16px] leading-relaxed">
                             <span className="font-extrabold">{n.phrase}</span>{" "}
-                            <span className="text-[13px] italic text-neutral-600">({n.type})</span>
+                            <span className="text-[16px] italic text-neutral-600">({n.type})</span>
                             <span className="text-accent-700"> — {n.meaning}</span>
                           </div>
                         ))}

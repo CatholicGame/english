@@ -112,14 +112,14 @@ function SelectContent({
   const footerContent = (
     <>
       <button
-        className="btn btn-primary btn-block px-4 py-2.5 text-[15px] font-extrabold disabled:opacity-40"
+        className="btn btn-primary btn-block px-4 py-2.5 text-[16px] font-extrabold disabled:opacity-40"
         disabled={loading || selected.size === 0 || !selectedTopic}
         onClick={onGenerate}
       >
         {loading ? "Generating..." : "Generate Passage"}
       </button>
       {!loading && (selected.size === 0 || !selectedTopic) && (
-        <p className="mt-2 text-center text-[13px] text-neutral-500">
+        <p className="mt-2 text-center text-[16px] text-neutral-500">
           {!selectedTopic && selected.size === 0
             ? t("write.promptTopicAndGroup")
             : !selectedTopic
@@ -141,7 +141,7 @@ function SelectContent({
               <button
                 key={tp}
                 onClick={() => setSelectedTopic(tp)}
-                className="rounded-full px-3 py-1.5 text-[14px] font-bold"
+                className="rounded-full px-3 py-1.5 text-[16px] font-bold"
                 style={{
                   background: selectedTopic === tp ? "var(--color-accent)" : "var(--color-surface)",
                   color: selectedTopic === tp ? "#fff" : "var(--color-text)",
@@ -154,13 +154,13 @@ function SelectContent({
           </div>
           <div className="mt-2 flex gap-1.5">
             <input
-              className="input flex-1 text-[14px]"
+              className="input flex-1 text-[16px]"
               placeholder="Add a custom topic..."
               value={newTopic}
               onChange={(e) => setNewTopic(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && onAddTopic()}
             />
-            <button className="btn btn-ghost px-3 text-[14px] font-extrabold" onClick={onAddTopic} disabled={!newTopic.trim()}>
+            <button className="btn btn-ghost px-3 text-[16px] font-extrabold" onClick={onAddTopic} disabled={!newTopic.trim()}>
               Add
             </button>
           </div>
@@ -182,14 +182,14 @@ function SelectContent({
 
         <div>
           <span className="label-xs mb-2 block text-neutral-600">Verb groups to draw from</span>
-          <p className="mb-2 text-[13px] text-neutral-500">{t("write.groupHelp")}</p>
+          <p className="mb-2 text-[16px] text-neutral-500">{t("write.groupHelp")}</p>
           <input className="input mb-2" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Search verb, phrase or meaning" />
           <div className="mb-2 flex gap-1.5 overflow-x-auto">
             {GROUP_KEYS.map((k) => (
               <button
                 key={k}
                 onClick={() => setGroup(k)}
-                className={`flex-none px-3 py-1.5 text-[13px] font-extrabold tracking-wider uppercase ${group === k ? "bg-ink text-bg" : "bg-surface text-ink"}`}
+                className={`flex-none px-3 py-1.5 text-[16px] font-extrabold tracking-wider uppercase ${group === k ? "bg-ink text-bg" : "bg-surface text-ink"}`}
               >
                 {k === "all" ? "All" : k}
               </button>
@@ -211,8 +211,8 @@ function SelectContent({
                   </span>
                   <span className="min-w-0 flex-1">
                     <span className="flex items-baseline gap-2">
-                      <span className="text-[15px] font-extrabold uppercase tracking-tight">{v.verb}</span>
-                      <span className="text-[12px] tracking-wider text-accent">{v.group}</span>
+                      <span className="text-[16px] font-extrabold uppercase tracking-tight">{v.verb}</span>
+                      <span className="text-[16px] tracking-wider text-accent">{v.group}</span>
                       {locked && (
                         <span className="label-xs flex items-center gap-1 whitespace-nowrap text-neutral-500">
                           <LockIcon />
@@ -220,21 +220,21 @@ function SelectContent({
                         </span>
                       )}
                     </span>
-                    <span className="block truncate text-[13px] text-neutral-600">{v.items.slice(0, 3).map((it) => it.term).join(" · ")}</span>
+                    <span className="block truncate text-[16px] text-neutral-600">{v.items.slice(0, 3).map((it) => it.term).join(" · ")}</span>
                   </span>
-                  <span className="flex-none text-[13px] tabular-nums text-neutral-500">{v.items.length}</span>
+                  <span className="flex-none text-[16px] tabular-nums text-neutral-500">{v.items.length}</span>
                 </button>
               );
             })}
-            {listVerbs.length === 0 && <p className="px-3 py-4 text-[14px] text-neutral-500">No match.</p>}
+            {listVerbs.length === 0 && <p className="px-3 py-4 text-[16px] text-neutral-500">No match.</p>}
           </div>
-          <p className="mt-2 text-[13px] text-neutral-500">
+          <p className="mt-2 text-[16px] text-neutral-500">
             {selected.size} verb group{selected.size === 1 ? "" : "s"} selected. The AI will pick whichever expressions fit the passage best.
           </p>
         </div>
 
         {error && (
-          <div className="rounded bg-accent-100 p-4 text-[15px] leading-relaxed text-accent-800">
+          <div className="rounded bg-accent-100 p-4 text-[16px] leading-relaxed text-accent-800">
             <p className="font-extrabold">Error</p>
             <p className="mt-1">{error}</p>
           </div>
@@ -271,13 +271,13 @@ function WritingContent({
   const footerContent = (
     <>
       {loading && (
-        <div className="mb-2 flex items-center gap-2 text-[14px] font-bold text-accent-800">
+        <div className="mb-2 flex items-center gap-2 text-[16px] font-bold text-accent-800">
           <span className="inline-block h-3 w-3 flex-none animate-spin rounded-full border-2 border-accent-800 border-t-transparent" />
           AI is reviewing your writing...
         </div>
       )}
       <button
-        className="btn btn-primary btn-block px-4 py-2.5 text-[15px] font-extrabold disabled:opacity-40"
+        className="btn btn-primary btn-block px-4 py-2.5 text-[16px] font-extrabold disabled:opacity-40"
         disabled={loading || !translation.trim()}
         onClick={onSubmit}
       >
@@ -300,16 +300,16 @@ function WritingContent({
       <div className="flex-none">
         <button
           type="button"
-          className="flex items-center gap-1 text-[13px] font-bold text-accent-800"
+          className="flex items-center gap-1 text-[16px] font-bold text-accent-800"
           onClick={() => setShowTerms((v) => !v)}
         >
           🔑 {terms.length} target phrase{terms.length === 1 ? "" : "s"}
-          <span className="text-[11px]">{showTerms ? "▲" : "▼"}</span>
+          <span className="text-[16px]">{showTerms ? "▲" : "▼"}</span>
         </button>
         {showTerms && (
           <div className="mt-1.5 flex flex-wrap gap-1.5">
             {terms.map((t) => (
-              <span key={t.term} className="rounded-full border px-2.5 py-1 text-[13px] font-bold" style={{ borderColor: "var(--color-accent-800)", color: "var(--color-accent-800)" }}>
+              <span key={t.term} className="rounded-full border px-2.5 py-1 text-[16px] font-bold" style={{ borderColor: "var(--color-accent-800)", color: "var(--color-accent-800)" }}>
                 {t.term}
               </span>
             ))}
@@ -317,7 +317,7 @@ function WritingContent({
         )}
       </div>
 
-      <div className="max-h-[calc(var(--real-vh,100vh)*0.3)] flex-none overflow-y-auto rounded bg-accent-100 p-3 text-[15px] leading-relaxed text-accent-800">{passage}</div>
+      <div className="max-h-[calc(var(--real-vh,100vh)*0.3)] flex-none overflow-y-auto rounded bg-accent-100 p-3 text-[16px] leading-relaxed text-accent-800">{passage}</div>
 
       <div className="flex min-h-0 flex-1 flex-col gap-1.5">
         <textarea
@@ -326,12 +326,12 @@ function WritingContent({
           value={translation}
           onChange={(e) => setTranslation(e.target.value)}
         />
-        <p className="flex-none text-[13px] text-neutral-500">
+        <p className="flex-none text-[16px] text-neutral-500">
           {translation.trim() ? translation.trim().split(/\s+/).length : 0} words · 💾 Draft is saved automatically
         </p>
 
         {error && (
-          <div className="flex-none rounded bg-accent-100 p-4 text-[15px] leading-relaxed text-accent-800">
+          <div className="flex-none rounded bg-accent-100 p-4 text-[16px] leading-relaxed text-accent-800">
             <p className="font-extrabold">Error</p>
             <p className="mt-1">{error}</p>
           </div>
@@ -557,7 +557,7 @@ export default function WritePage() {
             header={
               <div className="flex flex-none items-center justify-between px-4 pt-4 pb-1 lg:px-6 lg:pt-6">
                 <h1 className="text-[26px]">✍️ Write</h1>
-                <button className="text-[13px] font-bold text-accent-800 underline hover:text-accent" onClick={() => router.back()}>
+                <button className="text-[16px] font-bold text-accent-800 underline hover:text-accent" onClick={() => router.back()}>
                   Back
                 </button>
               </div>
@@ -599,10 +599,10 @@ export default function WritePage() {
               fullViewport
               header={
                 <div className="flex flex-none items-center justify-between border-b px-4 py-3" style={{ borderColor: "var(--color-divider)" }}>
-                  <span className="text-[14px] text-neutral-600">
+                  <span className="text-[16px] text-neutral-600">
                     Topic: <span className="font-extrabold text-ink">{topicForLang(selectedTopic ?? "", lang)}</span> · ~{wordCount} words
                   </span>
-                  <button className="text-[13px] font-bold text-accent-800 underline hover:text-accent" onClick={discardDraft}>
+                  <button className="text-[16px] font-bold text-accent-800 underline hover:text-accent" onClick={discardDraft}>
                     Close
                   </button>
                 </div>
@@ -626,10 +626,10 @@ export default function WritePage() {
         <Modal onClose={closeResult}>
           <div className="mb-3">
             <span className="label-xs text-neutral-500">✍️ Write</span>
-            <h3 className="text-[16px] font-extrabold">📝 Results</h3>
+            <h3 className="text-[17px] font-extrabold">📝 Results</h3>
           </div>
           <BatchReviewContent data={resultModal} />
-          <button className="btn btn-primary btn-block mt-4 px-4 py-2.5 text-[15px] font-extrabold" onClick={closeResult}>
+          <button className="btn btn-primary btn-block mt-4 px-4 py-2.5 text-[16px] font-extrabold" onClick={closeResult}>
             Done
           </button>
         </Modal>

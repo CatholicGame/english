@@ -157,7 +157,7 @@ export function ShareButton({ title, text, getUrl, getImageUrl, className, style
           readOnly
           value={failedUrl}
           onFocus={(e) => e.currentTarget.select()}
-          className="input min-w-0 flex-1 basis-40 text-[13px]"
+          className="input min-w-0 flex-1 basis-40 text-[16px]"
           aria-label="Share link — select and copy manually"
         />
       )}

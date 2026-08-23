@@ -11,20 +11,20 @@ export function TranslationDetail({ text, translation, saved, onSave, onDelete }
     <>
       <div className="mb-4 pr-6">
         <span className="label-xs">Câu gốc</span>
-        <p className="mt-1 text-[17px] leading-relaxed">{text}</p>
+        <p className="mt-1 text-[18px] leading-relaxed">{text}</p>
       </div>
 
       <div className="mb-4">
         <span className="label-xs">Bản dịch</span>
-        <p className="mt-1 text-[17px] leading-relaxed">{translation}</p>
+        <p className="mt-1 text-[18px] leading-relaxed">{translation}</p>
       </div>
 
       {saved ? (
-        <button type="button" className="btn btn-secondary text-[14px] text-red-600" onClick={onDelete}>
+        <button type="button" className="btn btn-secondary text-[16px] text-red-600" onClick={onDelete}>
           ✓ Đã lưu · Xoá
         </button>
       ) : (
-        <button type="button" className="btn btn-primary px-4 py-2 text-[15px]" onClick={onSave}>
+        <button type="button" className="btn btn-primary px-4 py-2 text-[16px]" onClick={onSave}>
           💾 Lưu bản dịch
         </button>
       )}

@@ -36,13 +36,13 @@ export default function GrammarUnitsPage() {
           Home
         </Link>
         <h1 className="mb-1 text-[26px]">English Grammar in Use</h1>
-        <p className="mb-3 text-[15px] text-neutral-600">
+        <p className="mb-3 text-[16px] text-neutral-600">
           Mỗi unit đi theo đúng sách: học quy tắc ngữ pháp, rồi thực hành với chính bài tập trong sách, kết thúc bằng
           một câu luyện viết được AI chấm.
         </p>
         <div className="mb-1 flex items-baseline justify-between">
           <span className="label-xs">Tiến độ</span>
-          <span className="text-[13px] tabular-nums text-neutral-600">
+          <span className="text-[16px] tabular-nums text-neutral-600">
             {doneCount}/{total} · {donePct}%
           </span>
         </div>
@@ -60,7 +60,7 @@ export default function GrammarUnitsPage() {
             const body = (
               <>
                 <div className="flex items-baseline justify-between gap-3">
-                  <span className="text-[17px] font-extrabold">
+                  <span className="text-[18px] font-extrabold">
                     <span className="mr-1.5 text-neutral-600">{u.unit}.</span>
                     {u.title}
                   </span>
@@ -78,7 +78,7 @@ export default function GrammarUnitsPage() {
                     </span>
                   ) : null}
                 </div>
-                <div className="mt-1 text-[14px] text-neutral-600">{u.topic}</div>
+                <div className="mt-1 text-[16px] text-neutral-600">{u.topic}</div>
               </>
             );
             if (locked) {

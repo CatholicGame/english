@@ -40,7 +40,7 @@ export function IdiomDetailClient({ slug, termSlug }: { slug: string; termSlug: 
   if (!unit || !it) {
     return (
       <div className="p-4">
-        <p className="text-[15px] text-neutral-600">Idiom not found.</p>
+        <p className="text-[16px] text-neutral-600">Idiom not found.</p>
         <button className="btn btn-ghost mt-3" onClick={() => router.push(`/modules/idioms/${slug}`)}>
           Back to unit
         </button>
@@ -99,18 +99,18 @@ export function IdiomDetailClient({ slug, termSlug }: { slug: string; termSlug: 
 
       <div className="px-4 py-4">
         <div className="label-xs mb-1 text-accent">{t("idiom.concept")}</div>
-        <p className="text-[16px] leading-relaxed">{it.en}</p>
-        <p className="mt-1 text-[15px] leading-relaxed text-neutral-600">{it.vi}</p>
+        <p className="text-[17px] leading-relaxed">{it.en}</p>
+        <p className="mt-1 text-[16px] leading-relaxed text-neutral-600">{it.vi}</p>
 
         <div className="mt-4">
           <div className="label-xs mb-1 text-accent">{t("idiom.origin")}</div>
-          <p className="text-[15px] leading-relaxed text-neutral-700">{it.origin}</p>
+          <p className="text-[16px] leading-relaxed text-neutral-700">{it.origin}</p>
         </div>
 
         <div className="mt-4 flex flex-col gap-2.5">
           <div className="label-xs text-accent">{t("idiom.examples")}</div>
           {it.examples.map((ex, i) => (
-            <div key={i} className="border-l-2 border-[color:var(--color-divider)] pl-3 text-[15px] leading-relaxed">
+            <div key={i} className="border-l-2 border-[color:var(--color-divider)] pl-3 text-[16px] leading-relaxed">
               <div className="text-neutral-800">{ex.en}</div>
               <div className="text-neutral-500">{ex.vi}</div>
             </div>
@@ -121,13 +121,13 @@ export function IdiomDetailClient({ slug, termSlug }: { slug: string; termSlug: 
           <div className="label-xs mb-2 text-accent">{t("idiom.remember")}</div>
           <div className="flex gap-2">
             <button
-              className="btn btn-secondary flex-1 px-3 py-2 text-[15px]"
+              className="btn btn-secondary flex-1 px-3 py-2 text-[16px]"
               onClick={() => grade(key, false)}
             >
               {t("idiom.review")}
             </button>
             <button
-              className="btn btn-primary flex-1 px-3 py-2 text-[15px]"
+              className="btn btn-primary flex-1 px-3 py-2 text-[16px]"
               onClick={() => grade(key, true)}
             >
               {t("idiom.known")}

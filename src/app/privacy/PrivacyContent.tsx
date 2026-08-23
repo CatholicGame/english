@@ -11,7 +11,7 @@ function LangToggle({ lang, setLang }: { lang: AiLang; setLang: (l: AiLang) => v
         <button
           key={l}
           onClick={() => setLang(l)}
-          className="rounded-full px-2.5 py-0.5 text-[13px] font-extrabold"
+          className="rounded-full px-2.5 py-0.5 text-[16px] font-extrabold"
           style={{
             background: lang === l ? "var(--color-accent)" : "var(--color-surface)",
             color: lang === l ? "#fff" : "var(--color-text)",
@@ -29,20 +29,20 @@ export default function PrivacyContent() {
   const [lang, setLang] = useState<AiLang>(() => detectBrowserLang());
 
   return (
-    <div className="mx-auto max-w-[720px] px-4 py-8 text-[16px] leading-relaxed">
+    <div className="mx-auto max-w-[720px] px-4 py-8 text-[17px] leading-relaxed">
       <LangToggle lang={lang} setLang={setLang} />
 
       {lang === "vi" ? (
         <>
           <h1 className="mt-2 text-[22px] font-extrabold">Chính sách quyền riêng tư</h1>
-          <p className="mt-1 text-[14px] text-neutral-600">Cập nhật lần cuối: 17/08/2026</p>
+          <p className="mt-1 text-[16px] text-neutral-600">Cập nhật lần cuối: 17/08/2026</p>
 
           <p className="mt-4">
             Vocabulary Builder Pro (&ldquo;chúng tôi&rdquo;) là ứng dụng học từ vựng &amp; luyện kỹ năng tiếng Anh bằng AI. Trang này
             giải thích dữ liệu nào được thu thập, lưu ở đâu, và bạn có quyền gì đối với dữ liệu của mình.
           </p>
 
-          <h2 className="mt-6 text-[18px] font-extrabold">1. Thông tin chúng tôi thu thập</h2>
+          <h2 className="mt-6 text-[19px] font-extrabold">1. Thông tin chúng tôi thu thập</h2>
           <ul className="mt-2 list-disc pl-5">
             <li>
               <strong>Thông tin tài khoản Google:</strong> email, tên hiển thị, ảnh đại diện — lấy khi bạn đăng nhập bằng
@@ -62,7 +62,7 @@ export default function PrivacyContent() {
             </li>
           </ul>
 
-          <h2 className="mt-6 text-[18px] font-extrabold">2. Dữ liệu được lưu ở đâu</h2>
+          <h2 className="mt-6 text-[19px] font-extrabold">2. Dữ liệu được lưu ở đâu</h2>
           <ul className="mt-2 list-disc pl-5">
             <li>
               Nội dung học tập của bạn (tiến độ, từ điển, ghi chú, hội thoại AI...) được lưu trong{" "}
@@ -79,7 +79,7 @@ export default function PrivacyContent() {
             </li>
           </ul>
 
-          <h2 className="mt-6 text-[18px] font-extrabold">3. Chia sẻ với bên thứ ba</h2>
+          <h2 className="mt-6 text-[19px] font-extrabold">3. Chia sẻ với bên thứ ba</h2>
           <p className="mt-2">Chúng tôi không bán dữ liệu của bạn. Dữ liệu chỉ được gửi tới các bên xử lý cần thiết để vận hành dịch vụ:</p>
           <ul className="mt-2 list-disc pl-5">
             <li>
@@ -96,7 +96,7 @@ export default function PrivacyContent() {
             </li>
           </ul>
 
-          <h2 className="mt-6 text-[18px] font-extrabold">4. Quyền của bạn</h2>
+          <h2 className="mt-6 text-[19px] font-extrabold">4. Quyền của bạn</h2>
           <ul className="mt-2 list-disc pl-5">
             <li>
               Thu hồi quyền truy cập của ứng dụng vào tài khoản Google của bạn bất kỳ lúc nào tại{" "}
@@ -113,7 +113,7 @@ export default function PrivacyContent() {
             <li>Yêu cầu xoá dữ liệu tài khoản (bao gồm dữ liệu thanh toán trên Firestore) bằng cách liên hệ bên dưới.</li>
           </ul>
 
-          <h2 className="mt-6 text-[18px] font-extrabold">5. Liên hệ</h2>
+          <h2 className="mt-6 text-[19px] font-extrabold">5. Liên hệ</h2>
           <p className="mt-2">
             Mọi câu hỏi về quyền riêng tư, vui lòng liên hệ:{" "}
             <a href="mailto:nguyencongnam506@gmail.com" className="font-bold text-accent underline">
@@ -121,14 +121,14 @@ export default function PrivacyContent() {
             </a>
           </p>
 
-          <p className="mt-8 text-[14px] text-neutral-600">
+          <p className="mt-8 text-[16px] text-neutral-600">
             Xem thêm <Link href="/terms" className="font-bold text-accent underline">Điều khoản dịch vụ</Link>.
           </p>
         </>
       ) : (
         <>
           <h1 className="mt-2 text-[22px] font-extrabold">Privacy Policy</h1>
-          <p className="mt-1 text-[14px] text-neutral-600">Last updated: August 17, 2026</p>
+          <p className="mt-1 text-[16px] text-neutral-600">Last updated: August 17, 2026</p>
 
           <p className="mt-4">
             Vocabulary Builder Pro (&ldquo;we&rdquo;) is an AI-powered app for learning vocabulary and practicing
@@ -136,7 +136,7 @@ export default function PrivacyContent() {
             over it.
           </p>
 
-          <h2 className="mt-6 text-[18px] font-extrabold">1. Information we collect</h2>
+          <h2 className="mt-6 text-[19px] font-extrabold">1. Information we collect</h2>
           <ul className="mt-2 list-disc pl-5">
             <li>
               <strong>Google account info:</strong> email, display name, profile picture — obtained when you sign in
@@ -156,7 +156,7 @@ export default function PrivacyContent() {
             </li>
           </ul>
 
-          <h2 className="mt-6 text-[18px] font-extrabold">2. Where data is stored</h2>
+          <h2 className="mt-6 text-[19px] font-extrabold">2. Where data is stored</h2>
           <ul className="mt-2 list-disc pl-5">
             <li>
               Your learning content (progress, dictionary, notes, AI conversations...) is stored in{" "}
@@ -173,7 +173,7 @@ export default function PrivacyContent() {
             </li>
           </ul>
 
-          <h2 className="mt-6 text-[18px] font-extrabold">3. Sharing with third parties</h2>
+          <h2 className="mt-6 text-[19px] font-extrabold">3. Sharing with third parties</h2>
           <p className="mt-2">We do not sell your data. Data is only sent to the processors necessary to run the service:</p>
           <ul className="mt-2 list-disc pl-5">
             <li>
@@ -191,7 +191,7 @@ export default function PrivacyContent() {
             </li>
           </ul>
 
-          <h2 className="mt-6 text-[18px] font-extrabold">4. Your rights</h2>
+          <h2 className="mt-6 text-[19px] font-extrabold">4. Your rights</h2>
           <ul className="mt-2 list-disc pl-5">
             <li>
               Revoke the app&apos;s access to your Google account at any time at{" "}
@@ -208,7 +208,7 @@ export default function PrivacyContent() {
             <li>Request deletion of your account data (including payment data on Firestore) by contacting us below.</li>
           </ul>
 
-          <h2 className="mt-6 text-[18px] font-extrabold">5. Contact</h2>
+          <h2 className="mt-6 text-[19px] font-extrabold">5. Contact</h2>
           <p className="mt-2">
             For any privacy questions, please contact:{" "}
             <a href="mailto:nguyencongnam506@gmail.com" className="font-bold text-accent underline">
@@ -216,7 +216,7 @@ export default function PrivacyContent() {
             </a>
           </p>
 
-          <p className="mt-8 text-[14px] text-neutral-600">
+          <p className="mt-8 text-[16px] text-neutral-600">
             See also our <Link href="/terms" className="font-bold text-accent underline">Terms of Service</Link>.
           </p>
         </>

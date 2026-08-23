@@ -180,7 +180,7 @@ function PauseIcon() {
 
 function Tip({ children }: { children: React.ReactNode }) {
   return (
-    <div className="mb-4 bg-accent-100 px-4 py-3 text-[14px] leading-relaxed text-accent-800">
+    <div className="mb-4 bg-accent-100 px-4 py-3 text-[16px] leading-relaxed text-accent-800">
       <span className="label-xs mb-0.5 block text-accent-700">Test tip</span>
       {children}
     </div>
@@ -206,7 +206,7 @@ function ChipRow({ label, items, tone }: { label: string; items: string[]; tone:
         {items.map((it) => (
           <span
             key={it}
-            className="border px-2.5 py-1 text-[14px] font-bold"
+            className="border px-2.5 py-1 text-[16px] font-bold"
             style={
               tone === "accent"
                 ? { borderColor: "var(--color-accent)", background: "var(--color-accent-100)", color: "var(--color-accent-800)" }
@@ -249,14 +249,14 @@ function IeltsVocabSample({ word }: { word: VocabWord }) {
           {loading ? t("unit.sampleLoading") : t("unit.sampleButton")}
         </button>
       )}
-      {error && <p className="mt-1.5 text-[13px] text-red-600">{error}</p>}
+      {error && <p className="mt-1.5 text-[16px] text-red-600">{error}</p>}
       {paragraph && (
-        <div className="bg-surface p-3 text-[15px] leading-relaxed">
+        <div className="bg-surface p-3 text-[16px] leading-relaxed">
           <div className="mb-1.5 flex items-center justify-between gap-2">
             <span className="label-xs text-accent">{t("unit.sampleLabel")}</span>
             <CopyButton
               text={paragraph}
-              className="rounded-full border px-2 py-0.5 text-[13px] font-bold"
+              className="rounded-full border px-2 py-0.5 text-[16px] font-bold"
               style={{ borderColor: "var(--color-accent-800)", color: "var(--color-accent-800)" }}
             />
           </div>
@@ -607,7 +607,7 @@ function VocabAiPractice({ word }: { word: VocabWord }) {
           <button
             key={m}
             onClick={() => setMode(m)}
-            className="rounded-full px-3 py-1 text-[14px] font-bold"
+            className="rounded-full px-3 py-1 text-[16px] font-bold"
             style={ts(m)}
           >
             {VOCAB_MODE_LABELS[m]}
@@ -625,7 +625,7 @@ function VocabAiPractice({ word }: { word: VocabWord }) {
             onInput={autoGrow}
           />
           <button
-            className="btn btn-primary px-4 py-2 text-[15px] font-extrabold disabled:opacity-40"
+            className="btn btn-primary px-4 py-2 text-[16px] font-extrabold disabled:opacity-40"
             disabled={loading || !sentence.trim()}
             onClick={check}
           >
@@ -639,7 +639,7 @@ function VocabAiPractice({ word }: { word: VocabWord }) {
         <div className="flex flex-col gap-3">
           {viSentences.length === 0 ? (
             <button
-              className="btn btn-primary px-4 py-2.5 text-[15px] font-extrabold disabled:opacity-40"
+              className="btn btn-primary px-4 py-2.5 text-[16px] font-extrabold disabled:opacity-40"
               disabled={batchLoading}
               onClick={loadTranslate}
             >
@@ -647,15 +647,15 @@ function VocabAiPractice({ word }: { word: VocabWord }) {
             </button>
           ) : !batchResult ? (
             <div className="flex flex-col gap-3">
-              <p className="text-[14px] text-neutral-600">Translate each sentence using &quot;{word.term}&quot;.</p>
+              <p className="text-[16px] text-neutral-600">Translate each sentence using &quot;{word.term}&quot;.</p>
               {viSentences.map((s, i) => (
                 <div key={i} className="flex flex-col gap-1.5">
-                  <div className="rounded bg-accent-100 px-3 py-2 text-[15px] leading-relaxed font-medium text-accent-800">
+                  <div className="rounded bg-accent-100 px-3 py-2 text-[16px] leading-relaxed font-medium text-accent-800">
                     <span className="label-xs mr-2 text-accent-700">{i + 1}.</span>
                     {s}
                   </div>
                   <textarea
-                    className="input min-h-[40px] resize-none overflow-hidden text-[15px]"
+                    className="input min-h-[40px] resize-none overflow-hidden text-[16px]"
                     rows={1}
                     placeholder="Your English translation..."
                     value={translations[i] || ""}
@@ -669,7 +669,7 @@ function VocabAiPractice({ word }: { word: VocabWord }) {
                 </div>
               ))}
               <button
-                className="btn btn-primary px-4 py-2.5 text-[15px] font-extrabold disabled:opacity-40"
+                className="btn btn-primary px-4 py-2.5 text-[16px] font-extrabold disabled:opacity-40"
                 disabled={batchLoading || translations.every((t) => !t.trim())}
                 onClick={submitTranslateBatch}
               >
@@ -679,9 +679,9 @@ function VocabAiPractice({ word }: { word: VocabWord }) {
           ) : (
             <div className="flex flex-col gap-3">
               <div className="flex items-center justify-between">
-                <p className="text-[15px] font-extrabold">📝 Results</p>
+                <p className="text-[16px] font-extrabold">📝 Results</p>
                 {typeof batchResult.xpEarned === "number" && (
-                  <span className="text-[14px] font-extrabold text-accent">+{batchResult.xpEarned} XP</span>
+                  <span className="text-[16px] font-extrabold text-accent">+{batchResult.xpEarned} XP</span>
                 )}
               </div>
               {viSentences.map((s, i) => {
@@ -694,26 +694,26 @@ function VocabAiPractice({ word }: { word: VocabWord }) {
                     style={{ borderColor: r?.ok ? "var(--color-accent)" : "var(--color-accent-800)" }}
                   >
                     <div className="flex items-start justify-between gap-2">
-                      <span className="text-[14px] font-extrabold">
+                      <span className="text-[16px] font-extrabold">
                         {i + 1}. {s}
                       </span>
-                      <span className="text-[14px]">{r?.ok ? "✅" : "❌"}</span>
+                      <span className="text-[16px]">{r?.ok ? "✅" : "❌"}</span>
                     </div>
-                    <p className="mt-1 text-[14px] italic text-neutral-500">Your: {translations[i]}</p>
-                    {r?.feedback && <p className="mt-1 text-[14px]">{r.feedback}</p>}
+                    <p className="mt-1 text-[16px] italic text-neutral-500">Your: {translations[i]}</p>
+                    {r?.feedback && <p className="mt-1 text-[16px]">{r.feedback}</p>}
                     {r?.corrected && (
-                      <p className="mt-0.5 flex flex-wrap items-center gap-1.5 text-[14px] text-accent-800">
+                      <p className="mt-0.5 flex flex-wrap items-center gap-1.5 text-[16px] text-accent-800">
                         <span>→ {r.corrected}</span>
-                        <CopyButton text={r.corrected} className="rounded-full border px-2 py-0.5 text-[13px] font-bold" style={{ borderColor: "var(--color-accent-800)", color: "var(--color-accent-800)" }} />
+                        <CopyButton text={r.corrected} className="rounded-full border px-2 py-0.5 text-[16px] font-bold" style={{ borderColor: "var(--color-accent-800)", color: "var(--color-accent-800)" }} />
                       </p>
                     )}
                   </div>
                 );
               })}
               {typeof batchResult.overall === "string" && (
-                <div className="rounded bg-accent-100 p-3 text-[15px] leading-relaxed text-accent-800">{batchResult.overall}</div>
+                <div className="rounded bg-accent-100 p-3 text-[16px] leading-relaxed text-accent-800">{batchResult.overall}</div>
               )}
-              <button className="btn btn-ghost text-[14px]" onClick={loadTranslate} disabled={batchLoading}>
+              <button className="btn btn-ghost text-[16px]" onClick={loadTranslate} disabled={batchLoading}>
                 New set
               </button>
             </div>
@@ -726,7 +726,7 @@ function VocabAiPractice({ word }: { word: VocabWord }) {
         <div className="flex flex-col gap-3">
           {phase === "idle" && (
             <button
-              className="btn btn-primary px-4 py-2.5 text-[15px] font-extrabold disabled:opacity-40"
+              className="btn btn-primary px-4 py-2.5 text-[16px] font-extrabold disabled:opacity-40"
               disabled={convLoading}
               onClick={loadPreview}
             >
@@ -736,7 +736,7 @@ function VocabAiPractice({ word }: { word: VocabWord }) {
 
           {phase === "preview" && preview && (
             <div className="flex flex-col gap-3">
-              <div className="rounded bg-accent-100 p-3 text-[15px] leading-relaxed">
+              <div className="rounded bg-accent-100 p-3 text-[16px] leading-relaxed">
                 <span className="label-xs mb-2 block text-accent-700">Sample conversation</span>
                 {preview.conversation.map((line, i) => (
                   <p key={i} className="mb-1">
@@ -745,7 +745,7 @@ function VocabAiPractice({ word }: { word: VocabWord }) {
                 ))}
               </div>
               <button
-                className="btn btn-primary px-4 py-2.5 text-[15px] font-extrabold disabled:opacity-40"
+                className="btn btn-primary px-4 py-2.5 text-[16px] font-extrabold disabled:opacity-40"
                 disabled={convLoading}
                 onClick={startPractice}
               >
@@ -763,7 +763,7 @@ function VocabAiPractice({ word }: { word: VocabWord }) {
                 {chat.map((m, i) => (
                   <div
                     key={i}
-                    className="rounded p-2.5 text-[15px] leading-relaxed"
+                    className="rounded p-2.5 text-[16px] leading-relaxed"
                     style={{
                       background: m.role === "user" ? "var(--color-accent-100)" : "var(--color-surface)",
                       alignSelf: m.role === "user" ? "flex-end" : "flex-start",
@@ -787,7 +787,7 @@ function VocabAiPractice({ word }: { word: VocabWord }) {
                 <div ref={chatEndRef} />
               </div>
               {chatBusy === "end" ? (
-                <div className="flex items-center justify-center gap-2 rounded border p-3 text-[14px] text-neutral-600" style={{ borderColor: "var(--color-divider)" }}>
+                <div className="flex items-center justify-center gap-2 rounded border p-3 text-[16px] text-neutral-600" style={{ borderColor: "var(--color-divider)" }}>
                   <span className="inline-block h-3.5 w-3.5 animate-spin rounded-full border-2 border-current border-t-transparent" />
                   Analyzing your conversation...
                 </div>
@@ -795,13 +795,13 @@ function VocabAiPractice({ word }: { word: VocabWord }) {
                 <div className="flex items-end gap-2">
                   <ChatInput value={chatIn} onChange={setChatIn} onSend={sendMessage} disabled={convLoading || !chatIn.trim()} />
                   <button
-                    className="btn btn-primary px-3 py-2.5 text-[15px] font-extrabold disabled:opacity-40"
+                    className="btn btn-primary px-3 py-2.5 text-[16px] font-extrabold disabled:opacity-40"
                     disabled={convLoading || !chatIn.trim()}
                     onClick={sendMessage}
                   >
                     Send
                   </button>
-                  <button className="btn btn-ghost px-3 py-2.5 text-[14px]" disabled={convLoading || !chat.some((m) => m.role === "user")} onClick={endAndFeedback}>
+                  <button className="btn btn-ghost px-3 py-2.5 text-[16px]" disabled={convLoading || !chat.some((m) => m.role === "user")} onClick={endAndFeedback}>
                     End
                   </button>
                 </div>
@@ -846,7 +846,7 @@ function VocabAiPractice({ word }: { word: VocabWord }) {
           {discPhase === "practicing" && (
             <div className="flex flex-col gap-3">
               {discChat.length === 0 && (
-                <p className="text-[14px] text-neutral-600">
+                <p className="text-[16px] text-neutral-600">
                   {t("discussion.prompt", { term: word.term })}
                 </p>
               )}
@@ -857,7 +857,7 @@ function VocabAiPractice({ word }: { word: VocabWord }) {
                 {discChat.map((m, i) => (
                   <div
                     key={i}
-                    className="rounded p-2.5 text-[15px] leading-relaxed"
+                    className="rounded p-2.5 text-[16px] leading-relaxed"
                     style={{
                       background: m.role === "user" ? "var(--color-accent-100)" : "var(--color-surface)",
                       alignSelf: m.role === "user" ? "flex-end" : "flex-start",
@@ -881,7 +881,7 @@ function VocabAiPractice({ word }: { word: VocabWord }) {
                 <div ref={discEndRef} />
               </div>
               {discBusy === "end" ? (
-                <div className="flex items-center justify-center gap-2 rounded border p-3 text-[14px] text-neutral-600" style={{ borderColor: "var(--color-divider)" }}>
+                <div className="flex items-center justify-center gap-2 rounded border p-3 text-[16px] text-neutral-600" style={{ borderColor: "var(--color-divider)" }}>
                   <span className="inline-block h-3.5 w-3.5 animate-spin rounded-full border-2 border-current border-t-transparent" />
                   Analyzing your discussion...
                 </div>
@@ -889,13 +889,13 @@ function VocabAiPractice({ word }: { word: VocabWord }) {
                 <div className="flex items-end gap-2">
                   <ChatInput value={discChatIn} onChange={setDiscChatIn} onSend={sendDiscMessage} disabled={convLoading || !discChatIn.trim()} />
                   <button
-                    className="btn btn-primary px-3 py-2.5 text-[15px] font-extrabold disabled:opacity-40"
+                    className="btn btn-primary px-3 py-2.5 text-[16px] font-extrabold disabled:opacity-40"
                     disabled={convLoading || !discChatIn.trim()}
                     onClick={sendDiscMessage}
                   >
                     Send
                   </button>
-                  <button className="btn btn-ghost px-3 py-2.5 text-[14px]" disabled={convLoading || !discChat.some((m) => m.role === "user")} onClick={endDiscussion}>
+                  <button className="btn btn-ghost px-3 py-2.5 text-[16px]" disabled={convLoading || !discChat.some((m) => m.role === "user")} onClick={endDiscussion}>
                     End
                   </button>
                 </div>
@@ -988,7 +988,7 @@ function VocabStepView({ step, onNext }: { step: VocabStep; onNext: (score?: Sco
   return (
     <div className="flex flex-1 flex-col p-4">
       <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
-        <span className="min-w-0 text-[15px] text-neutral-700">{step.instructions ?? "Study each card, then move to the next word."}</span>
+        <span className="min-w-0 text-[16px] text-neutral-700">{step.instructions ?? "Study each card, then move to the next word."}</span>
         <select
           className="input label-xs w-auto max-w-full py-1"
           aria-label="Jump to word"
@@ -1009,13 +1009,13 @@ function VocabStepView({ step, onNext }: { step: VocabStep; onNext: (score?: Sco
             <div>
               <span className="label-xs block text-accent">{w.pos}</span>
               <span className="text-[26px] leading-tight font-extrabold tracking-tight text-balance">{w.term}</span>
-              <span className="mt-0.5 block text-[15px] text-neutral-600">{w.ipa}</span>
+              <span className="mt-0.5 block text-[16px] text-neutral-600">{w.ipa}</span>
             </div>
             <button className="btn btn-icon flex-none" onClick={() => speak(w.term)} aria-label="Play pronunciation">
               <SpeakerIcon className="h-5 w-5" />
             </button>
           </div>
-          <div className="mt-2 text-[15px] leading-relaxed text-neutral-700">{w.en}</div>
+          <div className="mt-2 text-[16px] leading-relaxed text-neutral-700">{w.en}</div>
 
           {!revealed && (
             <button className="btn btn-primary btn-block mt-4 px-4 py-3" onClick={() => setRevealed(true)}>
@@ -1027,8 +1027,8 @@ function VocabStepView({ step, onNext }: { step: VocabStep; onNext: (score?: Sco
         {revealed && (
           <div key={i} className="animate-pop mt-4 lg:mt-0 lg:flex-1">
             <div className="mb-4 border-l-2 border-accent pl-3">
-              <div className="text-[15px] leading-relaxed text-neutral-700">{w.usageNote}</div>
-              <div className="mt-1 text-[17px] font-extrabold text-accent-700">{w.vi}</div>
+              <div className="text-[16px] leading-relaxed text-neutral-700">{w.usageNote}</div>
+              <div className="mt-1 text-[18px] font-extrabold text-accent-700">{w.vi}</div>
             </div>
 
             <div className="label-xs mb-2 text-accent">{t("unit.keyIdea")}</div>
@@ -1037,15 +1037,15 @@ function VocabStepView({ step, onNext }: { step: VocabStep; onNext: (score?: Sco
 
             <div className="label-xs mb-2 text-accent">{t("unit.examples")}</div>
             {w.examples.map((ex, idx) => (
-              <div key={idx} className="mb-2 text-[15px] leading-relaxed">
+              <div key={idx} className="mb-2 text-[16px] leading-relaxed">
                 <div>{ex.en}</div>
                 <div className="text-neutral-600">→ {ex.vi}</div>
               </div>
             ))}
 
-            <div className="mt-3 text-[15px] leading-relaxed font-bold">👉 {w.summary}</div>
+            <div className="mt-3 text-[16px] leading-relaxed font-bold">👉 {w.summary}</div>
 
-            <div className="mt-3 bg-accent-100 px-3 py-2.5 text-[14px] leading-relaxed text-accent-800">
+            <div className="mt-3 bg-accent-100 px-3 py-2.5 text-[16px] leading-relaxed text-accent-800">
               <span className="label-xs mb-0.5 block text-accent-700">🎯 IELTS tip</span>
               {w.ieltsTip}
             </div>
@@ -1090,7 +1090,7 @@ function ListeningClozeStepView({ step, onNext }: { step: ListeningClozeStep; on
 
   return (
     <div className="flex flex-1 flex-col p-4">
-      <div className="mb-3 text-[15px] text-neutral-700">{step.instructions}</div>
+      <div className="mb-3 text-[16px] text-neutral-700">{step.instructions}</div>
       <div className="lg:flex lg:flex-row lg:items-start lg:gap-8">
         <div className="mb-4 flex flex-col items-center gap-2 bg-surface px-4 py-6 lg:mb-0 lg:w-[300px] lg:flex-none lg:sticky lg:top-6">
           <audio
@@ -1119,11 +1119,11 @@ function ListeningClozeStepView({ step, onNext }: { step: ListeningClozeStep; on
             {showScript ? "Hide script" : "Show script"}
           </button>
           <div
-            className={`mb-4 bg-surface p-4 text-[15px] leading-relaxed whitespace-pre-wrap lg:block ${showScript ? "block" : "hidden"}`}
+            className={`mb-4 bg-surface p-4 text-[16px] leading-relaxed whitespace-pre-wrap lg:block ${showScript ? "block" : "hidden"}`}
           >
             {step.script}
           </div>
-          <div className="mb-4 bg-surface p-4 text-[17px] leading-loose whitespace-pre-wrap text-pretty">
+          <div className="mb-4 bg-surface p-4 text-[18px] leading-loose whitespace-pre-wrap text-pretty">
             {segments.map((s, i) => {
               if ("text" in s) return <span key={i}>{s.text}</span>;
               const idx = blankIndexBySegment[i];
@@ -1151,7 +1151,7 @@ function ListeningClozeStepView({ step, onNext }: { step: ListeningClozeStep; on
         </div>
       </div>
       {checked && (
-        <div className="mb-3 bg-accent-100 px-4 py-3 text-[15px] leading-relaxed text-accent-800">
+        <div className="mb-3 bg-accent-100 px-4 py-3 text-[16px] leading-relaxed text-accent-800">
           <span className="label-xs mb-0.5 block">Score</span>
           <span className="font-extrabold">
             {correctCount}/{blanks.length} correct
@@ -1190,7 +1190,7 @@ function SortStepView({ step, onNext }: { step: SortStep; onNext: (score?: Score
 
   return (
     <div className="flex flex-1 flex-col p-4">
-      <div className="mb-3 text-[15px] text-neutral-700">{step.instructions}</div>
+      <div className="mb-3 text-[16px] text-neutral-700">{step.instructions}</div>
 
       <div className="lg:grid lg:grid-cols-3 lg:items-start lg:gap-3">
         {!checked && pool.length > 0 && (
@@ -1199,7 +1199,7 @@ function SortStepView({ step, onNext }: { step: SortStep; onNext: (score?: Score
               <button
                 key={it.term}
                 onClick={() => setSelected((s) => (s === it.term ? null : it.term))}
-                className="border px-3 py-1.5 text-[15px] font-bold"
+                className="border px-3 py-1.5 text-[16px] font-bold"
                 style={{
                   borderColor: selected === it.term ? "var(--color-accent)" : "var(--color-divider)",
                   background: selected === it.term ? "var(--color-accent-100)" : "var(--color-surface)",
@@ -1227,7 +1227,7 @@ function SortStepView({ step, onNext }: { step: SortStep; onNext: (score?: Score
                 return (
                   <span
                     key={it.term}
-                    className="border px-2 py-1 text-[14px] font-bold"
+                    className="border px-2 py-1 text-[16px] font-bold"
                     style={
                       checked
                         ? wrong
@@ -1247,7 +1247,7 @@ function SortStepView({ step, onNext }: { step: SortStep; onNext: (score?: Score
       </div>
 
       {checked && (
-        <div className="mt-4 bg-accent-100 px-4 py-3 text-[15px] leading-relaxed text-accent-800">
+        <div className="mt-4 bg-accent-100 px-4 py-3 text-[16px] leading-relaxed text-accent-800">
           <span className="label-xs mb-0.5 block">Score</span>
           <span className="font-extrabold">
             {correctCount}/{step.items.length} correct
@@ -1279,14 +1279,14 @@ function TypeFillStepView({ step, onNext }: { step: TypeFillStep; onNext: (score
 
   return (
     <div className="flex flex-1 flex-col p-4">
-      <div className="mb-3 text-[15px] text-neutral-700">{step.instructions}</div>
+      <div className="mb-3 text-[16px] text-neutral-700">{step.instructions}</div>
       <div className="lg:grid lg:grid-cols-2 lg:gap-x-6">
         {step.items.map((it, i) => {
           const ok = checked && norm(inputs[i]) === norm(it.answer);
           const bad = checked && !ok;
           return (
             <div key={i} className="mb-3">
-              <div className="mb-1 text-[17px] font-extrabold">{it.prompt}</div>
+              <div className="mb-1 text-[18px] font-extrabold">{it.prompt}</div>
               <input
                 className="input"
                 style={{ borderColor: bad ? "var(--color-accent)" : ok ? "var(--color-text)" : undefined }}
@@ -1300,7 +1300,7 @@ function TypeFillStepView({ step, onNext }: { step: TypeFillStep; onNext: (score
                 placeholder="Type the negative form"
               />
               {bad && (
-                <div className="mt-1 text-[14px] text-accent-700">
+                <div className="mt-1 text-[16px] text-accent-700">
                   Answer: <span className="font-extrabold">{it.answer}</span>
                 </div>
               )}
@@ -1309,7 +1309,7 @@ function TypeFillStepView({ step, onNext }: { step: TypeFillStep; onNext: (score
         })}
       </div>
       {checked && (
-        <div className="mb-3 bg-accent-100 px-4 py-3 text-[15px] leading-relaxed text-accent-800">
+        <div className="mb-3 bg-accent-100 px-4 py-3 text-[16px] leading-relaxed text-accent-800">
           <span className="label-xs mb-0.5 block">Score</span>
           <span className="font-extrabold">
             {correctCount}/{step.items.length} correct
@@ -1337,11 +1337,11 @@ function FillMcStepView({ step, onNext }: { step: FillMcStep; onNext: (score?: S
 
   return (
     <div className="flex flex-1 flex-col p-4">
-      <div className="mb-3 text-[15px] text-neutral-700">{step.instructions}</div>
+      <div className="mb-3 text-[16px] text-neutral-700">{step.instructions}</div>
       <div className="lg:grid lg:grid-cols-2 lg:gap-x-6">
         {step.items.map((it, i) => (
           <div key={i} className="mb-4">
-            <div className="mb-2 text-[16px] leading-relaxed">
+            <div className="mb-2 text-[17px] leading-relaxed">
               {it.before} <span className="font-extrabold text-accent-700">{picked[i] ?? "____"}</span> {it.after}
             </div>
             <div className="flex flex-wrap gap-1.5">
@@ -1365,7 +1365,7 @@ function FillMcStepView({ step, onNext }: { step: FillMcStep; onNext: (score?: S
                     key={o}
                     disabled={checked}
                     style={style}
-                    className="border px-3 py-1.5 text-[15px] font-bold"
+                    className="border px-3 py-1.5 text-[16px] font-bold"
                     onClick={() => {
                       const next = [...picked];
                       next[i] = o;
@@ -1381,7 +1381,7 @@ function FillMcStepView({ step, onNext }: { step: FillMcStep; onNext: (score?: S
         ))}
       </div>
       {checked && (
-        <div className="mb-3 bg-accent-100 px-4 py-3 text-[15px] leading-relaxed text-accent-800">
+        <div className="mb-3 bg-accent-100 px-4 py-3 text-[16px] leading-relaxed text-accent-800">
           <span className="label-xs mb-0.5 block">Score</span>
           <span className="font-extrabold">
             {correctCount}/{step.items.length} correct
@@ -1423,8 +1423,8 @@ function ReadingTfNgStepView({ step, onNext }: { step: ReadingTfNgStep; onNext: 
           <div
             className={`mb-4 max-h-[280px] overflow-y-auto bg-surface p-4 lg:mb-0 lg:block lg:max-h-[calc(var(--real-vh,100vh)-140px)] ${showPassage ? "block" : "hidden"}`}
           >
-            <div className="mb-2 text-[16px] font-extrabold">{step.passageTitle}</div>
-            <div className="text-[15px] leading-relaxed whitespace-pre-line text-neutral-800">{step.passage}</div>
+            <div className="mb-2 text-[17px] font-extrabold">{step.passageTitle}</div>
+            <div className="text-[16px] leading-relaxed whitespace-pre-line text-neutral-800">{step.passage}</div>
           </div>
         </div>
         <div className="lg:flex-1">
@@ -1432,7 +1432,7 @@ function ReadingTfNgStepView({ step, onNext }: { step: ReadingTfNgStep; onNext: 
             const ok = checked && picked[i] === q.answer;
             return (
               <div key={i} className="mb-4">
-                <div className="mb-2 text-[15px] leading-relaxed">
+                <div className="mb-2 text-[16px] leading-relaxed">
                   <span className="mr-1.5 text-neutral-600">{i + 1}.</span>
                   {q.text}
                 </div>
@@ -1457,7 +1457,7 @@ function ReadingTfNgStepView({ step, onNext }: { step: ReadingTfNgStep; onNext: 
                         key={o}
                         disabled={checked}
                         style={style}
-                        className="flex-1 border px-2 py-1.5 text-[14px] font-bold"
+                        className="flex-1 border px-2 py-1.5 text-[16px] font-bold"
                         onClick={() => {
                           const next = [...picked];
                           next[i] = o;
@@ -1470,7 +1470,7 @@ function ReadingTfNgStepView({ step, onNext }: { step: ReadingTfNgStep; onNext: 
                   })}
                 </div>
                 {checked && (
-                  <div className={`mt-1.5 text-[14px] leading-relaxed ${ok ? "text-neutral-600" : "text-accent-700"}`}>
+                  <div className={`mt-1.5 text-[16px] leading-relaxed ${ok ? "text-neutral-600" : "text-accent-700"}`}>
                     “{q.justification}”
                   </div>
                 )}
@@ -1480,7 +1480,7 @@ function ReadingTfNgStepView({ step, onNext }: { step: ReadingTfNgStep; onNext: 
         </div>
       </div>
       {checked && (
-        <div className="mb-3 bg-accent-100 px-4 py-3 text-[15px] leading-relaxed text-accent-800">
+        <div className="mb-3 bg-accent-100 px-4 py-3 text-[16px] leading-relaxed text-accent-800">
           <span className="label-xs mb-0.5 block">Score</span>
           <span className="font-extrabold">
             {correctCount}/{step.questions.length} correct
@@ -1509,7 +1509,7 @@ function RevealPairsStepView({ step, onNext }: { step: RevealPairsStep; onNext: 
 
   return (
     <div className="flex flex-1 flex-col p-4">
-      <div className="mb-3 text-[15px] text-neutral-700">{step.instructions}</div>
+      <div className="mb-3 text-[16px] text-neutral-700">{step.instructions}</div>
       <div className="flex flex-col gap-px bg-[color:var(--color-divider)] lg:grid lg:grid-cols-2 lg:gap-2 lg:bg-transparent">
         {step.pairs.map((p, i) => (
           <button
@@ -1521,9 +1521,9 @@ function RevealPairsStepView({ step, onNext }: { step: RevealPairsStep; onNext: 
             }}
             className="bg-surface p-3 text-left lg:border lg:border-[color:var(--color-divider)]"
           >
-            <div className="text-[16px] font-extrabold">{p.prompt}</div>
+            <div className="text-[17px] font-extrabold">{p.prompt}</div>
             {revealed[i] ? (
-              <div className="mt-1 text-[15px] leading-relaxed text-accent-700">{p.reveal}</div>
+              <div className="mt-1 text-[16px] leading-relaxed text-accent-700">{p.reveal}</div>
             ) : (
               <div className="label-xs mt-1">Tap to reveal</div>
             )}
@@ -1704,7 +1704,7 @@ function SpeakingStepView({
     phase === "done" ? (
       <div className="flex flex-col gap-2">
         <button
-          className="btn btn-primary btn-block px-4 py-2 text-[15px] font-extrabold disabled:opacity-40"
+          className="btn btn-primary btn-block px-4 py-2 text-[16px] font-extrabold disabled:opacity-40"
           disabled={aiLoading || !transcript.trim()}
           onClick={getFeedback}
         >
@@ -1724,9 +1724,9 @@ function SpeakingStepView({
     <div className="flex flex-1 flex-col p-4 lg:mx-auto lg:w-full lg:max-w-[960px]">
       <div className="mb-4 bg-surface p-4">
         <div className="label-xs mb-2 text-accent">Cue card</div>
-        <div className="mb-3 text-[18px] font-extrabold leading-snug">{step.prompt}</div>
-        <div className="mb-1 text-[14px] text-neutral-600">You should talk about:</div>
-        <ul className="list-disc pl-5 text-[15px] leading-relaxed">
+        <div className="mb-3 text-[19px] font-extrabold leading-snug">{step.prompt}</div>
+        <div className="mb-1 text-[16px] text-neutral-600">You should talk about:</div>
+        <ul className="list-disc pl-5 text-[16px] leading-relaxed">
           {step.bullets.map((b, i) => (
             <li key={i}>{b}</li>
           ))}
@@ -1753,21 +1753,21 @@ function SpeakingStepView({
           <div className="label-xs text-accent">{phase === "prep" ? "Preparation time" : "Speak now"}</div>
           <div className="text-[56px] leading-none font-extrabold tabular-nums">{fmt(secondsLeft)}</div>
           {phase === "speak" && voiceSupported && !micError && (
-            <div className="flex items-center gap-1.5 text-[14px] text-neutral-600">
+            <div className="flex items-center gap-1.5 text-[16px] text-neutral-600">
               <span className="inline-block h-2 w-2 animate-pulse rounded-full bg-accent" />
               Listening — speak into your microphone
             </div>
           )}
           {phase === "speak" && !voiceSupported && (
-            <p className="max-w-[280px] text-center text-[14px] text-neutral-600">
+            <p className="max-w-[280px] text-center text-[16px] text-neutral-600">
               Voice recognition isn&apos;t supported in this browser — you&apos;ll be able to type what you said afterwards.
             </p>
           )}
           {phase === "speak" && micError && (
-            <p className="max-w-[280px] text-center text-[14px] text-accent-700">{micError}</p>
+            <p className="max-w-[280px] text-center text-[16px] text-accent-700">{micError}</p>
           )}
           {phase === "speak" && (transcript || interim) && (
-            <p className="max-h-[100px] max-w-[320px] overflow-y-auto text-center text-[15px] leading-relaxed text-neutral-700">
+            <p className="max-h-[100px] max-w-[320px] overflow-y-auto text-center text-[16px] leading-relaxed text-neutral-700">
               {transcript} <span className="text-neutral-400">{interim}</span>
             </p>
           )}
@@ -1794,7 +1794,7 @@ function SpeakingStepView({
           <Tip>{step.tip}</Tip>
           <div className="mb-4 border-t pt-4" style={{ borderColor: "var(--color-divider)" }}>
             <div className="label-xs mb-2 text-accent">🎓 Get AI feedback on your answer</div>
-            <p className="mb-2 text-[14px] text-neutral-600">
+            <p className="mb-2 text-[16px] text-neutral-600">
               {transcript
                 ? "Here's what we picked up while you were speaking — fix anything that was mis-heard, then get feedback."
                 : "Type what you said and an AI examiner will score it."}
@@ -1890,7 +1890,7 @@ function WritingTaskStepView({
   const footerContent = (
     <div className="flex flex-col gap-2">
       <button
-        className="btn btn-primary btn-block px-4 py-2 text-[15px] font-extrabold disabled:opacity-40"
+        className="btn btn-primary btn-block px-4 py-2 text-[16px] font-extrabold disabled:opacity-40"
         disabled={aiLoading || !draft.trim()}
         onClick={getFeedback}
       >
@@ -1916,7 +1916,7 @@ function WritingTaskStepView({
     <div className="flex flex-1 flex-col p-4 lg:mx-auto lg:w-full lg:max-w-[1080px]">
       <div className="mb-4 bg-surface p-4">
         <div className="label-xs mb-2 text-accent">{step.taskLabel}</div>
-        <div className="mb-3 text-[16px] leading-relaxed font-extrabold">{step.prompt}</div>
+        <div className="mb-3 text-[17px] leading-relaxed font-extrabold">{step.prompt}</div>
         {step.chart ? (
           <div className="border border-[color:var(--color-divider)] bg-bg p-3">
             {step.chartCaption && <div className="label-xs mb-3">{step.chartCaption}</div>}
@@ -1927,7 +1927,7 @@ function WritingTaskStepView({
           step.chartRows.length > 0 && (
             <div className="border border-[color:var(--color-divider)] bg-bg p-3">
               {step.chartCaption && <div className="label-xs mb-2">{step.chartCaption}</div>}
-              <ul className="flex flex-col gap-1 text-[15px] leading-relaxed">
+              <ul className="flex flex-col gap-1 text-[16px] leading-relaxed">
                 {step.chartRows.map((r, i) => (
                   <li key={i}>{r}</li>
                 ))}
@@ -1955,10 +1955,10 @@ function WritingTaskStepView({
       </div>
 
       {showModel && (
-        <div className="mb-3 bg-accent-100 p-4 text-[15px] leading-relaxed whitespace-pre-wrap text-accent-800">
+        <div className="mb-3 bg-accent-100 p-4 text-[16px] leading-relaxed whitespace-pre-wrap text-accent-800">
           <div className="mb-1 flex items-center justify-between gap-2">
             <span className="label-xs block text-accent-700">Model answer</span>
-            <CopyButton text={step.modelAnswer} className="rounded-full border px-2 py-0.5 text-[13px] font-bold" style={{ borderColor: "var(--color-accent-800)", color: "var(--color-accent-800)" }} />
+            <CopyButton text={step.modelAnswer} className="rounded-full border px-2 py-0.5 text-[16px] font-bold" style={{ borderColor: "var(--color-accent-800)", color: "var(--color-accent-800)" }} />
           </div>
           {step.modelAnswer}
         </div>
@@ -2014,7 +2014,7 @@ export function UnitClient({ slug }: { slug: string }) {
   if (!unit) {
     return (
       <div className="p-4">
-        <p className="text-[15px] text-neutral-600">Unit not found.</p>
+        <p className="text-[16px] text-neutral-600">Unit not found.</p>
         <button className="btn btn-ghost mt-3" onClick={() => router.push("/modules/cambridge-vocabulary-ielts-advanced")}>
           All units
         </button>
@@ -2066,7 +2066,7 @@ export function UnitClient({ slug }: { slug: string }) {
           <div className="label-xs text-accent">Unit complete</div>
           <div className="mt-2 text-[30px] leading-tight font-extrabold">{unit.title}</div>
           <div className="mt-3 text-[64px] leading-[0.95] font-extrabold tracking-tight">{pct}%</div>
-          <div className="mt-2 text-[15px] text-neutral-600">
+          <div className="mt-2 text-[16px] text-neutral-600">
             {sub} {tally.correct}/{tally.total} across the graded exercises.
           </div>
         </div>
@@ -2114,14 +2114,14 @@ export function UnitClient({ slug }: { slug: string }) {
               </div>
               <div className="flex items-center justify-between gap-3 px-4 pt-2">
                 <button
-                  className="btn btn-ghost px-0 text-[13px]"
+                  className="btn btn-ghost px-0 text-[16px]"
                   onClick={() => router.push("/modules/cambridge-vocabulary-ielts-advanced")}
                 >
                   ← Thoát
                 </button>
                 <div className="flex flex-none items-center gap-3">
                   <button
-                    className="flex items-center gap-1 text-[13px] tabular-nums text-neutral-600 hover:text-accent"
+                    className="flex items-center gap-1 text-[16px] tabular-nums text-neutral-600 hover:text-accent"
                     onClick={() => setShowStepList(true)}
                     aria-label="Jump to exercise"
                   >
@@ -2129,7 +2129,7 @@ export function UnitClient({ slug }: { slug: string }) {
                     {stepIndex + 1}/{steps.length}
                   </button>
                   {stepIndex + 1 < steps.length && (
-                    <button className="btn btn-ghost px-0 text-[13px]" onClick={() => handleNext()}>
+                    <button className="btn btn-ghost px-0 text-[16px]" onClick={() => handleNext()}>
                       Skip →
                     </button>
                   )}
@@ -2142,7 +2142,7 @@ export function UnitClient({ slug }: { slug: string }) {
             <div className="fixed inset-0 z-[60] bg-bg">
               <div className="mx-auto flex h-full max-w-[480px] flex-col lg:max-w-[min(90vw,2400px)]">
                 <div className="divider-b flex items-center justify-between px-4 py-3">
-                  <span className="text-[18px] font-extrabold">Exercises in this unit</span>
+                  <span className="text-[19px] font-extrabold">Exercises in this unit</span>
                   <button className="btn btn-ghost" onClick={() => setShowStepList(false)}>
                     Close
                   </button>
@@ -2160,7 +2160,7 @@ export function UnitClient({ slug }: { slug: string }) {
                     >
                       <span className="label-xs w-6 flex-none text-neutral-600">{i + 1}</span>
                       <span className="flex-1">
-                        <span className="block text-[16px] font-extrabold">{s.title}</span>
+                        <span className="block text-[17px] font-extrabold">{s.title}</span>
                         <span className="label-xs mt-0.5 block text-neutral-600">{STEP_KIND_LABELS[s.kind]}</span>
                       </span>
                       {i < stepIndex && <span className="label-xs text-accent">Done</span>}

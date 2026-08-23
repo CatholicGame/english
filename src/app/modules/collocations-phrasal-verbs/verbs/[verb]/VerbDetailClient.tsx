@@ -37,7 +37,7 @@ function AiSection({ item }: { item: { term: string; type: string; en: string; v
   return (
     <div className="mt-2 border-t pt-2" style={{ borderColor: "var(--color-divider)" }}>
       <button
-        className="text-[13px] font-extrabold text-accent hover:underline"
+        className="text-[16px] font-extrabold text-accent hover:underline"
         onClick={() => setOpen(true)}
       >
         🤖 Practice with AI
@@ -51,10 +51,10 @@ function AiSection({ item }: { item: { term: string; type: string; en: string; v
               header={
                 <div className="flex items-center justify-between px-4 py-3" style={{ borderBottom: "1px solid var(--color-divider)" }}>
                   <div>
-                    <span className="text-[18px] font-extrabold">🤖 AI Practice</span>
-                    <span className="ml-2 text-[15px] text-neutral-600">{item.term}</span>
+                    <span className="text-[19px] font-extrabold">🤖 AI Practice</span>
+                    <span className="ml-2 text-[16px] text-neutral-600">{item.term}</span>
                   </div>
-                  <button className="btn btn-ghost text-[15px]" onClick={() => setOpen(false)}>
+                  <button className="btn btn-ghost text-[16px]" onClick={() => setOpen(false)}>
                     ✕ Close
                   </button>
                 </div>
@@ -87,7 +87,7 @@ export function VerbDetailClient({ slug }: { slug: string }) {
   if (!verb) {
     return (
       <div className="p-4">
-        <p className="text-[15px] text-neutral-600">Verb not found.</p>
+        <p className="text-[16px] text-neutral-600">Verb not found.</p>
         <button
           className="btn btn-ghost mt-3"
           onClick={() => router.push("/modules/collocations-phrasal-verbs/verbs")}
@@ -137,14 +137,14 @@ export function VerbDetailClient({ slug }: { slug: string }) {
         <div className="label-xs mt-2 text-accent">
           {verb.group} · {GROUP_LABELS[verb.group]}
         </div>
-        <p className="mt-3 text-[16px] leading-relaxed">{verb.def_en}</p>
-        {showVi && <p className="mt-1 text-[15px] leading-relaxed text-neutral-600">{verb.def_vi}</p>}
+        <p className="mt-3 text-[17px] leading-relaxed">{verb.def_en}</p>
+        {showVi && <p className="mt-1 text-[16px] leading-relaxed text-neutral-600">{verb.def_vi}</p>}
       </div>
 
       <div className="divider-b flex gap-[2px] bg-[color:var(--color-divider)]">
         <button
           onClick={() => setTab("coll")}
-          className={`flex-1 px-4 py-2.75 text-[13px] font-extrabold tracking-wider uppercase ${
+          className={`flex-1 px-4 py-2.75 text-[16px] font-extrabold tracking-wider uppercase ${
             tab === "coll" ? "bg-ink text-bg" : "bg-bg text-neutral-600"
           }`}
         >
@@ -152,7 +152,7 @@ export function VerbDetailClient({ slug }: { slug: string }) {
         </button>
         <button
           onClick={() => setTab("phr")}
-          className={`flex-1 px-4 py-2.75 text-[13px] font-extrabold tracking-wider uppercase ${
+          className={`flex-1 px-4 py-2.75 text-[16px] font-extrabold tracking-wider uppercase ${
             tab === "phr" ? "bg-ink text-bg" : "bg-bg text-neutral-600"
           }`}
         >
@@ -166,7 +166,7 @@ export function VerbDetailClient({ slug }: { slug: string }) {
           return (
             <div key={it.term} className="divider-b px-4 py-3">
               <div className="flex items-start justify-between gap-3">
-                <span className="text-[18px] font-extrabold">{it.term}</span>
+                <span className="text-[19px] font-extrabold">{it.term}</span>
                 <span className="flex flex-none items-center gap-2">
                   <span className="flex gap-0.5">
                     {[0, 1, 2, 3, 4].map((n) => (
@@ -186,9 +186,9 @@ export function VerbDetailClient({ slug }: { slug: string }) {
                   </button>
                 </span>
               </div>
-              <div className="mt-1 text-[15px] leading-relaxed">{it.en}</div>
-              {showVi && <div className="mt-0.5 text-[14px] leading-relaxed text-neutral-600">{it.vi}</div>}
-              <div className="mt-2 border-l-2 border-[color:var(--color-divider)] pl-3 text-[14px] leading-relaxed text-neutral-700">
+              <div className="mt-1 text-[16px] leading-relaxed">{it.en}</div>
+              {showVi && <div className="mt-0.5 text-[16px] leading-relaxed text-neutral-600">{it.vi}</div>}
+              <div className="mt-2 border-l-2 border-[color:var(--color-divider)] pl-3 text-[16px] leading-relaxed text-neutral-700">
                 {it.ex}
                 {showVi && it.ex_vi && <div className="mt-0.5 text-neutral-500">{it.ex_vi}</div>}
               </div>
@@ -199,7 +199,7 @@ export function VerbDetailClient({ slug }: { slug: string }) {
         })}
       </div>
       {items.length === 0 && (
-        <div className="px-4 py-8 text-[15px] text-neutral-600">Nothing listed here for this verb.</div>
+        <div className="px-4 py-8 text-[16px] text-neutral-600">Nothing listed here for this verb.</div>
       )}
 
       <div className="p-4">

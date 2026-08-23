@@ -68,7 +68,7 @@ export function BottomNav() {
           <Link
             key={t.href}
             href={t.href}
-            className={`flex-1 pt-3.5 text-center text-[11px] font-extrabold tracking-wider uppercase lg:flex lg:flex-none lg:items-center lg:justify-start lg:gap-3 lg:px-3 lg:py-2.5 lg:text-left lg:text-[15px] lg:normal-case lg:tracking-normal lg:pt-0 ${
+            className={`flex-1 pt-3.5 text-center text-[16px] font-extrabold tracking-wider uppercase lg:flex lg:flex-none lg:items-center lg:justify-start lg:gap-3 lg:px-3 lg:py-2.5 lg:text-left lg:text-[16px] lg:normal-case lg:tracking-normal lg:pt-0 ${
               active ? "text-accent lg:bg-accent-100" : "text-neutral-600"
             }`}
           >

@@ -134,13 +134,13 @@ export function GrammarPopup({ text, context, onClose }: Props) {
   return (
     <Modal onClose={onClose} contentClassName="lg:max-w-[1080px]">
       {loading && isViewingOriginal ? (
-        <p className="animate-pulse text-[15px] text-neutral-600">Đang phân tích ngữ pháp...</p>
+        <p className="animate-pulse text-[16px] text-neutral-600">Đang phân tích ngữ pháp...</p>
       ) : error && isViewingOriginal ? (
-        <p className="text-[15px] text-accent-700">{error}</p>
+        <p className="text-[16px] text-accent-700">{error}</p>
       ) : isGrammar === false ? (
         <div>
-          <div className="mb-1 text-[17px] font-extrabold">📐 Không có cấu trúc ngữ pháp đặc biệt</div>
-          {note && <p className="text-[15px] leading-relaxed text-neutral-600">{note}</p>}
+          <div className="mb-1 text-[18px] font-extrabold">📐 Không có cấu trúc ngữ pháp đặc biệt</div>
+          {note && <p className="text-[16px] leading-relaxed text-neutral-600">{note}</p>}
         </div>
       ) : (
         <div className="lg:flex lg:flex-row lg:gap-4">
@@ -158,14 +158,14 @@ export function GrammarPopup({ text, context, onClose }: Props) {
                     key={k}
                     type="button"
                     onClick={() => setViewingKey(k)}
-                    className="rounded px-2 py-1 text-left text-[14px] leading-snug"
+                    className="rounded px-2 py-1 text-left text-[16px] leading-snug"
                     style={{
                       background: k === viewingKey ? "var(--color-accent-100)" : undefined,
                       color: k === viewingKey ? "var(--color-accent-800)" : "var(--color-text)",
                     }}
                   >
                     <span className="line-clamp-2">{e.text}</span>
-                    {e.discussed && <span className="ml-1 text-[12px] font-bold">✓</span>}
+                    {e.discussed && <span className="ml-1 text-[16px] font-bold">✓</span>}
                   </button>
                 ))}
               </div>
@@ -175,18 +175,18 @@ export function GrammarPopup({ text, context, onClose }: Props) {
           <div className="flex flex-1 flex-col gap-3 pr-4 lg:pr-0">
             <div>
               <span className="label-xs text-accent">Cấu trúc ngữ pháp</span>
-              <div className="mt-0.5 text-[18px] font-extrabold">{category}</div>
+              <div className="mt-0.5 text-[19px] font-extrabold">{category}</div>
             </div>
-            {explanation && <p className="text-[16px] leading-relaxed">{explanation}</p>}
+            {explanation && <p className="text-[17px] leading-relaxed">{explanation}</p>}
 
             {example && (
               <div className="border-t pt-3" style={{ borderColor: "var(--color-divider)" }}>
                 <span className="label-xs">Ví dụ khác</span>
-                <p className="mt-1 flex flex-wrap items-center gap-1.5 text-[16px] leading-relaxed">
+                <p className="mt-1 flex flex-wrap items-center gap-1.5 text-[17px] leading-relaxed">
                   <span>{example.en}</span>
-                  <CopyButton text={example.en} className="text-[13px] font-bold text-accent" />
+                  <CopyButton text={example.en} className="text-[16px] font-bold text-accent" />
                 </p>
-                <p className="mt-0.5 text-[15px] text-neutral-600">{example.vi}</p>
+                <p className="mt-0.5 text-[16px] text-neutral-600">{example.vi}</p>
               </div>
             )}
 
@@ -251,7 +251,7 @@ function GrammarChat({ entryKey, text, category }: { entryKey: string; text: str
           {chat.map((m, i) => (
             <div
               key={i}
-              className="rounded p-2 text-[14px] leading-relaxed"
+              className="rounded p-2 text-[16px] leading-relaxed"
               style={{
                 background: m.role === "user" ? "var(--color-accent-100)" : "var(--color-surface)",
                 alignSelf: m.role === "user" ? "flex-end" : "flex-start",
@@ -278,11 +278,11 @@ function GrammarChat({ entryKey, text, category }: { entryKey: string; text: str
           <div ref={chatEndRef} />
         </div>
       )}
-      {error && <p className="mb-2 text-[14px] text-accent-700">{error}</p>}
+      {error && <p className="mb-2 text-[16px] text-accent-700">{error}</p>}
       <div className="flex items-end gap-2">
         <ChatInput value={chatIn} onChange={setChatIn} onSend={sendMessage} disabled={sending || !chatIn.trim()} />
         <button
-          className="btn btn-primary px-3 py-2.5 text-[15px] font-extrabold disabled:opacity-40"
+          className="btn btn-primary px-3 py-2.5 text-[16px] font-extrabold disabled:opacity-40"
           disabled={sending || !chatIn.trim()}
           onClick={sendMessage}
         >

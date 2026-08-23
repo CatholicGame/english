@@ -81,13 +81,13 @@ export default function VerbsPage() {
             <div className="flex items-center gap-2">
               <Link
                 href="/modules/collocations-phrasal-verbs/write"
-                className="btn btn-ghost px-2 py-1 text-[13px] font-extrabold tracking-wider uppercase"
+                className="btn btn-ghost px-2 py-1 text-[16px] font-extrabold tracking-wider uppercase"
               >
                 ✍️ Write
               </Link>
               <button
                 onClick={() => (selecting ? exitSelecting() : setSelecting(true))}
-                className={`btn text-[13px] font-extrabold tracking-wider uppercase ${
+                className={`btn text-[16px] font-extrabold tracking-wider uppercase ${
                   selecting ? "btn-primary px-3 py-1.5" : "btn-ghost px-2 py-1"
                 }`}
               >
@@ -108,7 +108,7 @@ export default function VerbsPage() {
             <button
               key={k}
               onClick={() => setGroup(k)}
-              className={`flex-none px-3.5 py-2.5 text-[13px] font-extrabold tracking-wider uppercase lg:text-left ${
+              className={`flex-none px-3.5 py-2.5 text-[16px] font-extrabold tracking-wider uppercase lg:text-left ${
                 group === k ? "bg-ink text-bg" : "bg-bg text-ink"
               }`}
             >
@@ -129,7 +129,7 @@ export default function VerbsPage() {
             const nameRow = (
               <span className="flex items-baseline gap-2">
                 <span className="text-[20px] font-extrabold tracking-tight uppercase">{v.verb}</span>
-                <span className="text-[12px] tracking-wider text-accent">{v.group}</span>
+                <span className="text-[16px] tracking-wider text-accent">{v.group}</span>
                 {locked && (
                   <span className="label-xs flex items-center gap-1 whitespace-nowrap text-neutral-500">
                     <LockIcon />
@@ -153,12 +153,12 @@ export default function VerbsPage() {
                   </span>
                   <span className="min-w-0 flex-1">
                     {nameRow}
-                    <span className="mt-0.5 block truncate text-[13px] text-neutral-600">
+                    <span className="mt-0.5 block truncate text-[16px] text-neutral-600">
                       {v.items.slice(0, 3).map((it) => it.term).join(" · ")}
                     </span>
                   </span>
                   <span className="w-11 flex-none">
-                    <span className="mb-1 block text-right text-[13px] tabular-nums text-neutral-600">
+                    <span className="mb-1 block text-right text-[16px] tabular-nums text-neutral-600">
                       {v.items.length}
                     </span>
                     <span className="block h-1 bg-neutral-300">
@@ -173,7 +173,7 @@ export default function VerbsPage() {
               <>
                 <span className="min-w-0 flex-1">
                   {nameRow}
-                  <span className="mt-0.5 block truncate text-[13px] text-neutral-600">
+                  <span className="mt-0.5 block truncate text-[16px] text-neutral-600">
                     {v.items
                       .slice(0, 3)
                       .map((it) => it.term)
@@ -181,7 +181,7 @@ export default function VerbsPage() {
                   </span>
                 </span>
                 <span className="w-11 flex-none">
-                  <span className="mb-1 block text-right text-[13px] tabular-nums text-neutral-600">
+                  <span className="mb-1 block text-right text-[16px] tabular-nums text-neutral-600">
                     {v.items.length}
                   </span>
                   <span className="block h-1 bg-neutral-300">
@@ -211,7 +211,7 @@ export default function VerbsPage() {
           })}
         </div>
         {listVerbs.length === 0 && (
-          <div className="px-4 py-8 text-[15px] text-neutral-600">No match.</div>
+          <div className="px-4 py-8 text-[16px] text-neutral-600">No match.</div>
         )}
       </div>
 
@@ -219,7 +219,7 @@ export default function VerbsPage() {
       {selecting && selected.size > 0 && (
         <div className="fixed bottom-0 left-0 right-0 z-30 border-t-2 border-[color:var(--color-divider)] bg-bg px-3 py-2.5 lg:static lg:bottom-auto lg:left-auto lg:right-auto lg:border-t-0 lg:border-l-2 lg:px-6 lg:py-0">
           <div className="lg:sticky lg:top-6 lg:flex lg:flex-col lg:gap-3">
-            <span className="mb-2 block text-[13px] font-extrabold lg:text-center">
+            <span className="mb-2 block text-[16px] font-extrabold lg:text-center">
               {selected.size} verb{selected.size > 1 ? "s" : ""}
             </span>
             <div className="flex gap-1.5 overflow-x-auto lg:flex-col lg:overflow-visible">
@@ -234,7 +234,7 @@ export default function VerbsPage() {
               ].map((m) => (
                 <button
                   key={m.mode}
-                  className="btn btn-primary flex-none px-3 py-2 text-[14px] font-extrabold tracking-wide uppercase"
+                  className="btn btn-primary flex-none px-3 py-2 text-[16px] font-extrabold tracking-wide uppercase"
                   onClick={() => startPractice(m.mode)}
                 >
                   {m.label}

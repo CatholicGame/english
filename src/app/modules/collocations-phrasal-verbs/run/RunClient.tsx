@@ -225,7 +225,7 @@ export function RunClient() {
   if (session === null) {
     return (
       <div className="flex min-h-screen flex-col items-center justify-center gap-4 p-6 text-center">
-        <p className="text-[16px] text-neutral-600">Not enough phrases to start this session yet.</p>
+        <p className="text-[17px] text-neutral-600">Not enough phrases to start this session yet.</p>
         <button className="btn btn-secondary" onClick={goHome}>
           Back to Today
         </button>
@@ -251,7 +251,7 @@ export function RunClient() {
         <div className="divider-b px-4 pt-8 pb-6">
           <div className="label-xs text-accent">Session complete</div>
           <div className="mt-2 text-[76px] leading-[0.95] font-extrabold tracking-tight">{rPct}%</div>
-          <div className="mt-2 text-[15px] text-neutral-600">{rSub}</div>
+          <div className="mt-2 text-[16px] text-neutral-600">{rSub}</div>
         </div>
         <div className="divider-b grid grid-cols-2 gap-[2px] bg-[color:var(--color-divider)]">
           <div className="bg-bg p-4">
@@ -269,8 +269,8 @@ export function RunClient() {
             <div className="lg:grid lg:grid-cols-2 lg:gap-x-4">
               {missedUnique.map((m) => (
                 <div key={m.key} className="divider-t px-4 py-3">
-                  <div className="text-[17px] font-extrabold">{m.term}</div>
-                  <div className="mt-0.5 text-[14px] leading-relaxed text-neutral-700">{m.en}</div>
+                  <div className="text-[18px] font-extrabold">{m.term}</div>
+                  <div className="mt-0.5 text-[16px] leading-relaxed text-neutral-700">{m.en}</div>
                 </div>
               ))}
             </div>
@@ -324,7 +324,7 @@ export function RunClient() {
         <div className="h-1.5 flex-1 bg-neutral-300">
           <div className="h-full bg-accent" style={{ width: `${runPct}%` }} />
         </div>
-        <span className="w-9 flex-none text-right text-[13px] tabular-nums text-neutral-600">
+        <span className="w-9 flex-none text-right text-[16px] tabular-nums text-neutral-600">
           {qi + 1}/{session.qs.length}
         </span>
       </div>
@@ -349,9 +349,9 @@ export function RunClient() {
             {flipped ? (
               <span className="block">
                 <span className="mb-4 mt-2 block h-0.5 bg-[color:var(--color-divider)]" />
-                <span className="block text-[17px] leading-relaxed">{q.item.en}</span>
-                {showVi && <span className="mt-1 block text-[15px] leading-relaxed text-neutral-600">{q.item.vi}</span>}
-                <span className="mt-4 block border-l-2 border-[color:var(--color-divider)] pl-3 text-[15px] leading-relaxed">
+                <span className="block text-[18px] leading-relaxed">{q.item.en}</span>
+                {showVi && <span className="mt-1 block text-[16px] leading-relaxed text-neutral-600">{q.item.vi}</span>}
+                <span className="mt-4 block border-l-2 border-[color:var(--color-divider)] pl-3 text-[16px] leading-relaxed">
                   {q.item.ex}
                   {showVi && q.item.ex_vi && <span className="mt-0.5 block text-neutral-500">{q.item.ex_vi}</span>}
                 </span>
@@ -409,7 +409,7 @@ export function RunClient() {
                       <SpeakerIcon className="h-[34px] w-[34px]" />
                     </button>
                   ) : (
-                    <div className={`leading-tight font-extrabold tracking-tight text-balance ${isReverse ? "text-[19px]" : "text-[28px]"}`}>
+                    <div className={`leading-tight font-extrabold tracking-tight text-balance ${isReverse ? "text-[20px]" : "text-[28px]"}`}>
                       {promptText}
                     </div>
                   )}
@@ -438,7 +438,7 @@ export function RunClient() {
                       <button
                         key={o}
                         style={{ borderColor: bc, background: bg, color: fg }}
-                        className="mb-0.5 w-full border p-3 text-left text-[16px] leading-snug"
+                        className="mb-0.5 w-full border p-3 text-left text-[17px] leading-snug"
                         onClick={() => {
                           if (ans) {
                             next();
@@ -473,12 +473,12 @@ export function RunClient() {
                     {isReverse ? (
                       <>
                         <div className="text-[21px] leading-snug font-extrabold text-pretty">{wq.item.vi}</div>
-                        <div className="mt-1.5 text-[15px] leading-relaxed text-neutral-600">{wq.item.en}</div>
+                        <div className="mt-1.5 text-[16px] leading-relaxed text-neutral-600">{wq.item.en}</div>
                       </>
                     ) : (
                       <>
                         <div className="text-[21px] leading-snug font-extrabold text-pretty">{wq.item.en}</div>
-                        <div className="mt-1.5 text-[16px] leading-relaxed text-neutral-600">{wq.item.vi}</div>
+                        <div className="mt-1.5 text-[17px] leading-relaxed text-neutral-600">{wq.item.vi}</div>
                       </>
                     )}
                   </div>
@@ -501,7 +501,7 @@ export function RunClient() {
                     placeholder="Type here"
                   />
                   {ans && !ans.ok && (
-                    <div className="mt-2 bg-accent-100 px-4 py-3 text-[15px] leading-relaxed text-accent-800">
+                    <div className="mt-2 bg-accent-100 px-4 py-3 text-[16px] leading-relaxed text-accent-800">
                       <span className="label-xs mb-0.5 block">Answer</span>
                       <span className="font-extrabold">{wq.answer}</span>
                     </div>
@@ -532,7 +532,7 @@ export function RunClient() {
                   : { bg: SURF, bc: LINE, fg: INK };
           return (
             <div className="flex-1 p-4 lg:mx-auto lg:w-full lg:max-w-[960px]">
-              <div className="mb-4 text-[15px] text-neutral-700">Tap a phrase, then its meaning.</div>
+              <div className="mb-4 text-[16px] text-neutral-700">Tap a phrase, then its meaning.</div>
               {mq.items.map((it, i) => {
                 const right = mq.right[i];
                 const rOwner = mq.items.find((x) => x.en === right);
@@ -549,14 +549,14 @@ export function RunClient() {
                     <button
                       onClick={() => pickMatch("l", { key: it.key, en: it.en })}
                       style={{ background: lSty.bg, borderColor: lSty.bc, color: lSty.fg }}
-                      className="flex-[0_0_42%] border p-3 text-left text-[15px] leading-tight font-extrabold"
+                      className="flex-[0_0_42%] border p-3 text-left text-[16px] leading-tight font-extrabold"
                     >
                       {it.term}
                     </button>
                     <button
                       onClick={() => pickMatch("r", { key: rOwner?.key, en: right })}
                       style={{ background: rSty.bg, borderColor: rSty.bc, color: rSty.fg }}
-                      className="flex-1 border p-3 text-left text-[14px] leading-snug"
+                      className="flex-1 border p-3 text-left text-[16px] leading-snug"
                     >
                       {right}
                     </button>

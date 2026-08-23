@@ -51,8 +51,8 @@ export function OnboardingGuide() {
     <Modal onClose={finish}>
       <div className="text-center">
         <div className="text-[34px]">{s.emoji}</div>
-        <h2 className="mt-2 text-[19px] font-extrabold">{t(s.titleKey)}</h2>
-        <p className="mt-2 text-[15px] leading-relaxed text-neutral-600">{t(s.bodyKey)}</p>
+        <h2 className="mt-2 text-[20px] font-extrabold">{t(s.titleKey)}</h2>
+        <p className="mt-2 text-[16px] leading-relaxed text-neutral-600">{t(s.bodyKey)}</p>
         <div className="mt-4 flex items-center justify-center gap-1.5">
           {STEPS.map((_, i) => (
             <span
@@ -63,11 +63,11 @@ export function OnboardingGuide() {
           ))}
         </div>
         <div className="mt-5 flex items-center justify-between">
-          <button className="btn btn-ghost px-2 text-[14px] font-bold" onClick={finish}>
+          <button className="btn btn-ghost px-2 text-[16px] font-bold" onClick={finish}>
             {t("onboarding.skip")}
           </button>
           <button
-            className="btn btn-primary px-4 py-2 text-[15px]"
+            className="btn btn-primary px-4 py-2 text-[16px]"
             onClick={() => (isLast ? finish() : setStep((v) => v + 1))}
           >
             {isLast ? t("onboarding.done") : t("onboarding.next")}

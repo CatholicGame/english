@@ -360,81 +360,81 @@ export function AiSentencePractice({ item, moduleKey, showItemInfo = true }: { i
   let footerContent: React.ReactNode = null;
   if (mode === "write") {
     footerContent = (
-      <button className="btn btn-primary btn-block px-4 py-2.5 text-[15px] font-extrabold disabled:opacity-40" disabled={loading || !sentence.trim()} onClick={sw}>
+      <button className="btn btn-primary btn-block px-4 py-2.5 text-[16px] font-extrabold disabled:opacity-40" disabled={loading || !sentence.trim()} onClick={sw}>
         {loading ? "Checking..." : "Check with AI"}
       </button>
     );
   } else if (mode === "translate") {
     if (viSentences.length === 0) {
       footerContent = (
-        <button className="btn btn-primary btn-block px-4 py-2.5 text-[15px] font-extrabold" disabled={loading} onClick={loadTranslate}>
+        <button className="btn btn-primary btn-block px-4 py-2.5 text-[16px] font-extrabold" disabled={loading} onClick={loadTranslate}>
           {loading ? "Generating..." : "Generate 5 Sentences"}
         </button>
       );
     } else if (!batchResult) {
       footerContent = (
-        <button className="btn btn-primary btn-block px-4 py-2.5 text-[15px] font-extrabold disabled:opacity-40" disabled={loading || translations.every(t => !t.trim())} onClick={submitTranslateBatch}>
+        <button className="btn btn-primary btn-block px-4 py-2.5 text-[16px] font-extrabold disabled:opacity-40" disabled={loading || translations.every(t => !t.trim())} onClick={submitTranslateBatch}>
           {loading ? "Reviewing..." : "Submit All & Get Feedback"}
         </button>
       );
     } else {
       footerContent = (
         <div className="flex gap-2">
-          <button className="btn btn-secondary flex-1 text-[14px]" onClick={retryTranslateBatch} disabled={loading}>Try Again</button>
-          <button className="btn btn-ghost flex-1 text-[14px]" onClick={loadTranslate} disabled={loading}>New Set</button>
+          <button className="btn btn-secondary flex-1 text-[16px]" onClick={retryTranslateBatch} disabled={loading}>Try Again</button>
+          <button className="btn btn-ghost flex-1 text-[16px]" onClick={loadTranslate} disabled={loading}>New Set</button>
         </div>
       );
     }
   } else if (mode === "quiz") {
     footerContent = !qz ? (
-      <button className="btn btn-primary btn-block px-4 py-2.5 text-[15px] font-extrabold" disabled={loading} onClick={lq}>{loading ? "Generating..." : "Generate Quiz"}</button>
+      <button className="btn btn-primary btn-block px-4 py-2.5 text-[16px] font-extrabold" disabled={loading} onClick={lq}>{loading ? "Generating..." : "Generate Quiz"}</button>
     ) : (
-      <button className="btn btn-ghost btn-block text-[14px]" onClick={lq} disabled={loading}>New Quiz</button>
+      <button className="btn btn-ghost btn-block text-[16px]" onClick={lq} disabled={loading}>New Quiz</button>
     );
   } else if (mode === "examples") {
     footerContent = !exs ? (
-      <button className="btn btn-primary btn-block px-4 py-2.5 text-[15px] font-extrabold" disabled={loading} onClick={le}>{loading ? "Generating..." : "Generate Examples"}</button>
+      <button className="btn btn-primary btn-block px-4 py-2.5 text-[16px] font-extrabold" disabled={loading} onClick={le}>{loading ? "Generating..." : "Generate Examples"}</button>
     ) : (
-      <button className="btn btn-ghost btn-block text-[14px]" onClick={le} disabled={loading}>Refresh</button>
+      <button className="btn btn-ghost btn-block text-[16px]" onClick={le} disabled={loading}>Refresh</button>
     );
   } else if (mode === "converse") {
     if (phase === "idle") {
       footerContent = (
-        <button className="btn btn-primary btn-block px-4 py-2.5 text-[15px] font-extrabold" disabled={loading} onClick={loadPreview}>
+        <button className="btn btn-primary btn-block px-4 py-2.5 text-[16px] font-extrabold" disabled={loading} onClick={loadPreview}>
           {loading ? "Generating..." : "Generate Sample Conversation"}
         </button>
       );
     } else if (phase === "preview") {
       footerContent = (
-        <button className="btn btn-primary btn-block px-4 py-2.5 text-[15px] font-extrabold" disabled={loading} onClick={startPractice}>
+        <button className="btn btn-primary btn-block px-4 py-2.5 text-[16px] font-extrabold" disabled={loading} onClick={startPractice}>
           {loading ? "Starting..." : "Start Practice"}
         </button>
       );
     } else if (phase === "practicing") {
       footerContent = chatBusy === "end" ? (
-        <div className="flex items-center justify-center gap-2 rounded border p-3 text-[14px] text-neutral-600" style={{ borderColor: "var(--color-divider)" }}>
+        <div className="flex items-center justify-center gap-2 rounded border p-3 text-[16px] text-neutral-600" style={{ borderColor: "var(--color-divider)" }}>
           <span className="inline-block h-3.5 w-3.5 animate-spin rounded-full border-2 border-current border-t-transparent" />
           Analyzing your conversation...
         </div>
       ) : (
         <div className="flex items-end gap-2">
           <ChatInput value={chatIn} onChange={setChatIn} onSend={sendMessage} disabled={loading || !chatIn.trim()} />
-          <button className="btn btn-primary px-3 py-2.5 text-[15px] font-extrabold" disabled={loading || !chatIn.trim()} onClick={sendMessage}>Send</button>
-          <button className="btn btn-ghost px-3 py-2.5 text-[14px]" disabled={loading || !chat.some(m => m.role === "user")} onClick={endAndFeedback}>End</button>
+          <button className="btn btn-primary px-3 py-2.5 text-[16px] font-extrabold" disabled={loading || !chatIn.trim()} onClick={sendMessage}>Send</button>
+          <button className="btn btn-ghost px-3 py-2.5 text-[16px]" disabled={loading || !chat.some(m => m.role === "user")} onClick={endAndFeedback}>End</button>
         </div>
       );
     }
   } else if (mode === "discussion" && discPhase === "practicing") {
     footerContent = discBusy === "end" ? (
-      <div className="flex items-center justify-center gap-2 rounded border p-3 text-[14px] text-neutral-600" style={{ borderColor: "var(--color-divider)" }}>
+      <div className="flex items-center justify-center gap-2 rounded border p-3 text-[16px] text-neutral-600" style={{ borderColor: "var(--color-divider)" }}>
         <span className="inline-block h-3.5 w-3.5 animate-spin rounded-full border-2 border-current border-t-transparent" />
         Analyzing your discussion...
       </div>
     ) : (
       <div className="flex items-end gap-2">
         <ChatInput value={discChatIn} onChange={setDiscChatIn} onSend={sendDiscMessage} disabled={loading || !discChatIn.trim()} />
-        <button className="btn btn-primary px-3 py-2.5 text-[15px] font-extrabold" disabled={loading || !discChatIn.trim()} onClick={sendDiscMessage}>Send</button>
-        <button className="btn btn-ghost px-3 py-2.5 text-[14px]" disabled={loading || !discChat.some(m => m.role === "user")} onClick={endDiscussion}>End</button>
+        <button className="btn btn-primary px-3 py-2.5 text-[16px] font-extrabold" disabled={loading || !discChatIn.trim()} onClick={sendDiscMessage}>Send</button>
+        <button className="btn btn-ghost px-3 py-2.5 text-[16px]" disabled={loading || !discChat.some(m => m.role === "user")} onClick={endDiscussion}>End</button>
       </div>
     );
   }
@@ -442,8 +442,8 @@ export function AiSentencePractice({ item, moduleKey, showItemInfo = true }: { i
 
   return (
     <div className="flex flex-col gap-4">
-      <div className="flex flex-wrap gap-1">{(Object.keys(LABELS) as PMode[]).map(m => <button key={m} onClick={() => { setMode(m); setResult(null); setError(null); }} className="rounded-full px-3 py-1 text-[14px] font-bold" style={ts(m)}>{LABELS[m]}</button>)}</div>
-      {showItemInfo && <div className="rounded bg-surface p-3 text-[15px] leading-relaxed"><span className="font-extrabold">{item.term}</span><span className="text-neutral-600"> — {item.vi}</span><br /><span className="text-[13px] italic text-neutral-500">Example: {item.ex}</span></div>}
+      <div className="flex flex-wrap gap-1">{(Object.keys(LABELS) as PMode[]).map(m => <button key={m} onClick={() => { setMode(m); setResult(null); setError(null); }} className="rounded-full px-3 py-1 text-[16px] font-bold" style={ts(m)}>{LABELS[m]}</button>)}</div>
+      {showItemInfo && <div className="rounded bg-surface p-3 text-[16px] leading-relaxed"><span className="font-extrabold">{item.term}</span><span className="text-neutral-600"> — {item.vi}</span><br /><span className="text-[16px] italic text-neutral-500">Example: {item.ex}</span></div>}
 
 
       {mode === "write" && <div className="flex flex-col gap-3"><textarea className="input min-h-[80px] resize-y" placeholder={`Write a sentence using "${item.term}"...`} value={sentence} onChange={e => setSentence(e.target.value)} />{!footerClaimed && footerContent}</div>}
@@ -453,14 +453,14 @@ export function AiSentencePractice({ item, moduleKey, showItemInfo = true }: { i
           !footerClaimed && footerContent
         ) : !batchResult ? (
           <div className="flex flex-col gap-3">
-            <p className="text-[14px] text-neutral-600">Translate each sentence using "{item.term}".</p>
+            <p className="text-[16px] text-neutral-600">Translate each sentence using "{item.term}".</p>
             {viSentences.map((s, i) => (
               <div key={i} className="flex flex-col gap-1.5">
-                <div className="rounded bg-accent-100 px-3 py-2 text-[15px] leading-relaxed text-accent-800 font-medium">
+                <div className="rounded bg-accent-100 px-3 py-2 text-[16px] leading-relaxed text-accent-800 font-medium">
                   <span className="label-xs mr-2 text-accent-700">{i + 1}.</span>{s}
                 </div>
                 <input
-                  className="input text-[15px]"
+                  className="input text-[16px]"
                   placeholder="Your English translation..."
                   value={translations[i] || ""}
                   onChange={e => {
@@ -476,33 +476,33 @@ export function AiSentencePractice({ item, moduleKey, showItemInfo = true }: { i
         ) : (
           <div className="flex flex-col gap-3">
             <div className="flex items-center justify-between">
-              <p className="text-[15px] font-extrabold">📝 Results</p>
-              {batchResult?.xpEarned != null && <span className="text-[14px] font-extrabold text-accent">+{batchResult.xpEarned} XP</span>}
+              <p className="text-[16px] font-extrabold">📝 Results</p>
+              {batchResult?.xpEarned != null && <span className="text-[16px] font-extrabold text-accent">+{batchResult.xpEarned} XP</span>}
             </div>
             {viSentences.map((s, i) => {
               const r = batchResult?.results?.[i];
               return (
                 <div key={i} className="rounded border p-3" style={{ borderColor: r?.ok ? "var(--color-accent)" : "var(--color-accent-800)" }}>
                   <div className="flex items-start justify-between gap-2">
-                    <span className="text-[14px] font-extrabold">{i + 1}. {s}</span>
-                    <span className="text-[14px]">{r?.ok ? "✅" : "❌"}</span>
+                    <span className="text-[16px] font-extrabold">{i + 1}. {s}</span>
+                    <span className="text-[16px]">{r?.ok ? "✅" : "❌"}</span>
                   </div>
-                  <p className="mt-1 text-[14px] text-neutral-500 italic">Your: {translations[i]}</p>
-                  {r?.feedback && <p className="mt-1 text-[14px]">{r.feedback}</p>}
+                  <p className="mt-1 text-[16px] text-neutral-500 italic">Your: {translations[i]}</p>
+                  {r?.feedback && <p className="mt-1 text-[16px]">{r.feedback}</p>}
                   {r?.corrected && (
-                    <p className="mt-0.5 flex flex-wrap items-center gap-1.5 text-[14px] text-accent-800">
+                    <p className="mt-0.5 flex flex-wrap items-center gap-1.5 text-[16px] text-accent-800">
                       <span>→ {r.corrected}</span>
-                      <CopyButton text={r.corrected} className="rounded-full border px-2 py-0.5 text-[13px] font-bold" style={{ borderColor: "var(--color-accent-800)", color: "var(--color-accent-800)" }} />
+                      <CopyButton text={r.corrected} className="rounded-full border px-2 py-0.5 text-[16px] font-bold" style={{ borderColor: "var(--color-accent-800)", color: "var(--color-accent-800)" }} />
                     </p>
                   )}
                 </div>
               );
             })}
             {batchResult?.overall && (
-              <div className="rounded bg-accent-100 p-3 text-[15px] leading-relaxed text-accent-800">{batchResult.overall}</div>
+              <div className="rounded bg-accent-100 p-3 text-[16px] leading-relaxed text-accent-800">{batchResult.overall}</div>
             )}
             {batchResult?.best != null && (
-              <p className="text-[14px]">⭐ Best: sentence #{batchResult.best + 1} &nbsp;|&nbsp; ⚠️ Work on: #{batchResult.needsWork + 1}</p>
+              <p className="text-[16px]">⭐ Best: sentence #{batchResult.best + 1} &nbsp;|&nbsp; ⚠️ Work on: #{batchResult.needsWork + 1}</p>
             )}
             {!footerClaimed && footerContent}
           </div>
@@ -512,7 +512,7 @@ export function AiSentencePractice({ item, moduleKey, showItemInfo = true }: { i
       {mode === "quiz" && <div className="flex flex-col gap-3">{!qz ? (
         <div className="flex flex-col gap-3">
           <div className="flex items-center gap-2">
-            <label className="text-[14px] font-bold text-neutral-600" htmlFor="quiz-count">Number of questions</label>
+            <label className="text-[16px] font-bold text-neutral-600" htmlFor="quiz-count">Number of questions</label>
             <input
               id="quiz-count"
               type="number"
@@ -520,7 +520,7 @@ export function AiSentencePractice({ item, moduleKey, showItemInfo = true }: { i
               max={10}
               value={quizCount}
               onChange={e => setQuizCount(Math.min(10, Math.max(2, Number(e.target.value) || 5)))}
-              className="input w-16 text-center text-[15px]"
+              className="input w-16 text-center text-[16px]"
             />
           </div>
           {!footerClaimed && footerContent}
@@ -531,14 +531,14 @@ export function AiSentencePractice({ item, moduleKey, showItemInfo = true }: { i
             const picked = quizAnswers[qi];
             return (
               <div key={qi} className="flex flex-col gap-2">
-                <p className="text-[15px] leading-relaxed font-extrabold">{qi + 1}. {q.question}</p>
+                <p className="text-[16px] leading-relaxed font-extrabold">{qi + 1}. {q.question}</p>
                 <div className="flex flex-col gap-1.5">
                   {q.options.map((opt: string, oi: number) => (
                     <button
                       key={oi}
                       disabled={picked !== null}
                       onClick={() => pickQuizAnswer(qi, oi)}
-                      className="rounded border p-2.5 text-left text-[15px] leading-relaxed"
+                      className="rounded border p-2.5 text-left text-[16px] leading-relaxed"
                       style={{
                         borderColor: picked !== null ? (oi === q.answerIndex ? "var(--color-accent)" : oi === picked ? "var(--color-accent-800)" : "var(--color-divider)") : "var(--color-divider)",
                         background: picked !== null ? (oi === q.answerIndex ? "var(--color-accent-100)" : oi === picked ? "var(--color-accent-100)" : "transparent") : "transparent",
@@ -550,12 +550,12 @@ export function AiSentencePractice({ item, moduleKey, showItemInfo = true }: { i
                     </button>
                   ))}
                 </div>
-                {picked !== null && <div className="rounded bg-accent-100 p-2.5 text-[14px] text-accent-800">{q.explanation}</div>}
+                {picked !== null && <div className="rounded bg-accent-100 p-2.5 text-[16px] text-accent-800">{q.explanation}</div>}
               </div>
             );
           })}
           {quizDone && (
-            <div className="rounded bg-accent-100 p-3 text-[15px] font-extrabold text-accent-800">
+            <div className="rounded bg-accent-100 p-3 text-[16px] font-extrabold text-accent-800">
               Score: {quizScore}/{qz.questions.length}
               <span className="ml-2 text-accent">+{quizScore * 10 + (qz.questions.length - quizScore) * 2} XP</span>
             </div>
@@ -569,10 +569,10 @@ export function AiSentencePractice({ item, moduleKey, showItemInfo = true }: { i
         <div key={i} className="rounded border p-3" style={{ borderColor: "var(--color-divider)" }}>
           <div className="mb-1 flex items-center justify-between gap-2">
             <span className="label-xs block text-accent">{ex.context}</span>
-            <CopyButton text={ex.sentence} className="rounded-full border px-2 py-0.5 text-[13px] font-bold" style={{ borderColor: "var(--color-accent)", color: "var(--color-accent)" }} />
+            <CopyButton text={ex.sentence} className="rounded-full border px-2 py-0.5 text-[16px] font-bold" style={{ borderColor: "var(--color-accent)", color: "var(--color-accent)" }} />
           </div>
-          <p className="text-[15px] leading-relaxed font-extrabold">{ex.sentence}</p>
-          <p className="mt-1 text-[13px] italic text-neutral-500">{ex.note}</p>
+          <p className="text-[16px] leading-relaxed font-extrabold">{ex.sentence}</p>
+          <p className="mt-1 text-[16px] italic text-neutral-500">{ex.note}</p>
         </div>
       ))}{!footerClaimed && footerContent}</div>}</div>}
 
@@ -583,7 +583,7 @@ export function AiSentencePractice({ item, moduleKey, showItemInfo = true }: { i
         {/* Phase: Preview — show sample + start practice button */}
         {phase === "preview" && preview && (
           <div className="flex flex-col gap-3">
-            <div className="rounded bg-accent-100 p-3 text-[15px] leading-relaxed">
+            <div className="rounded bg-accent-100 p-3 text-[16px] leading-relaxed">
               <span className="label-xs mb-2 block text-accent-700">Sample conversation</span>
               {preview.conversation.map((line, i) => (
                 <p key={i} className="mb-1"><span className="font-extrabold">{line.speaker}:</span> {line.text}</p>
@@ -598,7 +598,7 @@ export function AiSentencePractice({ item, moduleKey, showItemInfo = true }: { i
           <div className="flex flex-col gap-3">
             <div className="flex max-h-[300px] flex-col gap-3 overflow-y-auto rounded border p-3" style={{ borderColor: "var(--color-divider)" }}>
               {chat.map((m, i) => (
-                <div key={i} className="rounded p-2.5 text-[15px] leading-relaxed group relative"
+                <div key={i} className="rounded p-2.5 text-[16px] leading-relaxed group relative"
                   style={{ background: m.role === "user" ? "var(--color-accent-100)" : "var(--color-surface)", alignSelf: m.role === "user" ? "flex-end" : "flex-start", maxWidth: "85%" }}>
                   <span className="label-xs mb-0.5 block">{m.role === "user" ? "You" : "Partner"}</span>
                   <p className="whitespace-pre-wrap select-text">{m.content}</p>
@@ -650,13 +650,13 @@ export function AiSentencePractice({ item, moduleKey, showItemInfo = true }: { i
         {discPhase === "practicing" && (
           <div className="flex flex-col gap-3">
             {discChat.length === 0 && (
-              <p className="text-[14px] text-neutral-600">
+              <p className="text-[16px] text-neutral-600">
                 {t("discussion.prompt", { term: item.term })}
               </p>
             )}
             <div className="flex max-h-[300px] flex-col gap-3 overflow-y-auto rounded border p-3" style={{ borderColor: "var(--color-divider)" }}>
               {discChat.map((m, i) => (
-                <div key={i} className="rounded p-2.5 text-[15px] leading-relaxed group relative"
+                <div key={i} className="rounded p-2.5 text-[16px] leading-relaxed group relative"
                   style={{ background: m.role === "user" ? "var(--color-accent-100)" : "var(--color-surface)", alignSelf: m.role === "user" ? "flex-end" : "flex-start", maxWidth: "85%" }}>
                   <span className="label-xs mb-0.5 block">{m.role === "user" ? "You" : "Partner"}</span>
                   <p className="whitespace-pre-wrap select-text">{m.content}</p>

@@ -128,13 +128,13 @@ function DiscussPanel({ onClose }: { onClose: () => void }) {
           unscrollable on touch, so a thread stayed stuck at its first message.
           --real-vh (not a bare vh unit) for the same reason as Modal's own cap. */}
       <div className="flex h-[calc(var(--real-vh,100vh)*0.75-40px)] flex-col">
-        <div className="mb-2 flex-none text-[17px] font-extrabold">💬 Hỏi đáp nhanh</div>
+        <div className="mb-2 flex-none text-[18px] font-extrabold">💬 Hỏi đáp nhanh</div>
 
         <div className="mb-3 flex flex-none items-center gap-1.5">
           <button
             type="button"
             onClick={() => openThread(null)}
-            className="flex-none rounded px-2.5 py-1 text-[14px] font-extrabold whitespace-nowrap"
+            className="flex-none rounded px-2.5 py-1 text-[16px] font-extrabold whitespace-nowrap"
             style={{
               background: threadId === null ? "var(--color-accent-100)" : "var(--color-surface)",
               color: threadId === null ? "var(--color-accent-800)" : "var(--color-text)",
@@ -147,7 +147,7 @@ function DiscussPanel({ onClose }: { onClose: () => void }) {
             <button
               type="button"
               onClick={() => setHistoryOpen((v) => !v)}
-              className="flex-none rounded px-2.5 py-1 text-[14px] font-extrabold whitespace-nowrap"
+              className="flex-none rounded px-2.5 py-1 text-[16px] font-extrabold whitespace-nowrap"
               style={{ background: "var(--color-surface)", color: "var(--color-text)" }}
             >
               🕘 Lịch sử{threads.length > 0 ? ` (${threads.length})` : ""}
@@ -158,7 +158,7 @@ function DiscussPanel({ onClose }: { onClose: () => void }) {
                 style={{ background: "var(--color-surface)", borderColor: "var(--color-divider)" }}
               >
                 {threads.length === 0 ? (
-                  <p className="p-3 text-[14px] text-neutral-500">Chưa có đoạn chat nào.</p>
+                  <p className="p-3 text-[16px] text-neutral-500">Chưa có đoạn chat nào.</p>
                 ) : (
                   threads.map((c) => (
                     <div
@@ -168,7 +168,7 @@ function DiscussPanel({ onClose }: { onClose: () => void }) {
                     >
                       <button
                         type="button"
-                        className="flex-1 truncate text-left text-[14px] font-bold"
+                        className="flex-1 truncate text-left text-[16px] font-bold"
                         style={{ color: c.id === threadId ? "var(--color-accent-800)" : "var(--color-text)" }}
                         onClick={() => openThread(c.id)}
                       >
@@ -184,17 +184,17 @@ function DiscussPanel({ onClose }: { onClose: () => void }) {
             )}
           </div>
 
-          {activeThread && <span className="min-w-0 flex-1 truncate text-[14px] font-bold text-neutral-600">{activeThread.itemLabel}</span>}
+          {activeThread && <span className="min-w-0 flex-1 truncate text-[16px] font-bold text-neutral-600">{activeThread.itemLabel}</span>}
         </div>
 
         <div className="mb-2 flex min-h-0 flex-1 flex-col gap-2 overflow-y-auto">
           {chat.length === 0 && (
-            <p className="text-[15px] text-neutral-600">Đặt câu hỏi bất kỳ, mình trả lời ngắn gọn theo dạng gạch đầu dòng.</p>
+            <p className="text-[16px] text-neutral-600">Đặt câu hỏi bất kỳ, mình trả lời ngắn gọn theo dạng gạch đầu dòng.</p>
           )}
           {chat.map((m, i) => (
             <div
               key={i}
-              className="rounded p-2 text-[14px] leading-relaxed"
+              className="rounded p-2 text-[16px] leading-relaxed"
               style={{
                 background: m.role === "user" ? "var(--color-accent-100)" : "var(--color-surface)",
                 alignSelf: m.role === "user" ? "flex-end" : "flex-start",
@@ -221,12 +221,12 @@ function DiscussPanel({ onClose }: { onClose: () => void }) {
           <div ref={chatEndRef} />
         </div>
 
-        {error && <p className="mb-2 flex-none text-[14px] text-accent-700">{error}</p>}
+        {error && <p className="mb-2 flex-none text-[16px] text-accent-700">{error}</p>}
 
         <div className="flex flex-none items-end gap-2">
           <ChatInput value={input} onChange={setInput} onSend={sendMessage} disabled={sending || !input.trim()} placeholder="Hỏi bất kỳ điều gì..." />
           <button
-            className="btn btn-primary px-3 py-2.5 text-[15px] font-extrabold disabled:opacity-40"
+            className="btn btn-primary px-3 py-2.5 text-[16px] font-extrabold disabled:opacity-40"
             disabled={sending || !input.trim()}
             onClick={sendMessage}
           >

@@ -164,11 +164,11 @@ export function AppHeader() {
   if (pathname.startsWith("/admin")) {
     return (
       <header className="sticky top-0 z-40 flex h-12 flex-none items-center gap-1.5 border-b-2 border-[color:var(--color-divider)] bg-bg px-2">
-        <Link href="/admin" className="flex min-w-0 flex-1 items-center gap-1.5 truncate text-[15px] font-extrabold">
+        <Link href="/admin" className="flex min-w-0 flex-1 items-center gap-1.5 truncate text-[16px] font-extrabold">
           <Image src={logo} alt="Vocabulary Builder Pro" width={22} height={22} className="h-[22px] w-[22px] flex-none rounded-full" priority />
           <span className="truncate">Admin</span>
         </Link>
-        <Link href="/" className="btn btn-ghost text-[14px] font-bold">
+        <Link href="/" className="btn btn-ghost text-[16px] font-bold">
           Chế độ học
         </Link>
         <AuthStatus />
@@ -187,11 +187,11 @@ export function AppHeader() {
       ) : (
         <span className="w-9 flex-none" />
       )}
-      <Link href="/" className="flex min-w-0 flex-1 items-center gap-1.5 truncate text-[15px] font-extrabold">
+      <Link href="/" className="flex min-w-0 flex-1 items-center gap-1.5 truncate text-[16px] font-extrabold">
         <Image src={logo} alt="Vocabulary Builder Pro" width={22} height={22} className="h-[22px] w-[22px] flex-none rounded-full" priority />
         <span className="truncate">Vocabulary Builder Pro</span>
       </Link>
-      <GlobalScoreBadge className="text-[14px]" />
+      <GlobalScoreBadge className="text-[16px]" />
       <Link href="/dictionary" className="btn btn-ghost btn-icon" aria-label={t("dictionary.my")}>
         <BookIcon />
       </Link>
@@ -225,7 +225,7 @@ export function AppHeader() {
           >
             <div className="divider-b px-3 py-2">
               <ShareButton
-                className="w-full text-left text-[14px] font-bold text-neutral-700 hover:text-accent-800"
+                className="w-full text-left text-[16px] font-bold text-neutral-700 hover:text-accent-800"
                 title="Vocabulary Builder Pro"
                 text={t("settings.share.text")}
                 getUrl={() => appOrigin()}
@@ -233,7 +233,7 @@ export function AppHeader() {
               />
               <button
                 type="button"
-                className="mt-1.5 w-full text-left text-[14px] font-bold text-neutral-700 hover:text-accent-800"
+                className="mt-1.5 w-full text-left text-[16px] font-bold text-neutral-700 hover:text-accent-800"
                 onClick={() => {
                   setGuideOpen(true);
                   setSettingsOpen(false);
@@ -243,7 +243,7 @@ export function AppHeader() {
               </button>
               <Link
                 href="/reviews"
-                className="mt-1.5 block w-full text-left text-[14px] font-bold text-neutral-700 hover:text-accent-800"
+                className="mt-1.5 block w-full text-left text-[16px] font-bold text-neutral-700 hover:text-accent-800"
                 onClick={() => setSettingsOpen(false)}
               >
                 {t("reviews.menuLabel")}
@@ -260,7 +260,7 @@ export function AppHeader() {
                   <button
                     key={l.id}
                     onClick={() => setUiLang(l.id)}
-                    className="rounded-full px-2.5 py-1 text-[14px] font-bold"
+                    className="rounded-full px-2.5 py-1 text-[16px] font-bold"
                     style={{
                       background: uiLang === l.id ? "var(--color-accent)" : "var(--color-surface)",
                       color: uiLang === l.id ? "#fff" : "var(--color-text)",
@@ -282,7 +282,7 @@ export function AppHeader() {
                       setAiLang(l.id);
                       saveAiLangPrefs({ lang: l.id });
                     }}
-                    className="rounded-full px-2.5 py-1 text-[14px] font-bold"
+                    className="rounded-full px-2.5 py-1 text-[16px] font-bold"
                     style={{
                       background: aiLang === l.id ? "var(--color-accent)" : "var(--color-surface)",
                       color: aiLang === l.id ? "#fff" : "var(--color-text)",
@@ -301,7 +301,7 @@ export function AppHeader() {
                   <button
                     key={f.id}
                     onClick={() => updatePrefs({ fontId: f.id })}
-                    className="rounded-full px-2.5 py-1 text-[14px] font-bold"
+                    className="rounded-full px-2.5 py-1 text-[16px] font-bold"
                     style={{
                       background: prefs.fontId === f.id ? "var(--color-accent)" : "var(--color-surface)",
                       color: prefs.fontId === f.id ? "#fff" : "var(--color-text)",

@@ -36,13 +36,13 @@ export default function CambridgeUnitsPage() {
           Home
         </Link>
         <h1 className="mb-1 text-[26px]">Cambridge Vocabulary for IELTS Advanced</h1>
-        <p className="mb-3 text-[15px] text-neutral-600">
+        <p className="mb-3 text-[16px] text-neutral-600">
           Every unit follows the coursebook: learn the wordlist, work through real listening / reading / speaking
           tasks, then finish with the unit&rsquo;s IELTS test practice.
         </p>
         <div className="mb-1 flex items-baseline justify-between">
           <span className="label-xs">Progress</span>
-          <span className="text-[13px] tabular-nums text-neutral-600">
+          <span className="text-[16px] tabular-nums text-neutral-600">
             {doneCount}/{total} · {donePct}%
           </span>
         </div>
@@ -60,7 +60,7 @@ export default function CambridgeUnitsPage() {
             const body = (
               <>
                 <div className="flex items-baseline justify-between gap-3">
-                  <span className="text-[17px] font-extrabold">
+                  <span className="text-[18px] font-extrabold">
                     <span className="mr-1.5 text-neutral-600">{u.unit}.</span>
                     {u.title}
                   </span>
@@ -78,8 +78,8 @@ export default function CambridgeUnitsPage() {
                     </span>
                   ) : null}
                 </div>
-                <div className="mt-1 text-[14px] text-neutral-600">{u.topics}</div>
-                <div className="mt-1.5 text-[13px] text-neutral-600">
+                <div className="mt-1 text-[16px] text-neutral-600">{u.topics}</div>
+                <div className="mt-1.5 text-[16px] text-neutral-600">
                   Test practice: <span className="text-accent">{u.testPractice}</span>
                 </div>
               </>

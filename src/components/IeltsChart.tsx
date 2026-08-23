@@ -25,7 +25,7 @@ function Legend({ series }: { series: ChartPanel["series"] }) {
   return (
     <div className="mb-2 flex flex-wrap gap-x-3 gap-y-1">
       {series.map((s, i) => (
-        <span key={s.key} className="flex items-center gap-1.5 text-[13px] text-neutral-600">
+        <span key={s.key} className="flex items-center gap-1.5 text-[16px] text-neutral-600">
           <span
             className="h-2.5 w-2.5 flex-none rounded-full"
             style={{ background: SERIES_COLORS[i % SERIES_COLORS.length] }}
@@ -47,7 +47,7 @@ function StackedBarPanel({ panel }: { panel: ChartPanel }) {
           const total = panel.series.reduce((sum, s) => sum + (g.values[s.key] ?? 0), 0) || 1;
           return (
             <div key={g.label}>
-              <div className="mb-1 text-[13px] font-bold text-neutral-700">{g.label}</div>
+              <div className="mb-1 text-[16px] font-bold text-neutral-700">{g.label}</div>
               <div className="flex h-5 gap-[2px]">
                 {panel.series.map((s, i) => {
                   const v = g.values[s.key] ?? 0;
@@ -61,7 +61,7 @@ function StackedBarPanel({ panel }: { panel: ChartPanel }) {
                       title={`${s.label}: ${v}%`}
                     >
                       {pct >= MIN_INLINE_LABEL_PCT && (
-                        <span className="text-[12px] font-bold text-white">{v}%</span>
+                        <span className="text-[16px] font-bold text-white">{v}%</span>
                       )}
                     </div>
                   );
@@ -83,7 +83,7 @@ function GroupedBarPanel({ panel }: { panel: ChartPanel }) {
       <div className="flex flex-col gap-3">
         {panel.groups.map((g) => (
           <div key={g.label}>
-            <div className="mb-1 text-[13px] font-bold text-neutral-700">{g.label}</div>
+            <div className="mb-1 text-[16px] font-bold text-neutral-700">{g.label}</div>
             <div className="flex flex-col gap-[3px]">
               {panel.series.map((s, i) => {
                 const v = g.values[s.key] ?? 0;
@@ -95,7 +95,7 @@ function GroupedBarPanel({ panel }: { panel: ChartPanel }) {
                         style={{ width: `${Math.min(100, v)}%`, background: SERIES_COLORS[i % SERIES_COLORS.length] }}
                       />
                     </div>
-                    <span className="w-9 flex-none text-right text-[12px] tabular-nums text-neutral-600">{v}%</span>
+                    <span className="w-9 flex-none text-right text-[16px] tabular-nums text-neutral-600">{v}%</span>
                   </div>
                 );
               })}

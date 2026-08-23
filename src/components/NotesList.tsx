@@ -54,7 +54,7 @@ export function NotesList({ moduleKey, itemKey }: { moduleKey: string; itemKey: 
             <button
               key={n.id}
               type="button"
-              className="truncate text-left text-[14px] text-accent-700 underline decoration-[color:var(--color-accent-100)] underline-offset-2"
+              className="truncate text-left text-[16px] text-accent-700 underline decoration-[color:var(--color-accent-100)] underline-offset-2"
               onClick={() => openExisting(n)}
             >
               {n.title || "Untitled note"}
@@ -70,7 +70,7 @@ export function NotesList({ moduleKey, itemKey }: { moduleKey: string; itemKey: 
         <div className="fixed inset-0 z-[60] bg-bg">
           <div className="mx-auto flex h-full max-w-[480px] flex-col lg:max-w-[1080px]">
             <div className="divider-b flex items-center justify-between px-4 py-3">
-              <span className="text-[18px] font-extrabold">{editing.note ? "Edit note" : "New note"}</span>
+              <span className="text-[19px] font-extrabold">{editing.note ? "Edit note" : "New note"}</span>
               <button className="btn btn-ghost" onClick={() => setEditing(null)}>
                 Close
               </button>

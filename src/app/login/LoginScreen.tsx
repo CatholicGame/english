@@ -103,7 +103,7 @@ export function LoginScreen() {
             key={l.id}
             type="button"
             onClick={() => setUiLang(l.id)}
-            className="rounded-full px-3 py-1 text-[14px] font-bold transition-colors"
+            className="rounded-full px-3 py-1 text-[16px] font-bold transition-colors"
             style={{
               background: lang === l.id ? "var(--color-accent)" : "transparent",
               color: lang === l.id ? "#fff" : "var(--color-text)",
@@ -124,11 +124,11 @@ export function LoginScreen() {
           priority
         />
         <h1 className="mt-4 text-[30px] lg:text-[40px]">Vocabulary Builder Pro</h1>
-        <p className="mt-2 text-[15px] leading-relaxed text-neutral-600 lg:mt-4 lg:max-w-[440px] lg:text-[17px]">
+        <p className="mt-2 text-[16px] leading-relaxed text-neutral-600 lg:mt-4 lg:max-w-[440px] lg:text-[18px]">
           {t("login.subtitle")}
         </p>
         <button
-          className="btn btn-ghost mt-3 px-0 text-[15px] font-bold text-accent-800"
+          className="btn btn-ghost mt-3 px-0 text-[16px] font-bold text-accent-800"
           onClick={() => setShowFeatures(true)}
         >
           {t("login.features")}
@@ -142,7 +142,7 @@ export function LoginScreen() {
         >
           {t("auth.signin")}
         </a>
-        <p className="mt-3 text-center text-[13px] text-neutral-500 lg:text-left">
+        <p className="mt-3 text-center text-[16px] text-neutral-500 lg:text-left">
           {t("login.bySigningIn")}{" "}
           <Link href="/terms" className="underline">{t("login.terms")}</Link> {t("login.and")}{" "}
           <Link href="/privacy" className="underline">{t("login.privacy")}</Link>.
@@ -151,34 +151,34 @@ export function LoginScreen() {
       {showFeatures && (
         <Modal onClose={() => setShowFeatures(false)} contentClassName="lg:max-w-[1080px]">
           <h2 className="mb-1 text-[20px] font-extrabold">{t("login.why")}</h2>
-          <p className="mb-4 text-[15px] leading-relaxed text-neutral-600">
+          <p className="mb-4 text-[16px] leading-relaxed text-neutral-600">
             {t("login.whyBody")}
           </p>
           <div className="flex flex-col gap-4">
             {FEATURE_GROUPS.map((g) => (
               <div key={g.stageKey} className="divider-b pb-3 last:border-b-0 last:pb-0">
-                <div className="mb-1 text-[15px] font-extrabold text-accent">{t(g.stageKey)}</div>
-                <p className="mb-2 text-[13px] leading-relaxed text-neutral-500">{t(g.stageDescKey)}</p>
+                <div className="mb-1 text-[16px] font-extrabold text-accent">{t(g.stageKey)}</div>
+                <p className="mb-2 text-[16px] leading-relaxed text-neutral-500">{t(g.stageDescKey)}</p>
                 <div className="flex flex-col gap-3">
                   {g.features.map((f) => (
                     <div key={f.kind === "module" ? f.whyKey : f.bodyKey}>
                       <div className="flex items-center gap-2">
-                        <span className="text-[18px]">{f.emoji}</span>
-                        <span className="text-[15px] font-extrabold">{f.titleKey ? t(f.titleKey) : f.title}</span>
+                        <span className="text-[19px]">{f.emoji}</span>
+                        <span className="text-[16px] font-extrabold">{f.titleKey ? t(f.titleKey) : f.title}</span>
                       </div>
                       {f.kind === "module" ? (
                         <div className="mt-1.5 flex flex-col gap-2">
                           <div>
-                            <div className="text-[12px] font-extrabold uppercase tracking-wide text-accent">{t("feature.whyLabel")}</div>
-                            <p className="mt-0.5 text-[14px] leading-relaxed text-neutral-600">{t(f.whyKey)}</p>
+                            <div className="text-[16px] font-extrabold uppercase tracking-wide text-accent">{t("feature.whyLabel")}</div>
+                            <p className="mt-0.5 text-[16px] leading-relaxed text-neutral-600">{t(f.whyKey)}</p>
                           </div>
                           <div>
-                            <div className="text-[12px] font-extrabold uppercase tracking-wide text-accent">{t("feature.howLabel")}</div>
-                            <p className="mt-0.5 text-[14px] leading-relaxed text-neutral-600">{t(f.howKey)}</p>
+                            <div className="text-[16px] font-extrabold uppercase tracking-wide text-accent">{t("feature.howLabel")}</div>
+                            <p className="mt-0.5 text-[16px] leading-relaxed text-neutral-600">{t(f.howKey)}</p>
                           </div>
                         </div>
                       ) : (
-                        <p className="mt-0.5 text-[14px] leading-relaxed text-neutral-600">{t(f.bodyKey)}</p>
+                        <p className="mt-0.5 text-[16px] leading-relaxed text-neutral-600">{t(f.bodyKey)}</p>
                       )}
                     </div>
                   ))}

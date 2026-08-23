@@ -38,7 +38,7 @@ interface Props {
 export function AiBandFeedback({ loading, result, error, onRetry }: Props) {
   if (loading) {
     return (
-      <div className="flex items-center gap-2 rounded bg-surface p-4 text-[15px] text-neutral-600">
+      <div className="flex items-center gap-2 rounded bg-surface p-4 text-[16px] text-neutral-600">
         <span className="inline-block h-4 w-4 animate-spin rounded-full border-2 border-accent border-t-transparent" />
         AI examiner is scoring your response...
       </div>
@@ -47,10 +47,10 @@ export function AiBandFeedback({ loading, result, error, onRetry }: Props) {
 
   if (error) {
     return (
-      <div className="rounded bg-accent-100 p-4 text-[15px] leading-relaxed text-accent-800">
+      <div className="rounded bg-accent-100 p-4 text-[16px] leading-relaxed text-accent-800">
         <p className="font-extrabold">Error</p>
         <p className="mt-1">{error}</p>
-        {onRetry && <button className="btn btn-ghost mt-2 text-[14px]" onClick={onRetry}>Retry</button>}
+        {onRetry && <button className="btn btn-ghost mt-2 text-[16px]" onClick={onRetry}>Retry</button>}
       </div>
     );
   }
@@ -74,7 +74,7 @@ export function AiBandFeedback({ loading, result, error, onRetry }: Props) {
 
   return (
     <div
-      className="flex flex-col gap-3 rounded p-4 text-[15px] leading-relaxed"
+      className="flex flex-col gap-3 rounded p-4 text-[16px] leading-relaxed"
       style={{ background: "var(--color-accent-100)", color: "var(--color-accent-800)" }}
     >
       {overallBand != null && (
@@ -90,9 +90,9 @@ export function AiBandFeedback({ loading, result, error, onRetry }: Props) {
             <div key={b.label} className={`flex items-start justify-between gap-3 ${i > 0 ? "border-t pt-1.5" : ""}`} style={i > 0 ? border : undefined}>
               <div>
                 <span className="font-extrabold">{b.label}</span>
-                {b.comment && <p className="text-[14px]">{b.comment}</p>}
+                {b.comment && <p className="text-[16px]">{b.comment}</p>}
               </div>
-              <span className="flex-none text-[17px] font-extrabold">{b.band}</span>
+              <span className="flex-none text-[18px] font-extrabold">{b.band}</span>
             </div>
           ))}
         </div>
@@ -102,11 +102,11 @@ export function AiBandFeedback({ loading, result, error, onRetry }: Props) {
         <div className="border-t pt-2" style={border}>
           <span className="label-xs mb-1 block text-accent-700">🔧 Corrections</span>
           {corrections.map((c, i) => (
-            <p key={i} className="mb-1 flex flex-wrap items-center gap-1.5 text-[14px]">
+            <p key={i} className="mb-1 flex flex-wrap items-center gap-1.5 text-[16px]">
               <span>
                 <span className="line-through opacity-70">{c.original}</span> → <span className="font-extrabold">{c.corrected}</span>
               </span>
-              <CopyButton text={c.corrected} className="rounded-full border px-2 py-0.5 text-[13px] font-bold" style={border} />
+              <CopyButton text={c.corrected} className="rounded-full border px-2 py-0.5 text-[16px] font-bold" style={border} />
               {c.explanation && <span className="block w-full opacity-80">{c.explanation}</span>}
             </p>
           ))}
@@ -118,7 +118,7 @@ export function AiBandFeedback({ loading, result, error, onRetry }: Props) {
           {strengths && strengths.length > 0 && (
             <div>
               <span className="label-xs mb-1 block text-accent-700">✅ Strengths</span>
-              <ul className="list-disc pl-4 text-[14px]">
+              <ul className="list-disc pl-4 text-[16px]">
                 {strengths.map((s, i) => <li key={i}>{s}</li>)}
               </ul>
             </div>
@@ -126,7 +126,7 @@ export function AiBandFeedback({ loading, result, error, onRetry }: Props) {
           {improvements && improvements.length > 0 && (
             <div>
               <span className="label-xs mb-1 block text-accent-700">📈 To improve</span>
-              <ul className="list-disc pl-4 text-[14px]">
+              <ul className="list-disc pl-4 text-[16px]">
                 {improvements.map((s, i) => <li key={i}>{s}</li>)}
               </ul>
             </div>
@@ -137,7 +137,7 @@ export function AiBandFeedback({ loading, result, error, onRetry }: Props) {
       {suggestions && suggestions.length > 0 && (
         <div className="border-t pt-2" style={border}>
           <span className="label-xs mb-1 block text-accent-700">💡 Suggestions</span>
-          <ul className="list-disc pl-4 text-[14px]">
+          <ul className="list-disc pl-4 text-[16px]">
             {suggestions.map((s, i) => <li key={i}>{s}</li>)}
           </ul>
         </div>
@@ -149,14 +149,14 @@ export function AiBandFeedback({ loading, result, error, onRetry }: Props) {
           {usedVocab && usedVocab.length > 0 && (
             <div className="mb-1.5 flex flex-wrap gap-1.5">
               {usedVocab.map((w, i) => (
-                <span key={i} className="rounded-full border px-2.5 py-1 text-[14px] font-bold" style={border}>
+                <span key={i} className="rounded-full border px-2.5 py-1 text-[16px] font-bold" style={border}>
                   ✅ {w}
                 </span>
               ))}
             </div>
           )}
           {vocabSuggestions && vocabSuggestions.length > 0 && (
-            <ul className="list-disc pl-4 text-[14px]">
+            <ul className="list-disc pl-4 text-[16px]">
               {vocabSuggestions.map((v, i) => (
                 <li key={i}>
                   <span className="font-extrabold">{v.word}</span>
@@ -173,7 +173,7 @@ export function AiBandFeedback({ loading, result, error, onRetry }: Props) {
           <span className="label-xs mb-1 block text-accent-700">📖 Try using</span>
           <div className="flex flex-wrap gap-1.5">
             {suggestedPhrases.map((p, i) => (
-              <span key={i} className="rounded-full border px-2.5 py-1 text-[14px] font-bold" style={border}>
+              <span key={i} className="rounded-full border px-2.5 py-1 text-[16px] font-bold" style={border}>
                 {p}
               </span>
             ))}
@@ -185,9 +185,9 @@ export function AiBandFeedback({ loading, result, error, onRetry }: Props) {
         <div className="border-t pt-2" style={border}>
           <div className="mb-1 flex items-center justify-between gap-2">
             <span className="label-xs block text-accent-700">✍️ Improved version</span>
-            <CopyButton text={rewrittenParagraph} className="rounded-full border px-2 py-0.5 text-[13px] font-bold" style={border} />
+            <CopyButton text={rewrittenParagraph} className="rounded-full border px-2 py-0.5 text-[16px] font-bold" style={border} />
           </div>
-          <p className="whitespace-pre-wrap text-[14px]">{rewrittenParagraph}</p>
+          <p className="whitespace-pre-wrap text-[16px]">{rewrittenParagraph}</p>
         </div>
       )}
 
@@ -195,9 +195,9 @@ export function AiBandFeedback({ loading, result, error, onRetry }: Props) {
         <div className="border-t pt-2" style={border}>
           <div className="mb-1 flex items-center justify-between gap-2">
             <span className="label-xs block text-accent-700">🎤 Model response</span>
-            <CopyButton text={modelResponse} className="rounded-full border px-2 py-0.5 text-[13px] font-bold" style={border} />
+            <CopyButton text={modelResponse} className="rounded-full border px-2 py-0.5 text-[16px] font-bold" style={border} />
           </div>
-          <p className="whitespace-pre-wrap text-[14px]">{modelResponse}</p>
+          <p className="whitespace-pre-wrap text-[16px]">{modelResponse}</p>
         </div>
       )}
     </div>

@@ -549,63 +549,67 @@ export default function WritePage() {
   return (
     <>
       <div className="fixed inset-0 z-[60] bg-bg">
-        <ActionBarScreen
-          fullViewport
-          header={<div className="flex-none px-4 pt-4 pb-1 lg:px-6 lg:pt-6"><h1 className="text-[26px]">✍️ Write</h1></div>}
-        >
-          <SelectContent
-            topics={topics}
-            selectedTopic={selectedTopic}
-            setSelectedTopic={setSelectedTopic}
-            newTopic={newTopic}
-            setNewTopic={setNewTopic}
-            onAddTopic={handleAddTopic}
-            wordCount={wordCount}
-            setWordCount={setWordCount}
-            query={query}
-            setQuery={setQuery}
-            group={group}
-            setGroup={setGroup}
-            listVerbs={listVerbs}
-            selected={selected}
-            onToggleVerb={toggleVerb}
-            isUnlocked={isUnlocked}
-            t={t}
-            lang={lang}
-            error={writing ? null : error}
-            loading={loading && !writing}
-            onGenerate={generate}
-            onContinueWriting={resumeWriting}
-            activeCid={writing ? cid : null}
-          />
-        </ActionBarScreen>
+        <div className="mx-auto h-full max-w-[480px] lg:max-w-[1560px]">
+          <ActionBarScreen
+            fullViewport
+            header={<div className="flex-none px-4 pt-4 pb-1 lg:px-6 lg:pt-6"><h1 className="text-[26px]">✍️ Write</h1></div>}
+          >
+            <SelectContent
+              topics={topics}
+              selectedTopic={selectedTopic}
+              setSelectedTopic={setSelectedTopic}
+              newTopic={newTopic}
+              setNewTopic={setNewTopic}
+              onAddTopic={handleAddTopic}
+              wordCount={wordCount}
+              setWordCount={setWordCount}
+              query={query}
+              setQuery={setQuery}
+              group={group}
+              setGroup={setGroup}
+              listVerbs={listVerbs}
+              selected={selected}
+              onToggleVerb={toggleVerb}
+              isUnlocked={isUnlocked}
+              t={t}
+              lang={lang}
+              error={writing ? null : error}
+              loading={loading && !writing}
+              onGenerate={generate}
+              onContinueWriting={resumeWriting}
+              activeCid={writing ? cid : null}
+            />
+          </ActionBarScreen>
+        </div>
       </div>
 
       {writing && (
         <div className="fixed inset-0 z-[60] bg-bg">
-          <ActionBarScreen
-            fullViewport
-            header={
-              <div className="flex flex-none items-center justify-between border-b px-4 py-3" style={{ borderColor: "var(--color-divider)" }}>
-                <span className="text-[12px] text-neutral-600">
-                  Topic: <span className="font-extrabold text-ink">{topicForLang(selectedTopic ?? "", lang)}</span> · ~{wordCount} words
-                </span>
-                <button className="text-[11px] font-bold text-accent-800 underline hover:text-accent" onClick={discardDraft}>
-                  Close
-                </button>
-              </div>
-            }
-          >
-            <WritingContent
-              terms={terms}
-              passage={passage}
-              translation={translation}
-              setTranslation={setTranslation}
-              error={error}
-              loading={loading}
-              onSubmit={submit}
-            />
-          </ActionBarScreen>
+          <div className="mx-auto h-full max-w-[480px] lg:max-w-[1560px]">
+            <ActionBarScreen
+              fullViewport
+              header={
+                <div className="flex flex-none items-center justify-between border-b px-4 py-3" style={{ borderColor: "var(--color-divider)" }}>
+                  <span className="text-[12px] text-neutral-600">
+                    Topic: <span className="font-extrabold text-ink">{topicForLang(selectedTopic ?? "", lang)}</span> · ~{wordCount} words
+                  </span>
+                  <button className="text-[11px] font-bold text-accent-800 underline hover:text-accent" onClick={discardDraft}>
+                    Close
+                  </button>
+                </div>
+              }
+            >
+              <WritingContent
+                terms={terms}
+                passage={passage}
+                translation={translation}
+                setTranslation={setTranslation}
+                error={error}
+                loading={loading}
+                onSubmit={submit}
+              />
+            </ActionBarScreen>
+          </div>
         </div>
       )}
 

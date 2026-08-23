@@ -27448,6 +27448,4452 @@ const UNIT_60_PREPOSITION_ING: GrammarUnit = {
   ]
 };
 
+const UNIT_61_BE_GET_USED_TO: GrammarUnit = {
+  "unit": 61,
+  "slug": "be-get-used-to",
+  "title": "be/get used to ... (I'm used to ...)",
+  "topic": "verb patterns",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "Tình huống ví dụ",
+          "headingEn": "An example situation",
+          "intro": "Study this example situation:",
+          "introVi": "Hãy xem tình huống ví dụ sau:",
+          "parts": [
+            {
+              "kind": "situation",
+              "text": "Lisa is American, but she lives in Britain. When she first drove a car in Britain, driving on the left was a problem for her.",
+              "vi": "Lisa là người Mỹ, nhưng cô sống ở Anh. Khi lần đầu lái xe ở Anh, việc lái xe bên trái là một vấn đề đối với cô ấy."
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "She **wasn't used to** it.",
+                  "vi": "Cô ấy chưa quen với điều đó."
+                },
+                {
+                  "en": "She **wasn't used to driving** on the left.",
+                  "note": "because Americans drive on the right",
+                  "vi": "Cô ấy chưa quen với việc lái xe bên trái."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "But after some time, driving on the left became easier.",
+              "vi": "Nhưng sau một thời gian, việc lái xe bên trái trở nên dễ dàng hơn."
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "She **got used to driving** on the left.",
+                  "vi": "Cô ấy đã dần quen với việc lái xe bên trái."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "Now it's no problem for Lisa:",
+              "vi": "Giờ đây điều đó không còn là vấn đề với Lisa:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "She **is used to driving** on the left.",
+                  "vi": "Cô ấy đã quen với việc lái xe bên trái."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "Ý nghĩa của be/get used to",
+          "headingEn": "What be/get used to means",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "**I'm used to** something = it is not new or strange for me",
+              "vi": "**I'm used to** điều gì đó = điều đó không còn mới lạ hay kỳ lạ đối với tôi"
+            },
+            {
+              "kind": "text",
+              "text": "You can say:",
+              "vi": "Bạn có thể nói:"
+            },
+            {
+              "kind": "table",
+              "table": {
+                "rows": [
+                  ["be", "used to", "something"],
+                  ["get", "used to", "doing something"]
+                ]
+              }
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "Paul lives alone. He has lived alone for a long time, so it is not strange for him. He's **used to** it. He **is used to living** alone.",
+                  "vi": "Paul sống một mình. Anh ấy đã sống một mình từ lâu, nên điều đó không còn lạ với anh. Anh ấy đã quen với điều đó. Anh ấy đã quen với việc sống một mình."
+                },
+                {
+                  "en": "I bought some new shoes. They felt a little strange at first because I **wasn't used to** them.",
+                  "vi": "Tôi đã mua một đôi giày mới. Lúc đầu chúng có cảm giác hơi lạ vì tôi chưa quen với chúng."
+                },
+                {
+                  "en": "Our new apartment is on a busy street. I expect we'll **get used to** the noise, but at the moment it's very disturbing.",
+                  "vi": "Căn hộ mới của chúng tôi nằm trên một con phố đông đúc. Tôi nghĩ chúng tôi sẽ dần quen với tiếng ồn, nhưng hiện tại nó rất khó chịu."
+                },
+                {
+                  "en": "Helen has a new job. She has to get up much earlier now than before, at 6.30. She finds this difficult because she **isn't used to getting up** so early.",
+                  "vi": "Helen có một công việc mới. Giờ cô ấy phải dậy sớm hơn trước nhiều, vào lúc 6 giờ 30. Cô ấy thấy điều này khó khăn vì chưa quen với việc dậy sớm như vậy."
+                },
+                {
+                  "en": "Katherine's husband is often away from home. She doesn't mind this. She's **used to him being** away.",
+                  "vi": "Chồng của Katherine thường xuyên đi xa nhà. Cô ấy không thấy phiền vì điều đó. Cô ấy đã quen với việc anh ấy đi xa."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "used to + danh động từ, không dùng động từ nguyên thể",
+          "headingEn": "used to + -ing, not the infinitive",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "We say **be/get used to doing something** (not *I'm used to do*).",
+              "vi": "Chúng ta nói **be/get used to doing something** (không nói *I'm used to do*)."
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "Lisa **is used to driving** on the left.",
+                  "note": "not is used to drive",
+                  "vi": "Lisa đã quen với việc lái xe bên trái."
+                },
+                {
+                  "en": "I'm **used to living** alone.",
+                  "note": "not I'm used to live",
+                  "vi": "Tôi đã quen với việc sống một mình."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "When we say 'I am used to ...', **to** is a preposition:",
+              "vi": "Khi ta nói 'I am used to ...', **to** là một giới từ:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "We're not **used to** the noise.",
+                  "vi": "Chúng tôi chưa quen với tiếng ồn."
+                },
+                {
+                  "en": "We're not **used to** it.",
+                  "vi": "Chúng tôi chưa quen với điều đó."
+                },
+                {
+                  "en": "We're not **used to living** here.",
+                  "note": "not live here",
+                  "vi": "Chúng tôi chưa quen với việc sống ở đây."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "Compare **to** + infinitive (*to do*, *to live* etc.):",
+              "vi": "So sánh với **to** + động từ nguyên thể (*to do*, *to live*, v.v.):"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "We don't want **to live** here.",
+                  "vi": "Chúng tôi không muốn sống ở đây."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "D",
+          "heading": "So sánh be used to doing và used to do",
+          "headingEn": "Compare be used to doing and used to do",
+          "intro": "Compare I am used to doing and I used to do:",
+          "introVi": "So sánh I am used to doing và I used to do:",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "**I am used to (doing)** something = it isn't strange or new for me:",
+              "vi": "**I am used to (doing)** điều gì đó = điều đó không còn lạ hay mới với tôi:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I'm **used to** the weather here.",
+                  "vi": "Tôi đã quen với thời tiết ở đây."
+                },
+                {
+                  "en": "I'm **used to driving** on the left because I've lived in Britain a long time.",
+                  "vi": "Tôi đã quen với việc lái xe bên trái vì tôi đã sống ở Anh lâu rồi."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "**I used to do** something = I did it regularly in the past but no longer do it. We use this only for the past (*I used ...*), not for the present. See Unit 18.",
+              "vi": "**I used to do** điều gì đó = tôi đã từng làm điều đó thường xuyên trong quá khứ nhưng bây giờ không còn làm nữa. Chúng ta chỉ dùng cấu trúc này cho quá khứ (*I used ...*), không dùng cho hiện tại. Xem Unit 18."
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I **used to drive** to work every day, but these days I usually go by bike.",
+                  "vi": "Trước đây tôi thường lái xe đi làm mỗi ngày, nhưng bây giờ tôi thường đi bằng xe đạp."
+                },
+                {
+                  "en": "We **used to live** just outside the town, but now we live near the centre.",
+                  "vi": "Trước đây chúng tôi từng sống ngay ngoài thị trấn, nhưng giờ chúng tôi sống gần trung tâm."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "61.1 · Hoàn thành câu bằng used to + động từ phù hợp",
+      "titleEn": "61.1 · Complete the sentences using used to + a suitable verb",
+      "instructions": "Hoàn thành các câu bằng used to + một động từ phù hợp.",
+      "instructionsEn": "Complete the sentences using used to + a suitable verb.",
+      "examples": [
+        {
+          "context": "I'm not lonely. I don't need other people.",
+          "prompt": "___",
+          "answer": "I'm used to being on my own."
+        }
+      ],
+      "items": [
+        {
+          "context": "I don't feel good. I stayed up until 3 am.",
+          "prompt": "I'm not ___ to bed so late.",
+          "answer": "used to going"
+        },
+        {
+          "context": "Tomorrow I start a new job.",
+          "prompt": "I'll have to get ___ with new people.",
+          "answer": "used to working",
+          "accept": ["used to being"]
+        },
+        {
+          "context": "My feet hurt. I can't go any further.",
+          "prompt": "I'm not ___ so far.",
+          "answer": "used to walking"
+        },
+        {
+          "prompt": "I like this part of town. I've been here a long time, so I'm ___ here.",
+          "answer": "used to living"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "61.2 · Đọc về Sarah và Jack rồi hoàn thành câu bằng used to",
+      "titleEn": "61.2 · Read about Sarah and Jack. Complete the sentences using used to",
+      "instructions": "Đọc về Sarah và Jack. Hoàn thành các câu bằng used to.",
+      "instructionsEn": "Read about Sarah and Jack. Complete the sentences using used to.",
+      "items": [
+        {
+          "label": "1",
+          "context": "Sarah is a nurse. A year ago she started working nights. At first it was hard for her. Sarah wasn't used to working nights.",
+          "prompt": "It took her a few months to ___ it. Now, after a year, it's normal for her. She ___ nights.",
+          "answer": "get used to",
+          "extraBlanks": [
+            { "answer": "is used to working", "accept": ["'s used to working"] }
+          ]
+        },
+        {
+          "label": "2",
+          "context": "Jack has to drive two hours to work every morning. Many years ago, when he first had to do this, it was hard for him and he didn't like it.",
+          "prompt": "When Jack started working in this job, he ___ driving two hours to work every morning, but after some time he ___ it. Now it's no problem for him. He ___ two hours every morning.",
+          "answer": "wasn't used to",
+          "extraBlanks": [
+            { "answer": "got used to" },
+            { "answer": "is used to driving", "accept": ["'s used to driving"] }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "61.3 · Bạn nói gì trong những tình huống này? Dùng I'm (not) used to ...",
+      "titleEn": "61.3 · What do you say in these situations? Use I'm (not) used to ...",
+      "instructions": "Đọc tình huống và hoàn thành câu trả lời bằng I'm (not) used to ...",
+      "instructionsEn": "Read the situation and complete the reply using I'm (not) used to ...",
+      "examples": [
+        {
+          "context": "You live alone. You don't mind this. You have always lived alone. friend: Do you get lonely sometimes?",
+          "prompt": "you: ___",
+          "answer": "No, I'm used to living alone."
+        }
+      ],
+      "items": [
+        {
+          "context": "You sleep on the floor. It's OK for you. You have always slept on the floor. friend: Wouldn't you prefer to sleep in a bed?",
+          "prompt": "you: No, I ___.",
+          "answer": "am used to sleeping on the floor",
+          "accept": ["'m used to sleeping on the floor"]
+        },
+        {
+          "context": "You have to work long hours in your job. This is not a problem. You have always done this. friend: You have to work long hours in your job, don't you?",
+          "prompt": "you: Yes, but I don't mind that. I ___.",
+          "answer": "am used to working long hours",
+          "accept": ["'m used to working long hours"]
+        },
+        {
+          "context": "You've just moved from a village to a big city. It's busy and you don't like the crowds of people. friend: How do you like living here now?",
+          "prompt": "you: It's different from living in a village. I ___.",
+          "answer": "am not used to the crowds",
+          "accept": ["'m not used to the crowds", "am not used to the crowds of people", "'m not used to the crowds of people"]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "61.4 · Đọc tình huống và hoàn thành câu bằng get/got used to",
+      "titleEn": "61.4 · Read the situations and complete the sentences using get/got used to",
+      "instructions": "Đọc các tình huống và hoàn thành câu bằng get/got used to.",
+      "instructionsEn": "Read the situations and complete the sentences using get/got used to.",
+      "examples": [
+        {
+          "context": "Some friends of yours have just moved into an apartment on a busy street. It is very noisy.",
+          "prompt": "___",
+          "answer": "They'll have to get used to the noise."
+        }
+      ],
+      "items": [
+        {
+          "context": "The children got a new teacher. She was different from the teacher before her, but this wasn't a problem for the children.",
+          "prompt": "They soon ___.",
+          "answer": "got used to her",
+          "accept": ["got used to the new teacher", "got used to their new teacher"]
+        },
+        {
+          "context": "Kate moved from a big house to a much smaller one. She found it strange at first.",
+          "prompt": "She had to ___ in a much smaller house.",
+          "answer": "get used to living"
+        },
+        {
+          "context": "Anna has lived in Britain for ten years. She didn't like the weather when she first came, and she still doesn't like it.",
+          "prompt": "She can't ___.",
+          "answer": "get used to the weather"
+        },
+        {
+          "context": "Lee got a new job, but his new salary was much less. So he had less money.",
+          "prompt": "He had to ___.",
+          "answer": "get used to having less money"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "61.5 · Hoàn thành câu, mỗi chỗ trống chỉ dùng một từ",
+      "titleEn": "61.5 · Complete the sentences using only one word each time",
+      "instructions": "Hoàn thành các câu, mỗi chỗ trống chỉ dùng một từ.",
+      "instructionsEn": "Complete the sentences using only one word each time.",
+      "examples": [
+        {
+          "prompt": "___",
+          "answer": "Lisa had to get used to driving on the left."
+        }
+      ],
+      "items": [
+        {
+          "prompt": "Daniel used to ___ a lot of coffee. Now he prefers tea.",
+          "answer": "drink"
+        },
+        {
+          "prompt": "I feel very full after that meal. I'm not used to ___ so much.",
+          "answer": "eating"
+        },
+        {
+          "prompt": "I wouldn't like to share a room. I'm used to ___ my own room.",
+          "answer": "having"
+        },
+        {
+          "prompt": "I used to ___ a car, but I sold it a few months ago.",
+          "answer": "have",
+          "accept": ["own"]
+        },
+        {
+          "prompt": "When we were children, we used to ___ swimming very often.",
+          "answer": "go"
+        },
+        {
+          "prompt": "There used to ___ a school here, but it was knocked down a few years ago.",
+          "answer": "be"
+        },
+        {
+          "prompt": "I'm the boss here! I'm not used to ___ told what to do.",
+          "answer": "being"
+        }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng be/get used to + danh từ hoặc dạng -ing, nói về một thói quen, nơi ở hay công việc mà bạn (hoặc ai đó bạn biết) đã quen, đang dần quen, hoặc vẫn chưa quen.",
+      "instructionsEn": "Write 2-3 English sentences using be/get used to + something or doing something, about a habit, place, or job you (or someone you know) have gotten used to, are getting used to, or are still not used to.",
+      "ruleSummary": "This unit covers be/get used to + something / doing something, meaning something is not new or strange (I'm used to the noise; I'm used to driving on the left; I got used to it). Here 'to' is a preposition, so it must be followed by a noun or the -ing form, never the bare infinitive or to + infinitive (used to driving, not used to drive; used to living, not used to live). 'be used to' describes an already-completed adjustment; 'get used to' describes the process of becoming accustomed to something. This is easily confused with 'used to' + bare infinitive (Unit 18), which describes a repeated past habit that has stopped (I used to drink a lot of coffee, not I used to drinking or I'm used to drink). A correct student sentence must use be/get used to + noun or -ing (never the bare infinitive) when talking about something being or becoming familiar, and must not mix it up with the unrelated used to + infinitive construction for past habits."
+    }
+  ]
+};
+
+const UNIT_62_VERB_PREPOSITION_ING: GrammarUnit = {
+  "unit": 62,
+  "slug": "verb-preposition-ing",
+  "title": "Verb + preposition + -ing (succeed in -ing / insist on -ing etc.)",
+  "topic": "verb patterns",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "Động từ + giới từ + tân ngữ hoặc danh động từ",
+          "headingEn": "Verb + preposition + object or -ing",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "We use some verbs **+ preposition + object**. For example:",
+              "vi": "Chúng ta dùng một số động từ **+ giới từ + tân ngữ**. Ví dụ:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "We **talked about** the problem.",
+                  "vi": "Chúng tôi đã nói về vấn đề đó."
+                },
+                {
+                  "en": "I **apologised for** what I said.",
+                  "vi": "Tôi đã xin lỗi về điều tôi đã nói."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "If the object is another verb, we use **-ing**:",
+              "vi": "Nếu tân ngữ là một động từ khác, chúng ta dùng dạng **-ing**:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "We **talked about going** to South America.",
+                  "vi": "Chúng tôi đã nói về việc đi Nam Mỹ."
+                },
+                {
+                  "en": "You should **apologise for not telling** the truth.",
+                  "vi": "Bạn nên xin lỗi vì đã không nói sự thật."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "You can use these verbs in the same way:",
+              "vi": "Bạn có thể dùng các động từ sau theo cách tương tự:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "He doesn't **approve of** swearing.",
+                  "vi": "Anh ấy không đồng ý với việc nói tục."
+                },
+                {
+                  "en": "We have **decided against** moving to London.",
+                  "vi": "Chúng tôi đã quyết định không chuyển đến London."
+                },
+                {
+                  "en": "I wouldn't **dream of** asking them for money.",
+                  "vi": "Tôi sẽ không bao giờ nghĩ đến việc hỏi vay tiền họ."
+                },
+                {
+                  "en": "I don't **feel like** going out tonight.",
+                  "vi": "Tôi không muốn đi ra ngoài tối nay."
+                },
+                {
+                  "en": "They **insisted on** paying for the meal.",
+                  "vi": "Họ nhất quyết trả tiền bữa ăn."
+                },
+                {
+                  "en": "Are you **looking forward to** going away?",
+                  "vi": "Bạn có đang mong chờ chuyến đi không?"
+                },
+                {
+                  "en": "Has Paul **succeeded in** finding a job yet?",
+                  "vi": "Paul đã tìm được việc chưa?"
+                },
+                {
+                  "en": "I'm **thinking of/about** buying a house.",
+                  "vi": "Tôi đang nghĩ đến việc mua nhà."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "You can also say 'approve of somebody doing something', 'look forward to somebody doing something' etc.:",
+              "vi": "Bạn cũng có thể nói 'approve of somebody doing something', 'look forward to somebody doing something', v.v.:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I don't **approve of** people killing animals as a sport.",
+                  "vi": "Tôi không đồng ý với việc người ta giết động vật để làm thể thao."
+                },
+                {
+                  "en": "We are all **looking forward to** Andy coming home next week.",
+                  "vi": "Tất cả chúng tôi đều đang mong Andy về nhà vào tuần sau."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "Động từ + tân ngữ + giới từ + danh động từ",
+          "headingEn": "Verb + object + preposition + -ing",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "Some verbs can have the structure **verb + object + preposition + -ing**. For example:",
+              "vi": "Một số động từ có thể có cấu trúc **verb + object + preposition + -ing** (động từ + tân ngữ + giới từ + danh động từ). Ví dụ:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "He **accused me of** telling lies.",
+                  "vi": "Anh ấy buộc tội tôi nói dối."
+                },
+                {
+                  "en": "We **congratulated Lisa on** winning the first prize.",
+                  "vi": "Chúng tôi đã chúc mừng Lisa vì đã giành giải nhất."
+                },
+                {
+                  "en": "What **prevented you from** coming to see us?",
+                  "vi": "Điều gì đã ngăn bạn đến thăm chúng tôi?"
+                },
+                {
+                  "en": "The rain didn't **stop us enjoying** our holiday.",
+                  "vi": "Trời mưa không ngăn được chúng tôi có một kỳ nghỉ vui vẻ."
+                },
+                {
+                  "en": "Nobody **suspected the general of** being a spy.",
+                  "vi": "Không ai nghi ngờ vị tướng đó là gián điệp."
+                },
+                {
+                  "en": "I **thanked everyone for** helping me.",
+                  "vi": "Tôi đã cảm ơn mọi người vì đã giúp tôi."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "You can say '**stop somebody doing**' or '**stop somebody from doing**':",
+              "vi": "Bạn có thể nói '**stop somebody doing**' hoặc '**stop somebody from doing**':"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "You can't **stop me doing** what I want.",
+                  "note": "or You can't stop me from doing ...",
+                  "vi": "Bạn không thể ngăn tôi làm điều tôi muốn."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "Note this example with **not -ing**:",
+              "vi": "Chú ý ví dụ này với **not -ing**:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "He **accused me of not telling** the truth.",
+                  "vi": "Anh ấy buộc tội tôi đã không nói sự thật."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "Some of these verbs are often used in the **passive**. For example:",
+              "vi": "Một số động từ này thường được dùng ở dạng **bị động** (passive). Ví dụ:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "We **were accused of telling** lies.",
+                  "note": "or ... accused of lying.",
+                  "vi": "Chúng tôi bị buộc tội nói dối."
+                },
+                {
+                  "en": "The general **was suspected of being** a spy.",
+                  "vi": "Vị tướng đó bị nghi ngờ là gián điệp."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "Note that we say '**apologise to somebody for ...**':",
+              "vi": "Chú ý rằng chúng ta nói '**apologise to somebody for ...**':"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I **apologised to** them **for** keeping them waiting.",
+                  "note": "not I apologised them",
+                  "vi": "Tôi đã xin lỗi họ vì đã để họ chờ."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "62.1 · Hoàn thành câu, mỗi câu chỉ dùng một từ",
+      "titleEn": "62.1 · Complete the sentences using only one word each time",
+      "instructions": "Hoàn thành các câu, mỗi câu chỉ dùng một từ.",
+      "instructionsEn": "Complete the sentences using only one word each time.",
+      "examples": [
+        {
+          "prompt": "Our neighbours apologised for ___ so much noise.",
+          "answer": "making"
+        }
+      ],
+      "items": [
+        {
+          "prompt": "I feel lazy. I don't feel like ___ any work.",
+          "answer": "doing"
+        },
+        {
+          "prompt": "I wanted to go out alone, but Joe insisted on ___ with me.",
+          "answer": "coming",
+          "accept": ["going"]
+        },
+        {
+          "prompt": "I'm fed up with my job. I'm thinking of ___ something else.",
+          "answer": "doing",
+          "accept": ["trying"]
+        },
+        {
+          "prompt": "We can't afford a car right now, so we've decided against ___ one.",
+          "answer": "buying",
+          "accept": ["having", "getting"]
+        },
+        {
+          "prompt": "It took us a long time, but we finally succeeded in ___ the problem.",
+          "answer": "solving"
+        },
+        {
+          "prompt": "I've always dreamed of ___ a small house by the sea.",
+          "answer": "buying",
+          "accept": ["having", "owning"]
+        },
+        {
+          "prompt": "It's great that Amy and Sam are coming to visit us. I'm looking forward to ___ them again.",
+          "answer": "seeing"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "62.2 · Hoàn thành câu bằng giới từ + một động từ trong khung",
+      "titleEn": "62.2 · Complete the sentences using a preposition + one of these verbs",
+      "instructions": "Hoàn thành các câu bằng giới từ + một trong các động từ sau (ở dạng đúng).",
+      "instructionsEn": "Complete the sentences using a preposition + one of these verbs (in the correct form).",
+      "wordBank": ["be", "eat", "get", "go out", "invite", "steal", "take off", "tell", "try", "use", "walk"],
+      "examples": [
+        {
+          "prompt": "I don't feel like ___ this evening. I'm too tired.",
+          "answer": "going out"
+        }
+      ],
+      "items": [
+        {
+          "prompt": "The police stopped the car because they suspected the driver ___ it.",
+          "answer": "of stealing"
+        },
+        {
+          "prompt": "Our flight was delayed. Bad weather prevented the plane ___.",
+          "answer": "from taking off"
+        },
+        {
+          "prompt": "My phone is very old. I'm thinking ___ a new one.",
+          "answer": "of getting"
+        },
+        {
+          "prompt": "I didn't want to hear the story but Dan insisted ___ me anyway.",
+          "answer": "on telling"
+        },
+        {
+          "prompt": "I'm getting hungry. I'm really looking forward ___ something.",
+          "answer": "to eating"
+        },
+        {
+          "prompt": "I think you should apologise to Sarah ___ so rude.",
+          "answer": "for being"
+        },
+        {
+          "prompt": "There's a fence around the lawn to stop people ___ on the grass.",
+          "answer": "from walking",
+          "accept": ["walking"]
+        },
+        {
+          "prompt": "I'm sorry I can't come to your party, but thank you very much ___ me.",
+          "answer": "for inviting"
+        },
+        {
+          "prompt": "The man who has been arrested is suspected ___ a false passport.",
+          "answer": "of using"
+        },
+        {
+          "prompt": "I did my best. Nobody can accuse me ___ not ___.",
+          "answer": "of",
+          "extraBlanks": [
+            { "answer": "trying" }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "62.3 · Hoàn thành các câu ở cột bên phải",
+      "titleEn": "62.3 · Complete the sentences on the right",
+      "instructions": "Đọc lời mỗi người nói, rồi hoàn thành câu tường thuật lại ở cột bên phải.",
+      "instructionsEn": "Read what each person says, then complete the reporting sentence on the right.",
+      "examples": [
+        {
+          "context": "Kevin says to you: \"It was nice of you to help me. Thanks very much.\"",
+          "prompt": "___",
+          "answer": "Kevin thanked me for helping him."
+        }
+      ],
+      "items": [
+        {
+          "context": "Tom says to Ann: \"I'll take you to the station. I insist.\"",
+          "prompt": "Tom insisted ___.",
+          "answer": "on taking Ann to the station"
+        },
+        {
+          "context": "Dan says to you: \"I hear you got married. Congratulations!\"",
+          "prompt": "Dan congratulated me ___.",
+          "answer": "on getting married"
+        },
+        {
+          "context": "Jen says to Sue: \"It was nice of you to come to see me. Thank you.\"",
+          "prompt": "Jen thanked ___.",
+          "answer": "Sue for coming to see her"
+        },
+        {
+          "context": "Kate says to you: \"Sorry I'm late.\"",
+          "prompt": "Kate apologised ___.",
+          "answer": "to me for being late",
+          "accept": ["for being late"]
+        },
+        {
+          "context": "Jane says to you: \"You don't care about other people.\"",
+          "prompt": "Jane accused ___.",
+          "answer": "me of not caring about other people"
+        }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng các động từ + giới từ + -ing đã học (approve of, insist on, succeed in, look forward to, dream of, feel like, decide against, think of/about) hoặc các động từ + tân ngữ + giới từ + -ing (accuse somebody of, thank somebody for, congratulate somebody on, prevent/stop somebody from, suspect somebody of), nói về một việc bạn đồng ý/không đồng ý, một điều bạn nhất quyết làm, hay một việc bạn đã cảm ơn/xin lỗi ai đó.",
+      "instructionsEn": "Write 2-3 English sentences using the verb + preposition + -ing verbs from this unit (approve of, insist on, succeed in, look forward to, dream of, feel like, decide against, think of/about) or the verb + object + preposition + -ing ones (accuse somebody of, thank somebody for, congratulate somebody on, prevent/stop somebody from, suspect somebody of), about something you agree or disagree with, something you insisted on, or something you thanked or apologised to someone for.",
+      "ruleSummary": "This unit covers verb + preposition + -ing (approve of, decide against, dream of, feel like, insist on, look forward to, succeed in, think of/about + -ing, e.g. They insisted on paying for the meal; Has Paul succeeded in finding a job yet?) and verb + object + preposition + -ing (accuse/suspect somebody of, congratulate somebody on, prevent/stop somebody from, thank somebody for + -ing, e.g. He accused me of telling lies; We congratulated Lisa on winning the first prize). In both patterns the word after the preposition must be a noun or the -ing form, never the bare infinitive or to + infinitive (insist on paying, not insist on to pay; accused me of telling, not accused me of to tell). 'not -ing' is possible right after the preposition (accused me of not telling the truth). 'stop somebody doing' and 'stop somebody from doing' are both correct. Note 'apologise to somebody for ...' (not 'apologise somebody'). Many of the verb + object + preposition + -ing verbs (accuse, suspect, congratulate, prevent, thank) are also common in the passive (I was accused of lying; The general was suspected of being a spy). A correct student sentence must follow one of these two patterns with a noun/-ing form after the preposition, and must not confuse 'apologise for' (no object before it) with 'apologise to somebody for' (object before 'for')."
+    }
+  ]
+};
+
+const UNIT_63_NO_POINT_WORTH_ING: GrammarUnit = {
+  "unit": 63,
+  "slug": "no-point-worth-ing",
+  "title": "there's no point in -ing, it's worth -ing etc.",
+  "topic": "verb patterns",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "Chẳng ích gì khi làm việc gì đó",
+          "headingEn": "There's no point in doing something",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "We say **there's no point in**, **it's no use** or **it's no good** doing something:",
+              "vi": "Chúng ta nói **there's no point in**, **it's no use** hoặc **it's no good** rồi thêm động từ **-ing**:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "**There's no point in having** a car if you never use it.",
+                  "vi": "Chẳng có ích gì khi có một chiếc xe nếu bạn không bao giờ dùng đến nó."
+                },
+                {
+                  "en": "There **was no point in waiting** any longer, so we left.",
+                  "vi": "Chờ thêm cũng chẳng ích gì, nên chúng tôi đã đi."
+                },
+                {
+                  "en": "**It's no use worrying** about what happened. There's nothing you can do about it.",
+                  "vi": "Lo lắng về việc đã xảy ra cũng chẳng ích gì. Bạn không thể làm được gì nữa."
+                },
+                {
+                  "en": "**It's no good trying** to persuade me. You won't succeed.",
+                  "vi": "Cố thuyết phục tôi cũng chẳng ích gì. Bạn sẽ không thành công đâu."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "Note that we say **no point in ...** but **the point of ...**:",
+              "vi": "Chú ý rằng chúng ta nói **no point in ...** nhưng **the point of ...**:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "**There's no point in** having a car.",
+                  "vi": "Có một chiếc xe cũng chẳng ích gì."
+                },
+                {
+                  "en": "**What's the point of** having a car if you never use it?",
+                  "vi": "Có xe để làm gì nếu bạn không bao giờ dùng đến nó?"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "Đáng hay không đáng làm việc gì đó",
+          "headingEn": "It's worth doing something",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "We say **it's worth** or **it's not worth** doing something:",
+              "vi": "Chúng ta nói **it's worth** hoặc **it's not worth** rồi thêm động từ **-ing**:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "It's a nice town. **It's worth spending** a few days there.",
+                  "vi": "Đó là một thị trấn đẹp. Đáng để ở lại vài ngày."
+                },
+                {
+                  "en": "Our flight was very early in the morning, so **it wasn't worth going** to bed.",
+                  "vi": "Chuyến bay của chúng tôi rất sớm, nên đi ngủ cũng chẳng đáng."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "You can say that something **is worth it** or **not worth it**:",
+              "vi": "Bạn có thể nói một việc gì đó **is worth it** (đáng) hoặc **not worth it** (không đáng):"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "You should spend a couple of days here. **It's worth it**.",
+                  "vi": "Bạn nên ở đây vài ngày. Rất đáng đấy."
+                },
+                {
+                  "en": "We didn't go to bed. **It wasn't worth it**.",
+                  "vi": "Chúng tôi không đi ngủ. Chẳng đáng."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "You can also say that something **is worth doing**, a movie **is worth seeing** etc.:",
+              "vi": "Bạn cũng có thể nói một việc gì đó **is worth doing**, một bộ phim **is worth seeing**, v.v.:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "It's a great movie. **It's worth seeing**.",
+                  "vi": "Đó là một bộ phim tuyệt vời. Rất đáng xem."
+                },
+                {
+                  "en": "Thieves broke into the house, but didn't take anything. There was **nothing worth stealing**.",
+                  "vi": "Trộm đột nhập vào nhà nhưng không lấy gì cả. Chẳng có gì đáng để lấy."
+                },
+                {
+                  "en": "It's an interesting idea. **It's worth thinking about**.",
+                  "vi": "Đó là một ý tưởng hay. Đáng để suy nghĩ về nó."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "Gặp khó khăn khi làm việc gì đó",
+          "headingEn": "Having trouble doing something",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "We say **have trouble**, **have difficulty** or **have a problem** doing something:",
+              "vi": "Chúng ta nói **have trouble**, **have difficulty** hoặc **have a problem** rồi thêm động từ **-ing**:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I **had no trouble finding** a place to stay.",
+                  "note": "not trouble to find",
+                  "vi": "Tôi không gặp khó khăn gì khi tìm chỗ ở."
+                },
+                {
+                  "en": "Did you **have a problem getting** a visa?",
+                  "vi": "Bạn có gặp vấn đề gì khi xin visa không?"
+                },
+                {
+                  "en": "People sometimes **have difficulty reading** my writing.",
+                  "vi": "Đôi khi mọi người gặp khó khăn khi đọc chữ viết của tôi."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "D",
+          "heading": "Dùng thời gian để làm việc gì đó",
+          "headingEn": "Spending time doing something",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "We say **spend** or **waste** (time) doing something:",
+              "vi": "Chúng ta nói **spend** hoặc **waste** (thời gian) rồi thêm động từ **-ing**:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "He **spent hours trying** to repair the clock.",
+                  "vi": "Anh ấy đã mất hàng giờ để cố sửa cái đồng hồ."
+                },
+                {
+                  "en": "I **waste** a lot of time **doing** nothing.",
+                  "vi": "Tôi lãng phí rất nhiều thời gian vào việc không làm gì cả."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "You can also say '**(be) busy doing something**':",
+              "vi": "Bạn cũng có thể nói '**(be) busy doing something**' (bận làm việc gì đó):"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "She said she couldn't meet me. She was too **busy doing** other things.",
+                  "vi": "Cô ấy nói cô ấy không thể gặp tôi được. Cô ấy đang quá bận làm những việc khác."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "E",
+          "heading": "Đi làm một hoạt động (thể thao, giải trí)",
+          "headingEn": "go -ing for sports and activities",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "We use **go -ing** for sports and other activities. For example:",
+              "vi": "Chúng ta dùng **go -ing** cho các môn thể thao và hoạt động khác. Ví dụ:"
+            },
+            {
+              "kind": "words",
+              "words": ["go sailing", "go swimming", "go fishing", "go riding", "go hiking", "go surfing", "go scuba diving", "go skiing", "go jogging", "go camping"]
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "How often do you **go swimming**?",
+                  "vi": "Bạn có thường đi bơi không?"
+                },
+                {
+                  "en": "We **went skiing** last year.",
+                  "vi": "Năm ngoái chúng tôi đã đi trượt tuyết."
+                },
+                {
+                  "en": "Tom isn't here. He**'s gone shopping**.",
+                  "vi": "Tom không có ở đây. Anh ấy đã đi mua sắm rồi."
+                },
+                {
+                  "en": "I**'ve never been sailing**.",
+                  "vi": "Tôi chưa bao giờ đi chèo thuyền."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "match_pairs",
+      "title": "63.1 · Câu nào đi với câu nào?",
+      "titleEn": "63.1 · Which goes with which?",
+      "instructions": "Câu 1 đã có mẫu: 'It's a nice town.' được nối với 'It's worth spending a few days here.' Chạm một câu bên trái, sau đó chạm câu phù hợp bên phải để hoàn thành ý nghĩa.",
+      "instructionsEn": "Sentence 1 is already done as an example: 'It's a nice town.' pairs with 'It's worth spending a few days here.' Tap a sentence on the left, then tap the sentence on the right that goes with it.",
+      "left": [
+        "It's an interesting idea.",
+        "It's no use standing here talking.",
+        "It's not important.",
+        "There's no point in looking for him.",
+        "It's no good apologising to me.",
+        "It's not worth arguing with him.",
+        "The hotel is a short walk from here."
+      ],
+      "right": [
+        "I don't believe you're sorry.",
+        "We'll never find him.",
+        "It's not worth getting a taxi.",
+        "We have to do something.",
+        "He won't change his opinion.",
+        "It's not worth worrying about.",
+        "It's worth considering."
+      ],
+      "answers": [
+        "It's worth considering.",
+        "We have to do something.",
+        "It's not worth worrying about.",
+        "We'll never find him.",
+        "I don't believe you're sorry.",
+        "He won't change his opinion.",
+        "It's not worth getting a taxi."
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "63.2 · Viết câu bắt đầu bằng There's no point ...",
+      "titleEn": "63.2 · Write sentences beginning There's no point ...",
+      "instructions": "Viết lại các câu sau, bắt đầu bằng There's no point ... .",
+      "instructionsEn": "Write sentences beginning There's no point ... .",
+      "examples": [
+        {
+          "context": "Why have a car if you never use it?",
+          "prompt": "___",
+          "answer": "There's no point in having a car if you never use it."
+        }
+      ],
+      "items": [
+        {
+          "context": "Why work if you don't need money?",
+          "prompt": "___",
+          "answer": "There's no point in working if you don't need money."
+        },
+        {
+          "context": "Don't try to study if you feel tired.",
+          "prompt": "___",
+          "answer": "There's no point in trying to study if you feel tired.",
+          "accept": ["There's no point in studying if you feel tired."]
+        },
+        {
+          "context": "Why hurry if you have plenty of time?",
+          "prompt": "___",
+          "answer": "There's no point in hurrying if you have plenty of time."
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "63.3 · Hoàn thành câu",
+      "titleEn": "63.3 · Complete the sentences",
+      "instructions": "Hoàn thành câu thứ hai sao cho có nghĩa giống câu thứ nhất.",
+      "instructionsEn": "Complete the second sentence so that it means the same as the first.",
+      "examples": [
+        {
+          "context": "I managed to get a visa, but it was difficult.",
+          "prompt": "I had a problem ___.",
+          "answer": "getting a visa"
+        }
+      ],
+      "items": [
+        {
+          "context": "I find it hard to remember people's names.",
+          "prompt": "I have a problem ___.",
+          "answer": "remembering people's names"
+        },
+        {
+          "context": "Lucy found a job easily. It wasn't a problem.",
+          "prompt": "She had no trouble ___.",
+          "answer": "finding a job",
+          "accept": ["getting a job"]
+        },
+        {
+          "context": "It will be easy to get a ticket for the game.",
+          "prompt": "You won't have any problems ___.",
+          "answer": "getting a ticket for the game"
+        },
+        {
+          "context": "It was easy for us to understand one another.",
+          "prompt": "We had no difficulty ___.",
+          "answer": "understanding one another"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "63.4 · Hoàn thành câu, mỗi câu chỉ dùng một từ",
+      "titleEn": "63.4 · Complete the sentences. Use only one word each time",
+      "instructions": "Hoàn thành các câu sau, mỗi câu chỉ dùng một từ.",
+      "instructionsEn": "Complete the sentences using only one word each time.",
+      "examples": [
+        {
+          "prompt": "I waste a lot of time ___ nothing.",
+          "answer": "doing"
+        }
+      ],
+      "items": [
+        {
+          "prompt": "How much time do you spend ___ to and from work every day?",
+          "answer": "going",
+          "accept": ["travelling", "getting"]
+        },
+        {
+          "prompt": "Karen is going on holiday tomorrow, so she's busy ___ her things ready.",
+          "answer": "getting"
+        },
+        {
+          "prompt": "I waste too much time ___ TV.",
+          "answer": "watching"
+        },
+        {
+          "prompt": "There was a beautiful view from the hill. It was worth ___ to the top.",
+          "answer": "going",
+          "accept": ["climbing", "walking"]
+        },
+        {
+          "prompt": "We need to stay calm. There's no point in ___ angry.",
+          "answer": "getting",
+          "accept": ["being"]
+        },
+        {
+          "prompt": "Amy is learning to play the guitar. She spends a lot of time ___.",
+          "answer": "practising"
+        },
+        {
+          "prompt": "Gary is enjoying his new job. He's busy ___ on a new project.",
+          "answer": "working"
+        },
+        {
+          "prompt": "I decided it wasn't worth ___ for the job. I had no chance of getting it.",
+          "answer": "applying"
+        },
+        {
+          "prompt": "It's no good ___ to escape. You won't be able to get out of here.",
+          "answer": "trying"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "63.5 · Hoàn thành câu, chọn cụm từ trong khung và chia đúng dạng",
+      "titleEn": "63.5 · Complete the sentences. Choose from the box and put the verb in the correct form",
+      "instructions": "Hoàn thành các câu sau. Chọn một cụm trong khung và chia động từ ở dạng đúng.",
+      "instructionsEn": "Complete these sentences. Choose from the following and put the verb in the correct form.",
+      "wordBank": ["go riding", "go sailing", "go shopping", "go skiing", "go swimming"],
+      "examples": [
+        {
+          "prompt": "Ben lives by the sea and he's got a boat, so he often ___.",
+          "answer": "goes sailing"
+        }
+      ],
+      "items": [
+        {
+          "prompt": "It was a very hot day, so we ___ in the lake.",
+          "answer": "went swimming"
+        },
+        {
+          "prompt": "There's plenty of snow in the mountains, so we'll be able to ___.",
+          "answer": "go skiing"
+        },
+        {
+          "prompt": "Helen has two horses. She ___ regularly.",
+          "answer": "goes riding"
+        },
+        {
+          "prompt": "Dan isn't here. He ___. There were a few things he needed to buy.",
+          "answer": "has gone shopping",
+          "accept": ["'s gone shopping", "went shopping"]
+        }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng các cấu trúc there's no point in -ing / it's no use -ing / it's no good -ing, it's worth -ing, have trouble/difficulty/a problem -ing, spend/waste time -ing, hoặc go -ing (cho một hoạt động thể thao), nói về một việc bạn thấy chẳng ích gì khi làm, một việc đáng làm, một khó khăn bạn từng gặp, cách bạn dùng thời gian, hoặc một hoạt động thể thao bạn thường đi làm.",
+      "instructionsEn": "Write 2-3 English sentences using there's no point in -ing / it's no use -ing / it's no good -ing, it's worth -ing, have trouble/difficulty/a problem -ing, spend/waste time -ing, or go -ing (for a sport or activity), about something you think is pointless to do, something worth doing, a difficulty you once had, how you spend your time, or a sporting activity you often go and do.",
+      "ruleSummary": "This unit covers there's no point in -ing / it's no use -ing / it's no good -ing (there's no benefit in doing something, e.g. There's no point in having a car if you never use it; It's no use worrying about what happened; It's no good trying to persuade me), noting 'no point in ...' vs 'the point of ...' (What's the point of having a car if you never use it?). it's worth -ing / it's not worth -ing (something is or isn't worthwhile, e.g. It's worth spending a few days there; It wasn't worth going to bed), plus 'worth it' (It's worth it) and 'a movie is worth seeing' / 'nothing worth stealing'. have trouble / have difficulty / have a problem doing something (e.g. I had no trouble finding a place to stay; Did you have a problem getting a visa? People sometimes have difficulty reading my writing). spend/waste (time) doing something and (be) busy doing something (e.g. He spent hours trying to repair the clock; She was too busy doing other things). go -ing for sports and activities (go swimming, go skiing, go shopping, go sailing, go riding, go jogging, go camping, go hiking, go surfing, go scuba diving), e.g. How often do you go swimming? We went skiing last year. A correct student sentence must use the -ing form (never to + infinitive) right after these expressions, and must not confuse 'no point in' with 'the point of'."
+    }
+  ]
+};
+
+const UNIT_64_TO_FOR_SO_THAT: GrammarUnit = {
+  "unit": 64,
+  "slug": "to-for-so-that",
+  "title": "to ..., for ... and so that ...",
+  "topic": "verb patterns",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "to ... diễn tả mục đích",
+          "headingEn": "to ... expressing purpose",
+          "intro": "We say:",
+          "introVi": "Chúng ta nói:",
+          "parts": [
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I called the restaurant **to reserve** a table.",
+                  "vi": "Tôi đã gọi cho nhà hàng để đặt trước một bàn."
+                },
+                {
+                  "en": "What do you need **to make** bread?",
+                  "vi": "Bạn cần gì để làm bánh mì?"
+                },
+                {
+                  "en": "We shouted **to warn** everybody of the danger.",
+                  "vi": "Chúng tôi đã hét lên để cảnh báo mọi người về nguy hiểm."
+                },
+                {
+                  "en": "This letter is **to confirm** the decisions we made at our meeting last week.",
+                  "vi": "Lá thư này nhằm xác nhận các quyết định chúng ta đã đưa ra trong cuộc họp tuần trước."
+                },
+                {
+                  "en": "The president has a team of bodyguards **to protect** him.",
+                  "vi": "Tổng thống có một nhóm vệ sĩ để bảo vệ ông."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "In these examples **to ...** (to reserve ... / to make ... etc.) tells us the purpose of something: why somebody does something, has something, needs something etc., or why something exists.",
+              "vi": "Trong các ví dụ này, **to ...** (to reserve ... / to make ... v.v.) cho biết mục đích của một việc gì đó: tại sao ai đó làm gì, có gì, cần gì v.v., hoặc tại sao thứ gì đó tồn tại."
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "a place to park, something to eat, work to do ...",
+          "headingEn": "a place to park, something to eat, work to do ...",
+          "intro": "We say 'a place to park', 'something to eat', 'work to do' etc.:",
+          "introVi": "Chúng ta nói 'a place to park' (chỗ để đỗ xe), 'something to eat' (thứ để ăn), 'work to do' (việc phải làm) v.v.:",
+          "parts": [
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "It's hard to find a place **to park** in the city centre. (= a place where you can park)",
+                  "vi": "Rất khó tìm được chỗ đỗ xe ở trung tâm thành phố."
+                },
+                {
+                  "en": "Would you like something **to eat**? (= something that you can eat)",
+                  "vi": "Bạn có muốn ăn gì không?"
+                },
+                {
+                  "en": "Do you have much work **to do**? (= work that you must do)",
+                  "vi": "Bạn có nhiều việc phải làm không?"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "Sometimes there is a preposition (on, with etc.) after the verb:",
+              "vi": "Đôi khi có một giới từ (on, with v.v.) sau động từ:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "Is there a chair **to sit on**? (= a chair that I can sit on)",
+                  "vi": "Có cái ghế nào để ngồi không?"
+                },
+                {
+                  "en": "I get lonely if there's nobody **to talk to**.",
+                  "vi": "Tôi cảm thấy cô đơn nếu không có ai để nói chuyện."
+                },
+                {
+                  "en": "I need something **to open this bottle with**.",
+                  "vi": "Tôi cần một thứ gì đó để mở chai này."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "We also say money/time/chance/opportunity/energy/courage (etc.) **to do something**:",
+              "vi": "Chúng ta cũng nói money/time/chance/opportunity/energy/courage (tiền, thời gian, cơ hội, dịp, sức lực, can đảm v.v.) **để làm gì đó**:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "They gave us money **to buy** food.",
+                  "vi": "Họ đã cho chúng tôi tiền để mua thức ăn."
+                },
+                {
+                  "en": "Do you have much opportunity **to practise** your English?",
+                  "vi": "Bạn có nhiều dịp để luyện tiếng Anh không?"
+                },
+                {
+                  "en": "I need a few days **to think about** your proposal.",
+                  "vi": "Tôi cần vài ngày để suy nghĩ về đề xuất của bạn."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "So sánh for ... và to ...",
+          "headingEn": "Compare for ... and to ...",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "Compare **for ...** and **to ...**:",
+              "vi": "So sánh **for ...** và **to ...**:"
+            },
+            {
+              "kind": "table",
+              "table": {
+                "headers": ["for + noun", "to + verb"],
+                "rows": [
+                  ["We stopped **for** petrol.", "We stopped **to get** petrol."],
+                  ["I had to run **for** the bus.", "I had to run **to catch** the bus."]
+                ]
+              }
+            },
+            {
+              "kind": "text",
+              "text": "You can say **'for somebody to do something'**:",
+              "vi": "Bạn có thể nói **'for somebody to do something'** (để ai đó làm gì):"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "There weren't any chairs **for us to sit on**, so we sat on the floor.",
+                  "vi": "Không có ghế nào để chúng tôi ngồi, nên chúng tôi đã ngồi trên sàn."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "We use **for (do)ing** to say what something is used for:",
+              "vi": "Chúng ta dùng **for (do)ing** để nói thứ gì đó được dùng để làm gì:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "This brush is **for washing** the dishes.",
+                  "vi": "Cái chổi này dùng để rửa bát."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "But we do not use **for -ing** to say why somebody does something:",
+              "vi": "Nhưng chúng ta không dùng **for -ing** để nói tại sao ai đó làm việc gì:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I went into the kitchen **to wash** the dishes.",
+                  "note": "not for washing",
+                  "vi": "Tôi đã vào bếp để rửa bát."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "You can use **What ... for?** to ask about purpose:",
+              "vi": "Bạn có thể dùng **What ... for?** để hỏi về mục đích:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "**What is this switch for?** (= what is it used for?)",
+                  "vi": "Cái nút bấm này để làm gì?"
+                },
+                {
+                  "en": "**What did you do that for?** (= why did you do that?)",
+                  "vi": "Bạn làm vậy để làm gì? (= tại sao bạn làm vậy?)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "D",
+          "heading": "so that",
+          "headingEn": "so that",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "We use **so that** (not to ...) especially with can/could and will/would:",
+              "vi": "Chúng ta dùng **so that** (không dùng to ...) đặc biệt với can/could và will/would:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "She's learning English **so that she can study** in Canada.",
+                  "vi": "Cô ấy đang học tiếng Anh để có thể đi học ở Canada."
+                },
+                {
+                  "en": "We moved to London **so that we could see** our friends more often.",
+                  "vi": "Chúng tôi đã chuyển đến London để có thể gặp bạn bè thường xuyên hơn."
+                },
+                {
+                  "en": "I hurried **so that I wouldn't be late**. (= because I didn't want to be late)",
+                  "vi": "Tôi đã vội vàng để không bị muộn."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "You can leave out **that**. So you can say:",
+              "vi": "Bạn có thể bỏ **that**. Vì vậy bạn có thể nói:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I hurried **so that I wouldn't be late**. or I hurried **so I wouldn't be late**.",
+                  "vi": "Tôi đã vội vàng để không bị muộn."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "match_pairs",
+      "title": "64.1 · Câu nào đi với câu nào?",
+      "titleEn": "64.1 · Which goes with which?",
+      "instructions": "Câu 1 đã có mẫu: 'I shouted' được nối với 'I wanted to warn people of the danger', tạo thành 'I shouted to warn people of the danger.' Chạm một câu bên trái (Box A), sau đó chạm câu phù hợp bên phải (Box B) để nối chúng lại với nhau.",
+      "instructionsEn": "Sentence 1 is already done as an example: 'I shouted' pairs with 'I wanted to warn people of the danger', making 'I shouted to warn people of the danger.' Tap a sentence on the left (Box A), then tap the sentence on the right (Box B) that goes with it.",
+      "left": [
+        "I shouted.",
+        "I opened the box.",
+        "I moved to a new apartment.",
+        "I couldn't find a knife.",
+        "I called the police.",
+        "I called the hotel.",
+        "I employed an assistant."
+      ],
+      "right": [
+        "I wanted to be nearer my friends.",
+        "I wanted someone to help me with my work.",
+        "I wanted to report the accident.",
+        "I wanted to warn people of the danger.",
+        "I wanted to see what was in it.",
+        "I wanted to chop the onions.",
+        "I wanted to find out if they had any rooms free."
+      ],
+      "answers": [
+        "I wanted to warn people of the danger.",
+        "I wanted to see what was in it.",
+        "I wanted to be nearer my friends.",
+        "I wanted to chop the onions.",
+        "I wanted to report the accident.",
+        "I wanted to find out if they had any rooms free.",
+        "I wanted someone to help me with my work."
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "64.2 · Hoàn thành câu bằng to + động từ phù hợp",
+      "titleEn": "64.2 · Complete these sentences using to + a suitable verb",
+      "instructions": "Hoàn thành các câu sau bằng to + một động từ phù hợp.",
+      "instructionsEn": "Complete these sentences using to + a suitable verb.",
+      "examples": [
+        {
+          "prompt": "The president has a team of bodyguards ___.",
+          "answer": "to protect him"
+        }
+      ],
+      "items": [
+        {
+          "prompt": "I don't have enough time ___ all the things I have to do.",
+          "answer": "to do"
+        },
+        {
+          "context": "I came home by taxi.",
+          "prompt": "I didn't have the energy ___.",
+          "answer": "to walk"
+        },
+        {
+          "prompt": "Would you like something ___? Coffee? Tea?",
+          "answer": "to drink"
+        },
+        {
+          "prompt": "Can you give me a bag ___ these things in?",
+          "answer": "to put",
+          "accept": ["to carry"]
+        },
+        {
+          "prompt": "There will be a meeting next week ___ the problem.",
+          "answer": "to discuss",
+          "accept": ["to consider", "to talk about"]
+        },
+        {
+          "prompt": "Do you need a visa ___ to the United States?",
+          "answer": "to go",
+          "accept": ["to travel"]
+        },
+        {
+          "prompt": "I saw Helen at the party, but I didn't have a chance ___ to her.",
+          "answer": "to talk",
+          "accept": ["to speak"]
+        },
+        {
+          "context": "I need some new clothes.",
+          "prompt": "I don't have anything nice ___.",
+          "answer": "to wear",
+          "accept": ["to put on"]
+        },
+        {
+          "context": "They've passed their exams.",
+          "prompt": "They're going to have a party ___.",
+          "answer": "to celebrate"
+        },
+        {
+          "context": "I can't do all this work alone.",
+          "prompt": "I need somebody ___ me.",
+          "answer": "to help",
+          "accept": ["to assist"]
+        },
+        {
+          "context": "Why are you so scared?",
+          "prompt": "There's nothing ___ afraid of.",
+          "answer": "to be"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "64.3 · Điền to hoặc for",
+      "titleEn": "64.3 · Put in to or for",
+      "instructions": "Điền to hoặc for vào chỗ trống. Bạn có thể chạm vào từ trong khung để điền nhanh.",
+      "instructionsEn": "Put in to or for. You can tap a word in the box to fill it in quickly.",
+      "wordBank": ["for", "to"],
+      "examples": [
+        {
+          "prompt": "We stopped ___ petrol.",
+          "answer": "for"
+        }
+      ],
+      "items": [
+        {
+          "prompt": "We'll need time ___ make a decision.",
+          "answer": "to"
+        },
+        {
+          "prompt": "I went to the dentist ___ a check-up.",
+          "answer": "for"
+        },
+        {
+          "context": "He's very old.",
+          "prompt": "He needs somebody ___ take care of him.",
+          "answer": "to"
+        },
+        {
+          "prompt": "Can you lend me money ___ a taxi?",
+          "answer": "for"
+        },
+        {
+          "prompt": "Do you wear glasses ___ reading?",
+          "answer": "for"
+        },
+        {
+          "prompt": "I put on my glasses ___ read the letter.",
+          "answer": "to"
+        },
+        {
+          "prompt": "I wish we had a garden ___ the children ___ play in.",
+          "answer": "for",
+          "extraBlanks": [{ "answer": "to" }]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "64.4 · Nối hai câu thành một câu, dùng so that",
+      "titleEn": "64.4 · Make one sentence from two, using so that",
+      "instructions": "Nối hai câu sau thành một câu, dùng so that.",
+      "instructionsEn": "Make one sentence from two, using so that.",
+      "examples": [
+        {
+          "context": "I hurried. I didn't want to be late.",
+          "prompt": "I hurried ___.",
+          "answer": "so that I wouldn't be late"
+        }
+      ],
+      "items": [
+        {
+          "context": "I wore warm clothes. I didn't want to get cold.",
+          "prompt": "I wore warm clothes ___.",
+          "answer": "so that I wouldn't get cold",
+          "accept": ["so that I wouldn't be cold"]
+        },
+        {
+          "context": "I gave Mark my phone number. I wanted him to be able to contact me.",
+          "prompt": "I gave Mark my phone number ___.",
+          "answer": "so that he could contact me",
+          "accept": ["so that he would be able to contact me"]
+        },
+        {
+          "context": "We spoke very quietly. We didn't want anybody else to hear us.",
+          "prompt": "We spoke very quietly ___ nobody else ___.",
+          "answer": "so that",
+          "extraBlanks": [{ "answer": "would hear us", "accept": ["could hear us", "would be able to hear us"] }]
+        },
+        {
+          "context": "Please arrive early. We want to be able to start the meeting on time.",
+          "prompt": "Please arrive early ___.",
+          "answer": "so that we can start the meeting on time",
+          "accept": ["so that we'll be able to start the meeting on time"]
+        },
+        {
+          "context": "We made a list of things to do. We didn't want to forget anything.",
+          "prompt": "We made a list of things to do ___.",
+          "answer": "so that we wouldn't forget anything"
+        },
+        {
+          "context": "I slowed down. I wanted the car behind me to be able to overtake.",
+          "prompt": "I slowed down ___.",
+          "answer": "so that the car behind me could overtake",
+          "accept": ["so that the car behind me would be able to overtake"]
+        }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng to ... để nói mục đích (VD: to buy, to see ...), for + danh từ, hoặc so that, để nói tại sao bạn làm một việc gì đó, cần một thứ gì đó, hoặc muốn điều gì xảy ra.",
+      "instructionsEn": "Write 2-3 English sentences using to ... to express purpose (e.g. to buy, to see ...), for + a noun, or so that, to say why you do something, need something, or want something to happen.",
+      "ruleSummary": "This unit covers to ... expressing purpose (why somebody does something, has something, needs something, or why something exists, e.g. I called the restaurant to reserve a table; The president has a team of bodyguards to protect him), noun + to-infinitive patterns (a place to park, something to eat, work to do, sometimes with a preposition: a chair to sit on, nobody to talk to, something to open this bottle with), and money/time/chance/opportunity/energy/courage + to do something (e.g. They gave us money to buy food; I need a few days to think about your proposal). It also covers for + noun vs to + verb for purpose (We stopped for petrol / We stopped to get petrol; I had to run for the bus / I had to run to catch the bus), 'for somebody to do something' (There weren't any chairs for us to sit on), for -ing to say what something is used for (This brush is for washing the dishes), but NOT for -ing to say why somebody does something (I went into the kitchen to wash the dishes, not for washing), and What ... for? to ask about purpose (What is this switch for? What did you do that for?). Finally, so that (not to ...) especially with can/could and will/would to express purpose (She's learning English so that she can study in Canada; I hurried so that I wouldn't be late), where 'that' can be dropped (so I wouldn't be late). A correct student sentence should use to + verb (never for + verb) to say why somebody does something, use for + a noun for what a purpose is attached to, and use so that + a clause (often with can/could/will/would) rather than a bare to-infinitive when the purpose is a full clause with its own subject."
+    }
+  ]
+};
+
+const UNIT_65_ADJECTIVE_TO: GrammarUnit = {
+  "unit": 65,
+  "slug": "adjective-to",
+  "title": "Adjective + to ...",
+  "topic": "verb patterns",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "tính từ + to ...: hard to understand, interesting to talk to ...",
+          "headingEn": "hard to understand, interesting to talk to etc.",
+          "intro": "Compare sentences (a) and (b):",
+          "introVi": "So sánh câu (a) và (b):",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "James doesn't speak clearly.",
+              "vi": "James nói không rõ ràng."
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "(a) It is hard to understand him.",
+                  "vi": "(a) Thật khó để hiểu anh ấy."
+                },
+                {
+                  "en": "(b) He is **hard to understand**.",
+                  "vi": "(b) Anh ấy **khó hiểu**."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "Sentences (a) and (b) have the same meaning. Note that we say:",
+              "vi": "Câu (a) và (b) có nghĩa giống nhau. Chú ý rằng chúng ta nói:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "He is **hard to understand**.",
+                  "note": "not He is hard to understand him",
+                  "vi": "Anh ấy khó hiểu."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "We use other adjectives in the same way. For example:",
+              "vi": "Chúng ta dùng các tính từ khác theo cách tương tự. Ví dụ:"
+            },
+            {
+              "kind": "words",
+              "words": ["easy", "difficult", "nice", "good", "safe", "dangerous", "cheap", "expensive", "exciting", "interesting", "impossible"]
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "Do you think it is safe to drink this water?",
+                  "vi": "Bạn có nghĩ uống nước này là an toàn không?"
+                },
+                {
+                  "en": "Do you think this water is **safe to drink**?",
+                  "note": "not to drink it",
+                  "vi": "Bạn có nghĩ nước này **an toàn để uống** không?"
+                },
+                {
+                  "en": "The exam questions were very hard. It was impossible to answer them.",
+                  "vi": "Các câu hỏi thi rất khó. Không thể trả lời được chúng."
+                },
+                {
+                  "en": "The exam questions were very hard. They were **impossible to answer**.",
+                  "note": "not to answer them",
+                  "vi": "Các câu hỏi thi rất khó. Chúng **không thể trả lời được**."
+                },
+                {
+                  "en": "Nicola has lots of interesting ideas. It's interesting to talk to her.",
+                  "vi": "Nicola có nhiều ý tưởng thú vị. Nói chuyện với cô ấy rất thú vị."
+                },
+                {
+                  "en": "Nicola is **interesting to talk to**.",
+                  "note": "not to talk to her",
+                  "vi": "Nicola **thú vị để nói chuyện cùng**."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "We also use this structure with adjective + noun:",
+              "vi": "Chúng ta cũng dùng cấu trúc này với tính từ + danh từ:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "This is a **difficult question to answer**.",
+                  "note": "not to answer it",
+                  "vi": "Đây là một **câu hỏi khó trả lời**."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "nice of (you) to ...",
+          "headingEn": "nice of (you) to ...",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "We say **'It's nice of somebody to ...'**:",
+              "vi": "Chúng ta nói **'It's nice of somebody to ...'** (thật tốt/tử tế khi ai đó làm gì):"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "It was nice of you to take me to the airport. Thank you very much.",
+                  "vi": "Bạn thật tốt khi đưa tôi ra sân bay. Cảm ơn bạn rất nhiều."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "We use other adjectives in the same way. For example:",
+              "vi": "Chúng ta dùng các tính từ khác theo cách tương tự. Ví dụ:"
+            },
+            {
+              "kind": "words",
+              "words": ["kind", "generous", "careless", "silly", "stupid", "inconsiderate", "unfair", "typical"]
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "It's silly of Ruth to give up her job when she needs the money.",
+                  "vi": "Ruth thật dại dột khi bỏ việc trong lúc cô ấy đang cần tiền."
+                },
+                {
+                  "en": "I think it was unfair of him to criticise me.",
+                  "vi": "Tôi nghĩ anh ta thật bất công khi phê bình tôi."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "sorry to ... / surprised to ... (phản ứng trước một việc gì đó)",
+          "headingEn": "sorry to ... / surprised to ... etc.",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "You can use adjective + to ... to say how somebody reacts to something:",
+              "vi": "Bạn có thể dùng tính từ + to ... để nói ai đó phản ứng thế nào trước một việc gì đó:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I'm sorry to hear that your mother isn't well.",
+                  "vi": "Tôi rất tiếc khi nghe tin mẹ bạn không khỏe."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "We use other adjectives in the same way. For example:",
+              "vi": "Chúng ta dùng các tính từ khác theo cách tương tự. Ví dụ:"
+            },
+            {
+              "kind": "words",
+              "words": ["glad", "pleased", "relieved", "surprised", "amazed", "sad", "disappointed"]
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "Was Julia surprised to see you?",
+                  "vi": "Julia có ngạc nhiên khi gặp bạn không?"
+                },
+                {
+                  "en": "It was a long and tiring journey. We were glad to get home.",
+                  "vi": "Đó là một chuyến đi dài và mệt mỏi. Chúng tôi rất vui khi về đến nhà."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "D",
+          "heading": "dùng to ... sau the next/the last/the only/the first/the second ...",
+          "headingEn": "the next / the last / the only / the first / the second (etc.) + to ...",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "You can use **to ...** after **the next** / **the last** / **the only** / **the first** / **the second** (etc.):",
+              "vi": "Bạn có thể dùng **to ...** sau **the next** / **the last** / **the only** / **the first** / **the second** (v.v.):"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "The next train to arrive at platform 4 will be the 10.50 to Liverpool.",
+                  "vi": "Chuyến tàu tiếp theo đến sân ga 4 sẽ là chuyến 10:50 đi Liverpool."
+                },
+                {
+                  "en": "Everybody was late except me. I was the only one to arrive on time.",
+                  "vi": "Mọi người đều đến muộn trừ tôi. Tôi là người duy nhất đến đúng giờ."
+                },
+                {
+                  "en": "If I have any more news, you will be the first to know.",
+                  "note": "= the first person to know",
+                  "vi": "Nếu tôi có thêm tin gì, bạn sẽ là người đầu tiên biết."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "E",
+          "heading": "sure/likely/bound to ...",
+          "headingEn": "sure/likely/bound to ...",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "You can say that something is **sure**/**likely**/**bound to** happen:",
+              "vi": "Bạn có thể nói một việc gì đó **sure**/**likely**/**bound to** xảy ra (chắc chắn/có khả năng/hẳn sẽ xảy ra):"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "Carla is a very good student. She's **bound to pass** the exam.",
+                  "note": "= she is sure to pass",
+                  "vi": "Carla là một học sinh rất giỏi. Cô ấy **chắc chắn sẽ đỗ** kỳ thi."
+                },
+                {
+                  "en": "It's possible I'll win the lottery one day, but it's not **likely to happen**.",
+                  "note": "= it's not probable",
+                  "vi": "Có thể một ngày nào đó tôi sẽ thắng xổ số, nhưng điều đó **không có khả năng xảy ra**."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "65.1 · Viết lại các câu sau theo cách khác, bắt đầu như đã cho",
+      "titleEn": "65.1 · Write these sentences in another way, beginning as shown",
+      "instructions": "Viết lại các câu sau theo cách khác, bắt đầu như đã cho.",
+      "instructionsEn": "Write these sentences in another way, beginning as shown.",
+      "examples": [
+        {
+          "label": "1",
+          "context": "It's hard to understand some things.",
+          "prompt": "Some things ___.",
+          "answer": "are hard to understand"
+        }
+      ],
+      "startNumber": 2,
+      "items": [
+        {
+          "context": "It was difficult to open the window.",
+          "prompt": "The window ___.",
+          "answer": "was difficult to open"
+        },
+        {
+          "context": "It's impossible to translate some words.",
+          "prompt": "Some words ___.",
+          "answer": "are impossible to translate"
+        },
+        {
+          "context": "It's expensive to maintain a car.",
+          "prompt": "A ___.",
+          "answer": "car is expensive to maintain"
+        },
+        {
+          "context": "It's not safe to eat this meat.",
+          "prompt": "This ___.",
+          "answer": "meat isn't safe to eat",
+          "accept": ["meat is not safe to eat"]
+        },
+        {
+          "context": "It's easy to get to my house from here.",
+          "prompt": "My ___.",
+          "answer": "house is easy to get to from here"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "65.2 · Đặt câu từ các từ trong ngoặc",
+      "titleEn": "65.2 · Make sentences from the words in brackets",
+      "instructions": "Đặt câu từ các từ trong ngoặc.",
+      "instructionsEn": "Make sentences from the words in brackets.",
+      "examples": [
+        {
+          "label": "1",
+          "context": "I couldn't answer the question.",
+          "prompt": "(difficult question / answer) It was a difficult question ___.",
+          "answer": "to answer"
+        }
+      ],
+      "startNumber": 2,
+      "items": [
+        {
+          "context": "It's a very common mistake.",
+          "prompt": "(easy mistake / make) It's ___.",
+          "answer": "an easy mistake to make"
+        },
+        {
+          "context": "I like living in this town.",
+          "prompt": "(great place / live) ___.",
+          "answer": "It's a great place to live"
+        },
+        {
+          "context": "I wonder why she said that.",
+          "prompt": "(strange thing / say) ___.",
+          "answer": "It was a strange thing to say"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "65.3 · Hoàn thành câu, chọn trong khung cho sẵn",
+      "titleEn": "65.3 · Complete the sentences. Choose from the box",
+      "instructions": "Hoàn thành các câu. Chọn trong khung cho sẵn.",
+      "instructionsEn": "Complete the sentences. Choose from the box.",
+      "wordBank": ["to hear", "to help", "to invite", "to make", "not", "of you", "silly", "amazed", "glad"],
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "It's nice of Dan and Kate ___ me to their party.",
+          "answer": "to invite"
+        }
+      ],
+      "startNumber": 2,
+      "items": [
+        {
+          "prompt": "I've been travelling a long time. Now I'm ___ to be back home.",
+          "answer": "glad"
+        },
+        {
+          "prompt": "I heard about Tom's accident. I was relieved ___ that he's OK.",
+          "answer": "to hear"
+        },
+        {
+          "prompt": "It was nice ___ to remember my birthday.",
+          "answer": "of you"
+        },
+        {
+          "prompt": "Let me know if you need any assistance. I'd be very pleased ___ you.",
+          "answer": "to help"
+        },
+        {
+          "prompt": "I thought James was about 25. I was ___ to discover he was 40.",
+          "answer": "amazed"
+        },
+        {
+          "prompt": "It was inconsiderate of our neighbours ___ so much noise.",
+          "answer": "to make"
+        },
+        {
+          "prompt": "My interview went well. I was disappointed ___ to be offered the job.",
+          "answer": "not"
+        },
+        {
+          "prompt": "It's ___ of me to worry so much about things that are not important.",
+          "answer": "silly"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "65.4 · Hoàn thành câu, dùng: the first, the second, the last, the only",
+      "titleEn": "65.4 · Complete the sentences. Use: the first, the second, the last, the only",
+      "instructions": "Hoàn thành các câu, dùng: the first, the second, the last, the only.",
+      "instructionsEn": "Complete the sentences. Use: the first, the second, the last, the only.",
+      "wordBank": ["the first", "the second", "the last", "the only"],
+      "examples": [
+        {
+          "label": "1",
+          "context": "Nobody spoke before me.",
+          "prompt": "I was ___.",
+          "answer": "the first person to speak"
+        }
+      ],
+      "startNumber": 2,
+      "items": [
+        {
+          "context": "Everybody else arrived before Paul.",
+          "prompt": "Paul was ___.",
+          "answer": "the last person to arrive",
+          "accept": ["the last to arrive", "the last one to arrive"]
+        },
+        {
+          "context": "Emily passed the exam. All the other students failed.",
+          "prompt": "Emily ___.",
+          "answer": "was the only student to pass the exam",
+          "accept": ["was the only one to pass the exam", "was the only student to pass", "was the only one to pass"]
+        },
+        {
+          "context": "I complained to the manager. Another customer had already complained.",
+          "prompt": "I ___.",
+          "answer": "was the second customer to complain",
+          "accept": ["was the second person to complain"]
+        },
+        {
+          "context": "Neil Armstrong walked on the moon in 1969. Nobody had done this before him.",
+          "prompt": "Neil Armstrong ___.",
+          "answer": "was the first person to walk on the moon",
+          "accept": ["was the first man to walk on the moon"]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "65.5 · Hoàn thành câu bằng các từ trong ngoặc và một động từ phù hợp",
+      "titleEn": "65.5 · Complete the sentences using the words in brackets and a suitable verb",
+      "instructions": "Hoàn thành các câu bằng các từ trong ngoặc và một động từ phù hợp.",
+      "instructionsEn": "Complete the sentences using the words in brackets and a suitable verb.",
+      "examples": [
+        {
+          "label": "1",
+          "context": "Carla is a very good student.",
+          "prompt": "(she / bound / pass) ___ the exam.",
+          "answer": "She's bound to pass"
+        }
+      ],
+      "startNumber": 2,
+      "items": [
+        {
+          "context": "I'm not surprised you're tired after your trip.",
+          "prompt": "(you / bound / tired) ___ after such a long journey.",
+          "answer": "You're bound to be tired",
+          "accept": ["You are bound to be tired"]
+        },
+        {
+          "context": "Andy has a very bad memory.",
+          "prompt": "(he / sure / forget) ___ anything you tell him.",
+          "answer": "He's sure to forget",
+          "accept": ["He is sure to forget"]
+        },
+        {
+          "context": "I don't think you'll need an umbrella.",
+          "prompt": "(it / not / likely / rain) ___.",
+          "answer": "It's not likely to rain",
+          "accept": ["It is not likely to rain", "It isn't likely to rain"]
+        },
+        {
+          "context": "The holidays begin this weekend.",
+          "prompt": "(there / sure / be) ___ a lot of traffic on the roads.",
+          "answer": "There's sure to be",
+          "accept": ["There is sure to be"]
+        }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng cấu trúc tính từ + to ... (VD: hard to understand, interesting to talk to), nice of you to ..., hoặc sorry/glad/surprised to ..., để nói về một việc bạn thấy khó hay dễ, một điều ai đó đã làm tốt hoặc không hay, hoặc cảm xúc của bạn khi nghe một tin nào đó.",
+      "instructionsEn": "Write 2-3 English sentences using adjective + to ... (e.g. hard to understand, interesting to talk to), nice of you to ..., or sorry/glad/surprised to ..., to talk about something you find difficult or easy, something someone did well or badly, or how you felt on hearing some news.",
+      "ruleSummary": "This unit covers adjective + to ... patterns. (1) hard to understand, interesting to talk to etc.: It is hard to understand him = He is hard to understand (not He is hard to understand him); other adjectives used this way include easy, difficult, nice, good, safe, dangerous, cheap, expensive, exciting, interesting, impossible, e.g. Do you think this water is safe to drink? (not to drink it); The exam questions were impossible to answer (not to answer them); Nicola is interesting to talk to (not to talk to her); also with adjective + noun: This is a difficult question to answer (not to answer it). (2) nice of (you) to ...: It's nice of somebody to ..., e.g. It was nice of you to take me to the airport; other adjectives: kind, generous, careless, silly, stupid, inconsiderate, unfair, typical, e.g. It's silly of Ruth to give up her job; I think it was unfair of him to criticise me. (3) sorry to ... / surprised to ... etc., to say how somebody reacts to something: I'm sorry to hear that your mother isn't well; other adjectives: glad, pleased, relieved, surprised, amazed, sad, disappointed, e.g. Was Julia surprised to see you? We were glad to get home. (4) to ... after the next / the last / the only / the first / the second etc.: The next train to arrive will be the 10.50; I was the only one to arrive on time; you will be the first to know (= the first person to know). (5) sure/likely/bound to ...: something is sure/likely/bound to happen, e.g. She's bound to pass the exam (= she is sure to pass); it's not likely to happen (= it's not probable). A correct student sentence should follow the adjective + to-infinitive pattern without repeating the object as a pronoun after the verb (not to drink it, not to answer them, not to talk to her), should use 'of somebody' with nice/kind/silly-type adjectives rather than 'for somebody', and should use sure/likely/bound + to + verb (not sure/likely/bound + that-clause) when talking about certainty or probability."
+    }
+  ]
+};
+
+const UNIT_66_AFRAID_TO_AFRAID_OF_ING: GrammarUnit = {
+  "unit": 66,
+  "slug": "afraid-to-afraid-of-ing",
+  "title": "to ... (afraid to do) and preposition + -ing (afraid of -ing)",
+  "topic": "verb patterns",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "afraid to ... và afraid of ...-ing",
+          "headingEn": "afraid to (do) and afraid of (do)ing",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "I am **afraid to do** something = I don't want to do it because it is dangerous or the result could be bad.",
+              "vi": "I am **afraid to do** something (sợ làm gì) = tôi không muốn làm việc đó vì nó nguy hiểm hoặc kết quả có thể xấu."
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "This part of town is dangerous. People **are afraid to walk** here at night.",
+                  "note": "= they don't walk here at night because it is dangerous",
+                  "vi": "Khu vực này của thành phố nguy hiểm. Người ta **sợ đi bộ** ở đây vào ban đêm."
+                },
+                {
+                  "en": "James **was afraid to tell** his parents what had happened.",
+                  "note": "= he didn't tell them because he thought they would be angry",
+                  "vi": "James **sợ nói** với cha mẹ mình về việc đã xảy ra."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "I am **afraid of** something happening = I am afraid that something bad will happen.",
+              "vi": "I am **afraid of** something happening (sợ điều gì đó xảy ra) = tôi sợ rằng điều gì xấu sẽ xảy ra."
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "The path was icy, so we walked very carefully. We **were afraid of falling**.",
+                  "note": "not afraid to fall",
+                  "vi": "Con đường bị đóng băng, nên chúng tôi đi rất cẩn thận. Chúng tôi **sợ bị ngã**."
+                },
+                {
+                  "en": "I don't like dogs. I'm always **afraid of being bitten**.",
+                  "note": "not afraid to be bitten",
+                  "vi": "Tôi không thích chó. Tôi luôn **sợ bị cắn**."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "So, you are afraid **to do** something because you are afraid **of** something happening as a result:",
+              "vi": "Vì vậy, bạn **sợ làm** một việc vì bạn **sợ** một điều gì đó xảy ra như là kết quả của việc đó:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I **was afraid to go** near the dog because I **was afraid of being bitten**.",
+                  "vi": "Tôi **sợ đến gần** con chó vì tôi **sợ bị cắn**."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "interested in ...-ing và interested to ...",
+          "headingEn": "interested in (do)ing and interested to (do)",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "I'm **interested in doing** something = I'm thinking of doing it, I would like to do it:",
+              "vi": "I'm **interested in doing** something (quan tâm/muốn làm gì) = tôi đang nghĩ đến việc làm nó, tôi muốn làm nó:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "Let me know if you're **interested in joining** the club.",
+                  "note": "not to join",
+                  "vi": "Hãy cho tôi biết nếu bạn **quan tâm đến việc tham gia** câu lạc bộ."
+                },
+                {
+                  "en": "I tried to sell my car, but nobody was **interested in buying** it.",
+                  "note": "not to buy",
+                  "vi": "Tôi đã thử bán xe của mình, nhưng không ai **quan tâm đến việc mua** nó."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "I was **interested to hear/see/know** something = it was interesting for me. For example:",
+              "vi": "I was **interested to hear/see/know** something (thấy thú vị khi nghe/thấy/biết điều gì) = điều đó thú vị đối với tôi. Ví dụ:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I **was interested to hear** that Tanya left her job.",
+                  "note": "= I heard this and it was interesting for me",
+                  "vi": "Tôi **thấy thú vị khi nghe** rằng Tanya đã bỏ việc."
+                },
+                {
+                  "en": "I'll ask Mike for his opinion. I would **be interested to know** what he thinks.",
+                  "note": "= it would be interesting for me to know what he thinks",
+                  "vi": "Tôi sẽ hỏi Mike về ý kiến của anh ấy. Tôi sẽ **thấy thú vị khi biết** anh ấy nghĩ gì."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "This structure is the same as *surprised to* ... / *glad to* ... etc. (see Unit 65C):",
+              "vi": "Cấu trúc này giống với *surprised to* ... / *glad to* ... v.v. (xem Unit 65C):"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I was **surprised to hear** that Tanya left her job.",
+                  "vi": "Tôi **ngạc nhiên khi nghe** rằng Tanya đã bỏ việc."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "sorry for ... và sorry to ...",
+          "headingEn": "sorry for ... and sorry to ...",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "We use **sorry for (doing)** to apologise for something:",
+              "vi": "Chúng ta dùng **sorry for (doing)** để xin lỗi vì đã làm việc gì đó:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I'm **sorry for shouting** at you yesterday.",
+                  "note": "not sorry to shout",
+                  "vi": "Tôi **xin lỗi vì đã quát** bạn hôm qua."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "You can also say:",
+              "vi": "Bạn cũng có thể nói:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I'm sorry I shouted at you yesterday.",
+                  "vi": "Tôi xin lỗi vì đã quát bạn hôm qua."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "We use **sorry to ...** to say that we regret something that happens:",
+              "vi": "Chúng ta dùng **sorry to ...** để nói rằng chúng ta tiếc về một điều gì đó xảy ra:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I'm **sorry to hear** that Nicky lost her job.",
+                  "note": "not sorry for",
+                  "vi": "Tôi **rất tiếc khi nghe** rằng Nicky đã mất việc."
+                },
+                {
+                  "en": "I've enjoyed my stay here. I'll **be sorry to leave**.",
+                  "vi": "Tôi đã có khoảng thời gian vui vẻ ở đây. Tôi **sẽ tiếc khi phải rời đi**."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "We also say **'I'm sorry to ...'** to apologise at the time we do something:",
+              "vi": "Chúng ta cũng nói **'I'm sorry to ...'** để xin lỗi ngay lúc chúng ta làm một việc gì đó:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I'm **sorry to bother** you, but I need to ask you a question.",
+                  "vi": "Tôi **xin lỗi vì đã làm phiền** bạn, nhưng tôi cần hỏi bạn một câu."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "D",
+          "heading": "các cặp động từ tương ứng: to ... và giới từ + -ing",
+          "headingEn": "verb + to ... and its preposition + -ing counterpart (thinking of, dream of, succeeded in, prevented from, looking forward to, insisted on)",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "We say:",
+              "vi": "Chúng ta nói:"
+            },
+            {
+              "kind": "table",
+              "table": {
+                "rows": [
+                  ["I want to (do), I'd like to (do)", "but I'm thinking of (do)ing"],
+                  ["I hope to (do)", "I dream of (do)ing"],
+                  ["I failed to (do)", "I succeeded in (do)ing"],
+                  ["I allowed them to (do)", "I prevented them from (do)ing"],
+                  ["I plan to (do)", "I'm looking forward to (do)ing"],
+                  ["I promised to (do)", "I insisted on (do)ing"]
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "66.1 · Viết câu, dùng afraid to ... hoặc afraid of -ing",
+      "titleEn": "66.1 · Write sentences using afraid to ... or afraid of -ing",
+      "instructions": "Viết câu, dùng afraid to ... hoặc afraid of -ing.",
+      "instructionsEn": "Write sentences using afraid to ... or afraid of -ing.",
+      "examples": [
+        {
+          "label": "1",
+          "context": "The streets here are not safe at night. (a lot of people / afraid / go / out)",
+          "prompt": "___",
+          "answer": "A lot of people are afraid to go out."
+        },
+        {
+          "label": "2",
+          "context": "We walked very carefully along the icy path. (we / afraid / fall)",
+          "prompt": "___",
+          "answer": "We were afraid of falling."
+        }
+      ],
+      "items": [
+        {
+          "context": "I don't usually carry my passport with me. (I / afraid / lose / it)",
+          "prompt": "___",
+          "answer": "I'm afraid of losing it.",
+          "accept": ["I am afraid of losing it."]
+        },
+        {
+          "context": "I thought she would be angry if I told her what had happened. (I / afraid / tell / her)",
+          "prompt": "___",
+          "answer": "I was afraid to tell her."
+        },
+        {
+          "context": "We ran to the station. (we / afraid / miss / our train)",
+          "prompt": "___",
+          "answer": "We were afraid of missing our train."
+        },
+        {
+          "context": "In the middle of the film there was a very horrifying scene. (we / afraid / look)",
+          "prompt": "___",
+          "answer": "We were afraid to look."
+        },
+        {
+          "context": "The vase was very valuable, so I held it carefully. (I / afraid / drop / it)",
+          "prompt": "___",
+          "answer": "I was afraid of dropping it."
+        },
+        {
+          "context": "If there's anything you want to know, you can ask me. (don't / afraid / ask)",
+          "prompt": "___",
+          "answer": "Don't be afraid to ask."
+        },
+        {
+          "context": "I was worried because we didn't have much petrol. (I / afraid / run out of petrol)",
+          "prompt": "___",
+          "answer": "I was afraid of running out of petrol."
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "66.2 · Hoàn thành câu, dùng interested in ... hoặc interested to ...",
+      "titleEn": "66.2 · Complete the sentences using interested in ... or interested to ...",
+      "instructions": "Hoàn thành câu, dùng interested in ... hoặc interested to ... . Chọn động từ trong khung cho sẵn.",
+      "instructionsEn": "Complete the sentences using interested in ... or interested to ... . Choose from the verbs in the box.",
+      "wordBank": ["buy", "hear", "know", "look", "start", "study"],
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "I'm trying to sell my car, but nobody is ___ it.",
+          "answer": "interested in buying"
+        }
+      ],
+      "startNumber": 2,
+      "items": [
+        {
+          "prompt": "Nicola is ___ her own business.",
+          "answer": "interested in starting"
+        },
+        {
+          "prompt": "I saw Joe recently. You'll be ___ that he's getting married soon.",
+          "answer": "interested to know",
+          "accept": ["interested to hear"]
+        },
+        {
+          "prompt": "I didn't enjoy school. I wasn't ___.",
+          "answer": "interested in studying"
+        },
+        {
+          "prompt": "I went to a public meeting to discuss the plans for a new road. I was ___ how people felt about the project.",
+          "answer": "interested to hear",
+          "accept": ["interested to know", "interested in hearing", "interested in knowing"]
+        },
+        {
+          "prompt": "Paul doesn't enjoy sightseeing. He's not ___ at old buildings.",
+          "answer": "interested in looking"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "66.3 · Hoàn thành câu, dùng sorry for ... hoặc sorry to ...",
+      "titleEn": "66.3 · Complete the sentences using sorry for ... or sorry to ...",
+      "instructions": "Hoàn thành câu, dùng sorry for ... hoặc sorry to ... với động từ trong ngoặc.",
+      "instructionsEn": "Complete the sentences using sorry for ... or sorry to ... with the verb in brackets.",
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "I'm ___ you, but I need to ask you something. (bother)",
+          "answer": "sorry to bother"
+        }
+      ],
+      "startNumber": 2,
+      "items": [
+        {
+          "prompt": "We were ___ that you can't come to the wedding. (hear)",
+          "answer": "sorry to hear"
+        },
+        {
+          "prompt": "I'm ___ bad things about you. I didn't mean what I said. (say)",
+          "answer": "sorry for saying",
+          "accept": ["sorry I said"]
+        },
+        {
+          "prompt": "It's a shame Alan is leaving the company. I'll be ___ him go. (see)",
+          "answer": "sorry to see"
+        },
+        {
+          "prompt": "I'm ___ so much noise last night. (make)",
+          "answer": "sorry for making",
+          "accept": ["sorry I made"]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "66.4 · Hoàn thành câu trong mỗi nhóm bằng động từ trong ngoặc",
+      "titleEn": "66.4 · Complete the sentences in each group using the verb in brackets",
+      "instructions": "Hoàn thành các câu trong mỗi nhóm bằng động từ trong ngoặc.",
+      "instructionsEn": "Complete the sentences in each group using the verb in brackets.",
+      "examples": [
+        {
+          "label": "1a",
+          "prompt": "We wanted ___ the building. (leave)",
+          "answer": "to leave"
+        }
+      ],
+      "items": [
+        {
+          "label": "1b",
+          "prompt": "We weren't allowed ___ the building. (leave)",
+          "answer": "to leave"
+        },
+        {
+          "label": "1c",
+          "prompt": "We were prevented ___ the building. (leave)",
+          "answer": "from leaving"
+        },
+        {
+          "label": "2a",
+          "prompt": "Sam and Chris hoped ___ the problem. (solve)",
+          "answer": "to solve"
+        },
+        {
+          "label": "2b",
+          "prompt": "Sam failed ___ the problem. (solve)",
+          "answer": "to solve"
+        },
+        {
+          "label": "2c",
+          "prompt": "Chris succeeded ___ the problem. (solve)",
+          "answer": "in solving"
+        },
+        {
+          "label": "3a",
+          "prompt": "I'm thinking ___ away next week. (go)",
+          "answer": "of going",
+          "accept": ["about going"]
+        },
+        {
+          "label": "3b",
+          "prompt": "I'm planning ___ away next week. (go)",
+          "answer": "to go",
+          "accept": ["on going"]
+        },
+        {
+          "label": "3c",
+          "prompt": "I'd like ___ away next week. (go)",
+          "answer": "to go"
+        },
+        {
+          "label": "3d",
+          "prompt": "I'm looking forward ___ away next week. (go)",
+          "answer": "to going"
+        },
+        {
+          "label": "4a",
+          "prompt": "Helen wanted ___ me lunch. (buy)",
+          "answer": "to buy"
+        },
+        {
+          "label": "4b",
+          "prompt": "Helen insisted ___ me lunch. (buy)",
+          "answer": "on buying"
+        },
+        {
+          "label": "4c",
+          "prompt": "Helen promised ___ me lunch. (buy)",
+          "answer": "to buy"
+        },
+        {
+          "label": "4d",
+          "prompt": "Helen wouldn't dream ___ me lunch. (buy)",
+          "answer": "of buying"
+        }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng afraid to .../afraid of -ing, interested in -ing/interested to ..., hoặc sorry for .../sorry to ..., để nói về một điều bạn từng sợ, một việc bạn thấy thú vị khi biết hay nghe, hoặc một điều bạn cảm thấy tiếc hay muốn xin lỗi.",
+      "instructionsEn": "Write 2-3 English sentences using afraid to .../afraid of -ing, interested in -ing/interested to ..., or sorry for .../sorry to ..., to talk about something you were once afraid of, something you found interesting to hear or know, or something you regret or want to apologise for.",
+      "ruleSummary": "This unit covers to ... (afraid to do) and preposition + -ing (afraid of -ing) patterns. (1) afraid to (do) = I don't want to do it because it is dangerous or the result could be bad, e.g. People are afraid to walk here at night; James was afraid to tell his parents what had happened. afraid of (do)ing = I am afraid that something bad will happen, e.g. We were afraid of falling (not afraid to fall); I'm always afraid of being bitten (not afraid to be bitten). You are afraid to do something because you are afraid of something happening as a result, e.g. I was afraid to go near the dog because I was afraid of being bitten. (2) interested in (do)ing = I'm thinking of doing it, I would like to do it, e.g. I'm interested in joining the club (not to join); nobody was interested in buying it (not to buy). interested to hear/see/know something = it was interesting for me, e.g. I was interested to hear that Tanya left her job; I would be interested to know what he thinks. This is the same structure as surprised to ... / glad to ... (Unit 65C). (3) sorry for (doing) to apologise for something, e.g. I'm sorry for shouting at you yesterday (not sorry to shout) / I'm sorry I shouted at you yesterday. sorry to ... to say we regret something that happens, e.g. I'm sorry to hear that Nicky lost her job (not sorry for); I'll be sorry to leave. We also say 'I'm sorry to ...' to apologise at the time we do something, e.g. I'm sorry to bother you, but I need to ask you a question. (4) other paired verb patterns from the book: want to / would like to / thinking of -ing; hope to / dream of -ing; failed to / succeeded in -ing; allowed to / prevented from -ing; plan to / looking forward to -ing; promised to / insisted on -ing. A correct student sentence should use afraid to + verb only when avoiding the action out of danger and afraid of + -ing when fearing a bad outcome, should use interested in + -ing for wanting to do something but interested to + verb for reacting to news, should use sorry for + -ing to apologise for a past action but sorry to + verb to express regret or to soften a request, and should follow each of the D-box verbs with the preposition + -ing or the bare to-infinitive it actually takes rather than mixing the two forms."
+    }
+  ]
+};
+
+const UNIT_67_SEE_SOMEBODY_DO_DOING: GrammarUnit = {
+  "unit": 67,
+  "slug": "see-somebody-do-doing",
+  "title": "see somebody do and see somebody doing",
+  "topic": "verb patterns",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "thấy/nghe ai đó làm gì (see/hear somebody do something)",
+          "headingEn": "see/hear somebody do something",
+          "intro": "Study this example situation:",
+          "introVi": "Nghiên cứu tình huống ví dụ này:",
+          "parts": [
+            {
+              "kind": "situation",
+              "text": "Tom got into his car and drove off. You saw this. You can say:",
+              "vi": "Tom lên xe và lái đi. Bạn đã nhìn thấy việc đó. Bạn có thể nói:",
+              "quotes": [
+                {
+                  "text": "I saw Tom **get into** his car and **drive off**.",
+                  "vi": "Tôi thấy Tom **lên** xe và **lái đi**."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "We say **'I saw him do something'** (= he did it and I saw this). In the same way, you can say:",
+              "vi": "Chúng ta nói **'I saw him do something'** (thấy ai đó làm gì) = anh ấy đã làm việc đó và tôi đã thấy. Theo cách tương tự, bạn cũng có thể nói:"
+            },
+            {
+              "kind": "words",
+              "words": ["hear", "listen to", "watch", "feel"]
+            },
+            {
+              "kind": "text",
+              "text": "**hear / listen to / watch / feel** + somebody **do** something, or something **happen**",
+              "vi": "**hear / listen to / watch / feel** + ai đó **làm** gì, hoặc điều gì đó **xảy ra**"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I didn't **hear** you **come in**.",
+                  "note": "you came in = I didn't hear this",
+                  "vi": "Tôi không **nghe** thấy bạn **vào**."
+                },
+                {
+                  "en": "Lisa suddenly **felt** somebody **touch** her on the shoulder.",
+                  "vi": "Lisa bất ngờ **cảm thấy** có ai đó **chạm** vào vai mình."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "thấy/nghe ai đó đang làm gì (see/hear somebody doing something)",
+          "headingEn": "see/hear somebody doing something",
+          "intro": "Study this example situation:",
+          "introVi": "Nghiên cứu tình huống ví dụ này:",
+          "parts": [
+            {
+              "kind": "situation",
+              "text": "Yesterday you saw Kate. She was waiting for a bus. You can say:",
+              "vi": "Hôm qua bạn thấy Kate. Cô ấy đang đợi xe buýt. Bạn có thể nói:",
+              "quotes": [
+                {
+                  "text": "I saw Kate **waiting** for a bus.",
+                  "vi": "Tôi thấy Kate **đang đợi** xe buýt."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "We say **'I saw her doing something'** (= she was doing it and I saw this). In the same way, you can say:",
+              "vi": "Chúng ta nói **'I saw her doing something'** (thấy ai đó đang làm gì) = cô ấy đang làm việc đó và tôi đã thấy. Theo cách tương tự, bạn cũng có thể nói:"
+            },
+            {
+              "kind": "words",
+              "words": ["hear", "listen to", "watch", "feel", "smell", "find"]
+            },
+            {
+              "kind": "text",
+              "text": "**hear / listen to / watch / feel / smell / find** + somebody **doing** something, or something **happening**",
+              "vi": "**hear / listen to / watch / feel / smell / find** + ai đó **đang làm** gì, hoặc điều gì đó **đang xảy ra**"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I could **hear** it **raining**.",
+                  "note": "it was raining = I could hear it",
+                  "vi": "Tôi có thể **nghe** thấy trời **đang mưa**."
+                },
+                {
+                  "en": "**Listen to** the birds **singing**!",
+                  "vi": "**Hãy nghe** những chú chim **đang hót** kìa!"
+                },
+                {
+                  "en": "Can you **smell** something **burning**?",
+                  "vi": "Bạn có **ngửi** thấy mùi gì đó **đang cháy** không?"
+                },
+                {
+                  "en": "We looked for Paul and finally we **found** him **sitting** under a tree **eating** an apple.",
+                  "vi": "Chúng tôi tìm Paul và cuối cùng **thấy** anh ấy **đang ngồi** dưới gốc cây, **đang ăn** một quả táo."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "phân biệt do và doing sau các động từ giác quan",
+          "headingEn": "the difference between do and doing after verbs of perception",
+          "intro": "Study the difference in meaning:",
+          "introVi": "Nghiên cứu sự khác biệt về nghĩa:",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "**I saw him do** something = he did something and I saw this. I saw the complete action from start to finish:",
+              "vi": "**I saw him do** something (tôi thấy anh ấy làm gì) = anh ấy đã làm việc đó và tôi đã thấy. Tôi thấy toàn bộ hành động từ đầu đến cuối:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I **saw** him **jump** over the wall and **run away**.",
+                  "note": "he jumped over the wall and ran away, I saw this",
+                  "vi": "Tôi **thấy** anh ấy **nhảy** qua tường và **chạy** đi."
+                },
+                {
+                  "en": "I **heard** them **go out**.",
+                  "note": "they went out, I heard this",
+                  "vi": "Tôi **nghe** thấy họ **đi ra** ngoài."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "**I saw him doing** something = he was doing something and I saw this. I saw him in the middle of doing something (not from start to finish):",
+              "vi": "**I saw him doing** something (tôi thấy anh ấy đang làm gì) = anh ấy đang làm việc đó và tôi đã thấy. Tôi thấy anh ấy vào giữa lúc đang làm việc đó (không phải từ đầu đến cuối):"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I **saw** Tom **walking** along the street.",
+                  "note": "I saw Tom as I drove past in my car, he was walking along the street",
+                  "vi": "Tôi **thấy** Tom **đang đi bộ** trên phố."
+                },
+                {
+                  "en": "I **heard** them **talking**.",
+                  "note": "I heard them, they were talking",
+                  "vi": "Tôi **nghe** thấy họ **đang nói chuyện**."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "Sometimes the difference is not important and you can use either form:",
+              "vi": "Đôi khi sự khác biệt này không quan trọng và bạn có thể dùng cả hai dạng:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I've never **seen** her **dance**.",
+                  "vi": "Tôi chưa từng **thấy** cô ấy **nhảy**."
+                },
+                {
+                  "en": "I've never **seen** her **dancing**.",
+                  "vi": "Tôi chưa từng **thấy** cô ấy **đang nhảy**."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "67.1 · Hoàn thành câu với dạng đúng của động từ",
+      "titleEn": "67.1 · Complete the sentences with the verb in the correct form",
+      "instructions": "Hoàn thành các câu bằng dạng đúng của động từ trong ngoặc.",
+      "instructionsEn": "Complete the sentences with the verb in brackets in its correct form.",
+      "examples": [
+        {
+          "label": "1a",
+          "prompt": "Tom doesn't have the keys. He ___ them to Lisa. (give)",
+          "answer": "gave"
+        }
+      ],
+      "items": [
+        {
+          "label": "1b",
+          "prompt": "Tom doesn't have the keys. I saw him ___ them to Lisa. (give)",
+          "answer": "give"
+        },
+        {
+          "label": "2a",
+          "prompt": "A car ___ outside our house, and then it drove off again. (stop)",
+          "answer": "stopped"
+        },
+        {
+          "label": "2b",
+          "prompt": "We heard a car ___ outside our house, and then it drove off again. (stop)",
+          "answer": "stop"
+        },
+        {
+          "label": "3a",
+          "prompt": "Ben gave me the envelope and watched me ___ it. (open)",
+          "answer": "open"
+        },
+        {
+          "label": "3b",
+          "prompt": "Ben gave me the envelope and I ___ it. (open)",
+          "answer": "opened"
+        },
+        {
+          "label": "4a",
+          "prompt": "Sarah is Canadian. I heard her ___ she's from Toronto. (say)",
+          "answer": "say"
+        },
+        {
+          "label": "4b",
+          "prompt": "Sarah is Canadian. She ___ she's from Toronto. (say)",
+          "answer": "said",
+          "accept": ["says"]
+        },
+        {
+          "label": "5a",
+          "prompt": "A man ___ over in the street, so we went to help him. (fall)",
+          "answer": "fell"
+        },
+        {
+          "label": "5b",
+          "prompt": "We saw a man ___ over in the street, so we went to help him. (fall)",
+          "answer": "fall"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "67.3 · Hoàn thành câu bằng các động từ cho sẵn (đúng dạng)",
+      "titleEn": "67.3 · Complete the sentences using these verbs (in the correct form)",
+      "instructions": "Hoàn thành câu, dùng các động từ sau (ở dạng đúng).",
+      "instructionsEn": "Complete the sentences using these verbs (in the correct form).",
+      "wordBank": ["crawl", "cry", "explode", "get", "happen", "lie", "put", "ride", "say", "slam", "stand", "tell"],
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "The bus stopped at the bus stop but I didn't see anybody ___ off.",
+          "answer": "get"
+        },
+        {
+          "label": "2",
+          "prompt": "I saw two people ___ outside your house. I don't know who they were.",
+          "answer": "standing"
+        }
+      ],
+      "items": [
+        {
+          "prompt": "I thought I heard somebody ___ 'Hi', so I turned round.",
+          "answer": "say"
+        },
+        {
+          "prompt": "There was an accident outside my house, but I didn't see it ___.",
+          "answer": "happen"
+        },
+        {
+          "prompt": "Listen. Can you hear a baby ___?",
+          "answer": "crying"
+        },
+        {
+          "prompt": "I know you took the key. I saw you ___ it in your pocket.",
+          "answer": "put"
+        },
+        {
+          "prompt": "We listened to the old man ___ his story from beginning to end.",
+          "answer": "tell"
+        },
+        {
+          "prompt": "Everybody heard the bomb ___. It was a tremendous noise.",
+          "answer": "explode"
+        },
+        {
+          "prompt": "Oh! I can feel something ___ up my leg. It must be an insect.",
+          "answer": "crawling"
+        },
+        {
+          "prompt": "I looked out of the window and saw Dan ___ his bike along the road.",
+          "answer": "riding"
+        },
+        {
+          "prompt": "I heard somebody ___ a door in the middle of the night. It woke me up.",
+          "answer": "slam"
+        },
+        {
+          "prompt": "When I got home, I found a cat ___ on the kitchen table.",
+          "answer": "lying"
+        }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng cấu trúc see/hear/watch/feel + ai đó làm gì (do) hoặc đang làm gì (doing), để kể về điều gì đó bạn từng thấy, nghe hoặc cảm nhận ai đó làm.",
+      "instructionsEn": "Write 2-3 English sentences using see/hear/watch/feel + somebody do/doing something to describe something you once saw, heard, or felt somebody do.",
+      "ruleSummary": "This unit covers 'see somebody do something' (bare infinitive) vs 'see somebody doing something' (-ing form) after verbs of perception (see, hear, listen to, watch, feel, smell, find). (1) I saw him do something = he did it and I saw the complete action from start to finish, e.g. I saw Tom get into his car and drive off; I didn't hear you come in; I saw him jump over the wall and run away; I heard them go out. (2) I saw him doing something = he was in the middle of doing it (not from start to finish) when I saw/heard/felt it, e.g. I saw Kate waiting for a bus; I could hear it raining; Listen to the birds singing; Can you smell something burning?; we found him sitting under a tree eating an apple; I saw Tom walking along the street; I heard them talking. (3) Sometimes the difference is unimportant and either form works, e.g. I've never seen her dance. / I've never seen her dancing. A correct student sentence should use the bare infinitive (do) after see/hear/listen to/watch/feel when describing a complete action witnessed from start to finish, and the -ing form (doing) when describing an action that was already in progress when it was noticed."
+    }
+  ]
+};
+
+const UNIT_68_ING_CLAUSES: GrammarUnit = {
+  "unit": 68,
+  "slug": "ing-clauses",
+  "title": "-ing clauses (He hurt his knee playing football.)",
+  "topic": "verb patterns",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "mệnh đề -ing khi hai việc xảy ra cùng lúc, hoặc một việc xảy ra trong lúc việc khác đang diễn ra",
+          "headingEn": "-ing clauses for two things happening together, or one action during another",
+          "intro": "Study this example:",
+          "introVi": "Nghiên cứu ví dụ này:",
+          "parts": [
+            {
+              "kind": "situation",
+              "text": "Kate is in the kitchen. She's making coffee. You can say:",
+              "vi": "Kate đang ở trong bếp. Cô ấy đang pha cà phê. Bạn có thể nói:",
+              "quotes": [
+                {
+                  "text": "Kate is in the kitchen **making coffee**.",
+                  "vi": "Kate đang ở trong bếp **pha cà phê**."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "You can use -ing in this way when two things happen at the same time:",
+              "vi": "Bạn có thể dùng -ing theo cách này khi hai việc xảy ra cùng một lúc:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "A man ran out of the house **shouting**.",
+                  "note": "= he ran out of the house and he was shouting",
+                  "vi": "Một người đàn ông chạy ra khỏi nhà, **vừa chạy vừa hét lên**."
+                },
+                {
+                  "en": "Do something! Don't just stand there **doing nothing**!",
+                  "vi": "Làm gì đi! Đừng chỉ đứng đó mà **không làm gì cả**!"
+                },
+                {
+                  "en": "Be careful **crossing** the road.",
+                  "vi": "Hãy cẩn thận khi **qua** đường."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "We also use -ing when one action happens during another action:",
+              "vi": "Chúng ta cũng dùng -ing khi một hành động xảy ra trong lúc một hành động khác đang diễn ra:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "Joe hurt his knee **playing** football.",
+                  "note": "= while he was playing",
+                  "vi": "Joe bị đau đầu gối **khi đang chơi** bóng đá."
+                },
+                {
+                  "en": "Did you cut yourself **shaving**?",
+                  "note": "= while you were shaving",
+                  "vi": "Bạn có bị đứt tay **khi đang cạo râu** không?"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "You can also say **'while doing something'** and **'when doing something'**:",
+              "vi": "Bạn cũng có thể nói **'while doing something'** và **'when doing something'**:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "Joe hurt his knee **while playing** football.",
+                  "vi": "Joe bị đau đầu gối **trong khi chơi** bóng đá."
+                },
+                {
+                  "en": "Be careful **when crossing** the road.",
+                  "note": "= when you are crossing",
+                  "vi": "Hãy cẩn thận **khi đang qua** đường."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "having (done) cho việc xảy ra trước một việc khác",
+          "headingEn": "having (done) for an action that happens before another",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "When one action happens before something else, we use **having (done)** for the first action:",
+              "vi": "Khi một hành động xảy ra trước một hành động khác, chúng ta dùng **having (done)** cho hành động thứ nhất:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "**Having found** a hotel, we looked for somewhere to eat.",
+                  "vi": "**Sau khi tìm được** một khách sạn, chúng tôi đi tìm nơi để ăn."
+                },
+                {
+                  "en": "**Having finished** her work, she went home.",
+                  "vi": "**Sau khi hoàn thành** công việc, cô ấy về nhà."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "You can also say **after -ing**:",
+              "vi": "Bạn cũng có thể nói **after -ing**:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "**After finishing** her work, she went home.",
+                  "vi": "**Sau khi hoàn thành** công việc, cô ấy về nhà."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "These structures are used more in written English than in spoken English.",
+              "vi": "Những cấu trúc này được dùng nhiều hơn trong tiếng Anh viết so với tiếng Anh nói."
+            },
+            {
+              "kind": "text",
+              "text": "When we begin a sentence with **'Having (done something)'** or **'After (doing something)'**, we write a comma (,) after this part of the sentence:",
+              "vi": "Khi bắt đầu câu bằng **'Having (done something)'** hoặc **'After (doing something)'**, chúng ta viết dấu phẩy (,) sau phần đó của câu:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "**Having finished** her work, she went home.",
+                  "vi": "**Sau khi hoàn thành** công việc, cô ấy về nhà."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "dùng -ing để giải thích lý do ai đó làm gì",
+          "headingEn": "using -ing to explain why somebody does something",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "You can also use -ing to explain something, or to say why somebody does something.",
+              "vi": "Bạn cũng có thể dùng -ing để giải thích điều gì đó, hoặc để nói lý do tại sao ai đó làm việc gì."
+            },
+            {
+              "kind": "text",
+              "text": "The sentence usually begins with -ing:",
+              "vi": "Câu thường bắt đầu bằng -ing:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "**Feeling** tired, I went to bed early.",
+                  "note": "= because I felt tired",
+                  "vi": "**Cảm thấy** mệt, tôi đi ngủ sớm."
+                },
+                {
+                  "en": "**Being** unemployed, he doesn't have much money.",
+                  "note": "= because he is unemployed",
+                  "vi": "**Vì đang** thất nghiệp, anh ấy không có nhiều tiền."
+                },
+                {
+                  "en": "**Not having** a car, she finds it difficult to get around.",
+                  "note": "= because she doesn't have a car",
+                  "vi": "**Vì không có** xe, cô ấy thấy khó khăn khi di chuyển."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "We use **having (done)** for something that is complete before something else:",
+              "vi": "Chúng ta dùng **having (done)** cho việc đã hoàn thành trước một việc khác:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "**Having seen** the film twice, I didn't want to see it again.",
+                  "note": "= because I had seen it twice",
+                  "vi": "**Vì đã xem** bộ phim hai lần, tôi không muốn xem lại nữa."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "These structures are used more in written English than in spoken English.",
+              "vi": "Những cấu trúc này được dùng nhiều hơn trong tiếng Anh viết so với tiếng Anh nói."
+            },
+            {
+              "kind": "text",
+              "text": "When we begin a sentence with -ing (**Feeling tired ...** / **Not knowing ...** / **Having seen ...** etc.), we write a comma (,) after this part of the sentence.",
+              "vi": "Khi bắt đầu câu bằng -ing (**Feeling tired ...** / **Not knowing ...** / **Having seen ...** v.v.), chúng ta viết dấu phẩy (,) sau phần đó của câu."
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "**Not knowing** what to do, I called my friend to ask her advice.",
+                  "vi": "**Vì không biết** phải làm gì, tôi đã gọi cho bạn mình để hỏi ý kiến."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "68.1 · Chọn từ Box A và Box B để tạo câu, dùng -ing",
+      "titleEn": "68.1 · Choose from Box A and Box B to make sentences. Use -ing",
+      "instructions": "Chọn một câu ở Box A và ghép với câu phù hợp ở Box B, dùng -ing, để tạo thành một câu.",
+      "instructionsEn": "Choose from Box A and Box B to make sentences. Use -ing.",
+      "wordBank": ["She was trying not to make a noise.", "She looked at the sights and took pictures.", "She said she would be back in an hour.", "She was reading a book.", "She was making coffee.", "She was teaching English."],
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "Kate was in the kitchen ___.",
+          "answer": "making coffee"
+        }
+      ],
+      "items": [
+        {
+          "prompt": "Amy was sitting in an armchair ___.",
+          "answer": "reading a book"
+        },
+        {
+          "prompt": "Nicola opened the door carefully ___.",
+          "answer": "trying not to make a noise"
+        },
+        {
+          "prompt": "Sarah went out ___.",
+          "answer": "saying she would be back in an hour"
+        },
+        {
+          "prompt": "Lisa worked in Rome for two years ___.",
+          "answer": "teaching English"
+        },
+        {
+          "prompt": "Anna walked around the town ___.",
+          "answer": "looking at the sights and taking pictures"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "68.2 · Sắp xếp các từ theo đúng thứ tự",
+      "titleEn": "68.2 · Put the words in the right order",
+      "instructions": "Sắp xếp các từ trong ngoặc theo đúng thứ tự để hoàn thành câu.",
+      "instructionsEn": "Put the words in brackets in the right order to complete the sentence.",
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "Joe ___. (knee / football / his / hurt / playing)",
+          "answer": "hurt his knee playing football"
+        }
+      ],
+      "items": [
+        {
+          "prompt": "I ___. (in the rain / wet / got / very / walking)",
+          "answer": "got very wet walking in the rain"
+        },
+        {
+          "prompt": "Laura ___. (to work / had / driving / an accident)",
+          "answer": "had an accident driving to work"
+        },
+        {
+          "prompt": "My friend ___. (off / slipped / a bus / getting / and fell)",
+          "answer": "slipped and fell getting off a bus"
+        },
+        {
+          "prompt": "Emily ___. (trying / her back / a heavy box / to lift / hurt)",
+          "answer": "hurt her back trying to lift a heavy box"
+        },
+        {
+          "prompt": "Two people were ___. (to put out / by smoke / the fire / overcome / trying)",
+          "answer": "overcome by smoke trying to put out the fire"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "68.3 · Hoàn thành câu, dùng Having + động từ phù hợp",
+      "titleEn": "68.3 · Complete the sentences. Use Having + a suitable verb",
+      "instructions": "Hoàn thành các câu sau, dùng Having + một động từ phù hợp.",
+      "instructionsEn": "Complete the sentences. Use Having + a suitable verb.",
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "___ her work, Katherine left the office and went home.",
+          "answer": "Having finished"
+        }
+      ],
+      "items": [
+        {
+          "prompt": "___ our tickets, we went into the theatre and took our seats.",
+          "answer": "Having bought",
+          "accept": ["Having got"]
+        },
+        {
+          "prompt": "___ the problem, I think we'll be able to find a solution.",
+          "answer": "Having discussed",
+          "accept": ["Having talked about", "Having thought about"]
+        },
+        {
+          "prompt": "___ he was hungry, Joe now says he doesn't want to eat anything.",
+          "answer": "Having said"
+        },
+        {
+          "prompt": "___ his job recently, James is now unemployed.",
+          "answer": "Having lost",
+          "accept": ["Having given up", "Having been fired from"]
+        },
+        {
+          "prompt": "___ most of his life in London, Sam has now gone to live in a small village in the country.",
+          "answer": "Having spent",
+          "accept": ["Having lived", "Having lived for"]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "68.4 · Ghép hai câu thành một, dùng -ing, Not -ing hoặc Having ...",
+      "titleEn": "68.4 · Make one sentence from two. Begin with -ing, Not -ing, or Having ...",
+      "instructions": "Ghép hai câu thành một câu. Bắt đầu bằng -ing hoặc Not -ing. Đôi khi bạn cần bắt đầu bằng Having ... Đừng quên dấu phẩy (,).",
+      "instructionsEn": "Make one sentence from two. Begin with -ing or Not -ing. Sometimes you need to begin with Having ... . Don't forget the comma (,).",
+      "examples": [
+        {
+          "label": "1",
+          "context": "I felt tired. So I went to bed early.",
+          "prompt": "___, I went to bed early.",
+          "answer": "Feeling tired"
+        }
+      ],
+      "items": [
+        {
+          "context": "I thought they might be hungry. So I offered them something to eat.",
+          "prompt": "___, I offered them something to eat.",
+          "answer": "Thinking they might be hungry"
+        },
+        {
+          "context": "Robert is a vegetarian. So he doesn't eat any kind of meat.",
+          "prompt": "___, Robert doesn't eat any kind of meat.",
+          "answer": "Being a vegetarian"
+        },
+        {
+          "context": "I didn't have a phone. So I had no way of contacting anyone.",
+          "prompt": "___, I had no way of contacting anyone.",
+          "answer": "Not having a phone"
+        },
+        {
+          "context": "Sarah has travelled a lot. So she knows a lot about other countries.",
+          "prompt": "___, Sarah knows a lot about other countries.",
+          "answer": "Having travelled a lot"
+        },
+        {
+          "context": "I wasn't able to speak the local language. So I had trouble communicating.",
+          "prompt": "___, I had trouble communicating.",
+          "answer": "Not being able to speak the local language"
+        },
+        {
+          "context": "We had spent nearly all our money. So we couldn't afford to stay at a hotel.",
+          "prompt": "___, we couldn't afford to stay at a hotel.",
+          "answer": "Having spent nearly all our money"
+        }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng mệnh đề -ing: hai việc xảy ra cùng lúc hoặc một việc xảy ra trong lúc việc khác đang diễn ra (doing something), Having (done) cho việc xảy ra trước một việc khác, hoặc -ing/Having để giải thích lý do bạn làm điều gì đó.",
+      "instructionsEn": "Write 2-3 English sentences using -ing clauses: two things happening at the same time or one action during another (doing something), Having (done) for something that happened before something else, or -ing/Having to explain why you did something.",
+      "ruleSummary": "This unit covers -ing clauses. (1) -ing is used when two things happen at the same time, e.g. A man ran out of the house shouting; Don't just stand there doing nothing; Be careful crossing the road. (2) -ing is used when one action happens during another action, e.g. Joe hurt his knee playing football (= while he was playing); Did you cut yourself shaving? You can also say while doing something / when doing something: Joe hurt his knee while playing football; Be careful when crossing the road. (3) When one action happens before another, use having (done) for the first action, e.g. Having found a hotel, we looked for somewhere to eat; Having finished her work, she went home. You can also say after -ing: After finishing her work, she went home. These structures are more written than spoken. A comma is written after the -ing/having/after clause when it begins the sentence. (4) -ing can also explain something or say why somebody does something, usually starting the sentence: Feeling tired, I went to bed early (= because I felt tired); Being unemployed, he doesn't have much money; Not having a car, she finds it difficult to get around. Having (done) is used when the reason is something already complete: Having seen the film twice, I didn't want to see it again (= because I had seen it twice); Not knowing what to do, I called my friend to ask her advice. A correct student sentence should use a bare -ing form (not to + infinitive) for simultaneous/overlapping actions, and having (done)/not having (done) when the first action is complete before the second, with a comma after a sentence-initial -ing/having clause."
+    }
+  ]
+};
+
+const UNIT_69_COUNTABLE_AND_UNCOUNTABLE_1: GrammarUnit = {
+  "unit": 69,
+  "slug": "countable-and-uncountable-1",
+  "title": "Countable and uncountable 1",
+  "topic": "articles and nouns",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "danh từ đếm được và không đếm được: sự khác biệt cơ bản",
+          "headingEn": "countable and uncountable nouns: the basic difference",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "A noun can be countable or uncountable:",
+              "vi": "Một danh từ có thể là danh từ đếm được hoặc không đếm được:"
+            },
+            {
+              "kind": "examples",
+              "heading": "Countable",
+              "headingVi": "Đếm được",
+              "items": [
+                {
+                  "en": "I eat **a banana** every day.",
+                  "vi": "Tôi ăn **một quả chuối** mỗi ngày."
+                },
+                {
+                  "en": "I like **bananas**.",
+                  "vi": "Tôi thích **chuối** (nói chung)."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "*Banana* is a countable noun.",
+              "vi": "*Banana* (chuối) là danh từ đếm được."
+            },
+            {
+              "kind": "text",
+              "text": "A countable noun can be singular (*banana*) or plural (*bananas*).",
+              "vi": "Danh từ đếm được có thể ở dạng số ít (*banana*) hoặc số nhiều (*bananas*)."
+            },
+            {
+              "kind": "text",
+              "text": "We can use numbers with countable nouns. So we can say **one banana**, **two bananas** etc.",
+              "vi": "Chúng ta có thể dùng số đếm với danh từ đếm được. Vì vậy có thể nói **one banana**, **two bananas** v.v."
+            },
+            {
+              "kind": "text",
+              "text": "Examples of nouns usually countable:",
+              "vi": "Ví dụ về những danh từ thường là đếm được:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "Kate was singing **a song**.",
+                  "vi": "Kate đang hát một bài hát."
+                },
+                {
+                  "en": "There's **a nice beach** near here.",
+                  "vi": "Có một bãi biển đẹp gần đây."
+                },
+                {
+                  "en": "Do you have **a ten-pound note**?",
+                  "vi": "Bạn có tờ mười bảng nào không?"
+                },
+                {
+                  "en": "It wasn't your fault. It was **an accident**.",
+                  "vi": "Đó không phải lỗi của bạn. Đó là một vụ tai nạn."
+                },
+                {
+                  "en": "There are **no batteries** in the radio.",
+                  "vi": "Không có viên pin nào trong cái đài."
+                },
+                {
+                  "en": "We don't have **enough cups**.",
+                  "vi": "Chúng tôi không có đủ cốc."
+                }
+              ]
+            },
+            {
+              "kind": "examples",
+              "heading": "Uncountable",
+              "headingVi": "Không đếm được",
+              "items": [
+                {
+                  "en": "I eat **rice** every day.",
+                  "vi": "Tôi ăn **cơm** mỗi ngày."
+                },
+                {
+                  "en": "I like **rice**.",
+                  "vi": "Tôi thích **cơm**."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "*Rice* is an uncountable noun.",
+              "vi": "*Rice* (cơm, gạo) là danh từ không đếm được."
+            },
+            {
+              "kind": "text",
+              "text": "An uncountable noun has only one form (*rice*). There is no plural.",
+              "vi": "Danh từ không đếm được chỉ có một dạng duy nhất (*rice*). Không có dạng số nhiều."
+            },
+            {
+              "kind": "text",
+              "text": "We cannot use numbers with uncountable nouns. We cannot say 'one rice', 'two rices' etc.",
+              "vi": "Chúng ta không thể dùng số đếm với danh từ không đếm được. Không thể nói 'one rice', 'two rices' v.v."
+            },
+            {
+              "kind": "text",
+              "text": "Examples of nouns usually uncountable:",
+              "vi": "Ví dụ về những danh từ thường là không đếm được:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "Kate was listening to **music**.",
+                  "vi": "Kate đang nghe nhạc."
+                },
+                {
+                  "en": "There's **sand** in my shoes.",
+                  "vi": "Có cát trong giày của tôi."
+                },
+                {
+                  "en": "Do you have **any money**?",
+                  "vi": "Bạn có tiền không?"
+                },
+                {
+                  "en": "It wasn't your fault. It was **bad luck**.",
+                  "vi": "Đó không phải lỗi của bạn. Đó là do vận đen."
+                },
+                {
+                  "en": "There is **no electricity** in this house.",
+                  "vi": "Nhà này không có điện."
+                },
+                {
+                  "en": "We don't have **enough water**.",
+                  "vi": "Chúng tôi không có đủ nước."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "dùng a/an với danh từ đếm được số ít, không dùng với danh từ không đếm được",
+          "headingEn": "using a/an with singular countable nouns, not with uncountable nouns",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "You can use **a/an** with singular countable nouns:",
+              "vi": "Bạn có thể dùng **a/an** với danh từ đếm được số ít:"
+            },
+            {
+              "kind": "words",
+              "words": ["a beach", "a student", "an umbrella"]
+            },
+            {
+              "kind": "text",
+              "text": "You cannot use singular countable nouns alone (without a/the/my etc.):",
+              "vi": "Bạn không thể dùng danh từ đếm được số ít một mình (mà không có a/the/my v.v.):"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "Do you want **a banana**?",
+                  "note": "not want banana",
+                  "vi": "Bạn có muốn một quả chuối không?"
+                },
+                {
+                  "en": "There's been **an accident**.",
+                  "note": "not There's been accident",
+                  "vi": "Đã có một vụ tai nạn."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "You can use plural countable nouns alone:",
+              "vi": "Bạn có thể dùng danh từ đếm được số nhiều một mình:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I like **bananas**.",
+                  "note": "= bananas in general",
+                  "vi": "Tôi thích chuối (nói chung)."
+                },
+                {
+                  "en": "**Accidents** can be prevented.",
+                  "vi": "Tai nạn có thể được ngăn ngừa."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "We do not use **a/an** with uncountable nouns. We do not say 'a sand', 'a music', 'a rice'.",
+              "vi": "Chúng ta không dùng **a/an** với danh từ không đếm được. Không nói 'a sand', 'a music', 'a rice'."
+            },
+            {
+              "kind": "text",
+              "text": "But you can often use **a ... of**. For example:",
+              "vi": "Nhưng bạn thường có thể dùng **a ... of**. Ví dụ:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "**a bowl of** rice",
+                  "vi": "một bát gạo/cơm"
+                },
+                {
+                  "en": "**a packet of** rice",
+                  "vi": "một gói gạo"
+                },
+                {
+                  "en": "**a grain of** rice",
+                  "vi": "một hạt gạo"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "You can use uncountable nouns alone (without the/my/some etc.):",
+              "vi": "Bạn có thể dùng danh từ không đếm được một mình (mà không có the/my/some v.v.):"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I eat **rice** every day.",
+                  "vi": "Tôi ăn cơm mỗi ngày."
+                },
+                {
+                  "en": "There's **blood** on your shirt.",
+                  "vi": "Có máu trên áo của bạn."
+                },
+                {
+                  "en": "Can you hear **music**?",
+                  "vi": "Bạn có nghe thấy nhạc không?"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "some/any, many/few với danh từ đếm được; some/any, much/little với danh từ không đếm được",
+          "headingEn": "some/any, many/few with countable nouns; some/any, much/little with uncountable nouns",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "You can use **some** and **any** with plural countable nouns:",
+              "vi": "Bạn có thể dùng **some** và **any** với danh từ đếm được số nhiều:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "We sang **some** songs.",
+                  "vi": "Chúng tôi đã hát vài bài hát."
+                },
+                {
+                  "en": "Did you buy **any** apples?",
+                  "vi": "Bạn có mua táo không?"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "We use **many** and **few** with plural countable nouns:",
+              "vi": "Chúng ta dùng **many** và **few** với danh từ đếm được số nhiều:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "We didn't take **many** pictures.",
+                  "vi": "Chúng tôi không chụp nhiều ảnh."
+                },
+                {
+                  "en": "I have **a few** things to do.",
+                  "vi": "Tôi có một vài việc phải làm."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "You can use **some** and **any** with uncountable nouns:",
+              "vi": "Bạn có thể dùng **some** và **any** với danh từ không đếm được:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "We listened to **some** music.",
+                  "vi": "Chúng tôi đã nghe một chút nhạc."
+                },
+                {
+                  "en": "Did you buy **any** apple juice?",
+                  "vi": "Bạn có mua nước táo không?"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "We use **much** and **little** with uncountable nouns:",
+              "vi": "Chúng ta dùng **much** và **little** với danh từ không đếm được:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "We didn't do **much** shopping.",
+                  "vi": "Chúng tôi không mua sắm nhiều."
+                },
+                {
+                  "en": "I have **a little** work to do.",
+                  "vi": "Tôi có một ít việc phải làm."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "judge_correct",
+      "title": "69.1 · Câu nào cần a/an? Sửa lại nếu cần",
+      "titleEn": "69.1 · Do these sentences need a/an?",
+      "instructions": "Một số câu dưới đây cần thêm a/an. Nếu câu đã đúng, chọn Đúng; nếu chưa đúng, chọn Cần sửa và viết lại phần gạch chân cho đúng. (Ví dụ trong sách: 'He doesn't have car.' sửa thành 'He doesn't have a car.'; 'Helen was listening to music when I arrived.' đã đúng.)",
+      "instructionsEn": "Some of these sentences need a/an. Choose Correct if the sentence is already right; otherwise choose Needs fixing and correct the underlined part. (The book's examples: 'He doesn't have car.' becomes 'He doesn't have a car.'; 'Helen was listening to music when I arrived.' is already correct.)",
+      "startNumber": 3,
+      "items": [
+        {
+          "sentence": "We went to very nice restaurant last weekend.",
+          "underlined": "very nice restaurant",
+          "ok": false,
+          "correction": "a very nice restaurant"
+        },
+        {
+          "sentence": "I brush my teeth with toothpaste.",
+          "underlined": "toothpaste",
+          "ok": true
+        },
+        {
+          "sentence": "I use toothbrush to brush my teeth.",
+          "underlined": "toothbrush",
+          "ok": false,
+          "correction": "a toothbrush"
+        },
+        {
+          "sentence": "Can you tell me if there's bank near here?",
+          "underlined": "bank",
+          "ok": false,
+          "correction": "a bank"
+        },
+        {
+          "sentence": "My brother works for insurance company.",
+          "underlined": "insurance company",
+          "ok": false,
+          "correction": "an insurance company"
+        },
+        {
+          "sentence": "I don't like violence.",
+          "underlined": "violence",
+          "ok": true
+        },
+        {
+          "sentence": "When we were in Rome, we stayed in big hotel.",
+          "underlined": "big hotel",
+          "ok": false,
+          "correction": "a big hotel"
+        },
+        {
+          "sentence": "If you have problem, I'll try and help you.",
+          "underlined": "problem",
+          "ok": false,
+          "correction": "a problem"
+        },
+        {
+          "sentence": "I like your suggestion. It's interesting idea.",
+          "underlined": "interesting idea",
+          "ok": false,
+          "correction": "an interesting idea"
+        },
+        {
+          "sentence": "Can you smell paint?",
+          "underlined": "paint",
+          "ok": true
+        },
+        {
+          "sentence": "I like volleyball. It's good game.",
+          "underlined": "good game",
+          "ok": false,
+          "correction": "a good game"
+        },
+        {
+          "sentence": "Lisa doesn't usually wear jewellery.",
+          "underlined": "jewellery",
+          "ok": true
+        },
+        {
+          "sentence": "Jane was wearing beautiful necklace.",
+          "underlined": "beautiful necklace",
+          "ok": false,
+          "correction": "a beautiful necklace"
+        },
+        {
+          "sentence": "Does this city have airport?",
+          "underlined": "airport",
+          "ok": false,
+          "correction": "an airport"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "69.2 · Hoàn thành câu bằng các từ cho sẵn, dùng a/an khi cần",
+      "titleEn": "69.2 · Complete the sentences using the given words. Use a/an where necessary",
+      "instructions": "Hoàn thành các câu sau bằng những từ cho sẵn trong khung. Dùng a/an khi cần thiết.",
+      "instructionsEn": "Complete the sentences using the following words. Use a/an where necessary.",
+      "wordBank": ["accident", "biscuit", "blood", "coat", "decision", "electricity", "ice", "interview", "key", "moment", "music", "question"],
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "The road is closed. There's been ___.",
+          "answer": "an accident"
+        },
+        {
+          "label": "2",
+          "prompt": "Listen! Can you hear ___?",
+          "answer": "music"
+        }
+      ],
+      "startNumber": 3,
+      "items": [
+        {
+          "prompt": "I couldn't get into the house. I didn't have ___.",
+          "answer": "a key"
+        },
+        {
+          "prompt": "It's very warm today. Why are you wearing ___?",
+          "answer": "a coat"
+        },
+        {
+          "prompt": "Would you like ___ in your drink?",
+          "answer": "ice"
+        },
+        {
+          "prompt": "Are you hungry? Have ___!",
+          "answer": "a biscuit"
+        },
+        {
+          "prompt": "Our lives would be very difficult without ___.",
+          "answer": "electricity"
+        },
+        {
+          "prompt": "Excuse me, can I ask you ___?",
+          "answer": "a question"
+        },
+        {
+          "prompt": "I'm not ready yet. Can you wait ___, please?",
+          "answer": "a moment"
+        },
+        {
+          "prompt": "The heart pumps ___ through the body.",
+          "answer": "blood"
+        },
+        {
+          "prompt": "We can't delay much longer. We have to make ___ soon.",
+          "answer": "a decision"
+        },
+        {
+          "prompt": "I had ___ for a job yesterday. It went quite well.",
+          "answer": "an interview"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "69.3 · Hoàn thành câu bằng các từ cho sẵn (số nhiều hoặc a/an khi cần)",
+      "titleEn": "69.3 · Complete the sentences using the following words",
+      "instructions": "Hoàn thành các câu sau bằng những từ cho sẵn. Đôi khi từ cần ở dạng số nhiều (-s), đôi khi bạn cần dùng a/an.",
+      "instructionsEn": "Complete the sentences using the following words. Sometimes the word needs to be plural (-s), and sometimes you need to use a/an.",
+      "wordBank": ["air", "day", "friend", "joke", "language", "meat", "patience", "people", "picture", "queue", "space", "umbrella"],
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "I had a camera with me, but I didn't take any ___.",
+          "answer": "pictures"
+        }
+      ],
+      "startNumber": 2,
+      "items": [
+        {
+          "prompt": "There are seven ___ in a week.",
+          "answer": "days"
+        },
+        {
+          "prompt": "A vegetarian is a person who doesn't eat ___.",
+          "answer": "meat"
+        },
+        {
+          "prompt": "Outside the cinema there was ___ of people waiting to see the film.",
+          "answer": "a queue"
+        },
+        {
+          "prompt": "I'm not good at telling ___.",
+          "answer": "jokes"
+        },
+        {
+          "prompt": "Last night I went out with some ___ of mine.",
+          "answer": "friends"
+        },
+        {
+          "prompt": "There were very few ___ in town today. The streets were almost empty.",
+          "answer": "people"
+        },
+        {
+          "prompt": "I'm going out for a walk. I need some fresh ___.",
+          "answer": "air"
+        },
+        {
+          "prompt": "Paul always wants things quickly. He doesn't have much ___.",
+          "answer": "patience"
+        },
+        {
+          "prompt": "I think it's going to rain. Do you have ___ I could borrow?",
+          "answer": "an umbrella"
+        },
+        {
+          "prompt": "How many ___ can you speak?",
+          "answer": "languages"
+        },
+        {
+          "prompt": "Our flat is very small. We don't have much ___.",
+          "answer": "space"
+        }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh về những đồ vật hoặc thứ bạn dùng hằng ngày, chú ý dùng a/an đúng cách với danh từ đếm được số ít (a key, an umbrella...) và không dùng a/an với danh từ không đếm được (money, water, information...).",
+      "instructionsEn": "Write 2-3 English sentences about everyday things you use or need, being careful to use a/an correctly with singular countable nouns (a key, an umbrella...) and to leave it out with uncountable nouns (money, water, information...).",
+      "ruleSummary": "This unit covers countable and uncountable nouns. A countable noun can be singular (a banana) or plural (bananas), and can be used with a/an in the singular and with numbers (one banana, two bananas). An uncountable noun (rice, music, sand, money, luck, electricity, water etc.) has only one form, no plural, and cannot be used with a/an or with numbers, though phrases like 'a bowl of rice', 'a packet of rice' or 'a grain of rice' let you count a quantity of it. A singular countable noun cannot be used alone without a/the/my etc. (not 'want banana', but 'want a banana'); plural countable nouns and uncountable nouns can be used alone (I like bananas = bananas in general; I eat rice every day). Some and any can be used with both plural countable nouns and uncountable nouns (some songs / some music, any apples / any apple juice); many and few go with plural countable nouns (many pictures, a few things to do), while much and little go with uncountable nouns (much shopping, a little work to do). A correct student sentence should use a/an with a singular countable noun, never with an uncountable noun, and should pair many/few with countable nouns and much/little with uncountable nouns."
+    }
+  ]
+};
+
+const UNIT_70_COUNTABLE_AND_UNCOUNTABLE_2: GrammarUnit = {
+  "unit": 70,
+  "slug": "countable-and-uncountable-2",
+  "title": "Countable and uncountable 2",
+  "topic": "articles and nouns",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "nhiều danh từ vừa đếm được vừa không đếm được, tùy theo nghĩa",
+          "headingEn": "many nouns are both countable and uncountable, depending on the meaning",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "Many nouns are sometimes countable, and sometimes uncountable. Usually there is a difference in meaning.",
+              "vi": "Nhiều danh từ có lúc là đếm được, có lúc là không đếm được. Thường thì nghĩa của chúng sẽ khác nhau."
+            },
+            {
+              "kind": "text",
+              "text": "Compare:",
+              "vi": "So sánh:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "Did you hear **a noise** just now?",
+                  "note": "= a specific noise",
+                  "vi": "Bạn vừa nghe thấy một tiếng động không?"
+                },
+                {
+                  "en": "I can't work here. There's too much **noise**.",
+                  "note": "= noise in general",
+                  "vi": "Tôi không thể làm việc ở đây được. Ồn quá."
+                },
+                {
+                  "en": "I bought **a paper** to read.",
+                  "note": "= a newspaper",
+                  "vi": "Tôi đã mua một tờ báo để đọc."
+                },
+                {
+                  "en": "I need some **paper** to write on.",
+                  "note": "= material for writing on",
+                  "vi": "Tôi cần một ít giấy để viết."
+                },
+                {
+                  "en": "There's **a hair** in my soup!",
+                  "note": "= one single hair",
+                  "vi": "Có một cái tóc trong bát súp của tôi!"
+                },
+                {
+                  "en": "You've got very long **hair**.",
+                  "note": "not hairs",
+                  "vi": "Tóc của bạn rất dài. (tóc nói chung, không phải từng cái tóc)"
+                },
+                {
+                  "en": "This is **a nice room**.",
+                  "note": "= a room in a house",
+                  "vi": "Đây là một căn phòng đẹp."
+                },
+                {
+                  "en": "You can't sit here. There isn't **room**.",
+                  "note": "= space",
+                  "vi": "Bạn không thể ngồi đây được. Không có chỗ đâu."
+                },
+                {
+                  "en": "I had some interesting **experiences** while I was travelling.",
+                  "note": "= things that happened to me",
+                  "vi": "Tôi đã có vài trải nghiệm thú vị trong lúc đi du lịch."
+                },
+                {
+                  "en": "I was offered the job because I had a lot of **experience**.",
+                  "note": "not experiences",
+                  "vi": "Tôi được nhận công việc đó vì tôi có nhiều kinh nghiệm. (kinh nghiệm về loại việc đó)"
+                },
+                {
+                  "en": "Enjoy your trip. Have **a great time**!",
+                  "vi": "Chúc bạn có một chuyến đi vui vẻ. Chúc bạn có khoảng thời gian tuyệt vời!"
+                },
+                {
+                  "en": "I can't wait. I don't have **time**.",
+                  "vi": "Tôi không thể chờ được. Tôi không có thời gian."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "**Coffee**/**tea**/**juice**/**beer** etc. (drinks) are normally uncountable:",
+              "vi": "Coffee/tea/juice/beer v.v. (đồ uống) thường là danh từ không đếm được:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I don't like **coffee** very much.",
+                  "vi": "Tôi không thích cà phê lắm."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "But you can say **a coffee** (= a cup of coffee), **two coffees** (= two cups) etc.:",
+              "vi": "Nhưng bạn có thể nói **a coffee** (= một cốc cà phê), **two coffees** (= hai cốc) v.v.:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "**Two coffees** and an orange juice, please.",
+                  "vi": "Cho tôi hai cốc cà phê và một cốc nước cam."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "những danh từ thường là không đếm được",
+          "headingEn": "nouns that are usually uncountable",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "These nouns are usually uncountable:",
+              "vi": "Những danh từ sau thường là không đếm được:"
+            },
+            {
+              "kind": "words",
+              "words": ["accommodation", "advice", "baggage", "behaviour", "bread", "chaos", "damage", "furniture", "information", "luck", "luggage", "news", "permission", "progress", "scenery", "traffic", "weather", "work"]
+            },
+            {
+              "kind": "text",
+              "text": "We do not normally use **a/an** with these nouns:",
+              "vi": "Chúng ta thường không dùng **a/an** với những danh từ này:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I'm going to buy **some bread**. or ... **a loaf of** bread.",
+                  "note": "not a bread",
+                  "vi": "Tôi sẽ mua một ít bánh mì. hoặc ... một khoanh bánh mì."
+                },
+                {
+                  "en": "Enjoy your holiday! I hope you have **good weather**.",
+                  "note": "not a good weather",
+                  "vi": "Chúc bạn kỳ nghỉ vui vẻ! Mong bạn gặp thời tiết đẹp."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "These nouns are not usually plural (so we do not say *breads*, *furnitures* etc.):",
+              "vi": "Những danh từ này thường không có dạng số nhiều (vì vậy chúng ta không nói *breads*, *furnitures* v.v.):"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "Where are you going to put all your **furniture**?",
+                  "note": "not furnitures",
+                  "vi": "Bạn sẽ để hết đồ nội thất ở đâu?"
+                },
+                {
+                  "en": "Let me know if you need more **information**.",
+                  "note": "not informations",
+                  "vi": "Hãy cho tôi biết nếu bạn cần thêm thông tin."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "**News** is uncountable, not plural:",
+              "vi": "**News** (tin tức) là danh từ không đếm được, không phải số nhiều:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "The **news was** unexpected.",
+                  "note": "not The news were",
+                  "vi": "Tin đó thật bất ngờ."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "*Travel* (noun) means 'travelling in general' (uncountable). We do not say *a travel* to mean a trip or a journey:",
+              "vi": "*Travel* (danh từ) có nghĩa là 'việc đi lại nói chung' (không đếm được). Chúng ta không nói *a travel* để chỉ một chuyến đi hay một hành trình:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "They spend a lot of money on **travel**.",
+                  "vi": "Họ chi rất nhiều tiền cho việc đi lại."
+                },
+                {
+                  "en": "We had a very good **trip**/**journey**.",
+                  "note": "not a good travel",
+                  "vi": "Chúng tôi đã có một chuyến đi/hành trình rất tuyệt."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "Compare these countable and uncountable nouns:",
+              "vi": "So sánh những danh từ đếm được và không đếm được sau:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I'm looking for **a job**.",
+                  "vi": "Tôi đang tìm một công việc."
+                },
+                {
+                  "en": "I'm looking for **work**.",
+                  "note": "not a work",
+                  "vi": "Tôi đang tìm việc làm."
+                },
+                {
+                  "en": "What **a beautiful view**!",
+                  "vi": "Cảnh đẹp quá!"
+                },
+                {
+                  "en": "What **beautiful scenery**!",
+                  "vi": "Phong cảnh đẹp quá!"
+                },
+                {
+                  "en": "It's **a nice day** today.",
+                  "vi": "Hôm nay là một ngày đẹp."
+                },
+                {
+                  "en": "It's **nice weather** today.",
+                  "vi": "Hôm nay thời tiết đẹp."
+                },
+                {
+                  "en": "We had **a lot of bags**.",
+                  "vi": "Chúng tôi có rất nhiều túi."
+                },
+                {
+                  "en": "We had **a lot of baggage/luggage**.",
+                  "vi": "Chúng tôi có rất nhiều hành lý."
+                },
+                {
+                  "en": "**These chairs** are mine.",
+                  "vi": "Những cái ghế này là của tôi."
+                },
+                {
+                  "en": "**This furniture** is mine.",
+                  "vi": "Bộ đồ nội thất này là của tôi."
+                },
+                {
+                  "en": "That's **a good suggestion**.",
+                  "vi": "Đó là một gợi ý hay."
+                },
+                {
+                  "en": "That's **good advice**.",
+                  "vi": "Đó là một lời khuyên hay."
+                },
+                {
+                  "en": "There were **a lot of cars**.",
+                  "vi": "Có rất nhiều xe ô tô."
+                },
+                {
+                  "en": "There was **a lot of traffic**.",
+                  "vi": "Xe cộ đông lắm."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "fill_mc",
+      "title": "70.1 · Cách nào đúng?",
+      "titleEn": "70.1 · Which is correct?",
+      "instructions": "Chọn cách diễn đạt đúng trong mỗi câu. (Ví dụ trong sách: ở câu 1a, 'a strange noise' là đúng.)",
+      "instructionsEn": "Choose the correct option in each sentence. (The book's example: in sentence 1a, 'a strange noise' is correct.)",
+      "examples": [
+        {
+          "label": "1a",
+          "prompt": "The engine is making ___. What is it?",
+          "answer": "a strange noise"
+        }
+      ],
+      "items": [
+        {
+          "label": "1b",
+          "before": "We live near a busy road so",
+          "after": "",
+          "options": ["there's a lot of noise", "there are a lot of noises"],
+          "answer": "there's a lot of noise"
+        },
+        {
+          "label": "2a",
+          "before": "",
+          "after": "comes from the sun.",
+          "options": ["Light", "A light"],
+          "answer": "Light"
+        },
+        {
+          "label": "2b",
+          "before": "I thought there was somebody in the house because there was",
+          "after": "on inside.",
+          "options": ["light", "a light"],
+          "answer": "a light"
+        },
+        {
+          "label": "3a",
+          "before": "I was in a hurry this morning. I didn't have",
+          "after": "for breakfast.",
+          "options": ["time", "a time"],
+          "answer": "time"
+        },
+        {
+          "label": "3b",
+          "before": "We really enjoyed our holiday. We had",
+          "after": "",
+          "options": ["great time", "a great time"],
+          "answer": "a great time"
+        },
+        {
+          "label": "4a",
+          "before": "Can I have",
+          "after": ", please?",
+          "options": ["glass of water", "a glass of water"],
+          "answer": "a glass of water"
+        },
+        {
+          "label": "4b",
+          "before": "Be careful. The window has been broken and there's",
+          "after": "on the floor.",
+          "options": ["broken glass", "a broken glass"],
+          "answer": "broken glass"
+        },
+        {
+          "label": "5a",
+          "before": "We stayed at a hotel. We had",
+          "after": "",
+          "options": ["very nice room", "a very nice room"],
+          "answer": "a very nice room"
+        },
+        {
+          "label": "5b",
+          "before": "We have a big garage. There's",
+          "after": "for two cars.",
+          "options": ["room", "a room"],
+          "answer": "room"
+        }
+      ]
+    },
+    {
+      "kind": "fill_mc",
+      "title": "70.2 · Cách nào đúng?",
+      "titleEn": "70.2 · Which is correct?",
+      "instructions": "Chọn cách diễn đạt đúng trong mỗi câu. (Ví dụ trong sách: ở câu 1, 'nice weather' là đúng.)",
+      "instructionsEn": "Choose the correct option in each sentence. (The book's example: in sentence 1, 'nice weather' is correct.)",
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "Did you have ___ when you were away?",
+          "answer": "nice weather"
+        }
+      ],
+      "startNumber": 2,
+      "items": [
+        {
+          "before": "We were very unfortunate. We had",
+          "after": "",
+          "options": ["bad luck", "a bad luck"],
+          "answer": "bad luck"
+        },
+        {
+          "before": "Our",
+          "after": "from Paris to Moscow by train was very tiring.",
+          "options": ["travel", "journey"],
+          "answer": "journey"
+        },
+        {
+          "before": "When the fire alarm rang, there was",
+          "after": "",
+          "options": ["complete chaos", "a complete chaos"],
+          "answer": "complete chaos"
+        },
+        {
+          "before": "Bad news",
+          "after": "make people happy.",
+          "options": ["don't", "doesn't"],
+          "answer": "doesn't"
+        },
+        {
+          "before": "There's",
+          "after": "in this part of the country.",
+          "options": ["some lovely scenery", "a lovely scenery"],
+          "answer": "some lovely scenery"
+        },
+        {
+          "before": "I like my job, but it's",
+          "after": "",
+          "options": ["very hard work", "a very hard work"],
+          "answer": "very hard work"
+        },
+        {
+          "before": "I want to print some documents, but the printer is out of",
+          "after": "",
+          "options": ["paper", "papers"],
+          "answer": "paper"
+        },
+        {
+          "before": "The trip took a long time. There was",
+          "after": "",
+          "options": ["heavy traffic", "a heavy traffic"],
+          "answer": "heavy traffic"
+        },
+        {
+          "before": "",
+          "after": "",
+          "options": ["Your hair is too long. You should have it cut.", "Your hairs are too long. You should have them cut."],
+          "answer": "Your hair is too long. You should have it cut."
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "70.3 · Hoàn thành câu bằng các từ cho sẵn (thêm -s nếu cần)",
+      "titleEn": "70.3 · Complete the sentences using the following words",
+      "instructions": "Hoàn thành các câu sau bằng những từ cho sẵn trong khung. Dùng dạng số nhiều (-s) khi cần thiết.",
+      "instructionsEn": "Complete the sentences using the following words. Use the plural (-s) where necessary.",
+      "wordBank": ["advice", "chair", "damage", "experience", "experience", "furniture", "hair", "luggage", "permission", "progress"],
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "We didn't have much ___, just two small bags.",
+          "answer": "luggage"
+        }
+      ],
+      "startNumber": 2,
+      "items": [
+        {
+          "prompt": "We have no ___, not even a bed or a table.",
+          "answer": "furniture"
+        },
+        {
+          "prompt": "There is room for everybody to sit down. There are plenty of ___.",
+          "answer": "chairs"
+        },
+        {
+          "prompt": "Who is that woman with short ___? Do you know her?",
+          "answer": "hair"
+        },
+        {
+          "prompt": "Carla's English is better than it was. She's made good ___.",
+          "answer": "progress"
+        },
+        {
+          "prompt": "If you want to take pictures here, you need to ask for ___.",
+          "answer": "permission"
+        },
+        {
+          "prompt": "I didn't know what I should do, so I asked Chris for ___.",
+          "answer": "advice"
+        },
+        {
+          "prompt": "I don't think Dan should get the job. He doesn't have enough ___.",
+          "answer": "experience"
+        },
+        {
+          "prompt": "Kate has done many interesting things. She could write a book about her ___.",
+          "answer": "experiences"
+        },
+        {
+          "prompt": "The ___ caused by the storm will cost a lot to repair.",
+          "answer": "damage"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "70.4 · Bạn nói gì trong các tình huống sau? Dùng từ trong ngoặc",
+      "titleEn": "70.4 · What do you say in these situations? Use the word in brackets",
+      "instructions": "Đọc tình huống rồi viết câu bằng từ trong ngoặc.",
+      "instructionsEn": "Read the situation and write a sentence using the word in brackets.",
+      "examples": [
+        {
+          "label": "1",
+          "context": "Your friends have just arrived at the station. You can't see any cases or bags. You ask:",
+          "prompt": "(luggage) Do you have any ___?",
+          "answer": "luggage"
+        }
+      ],
+      "startNumber": 2,
+      "items": [
+        {
+          "context": "You go to a tourist office. You want to know about places to visit in the town.",
+          "prompt": "(information) I'd like ___.",
+          "answer": "some information about places to visit in the town",
+          "accept": ["some information about places to visit"]
+        },
+        {
+          "context": "You are a student. You want your teacher to advise you about which courses to do. You say:",
+          "prompt": "(advice) Can you give ___?",
+          "answer": "me some advice about which courses to do",
+          "accept": ["me some advice about which courses I can do"]
+        },
+        {
+          "context": "You applied for a job and you've just heard that you were successful. You call Tom and say:",
+          "prompt": "(good news) Hi, Tom. I ___. I got the job!",
+          "answer": "have got some good news",
+          "accept": ["have just got some good news", "just got some good news", "got some good news"]
+        },
+        {
+          "context": "You are at the top of a mountain. You can see a very long way. It's beautiful. You say:",
+          "prompt": "(view) It ___, isn't it?",
+          "answer": "is a beautiful view",
+          "accept": ["'s a beautiful view"]
+        },
+        {
+          "context": "You look out of the window. The weather is horrible: cold, wet and windy. You say:",
+          "prompt": "(weather) What ___!",
+          "answer": "horrible weather",
+          "accept": ["awful weather", "terrible weather"]
+        }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh kể về một chuyến đi hoặc một ngày của bạn, sử dụng đúng các danh từ không đếm được như luggage, traffic, weather, advice, news, information... (không thêm a/an, không chia số nhiều).",
+      "instructionsEn": "Write 2-3 English sentences about a trip or a day of yours, using uncountable nouns like luggage, traffic, weather, advice, news, information... correctly (no a/an, no plural).",
+      "ruleSummary": "This unit covers pairs of nouns that are the same word but change between countable and uncountable depending on meaning: noise (a noise = a specific sound; noise = sound in general), paper (a paper = a newspaper; paper = writing material), hair (a hair = one single hair; hair = all the hair on someone's head, not hairs), room (a room = a room in a building; room = space, uncountable), and experience (an experience/experiences = something that happened to someone; experience = knowledge or skill gained from doing something, uncountable, not experiences), plus time (a time = an occasion, e.g. have a great time; time = time in general, uncountable). Coffee/tea/juice/beer are normally uncountable, but 'a coffee'/'two coffees' can mean a cup/cups of it. A fixed group of nouns is usually uncountable, takes no a/an and is not used in the plural: accommodation, advice, baggage, behaviour, bread, chaos, damage, furniture, information, luck, luggage, news, permission, progress, scenery, traffic, weather, work (so 'some bread' or 'a loaf of bread', not 'a bread'; 'more information', not 'informations'; 'the news was', not 'the news were'). Travel is uncountable and means travelling in general; a single trip is 'a trip' or 'a journey', not 'a travel'. Common countable/uncountable pairs to contrast: a job/work, a view/scenery, a day/weather, bags/baggage or luggage, chairs/furniture, a suggestion/advice, cars/traffic. A correct student sentence should never add a/an or a plural -s to one of the fixed uncountable nouns, and should choose the right member of a countable/uncountable pair for the meaning intended."
+    }
+  ]
+};
+
 export const UNITS_META: GrammarUnitMeta[] = [
   { unit: 1, slug: UNIT_1_PRESENT_CONTINUOUS.slug, title: UNIT_1_PRESENT_CONTINUOUS.title, topic: UNIT_1_PRESENT_CONTINUOUS.topic, available: true },
   { unit: 2, slug: UNIT_2_PRESENT_SIMPLE.slug, title: UNIT_2_PRESENT_SIMPLE.title, topic: UNIT_2_PRESENT_SIMPLE.topic, available: true },
@@ -27509,9 +31955,19 @@ export const UNITS_META: GrammarUnitMeta[] = [
   { unit: 58, slug: UNIT_58_VERB_ING_OR_TO_3.slug, title: UNIT_58_VERB_ING_OR_TO_3.title, topic: UNIT_58_VERB_ING_OR_TO_3.topic, available: true },
   { unit: 59, slug: UNIT_59_PREFER_WOULD_RATHER.slug, title: UNIT_59_PREFER_WOULD_RATHER.title, topic: UNIT_59_PREFER_WOULD_RATHER.topic, available: true },
   { unit: 60, slug: UNIT_60_PREPOSITION_ING.slug, title: UNIT_60_PREPOSITION_ING.title, topic: UNIT_60_PREPOSITION_ING.topic, available: true },
+  { unit: 61, slug: UNIT_61_BE_GET_USED_TO.slug, title: UNIT_61_BE_GET_USED_TO.title, topic: UNIT_61_BE_GET_USED_TO.topic, available: true },
+  { unit: 62, slug: UNIT_62_VERB_PREPOSITION_ING.slug, title: UNIT_62_VERB_PREPOSITION_ING.title, topic: UNIT_62_VERB_PREPOSITION_ING.topic, available: true },
+  { unit: 63, slug: UNIT_63_NO_POINT_WORTH_ING.slug, title: UNIT_63_NO_POINT_WORTH_ING.title, topic: UNIT_63_NO_POINT_WORTH_ING.topic, available: true },
+  { unit: 64, slug: UNIT_64_TO_FOR_SO_THAT.slug, title: UNIT_64_TO_FOR_SO_THAT.title, topic: UNIT_64_TO_FOR_SO_THAT.topic, available: true },
+  { unit: 65, slug: UNIT_65_ADJECTIVE_TO.slug, title: UNIT_65_ADJECTIVE_TO.title, topic: UNIT_65_ADJECTIVE_TO.topic, available: true },
+  { unit: 66, slug: UNIT_66_AFRAID_TO_AFRAID_OF_ING.slug, title: UNIT_66_AFRAID_TO_AFRAID_OF_ING.title, topic: UNIT_66_AFRAID_TO_AFRAID_OF_ING.topic, available: true },
+  { unit: 67, slug: UNIT_67_SEE_SOMEBODY_DO_DOING.slug, title: UNIT_67_SEE_SOMEBODY_DO_DOING.title, topic: UNIT_67_SEE_SOMEBODY_DO_DOING.topic, available: true },
+  { unit: 68, slug: UNIT_68_ING_CLAUSES.slug, title: UNIT_68_ING_CLAUSES.title, topic: UNIT_68_ING_CLAUSES.topic, available: true },
+  { unit: 69, slug: UNIT_69_COUNTABLE_AND_UNCOUNTABLE_1.slug, title: UNIT_69_COUNTABLE_AND_UNCOUNTABLE_1.title, topic: UNIT_69_COUNTABLE_AND_UNCOUNTABLE_1.topic, available: true },
+  { unit: 70, slug: UNIT_70_COUNTABLE_AND_UNCOUNTABLE_2.slug, title: UNIT_70_COUNTABLE_AND_UNCOUNTABLE_2.title, topic: UNIT_70_COUNTABLE_AND_UNCOUNTABLE_2.topic, available: true },
 ];
 
-export const GRAMMAR_UNITS: GrammarUnit[] = [UNIT_1_PRESENT_CONTINUOUS, UNIT_2_PRESENT_SIMPLE, UNIT_3_PRESENT_CONTINUOUS_AND_SIMPLE_1, UNIT_4_PRESENT_CONTINUOUS_AND_SIMPLE_2, UNIT_5_PAST_SIMPLE, UNIT_6_PAST_CONTINUOUS, UNIT_7_PRESENT_PERFECT_1, UNIT_8_PRESENT_PERFECT_2, UNIT_9_PRESENT_PERFECT_CONTINUOUS, UNIT_10_PRESENT_PERFECT_CONTINUOUS_AND_SIMPLE, UNIT_11_HOW_LONG_HAVE_YOU_BEEN, UNIT_12_FOR_AND_SINCE, UNIT_13_PRESENT_PERFECT_AND_PAST_1, UNIT_14_PRESENT_PERFECT_AND_PAST_2, UNIT_15_PAST_PERFECT, UNIT_16_PAST_PERFECT_CONTINUOUS, UNIT_17_HAVE_AND_HAVE_GOT, UNIT_18_USED_TO, UNIT_19_PRESENT_TENSES_FOR_THE_FUTURE, UNIT_20_IM_GOING_TO, UNIT_21_WILL_AND_SHALL_1, UNIT_22_WILL_AND_SHALL_2, UNIT_23_I_WILL_AND_IM_GOING_TO, UNIT_24_WILL_BE_DOING_AND_WILL_HAVE_DONE, UNIT_25_WHEN_I_DO_AND_WHEN_IVE_DONE, UNIT_26_CAN_COULD_AND_BE_ABLE_TO, UNIT_27_COULD_DO_AND_COULD_HAVE_DONE, UNIT_28_MUST_AND_CANT, UNIT_29_MAY_AND_MIGHT_1, UNIT_30_MAY_AND_MIGHT_2, UNIT_31_HAVE_TO_AND_MUST, UNIT_32_MUST_MUSTNT_NEEDNT, UNIT_33_SHOULD_1, UNIT_34_SHOULD_2, UNIT_35_ID_BETTER_ITS_TIME, UNIT_36_WOULD, UNIT_37_REQUESTS_OFFERS_PERMISSION_INVITATIONS, UNIT_38_IF_I_DO_AND_IF_I_DID, UNIT_39_IF_I_KNEW_I_WISH_I_KNEW, UNIT_40_IF_I_HAD_KNOWN_I_WISH_I_HAD_KNOWN, UNIT_41_WISH, UNIT_42_PASSIVE_1, UNIT_43_PASSIVE_2, UNIT_44_PASSIVE_3, UNIT_45_SUPPOSED_TO, UNIT_46_HAVE_SOMETHING_DONE, UNIT_47_REPORTED_SPEECH_1, UNIT_48_REPORTED_SPEECH_2, UNIT_49_QUESTIONS_1, UNIT_50_QUESTIONS_2, UNIT_51_I_THINK_SO_I_HOPE_SO, UNIT_52_QUESTION_TAGS, UNIT_53_VERB_ING, UNIT_54_VERB_TO, UNIT_55_VERB_OBJECT_TO, UNIT_56_VERB_ING_OR_TO_1, UNIT_57_VERB_ING_OR_TO_2, UNIT_58_VERB_ING_OR_TO_3, UNIT_59_PREFER_WOULD_RATHER, UNIT_60_PREPOSITION_ING];
+export const GRAMMAR_UNITS: GrammarUnit[] = [UNIT_1_PRESENT_CONTINUOUS, UNIT_2_PRESENT_SIMPLE, UNIT_3_PRESENT_CONTINUOUS_AND_SIMPLE_1, UNIT_4_PRESENT_CONTINUOUS_AND_SIMPLE_2, UNIT_5_PAST_SIMPLE, UNIT_6_PAST_CONTINUOUS, UNIT_7_PRESENT_PERFECT_1, UNIT_8_PRESENT_PERFECT_2, UNIT_9_PRESENT_PERFECT_CONTINUOUS, UNIT_10_PRESENT_PERFECT_CONTINUOUS_AND_SIMPLE, UNIT_11_HOW_LONG_HAVE_YOU_BEEN, UNIT_12_FOR_AND_SINCE, UNIT_13_PRESENT_PERFECT_AND_PAST_1, UNIT_14_PRESENT_PERFECT_AND_PAST_2, UNIT_15_PAST_PERFECT, UNIT_16_PAST_PERFECT_CONTINUOUS, UNIT_17_HAVE_AND_HAVE_GOT, UNIT_18_USED_TO, UNIT_19_PRESENT_TENSES_FOR_THE_FUTURE, UNIT_20_IM_GOING_TO, UNIT_21_WILL_AND_SHALL_1, UNIT_22_WILL_AND_SHALL_2, UNIT_23_I_WILL_AND_IM_GOING_TO, UNIT_24_WILL_BE_DOING_AND_WILL_HAVE_DONE, UNIT_25_WHEN_I_DO_AND_WHEN_IVE_DONE, UNIT_26_CAN_COULD_AND_BE_ABLE_TO, UNIT_27_COULD_DO_AND_COULD_HAVE_DONE, UNIT_28_MUST_AND_CANT, UNIT_29_MAY_AND_MIGHT_1, UNIT_30_MAY_AND_MIGHT_2, UNIT_31_HAVE_TO_AND_MUST, UNIT_32_MUST_MUSTNT_NEEDNT, UNIT_33_SHOULD_1, UNIT_34_SHOULD_2, UNIT_35_ID_BETTER_ITS_TIME, UNIT_36_WOULD, UNIT_37_REQUESTS_OFFERS_PERMISSION_INVITATIONS, UNIT_38_IF_I_DO_AND_IF_I_DID, UNIT_39_IF_I_KNEW_I_WISH_I_KNEW, UNIT_40_IF_I_HAD_KNOWN_I_WISH_I_HAD_KNOWN, UNIT_41_WISH, UNIT_42_PASSIVE_1, UNIT_43_PASSIVE_2, UNIT_44_PASSIVE_3, UNIT_45_SUPPOSED_TO, UNIT_46_HAVE_SOMETHING_DONE, UNIT_47_REPORTED_SPEECH_1, UNIT_48_REPORTED_SPEECH_2, UNIT_49_QUESTIONS_1, UNIT_50_QUESTIONS_2, UNIT_51_I_THINK_SO_I_HOPE_SO, UNIT_52_QUESTION_TAGS, UNIT_53_VERB_ING, UNIT_54_VERB_TO, UNIT_55_VERB_OBJECT_TO, UNIT_56_VERB_ING_OR_TO_1, UNIT_57_VERB_ING_OR_TO_2, UNIT_58_VERB_ING_OR_TO_3, UNIT_59_PREFER_WOULD_RATHER, UNIT_60_PREPOSITION_ING, UNIT_61_BE_GET_USED_TO, UNIT_62_VERB_PREPOSITION_ING, UNIT_63_NO_POINT_WORTH_ING, UNIT_64_TO_FOR_SO_THAT, UNIT_65_ADJECTIVE_TO, UNIT_66_AFRAID_TO_AFRAID_OF_ING, UNIT_67_SEE_SOMEBODY_DO_DOING, UNIT_68_ING_CLAUSES, UNIT_69_COUNTABLE_AND_UNCOUNTABLE_1, UNIT_70_COUNTABLE_AND_UNCOUNTABLE_2];
 
 export function getGrammarUnit(slug: string): GrammarUnit | undefined {
   return GRAMMAR_UNITS.find((u) => u.slug === slug);

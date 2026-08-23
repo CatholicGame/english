@@ -31894,6 +31894,2618 @@ const UNIT_70_COUNTABLE_AND_UNCOUNTABLE_2: GrammarUnit = {
   ]
 };
 
+const UNIT_71_COUNTABLE_NOUNS_A_AN_SOME: GrammarUnit = {
+  "unit": 71,
+  "slug": "countable-nouns-a-an-some",
+  "title": "Countable nouns with a/an and some",
+  "topic": "articles and nouns",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "danh từ đếm được: số ít và số nhiều",
+          "headingEn": "countable nouns: singular and plural",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "Countable nouns can be singular or plural:",
+              "vi": "Danh từ đếm được có thể ở dạng số ít hoặc số nhiều:"
+            },
+            {
+              "kind": "table",
+              "table": {
+                "rows": [
+                  ["**a** dog", "**a** child", "**the** evening", "**this** party", "**an** umbrella"],
+                  ["dogs", "**some** children", "**the** evenings", "**these** parties", "**two** umbrellas"]
+                ]
+              }
+            },
+            {
+              "kind": "text",
+              "text": "Before singular countable nouns you can use **a/an**:",
+              "vi": "Trước danh từ đếm được số ít, bạn có thể dùng **a/an**:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "Bye! Have **a** nice evening.",
+                  "vi": "Tạm biệt! Chúc bạn một buổi tối vui vẻ."
+                },
+                {
+                  "en": "Do you need **an** umbrella?",
+                  "vi": "Bạn có cần một cái ô không?"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "You cannot use singular countable nouns alone (without **a/the/my** etc.):",
+              "vi": "Bạn không thể dùng danh từ đếm được số ít một mình, mà không có **a/the/my** v.v.:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "She never wears **a hat**.",
+                  "note": "not wears hat",
+                  "vi": "Cô ấy không bao giờ đội mũ."
+                },
+                {
+                  "en": "Be careful of **the dog**.",
+                  "vi": "Hãy cẩn thận với con chó đó."
+                },
+                {
+                  "en": "What **a beautiful day**!",
+                  "vi": "Ngày đẹp quá!"
+                },
+                {
+                  "en": "Did you hurt **your leg**?",
+                  "vi": "Bạn có bị đau chân không?"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "dùng a/an để nói đó là loại gì; so sánh số ít và số nhiều",
+          "headingEn": "using a/an to say what kind of thing/person it is; comparing singular and plural",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "We use **a/an** ... to say what kind of thing something is, or what kind of person somebody is:",
+              "vi": "Chúng ta dùng **a/an** ... để nói đó là loại vật gì, hoặc người đó là loại người nào:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "That's **a nice table**.",
+                  "vi": "Đó là một cái bàn đẹp."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "In the plural we use the noun alone (not **some** ...):",
+              "vi": "Ở dạng số nhiều, chúng ta dùng danh từ một mình (không dùng **some**...):"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "Those are **nice chairs**.",
+                  "note": "not some nice chairs",
+                  "vi": "Những cái ghế đó đẹp."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "Compare singular and plural:",
+              "vi": "So sánh số ít và số nhiều:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "**A dog** is an animal.",
+                  "vi": "Một con chó là một loài động vật."
+                },
+                {
+                  "en": "**Dogs** are animals.",
+                  "vi": "Chó (nói chung) là động vật."
+                },
+                {
+                  "en": "I'm **an optimist**.",
+                  "vi": "Tôi là một người lạc quan."
+                },
+                {
+                  "en": "We're **optimists**.",
+                  "vi": "Chúng tôi là những người lạc quan."
+                },
+                {
+                  "en": "My father is **a doctor**.",
+                  "vi": "Bố tôi là một bác sĩ."
+                },
+                {
+                  "en": "My parents are both **doctors**.",
+                  "vi": "Bố mẹ tôi đều là bác sĩ."
+                },
+                {
+                  "en": "Jane is **a really nice person**.",
+                  "vi": "Jane là một người thực sự tốt bụng."
+                },
+                {
+                  "en": "Jane and Ben are really nice **people**.",
+                  "vi": "Jane và Ben đều là những người thực sự tốt bụng."
+                },
+                {
+                  "en": "What **a lovely dress**!",
+                  "vi": "Cái váy đẹp quá!"
+                },
+                {
+                  "en": "What **awful shoes**!",
+                  "vi": "Đôi giày xấu quá!"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "We say that somebody has **a long nose** / **a nice face** / **blue eyes** / **long fingers** etc.:",
+              "vi": "Chúng ta nói ai đó có **a long nose** / **a nice face** / **blue eyes** / **long fingers** v.v.:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "Jack has **a long nose**.",
+                  "note": "not the long nose",
+                  "vi": "Jack có một cái mũi dài."
+                },
+                {
+                  "en": "Jack has **blue eyes**.",
+                  "note": "not the blue eyes",
+                  "vi": "Jack có mắt xanh."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "We use **a/an** when we say what somebody's job is:",
+              "vi": "Chúng ta dùng **a/an** khi nói nghề nghiệp của ai đó:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "Sandra is **a nurse**.",
+                  "note": "not Sandra is nurse",
+                  "vi": "Sandra là một y tá."
+                },
+                {
+                  "en": "Would you like to be **an English teacher**?",
+                  "vi": "Bạn có muốn làm giáo viên tiếng Anh không?"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "dùng some với danh từ đếm được số nhiều",
+          "headingEn": "using some with plural countable nouns",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "You can use **some** with plural countable nouns. We use **some** in two ways.",
+              "vi": "Bạn có thể dùng **some** với danh từ đếm được số nhiều. Chúng ta dùng **some** theo hai cách."
+            },
+            {
+              "kind": "text",
+              "text": "(1) **some** = a number (of) / a few (of) / a pair (of):",
+              "vi": "(1) **some** = một số / một vài / một cặp:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I've seen **some good movies** recently.",
+                  "note": "not I've seen good movies",
+                  "vi": "Gần đây tôi đã xem một số bộ phim hay."
+                },
+                {
+                  "en": "**Some friends** of mine are coming to stay at the weekend.",
+                  "vi": "Một vài người bạn của tôi sẽ đến chơi vào cuối tuần."
+                },
+                {
+                  "en": "I need **some new sunglasses**.",
+                  "note": "= a new pair of sunglasses",
+                  "vi": "Tôi cần một cặp kính râm mới."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "Often you can say the same thing with or without **some**. For example:",
+              "vi": "Nhiều khi bạn có thể nói câu tương tự có hoặc không có **some**. Ví dụ:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I need (**some**) new clothes.",
+                  "vi": "Tôi cần (một ít) quần áo mới."
+                },
+                {
+                  "en": "The room was empty apart from a table and (**some**) chairs.",
+                  "vi": "Căn phòng trống trơn, chỉ có một cái bàn và (vài) cái ghế."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "Do not use **some** when you are talking about things in general (see Unit 75):",
+              "vi": "Không dùng **some** khi bạn nói về sự vật nói chung (xem Unit 75):"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I love **bananas**.",
+                  "note": "not some bananas",
+                  "vi": "Tôi thích chuối."
+                },
+                {
+                  "en": "My aunt is a writer. She writes **books**.",
+                  "note": "not some books",
+                  "vi": "Cô tôi là một nhà văn. Cô ấy viết sách."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "(2) **some** = some but not all:",
+              "vi": "(2) **some** = một số, không phải tất cả:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "**Some children** learn very quickly.",
+                  "note": "but not all children",
+                  "vi": "Một số trẻ học rất nhanh."
+                },
+                {
+                  "en": "Tomorrow there will be rain in **some places**, but most of the country will be dry.",
+                  "vi": "Ngày mai sẽ có mưa ở một số nơi, nhưng phần lớn cả nước sẽ khô ráo."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "71.1 · Đây là gì? Chọn từ trong khung và viết một câu",
+      "titleEn": "71.1 · What are these things? Choose from the box and write a sentence",
+      "instructions": "Đọc gợi ý, chọn từ phù hợp trong khung và viết một câu hoàn chỉnh.",
+      "instructionsEn": "Read the clue, choose a word from the box, and write a complete sentence.",
+      "wordBank": ["bird(s)", "flower(s)", "game(s)", "insect(s)", "language(s)", "planet(s)", "river(s)", "tool(s)", "vegetable(s)"],
+      "examples": [
+        {
+          "label": "1",
+          "context": "an eagle",
+          "prompt": "___",
+          "answer": "It's a bird."
+        },
+        {
+          "label": "2",
+          "context": "a pigeon, a duck and a penguin",
+          "prompt": "___",
+          "answer": "They're birds."
+        }
+      ],
+      "startNumber": 3,
+      "items": [
+        {
+          "context": "carrots and onions",
+          "prompt": "___",
+          "answer": "They're vegetables.",
+          "accept": ["They are vegetables."]
+        },
+        {
+          "context": "a tulip",
+          "prompt": "___",
+          "answer": "It's a flower.",
+          "accept": ["It is a flower."]
+        },
+        {
+          "context": "Earth, Mars and Jupiter",
+          "prompt": "___",
+          "answer": "They're planets.",
+          "accept": ["They are planets."]
+        },
+        {
+          "context": "chess",
+          "prompt": "___",
+          "answer": "It's a game.",
+          "accept": ["It is a game."]
+        },
+        {
+          "context": "a hammer, a saw and a screwdriver",
+          "prompt": "___",
+          "answer": "They're tools.",
+          "accept": ["They are tools."]
+        },
+        {
+          "context": "the Nile, the Rhine and the Mekong",
+          "prompt": "___",
+          "answer": "They're rivers.",
+          "accept": ["They are rivers."]
+        },
+        {
+          "context": "a mosquito",
+          "prompt": "___",
+          "answer": "It's an insect.",
+          "accept": ["It is an insect."]
+        },
+        {
+          "context": "Hindi, Arabic and Swahili",
+          "prompt": "___",
+          "answer": "They're languages.",
+          "accept": ["They are languages."]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "71.2 · Đọc về công việc của những người này. Họ làm nghề gì?",
+      "titleEn": "71.2 · Read about what these people do. What are their jobs?",
+      "instructions": "Đọc câu miêu tả rồi viết nghề nghiệp của người đó, chọn từ trong khung.",
+      "instructionsEn": "Read the description and write the person's job, choosing from the box.",
+      "wordBank": ["chef", "interpreter", "journalist", "nurse", "plumber", "surgeon", "tour guide", "waiter"],
+      "examples": [
+        {
+          "label": "1",
+          "context": "Sarah looks after patients in hospital.",
+          "prompt": "___",
+          "answer": "She's a nurse."
+        }
+      ],
+      "startNumber": 2,
+      "items": [
+        {
+          "context": "Gary works in a restaurant. He brings the food to the tables.",
+          "prompt": "___",
+          "answer": "He's a waiter.",
+          "accept": ["He is a waiter."]
+        },
+        {
+          "context": "Jane writes articles for a newspaper.",
+          "prompt": "___",
+          "answer": "She's a journalist.",
+          "accept": ["She is a journalist."]
+        },
+        {
+          "context": "Kevin works in a hospital. He operates on people.",
+          "prompt": "___",
+          "answer": "He's a surgeon.",
+          "accept": ["He is a surgeon."]
+        },
+        {
+          "context": "Jonathan cooks in a restaurant.",
+          "prompt": "___",
+          "answer": "He's a chef.",
+          "accept": ["He is a chef."]
+        },
+        {
+          "context": "Dave installs and repairs water pipes.",
+          "prompt": "___",
+          "answer": "He's a plumber.",
+          "accept": ["He is a plumber."]
+        },
+        {
+          "context": "Anna shows visitors round her city and tells them about it.",
+          "prompt": "___",
+          "answer": "She's a tour guide.",
+          "accept": ["She is a tour guide."]
+        },
+        {
+          "context": "Lisa translates what people are saying from one language into another, so that they can understand each other.",
+          "prompt": "___",
+          "answer": "She's an interpreter.",
+          "accept": ["She is an interpreter."]
+        }
+      ]
+    },
+    {
+      "kind": "fill_mc",
+      "title": "71.3 · Cách nào đúng?",
+      "titleEn": "71.3 · Which is right?",
+      "instructions": "Chọn cách diễn đạt đúng trong mỗi câu.",
+      "instructionsEn": "Choose the correct option in each sentence.",
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "Most of my friends are ___.",
+          "answer": "students"
+        }
+      ],
+      "items": [
+        {
+          "before": "Are you",
+          "after": "?",
+          "options": ["careful driver", "a careful driver"],
+          "answer": "a careful driver"
+        },
+        {
+          "before": "I went to the library and borrowed",
+          "after": "",
+          "options": ["books", "some books"],
+          "answer": "some books"
+        },
+        {
+          "before": "Mark works in a bookshop. He sells",
+          "after": "",
+          "options": ["books", "some books"],
+          "answer": "books"
+        },
+        {
+          "before": "I've been walking for hours. I've got",
+          "after": "",
+          "options": ["sore feet", "some sore feet"],
+          "answer": "sore feet"
+        },
+        {
+          "before": "I don't feel very well. I've got",
+          "after": "",
+          "options": ["sore throat", "a sore throat"],
+          "answer": "a sore throat"
+        },
+        {
+          "before": "What",
+          "after": "! Thank you very much.",
+          "options": ["lovely present", "a lovely present"],
+          "answer": "a lovely present"
+        },
+        {
+          "before": "I met",
+          "after": "in a cafe yesterday. They were from China.",
+          "options": ["students", "some students"],
+          "answer": "some students"
+        },
+        {
+          "before": "It might rain. Don't go out",
+          "after": "",
+          "options": ["without umbrella", "without an umbrella"],
+          "answer": "without an umbrella"
+        },
+        {
+          "before": "",
+          "after": "learn languages more easily than others.",
+          "options": ["People", "Some people"],
+          "answer": "Some people"
+        }
+      ]
+    },
+    {
+      "kind": "fill_mc",
+      "title": "71.4 · Điền a/an hoặc some",
+      "titleEn": "71.4 · Put in a/an or some",
+      "instructions": "Chọn a, an, some, hoặc \"(no article)\" nếu không cần từ nào ở chỗ trống.",
+      "instructionsEn": "Choose a, an, some, or \"(no article)\" if no word is necessary in the blank.",
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "I've seen ___ good movies recently.",
+          "answer": "some"
+        },
+        {
+          "label": "2",
+          "prompt": "Do you have ___ headache?",
+          "answer": "a"
+        },
+        {
+          "label": "3",
+          "prompt": "Most of them are ___ students.",
+          "answer": "(no article)"
+        }
+      ],
+      "items": [
+        {
+          "before": "When I was",
+          "after": "child, I used to be very shy.",
+          "options": ["a", "(no article)"],
+          "answer": "a"
+        },
+        {
+          "before": "",
+          "after": "birds, for example the penguin, cannot fly.",
+          "options": ["Some", "(no article)"],
+          "answer": "Some"
+        },
+        {
+          "before": "Would you like to be",
+          "after": "actor?",
+          "options": ["a", "an"],
+          "answer": "an"
+        },
+        {
+          "before": "Questions, questions, questions! You're always asking",
+          "after": "questions!",
+          "options": ["(no article)", "some"],
+          "answer": "(no article)"
+        },
+        {
+          "before": "I didn't expect to see you. What",
+          "after": "surprise!",
+          "options": ["a", "(no article)"],
+          "answer": "a"
+        },
+        {
+          "before": "Do you like staying in",
+          "after": "hotels?",
+          "options": ["(no article)", "some"],
+          "answer": "(no article)"
+        },
+        {
+          "before": "Tomorrow is a holiday.",
+          "after": "shops will be open, but most of them will be closed.",
+          "options": ["Some", "(no article)"],
+          "answer": "Some"
+        },
+        {
+          "before": "Those are",
+          "after": "nice shoes. Where did you get them?",
+          "options": ["(no article)", "some"],
+          "answer": "(no article)"
+        },
+        {
+          "before": "You need",
+          "after": "countries, but not all of them.",
+          "options": ["a visa to visit some", "some visa to visit a"],
+          "answer": "a visa to visit some"
+        },
+        {
+          "before": "Kate is",
+          "after": "too.",
+          "options": ["a teacher. Her parents were", "teacher. Her parents were some"],
+          "answer": "a teacher. Her parents were"
+        },
+        {
+          "before": "I don't believe him. He's",
+          "after": "lies.",
+          "options": ["a liar. He's always telling", "liar. He's always telling some"],
+          "answer": "a liar. He's always telling"
+        }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh: mô tả một công việc hoặc một vật gì đó bằng a/an (ví dụ: She's a nurse. That's a nice table.), và ít nhất một câu dùng some với danh từ số nhiều (ví dụ: I've seen some good movies recently.).",
+      "instructionsEn": "Write 2-3 English sentences: describe a job or a thing using a/an (e.g. She's a nurse. That's a nice table.), and at least one sentence using some with a plural noun (e.g. I've seen some good movies recently.).",
+      "ruleSummary": "This unit covers countable nouns used with a/an and some. Countable nouns can be singular (a dog, an umbrella) or plural (dogs, some children); a singular countable noun always needs a determiner (a/an/the/my etc.) and can never stand alone ('She never wears a hat', not 'wears hat'). We use a/an to say what kind of thing/person something is ('That's a nice table', 'Sandra is a nurse') - in the plural the noun stands alone with no article and no some when saying what kind of things they are ('Those are nice chairs', not 'some nice chairs'; compare 'A dog is an animal' / 'Dogs are animals'). Body-part and job descriptions follow the same pattern: 'Jack has a long nose' / 'Jack has blue eyes' (not 'the long nose'/'the blue eyes'); 'Sandra is a nurse' (not 'Sandra is nurse'). Some is used with plural countable nouns in two ways: (1) meaning 'a number of / a few of / a pair of' ('I've seen some good movies recently', not 'I've seen good movies'), which can often be dropped without changing the meaning ('I need (some) new clothes'), except when talking about things in general, where some must NOT be used ('I love bananas', not 'some bananas'); and (2) meaning 'some but not all' ('Some children learn very quickly', 'there will be rain in some places'). A correct student sentence should use a/an before a singular countable noun (never leave it bare), never add a/an or some to a plural noun used generally, and use some correctly only for 'a number of' or 'some but not all' plural nouns."
+    }
+  ]
+};
+
+const UNIT_72_A_AN_AND_THE: GrammarUnit = {
+  "unit": 72,
+  "slug": "a-an-and-the",
+  "title": "a/an and the",
+  "topic": "articles and nouns",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "dùng a/an lần đầu nhắc đến, the những lần sau",
+          "headingEn": "a/an the first time, the after that",
+          "intro": "Study this example:",
+          "introVi": "Hãy xem ví dụ sau:",
+          "parts": [
+            {
+              "kind": "situation",
+              "text": "Joe talks about his lunch:",
+              "vi": "Joe kể về bữa trưa của mình:",
+              "quotes": [
+                {
+                  "speaker": "Joe",
+                  "text": "I had **a** sandwich and **an** apple for lunch. **The** sandwich wasn't very good, but **the** apple was nice.",
+                  "vi": "Tôi đã ăn một cái sandwich và một quả táo cho bữa trưa. Cái sandwich không ngon lắm, nhưng quả táo lại ngon."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "Joe says **a** sandwich, **an** apple because this is the first time he talks about them.",
+              "vi": "Joe nói **a** sandwich, **an** apple vì đây là lần đầu tiên anh ấy nói về chúng."
+            },
+            {
+              "kind": "text",
+              "text": "Joe now says **the** sandwich, **the** apple because we know which sandwich and which apple he means, the sandwich and the apple he had for lunch.",
+              "vi": "Giờ Joe nói **the** sandwich, **the** apple vì chúng ta đã biết anh ấy đang nói đến cái sandwich và quả táo nào, đó chính là cái sandwich và quả táo anh ấy đã ăn trong bữa trưa."
+            },
+            {
+              "kind": "text",
+              "text": "Compare **a** and **the** in these examples:",
+              "vi": "So sánh **a** và **the** trong các ví dụ sau:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "**A** man and **a** woman were sitting opposite me. **The** man was American, but I think **the** woman was British.",
+                  "vi": "Có một người đàn ông và một người phụ nữ đang ngồi đối diện tôi. Người đàn ông đó là người Mỹ, nhưng tôi nghĩ người phụ nữ đó là người Anh."
+                },
+                {
+                  "en": "When we were on holiday, we stayed at **a** hotel. Sometimes we ate at **the** hotel and sometimes we went to **a** restaurant.",
+                  "vi": "Khi chúng tôi đi nghỉ, chúng tôi ở tại một khách sạn. Đôi khi chúng tôi ăn ở khách sạn đó, và đôi khi chúng tôi ra một nhà hàng khác."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "dùng the cho vật cụ thể; a/an cho loại vật/người nào",
+          "headingEn": "using the for a specific thing; a/an for what kind of thing/person",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "We use **the** when we are thinking of a specific thing. Compare a/an and the:",
+              "vi": "Chúng ta dùng **the** khi đang nghĩ đến một vật cụ thể. So sánh a/an và the:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "Tim sat down on **a** chair.",
+                  "note": "maybe one of many chairs in the room",
+                  "vi": "Tim ngồi xuống một cái ghế."
+                },
+                {
+                  "en": "Tim sat down on **the** chair nearest the door.",
+                  "note": "a specific chair",
+                  "vi": "Tim ngồi xuống cái ghế gần cửa nhất."
+                },
+                {
+                  "en": "Do you have **a** car?",
+                  "note": "not a specific car",
+                  "vi": "Bạn có xe hơi không?"
+                },
+                {
+                  "en": "I cleaned **the** car yesterday.",
+                  "note": "= my car",
+                  "vi": "Hôm qua tôi đã rửa xe."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "We use **a/an** when we say what kind of thing or person we mean. Compare:",
+              "vi": "Chúng ta dùng **a/an** khi muốn nói đó là loại vật hay loại người nào. So sánh:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "We stayed at **a** very cheap hotel.",
+                  "note": "a type of hotel",
+                  "vi": "Chúng tôi đã ở tại một khách sạn rất rẻ."
+                },
+                {
+                  "en": "**The** hotel where we stayed was very cheap.",
+                  "note": "a specific hotel",
+                  "vi": "Khách sạn mà chúng tôi đã ở rất rẻ."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "dùng the khi đã rõ đang nói về ai/cái gì",
+          "headingEn": "using the when it's clear which thing or person we mean",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "We use **the** when it is clear which thing or person we mean. For example, in a room we talk about **the** light / **the** floor / **the** ceiling / **the** door / **the** carpet etc.:",
+              "vi": "Chúng ta dùng **the** khi đã rõ đang nói về vật hay người nào. Ví dụ, trong một căn phòng, chúng ta nói **the** light / **the** floor / **the** ceiling / **the** door / **the** carpet, v.v.:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "Can you turn off **the** light, please?",
+                  "note": "= the light in this room",
+                  "vi": "Bạn tắt đèn được không?"
+                },
+                {
+                  "en": "I took a taxi to **the** station.",
+                  "note": "= the station in that town",
+                  "vi": "Tôi đã đi taxi đến nhà ga."
+                },
+                {
+                  "en": "(in a shop) I'd like to speak to **the** manager, please.",
+                  "note": "= the manager of this shop",
+                  "vi": "(trong một cửa hàng) Tôi muốn nói chuyện với quản lý, làm ơn."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "We also say (go to) **the** bank / **the** post office:",
+              "vi": "Chúng ta cũng nói (go to) **the** bank / **the** post office:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I have to go to **the** bank and then I'm going to **the** post office.",
+                  "vi": "Tôi phải đi ngân hàng, sau đó tôi sẽ đi bưu điện."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "(The speaker is usually thinking of a specific bank or post office.)",
+              "vi": "(Người nói thường nghĩ đến một ngân hàng hoặc bưu điện cụ thể.)"
+            },
+            {
+              "kind": "text",
+              "text": "and (go to) **the** doctor / **the** dentist:",
+              "vi": "và (go to) **the** doctor / **the** dentist:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "Clare isn't well. She's gone to **the** doctor.",
+                  "vi": "Clare không khỏe. Cô ấy đã đi khám bác sĩ."
+                },
+                {
+                  "en": "I don't like going to **the** dentist.",
+                  "vi": "Tôi không thích đi khám nha sĩ."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "Compare **the** and **a**:",
+              "vi": "So sánh **the** và **a**:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I have to go to **the** bank today.",
+                  "vi": "Hôm nay tôi phải đi ngân hàng."
+                },
+                {
+                  "en": "Is there **a** bank near here?",
+                  "vi": "Có ngân hàng nào gần đây không?"
+                },
+                {
+                  "en": "I don't like going to **the** dentist.",
+                  "vi": "Tôi không thích đi khám nha sĩ."
+                },
+                {
+                  "en": "My sister is **a** dentist.",
+                  "vi": "Em gái tôi là nha sĩ."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "D",
+          "heading": "a/an mang nghĩa \"mỗi\": once a week, £1.50 a kilo",
+          "headingEn": "a/an meaning \"per\": once a week, £1.50 a kilo",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "We say once **a** week / three times **a** day / £1.50 **a** kilo etc.:",
+              "vi": "Chúng ta nói once **a** week / three times **a** day / £1.50 **a** kilo, v.v.:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I go to the cinema about once **a** month.",
+                  "vi": "Tôi đi xem phim khoảng một lần mỗi tháng."
+                },
+                {
+                  "en": "'How much are those potatoes?' '£1.50 **a** kilo.'",
+                  "vi": "'Những củ khoai tây đó giá bao nhiêu?' 'Một bảng năm mươi mỗi cân.'"
+                },
+                {
+                  "en": "Helen works eight hours **a** day, six days **a** week.",
+                  "vi": "Helen làm việc tám giờ một ngày, sáu ngày một tuần."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "72.1 · Điền a/an hoặc the",
+      "titleEn": "72.1 · Put in a/an or the",
+      "instructions": "Điền a/an hoặc the vào mỗi chỗ trống.",
+      "instructionsEn": "Put a/an or the into each gap.",
+      "items": [
+        {
+          "prompt": "This morning I bought a book and ___ magazine. ___ book is in my bag, but I can't remember where I put ___ magazine.",
+          "answer": "a",
+          "extraBlanks": [
+            { "answer": "The" },
+            { "answer": "the" }
+          ]
+        },
+        {
+          "prompt": "I saw ___ accident this morning. ___ car crashed into ___ tree. ___ driver of ___ car wasn't hurt, but ___ car was badly damaged.",
+          "answer": "an",
+          "extraBlanks": [
+            { "answer": "A" },
+            { "answer": "a" },
+            { "answer": "The" },
+            { "answer": "the" },
+            { "answer": "the" }
+          ]
+        },
+        {
+          "prompt": "There are two cars parked outside: ___ blue one and ___ grey one. ___ blue one belongs to my neighbours. I don't know who ___ owner of ___ grey one is.",
+          "answer": "a",
+          "extraBlanks": [
+            { "answer": "a" },
+            { "answer": "The" },
+            { "answer": "the" },
+            { "answer": "the" }
+          ]
+        },
+        {
+          "prompt": "My friends live in ___ old house in ___ small village. There is ___ beautiful garden behind ___ house. I would like to have ___ garden like that.",
+          "answer": "an",
+          "extraBlanks": [
+            { "answer": "a" },
+            { "answer": "a" },
+            { "answer": "the" },
+            { "answer": "a" }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "fill_mc",
+      "title": "72.2 · Điền a/an hoặc the",
+      "titleEn": "72.2 · Put in a/an or the",
+      "instructions": "Điền a, an, hoặc the vào mỗi câu.",
+      "instructionsEn": "Put a, an, or the into each sentence.",
+      "items": [
+        {
+          "label": "1a",
+          "before": "This house is very nice. Does it have",
+          "after": "garden?",
+          "options": ["a", "the"],
+          "answer": "a"
+        },
+        {
+          "label": "1b",
+          "before": "It's a beautiful day. Let's sit in",
+          "after": "garden.",
+          "options": ["a", "the"],
+          "answer": "the"
+        },
+        {
+          "label": "1c",
+          "before": "I like living in this house, but it's a shame that",
+          "after": "garden is so small.",
+          "options": ["a", "the"],
+          "answer": "the"
+        },
+        {
+          "label": "2a",
+          "before": "Can you recommend",
+          "after": "good restaurant?",
+          "options": ["a", "the"],
+          "answer": "a"
+        },
+        {
+          "label": "2b",
+          "before": "We had dinner in",
+          "after": "very nice restaurant.",
+          "options": ["a", "the"],
+          "answer": "a"
+        },
+        {
+          "label": "2c",
+          "before": "We had dinner in",
+          "after": "best restaurant in town.",
+          "options": ["a", "the"],
+          "answer": "the"
+        },
+        {
+          "label": "3a",
+          "before": "What's",
+          "after": "name of that man we met yesterday?",
+          "options": ["a", "the"],
+          "answer": "the"
+        },
+        {
+          "label": "3b",
+          "before": "We stayed at a very nice hotel. I can't remember",
+          "after": "name now.",
+          "options": ["a", "the"],
+          "answer": "the"
+        },
+        {
+          "label": "3c",
+          "before": "My neighbour has",
+          "after": "French name, but in fact she's English, not French.",
+          "options": ["a", "the"],
+          "answer": "a"
+        },
+        {
+          "label": "4a",
+          "before": "Did Paula get",
+          "after": "job she applied for?",
+          "options": ["a", "the"],
+          "answer": "the"
+        },
+        {
+          "label": "4b",
+          "before": "It's not easy to get",
+          "after": "job at the moment.",
+          "options": ["a", "the"],
+          "answer": "a"
+        },
+        {
+          "label": "4c",
+          "before": "Do you enjoy your work? Is it",
+          "after": "interesting job?",
+          "options": ["a", "an"],
+          "answer": "an"
+        },
+        {
+          "label": "5a",
+          "before": "'Are you going away next week?' 'No,",
+          "after": "week after next.'",
+          "options": ["a", "the"],
+          "answer": "the"
+        },
+        {
+          "label": "5b",
+          "before": "I'm going away for",
+          "after": "week in September.",
+          "options": ["a", "the"],
+          "answer": "a"
+        },
+        {
+          "label": "5c",
+          "before": "Gary has a part-time job. He works three mornings",
+          "after": "week.",
+          "options": ["a", "the"],
+          "answer": "a"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "72.3 · Điền a/an hoặc the nếu cần thiết",
+      "titleEn": "72.3 · Put in a/an or the where necessary",
+      "instructions": "Điền a, an, hoặc the vào chỗ trống nếu câu cần một từ ở đó.",
+      "instructionsEn": "Put a, an, or the into the gap if the sentence needs a word there.",
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "Would you like ___ apple?",
+          "answer": "an"
+        }
+      ],
+      "startNumber": 2,
+      "items": [
+        {
+          "prompt": "How often do you go to ___ dentist?",
+          "answer": "the"
+        },
+        {
+          "prompt": "Can you close ___ door, please?",
+          "answer": "the"
+        },
+        {
+          "prompt": "I have ___ problem. I need your help.",
+          "answer": "a"
+        },
+        {
+          "prompt": "How far is it from here to ___ station?",
+          "answer": "the"
+        },
+        {
+          "prompt": "I'm going to ___ post office. I won't be long.",
+          "answer": "the"
+        },
+        {
+          "prompt": "Paul plays tennis. He's ___ very good player.",
+          "answer": "a"
+        },
+        {
+          "prompt": "There isn't ___ airport near where I live.",
+          "answer": "an"
+        },
+        {
+          "prompt": "___ nearest airport is 70 miles away.",
+          "answer": "The"
+        },
+        {
+          "prompt": "There were no chairs, so we sat on ___ floor.",
+          "answer": "the"
+        },
+        {
+          "prompt": "Have you finished with ___ book I lent you?",
+          "answer": "the"
+        },
+        {
+          "prompt": "Chris has just got ___ job in ___ bank in Zurich.",
+          "answer": "a",
+          "extraBlanks": [
+            { "answer": "a" }
+          ]
+        },
+        {
+          "prompt": "We live in ___ small apartment in ___ city centre.",
+          "answer": "a",
+          "extraBlanks": [
+            { "answer": "the" }
+          ]
+        },
+        {
+          "prompt": "There's ___ shop at ___ end of ___ street I live in.",
+          "answer": "a",
+          "extraBlanks": [
+            { "answer": "the" },
+            { "answer": "the" }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh: dùng a/an khi nói đến một vật hoặc người chưa xác định cụ thể, và dùng the khi đã rõ bạn đang nói về cái nào (ví dụ: I had a sandwich for lunch. The sandwich was very good.). Nếu có thể, hãy thêm một câu nói bạn làm việc gì đó bao nhiêu lần, dùng once a week / three times a day (ví dụ: I go to the cinema once a month.).",
+      "instructionsEn": "Write 2-3 English sentences: use a/an for something not specifically identified yet, and use the once it's clear which one you mean (e.g. I had a sandwich for lunch. The sandwich was very good.). If you can, add a sentence saying how often you do something, using once a week / three times a day (e.g. I go to the cinema once a month.).",
+      "ruleSummary": "This unit covers the two English articles a/an and the. We use a/an the first time we mention something, when it isn't yet a specific thing ('I had a sandwich and an apple for lunch'); once it's clear which one we mean, we switch to the ('The sandwich wasn't very good, but the apple was nice'). The is also used whenever it's already clear from context which particular thing or person we mean, even the first time we mention it in a conversation: a specific chair ('Tim sat down on the chair nearest the door'), a specific car ('I cleaned the car yesterday' = my car), things that are the only one in the situation ('Can you turn off the light, please?' = the light in this room; 'I took a taxi to the station' = the station in that town), and fixed everyday places/people like the bank, the post office, the doctor, the dentist ('I have to go to the bank and then I'm going to the post office'; 'Clare has gone to the doctor'). A/an, by contrast, says what kind of thing or person something is, not which specific one ('We stayed at a very cheap hotel' = a type of hotel; 'My sister is a dentist' as a job/kind of person, not the specific dentist just mentioned). A/an also means 'per' in expressions of rate or frequency: once a week, three times a day, £1.50 a kilo, eight hours a day ('Helen works eight hours a day, six days a week'). A correct student sentence should use a/an for something not yet identified or for what kind of thing/person it is, use the once it's clear which specific one is meant (including bank/post office/doctor/dentist-type fixed references), and may use a/an in a rate expression like once a week or three times a day."
+    }
+  ]
+};
+
+const UNIT_73_THE_1: GrammarUnit = {
+  "unit": 73,
+  "slug": "the-1",
+  "title": "the 1",
+  "topic": "articles and nouns",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "dùng the khi chỉ có duy nhất một thứ",
+          "headingEn": "using the when there is only one of something",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "We use **the** when there is only one of something:",
+              "vi": "Chúng ta dùng **the** khi chỉ có duy nhất một thứ:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "Have you ever crossed **the** equator?",
+                  "note": "there is only one equator",
+                  "vi": "Bạn đã bao giờ vượt qua đường xích đạo chưa?"
+                },
+                {
+                  "en": "Our apartment is on **the** tenth floor.",
+                  "vi": "Căn hộ của chúng tôi ở tầng mười."
+                },
+                {
+                  "en": "Buenos Aires is **the** capital of Argentina.",
+                  "vi": "Buenos Aires là thủ đô của Argentina."
+                },
+                {
+                  "en": "I'm going away at **the** end of this month.",
+                  "vi": "Tôi sẽ đi xa vào cuối tháng này."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "We use **the** + superlative (best, oldest etc.):",
+              "vi": "Chúng ta dùng **the** + tính từ so sánh nhất (best, oldest, v.v.):"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "What's **the** longest river in Europe?",
+                  "vi": "Con sông dài nhất ở châu Âu là sông nào?"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "Compare **the** and **a/an** (see also Units 71-72):",
+              "vi": "So sánh **the** và **a/an** (xem thêm Unit 71-72):"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "**The** sun is **a** star.",
+                  "note": "= one of many stars",
+                  "vi": "Mặt trời là một ngôi sao."
+                },
+                {
+                  "en": "**The** hotel where we stayed was **a** very old hotel.",
+                  "vi": "Khách sạn chúng tôi đã ở là một khách sạn rất cũ."
+                },
+                {
+                  "en": "We live in **an** apartment on **the** tenth floor.",
+                  "vi": "Chúng tôi sống trong một căn hộ ở tầng mười."
+                },
+                {
+                  "en": "What's **the** best way to learn **a** language?",
+                  "vi": "Cách tốt nhất để học một ngôn ngữ là gì?"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "cách nói 'the same'",
+          "headingEn": "saying 'the same'",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "We say **the same**:",
+              "vi": "Chúng ta nói **the same**:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "Your sweater is **the same** colour as mine.",
+                  "note": "not is same colour",
+                  "vi": "Áo len của bạn cùng màu với áo của tôi."
+                },
+                {
+                  "en": "'Are these keys **the same**?' 'No, they're different.'",
+                  "vi": "'Những chiếc chìa khóa này có giống nhau không?' 'Không, chúng khác nhau.'"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "the với world, sky, sea, ground...",
+          "headingEn": "the with world, sky, sea, ground...",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "We say:",
+              "vi": "Chúng ta nói:"
+            },
+            {
+              "kind": "words",
+              "words": ["the world", "the universe", "the sun", "the moon", "the earth", "the sky", "the sea", "the ground"]
+            },
+            {
+              "kind": "text",
+              "text": "and **the country** (= not a town).",
+              "vi": "và **the country** (= vùng nông thôn, không phải thị trấn)."
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I love to look at the stars in **the** sky.",
+                  "note": "not in sky",
+                  "vi": "Tôi thích ngắm những vì sao trên bầu trời."
+                },
+                {
+                  "en": "Do you live in a town or in **the** country?",
+                  "vi": "Bạn sống ở thành phố hay ở vùng nông thôn?"
+                },
+                {
+                  "en": "**The** earth goes round **the** sun, and **the** moon goes round **the** earth.",
+                  "vi": "Trái đất quay quanh mặt trời, và mặt trăng quay quanh trái đất."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "We also use **Earth** (without *the*) when we think of it as a planet in space (like Mars, Jupiter etc.).",
+              "vi": "Chúng ta cũng dùng **Earth** (không có *the*) khi coi nó là một hành tinh trong không gian (như Mars, Jupiter, v.v.)."
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "Which is the planet nearest **Earth**?",
+                  "vi": "Hành tinh nào gần Earth nhất?"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "We say **space** (without *the*) when we mean 'space in the universe'. Compare:",
+              "vi": "Chúng ta nói **space** (không có *the*) khi muốn nói 'không gian trong vũ trụ'. So sánh:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "There are millions of stars in **space**.",
+                  "note": "not in the space",
+                  "vi": "Có hàng triệu vì sao trong không gian."
+                },
+                {
+                  "en": "I tried to park my car, but **the** space was too small.",
+                  "vi": "Tôi đã cố đỗ xe, nhưng khoảng trống đó quá nhỏ."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "D",
+          "heading": "the cinema, TV/television/the radio, the internet",
+          "headingEn": "the cinema, TV/television/the radio, the internet",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "(go to) **the** cinema, **the** theatre",
+              "vi": "(đi) **the** cinema, **the** theatre"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I go to **the** cinema a lot, but I haven't been to **the** theatre for ages.",
+                  "vi": "Tôi đi xem phim nhiều, nhưng đã lâu tôi chưa đi xem nhà hát."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "**TV** / **television** (without *the*), but **the** radio",
+              "vi": "**TV** / **television** (không có *the*), nhưng **the** radio"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I watch **TV** a lot, but I don't listen to **the** radio much.",
+                  "vi": "Tôi xem TV nhiều, nhưng tôi không nghe radio nhiều."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "But:",
+              "vi": "Nhưng:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "Can you turn off **the** television, please?",
+                  "note": "the television = the TV set",
+                  "vi": "Bạn tắt tivi được không?"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "**the** internet",
+              "vi": "**the** internet"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "**The** internet has changed the way we live.",
+                  "vi": "Internet đã thay đổi cách chúng ta sống."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "E",
+          "heading": "breakfast/lunch/dinner không có the",
+          "headingEn": "breakfast/lunch/dinner without the",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "We usually say **breakfast**/**lunch**/**dinner** (without *the*):",
+              "vi": "Chúng ta thường nói **breakfast**/**lunch**/**dinner** (không có *the*):"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "What did you have for **breakfast**?",
+                  "vi": "Bạn đã ăn gì vào bữa sáng?"
+                },
+                {
+                  "en": "We had **lunch** in a very nice restaurant.",
+                  "vi": "Chúng tôi đã ăn trưa ở một nhà hàng rất đẹp."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "But we say **a big lunch**, **a wonderful dinner**, **an early breakfast** etc.",
+              "vi": "Nhưng chúng ta nói **a big lunch**, **a wonderful dinner**, **an early breakfast**, v.v."
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "We had **a** very nice lunch.",
+                  "note": "not We had very nice lunch",
+                  "vi": "Chúng tôi đã có một bữa trưa rất ngon."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "F",
+          "heading": "size 43, platform 5... không có the",
+          "headingEn": "size 43, platform 5 etc. without the",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "We say **size 43**, **platform 5** etc. (without *the*):",
+              "vi": "Chúng ta nói **size 43**, **platform 5**, v.v. (không có *the*):"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "Our train leaves from **platform 5**.",
+                  "note": "not the platform 5",
+                  "vi": "Tàu của chúng tôi khởi hành từ ga số 5."
+                },
+                {
+                  "en": "Do you have these shoes in **size 43**?",
+                  "note": "not the size 43",
+                  "vi": "Bạn có giày cỡ 43 không?"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "In the same way, we say **room 126**, **page 29**, **vitamin A**, **section B** etc.",
+              "vi": "Tương tự, chúng ta nói **room 126**, **page 29**, **vitamin A**, **section B**, v.v."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "fill_mc",
+      "title": "73.1 · Điền the hoặc a nếu cần",
+      "titleEn": "73.1 · Put in the or a where necessary",
+      "instructions": "Điền the hoặc a vào chỗ trống nếu cần. Nếu không cần từ nào, chọn (no article).",
+      "instructionsEn": "Put in the or a where necessary. If no word is necessary, choose (no article).",
+      "items": [
+        {
+          "label": "1",
+          "context": "Our apartment is on the tenth floor.",
+          "before": "Is it? I hope there's",
+          "after": "lift.",
+          "options": ["a", "the"],
+          "answer": "a"
+        },
+        {
+          "label": "2a",
+          "before": "Did you have",
+          "after": "nice holiday?",
+          "options": ["a", "the"],
+          "answer": "a"
+        },
+        {
+          "label": "2b",
+          "before": "Yes, it was",
+          "after": "best holiday I've ever had.",
+          "options": ["a", "the"],
+          "answer": "the"
+        },
+        {
+          "label": "3a",
+          "before": "Where's",
+          "after": "nearest shop?",
+          "options": ["a", "the"],
+          "answer": "the"
+        },
+        {
+          "label": "3b",
+          "before": "There's one at",
+          "after": "end of this street.",
+          "options": ["a", "the"],
+          "answer": "the"
+        },
+        {
+          "label": "4a",
+          "before": "It's",
+          "after": "lovely day, isn't it?",
+          "options": ["a", "the"],
+          "answer": "a"
+        },
+        {
+          "label": "4b",
+          "before": "Yes, there isn't",
+          "after": "sky.",
+          "options": ["a cloud in the", "the cloud in a"],
+          "answer": "a cloud in the"
+        },
+        {
+          "label": "5a",
+          "before": "We spent all our money because we stayed at",
+          "after": "most expensive hotel in town.",
+          "options": ["a", "the"],
+          "answer": "the"
+        },
+        {
+          "label": "5b",
+          "before": "Why didn't you stay at",
+          "after": "cheaper hotel?",
+          "options": ["a", "the"],
+          "answer": "a"
+        },
+        {
+          "label": "6a",
+          "before": "Would you like to travel in",
+          "after": "space?",
+          "options": ["(no article)", "the"],
+          "answer": "(no article)"
+        },
+        {
+          "label": "6b",
+          "before": "Yes, I'd love to go to",
+          "after": "moon.",
+          "options": ["a", "the"],
+          "answer": "the"
+        },
+        {
+          "label": "7a",
+          "before": "What did you think of",
+          "after": "movie last night?",
+          "options": ["a", "the"],
+          "answer": "the"
+        },
+        {
+          "label": "7b",
+          "before": "It was OK, but I thought",
+          "after": "ending was a bit strange.",
+          "options": ["a", "the"],
+          "answer": "the"
+        },
+        {
+          "label": "8a",
+          "before": "What's Jupiter? Is it",
+          "after": "star?",
+          "options": ["a", "the"],
+          "answer": "a"
+        },
+        {
+          "label": "8b",
+          "before": "No, it's",
+          "after": "solar system.",
+          "options": ["a planet. It's the largest planet in the", "the planet. It's a largest planet in a"],
+          "answer": "a planet. It's the largest planet in the"
+        }
+      ]
+    },
+    {
+      "kind": "fill_mc",
+      "title": "73.2 · Cách nào đúng?",
+      "titleEn": "73.2 · Which is right?",
+      "instructions": "Chọn cách diễn đạt đúng trong mỗi câu.",
+      "instructionsEn": "Choose the correct option in each sentence.",
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "I haven't been to ___ for ages.",
+          "answer": "the cinema"
+        }
+      ],
+      "startNumber": 2,
+      "items": [
+        {
+          "before": "Sarah spends most of her free time watching",
+          "after": "",
+          "options": ["TV", "the TV"],
+          "answer": "TV"
+        },
+        {
+          "before": "Do you ever listen to",
+          "after": "?",
+          "options": ["radio", "the radio"],
+          "answer": "the radio"
+        },
+        {
+          "before": "",
+          "after": "was on, but nobody was watching it.",
+          "options": ["Television", "The television"],
+          "answer": "The television"
+        },
+        {
+          "before": "Have you had",
+          "after": "yet?",
+          "options": ["dinner", "the dinner"],
+          "answer": "dinner"
+        },
+        {
+          "before": "It's confusing when two people have",
+          "after": "",
+          "options": ["same name", "the same name"],
+          "answer": "the same name"
+        },
+        {
+          "before": "What do you want",
+          "after": "?",
+          "options": ["for breakfast", "for the breakfast"],
+          "answer": "for breakfast"
+        },
+        {
+          "before": "Fruit is an important source of",
+          "after": "",
+          "options": ["vitamin C", "the vitamin C"],
+          "answer": "vitamin C"
+        },
+        {
+          "before": "This computer is not connected to",
+          "after": "",
+          "options": ["internet", "the internet"],
+          "answer": "the internet"
+        },
+        {
+          "before": "I lay down on",
+          "after": ".",
+          "options": ["the ground and looked up at the sky", "ground and looked up at sky"],
+          "answer": "the ground and looked up at the sky"
+        },
+        {
+          "before": "",
+          "after": ".",
+          "options": ["The next train to London leaves from platform 3", "Next train to London leaves from the platform 3"],
+          "answer": "The next train to London leaves from platform 3"
+        }
+      ]
+    },
+    {
+      "kind": "judge_correct",
+      "title": "73.3 · Điền the hoặc a nếu cần",
+      "titleEn": "73.3 · Put in the or a where necessary",
+      "instructions": "Một số câu dưới đây cần thêm the hoặc a. Sửa lại phần được gạch chân cho đúng. (Ví dụ trong sách: 'Sun is star.' sửa thành 'The sun is a star.')",
+      "instructionsEn": "Some of these sentences need the or a. Correct the underlined part. (The book's example: 'Sun is star.' becomes 'The sun is a star.')",
+      "startNumber": 2,
+      "items": [
+        {
+          "label": "2",
+          "sentence": "I'm fed up with doing same thing every day.",
+          "underlined": "same thing",
+          "ok": false,
+          "correction": "the same thing"
+        },
+        {
+          "label": "3",
+          "sentence": "Room 25 is on second floor.",
+          "underlined": "second floor",
+          "ok": false,
+          "correction": "the second floor"
+        },
+        {
+          "label": "4a",
+          "sentence": "It was very hot day.",
+          "underlined": "very hot day",
+          "ok": false,
+          "correction": "a very hot day"
+        },
+        {
+          "label": "4b",
+          "sentence": "It was hottest day of year.",
+          "underlined": "hottest day of year",
+          "ok": false,
+          "correction": "the hottest day of the year"
+        },
+        {
+          "label": "5",
+          "sentence": "We had lunch in nice restaurant by sea.",
+          "underlined": "nice restaurant by sea",
+          "ok": false,
+          "correction": "a nice restaurant by the sea"
+        },
+        {
+          "label": "6",
+          "sentence": "What's on at cinema this week?",
+          "underlined": "cinema",
+          "ok": false,
+          "correction": "the cinema"
+        },
+        {
+          "label": "7",
+          "sentence": "I had big breakfast this morning.",
+          "underlined": "big breakfast",
+          "ok": false,
+          "correction": "a big breakfast"
+        },
+        {
+          "label": "8",
+          "sentence": "You'll find information you need at top of page 15.",
+          "underlined": "information you need at top of page 15",
+          "ok": false,
+          "correction": "the information you need at the top of page 15"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "73.4 · Hoàn thành câu, chọn từ trong khung",
+      "titleEn": "73.4 · Complete the sentences. Choose from the box",
+      "instructions": "Hoàn thành các câu sau, chọn từ trong khung và dùng the khi cần thiết.",
+      "instructionsEn": "Complete the sentences below, choosing from the box and using the where necessary.",
+      "wordBank": ["breakfast", "cinema", "gate", "Gate 24", "lunch", "question", "question 3", "sea"],
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "I'm hungry. It's time for ___.",
+          "answer": "lunch"
+        }
+      ],
+      "startNumber": 2,
+      "items": [
+        {
+          "prompt": "There was no wind, so ___ was very calm.",
+          "answer": "the sea"
+        },
+        {
+          "prompt": "Most of the questions in the test were OK, but I couldn't answer ___.",
+          "answer": "question 3"
+        },
+        {
+          "prompt": "'I'm going to ___ tonight.' 'Are you? What are you going to see?'",
+          "answer": "the cinema"
+        },
+        {
+          "prompt": "I'm sorry, but could you repeat ___, please?",
+          "answer": "the question"
+        },
+        {
+          "prompt": "I didn't have ___ this morning because I was in a hurry.",
+          "answer": "breakfast"
+        },
+        {
+          "prompt": "(airport announcement) Flight AB123 to Rome is now boarding at ___.",
+          "answer": "Gate 24"
+        },
+        {
+          "prompt": "I forgot to shut ___. Can you shut it for me?",
+          "answer": "the gate"
+        }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng the theo các quy tắc trong bài: the khi chỉ có duy nhất một thứ hoặc với tính từ so sánh nhất (ví dụ: What's the longest river in Europe?), hoặc the với những từ cố định như the sky, the sea, the cinema, the radio (ví dụ: I love to look at the stars in the sky.). Nếu có thể, hãy thêm một câu dùng breakfast/lunch/dinner mà không có the (ví dụ: We had lunch in a very nice restaurant.).",
+      "instructionsEn": "Write 2-3 English sentences using the according to the rules in this unit: the when there's only one of something or with a superlative (e.g. What's the longest river in Europe?), or the with fixed words like the sky, the sea, the cinema, the radio (e.g. I love to look at the stars in the sky.). If you can, add a sentence using breakfast/lunch/dinner without the (e.g. We had lunch in a very nice restaurant.).",
+      "ruleSummary": "This unit covers the article the used for things that are unique or already identified. We use the when there is only one of something ('Have you ever crossed the equator?', 'Our apartment is on the tenth floor', 'Buenos Aires is the capital of Argentina', 'I'm going away at the end of this month') and with a superlative ('What's the longest river in Europe?'); compare a/an for one of many ('The sun is a star' = one of many stars). We say 'the same' ('Your sweater is the same colour as mine'). Fixed nouns always take the: the world, the universe, the sun, the moon, the earth, the sky, the sea, the ground, the country (= not a town) - 'I love to look at the stars in the sky', 'The earth goes round the sun'. Earth and space have no the when meaning the planet/the universe in general ('Which is the planet nearest Earth?', 'There are millions of stars in space'), though 'the space' can mean a specific gap ('the space was too small'). We say (go to) the cinema/the theatre, and TV/television without the but the radio ('I watch TV a lot, but I don't listen to the radio much'), except 'the television' meaning the TV set ('Can you turn off the television, please?'); also the internet. Breakfast/lunch/dinner take no the ('What did you have for breakfast?', 'We had lunch in a very nice restaurant'), but an adjective before them needs a/an ('We had a very nice lunch', 'an early breakfast'). Fixed reference numbers take no the either: size 43, platform 5, room 126, page 29, vitamin A, section B ('Our train leaves from platform 5', not the platform 5). A correct student sentence should use the for something unique/already identified or with a superlative, use the with the fixed nouns above, and may use breakfast/lunch/dinner (or TV, space, Earth) correctly without the."
+    }
+  ]
+};
+
+const UNIT_74_THE_2: GrammarUnit = {
+  "unit": 74,
+  "slug": "the-2",
+  "title": "the 2 (school / the school etc.)",
+  "topic": "articles and nouns",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "so sánh school và the school",
+          "headingEn": "comparing school and the school",
+          "intro": "Compare school and the school:",
+          "introVi": "So sánh school và the school:",
+          "parts": [
+            {
+              "kind": "situation",
+              "text": "Ellie is ten years old. Every day she goes to **school**. She's at **school** now. **School** starts at 9 and finishes at 3.",
+              "vi": "Ellie mười tuổi. Ngày nào em cũng đi học. Bây giờ em đang ở trường. Trường bắt đầu lúc 9 giờ và kết thúc lúc 3 giờ."
+            },
+            {
+              "kind": "text",
+              "text": "We say a child **goes to school** or **is at school** (as a student). We are not thinking of a specific school. We are thinking of school as a general idea: children learning in a classroom.",
+              "vi": "Chúng ta nói một đứa trẻ **goes to school** hoặc **is at school** (với vai trò học sinh). Chúng ta không nghĩ đến một trường cụ thể nào, mà nghĩ đến trường học như một khái niệm chung: trẻ em học trong lớp học."
+            },
+            {
+              "kind": "situation",
+              "text": "Today Ellie's mother wants to speak to her daughter's teacher. So she has gone to **the school** to see her. She's at **the school** now.",
+              "vi": "Hôm nay mẹ của Ellie muốn gặp giáo viên của con gái mình. Vì vậy bà đã đến ngôi trường đó để gặp cô giáo. Bây giờ bà đang ở đó."
+            },
+            {
+              "kind": "text",
+              "text": "Ellie's mother is not a student. She is not '**at school**', she doesn't '**go to school**'. If she wants to see Ellie's teacher, she goes to **the school** (= Ellie's school, a specific building).",
+              "vi": "Mẹ của Ellie không phải là học sinh. Bà không '**at school**', cũng không '**go to school**'. Nếu muốn gặp giáo viên của Ellie, bà đến **the school** (= trường của Ellie, một tòa nhà cụ thể)."
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "prison, hospital, university, college, church cũng theo cách này",
+          "headingEn": "prison, hospital, university, college and church work the same way",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "We use **prison** (or **jail**), **hospital**, **university**, **college** and **church** in a similar way. We do not use **the** when we are thinking of the general idea of these places and what they are used for. Compare:",
+              "vi": "Chúng ta dùng **prison** (hoặc **jail**), **hospital**, **university**, **college** và **church** theo cách tương tự. Chúng ta không dùng **the** khi nghĩ đến khái niệm chung của những nơi này và mục đích sử dụng của chúng. So sánh:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "When I leave school, I plan to go to **university** / go to **college**.",
+                  "note": "as a student",
+                  "vi": "Khi rời trường trung học, tôi định đi học đại học hoặc học cao đẳng."
+                },
+                {
+                  "en": "I went to **the university** to meet Professor Thomas.",
+                  "note": "as a visitor, not as a student",
+                  "vi": "Tôi đã đến trường đại học đó để gặp Giáo sư Thomas."
+                },
+                {
+                  "en": "Joe had an accident last week. He was taken to **hospital**. He's still in **hospital** now.",
+                  "note": "as a patient",
+                  "vi": "Joe bị tai nạn vào tuần trước. Anh ấy được đưa vào bệnh viện. Bây giờ anh vẫn còn nằm viện."
+                },
+                {
+                  "en": "Jane has gone to **the hospital** to visit Joe. She's at **the hospital** now.",
+                  "note": "as a visitor, not as a patient",
+                  "vi": "Jane đã đến bệnh viện đó để thăm Joe. Bây giờ cô đang ở đó."
+                },
+                {
+                  "en": "Ken's brother is in **prison** for robbery.",
+                  "note": "he is a prisoner; we are not thinking of a specific prison",
+                  "vi": "Anh trai của Ken đang ở trong tù vì tội cướp."
+                },
+                {
+                  "en": "Ken went to **the prison** to visit his brother.",
+                  "note": "he went as a visitor, not as a prisoner",
+                  "vi": "Ken đã đến nhà tù đó để thăm anh trai mình."
+                },
+                {
+                  "en": "Sarah's father goes to **church** every Sunday.",
+                  "note": "for a religious service",
+                  "vi": "Bố của Sarah đi lễ ở nhà thờ vào mỗi Chủ nhật."
+                },
+                {
+                  "en": "Some workmen went to **the church** to repair the roof.",
+                  "note": "a specific building",
+                  "vi": "Một số công nhân đã đến nhà thờ đó để sửa mái."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "With most other places, you need **the**. For example, **the station**, **the cinema** (see Units 72C and 73D).",
+              "vi": "Với hầu hết những nơi khác, bạn cần dùng **the**. Ví dụ: **the station**, **the cinema** (xem Unit 72C và 73D)."
+            }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "go to bed / work / home không dùng the",
+          "headingEn": "go to bed / work / home without the",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "We say **go to bed** / **be in bed** etc. (not *the bed*):",
+              "vi": "Chúng ta nói **go to bed** / **be in bed**, v.v. (không nói *the bed*):"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I'm going to **bed** now. Goodnight.",
+                  "vi": "Tôi đi ngủ đây. Chúc ngủ ngon."
+                },
+                {
+                  "en": "Do you ever have breakfast in **bed**?",
+                  "vi": "Bạn có bao giờ ăn sáng trên giường không?"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "But:",
+              "vi": "Nhưng:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I sat down on **the bed**.",
+                  "note": "a specific piece of furniture",
+                  "vi": "Tôi ngồi xuống chiếc giường đó."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "We also say **go to work** / **be at work** / **start work** / **finish work** etc. (not *the work*):",
+              "vi": "Chúng ta cũng nói **go to work** / **be at work** / **start work** / **finish work**, v.v. (không nói *the work*):"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "Chris didn't go to **work** yesterday.",
+                  "vi": "Hôm qua Chris không đi làm."
+                },
+                {
+                  "en": "What time do you usually finish **work**?",
+                  "vi": "Bạn thường tan làm lúc mấy giờ?"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "And **go home** / **come home** / **arrive home** / **get home** / **be (at) home** / **do something at home** etc.:",
+              "vi": "Và **go home** / **come home** / **arrive home** / **get home** / **be (at) home** / **do something at home**, v.v.:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "It's late. Let's **go home**.",
+                  "vi": "Muộn rồi. Về nhà thôi."
+                },
+                {
+                  "en": "I don't go out to work. I work **at home**.",
+                  "vi": "Tôi không đi làm ở ngoài. Tôi làm việc ở nhà."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "fill_mc",
+      "title": "74.1 · Điền school hoặc the school",
+      "titleEn": "74.1 · Complete the sentences with school or the school",
+      "instructions": "Điền school hoặc the school vào chỗ trống cho phù hợp.",
+      "instructionsEn": "Complete the sentences with school or the school.",
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "Why aren't your children at ___ today? Are they ill?",
+          "answer": "school"
+        }
+      ],
+      "items": [
+        {
+          "before": "When he was younger, Ben hated",
+          "after": ", but he enjoys it now.",
+          "options": ["school", "the school"],
+          "answer": "school"
+        },
+        {
+          "before": "There were some parents waiting outside",
+          "after": "to meet their children.",
+          "options": ["school", "the school"],
+          "answer": "the school"
+        },
+        {
+          "before": "What time does",
+          "after": "start in the morning?",
+          "options": ["school", "the school"],
+          "answer": "school"
+        },
+        {
+          "before": "How do your children get to and from",
+          "after": "? Do you take them?",
+          "options": ["school", "the school"],
+          "answer": "school"
+        },
+        {
+          "before": "What was the name of",
+          "after": "you attended?",
+          "options": ["school", "the school"],
+          "answer": "the school"
+        },
+        {
+          "before": "What does Emily want to do when she leaves",
+          "after": "?",
+          "options": ["school", "the school"],
+          "answer": "school"
+        },
+        {
+          "before": "My children walk to",
+          "after": "isn't very far.",
+          "options": ["school. The school", "the school. School"],
+          "answer": "school. The school"
+        }
+      ]
+    },
+    {
+      "kind": "fill_mc",
+      "title": "74.2 · Cách nào đúng?",
+      "titleEn": "74.2 · Which is right?",
+      "instructions": "Chọn cách diễn đạt đúng trong mỗi câu.",
+      "instructionsEn": "Choose the correct option in each sentence.",
+      "examples": [
+        {
+          "label": "1a",
+          "prompt": "Where is ___? Is it near here?",
+          "answer": "the university"
+        }
+      ],
+      "items": [
+        {
+          "label": "1b",
+          "before": "Neil left school and got a job. He didn't want to go to",
+          "after": ".",
+          "options": ["university", "the university"],
+          "answer": "university"
+        },
+        {
+          "label": "1c",
+          "before": "In your country, what proportion of the population study at",
+          "after": "?",
+          "options": ["university", "the university"],
+          "answer": "university"
+        },
+        {
+          "label": "1d",
+          "before": "This is a small town, but",
+          "after": "is the biggest in the country.",
+          "options": ["university", "the university"],
+          "answer": "the university"
+        },
+        {
+          "label": "2a",
+          "before": "My brother has always been healthy. He's never been in",
+          "after": ".",
+          "options": ["hospital", "the hospital"],
+          "answer": "hospital"
+        },
+        {
+          "label": "2b",
+          "before": "When my friend was ill, I went to",
+          "after": "to see her.",
+          "options": ["hospital", "the hospital"],
+          "answer": "the hospital"
+        },
+        {
+          "label": "2c",
+          "before": "When I was visiting my friend, I met Lisa, who is a nurse at",
+          "after": ".",
+          "options": ["hospital", "the hospital"],
+          "answer": "the hospital"
+        },
+        {
+          "label": "2d",
+          "before": "I saw an accident. A woman was injured and was taken to",
+          "after": ".",
+          "options": ["hospital", "the hospital"],
+          "answer": "hospital"
+        },
+        {
+          "label": "3a",
+          "before": "Why is she in",
+          "after": "? What crime did she commit?",
+          "options": ["prison", "the prison"],
+          "answer": "prison"
+        },
+        {
+          "label": "3b",
+          "before": "There was a fire at",
+          "after": ". Firefighters were called to put it out.",
+          "options": ["prison", "the prison"],
+          "answer": "the prison"
+        },
+        {
+          "label": "3c",
+          "before": "Do you think too many people are sent to",
+          "after": "?",
+          "options": ["prison", "the prison"],
+          "answer": "prison"
+        },
+        {
+          "label": "4a",
+          "before": "John's mother is a regular churchgoer. She goes to",
+          "after": "every Sunday.",
+          "options": ["church", "the church"],
+          "answer": "church"
+        },
+        {
+          "label": "4b",
+          "before": "John himself doesn't go to",
+          "after": ".",
+          "options": ["church", "the church"],
+          "answer": "church"
+        },
+        {
+          "label": "4c",
+          "before": "The village is very nice. You should visit",
+          "after": ". It's interesting.",
+          "options": ["church", "the church"],
+          "answer": "the church"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "74.3 · Hoàn thành câu, chọn từ trong khung",
+      "titleEn": "74.3 · Complete the sentences. Choose from the box",
+      "instructions": "Hoàn thành các câu sau, chọn từ trong khung.",
+      "instructionsEn": "Complete the sentences below, choosing from the box.",
+      "wordBank": ["bed", "the bed", "in bed", "home", "home", "at home", "like home", "work", "to work", "after work"],
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "How did you get ___ after the party?",
+          "answer": "home"
+        }
+      ],
+      "items": [
+        {
+          "prompt": "How do you usually go ___ in the morning? By bus?",
+          "answer": "to work"
+        },
+        {
+          "prompt": "Sam likes to go to ___ early and get up early.",
+          "answer": "bed"
+        },
+        {
+          "prompt": "I don't have my phone. I left it ___.",
+          "answer": "at home"
+        },
+        {
+          "prompt": "'Have you seen my keys?' 'Yes, they're on ___.'",
+          "answer": "the bed"
+        },
+        {
+          "prompt": "Shall we meet ___ tomorrow evening?",
+          "answer": "after work"
+        },
+        {
+          "prompt": "I like to read ___ before going to sleep.",
+          "answer": "in bed"
+        },
+        {
+          "prompt": "It was a long tiring journey. We arrived ___ very late.",
+          "answer": "home"
+        },
+        {
+          "prompt": "Tom usually finishes ___ at five o'clock.",
+          "answer": "work"
+        },
+        {
+          "prompt": "It's nice to travel around, but there's no place ___.",
+          "answer": "like home"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "74.4 · Hoàn thành câu, chọn at/in/to + hospital, school...",
+      "titleEn": "74.4 · Complete the sentences. Choose at/in/to + hospital, school etc.",
+      "instructions": "Hoàn thành các câu sau bằng at/in/to + một từ trong khung.",
+      "instructionsEn": "Complete the sentences below using at/in/to + a word from the box.",
+      "wordBank": ["bed", "home", "hospital", "hospital", "prison", "school", "university", "work"],
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "Kate's mother has to have an operation. She'll be ___ for a few days.",
+          "answer": "in hospital"
+        }
+      ],
+      "items": [
+        {
+          "prompt": "In your country, from what age do children have to go ___?",
+          "answer": "to school"
+        },
+        {
+          "prompt": "Mark didn't go out last night. He stayed ___.",
+          "answer": "at home",
+          "accept": ["home"]
+        },
+        {
+          "prompt": "There is a lot of traffic in the morning when people are going ___.",
+          "answer": "to work"
+        },
+        {
+          "prompt": "When Sophie leaves school, she wants to study psychology ___.",
+          "answer": "at university"
+        },
+        {
+          "prompt": "Ben never gets up before 9 o'clock. It's 8.30 now, so he is still ___.",
+          "answer": "in bed"
+        },
+        {
+          "prompt": "The accident wasn't serious. Nobody had to go ___.",
+          "answer": "to hospital"
+        },
+        {
+          "prompt": "If people commit crimes, they may end up ___.",
+          "answer": "in prison"
+        }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng đúng school/the school, hospital/the hospital, prison/the prison, university/the university hoặc church/the church (ví dụ: She's at school now. / She's at the school now.), hoặc dùng go to bed/work/home mà không có the (ví dụ: It's late. Let's go home.).",
+      "instructionsEn": "Write 2-3 English sentences correctly using school/the school, hospital/the hospital, prison/the prison, university/the university or church/the church (e.g. She's at school now. / She's at the school now.), or using go to bed/work/home without the (e.g. It's late. Let's go home.).",
+      "ruleSummary": "This unit teaches the difference between an institution word used generally (school, university, college, hospital, prison, church) and the same word with the referring to a specific building. A child goes to school or is at school as a student, thinking of school as a general idea, not a specific building ('She's at school now'); but when someone is at a specific school building, not as a student, we say the school ('She's at the school now' = a specific building). The same pattern applies to prison (or jail), hospital, university, college and church: compare 'When I leave school, I plan to go to university' (as a student) with 'I went to the university to meet Professor Thomas' (as a visitor, not as a student); 'He was taken to hospital. He's still in hospital now' (as a patient) with 'She's at the hospital now' (as a visitor, not as a patient); 'Ken's brother is in prison for robbery' (a prisoner, not thinking of a specific prison) with 'Ken went to the prison to visit his brother' (a visitor); 'Sarah's father goes to church every Sunday' (for a religious service) with 'Some workmen went to the church to repair the roof' (a specific building). With most other places you need the, e.g. the station, the cinema. We also say go to bed / be in bed, go to work / be at work / start work / finish work, and go home / come home / arrive home / get home / be (at) home / do something at home, all without the ('I'm going to bed now', 'What time do you usually finish work?', 'It's late. Let's go home.'); but 'I sat down on the bed' when the bed means a specific piece of furniture. A correct student sentence should use the bare institution word for the general sense/as a participant, add the for a specific building/as a visitor, or correctly use bed/work/home without the."
+    }
+  ]
+};
+
+const UNIT_75_THE_3: GrammarUnit = {
+  "unit": 75,
+  "slug": "the-3",
+  "title": "the 3 (children / the children)",
+  "topic": "articles and nouns",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "không dùng the khi nói chung",
+          "headingEn": "no the when talking in general",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "When we are talking about things or people in general, we do not use **the**:",
+              "vi": "Khi nói về sự vật hoặc con người nói chung, chúng ta không dùng **the**:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "I'm afraid of **dogs**.",
+                  "note": "not *the dogs* (dogs = dogs in general, not a specific group of dogs)",
+                  "vi": "Tôi sợ chó. (dogs = chó nói chung, không phải một nhóm chó cụ thể)"
+                },
+                {
+                  "en": "**Doctors** are usually paid more than **teachers**.",
+                  "vi": "Bác sĩ thường được trả lương cao hơn giáo viên."
+                },
+                {
+                  "en": "Do you know anybody who collects **stamps**?",
+                  "vi": "Bạn có biết ai sưu tập tem không?"
+                },
+                {
+                  "en": "**Life** has changed a lot in the last thirty years.",
+                  "vi": "Cuộc sống đã thay đổi rất nhiều trong ba mươi năm qua."
+                },
+                {
+                  "en": "Do you like classical **music** / Chinese **food** / fast **cars**?",
+                  "vi": "Bạn có thích nhạc cổ điển, đồ ăn Trung Hoa, hay xe tốc độ không?"
+                },
+                {
+                  "en": "My favourite sport is **football**/**skiing**/**athletics**.",
+                  "vi": "Môn thể thao yêu thích của tôi là bóng đá/trượt tuyết/điền kinh."
+                },
+                {
+                  "en": "My favourite subject at school was **history**/**physics**/**English**.",
+                  "vi": "Môn học yêu thích của tôi ở trường là lịch sử/vật lý/tiếng Anh."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "We say **most people** / **most shops** / **most big cities** etc. (not *the most ...*):",
+              "vi": "Chúng ta nói **most people** / **most shops** / **most big cities**, v.v. (không nói *the most ...*):"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "**Most shops** accept credit cards.",
+                  "note": "not *The most shops*",
+                  "vi": "Hầu hết các cửa hàng đều nhận thẻ tín dụng."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "dùng the khi nói đến điều cụ thể",
+          "headingEn": "using the for specific people or things",
+          "intro": "We use **the** when we mean specific things or people.",
+          "introVi": "Chúng ta dùng **the** khi muốn nói đến những sự vật hoặc con người cụ thể.",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "Compare:",
+              "vi": "So sánh:"
+            },
+            {
+              "kind": "examples",
+              "heading": "In general (without the)",
+              "headingVi": "Nói chung (không dùng the)",
+              "items": [
+                {
+                  "en": "**Children** learn from playing.",
+                  "note": "= children in general",
+                  "vi": "Trẻ em học được thông qua việc chơi. (= trẻ em nói chung)"
+                },
+                {
+                  "en": "I couldn't live without **music**.",
+                  "vi": "Tôi không thể sống thiếu âm nhạc."
+                },
+                {
+                  "en": "**All cars** have wheels.",
+                  "vi": "Mọi chiếc xe hơi đều có bánh xe."
+                },
+                {
+                  "en": "**Sugar** isn't very good for you.",
+                  "vi": "Đường không tốt cho bạn lắm."
+                },
+                {
+                  "en": "**English people** drink a lot of tea.",
+                  "note": "= English people in general",
+                  "vi": "Người Anh uống rất nhiều trà. (= người Anh nói chung)"
+                }
+              ]
+            },
+            {
+              "kind": "examples",
+              "heading": "Specific people or things (with the)",
+              "headingVi": "Cụ thể (dùng the)",
+              "items": [
+                {
+                  "en": "We took **the children** to the zoo.",
+                  "note": "= a specific group, perhaps the speaker's children",
+                  "vi": "Chúng tôi đưa các con đi sở thú. (= một nhóm cụ thể, có thể là con của người nói)"
+                },
+                {
+                  "en": "The film wasn't very good, but I liked **the music**.",
+                  "note": "= the music in the film",
+                  "vi": "Bộ phim không hay lắm, nhưng tôi thích phần nhạc của phim. (= nhạc trong phim)"
+                },
+                {
+                  "en": "**All the cars** in this car park belong to people who work here.",
+                  "vi": "Tất cả những chiếc xe trong bãi đỗ này đều thuộc về những người làm việc ở đây."
+                },
+                {
+                  "en": "Can you pass **the sugar**, please?",
+                  "note": "= the sugar on the table",
+                  "vi": "Bạn đưa giúp tôi lọ đường được không? (= đường ở trên bàn)"
+                },
+                {
+                  "en": "**The English people** I know drink a lot of tea.",
+                  "note": "= only the English people I know, not English people in general",
+                  "vi": "Những người Anh mà tôi biết uống rất nhiều trà. (= chỉ những người Anh tôi biết, không phải người Anh nói chung)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "ranh giới giữa nói chung và cụ thể không phải lúc nào cũng rõ ràng",
+          "headingEn": "the line between general and specific is not always clear",
+          "intro": "The difference between 'something in general' and 'something specific' is not always very clear.",
+          "introVi": "Ranh giới giữa 'điều gì đó nói chung' và 'điều gì đó cụ thể' không phải lúc nào cũng rõ ràng.",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "Compare:",
+              "vi": "So sánh:"
+            },
+            {
+              "kind": "examples",
+              "heading": "In general (without the)",
+              "headingVi": "Nói chung (không dùng the)",
+              "items": [
+                {
+                  "en": "I like working with **people**.",
+                  "note": "= people in general",
+                  "vi": "Tôi thích làm việc với mọi người. (= mọi người nói chung)"
+                },
+                {
+                  "en": "I like working with **people** who say what they think.",
+                  "note": "not all people, but 'people who say what they think' is still a general idea",
+                  "vi": "Tôi thích làm việc với những người thẳng thắn nói ra suy nghĩ của mình. (không phải mọi người, nhưng 'người thẳng thắn nói ra suy nghĩ của mình' vẫn là một ý chung)"
+                },
+                {
+                  "en": "Do you like **coffee**?",
+                  "note": "= coffee in general",
+                  "vi": "Bạn có thích cà phê không? (= cà phê nói chung)"
+                },
+                {
+                  "en": "Do you like strong black **coffee**?",
+                  "note": "not all coffee, but 'strong black coffee' is still a general idea",
+                  "vi": "Bạn có thích cà phê đen đậm không? (không phải mọi loại cà phê, nhưng 'cà phê đen đậm' vẫn là một ý chung)"
+                }
+              ]
+            },
+            {
+              "kind": "examples",
+              "heading": "Specific people or things (with the)",
+              "headingVi": "Cụ thể (dùng the)",
+              "items": [
+                {
+                  "en": "I like **the people** I work with.",
+                  "note": "= a specific group of people",
+                  "vi": "Tôi thích những người mà tôi làm việc cùng. (= một nhóm người cụ thể)"
+                },
+                {
+                  "en": "**The coffee** we had after dinner wasn't very good.",
+                  "note": "= specific coffee",
+                  "vi": "Cà phê chúng tôi uống sau bữa tối không ngon lắm. (= cà phê cụ thể)"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "fill_mc",
+      "title": "75.2 · Cách nào đúng?",
+      "titleEn": "75.2 · Which is right?",
+      "instructions": "Chọn cách diễn đạt đúng trong mỗi câu.",
+      "instructionsEn": "Choose the correct option in each sentence.",
+      "examples": [
+        {
+          "label": "1a",
+          "prompt": "___ are good for you.",
+          "answer": "Apples"
+        }
+      ],
+      "items": [
+        {
+          "label": "1b",
+          "before": "Look at",
+          "after": "on that tree. They're very big.",
+          "options": ["apples", "the apples"],
+          "answer": "the apples"
+        },
+        {
+          "label": "2a",
+          "before": "Who are",
+          "after": "in this picture?",
+          "options": ["people", "the people"],
+          "answer": "the people"
+        },
+        {
+          "label": "2b",
+          "before": "It annoys me when",
+          "after": "throw rubbish on the ground.",
+          "options": ["people", "the people"],
+          "answer": "people"
+        },
+        {
+          "label": "3a",
+          "before": "My memory isn't good. I'm not good at remembering",
+          "after": ".",
+          "options": ["names", "the names"],
+          "answer": "names"
+        },
+        {
+          "label": "3b",
+          "before": "What were",
+          "after": "of those people we met last night?",
+          "options": ["names", "the names"],
+          "answer": "the names"
+        },
+        {
+          "label": "4a",
+          "before": "",
+          "after": "began in 1914 and ended in 1918.",
+          "options": ["First World War", "The First World War"],
+          "answer": "The First World War"
+        },
+        {
+          "label": "4b",
+          "before": "A pacifist is somebody who is against",
+          "after": ".",
+          "options": ["war", "the war"],
+          "answer": "war"
+        },
+        {
+          "label": "5a",
+          "before": "He's lazy. He doesn't like",
+          "after": ".",
+          "options": ["hard work", "the hard work"],
+          "answer": "hard work"
+        },
+        {
+          "label": "5b",
+          "before": "Did you finish",
+          "after": "you were doing yesterday?",
+          "options": ["work", "the work"],
+          "answer": "the work"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "75.3 · Hoàn thành câu, chọn từ trong khung",
+      "titleEn": "75.3 · Complete the sentences. Choose from the box",
+      "instructions": "Hoàn thành các câu sau, chọn từ trong khung. Dùng the khi cần thiết.",
+      "instructionsEn": "Complete the sentences below, choosing from the box. Use the where necessary.",
+      "wordBank": ["(the) basketball", "(the) grass", "(the) patience", "(the) people", "(the) questions", "(the) meat", "(the) information", "(the) hotels", "(the) biology", "(the) water", "(the) spiders", "(the) lies"],
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "My favourite sport is ___.",
+          "answer": "basketball"
+        },
+        {
+          "label": "2",
+          "prompt": "___ we were given wasn't correct.",
+          "answer": "The information"
+        }
+      ],
+      "items": [
+        {
+          "prompt": "Some people are afraid of ___.",
+          "answer": "spiders"
+        },
+        {
+          "prompt": "A vegetarian is somebody who doesn't eat ___.",
+          "answer": "meat"
+        },
+        {
+          "prompt": "The test wasn't hard. I answered ___ without difficulty.",
+          "answer": "the questions"
+        },
+        {
+          "prompt": "Do you know ___ who live in the flat next to yours?",
+          "answer": "the people"
+        },
+        {
+          "prompt": "___ is the study of plants and animals.",
+          "answer": "Biology"
+        },
+        {
+          "prompt": "It's better to tell the truth. Telling ___ often causes problems.",
+          "answer": "lies"
+        },
+        {
+          "prompt": "We couldn't find anywhere to stay in the town. ___ were all full.",
+          "answer": "The hotels"
+        },
+        {
+          "prompt": "Don't swim in this pool. ___ doesn't look very clean.",
+          "answer": "The water"
+        },
+        {
+          "prompt": "Don't sit on ___. It's wet after the rain.",
+          "answer": "the grass"
+        },
+        {
+          "prompt": "You need ___ to teach young children.",
+          "answer": "patience"
+        }
+      ]
+    },
+    {
+      "kind": "fill_mc",
+      "title": "75.4 · Cách nào đúng?",
+      "titleEn": "75.4 · Which is right?",
+      "instructions": "Chọn cách diễn đạt đúng trong mỗi câu.",
+      "instructionsEn": "Choose the correct option in each sentence.",
+      "items": [
+        {
+          "before": "Steve is very good at telling",
+          "after": ".",
+          "options": ["stories", "the stories"],
+          "answer": "stories"
+        },
+        {
+          "before": "I can't sing this song. I don't know",
+          "after": ".",
+          "options": ["words", "the words"],
+          "answer": "the words"
+        },
+        {
+          "before": "Don't stay in that hotel. It's noisy and",
+          "after": "are very small.",
+          "options": ["rooms", "the rooms"],
+          "answer": "the rooms"
+        },
+        {
+          "before": "I don't have a car, so I use",
+          "after": "most of the time.",
+          "options": ["public transport", "the public transport"],
+          "answer": "public transport"
+        },
+        {
+          "before": "",
+          "after": "on the top shelf belong to me.",
+          "options": ["All books", "All the books"],
+          "answer": "All the books"
+        },
+        {
+          "before": "",
+          "after": "is strange sometimes. Some very strange things happen.",
+          "options": ["Life", "The life"],
+          "answer": "Life"
+        },
+        {
+          "before": "We enjoyed our holiday.",
+          "after": "was good.",
+          "options": ["Weather", "The weather"],
+          "answer": "The weather"
+        },
+        {
+          "before": "Everybody needs",
+          "after": "to live.",
+          "options": ["water", "the water"],
+          "answer": "water"
+        },
+        {
+          "before": "I don't like",
+          "after": "with unhappy endings.",
+          "options": ["films", "the films"],
+          "answer": "films"
+        }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh thể hiện sự khác biệt giữa nói chung (không dùng the) và nói đến điều cụ thể (dùng the), ví dụ: 'Doctors are usually paid more than teachers.' và 'The doctors at this hospital are very kind.'. Hoặc chọn hai, ba chủ đề trong số sau và nói suy nghĩ của bạn về chúng nói chung (không dùng the): bananas, boxing, cats, crowds, fast food, horror movies, hot weather, maths, opera, snow, supermarkets, zoos (ví dụ: 'I don't like hot weather very much.').",
+      "instructionsEn": "Write 2-3 English sentences showing the difference between speaking in general (without the) and about something specific (with the), e.g. 'Doctors are usually paid more than teachers.' vs 'The doctors at this hospital are very kind.'. Or pick two or three of these topics and say what you think about them in general (without the): bananas, boxing, cats, crowds, fast food, horror movies, hot weather, maths, opera, snow, supermarkets, zoos (e.g. 'I don't like hot weather very much.').",
+      "ruleSummary": "This unit teaches when to use the article the: with a general idea (no the) versus a specific, already-identified thing or person (with the). When talking about things or people in general, we do not use the: 'I'm afraid of dogs' (not the dogs; dogs = dogs in general, not a specific group), 'Doctors are usually paid more than teachers', 'Do you know anybody who collects stamps?', 'Life has changed a lot in the last thirty years', 'Do you like classical music / Chinese food / fast cars?', 'My favourite sport is football/skiing/athletics', 'My favourite subject at school was history/physics/English'. We say most people / most shops / most big cities etc, not the most...: 'Most shops accept credit cards' (not The most shops). We use the when we mean specific things or people. Compare: 'Children learn from playing' (children in general) vs 'We took the children to the zoo' (a specific group, perhaps the speaker's children); 'I couldn't live without music' vs 'The film wasn't very good, but I liked the music' (the music in the film); 'All cars have wheels' / 'Sugar isn't very good for you' vs 'All the cars in this car park belong to people who work here' / 'Can you pass the sugar, please?' (the sugar on the table); 'English people drink a lot of tea' (English people in general) vs 'The English people I know drink a lot of tea' (only the ones the speaker knows, not English people in general). The line between general and specific is not always clear: 'I like working with people' (people in general) vs 'I like the people I work with' (a specific group); 'I like working with people who say what they think' (still a general idea, even though it names a narrower group) vs 'The coffee we had after dinner wasn't very good' (specific coffee); 'Do you like coffee?' / 'Do you like strong black coffee?' (both still general ideas). A correct student sentence should either use a bare plural/uncountable noun for a general idea, or add the when referring to a specific, already-identified thing or person."
+    }
+  ]
+};
+
 export const UNITS_META: GrammarUnitMeta[] = [
   { unit: 1, slug: UNIT_1_PRESENT_CONTINUOUS.slug, title: UNIT_1_PRESENT_CONTINUOUS.title, topic: UNIT_1_PRESENT_CONTINUOUS.topic, available: true },
   { unit: 2, slug: UNIT_2_PRESENT_SIMPLE.slug, title: UNIT_2_PRESENT_SIMPLE.title, topic: UNIT_2_PRESENT_SIMPLE.topic, available: true },
@@ -31965,9 +34577,14 @@ export const UNITS_META: GrammarUnitMeta[] = [
   { unit: 68, slug: UNIT_68_ING_CLAUSES.slug, title: UNIT_68_ING_CLAUSES.title, topic: UNIT_68_ING_CLAUSES.topic, available: true },
   { unit: 69, slug: UNIT_69_COUNTABLE_AND_UNCOUNTABLE_1.slug, title: UNIT_69_COUNTABLE_AND_UNCOUNTABLE_1.title, topic: UNIT_69_COUNTABLE_AND_UNCOUNTABLE_1.topic, available: true },
   { unit: 70, slug: UNIT_70_COUNTABLE_AND_UNCOUNTABLE_2.slug, title: UNIT_70_COUNTABLE_AND_UNCOUNTABLE_2.title, topic: UNIT_70_COUNTABLE_AND_UNCOUNTABLE_2.topic, available: true },
+  { unit: 71, slug: UNIT_71_COUNTABLE_NOUNS_A_AN_SOME.slug, title: UNIT_71_COUNTABLE_NOUNS_A_AN_SOME.title, topic: UNIT_71_COUNTABLE_NOUNS_A_AN_SOME.topic, available: true },
+  { unit: 72, slug: UNIT_72_A_AN_AND_THE.slug, title: UNIT_72_A_AN_AND_THE.title, topic: UNIT_72_A_AN_AND_THE.topic, available: true },
+  { unit: 73, slug: UNIT_73_THE_1.slug, title: UNIT_73_THE_1.title, topic: UNIT_73_THE_1.topic, available: true },
+  { unit: 74, slug: UNIT_74_THE_2.slug, title: UNIT_74_THE_2.title, topic: UNIT_74_THE_2.topic, available: true },
+  { unit: 75, slug: UNIT_75_THE_3.slug, title: UNIT_75_THE_3.title, topic: UNIT_75_THE_3.topic, available: true },
 ];
 
-export const GRAMMAR_UNITS: GrammarUnit[] = [UNIT_1_PRESENT_CONTINUOUS, UNIT_2_PRESENT_SIMPLE, UNIT_3_PRESENT_CONTINUOUS_AND_SIMPLE_1, UNIT_4_PRESENT_CONTINUOUS_AND_SIMPLE_2, UNIT_5_PAST_SIMPLE, UNIT_6_PAST_CONTINUOUS, UNIT_7_PRESENT_PERFECT_1, UNIT_8_PRESENT_PERFECT_2, UNIT_9_PRESENT_PERFECT_CONTINUOUS, UNIT_10_PRESENT_PERFECT_CONTINUOUS_AND_SIMPLE, UNIT_11_HOW_LONG_HAVE_YOU_BEEN, UNIT_12_FOR_AND_SINCE, UNIT_13_PRESENT_PERFECT_AND_PAST_1, UNIT_14_PRESENT_PERFECT_AND_PAST_2, UNIT_15_PAST_PERFECT, UNIT_16_PAST_PERFECT_CONTINUOUS, UNIT_17_HAVE_AND_HAVE_GOT, UNIT_18_USED_TO, UNIT_19_PRESENT_TENSES_FOR_THE_FUTURE, UNIT_20_IM_GOING_TO, UNIT_21_WILL_AND_SHALL_1, UNIT_22_WILL_AND_SHALL_2, UNIT_23_I_WILL_AND_IM_GOING_TO, UNIT_24_WILL_BE_DOING_AND_WILL_HAVE_DONE, UNIT_25_WHEN_I_DO_AND_WHEN_IVE_DONE, UNIT_26_CAN_COULD_AND_BE_ABLE_TO, UNIT_27_COULD_DO_AND_COULD_HAVE_DONE, UNIT_28_MUST_AND_CANT, UNIT_29_MAY_AND_MIGHT_1, UNIT_30_MAY_AND_MIGHT_2, UNIT_31_HAVE_TO_AND_MUST, UNIT_32_MUST_MUSTNT_NEEDNT, UNIT_33_SHOULD_1, UNIT_34_SHOULD_2, UNIT_35_ID_BETTER_ITS_TIME, UNIT_36_WOULD, UNIT_37_REQUESTS_OFFERS_PERMISSION_INVITATIONS, UNIT_38_IF_I_DO_AND_IF_I_DID, UNIT_39_IF_I_KNEW_I_WISH_I_KNEW, UNIT_40_IF_I_HAD_KNOWN_I_WISH_I_HAD_KNOWN, UNIT_41_WISH, UNIT_42_PASSIVE_1, UNIT_43_PASSIVE_2, UNIT_44_PASSIVE_3, UNIT_45_SUPPOSED_TO, UNIT_46_HAVE_SOMETHING_DONE, UNIT_47_REPORTED_SPEECH_1, UNIT_48_REPORTED_SPEECH_2, UNIT_49_QUESTIONS_1, UNIT_50_QUESTIONS_2, UNIT_51_I_THINK_SO_I_HOPE_SO, UNIT_52_QUESTION_TAGS, UNIT_53_VERB_ING, UNIT_54_VERB_TO, UNIT_55_VERB_OBJECT_TO, UNIT_56_VERB_ING_OR_TO_1, UNIT_57_VERB_ING_OR_TO_2, UNIT_58_VERB_ING_OR_TO_3, UNIT_59_PREFER_WOULD_RATHER, UNIT_60_PREPOSITION_ING, UNIT_61_BE_GET_USED_TO, UNIT_62_VERB_PREPOSITION_ING, UNIT_63_NO_POINT_WORTH_ING, UNIT_64_TO_FOR_SO_THAT, UNIT_65_ADJECTIVE_TO, UNIT_66_AFRAID_TO_AFRAID_OF_ING, UNIT_67_SEE_SOMEBODY_DO_DOING, UNIT_68_ING_CLAUSES, UNIT_69_COUNTABLE_AND_UNCOUNTABLE_1, UNIT_70_COUNTABLE_AND_UNCOUNTABLE_2];
+export const GRAMMAR_UNITS: GrammarUnit[] = [UNIT_1_PRESENT_CONTINUOUS, UNIT_2_PRESENT_SIMPLE, UNIT_3_PRESENT_CONTINUOUS_AND_SIMPLE_1, UNIT_4_PRESENT_CONTINUOUS_AND_SIMPLE_2, UNIT_5_PAST_SIMPLE, UNIT_6_PAST_CONTINUOUS, UNIT_7_PRESENT_PERFECT_1, UNIT_8_PRESENT_PERFECT_2, UNIT_9_PRESENT_PERFECT_CONTINUOUS, UNIT_10_PRESENT_PERFECT_CONTINUOUS_AND_SIMPLE, UNIT_11_HOW_LONG_HAVE_YOU_BEEN, UNIT_12_FOR_AND_SINCE, UNIT_13_PRESENT_PERFECT_AND_PAST_1, UNIT_14_PRESENT_PERFECT_AND_PAST_2, UNIT_15_PAST_PERFECT, UNIT_16_PAST_PERFECT_CONTINUOUS, UNIT_17_HAVE_AND_HAVE_GOT, UNIT_18_USED_TO, UNIT_19_PRESENT_TENSES_FOR_THE_FUTURE, UNIT_20_IM_GOING_TO, UNIT_21_WILL_AND_SHALL_1, UNIT_22_WILL_AND_SHALL_2, UNIT_23_I_WILL_AND_IM_GOING_TO, UNIT_24_WILL_BE_DOING_AND_WILL_HAVE_DONE, UNIT_25_WHEN_I_DO_AND_WHEN_IVE_DONE, UNIT_26_CAN_COULD_AND_BE_ABLE_TO, UNIT_27_COULD_DO_AND_COULD_HAVE_DONE, UNIT_28_MUST_AND_CANT, UNIT_29_MAY_AND_MIGHT_1, UNIT_30_MAY_AND_MIGHT_2, UNIT_31_HAVE_TO_AND_MUST, UNIT_32_MUST_MUSTNT_NEEDNT, UNIT_33_SHOULD_1, UNIT_34_SHOULD_2, UNIT_35_ID_BETTER_ITS_TIME, UNIT_36_WOULD, UNIT_37_REQUESTS_OFFERS_PERMISSION_INVITATIONS, UNIT_38_IF_I_DO_AND_IF_I_DID, UNIT_39_IF_I_KNEW_I_WISH_I_KNEW, UNIT_40_IF_I_HAD_KNOWN_I_WISH_I_HAD_KNOWN, UNIT_41_WISH, UNIT_42_PASSIVE_1, UNIT_43_PASSIVE_2, UNIT_44_PASSIVE_3, UNIT_45_SUPPOSED_TO, UNIT_46_HAVE_SOMETHING_DONE, UNIT_47_REPORTED_SPEECH_1, UNIT_48_REPORTED_SPEECH_2, UNIT_49_QUESTIONS_1, UNIT_50_QUESTIONS_2, UNIT_51_I_THINK_SO_I_HOPE_SO, UNIT_52_QUESTION_TAGS, UNIT_53_VERB_ING, UNIT_54_VERB_TO, UNIT_55_VERB_OBJECT_TO, UNIT_56_VERB_ING_OR_TO_1, UNIT_57_VERB_ING_OR_TO_2, UNIT_58_VERB_ING_OR_TO_3, UNIT_59_PREFER_WOULD_RATHER, UNIT_60_PREPOSITION_ING, UNIT_61_BE_GET_USED_TO, UNIT_62_VERB_PREPOSITION_ING, UNIT_63_NO_POINT_WORTH_ING, UNIT_64_TO_FOR_SO_THAT, UNIT_65_ADJECTIVE_TO, UNIT_66_AFRAID_TO_AFRAID_OF_ING, UNIT_67_SEE_SOMEBODY_DO_DOING, UNIT_68_ING_CLAUSES, UNIT_69_COUNTABLE_AND_UNCOUNTABLE_1, UNIT_70_COUNTABLE_AND_UNCOUNTABLE_2, UNIT_71_COUNTABLE_NOUNS_A_AN_SOME, UNIT_72_A_AN_AND_THE, UNIT_73_THE_1, UNIT_74_THE_2, UNIT_75_THE_3];
 
 export function getGrammarUnit(slug: string): GrammarUnit | undefined {
   return GRAMMAR_UNITS.find((u) => u.slug === slug);

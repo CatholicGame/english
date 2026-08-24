@@ -20,12 +20,14 @@ import { VERBS } from "@/data/basic-verbs";
 import { UNITS_META } from "@/data/cambridge-vocabulary-ielts";
 import { LISTEN_LESSONS } from "@/data/listen-a-minute";
 import { allIdiomItems } from "@/data/idioms";
+import { UNITS_META as GRAMMAR_UNITS_META } from "@/data/english-grammar-in-use";
 
 const MODULE_KEYS = {
   collocations: "collocations-phrasal-verbs",
   cambridge: "cambridge-vocabulary-ielts-advanced",
   listen: "listen-a-minute",
   idioms: "idioms",
+  grammar: "english-grammar-in-use",
 } as const;
 
 type ModuleId = keyof typeof MODULE_KEYS;
@@ -38,6 +40,7 @@ function loadAllSnapshots(): Snapshots {
     cambridge: loadState(MODULE_KEYS.cambridge),
     listen: loadState(MODULE_KEYS.listen),
     idioms: loadState(MODULE_KEYS.idioms),
+    grammar: loadState(MODULE_KEYS.grammar),
   };
 }
 
@@ -53,6 +56,8 @@ export interface DashboardProgress {
   listenTotal: number;
   idiomsLearned: number;
   idiomsTotal: number;
+  grammarDone: number;
+  grammarTotal: number;
 }
 
 export function useDashboardProgress(): DashboardProgress {
@@ -103,8 +108,11 @@ export function useDashboardProgress(): DashboardProgress {
   const unifiedDays = useMemo(() => {
     if (!snapshots) return {} as DaysMap;
     return mergeDays(
-      mergeDays(mergeDays(snapshots.collocations.days, snapshots.cambridge.days), snapshots.listen.days),
-      snapshots.idioms.days,
+      mergeDays(
+        mergeDays(mergeDays(snapshots.collocations.days, snapshots.cambridge.days), snapshots.listen.days),
+        snapshots.idioms.days,
+      ),
+      snapshots.grammar.days,
     );
   }, [snapshots]);
 
@@ -137,6 +145,11 @@ export function useDashboardProgress(): DashboardProgress {
     return idiomItems.filter((it) => lvlOf(snapshots.idioms.progress, it.key) >= 3).length;
   }, [snapshots, idiomItems]);
 
+  const grammarDone = useMemo(() => {
+    if (!snapshots) return 0;
+    return GRAMMAR_UNITS_META.filter((u) => lvlOf(snapshots.grammar.progress, u.slug) > 0).length;
+  }, [snapshots]);
+
   return {
     loaded: snapshots !== null,
     streak,
@@ -149,5 +162,7 @@ export function useDashboardProgress(): DashboardProgress {
     listenTotal: LISTEN_LESSONS.length,
     idiomsLearned,
     idiomsTotal: idiomItems.length,
+    grammarDone,
+    grammarTotal: GRAMMAR_UNITS_META.length,
   };
 }

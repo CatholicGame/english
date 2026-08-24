@@ -98,6 +98,7 @@ export const STRINGS: Record<string, DictEntry> = {
   "stat.cambridgeDone": { vi: "Đã hoàn thành {done}/{total} unit", en: "Completed {done}/{total} units" },
   "stat.listenDone": { vi: "Đã học {done}/{total} bài", en: "Studied {done}/{total} lessons" },
   "stat.idiomsLearned": { vi: "Đã học {done}/{total} từ", en: "Learned {done}/{total} idioms" },
+  "stat.grammarDone": { vi: "Đã hoàn thành {done}/{total} unit", en: "Completed {done}/{total} units" },
 
   // ─── Payment return status ───────────────────────────────────────────
   "pay.confirming": { vi: "⏳ Đang xác nhận thanh toán...", en: "⏳ Confirming payment..." },
@@ -345,6 +346,7 @@ export const STRINGS: Record<string, DictEntry> = {
   "grammar.scoreCorrectTaps": { vi: "{correct}/{total} lần chạm đúng", en: "{correct}/{total} correct taps" },
   "grammar.check": { vi: "Kiểm tra", en: "Check" },
   "grammar.answerPlaceholder": { vi: "Điền câu trả lời", en: "Type your answer" },
+  "grammar.blankPlaceholder": { vi: "Chỉ điền phần còn thiếu", en: "Fill in only the missing part" },
   "grammar.answerLabel": { vi: "Đáp án:", en: "Answer:" },
   "grammar.wordBank": { vi: "Chọn trong khung", en: "Choose from" },
   "grammar.wordBankHint": { vi: "Chạm một cụm để điền vào ô đang chọn.", en: "Tap a phrase to drop it into the selected box." },

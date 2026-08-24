@@ -704,7 +704,7 @@ function FillMcStepView({ step, onNext }: { step: FillMcStep; onNext: (score?: S
   const [picked, setPicked] = useState<(string | null)[]>(() => step.items.map(() => null));
   const [checked, setChecked] = useState(false);
   const allPicked = picked.every((p) => p !== null);
-  const correctCount = picked.filter((p, i) => p === step.items[i].answer).length;
+  const correctCount = picked.filter((p, i) => p !== null && matchesAnswer(p, step.items[i])).length;
   const startNumber = step.startNumber ?? (step.examples?.length ?? 0) + 1;
 
   const inlineAction = usePinnedAction(
@@ -729,7 +729,7 @@ function FillMcStepView({ step, onNext }: { step: FillMcStep; onNext: (score?: S
             {group.items.map((it, k) => {
               const i = group.from + k;
               const chosen = picked[i];
-              const tone: ItemTone = !checked ? "idle" : chosen === it.answer ? "correct" : "wrong";
+              const tone: ItemTone = !checked ? "idle" : chosen !== null && matchesAnswer(chosen, it) ? "correct" : "wrong";
               return (
                 <ItemRow key={i} label={it.label ?? String(startNumber + i)} tone={tone}>
                   <PromptLine
@@ -953,7 +953,9 @@ function TypeFillStepView({ step, onNext }: { step: TypeFillStep; onNext: (score
                           value={inputs[i][j]}
                           onFocus={() => setFocused([i, j])}
                           onChange={(e) => setInput(i, j, e.target.value)}
-                          placeholder={t("grammar.answerPlaceholder")}
+                          placeholder={t(
+                            it.prompt.trim() === "___" ? "grammar.answerPlaceholder" : "grammar.blankPlaceholder",
+                          )}
                         />
                       </div>
                     ))}

@@ -1,13 +1,35 @@
 # Authoring a Grammar in Use unit
 
 The standard for turning one unit of `docs/English_Grammar_in_Use_Intermediate_2019_5th-Ed.pdf`
-into `src/data/english-grammar-in-use.ts`. Unit 1 (`UNIT_1_PRESENT_CONTINUOUS`) is the reference
-implementation — when in doubt, go read it instead of guessing. This doc exists so every later
+into this app's grammar data. Unit 1 (`UNIT_1_PRESENT_CONTINUOUS`) is the reference
+implementation, when in doubt, go read it instead of guessing. This doc exists so every later
 unit gets the same treatment as Unit 1, not a rougher pass.
 
 Every step below is a **requirement**, not a suggestion. A unit that skips the bilingual fields, the
-bold/italic markup, or the verification checklist is not done — it's Unit-1-before-the-fixes, and
+bold/italic markup, or the verification checklist is not done, it's Unit-1-before-the-fixes, and
 this app is a paid product, not a draft.
+
+## 0. Where the data actually lives
+
+The module used to be one file (`src/data/english-grammar-in-use.ts`); it now splits across:
+
+- `src/data/grammar-units/types.ts` — every shared TypeScript type (`GrammarUnit`, `RuleStep`,
+  `TypeFillItem`, etc). Never add a unit's own content here.
+- `src/data/grammar-units/units-<range>.ts` (e.g. `units-01-25.ts`, `units-26-50.ts`,
+  `units-51-75.ts`) — the actual `export const UNIT_<n>_<NAME>: GrammarUnit = { ... };` blocks, 25
+  units per file. **Add a new unit to the last range file, appended after its last unit**, unless
+  that file already holds 25 units, in which case start the next range file
+  (`units-76-100.ts` once `units-51-75.ts` is full, and so on).
+- `src/data/english-grammar-in-use.ts` — the barrel. It re-exports all types from `types.ts`,
+  imports every unit const from the range files, and defines `UNITS_META`, `GRAMMAR_UNITS`, and
+  `getGrammarUnit`. Every consumer (`UnitClient.tsx`, `page.tsx`, `modules.ts`) imports from this
+  one path and never needs to change when a unit is added, only the barrel's three import lines,
+  `UNITS_META` array, and `GRAMMAR_UNITS` array need a new entry each.
+
+Adding a unit therefore touches exactly two files: the current range file (new `export const`
+block) and the barrel (one name added to an import line, one `UNITS_META` entry, one name added
+to the `GRAMMAR_UNITS` array). `npm run check:grammar` scans every `units-*.ts` file under
+`src/data/grammar-units/`, so it does not need to change when a new range file is created.
 
 ## 1. Get the source text
 

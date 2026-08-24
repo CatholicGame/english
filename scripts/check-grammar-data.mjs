@@ -1,4 +1,5 @@
-// Structural self-check for src/data/english-grammar-in-use.ts.
+// Structural self-check for the English Grammar in Use unit data
+// (src/data/english-grammar-in-use.ts + src/data/grammar-units/units-*.ts).
 //
 // Run: node scripts/check-grammar-data.mjs
 //
@@ -8,14 +9,20 @@
 // and that AGENTS.md describes, and exits non-zero with the offending unit,
 // exercise and item when one is violated.
 //
-// Each `const UNIT_...: GrammarUnit = { ... };` body is plain JSON, so it is
-// read with a regex + JSON.parse rather than by importing TypeScript (no
-// loader/bundler is wired up for scripts here).
+// Each `export const UNIT_...: GrammarUnit = { ... };` body is plain JSON, so
+// it is read with a regex + JSON.parse rather than by importing TypeScript (no
+// loader/bundler is wired up for scripts here). Unit content is split across
+// src/data/grammar-units/units-<range>.ts files, so every file in that
+// directory matching units-*.ts is scanned.
 
-import { readFileSync } from "node:fs";
+import { readFileSync, readdirSync } from "node:fs";
 import { ruleLine } from "../src/lib/grammar-rule-line.ts";
 
-const SRC = "src/data/english-grammar-in-use.ts";
+const UNITS_DIR = "src/data/grammar-units";
+const SRCS = readdirSync(UNITS_DIR)
+  .filter((f) => /^units-[\d-]+\.ts$/.test(f))
+  .sort()
+  .map((f) => `${UNITS_DIR}/${f}`);
 const PRACTICE = ["fill_mc", "type_fill", "judge_correct", "match_pairs"];
 const errors = [];
 
@@ -42,9 +49,14 @@ for (const [label, got, want] of [
   );
 }
 
-const text = readFileSync(SRC, "utf8");
-const blocks = [...text.matchAll(/^const (UNIT_[A-Z0-9_]+): GrammarUnit = (\{[\s\S]*?\r?\n\});\r?$/gm)];
-check(blocks.length > 0, `${SRC}: no unit blocks found - has the file format changed?`);
+check(SRCS.length > 0, `${UNITS_DIR}: no units-*.ts files found - has the file layout changed?`);
+const blocks = [];
+for (const src of SRCS) {
+  const text = readFileSync(src, "utf8");
+  const found = [...text.matchAll(/^export const (UNIT_[A-Z0-9_]+): GrammarUnit = (\{[\s\S]*?\r?\n\});\r?$/gm)];
+  check(found.length > 0, `${src}: no unit blocks found - has the file format changed?`);
+  blocks.push(...found);
+}
 
 for (const [, name, json] of blocks) {
   let unit;
@@ -160,8 +172,8 @@ for (const [, name, json] of blocks) {
 }
 
 if (errors.length) {
-  console.error(`${errors.length} problem(s) in ${SRC}:`);
+  console.error(`${errors.length} problem(s) in ${UNITS_DIR}:`);
   for (const e of errors) console.error("  - " + e);
   process.exit(1);
 }
-console.log(`${SRC}: ${blocks.length} units OK`);
+console.log(`${UNITS_DIR}: ${blocks.length} units OK`);

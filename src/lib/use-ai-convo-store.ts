@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useSyncExternalStore } from "react";
+import { useCallback, useEffect, useRef, useSyncExternalStore } from "react";
 import { useAuth } from "./auth-context";
 import {
   getConvosFor,
@@ -18,7 +18,6 @@ import {
 interface ModuleStore {
   data: AiConvoData;
   listeners: Set<() => void>;
-  fetchStarted: boolean;
   pushTimer: ReturnType<typeof setTimeout> | null;
 }
 
@@ -27,7 +26,7 @@ const stores = new Map<string, ModuleStore>();
 function getStore(moduleKey: string): ModuleStore {
   let store = stores.get(moduleKey);
   if (!store) {
-    store = { data: loadAiConvos(moduleKey), listeners: new Set(), fetchStarted: false, pushTimer: null };
+    store = { data: loadAiConvos(moduleKey), listeners: new Set(), pushTimer: null };
     stores.set(moduleKey, store);
   }
   return store;
@@ -53,7 +52,7 @@ function pushToCloud(moduleKey: string, data: AiConvoData, onReauthRequired: () 
     body: JSON.stringify(data),
   })
     .then((r) => { if (r.status === 401) onReauthRequired(); })
-    .catch(() => { /* best-effort */ });
+    .catch((e) => console.error(`[ai-convo-store] push failed for ${moduleKey}`, e));
 }
 
 export function useAiConvoStore(moduleKey: string) {
@@ -64,12 +63,15 @@ export function useAiConvoStore(moduleKey: string) {
     () => loadAiConvos(moduleKey),
   );
 
-  // Fetch from Drive on mount (when authenticated)
+  // Fetch from Drive whenever this consumer mounts (not just once per page
+  // load) — GlobalDiscussChat's panel mounts fresh every time the "Hoi dap
+  // nhanh" window is opened, and a thread created on another device should
+  // show up the next time it's opened, not only after a full reload.
+  const fetchedRef = useRef(false);
   useEffect(() => {
     if (authLoading || !authenticated) return;
-    const store = getStore(moduleKey);
-    if (store.fetchStarted) return;
-    store.fetchStarted = true;
+    if (fetchedRef.current) return;
+    fetchedRef.current = true;
 
     fetch(`/api/drive/ai-convos?key=${encodeURIComponent(moduleKey)}`)
       .then((r) => {
@@ -82,7 +84,10 @@ export function useAiConvoStore(moduleKey: string) {
         setData(moduleKey, merged);
         pushToCloud(moduleKey, merged, refresh);
       })
-      .catch(() => { store.fetchStarted = false; });
+      .catch((e) => {
+        fetchedRef.current = false;
+        console.error(`[ai-convo-store] fetch failed for ${moduleKey}`, e);
+      });
   }, [authLoading, authenticated, moduleKey, refresh]);
 
   const schedulePush = useCallback(

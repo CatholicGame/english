@@ -30,6 +30,7 @@ import { ConversationFeedback } from "@/components/ConversationFeedback";
 import { createShareLink } from "@/lib/share-client";
 import type { SharedConvoPayload } from "@/lib/share-payload";
 import { currentAiLang } from "@/lib/ai-lang-prefs";
+import { renderRich } from "@/lib/rich-text";
 import { useUiLang } from "@/lib/i18n";
 import { CopyButton } from "@/components/CopyButton";
 import { useSubscriptionStore } from "@/lib/use-subscription-store";
@@ -771,7 +772,7 @@ function VocabAiPractice({ word }: { word: VocabWord }) {
                     }}
                   >
                     <span className="label-xs mb-0.5 block">{m.role === "user" ? "You" : "Partner"}</span>
-                    <p className="whitespace-pre-wrap">{m.content}</p>
+                    <p className="whitespace-pre-wrap">{renderRich(m.content)}</p>
                   </div>
                 ))}
                 {chatBusy === "send" && (
@@ -865,7 +866,7 @@ function VocabAiPractice({ word }: { word: VocabWord }) {
                     }}
                   >
                     <span className="label-xs mb-0.5 block">{m.role === "user" ? "You" : "Partner"}</span>
-                    <p className="whitespace-pre-wrap">{m.content}</p>
+                    <p className="whitespace-pre-wrap">{renderRich(m.content)}</p>
                   </div>
                 ))}
                 {discBusy === "send" && (

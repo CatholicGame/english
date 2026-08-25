@@ -15,6 +15,7 @@ import { ChatInput } from "./ChatInput";
 import { useAiConvoStore } from "@/lib/use-ai-convo-store";
 import type { AiMessage } from "@/lib/ai-convo-store";
 import { currentAiLang } from "@/lib/ai-lang-prefs";
+import { renderRich } from "@/lib/rich-text";
 
 const MODULE_KEY = "global-chat";
 const ITEM_KEY = "global";
@@ -202,7 +203,7 @@ function DiscussPanel({ onClose }: { onClose: () => void }) {
               }}
             >
               <span className="label-xs mb-0.5 block">{m.role === "user" ? "Bạn" : "AI"}</span>
-              <p className="whitespace-pre-wrap">{m.content}</p>
+              <p className="whitespace-pre-wrap">{renderRich(m.content)}</p>
             </div>
           ))}
           {sending && (

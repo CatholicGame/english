@@ -26,6 +26,7 @@ import { useGrammarStore } from "@/lib/use-grammar-store";
 import { useAiConvoStore } from "@/lib/use-ai-convo-store";
 import type { AiMessage } from "@/lib/ai-convo-store";
 import { currentAiLang } from "@/lib/ai-lang-prefs";
+import { renderRich } from "@/lib/rich-text";
 
 const MODULE_KEY = "grammar-lookup";
 
@@ -259,7 +260,7 @@ function GrammarChat({ entryKey, text, category }: { entryKey: string; text: str
               }}
             >
               <span className="label-xs mb-0.5 block">{m.role === "user" ? "Bạn" : "AI"}</span>
-              <p className="whitespace-pre-wrap">{m.content}</p>
+              <p className="whitespace-pre-wrap">{renderRich(m.content)}</p>
             </div>
           ))}
           {sending && (

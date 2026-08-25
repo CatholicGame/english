@@ -28,6 +28,7 @@ import { AiFeedback } from "@/components/AiFeedback";
 import { currentAiLang } from "@/lib/ai-lang-prefs";
 import { useUiLang, type TranslateFn } from "@/lib/i18n";
 import { useSubscriptionStore } from "@/lib/use-subscription-store";
+import { renderRich } from "@/lib/rich-text";
 import { isGrammarUnitLocked } from "@/lib/content-access";
 import { ProPaywallNotice } from "@/components/ProPaywallNotice";
 import { ActionBarScreen, useActionBar } from "@/components/ActionBar";
@@ -83,24 +84,6 @@ function loc(vi: string, en: string | undefined, lang: string): string {
 }
 
 // ---------- Rule (explanation) ----------
-
-// Minimal inline markup for rule content: **bold** for the grammar form being
-// taught (matching how the book bolds it inside example sentences and the
-// conjugation table), *italic* for a spoken-emphasis or terminology word
-// (e.g. *now*, *not*, the *present continuous*). Not general markdown —
-// just these two patterns, applied to body/example/table text.
-function renderRich(text: string): React.ReactNode {
-  const parts = text.split(/(\*\*[^*]+\*\*|\*[^*]+\*)/g);
-  return parts.map((part, i) => {
-    if (part.startsWith("**") && part.endsWith("**")) {
-      return <strong key={i}>{part.slice(2, -2)}</strong>;
-    }
-    if (part.startsWith("*") && part.endsWith("*")) {
-      return <em key={i}>{part.slice(1, -1)}</em>;
-    }
-    return part;
-  });
-}
 
 // ---------- Rule language preference ----------
 

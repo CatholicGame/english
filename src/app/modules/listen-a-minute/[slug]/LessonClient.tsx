@@ -20,6 +20,7 @@ import { useAiConvoStore } from "@/lib/use-ai-convo-store";
 import type { AiConversation, AiMessage } from "@/lib/ai-convo-store";
 import { addGlobalXP } from "@/lib/global-score";
 import { currentAiLang } from "@/lib/ai-lang-prefs";
+import { renderRich } from "@/lib/rich-text";
 import { useUiLang } from "@/lib/i18n";
 import { AiFeedback } from "@/components/AiFeedback";
 import { AiConversationHistory } from "@/components/AiConversationHistory";
@@ -281,7 +282,7 @@ function LessonDiscussion({ lesson }: { lesson: ListenLesson }) {
               <div key={i} className="rounded p-2.5 text-[16px] leading-relaxed"
                 style={{ background: m.role === "user" ? "var(--color-accent-100)" : "var(--color-surface)", alignSelf: m.role === "user" ? "flex-end" : "flex-start", maxWidth: "85%" }}>
                 <span className="label-xs mb-0.5 block">{m.role === "user" ? "You" : "Partner"}</span>
-                <p className="whitespace-pre-wrap">{m.content}</p>
+                <p className="whitespace-pre-wrap">{renderRich(m.content)}</p>
               </div>
             ))}
             {busy === "send" && (

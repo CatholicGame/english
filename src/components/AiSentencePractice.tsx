@@ -12,6 +12,7 @@ import { useActionBar } from "./ActionBar";
 import { createShareLink } from "@/lib/share-client";
 import type { SharedConvoPayload } from "@/lib/share-payload";
 import { currentAiLang } from "@/lib/ai-lang-prefs";
+import { renderRich } from "@/lib/rich-text";
 import { useUiLang } from "@/lib/i18n";
 import { CopyButton } from "./CopyButton";
 
@@ -601,7 +602,7 @@ export function AiSentencePractice({ item, moduleKey, showItemInfo = true }: { i
                 <div key={i} className="rounded p-2.5 text-[16px] leading-relaxed group relative"
                   style={{ background: m.role === "user" ? "var(--color-accent-100)" : "var(--color-surface)", alignSelf: m.role === "user" ? "flex-end" : "flex-start", maxWidth: "85%" }}>
                   <span className="label-xs mb-0.5 block">{m.role === "user" ? "You" : "Partner"}</span>
-                  <p className="whitespace-pre-wrap select-text">{m.content}</p>
+                  <p className="whitespace-pre-wrap select-text">{renderRich(m.content)}</p>
                 </div>
               ))}
               {chatBusy === "send" && (
@@ -659,7 +660,7 @@ export function AiSentencePractice({ item, moduleKey, showItemInfo = true }: { i
                 <div key={i} className="rounded p-2.5 text-[16px] leading-relaxed group relative"
                   style={{ background: m.role === "user" ? "var(--color-accent-100)" : "var(--color-surface)", alignSelf: m.role === "user" ? "flex-end" : "flex-start", maxWidth: "85%" }}>
                   <span className="label-xs mb-0.5 block">{m.role === "user" ? "You" : "Partner"}</span>
-                  <p className="whitespace-pre-wrap select-text">{m.content}</p>
+                  <p className="whitespace-pre-wrap select-text">{renderRich(m.content)}</p>
                 </div>
               ))}
               {discBusy === "send" && (

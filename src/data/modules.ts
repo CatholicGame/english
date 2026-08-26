@@ -35,6 +35,15 @@ export const MODULES: ModuleDef[] = [
     available: true,
   },
   {
+    slug: "english-grammar-in-use",
+    title: "English Grammar in Use",
+    subtitle: "145 units · Intermediate",
+    description:
+      "Work through Raymond Murphy's classic grammar reference unit by unit: learn the rule, then practice with the book's own exercises.",
+    statsLabel: `${GRAMMAR_UNITS_META.length} units · ${GRAMMAR_UNITS_META.filter((u) => u.available).length} ready`,
+    available: true,
+  },
+  {
     slug: "listen-a-minute",
     title: "Listen A Minute",
     subtitle: "Short listening topics",
@@ -50,15 +59,6 @@ export const MODULES: ModuleDef[] = [
     description:
       "Work through each unit's real listening, reading, speaking and vocabulary-building tasks from the Cambridge IELTS Advanced coursebook, fully interactive.",
     statsLabel: `${UNITS_META.length} units · ${UNITS_META.filter((u) => u.available).length} ready`,
-    available: true,
-  },
-  {
-    slug: "english-grammar-in-use",
-    title: "English Grammar in Use",
-    subtitle: "145 units · Intermediate",
-    description:
-      "Work through Raymond Murphy's classic grammar reference unit by unit: learn the rule, then practice with the book's own exercises.",
-    statsLabel: `${GRAMMAR_UNITS_META.length} units · ${GRAMMAR_UNITS_META.filter((u) => u.available).length} ready`,
     available: true,
   },
 ];

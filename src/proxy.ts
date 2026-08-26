@@ -19,6 +19,16 @@ export function proxy(request: NextRequest) {
     return NextResponse.next();
   }
 
+  // /admin is privileged (role-gated server-side, see src/lib/admin.ts) and was
+  // never meant to be guest-accessible — a no-login visitor here must still hit
+  // the real /login wall, not fall through to a guest trial pass and land on a
+  // silent 404 with no way to know they need to sign in.
+  if (pathname.startsWith("/admin")) {
+    const url = new URL("/login", request.url);
+    url.searchParams.set("returnTo", pathname);
+    return NextResponse.redirect(url);
+  }
+
   const guestCookie = request.cookies.get(GUEST_COOKIE_NAME);
   const guest = guestCookie ? decryptPayload<GuestPayload>(guestCookie.value) : null;
 

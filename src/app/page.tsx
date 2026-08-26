@@ -10,6 +10,7 @@ import { FeedbackPrompt } from "@/components/FeedbackPrompt";
 import { useDashboardProgress, type DashboardProgress } from "@/lib/use-dashboard-progress";
 import { useSubscriptionStore } from "@/lib/use-subscription-store";
 import { isPaidActive } from "@/lib/subscription-store";
+import { useAuth } from "@/lib/auth-context";
 import { useUiLang, type TranslateFn } from "@/lib/i18n";
 
 /** Polls a few times after returning from a hosted checkout (PayOS or PayPal)
@@ -117,6 +118,7 @@ export default function HomePage() {
 function HomePageContent() {
   const dashboard = useDashboardProgress();
   const { subscription, trialDaysLeft, refetch } = useSubscriptionStore();
+  const { authenticated } = useAuth();
   const { t } = useUiLang();
   const [showPurchase, setShowPurchase] = useState(false);
 
@@ -141,14 +143,23 @@ function HomePageContent() {
       {trialDaysLeft > 0 && (
         <div className="divider-b flex items-center justify-between gap-3 bg-accent-100 px-4 py-2.5">
           <span className="text-[16px] font-bold text-accent-800">
-            {t("home.trialLeft", { n: trialDaysLeft })}
+            {t(authenticated ? "home.trialLeft" : "home.guestTrialLeft", { n: trialDaysLeft })}
           </span>
-          <button
-            className="btn btn-primary flex-none px-3 py-1.5 text-[16px]"
-            onClick={() => setShowPurchase(true)}
-          >
-            {t("home.viewPlans")}
-          </button>
+          {authenticated ? (
+            <button
+              className="btn btn-primary flex-none px-3 py-1.5 text-[16px]"
+              onClick={() => setShowPurchase(true)}
+            >
+              {t("home.viewPlans")}
+            </button>
+          ) : (
+            <a
+              href="/api/auth/login?returnTo=/"
+              className="btn btn-primary flex-none px-3 py-1.5 text-[16px]"
+            >
+              {t("auth.signin")}
+            </a>
+          )}
         </div>
       )}
 

@@ -58,5 +58,7 @@ export async function incrementTokenUsage(
  * React state). */
 export async function listTokenUsage(): Promise<DailyTokenUsage[]> {
   const snap = await getDb().collection("ai_token_usage").get();
-  return snap.docs.map((d) => d.data() as DailyTokenUsage);
+  return snap.docs
+    .filter((d) => !d.id.startsWith("guest:")) // guest AI-usage docs aren't real accounts
+    .map((d) => d.data() as DailyTokenUsage);
 }

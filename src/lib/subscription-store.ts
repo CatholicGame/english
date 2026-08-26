@@ -23,7 +23,7 @@ export interface PricingPlan {
 }
 
 export const TRIAL_DAYS = 7;
-const DAY_MS = 24 * 60 * 60 * 1000;
+export const DAY_MS = 24 * 60 * 60 * 1000;
 
 // Cost-control cap on /api/ai calls (see docs/launch-checklist.md "Kiểm soát
 // chi phí AI") — same limit regardless of plan/cycle, since every paid plan

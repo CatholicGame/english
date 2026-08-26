@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useSyncExternalStore } from "react";
+import { useCallback, useEffect, useState, useSyncExternalStore } from "react";
 import { useAuth } from "./auth-context";
 import {
   DEFAULT_SUBSCRIPTION,
@@ -66,6 +66,18 @@ export function useSubscriptionStore() {
     fetchFromServer(refresh).catch(() => { s.fetchStarted = false; });
   }, [authLoading, authenticated, refresh]);
 
+  // No account yet — check the no-login guest trial instead (see src/proxy.ts
+  // and src/lib/guest-cookie.ts). Assume active until this resolves, same
+  // "don't flash a paywall" reasoning as the loaded/isUnlocked default below.
+  const [guestStatus, setGuestStatus] = useState<{ active: boolean; daysLeft: number } | null>(null);
+  useEffect(() => {
+    if (authLoading || authenticated) return;
+    fetch("/api/guest/status")
+      .then((res) => res.json())
+      .then(setGuestStatus)
+      .catch(() => {});
+  }, [authLoading, authenticated]);
+
   // Exposed for the post-PayOS-checkout return flow, which needs to re-poll
   // outside the once-per-mount guard above (the webhook can land a beat after
   // the browser redirect back into the app).
@@ -75,8 +87,12 @@ export function useSubscriptionStore() {
   // fresh sign-in with no local cache) — assume unlocked until we know
   // otherwise instead of flashing a paywall at a legitimate trial/paid user.
   const loaded = subscription.updatedAt > 0;
-  const isUnlocked = loaded ? computeIsUnlocked(subscription) : true;
-  const trialDaysLeft = loaded ? computeTrialDaysLeft(subscription) : 0;
+  const isUnlocked = authenticated
+    ? (loaded ? computeIsUnlocked(subscription) : true)
+    : (guestStatus?.active ?? true);
+  const trialDaysLeft = authenticated
+    ? (loaded ? computeTrialDaysLeft(subscription) : 0)
+    : (guestStatus?.daysLeft ?? 0);
 
   return { subscription, loaded, isUnlocked, trialDaysLeft, refetch };
 }

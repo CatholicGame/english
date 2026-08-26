@@ -92,6 +92,7 @@ export const STRINGS: Record<string, DictEntry> = {
   "home.topics": { vi: "Topics", en: "Topics" },
   "home.soon": { vi: "Soon", en: "Soon" },
   "home.trialLeft": { vi: "🎁 Còn {n} ngày dùng thử. Mọi nội dung đang mở khoá", en: "🎁 {n} days of trial left. Everything is unlocked" },
+  "home.guestTrialLeft": { vi: "🎁 Dùng thử miễn phí: còn {n} ngày. Đăng nhập để lưu tiến trình", en: "🎁 Free trial: {n} days left. Sign in to save your progress" },
   "home.viewPlans": { vi: "Xem gói", en: "View plans" },
   "stat.collocationsDue": { vi: "{n} cụm từ cần ôn hôm nay", en: "{n} phrases due today" },
   "stat.collocationsDone": { vi: "Đã ôn hết cho hôm nay ✓", en: "All caught up for today ✓" },

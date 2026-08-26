@@ -2,6 +2,7 @@ import { NextResponse, type NextRequest, after } from "next/server";
 import { buildPrompt, type PromptResult } from "@/lib/ai-prompts";
 import type { IntentType } from "@/lib/ai-convo-store";
 import { readSession } from "@/lib/google-oauth";
+import { isGuestTrialActive, readGuestSession } from "@/lib/guest-cookie";
 import { peekAiUsage, incrementAiUsage } from "@/lib/subscription-db";
 import { incrementTokenUsage } from "@/lib/token-usage-db";
 import { AI_DAILY_CALL_LIMIT } from "@/lib/subscription-store";
@@ -15,11 +16,20 @@ export async function POST(request: NextRequest) {
   // can be traced to a phase instead of assumed to be "the model is slow".
   const requestStartedAt = Date.now();
   const session = await readSession();
-  if (!session) return NextResponse.json({ ok: false, error: "reauth_required" }, { status: 401 });
+  let usageKey: string;
+  if (session) {
+    usageKey = session.user.email;
+  } else {
+    const guest = await readGuestSession();
+    if (!guest || !isGuestTrialActive(guest)) {
+      return NextResponse.json({ ok: false, error: "reauth_required" }, { status: 401 });
+    }
+    usageKey = `guest:${guest.id}`;
+  }
   const afterSessionMs = Date.now() - requestStartedAt;
 
   const today = dayKey(new Date());
-  const usage = await peekAiUsage(session.user.email, today, AI_DAILY_CALL_LIMIT);
+  const usage = await peekAiUsage(usageKey, today, AI_DAILY_CALL_LIMIT);
   if (!usage.allowed) {
     return NextResponse.json(
       { ok: false, error: "daily_limit_reached", message: `Bạn đã dùng hết ${AI_DAILY_CALL_LIMIT} lượt AI hôm nay. Quay lại vào ngày mai nhé!` },
@@ -56,8 +66,8 @@ export async function POST(request: NextRequest) {
     // incrementTokenUsage().
     after(() =>
       Promise.all([
-        incrementAiUsage(session.user.email, today),
-        incrementTokenUsage(session.user.email, today, usage),
+        incrementAiUsage(usageKey, today),
+        incrementTokenUsage(usageKey, today, usage),
       ]),
     );
 

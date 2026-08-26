@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
+import { decryptPayload, encryptPayload } from "./lib/session-cookie";
+import { GUEST_COOKIE_NAME, guestCookieOptions, isGuestTrialActive, newGuestPayload, type GuestPayload } from "./lib/guest-cookie";
 
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
@@ -13,14 +15,29 @@ export function proxy(request: NextRequest) {
     return NextResponse.next();
   }
 
-  const seen = request.cookies.get("gd_session");
-  if (!seen) {
-    const url = new URL("/login", request.url);
-    url.searchParams.set("returnTo", pathname);
-    return NextResponse.redirect(url);
+  if (request.cookies.get("gd_session")) {
+    return NextResponse.next();
   }
 
-  return NextResponse.next();
+  const guestCookie = request.cookies.get(GUEST_COOKIE_NAME);
+  const guest = guestCookie ? decryptPayload<GuestPayload>(guestCookie.value) : null;
+
+  if (guest && isGuestTrialActive(guest)) {
+    return NextResponse.next();
+  }
+
+  if (!guest) {
+    // First-ever visit (or an undecryptable/corrupt cookie): issue a fresh guest
+    // trial and let this request through immediately instead of redirecting, so
+    // an ad click lands straight on the requested page.
+    const res = NextResponse.next();
+    res.cookies.set(GUEST_COOKIE_NAME, encryptPayload(newGuestPayload()), guestCookieOptions());
+    return res;
+  }
+
+  const url = new URL("/login", request.url);
+  url.searchParams.set("returnTo", pathname);
+  return NextResponse.redirect(url);
 }
 
 export const config = {

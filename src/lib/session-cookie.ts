@@ -25,7 +25,7 @@ function getKey(): Buffer {
   return key;
 }
 
-export function encryptSession(payload: SessionPayload): string {
+export function encryptPayload(payload: unknown): string {
   const iv = randomBytes(12);
   const cipher = createCipheriv("aes-256-gcm", getKey(), iv);
   const ciphertext = Buffer.concat([cipher.update(JSON.stringify(payload), "utf8"), cipher.final()]);
@@ -33,7 +33,7 @@ export function encryptSession(payload: SessionPayload): string {
   return Buffer.concat([iv, authTag, ciphertext]).toString("base64url");
 }
 
-export function decryptSession(value: string): SessionPayload | null {
+export function decryptPayload<T>(value: string): T | null {
   try {
     const buf = Buffer.from(value, "base64url");
     const iv = buf.subarray(0, 12);
@@ -46,6 +46,14 @@ export function decryptSession(value: string): SessionPayload | null {
   } catch {
     return null;
   }
+}
+
+export function encryptSession(payload: SessionPayload): string {
+  return encryptPayload(payload);
+}
+
+export function decryptSession(value: string): SessionPayload | null {
+  return decryptPayload<SessionPayload>(value);
 }
 
 export function sessionCookieOptions(maxAgeSeconds: number) {

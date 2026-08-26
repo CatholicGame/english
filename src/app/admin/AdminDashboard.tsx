@@ -13,6 +13,7 @@ import {
 } from "@/lib/subscription-store";
 import type { RevenueOrder } from "@/lib/subscription-db";
 import type { DailyTokenUsage } from "@/lib/token-usage-db";
+import { dayKey } from "@/lib/utils";
 import { Stars } from "@/components/Stars";
 
 type Row = SubscriptionData & { email: string };
@@ -28,7 +29,7 @@ type ReviewRow = {
   updatedAt: number;
   reply?: { message: string; updatedAt: number };
 };
-type Tab = "subscriptions" | "revenue" | "reviews" | "tokens";
+type Tab = "subscriptions" | "guests" | "revenue" | "reviews" | "tokens";
 
 const PAGE_SIZE = 20;
 
@@ -135,6 +136,7 @@ async function callApi(path: string, body: unknown) {
 
 export function AdminDashboard({
   subscriptions,
+  guests,
   role,
   subAdmins,
   reviews,
@@ -142,6 +144,7 @@ export function AdminDashboard({
   tokenUsage,
 }: {
   subscriptions: Row[];
+  guests: Row[];
   role: Role;
   subAdmins: SubAdmin[];
   reviews: ReviewRow[];
@@ -255,6 +258,7 @@ export function AdminDashboard({
       <div className="divider-b sticky top-12 z-30 flex justify-start gap-1 bg-bg">
         {([
           { id: "subscriptions", label: "Subscription" },
+          { id: "guests", label: `Khách vãng lai${guests.length ? ` (${guests.length})` : ""}` },
           { id: "revenue", label: "Doanh thu" },
           { id: "reviews", label: `Đánh giá${reviews.length ? ` (${reviews.length})` : ""}` },
           { id: "tokens", label: "Token AI" },
@@ -273,6 +277,8 @@ export function AdminDashboard({
           </button>
         ))}
       </div>
+
+      {tab === "guests" && <GuestsTab guests={guests} />}
 
       {tab === "revenue" && <RevenueTab orders={orders} />}
 
@@ -545,6 +551,78 @@ function ReplyBox({ review, onSaved }: { review: ReviewRow; onSaved: () => void 
           Huỷ
         </button>
       </div>
+    </div>
+  );
+}
+
+function GuestsTab({ guests }: { guests: Row[] }) {
+  const [page, setPage] = useState(1);
+  const totalPages = Math.max(1, Math.ceil(guests.length / PAGE_SIZE));
+  const safePage = Math.min(page, totalPages);
+  const pageItems = guests.slice((safePage - 1) * PAGE_SIZE, safePage * PAGE_SIZE);
+  const today = dayKey(new Date());
+  const activeCount = guests.filter((g) => isTrialActive(g)).length;
+
+  return (
+    <div className="mt-6">
+      <h1 className="text-[22px] font-extrabold">Khách vãng lai (chưa đăng nhập)</h1>
+      <p className="mt-1 text-[16px] text-neutral-600">
+        {guests.length} khách từng ghé không đăng nhập, {activeCount} còn trong 7 ngày dùng thử
+        {totalPages > 1 && ` — trang ${safePage}/${totalPages}`}. ID chỉ là mã ẩn danh gắn với trình duyệt của họ,
+        không phải danh tính thật.
+      </p>
+
+      {guests.length === 0 && <p className="mt-4 text-[16px] text-neutral-600">Chưa có khách vãng lai nào.</p>}
+
+      {guests.length > 0 && (
+        <div className="mt-4 overflow-x-auto">
+          <table className="w-full min-w-[560px] text-left text-[16px]">
+            <thead>
+              <tr className="divider-b text-neutral-600">
+                <th className="py-2 pr-3 font-bold">ID</th>
+                <th className="py-2 pr-3 font-bold">Bắt đầu</th>
+                <th className="py-2 pr-3 font-bold">Trạng thái</th>
+                <th className="py-2 pr-3 font-bold">AI hôm nay</th>
+              </tr>
+            </thead>
+            <tbody>
+              {pageItems.map((g) => {
+                const id = g.email.slice("guest:".length);
+                const active = isTrialActive(g);
+                return (
+                  <tr key={g.email} className="divider-b align-top">
+                    <td className="py-2.5 pr-3 font-mono text-[15px]">{id.slice(0, 8)}…</td>
+                    <td className="py-2.5 pr-3">{fmtDate(g.trialStartedAt || undefined)}</td>
+                    <td className="py-2.5 pr-3">
+                      <span
+                        className="rounded-full px-2 py-0.5 text-[16px] font-bold"
+                        style={{ color: active ? "var(--color-accent)" : "var(--color-danger, #c0392b)" }}
+                      >
+                        {active ? `Còn ${trialDaysLeft(g)} ngày` : "Hết hạn"}
+                      </span>
+                    </td>
+                    <td className="py-2.5 pr-3 tabular-nums">{g.aiCallsDate === today ? (g.aiCallsToday ?? 0) : 0}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      )}
+
+      {totalPages > 1 && (
+        <div className="mt-3 flex items-center justify-center gap-3 text-[16px]">
+          <button className="btn btn-secondary" disabled={safePage <= 1} onClick={() => setPage(safePage - 1)}>
+            ‹ Trước
+          </button>
+          <span className="text-neutral-600">
+            Trang {safePage}/{totalPages}
+          </span>
+          <button className="btn btn-secondary" disabled={safePage >= totalPages} onClick={() => setPage(safePage + 1)}>
+            Sau ›
+          </button>
+        </div>
+      )}
     </div>
   );
 }

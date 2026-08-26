@@ -1,9 +1,10 @@
 import { NextResponse } from "next/server";
-import type { NextRequest } from "next/server";
+import type { NextFetchEvent, NextRequest } from "next/server";
 import { decryptPayload, encryptPayload } from "./lib/session-cookie";
 import { GUEST_COOKIE_NAME, guestCookieOptions, isGuestTrialActive, newGuestPayload, type GuestPayload } from "./lib/guest-cookie";
+import { setSubscription } from "./lib/subscription-db";
 
-export function proxy(request: NextRequest) {
+export function proxy(request: NextRequest, event: NextFetchEvent) {
   const { pathname } = request.nextUrl;
   if (
     pathname === "/login" ||
@@ -40,8 +41,15 @@ export function proxy(request: NextRequest) {
     // First-ever visit (or an undecryptable/corrupt cookie): issue a fresh guest
     // trial and let this request through immediately instead of redirecting, so
     // an ad click lands straight on the requested page.
+    const fresh = newGuestPayload();
     const res = NextResponse.next();
-    res.cookies.set(GUEST_COOKIE_NAME, encryptPayload(newGuestPayload()), guestCookieOptions());
+    res.cookies.set(GUEST_COOKIE_NAME, encryptPayload(fresh), guestCookieOptions());
+    // Background record (same subscriptions/{key} shape a real account gets on
+    // first login) so the admin dashboard can list guest trial activity — fired
+    // via waitUntil so it never adds latency to this response.
+    event.waitUntil(
+      setSubscription(`guest:${fresh.id}`, { trialStartedAt: fresh.startedAt, updatedAt: Date.now() }).catch(() => {}),
+    );
     return res;
   }
 

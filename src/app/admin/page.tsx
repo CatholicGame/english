@@ -12,8 +12,11 @@ export default async function AdminPage() {
   const role = await resolveAdminRole(session?.user.email);
   if (!role) notFound();
 
-  const subscriptions = await listSubscriptions();
+  const allSubscriptions = await listSubscriptions();
+  const subscriptions = allSubscriptions.filter((s) => !s.email.startsWith("guest:"));
+  const guests = allSubscriptions.filter((s) => s.email.startsWith("guest:"));
   subscriptions.sort((a, b) => b.updatedAt - a.updatedAt);
+  guests.sort((a, b) => b.trialStartedAt - a.trialStartedAt);
 
   const subAdmins = role === "super" ? await listSubAdmins() : [];
   const reviews = await listReviewsForAdmin();
@@ -23,6 +26,7 @@ export default async function AdminPage() {
   return (
     <AdminDashboard
       subscriptions={subscriptions}
+      guests={guests}
       role={role}
       subAdmins={subAdmins}
       reviews={reviews}

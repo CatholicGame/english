@@ -27,9 +27,7 @@ export async function setSubscription(email: string, data: SubscriptionData): Pr
  * as the email since SubscriptionData doesn't store it redundantly. */
 export async function listSubscriptions(): Promise<Array<SubscriptionData & { email: string }>> {
   const snap = await getDb().collection("subscriptions").get();
-  return snap.docs
-    .filter((doc) => !doc.id.startsWith("guest:")) // guest AI-usage docs aren't real accounts
-    .map((doc) => ({ email: doc.id, ...(doc.data() as SubscriptionData) }));
+  return snap.docs.map((doc) => ({ email: doc.id, ...(doc.data() as SubscriptionData) }));
 }
 
 /** Cheap, non-blocking read of today's /api/ai call count — a plain `.get()`,

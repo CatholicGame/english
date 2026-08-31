@@ -3458,3 +3458,2132 @@ export const UNIT_85_SOME_AND_ANY: GrammarUnit = {
     }
   ]
 };
+
+export const UNIT_86_NO_NONE_ANY: GrammarUnit = {
+  "unit": 86,
+  "slug": "no-none-any",
+  "title": "no/none/any",
+  "topic": "pronouns and determiners",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "no và none: no + danh từ, none không đi kèm danh từ",
+          "headingEn": "no and none: no + noun, none without a noun",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "We use **no** + noun (**no** bus, **no** shops etc.). **no** = not a or not any:",
+              "vi": "Chúng ta dùng **no** + danh từ (**no** bus, **no** shops v.v.). **no** = not a hoặc not any:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "We had to walk home. There was **no** bus.", "note": "= There wasn't a bus.", "vi": "Chúng tôi phải đi bộ về nhà. Chẳng có xe buýt nào cả." },
+                { "en": "Sarah will have **no** trouble finding a job.", "note": "= Sarah won't have any trouble ...", "vi": "Sarah sẽ không gặp khó khăn gì trong việc tìm việc làm." },
+                { "en": "There were **no** shops open.", "note": "= There weren't any shops open.", "vi": "Không có cửa hàng nào mở cửa cả." }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "You can use **no** + noun at the beginning of a sentence:",
+              "vi": "Bạn có thể dùng **no** + danh từ ở đầu câu:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "**No** reason was given for the change of plan.", "vi": "Không có lý do nào được đưa ra cho việc thay đổi kế hoạch." }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "We use **none** without a noun:",
+              "vi": "Chúng ta dùng **none** mà không đi kèm danh từ:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "'How much money do you have?' '**None**.'", "note": "= no money", "vi": "'Bạn có bao nhiêu tiền?' 'Chẳng có đồng nào.'" },
+                { "en": "All the tickets have been sold. There are **none** left.", "note": "= no tickets left", "vi": "Vé đã bán hết rồi. Không còn vé nào cả." }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "Or we use **none of** ...:",
+              "vi": "Hoặc chúng ta dùng **none of** ...:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "This money is all yours. **None of** it is mine.", "vi": "Số tiền này toàn bộ là của bạn. Không có phần nào trong đó là của tôi." }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "Compare *no*, *none* and *any*:",
+              "vi": "So sánh *no*, *none* và *any*:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "I have **no** luggage.", "vi": "Tôi không có hành lý nào." },
+                { "en": "'How much luggage do you have?' '**None**.' or 'I don't have **any**.'", "vi": "'Bạn có bao nhiêu hành lý?' 'Chẳng có cái nào.' hoặc 'Tôi không có cái nào cả.'" }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "After **none of** + plural (**none of** the students, **none of** them etc.) the verb can be singular or plural:",
+              "vi": "Sau **none of** + danh từ số nhiều (**none of** the students, **none of** them v.v.), động từ có thể chia ở số ít hoặc số nhiều:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "**None of** the students were happy. or **None of** the students was happy.", "vi": "Không sinh viên nào vui cả." }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "nothing, nobody/no-one, nowhere: đứng đầu câu, đứng một mình, hoặc sau động từ",
+          "headingEn": "nothing, nobody/no-one, nowhere: at the start of a sentence, alone, or after a verb",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "You can use these words at the beginning of a sentence or alone (as answers to questions):",
+              "vi": "Bạn có thể dùng những từ này ở đầu câu hoặc dùng một mình (như câu trả lời cho câu hỏi):"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "'What's going to happen?' '**Nobody** knows. / **No-one** knows.'", "vi": "'Chuyện gì sẽ xảy ra?' 'Chẳng ai biết cả.'" },
+                { "en": "'What happened?' '**Nothing**.'", "vi": "'Chuyện gì đã xảy ra?' 'Chẳng có gì cả.'" },
+                { "en": "'Where are you going?' '**Nowhere**. I'm staying here.'", "vi": "'Bạn định đi đâu?' 'Chẳng đi đâu cả. Tôi ở lại đây.'" }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "You can also use these words after a verb, especially after *be* and *have*:",
+              "vi": "Bạn cũng có thể dùng những từ này sau động từ, đặc biệt là sau *be* và *have*:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "The house is empty. There's **nobody** living there.", "vi": "Ngôi nhà trống không. Chẳng có ai sống ở đó cả." },
+                { "en": "We had **nothing** to eat.", "vi": "Chúng tôi chẳng có gì để ăn." }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "**nothing**/**nobody** etc. = not + **anything**/**anybody** etc.:",
+              "vi": "**nothing**/**nobody** v.v. = not + **anything**/**anybody** v.v.:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "I said **nothing**.", "note": "= I didn't say anything.", "vi": "Tôi đã không nói gì cả." },
+                { "en": "Jane told **nobody** about her plans.", "note": "= Jane didn't tell anybody about her plans.", "vi": "Jane đã không nói với ai về kế hoạch của cô ấy." },
+                { "en": "They have **nowhere** to live.", "note": "= They don't have anywhere to live.", "vi": "Họ chẳng có nơi nào để ở." }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "With **nothing**/**nobody** etc., we do not use a negative verb (*isn't*, *didn't* etc.):",
+              "vi": "Với **nothing**/**nobody** v.v., chúng ta không dùng động từ ở dạng phủ định (*isn't*, *didn't* v.v.):"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "I said **nothing**.", "note": "not I didn't say nothing", "vi": "Tôi đã không nói gì cả." }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "Sau nobody/no-one có thể dùng they/them/their",
+          "headingEn": "After nobody/no-one you can use they/them/their",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "After **nobody**/**no-one** you can use **they**/**them**/**their** (see also Unit 85E):",
+              "vi": "Sau **nobody**/**no-one**, bạn có thể dùng **they**/**them**/**their** (xem thêm Unit 85E):"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "**Nobody** is perfect, are **they**?", "vi": "Chẳng ai hoàn hảo cả, phải không?" },
+                { "en": "**No-one** did what I asked **them** to do.", "note": "= him or her", "vi": "Chẳng ai làm theo điều tôi đã yêu cầu cả." },
+                { "en": "**Nobody** in the class did **their** homework.", "note": "= his or her homework", "vi": "Chẳng ai trong lớp làm bài tập về nhà cả." }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "D",
+          "heading": "any/anything/anybody... với nghĩa 'không quan trọng là cái nào', so sánh với no-",
+          "headingEn": "any/anything/anybody etc. meaning 'it doesn't matter which', compared with no-",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "Sometimes *any*/*anything*/*anybody* etc. means 'it doesn't matter which/what/who' (see Unit 85D).",
+              "vi": "Đôi khi *any*/*anything*/*anybody* v.v. mang nghĩa 'không quan trọng là cái nào/điều gì/ai' (xem Unit 85D)."
+            },
+            {
+              "kind": "text",
+              "text": "Compare *no-* and *any-*:",
+              "vi": "So sánh *no-* và *any-*:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "There was **no** bus, so we walked home.", "vi": "Chẳng có xe buýt nào cả, nên chúng tôi đã đi bộ về nhà." },
+                { "en": "You can take **any** bus. They all go to the centre.", "note": "= it doesn't matter which bus", "vi": "Bạn có thể đi bất kỳ xe buýt nào. Xe nào cũng đến trung tâm." },
+                { "en": "'What do you want to eat?' '**Nothing**. I'm not hungry.'", "vi": "'Bạn muốn ăn gì?' 'Chẳng gì cả. Tôi không đói.'" },
+                { "en": "I'm so hungry. I could eat **anything**.", "note": "= it doesn't matter what", "vi": "Tôi đói quá. Ăn gì cũng được." },
+                { "en": "It's a difficult job. **Nobody** wants to do it.", "vi": "Đó là một công việc khó. Chẳng ai muốn làm cả." },
+                { "en": "It's a very easy job. **Anybody** can do it.", "note": "= it doesn't matter who", "vi": "Đó là một công việc rất dễ. Ai làm cũng được." }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "86.1 · Điền no, none hoặc any",
+      "titleEn": "86.1 · Complete these sentences with no, none or any",
+      "instructions": "Điền no, none hoặc any vào mỗi chỗ trống.",
+      "instructionsEn": "Complete these sentences with no, none or any.",
+      "examples": [
+        { "label": "1", "prompt": "It was a public holiday, so there were ___ shops open.", "answer": "no" },
+        { "label": "2", "prompt": "I don't have ___ money. Can you lend me some?", "answer": "any" }
+      ],
+      "startNumber": 3,
+      "items": [
+        { "prompt": "We had to walk home. There were ___ taxis.", "answer": "no" },
+        { "prompt": "We had to walk home. There weren't ___ taxis.", "answer": "any" },
+        { "prompt": "'How many eggs do we have?' '___. Shall I get some?'", "answer": "None" },
+        { "prompt": "There's nowhere to cross the river. There's ___ bridge.", "answer": "no" },
+        { "prompt": "We took a few pictures, but ___ of them were very good.", "answer": "none" },
+        { "prompt": "'Did you take lots of pictures?' 'No, I didn't take ___.'", "answer": "any" },
+        { "prompt": "I had to do what I did. I had ___ alternative.", "answer": "no" },
+        { "prompt": "I don't like ___ of this furniture. It's horrible.", "answer": "any" },
+        { "prompt": "We cancelled the party because ___ of the people we invited were able to come.", "answer": "none" },
+        { "prompt": "Everyone knows they are getting married. It's ___ secret.", "answer": "no" },
+        { "prompt": "The two books are exactly the same. There isn't ___ difference.", "answer": "any" },
+        { "prompt": "'Do you know where Chris is?' 'I'm sorry. I have ___ idea.'", "answer": "no" }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "86.2 · Trả lời câu hỏi, dùng none/nobody/nothing/nowhere",
+      "titleEn": "86.2 · Answer these questions using none/nobody/nothing/nowhere",
+      "instructions": "Trả lời các câu hỏi sau, dùng none/nobody/nothing/nowhere.",
+      "instructionsEn": "Answer these questions using none/nobody/nothing/nowhere.",
+      "examples": [
+        { "label": "1", "context": "What did you do at the weekend?", "prompt": "___. It was very boring.", "answer": "Nothing" }
+      ],
+      "startNumber": 2,
+      "items": [
+        { "context": "Who are you waiting for?", "prompt": "___. I'm just standing here.", "answer": "Nobody", "accept": ["No-one"] },
+        { "context": "How much bread did you buy?", "prompt": "___. We already have enough.", "answer": "None" },
+        { "context": "Where are you going?", "prompt": "___. I'm staying here.", "answer": "Nowhere" },
+        { "context": "How many books have you read this year?", "prompt": "___. I don't read books.", "answer": "None" },
+        { "context": "How much does it cost to get into the museum?", "prompt": "___. It's free.", "answer": "Nothing" }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "86.2 · Trả lời lại bằng any/anybody/anything/anywhere (tiếp)",
+      "titleEn": "86.2 · Now answer the same questions using any/anybody/anything/anywhere (continued)",
+      "instructions": "Bây giờ hãy trả lời lại chính các câu hỏi đó, dùng any/anybody/anything/anywhere.",
+      "instructionsEn": "Now answer the same questions using any/anybody/anything/anywhere.",
+      "examples": [
+        { "label": "7", "context": "(1) What did you do at the weekend?", "prompt": "___", "answer": "I didn't do anything." }
+      ],
+      "startNumber": 8,
+      "items": [
+        { "context": "(2) Who are you waiting for?", "prompt": "___", "answer": "I'm not waiting for anybody.", "accept": ["I'm not waiting for anyone.", "I am not waiting for anybody.", "I am not waiting for anyone."] },
+        { "context": "(3) How much bread did you buy?", "prompt": "___", "answer": "I didn't buy any bread." },
+        { "context": "(4) Where are you going?", "prompt": "___", "answer": "I'm not going anywhere.", "accept": ["I am not going anywhere."] },
+        { "context": "(5) How many books have you read this year?", "prompt": "___", "answer": "I haven't read any books this year.", "accept": ["I have not read any books this year."] },
+        { "context": "(6) How much does it cost to get into the museum?", "prompt": "___", "answer": "It doesn't cost anything.", "accept": ["It does not cost anything."] }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "86.3 · Điền no- hoặc any- kết hợp với -body/-thing/-where",
+      "titleEn": "86.3 · Complete these sentences with no- or any- + -body/-thing/-where",
+      "instructions": "Hoàn thành các câu sau bằng no- hoặc any- kết hợp với -body/-thing/-where.",
+      "instructionsEn": "Complete these sentences with no- or any- + -body/-thing/-where.",
+      "examples": [
+        { "label": "1", "prompt": "I don't want ___ to drink. I'm not thirsty.", "answer": "anything" }
+      ],
+      "items": [
+        { "prompt": "The bus was completely empty. There was ___ on it.", "answer": "nobody", "accept": ["no-one"] },
+        { "prompt": "'Where did you go for your holidays?' '___. I didn't go away.'", "answer": "Nowhere" },
+        { "prompt": "'Can you smell gas?' 'No, I can't smell ___.'", "answer": "anything" },
+        { "prompt": "Everybody seemed satisfied. ___ complained.", "answer": "Nobody", "accept": ["No-one"] },
+        { "prompt": "Let's go away. We can go ___ you like.", "answer": "anywhere" },
+        { "prompt": "The town is still the same as it was years ago. ___ has changed.", "answer": "Nothing" },
+        { "prompt": "'What did you buy?' '___. I couldn't find ___ I wanted.'", "answer": "Nothing", "extraBlanks": [{ "answer": "anything" }] },
+        { "prompt": "There was complete silence in the room. ___ said ___.", "answer": "Nobody", "accept": ["No-one"], "extraBlanks": [{ "answer": "anything" }] }
+      ]
+    },
+    {
+      "kind": "fill_mc",
+      "title": "86.4 · Chọn cách nói đúng",
+      "titleEn": "86.4 · Which is right?",
+      "instructions": "Chọn cách nói đúng trong mỗi câu sau.",
+      "instructionsEn": "Choose the correct option in each sentence.",
+      "examples": [
+        { "label": "1", "prompt": "She didn't tell ___ about her plans.", "answer": "anybody" }
+      ],
+      "items": [
+        { "before": "The accident looked bad, but fortunately", "after": "was seriously injured.", "options": ["nobody", "anybody"], "answer": "nobody" },
+        { "before": "I looked out of the window, but I couldn't see", "after": ".", "options": ["no-one", "anyone"], "answer": "anyone" },
+        { "before": "The exam is very easy.", "after": "can pass it.", "options": ["Nobody", "Anybody"], "answer": "Anybody" },
+        { "before": "'What's in that box?' '", "after": ". It's empty.'", "options": ["Nothing", "Anything"], "answer": "Nothing" },
+        { "before": "The future is uncertain.", "after": "is possible.", "options": ["Nothing", "Anything"], "answer": "Anything" },
+        { "before": "I don't know", "after": "about economics.", "options": ["nothing", "anything"], "answer": "anything" },
+        { "before": "I'll try and answer", "after": "questions you ask me.", "options": ["no", "any"], "answer": "any" },
+        { "label": "9a", "context": "'Who were you talking to just now?'", "before": "'", "after": ".", "options": ["No-one", "Anyone"], "answer": "No-one" },
+        { "label": "9b", "context": "'Who were you talking to just now?'", "before": "I wasn't talking to", "after": ".'", "options": ["no-one", "anyone"], "answer": "anyone" }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng no/none (hoặc nothing/nobody/no-one/nowhere), ví dụ: 'There's no milk left.', 'Nobody came to the party.'. Bạn cũng có thể so sánh với any (hoặc anything/anybody/anywhere) trong câu phủ định, ví dụ: 'I didn't say anything.' thay vì 'I didn't say nothing.'.",
+      "instructionsEn": "Write 2-3 English sentences using no/none (or nothing/nobody/no-one/nowhere), e.g. 'There's no milk left.', 'Nobody came to the party.'. You could also compare this with any (or anything/anybody/anywhere) in a negative sentence, e.g. 'I didn't say anything.' instead of 'I didn't say nothing.'.",
+      "ruleSummary": "This unit teaches no/none versus any, and their compounds nothing/nobody/no-one/nowhere versus anything/anybody/anyone/anywhere. (1) no + noun means 'not a' or 'not any': 'We had to walk home. There was no bus.' (= There wasn't a bus.); 'There were no shops open.'. no + noun can start a sentence: 'No reason was given for the change of plan.'. none is used without a noun: '\"How much money do you have?\" \"None.\"' (= no money); 'There are none left.'; or with none of: 'None of it is mine.'. Compare: 'I have no luggage.' / '\"How much luggage do you have?\" \"None.\" or \"I don't have any.\"'. After none of + plural, the verb can be singular or plural: 'None of the students were happy.' or 'None of the students was happy.'. (2) nothing/nobody(no-one)/nowhere can start a sentence, stand alone as an answer, or follow a verb (especially be/have): '\"What happened?\" \"Nothing.\"'; 'There's nobody living there.'; 'We had nothing to eat.'. They mean not + anything/anybody/anywhere: 'I said nothing.' (= I didn't say anything.); 'They have nowhere to live.' (= They don't have anywhere to live.). Crucially, they are NOT combined with a negative verb: 'I said nothing.' NOT 'I didn't say nothing.'. (3) After nobody/no-one you can use they/them/their: 'Nobody is perfect, are they?'; 'Nobody in the class did their homework.'. (4) any/anything/anybody etc. can mean 'it doesn't matter which/what/who', contrasted with no-: 'There was no bus, so we walked home.' vs 'You can take any bus. They all go to the centre.' (it doesn't matter which); '\"What do you want to eat?\" \"Nothing. I'm not hungry.\"' vs 'I'm so hungry. I could eat anything.' (it doesn't matter what); 'It's a difficult job. Nobody wants to do it.' vs 'It's a very easy job. Anybody can do it.' (it doesn't matter who). A correct student sentence should use no/none (or a no- compound) in a normal statement without a negative verb, or any (or an any- compound) correctly in a negative sentence or with the 'it doesn't matter which' meaning."
+    }
+  ]
+};
+
+export const UNIT_87_MUCH_MANY_LITTLE_FEW: GrammarUnit = {
+  "unit": 87,
+  "slug": "much-many-little-few",
+  "title": "much, many, little, few, a lot, plenty",
+  "topic": "quantifiers",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "much/little với danh từ không đếm được, many/few với danh từ số nhiều, a lot of/lots of/plenty of với cả hai",
+          "headingEn": "much/little with uncountable nouns, many/few with plural nouns, a lot of/lots of/plenty of with both",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "We use **much** and **little** with uncountable nouns:",
+              "vi": "Chúng ta dùng **much** và **little** với danh từ không đếm được:"
+            },
+            {
+              "kind": "words",
+              "words": ["much luck", "much time", "little energy", "little money"]
+            },
+            {
+              "kind": "text",
+              "text": "We use **many** and **few** with plural nouns:",
+              "vi": "Chúng ta dùng **many** và **few** với danh từ số nhiều:"
+            },
+            {
+              "kind": "words",
+              "words": ["many friends", "many people", "few children", "few cars"]
+            },
+            {
+              "kind": "text",
+              "text": "We use **a lot of** / **lots of** / **plenty of** with both uncountable and plural nouns:",
+              "vi": "Chúng ta dùng **a lot of** / **lots of** / **plenty of** với cả danh từ không đếm được lẫn danh từ số nhiều:"
+            },
+            {
+              "kind": "words",
+              "words": ["a lot of luck", "lots of time", "plenty of money", "a lot of friends", "lots of people", "plenty of ideas"]
+            },
+            {
+              "kind": "text",
+              "text": "**plenty** = more than enough:",
+              "vi": "**plenty** = nhiều hơn mức cần thiết:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "There's no need to hurry. We've got **plenty** of time.", "vi": "Không cần vội. Chúng ta có thừa thời gian." },
+                { "en": "There's **plenty** to do in this town.", "vi": "Có rất nhiều việc để làm ở thị trấn này." }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "much không tự nhiên trong câu khẳng định",
+          "headingEn": "much is unusual in positive sentences",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "**Much** is unusual in positive sentences (especially in spoken English). Compare:",
+              "vi": "**Much** ít khi xuất hiện trong câu khẳng định (đặc biệt trong văn nói). So sánh:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "We didn't spend **much** money.", "note": "but: We spent a lot of money.", "vi": "Chúng tôi đã không tiêu nhiều tiền." },
+                { "en": "Do you see David **much**?", "note": "but: I see David a lot.", "vi": "Bạn có hay gặp David không?" }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "But we use **too much** / **so much** / **as much** in positive sentences:",
+              "vi": "Nhưng chúng ta dùng **too much** / **so much** / **as much** trong câu khẳng định:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "We spent **too much** money.", "vi": "Chúng tôi đã tiêu quá nhiều tiền." }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "We use **many** and **a lot of** in all kinds of sentences:",
+              "vi": "Chúng ta dùng **many** và **a lot of** trong mọi loại câu:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "**Many** people drive too fast.", "note": "or: A lot of people drive too fast.", "vi": "Nhiều người lái xe quá nhanh." },
+                { "en": "Do you know **many** people?", "note": "or: Do you know a lot of people?", "vi": "Bạn có quen nhiều người không?" },
+                { "en": "There aren't **many** tourists here.", "note": "or: There aren't a lot of tourists here.", "vi": "Ở đây không có nhiều khách du lịch." }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "Note that we say **many years** / **many weeks** / **many days**:",
+              "vi": "Lưu ý chúng ta nói **many years** / **many weeks** / **many days**:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "We've lived here for **many** years.", "note": "(not usually a lot of years)", "vi": "Chúng tôi đã sống ở đây nhiều năm rồi." }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "little = not much, few = not many",
+          "headingEn": "little = not much, few = not many",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "**little** = not much, **few** = not many:",
+              "vi": "**little** = không nhiều, **few** = không nhiều (về số lượng):"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "Gary is very busy with his job. He has **little** time for other things.", "note": "= not much time, less time than he would like", "vi": "Gary rất bận với công việc. Anh ấy có ít thời gian cho những việc khác." },
+                { "en": "Vicky doesn't like living in London. She has **few** friends there.", "note": "= not many friends, not as many as she would like", "vi": "Vicky không thích sống ở London. Cô ấy có ít bạn bè ở đó." }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "We often use **very little** and **very few**:",
+              "vi": "Chúng ta thường dùng **very little** và **very few**:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "Gary has **very little** time for other things.", "vi": "Gary có rất ít thời gian cho những việc khác." },
+                { "en": "Vicky has **very few** friends in London.", "vi": "Vicky có rất ít bạn bè ở London." }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "D",
+          "heading": "a little = một chút, a few = một vài",
+          "headingEn": "a little = some, a small amount; a few = some, a small number",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "**a little** = some, a small amount:",
+              "vi": "**a little** = một chút, một lượng nhỏ:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "Let's go and have coffee. We have **a little** time before the train leaves.", "note": "a little time = some time, enough time to have a coffee", "vi": "Đi uống cà phê đi. Chúng ta còn một chút thời gian trước khi tàu chạy." },
+                { "en": "'Do you speak English?' 'A little.'", "note": "so we can talk a bit", "vi": "'Bạn có nói được tiếng Anh không?' 'Một chút thôi.'" }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "**a few** = some, a small number:",
+              "vi": "**a few** = một vài, một số lượng nhỏ:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "I enjoy my life here. I have **a few** friends and we meet quite often.", "note": "a few friends = not many, but enough to have a good time", "vi": "Tôi thích cuộc sống ở đây. Tôi có một vài người bạn và chúng tôi thường gặp nhau." },
+                { "en": "'When was the last time you saw Clare?' 'A few days ago.'", "note": "= 3 or 4 days ago", "vi": "'Lần cuối bạn gặp Clare là khi nào?' 'Vài ngày trước.'" }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "E",
+          "heading": "So sánh little và a little, few và a few",
+          "headingEn": "Compare little and a little, few and a few",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "Compare **little** and **a little**, **few** and **a few**:",
+              "vi": "So sánh **little** và **a little**, **few** và **a few**:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "He spoke **little** English, so it was difficult to communicate with him.", "vi": "Anh ấy nói được rất ít tiếng Anh, nên rất khó giao tiếp với anh ấy." },
+                { "en": "He spoke **a little** English, so we were able to communicate with him.", "vi": "Anh ấy nói được một chút tiếng Anh, nên chúng tôi vẫn giao tiếp được với anh ấy." },
+                { "en": "She's lucky. She has **few** problems.", "note": "= not many problems", "vi": "Cô ấy may mắn. Cô ấy có ít vấn đề." },
+                { "en": "Things are not going so well for her. She has **a few** problems.", "note": "= some problems", "vi": "Mọi việc không suôn sẻ lắm với cô ấy. Cô ấy có một vài vấn đề." }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "We say **only a little** (not only little) and **only a few** (not only few):",
+              "vi": "Chúng ta nói **only a little** (không nói only little) và **only a few** (không nói only few):"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "Hurry! We **only** have **a little** time.", "note": "= some, but not much time", "vi": "Nhanh lên! Chúng ta chỉ còn một chút thời gian thôi." },
+                { "en": "The village was small. There were **only a few** houses.", "note": "= some but not many houses", "vi": "Ngôi làng nhỏ. Chỉ có một vài ngôi nhà thôi." }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "judge_correct",
+      "title": "87.1 · Sửa much thành many hoặc a lot (of) khi cần",
+      "titleEn": "87.1 · Change much to many or a lot (of) where necessary",
+      "instructions": "Trong một số câu sau, much dùng sai hoặc nghe không tự nhiên. Phần gạch chân đã đúng chưa? Sửa lại nếu cần. (Ví dụ trong sách: 'We didn't eat much.' là đúng; 'My mother drinks much tea.' phải sửa thành My mother drinks a lot of tea.)",
+      "instructionsEn": "In some of these sentences much is incorrect or unnatural. Is the underlined part OK? Change it where necessary. (The book's examples: 'We didn't eat much.' is OK; 'My mother drinks much tea.' becomes My mother drinks a lot of tea.)",
+      "startNumber": 3,
+      "items": [
+        { "sentence": "Be quick. We don't have much time.", "underlined": "much", "ok": true },
+        { "sentence": "It cost much to repair the car.", "underlined": "much", "ok": false, "correction": "a lot" },
+        { "sentence": "Did it cost much to repair the car?", "underlined": "much", "ok": true },
+        { "sentence": "You have much luggage. Let me help you.", "underlined": "much", "ok": false, "correction": "a lot of" },
+        { "sentence": "There wasn't much traffic this morning.", "underlined": "much", "ok": true },
+        { "sentence": "I don't know much people in this town.", "underlined": "much", "ok": false, "correction": "many", "accept": ["a lot of"] },
+        { "sentence": "Do you eat much fruit?", "underlined": "much", "ok": true },
+        { "sentence": "Mike likes travelling. He travels much.", "underlined": "much", "ok": false, "correction": "a lot" }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "87.2 · Hoàn thành câu với plenty of ... hoặc plenty to ...",
+      "titleEn": "87.2 · Complete the sentences using plenty of ... or plenty to ...",
+      "instructions": "Hoàn thành các câu sau bằng plenty of ... hoặc plenty to ..., chọn từ trong danh sách.",
+      "instructionsEn": "Complete the sentences using plenty of ... or plenty to ... . Choose from the word bank.",
+      "wordBank": ["hotels", "learn", "money", "room", "see", "time"],
+      "examples": [
+        { "label": "1", "prompt": "There's no need to hurry. There's ___.", "answer": "plenty of time" }
+      ],
+      "startNumber": 2,
+      "items": [
+        { "context": "He has no financial problems.", "prompt": "He has ___.", "answer": "plenty of money" },
+        { "context": "Come and sit with us.", "prompt": "There's ___.", "answer": "plenty of room" },
+        { "prompt": "She knows a lot, but she still has ___.", "answer": "plenty to learn" },
+        { "context": "It's an interesting town to visit.", "prompt": "There ___.", "answer": "is plenty to see" },
+        { "context": "I'm sure we'll find somewhere to stay.", "prompt": "___", "answer": "There are plenty of hotels." }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "87.3 · Điền much/many/little/few (một từ)",
+      "titleEn": "87.3 · Put in much/many/little/few (one word only)",
+      "instructions": "Điền much, many, little hoặc few (một từ duy nhất) vào chỗ trống.",
+      "instructionsEn": "Put in much, many, little or few (one word only).",
+      "examples": [
+        { "label": "1", "context": "She isn't popular.", "prompt": "She has ___ friends.", "answer": "few" }
+      ],
+      "startNumber": 2,
+      "items": [
+        { "context": "Anna is very busy these days.", "prompt": "She has ___ free time.", "answer": "little" },
+        { "prompt": "Did you take ___ pictures at the wedding?", "answer": "many" },
+        { "context": "This is a modern city.", "prompt": "There are ___ old buildings.", "answer": "few" },
+        { "context": "The weather has been very dry recently.", "prompt": "We've had ___ rain.", "answer": "little" },
+        { "context": "I don't know London well.", "prompt": "I haven't been there for ___ years.", "answer": "many" },
+        { "context": "The two cars are similar.", "prompt": "There is ___ difference between them.", "answer": "little" },
+        { "context": "I'm not very busy today.", "prompt": "I don't have ___ to do.", "answer": "much" },
+        { "context": "It's a wonderful place to live.", "prompt": "There are ___ better places to be.", "answer": "few" }
+      ]
+    },
+    {
+      "kind": "fill_mc",
+      "title": "87.4 · Chọn cách nói đúng",
+      "titleEn": "87.4 · Which is right?",
+      "instructions": "Chọn cách nói đúng trong mỗi câu sau.",
+      "instructionsEn": "Choose the correct option in each sentence.",
+      "examples": [
+        { "label": "1", "context": "She's lucky.", "prompt": "She has ___.", "answer": "few problems" }
+      ],
+      "items": [
+        { "before": "Can you lend me", "after": "?", "options": ["few dollars", "a few dollars"], "answer": "a few dollars" },
+        { "before": "It was the middle of the night, so there was", "after": ".", "options": ["little traffic", "a little traffic"], "answer": "little traffic" },
+        { "before": "They got married", "after": ".", "options": ["few years ago", "a few years ago"], "answer": "a few years ago" },
+        { "context": "I can't give you a decision yet.", "before": "I need", "after": "to think.", "options": ["little time", "a little time"], "answer": "a little time" },
+        { "before": "I don't know much Russian - only", "after": ".", "options": ["few words", "a few words"], "answer": "a few words" },
+        { "context": "It was a surprise that he won the game.", "before": "", "after": "expected him to win.", "options": ["Few people", "A few people"], "answer": "Few people" }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "87.5 · Điền little/a little/few/a few",
+      "titleEn": "87.5 · Put in little / a little / few / a few",
+      "instructions": "Điền little, a little, few hoặc a few vào chỗ trống.",
+      "instructionsEn": "Put in little, a little, few or a few.",
+      "examples": [
+        { "label": "1", "context": "Gary is very busy with his job.", "prompt": "He has ___ time for other things.", "answer": "little" }
+      ],
+      "startNumber": 2,
+      "items": [
+        { "context": "Listen carefully.", "prompt": "I'm going to give you ___ advice.", "answer": "a little" },
+        { "prompt": "Do you mind if I ask you ___ questions?", "answer": "a few" },
+        { "prompt": "It's not a very interesting place, so ___ tourists visit.", "answer": "few" },
+        { "context": "I don't think Amy would be a good teacher.", "prompt": "She has ___ patience.", "answer": "little" },
+        { "context": "'Would you like milk in your coffee?'", "prompt": "'Yes, ___, please.'", "answer": "a little" },
+        { "context": "This is a boring place to live.", "prompt": "There's ___ to do.", "answer": "little" },
+        { "context": "I know Hong Kong quite well.", "prompt": "I've been there ___ times.", "answer": "a few" },
+        { "prompt": "There were only ___ people at the meeting.", "answer": "a few" },
+        { "context": "'Did you do all this work on your own?'", "prompt": "'No, I had ___ help from my friends.'", "answer": "a little" }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng much/many/little/few hoặc a little/a few, ví dụ: 'I don't have much time today.', 'She has a few close friends.'. Chú ý phân biệt little (không nhiều, thiếu) với a little (một chút, đủ dùng), và few (không nhiều, thiếu) với a few (một vài, đủ dùng).",
+      "instructionsEn": "Write 2-3 English sentences using much/many/little/few or a little/a few, e.g. 'I don't have much time today.', 'She has a few close friends.'. Pay attention to the difference between little (not much, a shortage) and a little (some, enough), and between few (not many, a shortage) and a few (some, enough).",
+      "ruleSummary": "This unit teaches much/many/little/few and a lot of/lots of/plenty of, plus the little vs a little / few vs a few contrast. (1) much and little go with uncountable nouns (much luck, little time); many and few go with plural nouns (many friends, few cars); a lot of/lots of/plenty of go with both (a lot of money, lots of people, plenty of time), and plenty means more than enough: 'There's no need to hurry. We've got plenty of time.'. (2) much is unusual in positive statements, especially in spoken English: 'We didn't spend much money.' but 'We spent a lot of money.'; 'Do you see David much?' but 'I see David a lot.'. However too much/so much/as much are fine in positive sentences: 'We spent too much money.'. many and a lot of are fine in all kinds of sentences: 'Many people drive too fast.' or 'A lot of people drive too fast.'. Note we say many years/many weeks/many days, not usually a lot of years. (3) little means 'not much' and few means 'not many', often strengthened to very little / very few: 'He has little time for other things.' (= not much time, less than he would like); 'She has few friends there.' (= not many, not as many as she would like). (4) a little means 'some, a small amount' and a few means 'some, a small number', usually framing the amount as adequate for the purpose: 'We have a little time before the train leaves.' (enough for a coffee); 'I have a few friends and we meet often.'. (5) Compare the negative-feeling little/few with the more positive a little/a few: 'He spoke little English, so it was difficult to communicate.' vs 'He spoke a little English, so we were able to communicate.'; 'She has few problems.' (not many) vs 'She has a few problems.' (some). We say only a little and only a few, never only little or only few. A correct student sentence should use much/little with an uncountable noun, many/few with a plural noun, or contrast a little/a few (adequate amount) against little/few (a shortage) correctly."
+    }
+  ]
+};
+
+export const UNIT_88_ALL_ALL_OF: GrammarUnit = {
+  "unit": 88,
+  "slug": "all-all-of",
+  "title": "all / all of",
+  "topic": "quantifiers",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "all/some/any/most/much/many/(a) little/(a) few/no dùng trực tiếp với danh từ, không cần of",
+          "headingEn": "all/some/any/most/much/many/(a) little/(a) few/no used directly with a noun, no of needed",
+          "parts": [
+            {
+              "kind": "words",
+              "words": [
+                "all",
+                "some",
+                "any",
+                "most",
+                "much",
+                "many",
+                "(a) little",
+                "(a) few",
+                "no"
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "You can use these words with a noun (**some** food / **few** books etc.):",
+              "vi": "Bạn có thể dùng những từ này trực tiếp với danh từ (**some** food / **few** books etc.):"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "**All** cars have wheels.",
+                  "vi": "Mọi ô tô đều có bánh xe."
+                },
+                {
+                  "en": "**Some** cars can go faster than others.",
+                  "vi": "Một số ô tô có thể chạy nhanh hơn những chiếc khác."
+                },
+                {
+                  "en": "**Many** people drive too fast.",
+                  "vi": "Nhiều người lái xe quá nhanh."
+                },
+                {
+                  "en": "I go away **most** weekends.",
+                  "vi": "Tôi đi vắng vào hầu hết các cuối tuần."
+                },
+                {
+                  "en": "I feel really tired. I've got **no** energy.",
+                  "vi": "Tôi thấy rất mệt. Tôi chẳng còn chút sức lực nào."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "We do not say 'all of cars', 'some of people' etc. (see Section B):",
+              "vi": "Chúng ta không nói 'all of cars', 'some of people' v.v. (xem Phần B):"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "**Some** people learn more easily than others.",
+                  "note": "not Some of people",
+                  "vi": "Một số người học dễ dàng hơn những người khác."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "all/half/some/any/most/much/many/(a) little/(a) few/none + of + the/my/this...",
+          "headingEn": "all/half/some/any/most/much/many/(a) little/(a) few/none + of + the/my/this ...",
+          "parts": [
+            {
+              "kind": "words",
+              "words": [
+                "all",
+                "half",
+                "some",
+                "any",
+                "most",
+                "much",
+                "many",
+                "(a) little",
+                "(a) few",
+                "none"
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "You can use these words with **of** (**some of** / **most of** etc.):",
+              "vi": "Bạn có thể dùng những từ này với **of** (**some of** / **most of** etc.):"
+            },
+            {
+              "kind": "table",
+              "table": {
+                "headers": [
+                  "+ of",
+                  "+ the / my / this / these / that / those etc."
+                ],
+                "rows": [
+                  [
+                    "some of",
+                    "the ..."
+                  ],
+                  [
+                    "most of",
+                    "my ..."
+                  ],
+                  [
+                    "none of etc.",
+                    "this ... / these ... / that ... / those ... etc."
+                  ]
+                ]
+              }
+            },
+            {
+              "kind": "text",
+              "text": "So you can say:",
+              "vi": "Vì vậy bạn có thể nói:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "**some of** the people, **some of** those people",
+                  "note": "but not some of people",
+                  "vi": "một số người, một số những người đó"
+                },
+                {
+                  "en": "**most of** my time, **most of** the time",
+                  "note": "but not most of time",
+                  "vi": "phần lớn thời gian của tôi, phần lớn thời gian"
+                }
+              ]
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "**Some of** the people I work with are very strange.",
+                  "vi": "Một số người tôi làm việc cùng khá kỳ lạ."
+                },
+                {
+                  "en": "**None of** this money is mine.",
+                  "vi": "Không đồng nào trong số tiền này là của tôi."
+                },
+                {
+                  "en": "Have you read **any of** these books?",
+                  "vi": "Bạn đã đọc cuốn nào trong số những cuốn sách này chưa?"
+                },
+                {
+                  "en": "I was ill yesterday. I spent **most of** the day in bed.",
+                  "vi": "Hôm qua tôi bị ốm. Tôi nằm bẹp trên giường gần như cả ngày."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "You don't need **of** after **all** or **half**. So you can say:",
+              "vi": "Bạn không cần **of** sau **all** hoặc **half**. Vì vậy bạn có thể nói:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "**All** my friends live near here.",
+                  "note": "or: All of my friends ...",
+                  "vi": "Tất cả bạn bè tôi đều sống gần đây."
+                },
+                {
+                  "en": "**Half** this money is mine.",
+                  "note": "or: Half of this money ...",
+                  "vi": "Một nửa số tiền này là của tôi."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "Compare:",
+              "vi": "So sánh:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "**All** flowers are beautiful.",
+                  "note": "= all flowers in general",
+                  "vi": "Mọi loài hoa đều đẹp."
+                },
+                {
+                  "en": "**All (of)** these flowers are beautiful.",
+                  "note": "= a specific group of flowers",
+                  "vi": "Tất cả những bông hoa này đều đẹp."
+                },
+                {
+                  "en": "**Most** problems have a solution.",
+                  "note": "= most problems in general",
+                  "vi": "Hầu hết vấn đề đều có cách giải quyết."
+                },
+                {
+                  "en": "We were able to solve **most of** the problems we had.",
+                  "note": "= a specific group of problems",
+                  "vi": "Chúng tôi đã giải quyết được phần lớn những vấn đề mình gặp phải."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "Dùng all of/some of/none of v.v. + it/us/you/them",
+          "headingEn": "Using all of / some of / none of etc. + it/us/you/them",
+          "parts": [
+            {
+              "kind": "words",
+              "words": [
+                "all of",
+                "some of",
+                "any of",
+                "most of",
+                "none of",
+                "etc."
+              ]
+            },
+            {
+              "kind": "words",
+              "words": [
+                "it",
+                "us",
+                "you",
+                "them"
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "You can use **all of** / **some of** / **none of** etc. + **it/us/you/them**:",
+              "vi": "Bạn có thể dùng **all of** / **some of** / **none of** v.v. + **it/us/you/them**:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "a: Do you like this music? b: **Some of** it. Not **all of** it.",
+                  "vi": "a: Bạn có thích bản nhạc này không? b: Một phần thôi. Không phải toàn bộ."
+                },
+                {
+                  "en": "a: How many of these people do you know? b: **None of** them. / **A few of** them.",
+                  "vi": "a: Bạn quen bao nhiêu người trong số này? b: Không ai cả. / Vài người thôi."
+                },
+                {
+                  "en": "Do **any of** you want to come to a party tonight?",
+                  "note": "said to more than 2 people",
+                  "vi": "Có ai trong số các bạn muốn đến dự tiệc tối nay không?"
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "We say: **all of us** / **all of you** / **half of it** / **half of them** etc. You need **of** before **it/us/you/them**:",
+              "vi": "Chúng ta nói: **all of us** / **all of you** / **half of it** / **half of them** v.v. Bạn cần **of** trước **it/us/you/them**:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "**All of us** were late.",
+                  "note": "not all us",
+                  "vi": "Tất cả chúng tôi đều đến muộn."
+                },
+                {
+                  "en": "I haven't finished the book yet. I've only read **half of it**.",
+                  "note": "not half it",
+                  "vi": "Tôi chưa đọc xong cuốn sách. Tôi mới chỉ đọc được một nửa thôi."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "D",
+          "heading": "Dùng some/most v.v. một mình, không kèm danh từ",
+          "headingEn": "Using some/most etc. alone, without a noun",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "We also use **some/most** etc. alone, without a noun:",
+              "vi": "Chúng ta cũng dùng **some/most** v.v. một mình, không kèm danh từ:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "**Some** cars have four doors and **some** have two.",
+                  "vi": "Một số ô tô có bốn cửa, một số khác có hai cửa."
+                },
+                {
+                  "en": "**A few** of the shops were open, but **most (of them)** were closed.",
+                  "vi": "Một vài cửa hàng mở cửa, nhưng phần lớn (trong số đó) đóng cửa."
+                },
+                {
+                  "en": "**Half** this money is mine, and **half (of it)** is yours.",
+                  "note": "not the half",
+                  "vi": "Một nửa số tiền này là của tôi, và một nửa (của nó) là của bạn."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "88.1 · Điền of khi cần thiết",
+      "titleEn": "88.1 · Put in of where necessary",
+      "instructions": "Điền of vào chỗ trống nếu cần. Nếu câu đã đầy đủ, gõ dấu - để đánh dấu là không cần thêm từ.",
+      "instructionsEn": "Put in of where necessary. If the sentence is already complete, type - to mark that nothing is needed.",
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "All ___ cars have wheels.",
+          "answer": "-"
+        },
+        {
+          "label": "2",
+          "prompt": "None ___ this money is mine.",
+          "answer": "of"
+        }
+      ],
+      "startNumber": 3,
+      "items": [
+        {
+          "prompt": "There were problems at the airport and some ___ flights were cancelled.",
+          "answer": "-"
+        },
+        {
+          "prompt": "Some ___ the films I've seen recently have been very violent.",
+          "answer": "of"
+        },
+        {
+          "context": "Joe never goes to museums.",
+          "prompt": "He says that all ___ museums are boring.",
+          "answer": "-"
+        },
+        {
+          "prompt": "I think some ___ people watch too much TV.",
+          "answer": "-"
+        },
+        {
+          "prompt": "Do you want any ___ these magazines or can I throw them away?",
+          "answer": "of"
+        },
+        {
+          "prompt": "Kate has lived in London most ___ her life.",
+          "answer": "of"
+        },
+        {
+          "prompt": "Joe has lived in Chicago all ___ his life.",
+          "answer": "-",
+          "accept": [
+            "of"
+          ]
+        },
+        {
+          "prompt": "Most ___ days I get up before 7 o'clock.",
+          "answer": "-"
+        },
+        {
+          "prompt": "I usually have a little ___ sugar in my coffee.",
+          "answer": "-"
+        },
+        {
+          "context": "They won the lottery a few years ago.",
+          "prompt": "But they've spent most ___ the money.",
+          "answer": "of"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "88.2 · Chọn từ trong danh sách và hoàn thành câu (dùng of khi cần)",
+      "titleEn": "88.2 · Choose from the list and complete the sentences (use of where necessary)",
+      "instructions": "Chọn cụm từ phù hợp trong danh sách để hoàn thành mỗi câu, thêm of (some of / most of etc.) khi cần thiết.",
+      "instructionsEn": "Choose from the list and complete the sentences. Use of (some of / most of etc.) where necessary.",
+      "wordBank": [
+        "accidents",
+        "European countries",
+        "my dinner",
+        "the players",
+        "birds",
+        "her friends",
+        "my spare time",
+        "the population",
+        "cars",
+        "her opinions",
+        "the buildings",
+        "these books"
+      ],
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "I haven't read many ___.",
+          "answer": "of these books"
+        },
+        {
+          "label": "2",
+          "prompt": "All ___ have wheels.",
+          "answer": "cars"
+        }
+      ],
+      "startNumber": 3,
+      "items": [
+        {
+          "prompt": "I spend much ___ gardening.",
+          "answer": "of my spare time"
+        },
+        {
+          "prompt": "Many ___ are caused by bad driving.",
+          "answer": "accidents"
+        },
+        {
+          "context": "It's a historic town.",
+          "prompt": "Many ___ are over 400 years old.",
+          "answer": "of the buildings"
+        },
+        {
+          "context": "When Emily got married, she kept it a secret.",
+          "prompt": "She didn't tell any ___.",
+          "answer": "of her friends"
+        },
+        {
+          "context": "Not many people live in the north of the country.",
+          "prompt": "Most ___ live in the south.",
+          "answer": "of the population"
+        },
+        {
+          "prompt": "Not all ___ can fly. For example, the penguin can't fly.",
+          "answer": "birds"
+        },
+        {
+          "context": "Our team played badly and lost the game.",
+          "prompt": "None ___ played well.",
+          "answer": "of the players"
+        },
+        {
+          "context": "Emma and I have different ideas.",
+          "prompt": "I don't agree with many ___.",
+          "answer": "of her opinions"
+        },
+        {
+          "context": "Sarah travels a lot in Europe.",
+          "prompt": "She has been to most ___.",
+          "answer": "European countries"
+        },
+        {
+          "context": "I had no appetite.",
+          "prompt": "I could only eat half ___.",
+          "answer": "my dinner",
+          "accept": [
+            "of my dinner"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "88.4 · Hoàn thành câu với all of/some of/none of + it/them/us",
+      "titleEn": "88.4 · Complete the sentences using all of / some of / none of + it/them/us",
+      "instructions": "Hoàn thành mỗi câu bằng all of / some of / none of v.v. + it/them/us (all of it, some of them, ...).",
+      "instructionsEn": "Complete the sentences. Use: all of / some of / none of + it/them/us (all of it / some of them etc.).",
+      "examples": [
+        {
+          "label": "1",
+          "context": "These books are all Sarah's.",
+          "prompt": "___ belong to me.",
+          "answer": "None of them"
+        }
+      ],
+      "startNumber": 2,
+      "items": [
+        {
+          "context": "'How many of these books have you read?'",
+          "prompt": "'___. Every one.'",
+          "answer": "All of them"
+        },
+        {
+          "prompt": "We all got wet in the rain because ___ had an umbrella.",
+          "answer": "none of us"
+        },
+        {
+          "prompt": "Some of this money is yours and ___ is mine.",
+          "answer": "some of it"
+        },
+        {
+          "context": "Many of my friends have travelled a lot,",
+          "prompt": "but ___ has ever been to Africa.",
+          "answer": "none of them"
+        },
+        {
+          "context": "Not all the tourists in the group were Spanish.",
+          "prompt": "___ were French.",
+          "answer": "Some of them"
+        },
+        {
+          "prompt": "I watched most of the film, but not ___.",
+          "answer": "all of it"
+        },
+        {
+          "context": "He told us his life story.",
+          "prompt": "But ___ was true. It was all invented.",
+          "answer": "none of it"
+        }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng all/all of, half/half of, most/most of, none/none of hoặc some/some of, ví dụ: 'All my friends live near here.', 'Most of the people I work with are friendly.'. Hãy hoàn thành ý tưởng của riêng bạn theo mẫu 88.3 trong sách: 'We argue sometimes, but get on well most of the time.', 'None of my friends wanted to come.', 'I could only answer half of the questions.'. Chú ý: chỉ dùng of khi từ tiếp theo có the/my/this/these/that/those/it/us/you/them, không dùng of khi theo sau là một danh từ chung chung.",
+      "instructionsEn": "Write 2-3 English sentences using all/all of, half/half of, most/most of, none/none of or some/some of, e.g. 'All my friends live near here.', 'Most of the people I work with are friendly.'. Try completing your own ideas in the style of the book's exercise 88.3: 'We argue sometimes, but get on well most of the time.', 'None of my friends wanted to come.', 'I could only answer half of the questions.'. Remember: only use of when the next word is the/my/this/these/that/those/it/us/you/them, not before a general noun.",
+      "ruleSummary": "This unit teaches all/some/any/most/much/many/(a) little/(a) few/no/none and when they take of. (1) These words go directly before a plain noun with no of: 'All cars have wheels.', 'Some cars can go faster than others.', 'Many people drive too fast.', 'I go away most weekends.', 'I've got no energy.'. We do not say 'all of cars' or 'some of people'. (2) The same words (plus half and none) take of before a determiner - the/my/this/these/that/those, or it/us/you/them: 'some of the people', 'most of my time', 'none of this money', 'any of these books' - never 'some of people' or 'most of time'. 'Some of the people I work with are very strange.'; 'I was ill yesterday. I spent most of the day in bed.'. all and half are the exception: of is optional after them, so 'All my friends live near here.' and 'All of my friends live near here.' are both correct, likewise 'Half this money is mine.' / 'Half of this money is mine.'. Compare the general and specific meanings: 'All flowers are beautiful.' (= flowers in general) vs 'All (of) these flowers are beautiful.' (= a specific group); 'Most problems have a solution.' (general) vs 'We were able to solve most of the problems we had.' (specific). (3) Before it/us/you/them, of is required, even after all/half: 'all of us' (not all us), 'half of it' (not half it). 'All of us were late.'; 'I've only read half of it.'. any of can mean 'it doesn't matter which': 'Do any of you want to come to a party tonight?'. (4) some, most, a few etc. can also stand alone without a noun when the noun is understood from context: 'Some cars have four doors and some have two.'; 'A few of the shops were open, but most (of them) were closed.'; 'Half this money is mine, and half (of it) is yours.' (not the half). A correct student sentence should use of correctly before a determiner (the/my/this/these/that/those/it/us/you/them) or correctly omit it before a plain noun, or use it (optionally) after all/half."
+    }
+  ]
+};
+
+export const UNIT_89_BOTH_EITHER_NEITHER: GrammarUnit = {
+  "unit": 89,
+  "slug": "both-either-neither",
+  "title": "both / either / neither",
+  "topic": "quantifiers",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "both/neither/either dùng cho hai đối tượng, đi kèm danh từ hoặc đứng một mình",
+          "headingEn": "both/neither/either for two things, with a noun or alone",
+          "intro": "We use both/neither/either for two things.",
+          "introVi": "Chúng ta dùng both/neither/either khi nói về hai đối tượng.",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "You can use these words with a noun (**both** books, **neither** book etc.).",
+              "vi": "Bạn có thể dùng những từ này với danh từ (**both** books, **neither** book etc.)."
+            },
+            {
+              "kind": "situation",
+              "text": "For example, you are going out to eat. There are two possible restaurants. You say:",
+              "vi": "Ví dụ, bạn chuẩn bị đi ăn ngoài. Có hai nhà hàng có thể chọn. Bạn nói:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "**Both** restaurants are good.",
+                  "note": "not the both restaurants",
+                  "vi": "Cả hai nhà hàng đều ngon."
+                },
+                {
+                  "en": "**Neither** restaurant is expensive.",
+                  "vi": "Không nhà hàng nào đắt cả."
+                },
+                {
+                  "en": "We can go to **either** restaurant. I don't mind.",
+                  "note": "= one or the other, it doesn't matter which",
+                  "vi": "Chúng ta có thể đến nhà hàng nào cũng được. Tôi không quan trọng."
+                },
+                {
+                  "en": "I haven't been to **either** restaurant before.",
+                  "note": "= not one or the other",
+                  "vi": "Tôi chưa từng đến nhà hàng nào trong hai nhà hàng đó cả."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "You can also use **both/neither/either** without a noun:",
+              "vi": "Bạn cũng có thể dùng **both/neither/either** một mình, không kèm danh từ:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "a: Which do you prefer, basketball or tennis? b: It's hard to say. I like **both**.",
+                  "vi": "a: Bạn thích môn nào hơn, bóng rổ hay quần vợt? b: Khó nói lắm. Tôi thích cả hai."
+                },
+                {
+                  "en": "a: Is your friend British or American? b: **Neither**. She's Australian.",
+                  "vi": "a: Bạn của bạn là người Anh hay người Mỹ? b: Không phải cả hai. Cô ấy là người Úc."
+                },
+                {
+                  "en": "a: Do you want tea or coffee? b: **Either**. I don't mind.",
+                  "vi": "a: Bạn muốn trà hay cà phê? b: Gì cũng được. Tôi không quan trọng."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "both of / neither of / either of",
+          "headingEn": "both of / neither of / either of",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "We use **both of** / **neither of** / **either of** + **the/these/my/Tom's ...** etc. So we say 'both of the restaurants', 'both of those restaurants' etc. (but not both of restaurants):",
+              "vi": "Chúng ta dùng **both of** / **neither of** / **either of** + **the/these/my/Tom's ...** v.v. Vì vậy chúng ta nói 'both of the restaurants', 'both of those restaurants' v.v. (nhưng không nói both of restaurants):"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "**Both of** these restaurants are good.",
+                  "vi": "Cả hai nhà hàng này đều ngon."
+                },
+                {
+                  "en": "**Neither of** the restaurants we went to was expensive.",
+                  "vi": "Không nhà hàng nào trong hai nhà hàng chúng tôi đã đến là đắt cả."
+                },
+                {
+                  "en": "I haven't been to **either of** those restaurants.",
+                  "vi": "Tôi chưa từng đến nhà hàng nào trong hai nhà hàng đó cả."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "You don't need **of** after **both**. So you can say:",
+              "vi": "Bạn không cần **of** sau **both**. Vì vậy bạn có thể nói:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "**Both of** these restaurants are good.",
+                  "note": "or: Both these restaurants are good.",
+                  "vi": "Cả hai nhà hàng này đều ngon."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "We also use **both of** / **neither of** / **either of** + **us/you/them**:",
+              "vi": "Chúng ta cũng dùng **both of** / **neither of** / **either of** + **us/you/them**:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "(talking to two people) Can **either of** you speak Russian?",
+                  "vi": "(nói với hai người) Có ai trong hai bạn nói được tiếng Nga không?"
+                },
+                {
+                  "en": "I asked two people how to get to the station, but **neither of** them knew.",
+                  "vi": "Tôi hỏi hai người đường đến ga, nhưng không ai trong hai người biết cả."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "We say **both of** before **us/you/them** (you need to use **of**):",
+              "vi": "Chúng ta nói **both of** trước **us/you/them** (bạn cần dùng **of**):"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "**Both of us** were tired.",
+                  "note": "not Both us were ...",
+                  "vi": "Cả hai chúng tôi đều mệt."
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "After **neither of ...** a verb can be singular or plural:",
+              "vi": "Sau **neither of ...**, động từ có thể chia số ít hoặc số nhiều:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                {
+                  "en": "**Neither of** them **is** at home.",
+                  "note": "or: Neither of them are at home.",
+                  "vi": "Không ai trong hai người họ ở nhà cả."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "both ... and ... / neither ... nor ... / either ... or ...",
+          "headingEn": "both ... and ... / neither ... nor ... / either ... or ...",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "You can say:",
+              "vi": "Bạn có thể nói:"
+            },
+            {
+              "kind": "examples",
+              "heading": "both ... and ...",
+              "headingVi": "vừa ... vừa ...",
+              "items": [
+                {
+                  "en": "**Both** Chris **and** Paul were late.",
+                  "vi": "Cả Chris và Paul đều đến muộn."
+                },
+                {
+                  "en": "I was **both** tired **and** hungry when I arrived home.",
+                  "vi": "Tôi vừa mệt vừa đói khi về đến nhà."
+                }
+              ]
+            },
+            {
+              "kind": "examples",
+              "heading": "neither ... nor ...",
+              "headingVi": "không ... cũng không ...",
+              "items": [
+                {
+                  "en": "**Neither** Chris **nor** Paul came to the party.",
+                  "vi": "Không Chris cũng không Paul đến bữa tiệc."
+                },
+                {
+                  "en": "There was an accident outside our house, but we **neither** saw **nor** heard anything.",
+                  "vi": "Có một vụ tai nạn ngay trước nhà chúng tôi, nhưng chúng tôi chẳng thấy cũng chẳng nghe thấy gì."
+                }
+              ]
+            },
+            {
+              "kind": "examples",
+              "heading": "either ... or ...",
+              "headingVi": "hoặc ... hoặc ...",
+              "items": [
+                {
+                  "en": "I'm not sure where Maria's from. She's **either** Spanish **or** Italian.",
+                  "vi": "Tôi không chắc Maria đến từ đâu. Cô ấy là người Tây Ban Nha hoặc người Ý."
+                },
+                {
+                  "en": "**Either** you apologise, **or** I'll never speak to you again.",
+                  "vi": "Hoặc bạn xin lỗi, hoặc tôi sẽ không bao giờ nói chuyện với bạn nữa."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "D",
+          "heading": "So sánh either/neither/both (hai đối tượng) với any/none/all (nhiều hơn hai)",
+          "headingEn": "Compare either/neither/both (two things) and any/none/all (more than two)",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "Compare **either/neither/both** (two things) and **any/none/all** (more than two):",
+              "vi": "So sánh **either/neither/both** (hai đối tượng) với **any/none/all** (nhiều hơn hai):"
+            },
+            {
+              "kind": "table",
+              "table": {
+                "headers": [
+                  "two things",
+                  "more than two"
+                ],
+                "rows": [
+                  [
+                    "There are two good hotels here. You could stay at **either of** them.",
+                    "There are many good hotels here. You could stay at **any of** them."
+                  ],
+                  [
+                    "We tried two hotels. **Neither of** them had a room.",
+                    "We tried a lot of hotels. **None of** them had a room."
+                  ],
+                  [
+                    "**Both of** them were full.",
+                    "**All of** them were full."
+                  ]
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "fill_mc",
+      "title": "89.1 · Hoàn thành câu với both/neither/either",
+      "titleEn": "89.1 · Complete the sentences with both/neither/either",
+      "instructions": "Chọn both, neither hoặc either để hoàn thành mỗi câu.",
+      "instructionsEn": "Complete the sentences with both/neither/either.",
+      "examples": [
+        {
+          "label": "1",
+          "context": "'Do you want tea or coffee?'",
+          "prompt": "'___. I really don't mind.'",
+          "answer": "Either"
+        }
+      ],
+      "startNumber": 2,
+      "items": [
+        {
+          "context": "'What day is it today - the 18th or the 19th?'",
+          "before": "'",
+          "after": ". It's the 20th.'",
+          "options": [
+            "Both",
+            "Neither",
+            "Either"
+          ],
+          "answer": "Neither"
+        },
+        {
+          "context": "a: Where did you go on your trip - Korea or Japan?",
+          "before": "b: We went to ",
+          "after": ". A week in Korea and a week in Japan.",
+          "options": [
+            "both",
+            "neither",
+            "either"
+          ],
+          "answer": "both"
+        },
+        {
+          "context": "'Shall we sit in the corner or by the window?'",
+          "before": "'",
+          "after": ". I don't mind.'",
+          "options": [
+            "Both",
+            "Neither",
+            "Either"
+          ],
+          "answer": "Either"
+        },
+        {
+          "context": "'Where's Lisa? Is she at work or at home?'",
+          "before": "'",
+          "after": ". She's away on holiday.'",
+          "options": [
+            "Both",
+            "Neither",
+            "Either"
+          ],
+          "answer": "Neither"
+        },
+        {
+          "context": "'Is it true that Kate speaks Spanish and Arabic?'",
+          "before": "'Yes, she speaks ",
+          "after": " fluently.'",
+          "options": [
+            "both",
+            "neither",
+            "either"
+          ],
+          "answer": "both"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "89.2 · Hoàn thành câu với both/neither/either (dùng of khi cần)",
+      "titleEn": "89.2 · Complete the sentences with both/neither/either (use of where necessary)",
+      "instructions": "Điền both, neither hoặc either vào chỗ trống, thêm of khi cần thiết.",
+      "instructionsEn": "Complete the sentences with both/neither/either. Use of where necessary.",
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "___ my parents are from Egypt.",
+          "answer": "Both"
+        }
+      ],
+      "startNumber": 2,
+      "items": [
+        {
+          "context": "To get to the town centre, you can walk along the river or you can go along the road.",
+          "prompt": "You can go ___ way.",
+          "answer": "either"
+        },
+        {
+          "prompt": "I went to Carl's house twice, but ___ times he wasn't at home.",
+          "answer": "neither"
+        },
+        {
+          "prompt": "___ Tom's parents is English. His father is Polish and his mother is Italian.",
+          "answer": "Neither of"
+        },
+        {
+          "context": "I saw an accident this morning. One car drove into the back of another.",
+          "prompt": "Fortunately ___ driver was injured, but ___ cars were badly damaged.",
+          "answer": "neither",
+          "extraBlanks": [
+            {
+              "answer": "both"
+            }
+          ]
+        },
+        {
+          "context": "I have two sisters and a brother.",
+          "prompt": "My brother is working, but ___ my sisters are still at school.",
+          "answer": "both",
+          "accept": [
+            "both of"
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "89.3 · Hoàn thành câu với both/neither/either + of us / of them",
+      "titleEn": "89.3 · Complete the sentences with both/neither/either + of us / of them",
+      "instructions": "Hoàn thành mỗi câu bằng both/neither/either + of us hoặc of them.",
+      "instructionsEn": "Complete the sentences with both/neither/either + of us / of them.",
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "I asked two people how to get to the station, but ___ knew.",
+          "answer": "neither of them"
+        }
+      ],
+      "startNumber": 2,
+      "items": [
+        {
+          "context": "I was invited to two parties last week.",
+          "prompt": "But I couldn't go to ___.",
+          "answer": "either of them"
+        },
+        {
+          "context": "There were two windows in the room. It was very warm.",
+          "prompt": "So I opened ___.",
+          "answer": "both of them"
+        },
+        {
+          "prompt": "Sam and I often play tennis, but ___ can play well.",
+          "answer": "neither of us"
+        },
+        {
+          "prompt": "I tried two bookshops for the book I wanted to buy, but ___ had it.",
+          "answer": "neither of them"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "89.4 · Viết câu với both ... and ... / neither ... nor ... / either ... or ...",
+      "titleEn": "89.4 · Write sentences with both ... and ... / neither ... nor ... / either ... or ...",
+      "instructions": "Kết hợp hai câu thành một câu, dùng both ... and ... / neither ... nor ... / either ... or ... .",
+      "instructionsEn": "Write sentences with both ... and ... / neither ... nor ... / either ... or ... .",
+      "examples": [
+        {
+          "label": "1",
+          "context": "Chris was late. So was Pat.",
+          "prompt": "___",
+          "answer": "Both Chris and Pat were late."
+        },
+        {
+          "label": "2",
+          "context": "He didn't say hello, and he didn't smile.",
+          "prompt": "___",
+          "answer": "He neither said hello nor smiled."
+        }
+      ],
+      "startNumber": 3,
+      "items": [
+        {
+          "context": "It was a boring movie. It was long too.",
+          "prompt": "The movie ___.",
+          "answer": "was both boring and long"
+        },
+        {
+          "context": "Joe doesn't have a car. Sam doesn't have one either.",
+          "prompt": "___",
+          "answer": "Neither Joe nor Sam has a car."
+        },
+        {
+          "context": "Emily speaks German and she speaks Russian too.",
+          "prompt": "___",
+          "answer": "Emily speaks both German and Russian."
+        },
+        {
+          "context": "Ben doesn't watch TV and he doesn't read newspapers.",
+          "prompt": "Ben ___.",
+          "answer": "neither watches TV nor reads newspapers"
+        },
+        {
+          "context": "Is that man's name Richard? Or is it Robert? It's one of the two.",
+          "prompt": "That man's name ___.",
+          "answer": "is either Richard or Robert"
+        },
+        {
+          "context": "I don't have time to go on holiday. And I don't have the money.",
+          "prompt": "I have ___.",
+          "answer": "neither the time nor the money to go on holiday"
+        },
+        {
+          "context": "We can leave today or we can leave tomorrow - whichever you prefer.",
+          "prompt": "We ___.",
+          "answer": "can leave either today or tomorrow"
+        }
+      ]
+    },
+    {
+      "kind": "fill_mc",
+      "title": "89.5 · Hoàn thành câu với neither/either/none/any",
+      "titleEn": "89.5 · Complete the sentences with neither/either/none/any",
+      "instructions": "Chọn neither, either, none hoặc any để hoàn thành mỗi câu.",
+      "instructionsEn": "Complete the sentences with neither/either/none/any.",
+      "examples": [
+        {
+          "label": "1",
+          "prompt": "We tried a lot of hotels, but ___ of them had a room.",
+          "answer": "none"
+        }
+      ],
+      "startNumber": 2,
+      "items": [
+        {
+          "context": "Sam has two sisters.",
+          "before": "But I haven't met ",
+          "after": " of them.",
+          "options": [
+            "neither",
+            "either",
+            "none",
+            "any"
+          ],
+          "answer": "either"
+        },
+        {
+          "context": "Emily has four brothers.",
+          "before": "But I haven't met ",
+          "after": " of them.",
+          "options": [
+            "neither",
+            "either",
+            "none",
+            "any"
+          ],
+          "answer": "any"
+        },
+        {
+          "before": "There were a few shops in the street, but ",
+          "after": " of them was open.",
+          "options": [
+            "neither",
+            "either",
+            "none",
+            "any"
+          ],
+          "answer": "none"
+        },
+        {
+          "before": "Spain, Italy, Greece, Turkey - have you been to ",
+          "after": " of these countries?",
+          "options": [
+            "neither",
+            "either",
+            "none",
+            "any"
+          ],
+          "answer": "any"
+        },
+        {
+          "context": "I could meet you next Monday or Thursday.",
+          "before": "Would ",
+          "after": " of those days suit you?",
+          "options": [
+            "neither",
+            "either",
+            "none",
+            "any"
+          ],
+          "answer": "either"
+        },
+        {
+          "before": "Mark and I couldn't get into the house because ",
+          "after": " of us had a key.",
+          "options": [
+            "neither",
+            "either",
+            "none",
+            "any"
+          ],
+          "answer": "neither"
+        }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng both/both of, neither/neither of hoặc either/either of khi nói về hai đối tượng, ví dụ: 'Both of my brothers live in Hanoi.', 'Neither of the restaurants near my house is expensive.'. Bạn cũng có thể thử cấu trúc both ... and ..., neither ... nor ... hoặc either ... or ..., ví dụ: 'I was both tired and hungry.', 'She speaks neither French nor German.'.",
+      "instructionsEn": "Write 2-3 English sentences using both/both of, neither/neither of or either/either of when talking about two things, e.g. 'Both of my brothers live in Hanoi.', 'Neither of the restaurants near my house is expensive.'. You can also try both ... and ..., neither ... nor ... or either ... or ..., e.g. 'I was both tired and hungry.', 'She speaks neither French nor German.'.",
+      "ruleSummary": "This unit teaches both/neither/either, used for two things (contrasted with any/none/all for more than two, taught in units 85, 86 and 88). (1) both/neither/either can go directly before a noun: 'Both restaurants are good.' (not the both restaurants); 'Neither restaurant is expensive.'; 'We can go to either restaurant. I don't mind.' (= it doesn't matter which); 'I haven't been to either restaurant before.' (= not one or the other). They can also stand alone without a noun: 'Which do you prefer, basketball or tennis?' 'I like both.'; 'Is your friend British or American?' 'Neither. She's Australian.'; 'Do you want tea or coffee?' 'Either. I don't mind.'. (2) both of / neither of / either of + the/these/my/Tom's etc. (a determiner, never a plain noun - not 'both of restaurants'): 'Both of these restaurants are good.'; 'Neither of the restaurants we went to was expensive.'; 'I haven't been to either of those restaurants.'. of is optional after both: 'Both these restaurants are good.' works too. Before us/you/them, of is always required, even after both: 'Both of us were tired.' (not Both us were), 'Can either of you speak Russian?', 'neither of them knew'. After neither of, the verb can be singular or plural: 'Neither of them is at home.' or 'Neither of them are at home.'. (3) both ... and ..., neither ... nor ..., either ... or ... link two words or clauses: 'Both Chris and Paul were late.'; 'I was both tired and hungry when I arrived home.'; 'Neither Chris nor Paul came to the party.'; 'We neither saw nor heard anything.'; 'She's either Spanish or Italian.'; 'Either you apologise, or I'll never speak to you again.'. (4) either/neither/both (two things) parallel any/none/all (more than two): 'You could stay at either of them.' (two hotels) vs 'You could stay at any of them.' (many hotels); 'Neither of them had a room.' vs 'None of them had a room.'; 'Both of them were full.' vs 'All of them were full.'. Also, like any, either is the natural choice with a negative verb ('I haven't met either of them'), while neither (already negative) pairs with a positive verb ('Neither of them has a key'), the same either/negative vs neither/positive contrast that also holds for any/none. A correct student sentence should use both/neither/either correctly for two things (with or without of before a determiner, always with of before it/us/you/them), or correctly use the both...and/neither...nor/either...or linking pattern."
+    }
+  ]
+};
+
+export const UNIT_90_ALL_EVERY_WHOLE: GrammarUnit = {
+  "unit": 90,
+  "slug": "all-every-whole",
+  "title": "all, every, whole",
+  "topic": "quantifiers",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "everybody/everyone/everything thay vì all đứng một mình",
+          "headingEn": "everybody/everyone/everything instead of all alone",
+          "intro": "We say:",
+          "introVi": "Chúng ta nói:",
+          "parts": [
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "**Everybody** was happy. or **Everyone** was happy.", "note": "not all were happy", "vi": "Mọi người đều vui." },
+                { "en": "He thinks he knows **everything**.", "note": "not knows all", "vi": "Anh ta nghĩ mình biết hết mọi thứ." },
+                { "en": "Our holiday was a disaster. **Everything** went wrong.", "note": "not all went wrong", "vi": "Kỳ nghỉ của chúng tôi là một thảm họa. Mọi thứ đều trục trặc." }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "We do not often use **all** alone in this way. We do not say 'all were happy', 'he knows all' etc.",
+              "vi": "Chúng ta không thường dùng **all** đứng một mình theo cách này. Chúng ta không nói 'all were happy', 'he knows all' v.v."
+            },
+            {
+              "kind": "text",
+              "text": "We use **all** in the following ways:",
+              "vi": "Chúng ta dùng **all** theo những cách sau:"
+            },
+            {
+              "kind": "table",
+              "table": {
+                "rows": [
+                  ["**all** + noun (**all** cars, **all** my money etc.)", "**All** my friends were happy."],
+                  ["**all of** + us/you/them", "**All of** us were happy."],
+                  ["we/you/they ... **all** ...", "We were **all** happy."],
+                  ["**all about** ...", "He knows **all about** computers."],
+                  ["**all** ... = the only thing(s)", "**All** I've eaten today is a banana. (= the only thing I've eaten today)"]
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "whole = toàn bộ, trọn vẹn, thường đi với danh từ số ít",
+          "headingEn": "whole = complete, entire, usually with a singular noun",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "**Whole** = complete, entire. We use **whole** mostly with singular nouns:",
+              "vi": "**Whole** = toàn bộ, trọn vẹn. Chúng ta dùng **whole** chủ yếu với danh từ số ít:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "Did you read the **whole** book?", "note": "= all the book, not just a part of it", "vi": "Bạn đã đọc hết cả cuốn sách chưa?" },
+                { "en": "Emily has lived her **whole** life in the same town.", "vi": "Emily đã sống cả cuộc đời mình ở cùng một thị trấn." },
+                { "en": "I was so hungry, I ate a **whole** packet of biscuits.", "note": "= a complete packet", "vi": "Tôi đói quá nên ăn hết cả một gói bánh quy." }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "We do not normally use **whole** with uncountable nouns (water, food, money etc.). We say:",
+              "vi": "Chúng ta không dùng **whole** với danh từ không đếm được (water, food, money v.v.). Chúng ta nói:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "Did you spend **all** the money I gave you?", "note": "not the whole money", "vi": "Bạn đã tiêu hết số tiền tôi đưa cho chưa?" },
+                { "en": "I read **all** the information carefully.", "note": "not the whole information", "vi": "Tôi đã đọc kỹ toàn bộ thông tin." }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "We use the/my/a etc. before **whole**. Compare **whole** and **all**:",
+              "vi": "Chúng ta dùng the/my/a v.v. trước **whole**. So sánh **whole** và **all**:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "I read the **whole** book. but I read **all** the information.", "vi": "Tôi đọc hết cả cuốn sách. nhưng tôi đọc hết toàn bộ thông tin." }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "every day / all day / the whole day",
+          "headingEn": "every day / all day / the whole day",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "We use **every** to say how often something happens (**every** day / **every** ten minutes etc.):",
+              "vi": "Chúng ta dùng **every** để nói tần suất một việc xảy ra (**every** day / **every** ten minutes v.v.):"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "When we were on holiday, we went to the beach **every day**.", "note": "not all days", "vi": "Khi đi nghỉ, ngày nào chúng tôi cũng ra biển." },
+                { "en": "The bus service is excellent. There's a bus **every** ten minutes.", "vi": "Dịch vụ xe buýt rất tốt. Cứ mười phút lại có một chuyến." },
+                { "en": "We don't see each other very often - about **every** six months.", "vi": "Chúng tôi không gặp nhau thường xuyên, khoảng sáu tháng một lần." }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "**All day** or **the whole day** = the complete day from beginning to end:",
+              "vi": "**All day** hoặc **the whole day** = trọn một ngày từ đầu đến cuối:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "We spent **all day** on the beach. or We spent **the whole day** ...", "vi": "Chúng tôi ở trên bãi biển cả ngày." },
+                { "en": "Dan was very quiet. He didn't say a word **all evening**. or ... **the whole evening**.", "vi": "Dan rất trầm lặng. Cả buổi tối anh ấy không nói một lời nào." }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "Note that we say **all day** (not all *the* day), **all week** (not all *the* week) etc.",
+              "vi": "Lưu ý chúng ta nói **all day** (không nói all *the* day), **all week** (không nói all *the* week) v.v."
+            },
+            {
+              "kind": "text",
+              "text": "Compare **all the time** and **every time**:",
+              "vi": "So sánh **all the time** và **every time**:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "They never go out. They are at home **all the time**.", "note": "= always, continuously", "vi": "Họ không bao giờ ra ngoài. Họ ở nhà suốt." },
+                { "en": "**Every time** I see you, you look different.", "note": "= each time, on every occasion", "vi": "Mỗi lần gặp bạn, tôi thấy bạn trông khác đi." }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "D",
+          "heading": "every/everybody/everyone/everything là từ số ít, nhưng dùng they/them/their",
+          "headingEn": "every/everybody/everyone/everything are singular, but take they/them/their",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "**Every**/**everybody**/**everyone**/**everything** are singular words, so we use a singular verb:",
+              "vi": "**Every**/**everybody**/**everyone**/**everything** là những từ số ít, vì vậy chúng ta dùng động từ số ít:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "**Every** seat in the theatre was taken.", "vi": "Mọi chỗ ngồi trong rạp hát đều đã có người." },
+                { "en": "**Everybody** has arrived.", "note": "not have arrived", "vi": "Mọi người đã đến đủ cả." }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "But we use **they/them/their** after **everybody/everyone**:",
+              "vi": "Nhưng chúng ta dùng **they/them/their** sau **everybody/everyone**:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "**Everybody** said **they** enjoyed **themselves**.", "note": "= everybody enjoyed himself or herself", "vi": "Mọi người nói rằng họ đã có khoảng thời gian vui vẻ." }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "90.1 · Hoàn thành câu với all, everything hoặc everybody/everyone",
+      "titleEn": "90.1 · Complete the sentences with all, everything or everybody/everyone",
+      "instructions": "Điền all, everything hoặc everybody/everyone vào chỗ trống.",
+      "instructionsEn": "Complete the sentences with all, everything or everybody/everyone.",
+      "wordBank": ["all", "everything", "everybody", "everyone"],
+      "examples": [
+        { "label": "1", "context": "It was a good party.", "prompt": "___ had a great time.", "answer": "Everybody" },
+        { "label": "2", "prompt": "___ I've eaten today is a banana.", "answer": "All" }
+      ],
+      "items": [
+        {
+          "prompt": "___ has their faults. Nobody is perfect.",
+          "answer": "Everybody",
+          "accept": ["Everyone"]
+        },
+        {
+          "prompt": "Nothing has changed. ___ is the same as it was.",
+          "answer": "Everything"
+        },
+        {
+          "prompt": "Kate told me ___ about her new job. It sounds interesting.",
+          "answer": "everything"
+        },
+        {
+          "prompt": "Can ___ write their names on a piece of paper, please?",
+          "answer": "everybody",
+          "accept": ["everyone"]
+        },
+        {
+          "prompt": "Why are you always thinking about money? Money isn't ___.",
+          "answer": "everything"
+        },
+        {
+          "prompt": "I'm really exhausted. ___ I want to do is sleep.",
+          "answer": "All"
+        },
+        {
+          "context": "When the fire alarm rang,",
+          "prompt": "___ left the building immediately.",
+          "answer": "everybody",
+          "accept": ["everyone"]
+        },
+        {
+          "context": "Amy didn't say where she was going.",
+          "prompt": "___ she said was that she was going away.",
+          "answer": "All"
+        },
+        {
+          "context": "We have completely different opinions.",
+          "prompt": "I disagree with ___ she says.",
+          "answer": "everything"
+        },
+        {
+          "context": "We all did well in the exam.",
+          "prompt": "___ in our class passed.",
+          "answer": "Everybody",
+          "accept": ["Everyone"]
+        },
+        {
+          "context": "We all did well in the exam.",
+          "prompt": "___ of us passed.",
+          "answer": "All"
+        },
+        {
+          "prompt": "Why are you so lazy? Why do you expect me to do ___ for you?",
+          "answer": "everything"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "90.2 · Viết câu với whole, sau đó viết lại câu 6 và 7 dùng all",
+      "titleEn": "90.2 · Write sentences with whole, then rewrite sentences 6 and 7 using all",
+      "instructions": "Viết lại mỗi câu bằng cách dùng whole. Với hai câu cuối (8 và 9), viết lại câu 6 và 7 nhưng dùng all thay cho whole.",
+      "instructionsEn": "Write sentences with whole. Then, for items 8 and 9, write sentences 6 and 7 again using all instead of whole.",
+      "examples": [
+        { "label": "1", "context": "I read the book from beginning to end.", "prompt": "___", "answer": "I read the whole book." }
+      ],
+      "items": [
+        {
+          "context": "Everyone in the team played well.",
+          "prompt": "The ___.",
+          "answer": "whole team played well"
+        },
+        {
+          "context": "Paul opened a box of chocolates. He started eating. When he finished, there were no chocolates left in the box.",
+          "prompt": "He ate ___.",
+          "answer": "the whole box of chocolates"
+        },
+        {
+          "context": "The police came to the house. They were looking for something. They searched everywhere, every room.",
+          "prompt": "They ___.",
+          "answer": "searched the whole house"
+        },
+        {
+          "context": "Everyone in Ed and Jane's family plays tennis. Ed and Jane play, and so do all their children.",
+          "prompt": "The ___.",
+          "answer": "whole family plays tennis"
+        },
+        {
+          "label": "6",
+          "context": "Sarah worked from early in the morning until late in the evening.",
+          "prompt": "___",
+          "answer": "Sarah worked the whole day."
+        },
+        {
+          "label": "7",
+          "context": "Jack and Lisa had a week's holiday by the sea. It rained from the beginning of the week to the end of the week.",
+          "prompt": "It ___.",
+          "answer": "rained the whole week"
+        },
+        {
+          "label": "8 (6)",
+          "context": "Sarah worked from early in the morning until late in the evening.",
+          "prompt": "Sarah ___.",
+          "answer": "worked all day"
+        },
+        {
+          "label": "9 (7)",
+          "context": "Jack and Lisa had a week's holiday by the sea. It rained from the beginning of the week to the end of the week.",
+          "prompt": "___",
+          "answer": "It rained all week."
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "90.3 · Hoàn thành câu với every và các cụm từ cho sẵn",
+      "titleEn": "90.3 · Complete the sentences using every with the words given",
+      "instructions": "Hoàn thành mỗi câu bằng every và một cụm từ trong khung.",
+      "instructionsEn": "Complete the sentences using every with one of the phrases in the box.",
+      "wordBank": ["four years", "five minutes", "ten minutes", "four hours", "six months"],
+      "examples": [
+        { "label": "1", "context": "The bus service is very good.", "prompt": "There's a bus every ___.", "answer": "ten minutes" }
+      ],
+      "items": [
+        {
+          "context": "Tom is ill. He has some medicine.",
+          "prompt": "He has to take it every ___.",
+          "answer": "four hours"
+        },
+        {
+          "prompt": "The Olympic Games take place every ___.",
+          "answer": "four years"
+        },
+        {
+          "context": "We live near a busy airport.",
+          "prompt": "A plane flies over our house every ___.",
+          "answer": "five minutes"
+        },
+        {
+          "prompt": "Martin goes to the dentist for a check-up every ___.",
+          "answer": "six months"
+        }
+      ]
+    },
+    {
+      "kind": "fill_mc",
+      "title": "90.4 · Chọn cách nói đúng",
+      "titleEn": "90.4 · Which is right?",
+      "instructions": "Chọn cách nói đúng trong mỗi câu sau.",
+      "instructionsEn": "Choose the correct option in each sentence.",
+      "examples": [
+        { "label": "1", "context": "Did you spend the whole money / all the money I gave you?", "prompt": "___", "answer": "all the money" }
+      ],
+      "items": [
+        {
+          "before": "Eve works",
+          "after": "except Sunday.",
+          "options": ["every day", "all days"],
+          "answer": "every day"
+        },
+        {
+          "context": "I'm tired.",
+          "before": "I've been working hard",
+          "after": ".",
+          "options": ["all the day", "all day"],
+          "answer": "all day"
+        },
+        {
+          "context": "It was a terrible fire.",
+          "before": "",
+          "after": "was destroyed.",
+          "options": ["Whole building", "The whole building"],
+          "answer": "The whole building"
+        },
+        {
+          "context": "It's a very sad song.",
+          "before": "",
+          "after": "I hear it, it makes me cry.",
+          "options": ["Every time", "All the time"],
+          "answer": "Every time"
+        },
+        {
+          "context": "I don't like the weather here.",
+          "before": "It rains",
+          "after": ".",
+          "options": ["every time", "all the time"],
+          "answer": "all the time"
+        },
+        {
+          "context": "When I was on holiday,",
+          "before": "",
+          "after": "was stolen.",
+          "options": ["all my luggage", "my whole luggage"],
+          "answer": "all my luggage"
+        }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng everybody/everyone/everything thay cho all khi đứng một mình, hoặc dùng whole với danh từ số ít, ví dụ: 'Everybody enjoyed the trip.', 'I ate the whole cake.'. Bạn cũng có thể thử every day/every ten minutes để nói tần suất, hoặc so sánh all day/the whole day với every day, ví dụ: 'We stayed at home all day.', 'I go swimming every week.'.",
+      "instructionsEn": "Write 2-3 English sentences using everybody/everyone/everything instead of all alone, or using whole with a singular noun, e.g. 'Everybody enjoyed the trip.', 'I ate the whole cake.'. You can also try every day/every ten minutes to say how often something happens, or compare all day/the whole day with every day, e.g. 'We stayed at home all day.', 'I go swimming every week.'.",
+      "ruleSummary": "This unit teaches all vs everybody/everyone/everything, whole vs all, and every day vs all day/the whole day (all/all of itself is taught in unit 88, each and every in unit 91). (1) We rarely use all alone to mean 'everybody' or 'everything': 'Everybody was happy.' or 'Everyone was happy.' (not all were happy); 'He thinks he knows everything.' (not knows all); 'Everything went wrong.' (not all went wrong). all is instead used with a noun (all cars, all my money), with all of + us/you/them, placed after a subject pronoun (we were all happy), in all about, or meaning 'the only thing(s)' (All I've eaten today is a banana). (2) whole = complete, entire, used mostly with a singular noun and a determiner (the/my/a whole book/life/packet): 'Did you read the whole book?'; 'Emily has lived her whole life in the same town.'. whole is not normally used with uncountable nouns; use all the + noun instead: 'Did you spend all the money I gave you?' (not the whole money); 'I read all the information carefully.' (not the whole information). (3) every says how often something happens (every day, every ten minutes, every six months), while all day / the whole day means the complete day from beginning to end: 'We went to the beach every day.' (not all days) vs 'We spent all day on the beach.' or 'the whole day'. Note the fixed forms all day / all week (not all the day / all the week). Also compare all the time (= always, continuously) with every time (= each time, on every occasion). (4) every/everybody/everyone/everything are grammatically singular, so they take a singular verb: 'Every seat was taken.'; 'Everybody has arrived.' (not have arrived). But everybody/everyone are followed by they/them/their: 'Everybody said they enjoyed themselves.'. A correct student sentence should use everybody/everyone/everything (not bare all) as a subject or object, use whole correctly with a singular countable noun, or use every correctly to say how often something happens."
+    }
+  ]
+};

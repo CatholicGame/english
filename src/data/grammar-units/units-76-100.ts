@@ -7959,3 +7959,199 @@ export const UNIT_99_ADJECTIVES_ORDER_AND_LOOK_FEEL_SOUND: GrammarUnit = {
     }
   ]
 };
+
+export const UNIT_100_ADJECTIVES_AND_ADVERBS_1: GrammarUnit = {
+  "unit": 100,
+  "slug": "adjectives-and-adverbs-1",
+  "title": "Adjectives and adverbs 1 (quick/quickly)",
+  "topic": "adjectives and adverbs",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "Tính từ và trạng từ có đuôi -ly",
+          "headingEn": "adjectives and adverbs ending in -ly",
+          "parts": [
+            { "kind": "text", "text": "You can say:", "vi": "Bạn có thể nói:" },
+            { "kind": "examples", "items": [
+              { "en": "Our holiday was too short - the time passed very **quickly**.", "vi": "Kỳ nghỉ của chúng tôi quá ngắn, thời gian trôi qua rất nhanh." },
+              { "en": "Two people were **seriously** injured in the accident.", "vi": "Hai người bị thương nặng trong vụ tai nạn." }
+            ] },
+            { "kind": "text", "text": "**Quickly** and **seriously** are adverbs. Many adverbs are adjective + **-ly**:", "vi": "**Quickly** và **seriously** là trạng từ. Nhiều trạng từ được tạo thành từ tính từ + **-ly**:" },
+            { "kind": "table", "table": { "headers": ["adjective", "adverb"], "variant": "grid", "rows": [
+              ["quick", "quickly"],
+              ["serious", "seriously"],
+              ["careful", "carefully"],
+              ["bad", "badly"],
+              ["heavy", "heavily"],
+              ["terrible", "terribly"]
+            ] } },
+            { "kind": "text", "text": "Not all words ending in **-ly** are adverbs. Some adjectives end in **-ly** too, for example:", "vi": "Không phải mọi từ kết thúc bằng **-ly** đều là trạng từ. Một số tính từ cũng kết thúc bằng **-ly**, ví dụ:" },
+            { "kind": "words", "words": ["friendly", "lively", "elderly", "lonely", "lovely"] },
+            { "kind": "examples", "items": [
+              { "en": "It was a **lovely** day.", "vi": "Hôm đó là một ngày đẹp trời." }
+            ] }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "Tính từ hay trạng từ?",
+          "headingEn": "adjective or adverb?",
+          "parts": [
+            { "kind": "text", "text": "Adjectives (*quick*/*careful* etc.) tell us about a noun (somebody or something). We use adjectives before nouns:", "vi": "Tính từ (*quick*/*careful* v.v.) cho biết thông tin về một danh từ (một người hay một vật). Chúng ta dùng tính từ trước danh từ:" },
+            { "kind": "examples", "items": [
+              { "en": "Sam is a **careful** driver.", "note": "not a carefully driver", "vi": "Sam là một tài xế cẩn thận." },
+              { "en": "We didn't go out because of the **heavy** rain.", "vi": "Chúng tôi không ra ngoài vì mưa to." }
+            ] },
+            { "kind": "text", "text": "Adverbs (*quickly*/*carefully* etc.) tell us about a verb (how somebody does something or how something happens):", "vi": "Trạng từ (*quickly*/*carefully* v.v.) cho biết thông tin về một động từ (ai đó làm việc gì như thế nào, hoặc việc gì đó xảy ra như thế nào):" },
+            { "kind": "examples", "items": [
+              { "en": "Sam drove **carefully** along the narrow road.", "note": "not drove careful", "vi": "Sam lái xe cẩn thận dọc theo con đường hẹp." },
+              { "en": "We didn't go out because it was raining **heavily**.", "note": "not raining heavy", "vi": "Chúng tôi không ra ngoài vì trời đang mưa to." }
+            ] },
+            { "kind": "text", "text": "Compare:", "vi": "So sánh:" },
+            { "kind": "examples", "items": [
+              { "en": "She speaks **perfect** English.", "note": "adjective + noun", "vi": "Cô ấy nói tiếng Anh hoàn hảo." },
+              { "en": "She speaks English **perfectly**.", "note": "verb + noun + adverb", "vi": "Cô ấy nói tiếng Anh một cách hoàn hảo." }
+            ] }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "Tính từ sau be và sau look/feel/sound...",
+          "headingEn": "adjectives after be, and after look/feel/sound etc.",
+          "parts": [
+            { "kind": "text", "text": "We use adjectives after some verbs, especially **be**, and also **look**/**feel**/**sound** etc.", "vi": "Chúng ta dùng tính từ sau một số động từ, đặc biệt là **be**, và cả sau **look**/**feel**/**sound** v.v." },
+            { "kind": "text", "text": "Compare:", "vi": "So sánh:" },
+            { "kind": "examples", "items": [
+              { "en": "Please **be** quiet.", "vi": "Làm ơn hãy im lặng." },
+              { "en": "Please speak **quietly**.", "vi": "Làm ơn hãy nói nhỏ thôi." },
+              { "en": "My exam results were really **bad**.", "vi": "Kết quả thi của tôi thực sự tệ." },
+              { "en": "I did really **badly** in the exam.", "vi": "Tôi đã làm bài thi thực sự tệ." },
+              { "en": "Why do you always **look** so serious?", "vi": "Sao lúc nào trông bạn cũng nghiêm trọng thế?" },
+              { "en": "Why do you never take me **seriously**?", "vi": "Sao bạn không bao giờ coi trọng lời tôi nói?" },
+              { "en": "I **feel** happy.", "vi": "Tôi cảm thấy vui." },
+              { "en": "The children were playing **happily**.", "vi": "Bọn trẻ đang chơi đùa vui vẻ." }
+            ] }
+          ]
+        },
+        {
+          "label": "D",
+          "heading": "Trạng từ đứng trước tính từ hoặc trạng từ khác",
+          "headingEn": "adverbs before adjectives and other adverbs",
+          "parts": [
+            { "kind": "text", "text": "You can also use adverbs before adjectives and other adverbs. For example:", "vi": "Bạn cũng có thể dùng trạng từ trước tính từ và trước trạng từ khác. Ví dụ:" },
+            { "kind": "table", "table": { "variant": "list", "rows": [
+              ["reasonably cheap", "(adverb + adjective)"],
+              ["terribly sorry", "(adverb + adjective)"],
+              ["incredibly quickly", "(adverb + adverb)"]
+            ] } },
+            { "kind": "examples", "items": [
+              { "en": "It's a **reasonably cheap** restaurant and the food is **extremely** good.", "vi": "Đó là một nhà hàng có giá cả khá rẻ và đồ ăn thì cực kỳ ngon." },
+              { "en": "I'm **terribly sorry**. I didn't mean to push you.", "vi": "Tôi thực sự xin lỗi. Tôi không cố ý xô bạn." },
+              { "en": "Maria learns languages **incredibly quickly**.", "vi": "Maria học ngoại ngữ nhanh đến khó tin." },
+              { "en": "The exam was **surprisingly** easy.", "vi": "Bài thi dễ đến bất ngờ." }
+            ] },
+            { "kind": "text", "text": "You can also use an adverb before a past participle (*injured*/*organised*/*written* etc.):", "vi": "Bạn cũng có thể dùng trạng từ trước một phân từ hai (*injured*/*organised*/*written* v.v.):" },
+            { "kind": "examples", "items": [
+              { "en": "Two people were **seriously injured** in the accident.", "note": "not serious injured", "vi": "Hai người bị thương nặng trong vụ tai nạn." },
+              { "en": "The conference was **badly organised**.", "vi": "Hội nghị đã được tổ chức kém." }
+            ] }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "100.1 · Hoàn thành mỗi câu bằng một trạng từ",
+      "titleEn": "100.1 · Complete each sentence with an adverb",
+      "instructions": "Hoàn thành mỗi câu bằng một trạng từ phù hợp.",
+      "instructionsEn": "Complete each sentence with an adverb.",
+      "items": [
+        { "prompt": "We didn't go out because it was raining ___.", "answer": "heavily" },
+        { "prompt": "I had no problem finding a place to live. I found a flat quite ___.", "answer": "easily" },
+        { "prompt": "We had to wait a long time, but we didn't complain. We waited ___.", "answer": "patiently" },
+        { "prompt": "Nobody knew that Simon was coming to see us. He arrived ___.", "answer": "unexpectedly" },
+        { "prompt": "Mike keeps fit by playing tennis ___.", "answer": "regularly" },
+        { "prompt": "I don't speak French very well, but I can understand ___ if people speak ___ and ___.", "answer": "perfectly", "extraBlanks": [{ "answer": "slowly" }, { "answer": "clearly" }] }
+      ]
+    },
+    {
+      "kind": "fill_mc",
+      "title": "100.2 · Chọn từ đúng",
+      "titleEn": "100.2 · Put in the correct word",
+      "instructions": "Chọn từ đúng (tính từ hay trạng từ) cho mỗi câu.",
+      "instructionsEn": "Put in the correct word.",
+      "examples": [
+        { "label": "1", "prompt": "Sam drove ___ along the narrow road.", "answer": "carefully" }
+      ],
+      "items": [
+        { "before": "I think you behaved very", "after": ".", "options": ["selfish", "selfishly"], "answer": "selfishly" },
+        { "before": "The weather changed", "after": ".", "options": ["sudden", "suddenly"], "answer": "suddenly" },
+        { "before": "There was a", "after": "change in the weather.", "options": ["sudden", "suddenly"], "answer": "sudden" },
+        { "before": "Liz fell and hurt herself really", "after": ".", "options": ["bad", "badly"], "answer": "badly" },
+        { "before": "I think I have flu. I feel", "after": ".", "options": ["awful", "awfully"], "answer": "awful" },
+        { "before": "Tanya is", "after": "upset about losing her job.", "options": ["terrible", "terribly"], "answer": "terribly" },
+        { "before": "I could sit in this chair all day. It's very", "after": ".", "options": ["comfortable", "comfortably"], "answer": "comfortable" },
+        { "before": "I explained everything as", "after": "as I could.", "options": ["clear", "clearly"], "answer": "clearly" },
+        { "before": "Be careful on that ladder. It doesn't look very", "after": ".", "options": ["safe", "safely"], "answer": "safe" },
+        { "before": "Have a good trip and I hope you have a", "after": "journey.", "options": ["safe", "safely"], "answer": "safe" },
+        { "before": "I'm glad you had a good trip and got home", "after": ".", "options": ["safe", "safely"], "answer": "safely" }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "100.3 · Hoàn thành mỗi câu bằng một từ trong khung",
+      "titleEn": "100.3 · Complete each sentence using a word from the box",
+      "instructions": "Hoàn thành mỗi câu bằng một từ trong khung. Đôi khi bạn cần dùng dạng tính từ (careful v.v.), đôi khi cần dạng trạng từ (carefully v.v.).",
+      "instructionsEn": "Complete each sentence using a word from the box. Sometimes you need the adjective (careful etc.) and sometimes the adverb (carefully etc.).",
+      "wordBank": ["careful(ly)", "complete(ly)", "dangerous(ly)", "financial(ly)", "fluent(ly)", "frequent(ly)", "nervous(ly)", "perfect(ly)", "permanent(ly)", "special(ly)"],
+      "examples": [
+        { "label": "1", "prompt": "Sam doesn't take risks when he's driving. He's always ___.", "answer": "careful" }
+      ],
+      "items": [
+        { "prompt": "He's late sometimes, but it doesn't happen ___.", "answer": "frequently" },
+        { "prompt": "Maria's English is very ___ although she makes quite a lot of mistakes.", "answer": "fluent" },
+        { "prompt": "I cooked this meal ___ for you, so I hope you like it.", "answer": "specially" },
+        { "prompt": "Everything was very quiet. There was ___ silence.", "answer": "complete" },
+        { "prompt": "I tried on the shoes and they fitted me ___.", "answer": "perfectly" },
+        { "prompt": "I'd like to buy a car, but it's ___ impossible for me at the moment.", "answer": "financially" },
+        { "prompt": "I'm staying here only a few weeks. I won't be living here ___.", "answer": "permanently" },
+        { "prompt": "Do you usually feel ___ before exams?", "answer": "nervous" },
+        { "prompt": "Dan likes to take risks. He lives ___.", "answer": "dangerously" }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "100.4 · Chọn hai từ (mỗi khung một từ) để hoàn thành mỗi câu",
+      "titleEn": "100.4 · Choose two words (one from each box) to complete each sentence",
+      "instructions": "Chọn hai từ trong khung, một trạng từ và một tính từ/phân từ, để hoàn thành mỗi câu.",
+      "instructionsEn": "Choose two words (one from each box) to complete each sentence.",
+      "wordBank": ["absolutely", "badly", "completely", "happily", "reasonably", "seriously", "slightly", "unnecessarily", "unusually", "changed", "cheap", "damaged", "enormous", "ill", "long", "married", "planned", "quiet"],
+      "examples": [
+        { "label": "1", "prompt": "I thought the restaurant would be expensive, but it was ___.", "answer": "reasonably cheap" }
+      ],
+      "items": [
+        { "prompt": "Will's mother is ___ in hospital.", "answer": "seriously ill" },
+        { "prompt": "This house is so big! It's ___!", "answer": "absolutely enormous" },
+        { "prompt": "It wasn't a serious accident. The car was only ___.", "answer": "slightly damaged" },
+        { "prompt": "Our children are normally very lively, but they're ___ today.", "answer": "unusually quiet" },
+        { "prompt": "When I returned home after 20 years, everything had ___.", "answer": "completely changed" },
+        { "prompt": "The movie was ___. It could have been much shorter.", "answer": "unnecessarily long" },
+        { "prompt": "I'm surprised Amy and Joe have separated. I thought they were ___.", "answer": "happily married" },
+        { "prompt": "A lot went wrong during our holiday because it was ___.", "answer": "badly planned" }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh, dùng đúng tính từ trước danh từ (ví dụ 'a careful driver') và đúng trạng từ mô tả một động từ (ví dụ 'drove carefully'), hoặc dùng tính từ sau be/look/feel/sound (ví dụ 'You look tired.').",
+      "instructionsEn": "Write 2-3 English sentences, using an adjective correctly before a noun (e.g. 'a careful driver') and an adverb correctly to describe a verb (e.g. 'drove carefully'), or an adjective after be/look/feel/sound (e.g. 'You look tired.').",
+      "ruleSummary": "This unit covers the adjective/adverb distinction. Many adverbs are adjective + -ly (quick -> quickly, careful -> carefully, bad -> badly), but not every -ly word is an adverb (friendly, lively, elderly, lonely, lovely are adjectives). Adjectives describe a noun and go before it: 'Sam is a careful driver' (not 'a carefully driver'). Adverbs describe a verb, telling us how something happens: 'Sam drove carefully' (not 'drove careful'). Compare 'She speaks perfect English' (adjective + noun) with 'She speaks English perfectly' (verb + noun + adverb). Adjectives (not adverbs) are used after be and after look/feel/sound etc.: 'Please be quiet.'; 'Why do you always look so serious?'. Adverbs can go before another adjective or adverb: 'a reasonably cheap restaurant', 'incredibly quickly', and before a past participle: 'seriously injured' (not 'serious injured'). A correct student sentence should put the adjective before a noun and the adverb with a verb, not swap them."
+    }
+  ]
+};

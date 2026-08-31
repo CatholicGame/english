@@ -5587,3 +5587,2375 @@ export const UNIT_90_ALL_EVERY_WHOLE: GrammarUnit = {
     }
   ]
 };
+
+export const UNIT_91_EACH_AND_EVERY: GrammarUnit = {
+  "unit": 91,
+  "slug": "each-and-every",
+  "title": "each and every",
+  "topic": "quantifiers",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "each dùng khi nghĩ đến từng cái riêng lẻ, every dùng khi nghĩ đến cả nhóm",
+          "headingEn": "each for things thought of separately, every for things thought of as a group",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "**Each** and **every** are similar. Often it is possible to use **each** or **every**:",
+              "vi": "**Each** và **every** khá giống nhau. Thường thì có thể dùng **each** hoặc **every**:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "**Each** time I see you, you look different. or **Every** time I see you ...", "vi": "Mỗi lần gặp bạn, tôi thấy bạn trông khác đi." }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "But **each** and **every** are not exactly the same. We use **each** when we think of things separately, one by one:",
+              "vi": "Nhưng **each** và **every** không hoàn toàn giống nhau. Chúng ta dùng **each** khi nghĩ đến từng thứ một, riêng lẻ:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "Study **each** sentence carefully.", "note": "= study the sentences one by one", "vi": "Hãy nghiên cứu kỹ từng câu một." }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "We use **every** when we think of things as a group. The meaning is similar to *all*:",
+              "vi": "Chúng ta dùng **every** khi nghĩ đến mọi thứ như một nhóm. Nghĩa gần giống với *all*:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "**Every** window in the house was open.", "note": "= all the windows in the house", "vi": "Mọi cửa sổ trong nhà đều mở." }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "**Each** is more usual for a small number:",
+              "vi": "**Each** thường dùng cho một số lượng nhỏ:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "There were four books on the table. **Each** book was a different colour.", "vi": "Có bốn cuốn sách trên bàn. Mỗi cuốn một màu khác nhau." },
+                { "en": "(in a card game) At the beginning of the game, **each** player has three cards.", "vi": "(trong một trò chơi bài) Lúc bắt đầu ván, mỗi người chơi có ba lá bài." }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "**Every** is more usual for a large number:",
+              "vi": "**Every** thường dùng cho một số lượng lớn:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "Kate loves reading. She has read **every** book in the library.", "note": "= all the books", "vi": "Kate rất thích đọc sách. Cô ấy đã đọc hết mọi cuốn sách trong thư viện." },
+                { "en": "I'd like to visit **every** country in the world.", "note": "= all the countries", "vi": "Tôi muốn đi thăm mọi quốc gia trên thế giới." }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "**Each** (but not every) can be used for two things:",
+              "vi": "**Each** (nhưng không phải every) có thể dùng cho hai đối tượng:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "In football, **each** team has eleven players.", "note": "not every team", "vi": "Trong bóng đá, mỗi đội có mười một cầu thủ." }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "We use **every** (not each) to say how often something happens:",
+              "vi": "Chúng ta dùng **every** (không dùng each) để nói tần suất một việc xảy ra:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "'How often do you use your car?' '**Every** day.'", "note": "not Each day", "vi": "'Bạn dùng xe hơi thường xuyên không?' 'Ngày nào cũng dùng.'" },
+                { "en": "There's a bus **every** ten minutes.", "note": "not each ten minutes", "vi": "Cứ mười phút lại có một chuyến xe buýt." }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "So sánh cấu trúc dùng với each và every",
+          "headingEn": "Compare the structures we use with each and every",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "We use **each** with or without a noun:",
+              "vi": "Chúng ta dùng **each** có thể kèm hoặc không kèm danh từ:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "None of the rooms are the same. **Each** room is different. or **Each** is different.", "vi": "Không phòng nào giống phòng nào. Mỗi phòng đều khác nhau." }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "Or you can use **each one**:",
+              "vi": "Hoặc bạn có thể dùng **each one**:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "**Each one** is different.", "vi": "Mỗi cái đều khác nhau." }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "We say **each of** (the/these/them ... etc.):",
+              "vi": "Chúng ta nói **each of** (the/these/them ... v.v.):"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "**Each of** the books was a different colour.", "note": "not each of books", "vi": "Mỗi cuốn sách trong số đó là một màu khác nhau." },
+                { "en": "**Each of** them was a different colour.", "vi": "Mỗi cái trong số đó là một màu khác nhau." },
+                { "en": "Read **each of** these sentences carefully.", "vi": "Hãy đọc kỹ từng câu trong số này." }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "We use **every** with a noun:",
+              "vi": "Chúng ta dùng **every** kèm danh từ:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "She's read **every** book in the library.", "vi": "Cô ấy đã đọc hết mọi cuốn sách trong thư viện." }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "We don't use **every** alone, but you can say **every one**:",
+              "vi": "Chúng ta không dùng **every** đứng một mình, nhưng có thể nói **every one**:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "a: Have you read all these books? b: Yes, **every one**.", "vi": "a: Bạn đã đọc hết những cuốn sách này chưa? b: Rồi, đọc hết cả rồi." }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "We say **every one of** ... (but not every of):",
+              "vi": "Chúng ta nói **every one of** ... (nhưng không nói every of):"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "I've read **every one of** those books.", "note": "not every of those books", "vi": "Tôi đã đọc hết từng cuốn trong số những cuốn sách đó." },
+                { "en": "I've read **every one of** them.", "vi": "Tôi đã đọc hết từng cuốn trong số đó." }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "each ở giữa câu, và dùng each để nói giá mỗi đơn vị",
+          "headingEn": "each in the middle of a sentence, and each meaning per unit",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "We also use **each** in the middle of a sentence. For example:",
+              "vi": "Chúng ta cũng dùng **each** ở giữa câu. Ví dụ:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "The students were **each** given a book.", "note": "= Each student was given a book.", "vi": "Mỗi sinh viên đều được phát một cuốn sách." }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "We say **a dollar each**, **ten pounds each** etc.:",
+              "vi": "Chúng ta nói **a dollar each**, **ten pounds each** v.v.:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "These oranges are 40 pence **each**.", "note": "each = for one orange", "vi": "Những quả cam này giá 40 xu một quả." }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "D",
+          "heading": "everyone và every one",
+          "headingEn": "everyone and every one",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "**Everyone** (one word) is only for people (= everybody).",
+              "vi": "**Everyone** (viết liền) chỉ dùng cho người (= everybody)."
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "**Everyone** enjoyed the party.", "note": "= Everybody ...", "vi": "Mọi người đều thích bữa tiệc." }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "**Every one** (two words) is for things or people:",
+              "vi": "**Every one** (viết rời) dùng cho cả vật lẫn người:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "Sarah is invited to lots of parties and she goes to **every one**.", "note": "= to every party", "vi": "Sarah được mời đến rất nhiều bữa tiệc và cô ấy đi dự tất cả." }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "91.1 · Hoàn thành câu với each hoặc every",
+      "titleEn": "91.1 · Complete the sentences with each or every",
+      "instructions": "Điền each hoặc every vào chỗ trống.",
+      "instructionsEn": "Complete the sentences with each or every.",
+      "wordBank": ["each", "every"],
+      "examples": [
+        { "label": "1", "context": "(in a card game)", "prompt": "___ player has three cards.", "answer": "Each" },
+        { "label": "2", "prompt": "Kate has read ___ book in the library.", "answer": "every" }
+      ],
+      "items": [
+        {
+          "prompt": "___ side of a square is the same length.",
+          "answer": "Each"
+        },
+        {
+          "prompt": "___ seat in the theatre was taken.",
+          "answer": "Every"
+        },
+        {
+          "context": "There are six apartments in the building.",
+          "prompt": "___ one has a balcony.",
+          "answer": "Each"
+        },
+        {
+          "prompt": "There's a train to London ___ hour.",
+          "answer": "every"
+        },
+        {
+          "prompt": "She was wearing four rings - one on ___ finger.",
+          "answer": "each"
+        },
+        {
+          "context": "Our football team is playing well.",
+          "prompt": "We've won ___ game this season.",
+          "answer": "every"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "91.2 · Điền each, each of hoặc every",
+      "titleEn": "91.2 · Put in each, each of or every",
+      "instructions": "Điền each, each of hoặc every vào chỗ trống.",
+      "instructionsEn": "Put in each, each of or every.",
+      "wordBank": ["each", "each of", "every"],
+      "examples": [
+        { "label": "1", "context": "There were four books on the table.", "prompt": "___ book was a different colour.", "answer": "Each" },
+        { "label": "2", "prompt": "The Olympic Games are held ___ four years.", "answer": "every" }
+      ],
+      "items": [
+        {
+          "prompt": "___ parent worries about their children.",
+          "answer": "Each"
+        },
+        {
+          "context": "In a game of tennis there are two or four players.",
+          "prompt": "___ player has a racket.",
+          "answer": "Each"
+        },
+        {
+          "prompt": "Nicola plays volleyball ___ Thursday evening.",
+          "answer": "every"
+        },
+        {
+          "prompt": "I understood most of what they said but not ___ word.",
+          "answer": "every"
+        },
+        {
+          "prompt": "The book is divided into five parts and ___ these has three sections.",
+          "answer": "each of"
+        },
+        {
+          "prompt": "I get paid ___ four weeks.",
+          "answer": "every"
+        },
+        {
+          "prompt": "I called the office two or three times, but ___ time it was closed.",
+          "answer": "each"
+        },
+        {
+          "context": "Car seat belts save lives.",
+          "prompt": "___ driver should wear one.",
+          "answer": "Every"
+        },
+        {
+          "context": "A friend of mine has three children.",
+          "prompt": "I always give ___ them a present at Christmas.",
+          "answer": "each of"
+        },
+        {
+          "context": "(from an exam) Answer all five questions.",
+          "prompt": "Write your answer to ___ question on a separate sheet of paper.",
+          "answer": "each"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "91.3 · Hoàn thành câu dùng each",
+      "titleEn": "91.3 · Complete the sentences using each",
+      "instructions": "Hoàn thành mỗi câu bằng cách dùng each.",
+      "instructionsEn": "Complete the sentences using each.",
+      "examples": [
+        { "label": "1", "context": "The price of one of those oranges is 40 pence.", "prompt": "___", "answer": "Those oranges are 40 pence each." }
+      ],
+      "items": [
+        {
+          "context": "I had ten pounds and so did Sonia.",
+          "prompt": "Sonia and I ___.",
+          "answer": "had ten pounds each"
+        },
+        {
+          "context": "One of those postcards costs a pound.",
+          "prompt": "Those ___.",
+          "answer": "postcards are a pound each"
+        },
+        {
+          "context": "The hotel was expensive. I paid 200 dollars and so did you.",
+          "prompt": "We ___.",
+          "answer": "paid 200 dollars each"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "91.4 · Điền everyone (một từ) hoặc every one (hai từ)",
+      "titleEn": "91.4 · Put in everyone (1 word) or every one (2 words)",
+      "instructions": "Điền everyone (viết liền) hoặc every one (viết rời) vào chỗ trống.",
+      "instructionsEn": "Put in everyone (1 word) or every one (2 words).",
+      "wordBank": ["everyone", "every one"],
+      "examples": [
+        { "label": "1", "prompt": "Sarah is invited to a lot of parties and she goes to ___.", "answer": "every one" }
+      ],
+      "items": [
+        {
+          "context": "I remember school very clearly.",
+          "prompt": "I remember ___ in my class.",
+          "answer": "everyone"
+        },
+        {
+          "prompt": "I asked her lots of questions and she answered ___ correctly.",
+          "answer": "every one"
+        },
+        {
+          "context": "Amy is very popular.",
+          "prompt": "___ likes her.",
+          "answer": "Everyone"
+        },
+        {
+          "context": "I dropped a tray of glasses.",
+          "prompt": "Unfortunately ___ broke.",
+          "answer": "every one"
+        }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng each (nghĩ đến từng cái riêng lẻ, số lượng nhỏ) hoặc every (nghĩ đến cả nhóm, số lượng lớn, hoặc để nói tần suất), ví dụ: 'Each student has a locker.', 'I check my email every morning.'. Bạn cũng có thể thử each of/every one of, hoặc everyone/every one.",
+      "instructionsEn": "Write 2-3 English sentences using each (thinking of things separately, a small number) or every (thinking of things as a group, a large number, or how often something happens), e.g. 'Each student has a locker.', 'I check my email every morning.'. You can also try each of/every one of, or everyone/every one.",
+      "ruleSummary": "This unit teaches each vs every, both similar but not identical. (1) each is used when thinking of things separately, one by one, and is more usual for a small number: 'Study each sentence carefully.'; 'Each book was a different colour.'; 'each team has eleven players' (each, not every, can describe two things). every is used when thinking of things as a group (meaning close to all), and is more usual for a large number: 'Every window in the house was open.' (= all the windows); 'She has read every book in the library.'. Only every (not each) is used to say how often something happens: 'Every day.' (not Each day); 'a bus every ten minutes' (not each ten minutes). (2) each can be used with or without a noun ('Each room is different.' / 'Each is different.' / 'Each one is different.') and with each of + the/these/them/us/you: 'Each of the books was a different colour.' (not each of books). every is always used with a noun; it is not used alone, but every one can replace it: 'Yes, every one.'; and every one of + the/these/them (not every of): 'I've read every one of those books.'. (3) each can also go in the middle of a sentence (mid-position, after the subject or auxiliary): 'The students were each given a book.' (= Each student was given a book.), and each means 'per unit' in prices: 'These oranges are 40 pence each.'. (4) everyone (one word) means everybody and is only for people: 'Everyone enjoyed the party.'. every one (two words) is for things or people and often pairs with of: 'She goes to every one.' (= every party). A correct student sentence should use each correctly for individual/small-number reference (with or without of/a noun), or every correctly for group/large-number reference or frequency."
+    }
+  ]
+};
+
+export const UNIT_92_RELATIVE_CLAUSES_1: GrammarUnit = {
+  "unit": 92,
+  "slug": "relative-clauses-1",
+  "title": "Relative clauses 1: clauses with who/that/which",
+  "topic": "relative clauses",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "who dùng để nói về người trong mệnh đề quan hệ",
+          "headingEn": "who for people in a relative clause",
+          "intro": "Study this example situation:",
+          "introVi": "Hãy xem tình huống ví dụ này:",
+          "parts": [
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "Last week we had a party and a lot of people came. Everybody enjoyed it.", "vi": "Tuần trước chúng tôi tổ chức một bữa tiệc và rất nhiều người đã đến. Mọi người đều thích thú." },
+                { "en": "**Everybody who** came to the party enjoyed it.", "note": "relative clause", "vi": "Tất cả những người đến bữa tiệc đều thích thú." }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "A clause is a part of a sentence. A relative clause tells us which person or thing (or what kind of person or thing) the speaker means:",
+              "vi": "Mệnh đề (clause) là một phần của câu. Mệnh đề quan hệ cho biết người hoặc vật nào (hoặc loại người/vật nào) người nói đang muốn nói đến:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "the woman **who** lives next door to me", "note": "('who lives next door to me' tells us which woman)", "vi": "người phụ nữ sống cạnh nhà tôi" },
+                { "en": "people **who** complain all the time", "note": "('who complain all the time' tells us what kind of people)", "vi": "những người suốt ngày phàn nàn" }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "We use **who** in a relative clause for people (not things):",
+              "vi": "Chúng ta dùng **who** trong mệnh đề quan hệ để nói về người (không dùng cho vật):"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "The woman **who** lives next door to me is a doctor.", "vi": "Người phụ nữ sống cạnh nhà tôi là bác sĩ." },
+                { "en": "I don't like people **who** complain all the time.", "vi": "Tôi không thích những người suốt ngày phàn nàn." },
+                { "en": "An architect is someone **who** designs buildings.", "vi": "Kiến trúc sư là người thiết kế các công trình." },
+                { "en": "What was the name of the person **who** called?", "vi": "Tên của người vừa gọi điện là gì?" },
+                { "en": "Do you know anyone **who** wants to buy a car?", "vi": "Bạn có biết ai muốn mua xe hơi không?" }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "We also use **that** for people, but not **which**:",
+              "vi": "Chúng ta cũng dùng **that** để nói về người, nhưng không dùng **which**:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "The woman **that** lives next door to me is a doctor.", "note": "not the woman which", "vi": "Người phụ nữ sống cạnh nhà tôi là bác sĩ." }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "Sometimes you must use **who** (not *that*) for people, see Unit 95.",
+              "vi": "Đôi khi bạn bắt buộc phải dùng **who** (không dùng *that*) để nói về người, xem Unit 95."
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "that hoặc which dùng để nói về vật",
+          "headingEn": "that or which for things",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "When we are talking about things, we use **that** or **which** (not who) in a relative clause:",
+              "vi": "Khi nói về vật, chúng ta dùng **that** hoặc **which** (không dùng who) trong mệnh đề quan hệ:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "I don't like stories **that** have unhappy endings. or ... stories **which** have unhappy endings.", "vi": "Tôi không thích những câu chuyện có kết thúc buồn." },
+                { "en": "Grace works for a company **that** makes furniture. or ... a company **which** makes furniture.", "vi": "Grace làm việc cho một công ty sản xuất đồ nội thất." },
+                { "en": "The machine **that** broke down is working again now. or The machine **which** broke down ...", "vi": "Cái máy bị hỏng đã hoạt động trở lại rồi." }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "In these examples **that** is more usual than **which**, but sometimes you must use **which**. See Unit 95.",
+              "vi": "Trong các ví dụ trên, **that** thông dụng hơn **which**, nhưng đôi khi bạn bắt buộc phải dùng **which**. Xem Unit 95."
+            }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "Dùng who/that/which, không dùng he/she/they/it",
+          "headingEn": "Use who/that/which, not he/she/they/it",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "In relative clauses we use **who/that/which**, not he/she/they/it.",
+              "vi": "Trong mệnh đề quan hệ, chúng ta dùng **who/that/which**, không dùng he/she/they/it."
+            },
+            {
+              "kind": "text",
+              "text": "Compare:",
+              "vi": "So sánh:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "I met a Canadian woman at the party. She is an English teacher.", "note": "2 sentences", "vi": "Tôi gặp một phụ nữ người Canada tại bữa tiệc. Cô ấy là giáo viên tiếng Anh." },
+                { "en": "I met a Canadian woman **who** is an English teacher.", "note": "1 sentence", "vi": "Tôi gặp một phụ nữ người Canada là giáo viên tiếng Anh." },
+                { "en": "I can't find the keys. They were on the table.", "vi": "Tôi không tìm thấy chìa khóa. Chúng ở trên bàn." },
+                { "en": "Where are the keys **that** were on the table?", "note": "not the keys they were", "vi": "Chìa khóa ở trên bàn đâu rồi?" }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "D",
+          "heading": "what = the thing(s) that",
+          "headingEn": "what = the thing(s) that",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "Compare **what** and **that**:",
+              "vi": "So sánh **what** và **that**:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "**What** happened was my fault.", "note": "= the thing that happened", "vi": "Chuyện đã xảy ra là lỗi của tôi." }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "but",
+              "vi": "nhưng"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "Everything **that** happened was my fault.", "note": "not Everything what happened", "vi": "Mọi chuyện đã xảy ra đều là lỗi của tôi." },
+                { "en": "The machine **that** broke down is now working again.", "note": "not The machine what broke down", "vi": "Cái máy bị hỏng giờ đã hoạt động trở lại." }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "92.1 · Những từ này có nghĩa là gì? Chọn trong khung và viết câu với who",
+      "titleEn": "92.1 · What do these words mean? Choose from the box and write sentences with who",
+      "instructions": "Chọn định nghĩa phù hợp trong khung và viết câu hoàn chỉnh dùng who, theo mẫu.",
+      "instructionsEn": "Choose from the box and write sentences with who, following the example.",
+      "wordBank": ["steals from a shop", "buys something from a shop", "designs buildings", "pays rent to live somewhere", "doesn't tell the truth", "breaks into a house to steal things", "is not brave", "expects the worst to happen"],
+      "examples": [
+        { "label": "1", "context": "(an architect)", "prompt": "___", "answer": "An architect is someone who designs buildings." }
+      ],
+      "items": [
+        {
+          "context": "(a customer)",
+          "prompt": "___",
+          "answer": "A customer is someone who buys something from a shop."
+        },
+        {
+          "context": "(a burglar)",
+          "prompt": "___",
+          "answer": "A burglar is someone who breaks into a house to steal things."
+        },
+        {
+          "context": "(a coward)",
+          "prompt": "___",
+          "answer": "A coward is someone who is not brave."
+        },
+        {
+          "context": "(a tenant)",
+          "prompt": "___",
+          "answer": "A tenant is someone who pays rent to live somewhere."
+        },
+        {
+          "context": "(a shoplifter)",
+          "prompt": "___",
+          "answer": "A shoplifter is someone who steals from a shop."
+        },
+        {
+          "context": "(a liar)",
+          "prompt": "___",
+          "answer": "A liar is someone who doesn't tell the truth."
+        },
+        {
+          "context": "(a pessimist)",
+          "prompt": "___",
+          "answer": "A pessimist is someone who expects the worst to happen."
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "92.2 · Ghép hai câu thành một, dùng who/that/which",
+      "titleEn": "92.2 · Make one sentence from two. Use who/that/which",
+      "instructions": "Ghép hai câu thành một câu, dùng who/that/which.",
+      "instructionsEn": "Make one sentence from two. Use who/that/which.",
+      "examples": [
+        { "label": "1", "context": "A girl was injured in the accident. She is now in hospital.", "prompt": "The ___.", "answer": "girl who was injured in the accident is now in hospital" }
+      ],
+      "items": [
+        {
+          "context": "A waiter served us. He was impolite and impatient.",
+          "prompt": "The ___.",
+          "answer": "waiter who served us was impolite and impatient"
+        },
+        {
+          "context": "A building was destroyed in the fire. It has now been rebuilt.",
+          "prompt": "The ___.",
+          "answer": "building that was destroyed in the fire has now been rebuilt",
+          "accept": ["building which was destroyed in the fire has now been rebuilt"]
+        },
+        {
+          "context": "Some people were arrested. They have now been released.",
+          "prompt": "The ___.",
+          "answer": "people who were arrested have now been released"
+        },
+        {
+          "context": "A bus goes to the airport. It runs every half hour.",
+          "prompt": "The ___.",
+          "answer": "bus that goes to the airport runs every half hour",
+          "accept": ["bus which goes to the airport runs every half hour"]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "92.3 · Hoàn thành câu, chọn trong khung và dùng who/that/which",
+      "titleEn": "92.3 · Complete the sentences. Choose from the box and use who/that/which",
+      "instructions": "Chọn cụm từ phù hợp trong khung và hoàn thành mỗi câu bằng who/that/which.",
+      "instructionsEn": "Complete the sentences. Choose from the box and use who/that/which.",
+      "wordBank": ["happened in the past", "makes furniture", "runs away from home", "can support life", "cannot be explained", "has stayed there", "developed the theory of relativity", "were hanging on the wall"],
+      "examples": [
+        { "label": "1", "prompt": "Helen works for a company ___.", "answer": "that makes furniture" }
+      ],
+      "items": [
+        {
+          "prompt": "The movie is about a girl ___.",
+          "answer": "who runs away from home"
+        },
+        {
+          "prompt": "What happened to the pictures ___?",
+          "answer": "that were hanging on the wall"
+        },
+        {
+          "prompt": "A mystery is something ___.",
+          "answer": "that cannot be explained"
+        },
+        {
+          "prompt": "I've heard it's a good hotel, but I don't know anyone ___.",
+          "answer": "who has stayed there"
+        },
+        {
+          "prompt": "History is the study of things ___.",
+          "answer": "that happened in the past"
+        },
+        {
+          "prompt": "Albert Einstein was the scientist ___.",
+          "answer": "who developed the theory of relativity"
+        },
+        {
+          "prompt": "It seems that Earth is the only planet ___.",
+          "answer": "that can support life"
+        }
+      ]
+    },
+    {
+      "kind": "judge_correct",
+      "title": "92.4 · Những câu này đúng hay sai? Sửa lại nếu cần",
+      "titleEn": "92.4 · Are these sentences right or wrong? Correct them where necessary",
+      "instructions": "Xác định câu đúng hay sai, sửa lại nếu cần.",
+      "instructionsEn": "Are these sentences right or wrong? Correct them where necessary.",
+      "items": [
+        {
+          "sentence": "I don't like stories who have unhappy endings.",
+          "underlined": "who",
+          "ok": false,
+          "correction": "that",
+          "accept": ["which"]
+        },
+        {
+          "sentence": "What was the name of the person who phoned?",
+          "underlined": "who",
+          "ok": true
+        },
+        {
+          "sentence": "Where's the nearest shop who sells bread?",
+          "underlined": "who",
+          "ok": false,
+          "correction": "that",
+          "accept": ["which"]
+        },
+        {
+          "sentence": "Dan said some things about me they were not true.",
+          "underlined": "they",
+          "ok": false,
+          "correction": "that",
+          "accept": ["which"]
+        },
+        {
+          "sentence": "The driver which caused the accident was fined £500.",
+          "underlined": "which",
+          "ok": false,
+          "correction": "who",
+          "accept": ["that"]
+        },
+        {
+          "sentence": "Do you know the person that took these pictures?",
+          "underlined": "that",
+          "ok": true
+        },
+        {
+          "sentence": "We live in a world what is changing all the time.",
+          "underlined": "what",
+          "ok": false,
+          "correction": "that",
+          "accept": ["which"]
+        },
+        {
+          "sentence": "Gary apologised for what he said.",
+          "underlined": "what",
+          "ok": true
+        },
+        {
+          "sentence": "What was the name of the horse what won the race?",
+          "underlined": "what won the race",
+          "ok": false,
+          "correction": "that won the race",
+          "accept": ["which won the race"]
+        }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng mệnh đề quan hệ với who (cho người) hoặc that/which (cho vật), ví dụ: 'I have a friend who speaks four languages.', 'This is the book that I told you about.'. Nhớ không dùng he/she/they/it trong mệnh đề quan hệ, và không dùng 'what' khi đã có danh từ đứng trước (như everything, the machine).",
+      "instructionsEn": "Write 2-3 English sentences using a relative clause with who (for people) or that/which (for things), e.g. 'I have a friend who speaks four languages.', 'This is the book that I told you about.'. Remember not to use he/she/they/it inside the relative clause, and not to use 'what' when there's already a noun before it (like everything, the machine).",
+      "ruleSummary": "This unit teaches relative clauses with who/that/which, which identify which person or thing (or what kind of person/thing) is meant. (1) who is used for people: 'The woman who lives next door to me is a doctor.'; 'An architect is someone who designs buildings.'. that can also be used for people, but which cannot: 'The woman that lives next door to me is a doctor.' (not the woman which). (2) For things, use that or which (not who): 'I don't like stories that have unhappy endings.' or '... stories which have unhappy endings.'; that is generally more usual than which. (3) Inside the relative clause, who/that/which itself acts as the subject or object, so it replaces he/she/they/it rather than being added alongside it: 'I met a Canadian woman who is an English teacher.' (not who she is); 'Where are the keys that were on the table?' (not the keys they were). (4) what means 'the thing(s) that' and already contains its own antecedent, so it is never combined with a noun that already names the thing: 'What happened was my fault.' (= the thing that happened) but 'Everything that happened was my fault.' (not Everything what happened), 'The machine that broke down ...' (not The machine what broke down). A correct student sentence should use who for a person or that/which for a thing as the subject or object of the relative clause, without an extra pronoun inside the clause and without 'what' following an explicit noun."
+    }
+  ]
+};
+
+export const UNIT_93_RELATIVE_CLAUSES_2: GrammarUnit = {
+  "unit": 93,
+  "slug": "relative-clauses-2",
+  "title": "Relative clauses 2: clauses with and without who/that/which",
+  "topic": "relative clauses",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "Bắt buộc dùng who/that/which khi nó là chủ ngữ của mệnh đề quan hệ",
+          "headingEn": "You must use who/that/which when it is the subject of the relative clause",
+          "intro": "Look at these example sentences from Unit 92:",
+          "introVi": "Hãy xem lại các câu ví dụ từ Unit 92:",
+          "parts": [
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "The woman **who** lives next door to me is a doctor. (or The woman that lives ...)", "vi": "Người phụ nữ sống cạnh nhà tôi là bác sĩ." },
+                { "en": "Where are the keys **that** were on the table? (or ... the keys which were ...)", "vi": "Chìa khóa ở trên bàn đâu rồi?" }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "In 'The woman who lives next door to me', **who** (= the woman) is the subject of 'lives'. In 'the keys that were on the table', **that** (= the keys) is the subject of 'were'.",
+              "vi": "Trong 'The woman who lives next door to me', **who** (= the woman) là chủ ngữ của 'lives'. Trong 'the keys that were on the table', **that** (= the keys) là chủ ngữ của 'were'."
+            },
+            {
+              "kind": "text",
+              "text": "You must use **who/that/which** when it is the subject of the relative clause. You cannot leave out who/that/which in these examples.",
+              "vi": "Bạn bắt buộc phải dùng **who/that/which** khi nó là chủ ngữ của mệnh đề quan hệ. Bạn không thể bỏ who/that/which trong các ví dụ này."
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "Có thể bỏ who/that/which khi nó là tân ngữ của động từ",
+          "headingEn": "You can leave out who/that/which when it is the object of the verb",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "Sometimes **who/that/which** is the object of the verb. For example:",
+              "vi": "Đôi khi **who/that/which** là tân ngữ của động từ. Ví dụ:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "The woman **who** I wanted to see was away on holiday.", "note": "I wanted to see the woman: who (= the woman) is the object, I is the subject", "vi": "Người phụ nữ mà tôi muốn gặp đang đi nghỉ." },
+                { "en": "Did you find the keys **that** you lost?", "note": "you lost the keys: that (= the keys) is the object, you is the subject", "vi": "Bạn có tìm thấy chìa khóa bị mất không?" }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "When who/that/which is the object, you can leave it out. So you can say:",
+              "vi": "Khi who/that/which là tân ngữ, bạn có thể bỏ nó đi. Vì vậy bạn có thể nói:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "The woman I wanted to see was away. or The woman **who** I wanted to see ...", "vi": "Người phụ nữ tôi muốn gặp đang đi vắng." },
+                { "en": "Did you find the keys you lost? or ... the keys **that** you lost?", "vi": "Bạn có tìm thấy chìa khóa bị mất không?" },
+                { "en": "The dress Lisa bought doesn't fit her very well. or The dress **that** Lisa bought ...", "vi": "Chiếc váy Lisa mua không vừa với cô ấy lắm." },
+                { "en": "Is there anything I can do? or ... anything **that** I can do?", "vi": "Có việc gì tôi có thể giúp không?" }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "Note that we say:",
+              "vi": "Lưu ý chúng ta nói:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "the keys you lost", "note": "not the keys you lost them", "vi": "chiếc chìa khóa bạn đã làm mất" },
+                { "en": "the dress Lisa bought", "note": "not the dress Lisa bought it", "vi": "chiếc váy Lisa đã mua" }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "Vị trí của giới từ trong mệnh đề quan hệ",
+          "headingEn": "The position of prepositions in relative clauses",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "Note the position of prepositions (to/in/for etc.) in relative clauses:",
+              "vi": "Lưu ý vị trí của giới từ (to/in/for v.v.) trong mệnh đề quan hệ:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "Tom is talking to a woman. Do you know her?", "note": "2 sentences", "vi": "Tom đang nói chuyện với một phụ nữ. Bạn có biết cô ấy không?" },
+                { "en": "Do you know the woman Tom is talking **to**? (or ... the woman who/that Tom is talking to)", "vi": "Bạn có biết người phụ nữ mà Tom đang nói chuyện cùng không?" },
+                { "en": "I slept in a bed. It wasn't comfortable.", "vi": "Tôi đã ngủ trên một chiếc giường. Nó không thoải mái." },
+                { "en": "The bed I slept **in** wasn't comfortable. (or The bed that/which I slept in ...)", "vi": "Chiếc giường tôi đã ngủ không thoải mái." },
+                { "en": "Are these the books you were looking **for**? or Are these the books that/which you were ...", "vi": "Đây có phải là những cuốn sách bạn đang tìm không?" },
+                { "en": "The man I was sitting next **to** on the plane talked all the time. or The man who/that I was sitting next to ...", "vi": "Người đàn ông ngồi cạnh tôi trên máy bay nói chuyện suốt cả chuyến bay." }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "Note that we say:",
+              "vi": "Lưu ý chúng ta nói:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "the books you were looking for", "note": "not the books you were looking for them", "vi": "những cuốn sách bạn đang tìm" },
+                { "en": "the man I was sitting next to", "note": "not the man I was sitting next to him", "vi": "người đàn ông tôi ngồi cạnh" }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "D",
+          "heading": "that/what sau everything, all",
+          "headingEn": "that/what after everything, all",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "We say:",
+              "vi": "Chúng ta nói:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "Everything (**that**) they said was true.", "note": "not Everything what they said", "vi": "Mọi điều họ nói đều đúng sự thật." },
+                { "en": "I gave her all the money (**that**) I had.", "note": "not all the money what I had", "vi": "Tôi đưa cho cô ấy tất cả số tiền tôi có." }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "**What** = the thing(s) that:",
+              "vi": "**What** = the thing(s) that:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "**What** they said was true.", "note": "= The things that they said", "vi": "Những gì họ nói đều đúng sự thật." }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "judge_correct",
+      "title": "93.1 · Một số câu cần who hoặc that. Sửa lại nếu cần",
+      "titleEn": "93.1 · In some of these sentences you need who or that. Correct the sentences where necessary",
+      "instructions": "Một số câu sau cần who hoặc that. Sửa lại những câu cần sửa.",
+      "instructionsEn": "In some of these sentences you need who or that. Correct the sentences where necessary.",
+      "items": [
+        {
+          "sentence": "The woman lives next door is a doctor.",
+          "underlined": "lives",
+          "ok": false,
+          "correction": "who lives",
+          "accept": ["that lives"]
+        },
+        {
+          "sentence": "Did you find the keys you lost?",
+          "underlined": "you lost",
+          "ok": true
+        },
+        {
+          "sentence": "The people we met last night were very friendly.",
+          "underlined": "we met",
+          "ok": true
+        },
+        {
+          "sentence": "The people work in the office are very friendly.",
+          "underlined": "work",
+          "ok": false,
+          "correction": "who work",
+          "accept": ["that work"]
+        },
+        {
+          "sentence": "I like the people I work with.",
+          "underlined": "I work with",
+          "ok": true
+        },
+        {
+          "sentence": "What have you done with the money I gave you?",
+          "underlined": "I gave you",
+          "ok": true
+        },
+        {
+          "sentence": "What happened to the money was on the table?",
+          "underlined": "money was on the table",
+          "ok": false,
+          "correction": "money that was on the table",
+          "accept": ["money which was on the table"]
+        },
+        {
+          "sentence": "What's the worst film you've ever seen?",
+          "underlined": "you've ever seen",
+          "ok": true
+        },
+        {
+          "sentence": "What's the best thing it has ever happened to you?",
+          "underlined": "thing it has ever happened",
+          "ok": false,
+          "correction": "thing that has ever happened",
+          "accept": ["thing which has ever happened"]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "93.2 · Hoàn thành mỗi câu bằng một mệnh đề quan hệ",
+      "titleEn": "93.2 · Complete each sentence with a relative clause",
+      "instructions": "Đọc tình huống và hoàn thành mỗi câu bằng một mệnh đề quan hệ.",
+      "instructionsEn": "Read the situation and complete each sentence with a relative clause.",
+      "items": [
+        {
+          "context": "Your friend lost some keys. You want to know if he found them.",
+          "prompt": "Did you find the keys ___?",
+          "answer": "you lost",
+          "accept": ["that you lost", "which you lost"]
+        },
+        {
+          "context": "A friend is wearing a dress. You like it. You tell her:",
+          "prompt": "I like the dress ___.",
+          "answer": "you're wearing",
+          "accept": ["that you're wearing", "which you're wearing"]
+        },
+        {
+          "context": "A friend is going to the cinema. You want to know the name of the film.",
+          "prompt": "What's the name of the film ___?",
+          "answer": "you're going to see",
+          "accept": ["that you're going to see", "which you're going to see"]
+        },
+        {
+          "context": "You wanted to visit a museum, but it was shut. You tell a friend:",
+          "prompt": "The museum ___ was shut.",
+          "answer": "I wanted to visit",
+          "accept": ["that I wanted to visit", "which I wanted to visit"]
+        },
+        {
+          "context": "You invited people to your party. Some of them couldn't come. You tell someone:",
+          "prompt": "Some of the people ___ couldn't come.",
+          "answer": "I invited",
+          "accept": ["that I invited", "who I invited"]
+        },
+        {
+          "context": "Your friend had to do some work. You want to know if she has finished.",
+          "prompt": "Have you finished the work ___?",
+          "answer": "you had to do",
+          "accept": ["that you had to do", "which you had to do"]
+        },
+        {
+          "context": "You rented a car. It broke down after a few miles. You tell a friend:",
+          "prompt": "Unfortunately the car ___ broke down after a few miles.",
+          "answer": "I rented",
+          "accept": ["that I rented", "which I rented"]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "93.3 · Sắp xếp lại các từ cho đúng thứ tự",
+      "titleEn": "93.3 · Put the words in the correct order",
+      "instructions": "Mỗi câu có một mệnh đề quan hệ chứa giới từ. Sắp xếp lại các từ trong ngoặc cho đúng thứ tự.",
+      "instructionsEn": "These sentences all have a relative clause with a preposition. Put the words in the correct order.",
+      "examples": [
+        { "label": "1", "context": "(looking / for / you / the books / were)", "prompt": "Did you find ___?", "answer": "the books you were looking for" }
+      ],
+      "items": [
+        {
+          "context": "(we / invited / to / were / the wedding)",
+          "prompt": "We couldn't go to ___.",
+          "answer": "the wedding we were invited to"
+        },
+        {
+          "context": "(the hotel / about / me / told / you)",
+          "prompt": "What's the name of ___?",
+          "answer": "the hotel you told me about"
+        },
+        {
+          "context": "(applied / I / the job / for)",
+          "prompt": "Unfortunately I didn't get ___.",
+          "answer": "the job I applied for"
+        },
+        {
+          "context": "(you / the concert / to / went)",
+          "prompt": "Did you enjoy ___?",
+          "answer": "the concert you went to"
+        },
+        {
+          "context": "Gary is a good person to know. (on / rely / can / somebody / you)",
+          "prompt": "He's ___.",
+          "answer": "somebody you can rely on"
+        },
+        {
+          "context": "(the people / with / were / you)",
+          "prompt": "Who were ___ in the restaurant yesterday?",
+          "answer": "the people you were with"
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "93.4 · Điền that hoặc what khi cần thiết",
+      "titleEn": "93.4 · Put in that or what where necessary",
+      "instructions": "Điền that hoặc what vào chỗ trống nếu cần. Nếu câu đã đầy đủ, gõ dấu - để đánh dấu là không cần thêm từ.",
+      "instructionsEn": "Put in that or what where necessary. If the sentence is already complete, type - to mark that nothing is needed.",
+      "examples": [
+        { "label": "1", "prompt": "I gave her all the money ___ I had.", "answer": "-" },
+        { "label": "2", "prompt": "Did you hear ___ they said?", "answer": "what" }
+      ],
+      "items": [
+        {
+          "prompt": "She gives her children everything ___ they want.",
+          "answer": "-",
+          "accept": ["that"]
+        },
+        {
+          "prompt": "Tell me ___ you want and I'll try to get it for you.",
+          "answer": "what"
+        },
+        {
+          "prompt": "Why do you blame me for everything ___ goes wrong?",
+          "answer": "that"
+        },
+        {
+          "prompt": "I won't be able to do much, but I'll do ___ I can.",
+          "answer": "what"
+        },
+        {
+          "prompt": "I won't be able to do much, but I'll do the best ___ I can.",
+          "answer": "-",
+          "accept": ["that"]
+        },
+        {
+          "prompt": "I don't agree with ___ you said.",
+          "answer": "what"
+        },
+        {
+          "context": "I don't trust him.",
+          "prompt": "I don't believe anything ___ he says.",
+          "answer": "-",
+          "accept": ["that"]
+        }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh có mệnh đề quan hệ mà bạn có thể bỏ who/that/which vì nó là tân ngữ, ví dụ: 'The book I'm reading is really good.', 'Did you find the keys you lost?'. Nếu mệnh đề có giới từ, nhớ đặt giới từ ở cuối mệnh đề, ví dụ: 'the woman he's talking to', không phải 'to the woman he's talking'.",
+      "instructionsEn": "Write 2-3 English sentences with a relative clause where you can leave out who/that/which because it's the object, e.g. 'The book I'm reading is really good.', 'Did you find the keys you lost?'. If the clause has a preposition, remember to put it at the end of the clause, e.g. 'the woman he's talking to', not 'to the woman he's talking'.",
+      "ruleSummary": "This unit teaches when who/that/which must be kept and when it can be left out in a relative clause. (1) When who/that/which is the SUBJECT of the relative clause, it cannot be omitted: 'The woman who lives next door to me is a doctor.'; 'Where are the keys that were on the table?'. (2) When who/that/which is the OBJECT of the verb in the relative clause, it can be left out: 'The woman (who) I wanted to see was away on holiday.'; 'Did you find the keys (that) you lost?'; 'The dress (that) Lisa bought doesn't fit her very well.'; 'Is there anything (that) I can do?'. Crucially, no extra pronoun is added back in: 'the keys you lost' (not the keys you lost them), 'the dress Lisa bought' (not the dress Lisa bought it). (3) When the relative clause has a preposition (to/in/for/next to etc.), the preposition normally goes at the END of the clause, not before who/that/which: 'the woman Tom is talking to' or 'the woman who/that Tom is talking to' (not to the woman Tom is talking); 'the books you were looking for'; 'the man I was sitting next to'. No extra pronoun after the preposition either: 'the books you were looking for' (not looking for them). (4) After everything/all + noun, that can be used or left out, but what is wrong because everything/all already means 'the thing(s)': 'Everything (that) they said was true.' (not Everything what they said); 'I gave her all the money (that) I had.' (not all the money what I had). what alone means 'the thing(s) that': 'What they said was true.'. A correct student sentence should either correctly omit who/that/which as an object (with no leftover pronoun), or correctly place a preposition at the end of the relative clause."
+    }
+  ]
+};
+
+export const UNIT_94_RELATIVE_CLAUSES_3: GrammarUnit = {
+  "unit": 94,
+  "slug": "relative-clauses-3",
+  "title": "Relative clauses 3: whose/whom/where",
+  "topic": "relative clauses",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "whose",
+          "headingEn": "whose",
+          "intro": "Study this example situation:",
+          "introVi": "Hãy xem tình huống ví dụ sau:",
+          "parts": [
+            {
+              "kind": "situation",
+              "text": "When we were driving home, we saw some people standing by the road. Their car had broken down, so we stopped to help them.",
+              "vi": "Khi đang lái xe về nhà, chúng tôi thấy vài người đứng bên đường. Xe của họ bị hỏng, nên chúng tôi dừng lại để giúp họ."
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "We helped some people **whose** car had broken down.", "note": "= their car had broken down", "vi": "Chúng tôi đã giúp vài người có xe bị hỏng." }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "We use **whose** mostly for people:",
+              "vi": "Chúng ta dùng **whose** chủ yếu cho người:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "A widow is a woman **whose** husband is dead.", "note": "her husband is dead", "vi": "Góa phụ là người phụ nữ có chồng đã mất." },
+                { "en": "I met someone **whose** brother I went to school with.", "note": "I went to school with his/her brother", "vi": "Tôi gặp một người mà tôi từng học cùng trường với anh/em trai của người đó." }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "Compare **who** and **whose**:",
+              "vi": "So sánh **who** và **whose**:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "I met a man **who** knows you.", "note": "he knows you", "vi": "Tôi gặp một người đàn ông biết bạn." },
+                { "en": "I met a man **whose** sister knows you.", "note": "his sister knows you", "vi": "Tôi gặp một người đàn ông có em/chị gái biết bạn." }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "Do not confuse **whose** and **who's**. The pronunciation is the same, but *who's* = *who is* or *who has*:",
+              "vi": "Đừng nhầm lẫn **whose** và **who's**. Cách phát âm giống nhau, nhưng *who's* = *who is* hoặc *who has*:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "I have a friend **who's** learning Arabic.", "note": "who's = who is", "vi": "Tôi có một người bạn đang học tiếng Ả Rập." },
+                { "en": "I have a friend **who's** just started learning Arabic.", "note": "who's = who has", "vi": "Tôi có một người bạn vừa mới bắt đầu học tiếng Ả Rập." },
+                { "en": "I have a friend **whose** sister is learning Arabic.", "vi": "Tôi có một người bạn có em/chị gái đang học tiếng Ả Rập." }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "whom",
+          "headingEn": "whom",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "**Whom** is possible instead of **who** when it is the object of the verb (see Unit 93B):",
+              "vi": "Có thể dùng **whom** thay cho **who** khi nó là tân ngữ của động từ (xem Unit 93B):"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "George is a person **whom** I admire very much.", "note": "I admire him", "vi": "George là người mà tôi rất ngưỡng mộ." }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "You can also use a preposition + **whom** (*to whom* / *from whom* / *with whom* etc.):",
+              "vi": "Bạn cũng có thể dùng giới từ + **whom** (*to whom* / *from whom* / *with whom* v.v.):"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "It's important to have friends **with whom** you can relax.", "note": "you can relax with them", "vi": "Điều quan trọng là có những người bạn mà bạn có thể thoải mái ở cùng." }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "**Whom** is a formal word and we do not often use it in spoken English. We usually prefer to say:",
+              "vi": "**Whom** là từ trang trọng và chúng ta không thường dùng trong văn nói. Chúng ta thường thích nói:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "a person I admire a lot or a person who/that I admire a lot", "vi": "một người mà tôi rất ngưỡng mộ" },
+                { "en": "friends you can relax with or friends who/that you can relax with", "vi": "những người bạn mà bạn có thể thoải mái ở cùng" }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "where",
+          "headingEn": "where",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "We use **where** in a relative clause to talk about a place:",
+              "vi": "Chúng ta dùng **where** trong mệnh đề quan hệ để nói về một địa điểm:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "I recently went back to the town **where** I grew up.", "note": "I grew up there", "vi": "Gần đây tôi đã quay lại thị trấn nơi tôi lớn lên." },
+                { "en": "The restaurant **where** we had lunch was near the airport.", "vi": "Nhà hàng nơi chúng tôi ăn trưa nằm gần sân bay." },
+                { "en": "I would like to live in a place **where** there is plenty of sunshine.", "vi": "Tôi muốn sống ở một nơi có nhiều ánh nắng." }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "D",
+          "heading": "the day, the time, the reason ...",
+          "headingEn": "the day, the time, the reason ...",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "We say '**the day** we got married', '**the year** I was born', '**the last time** they met' etc.:",
+              "vi": "Chúng ta nói '**the day** we got married' (ngày chúng tôi kết hôn), '**the year** I was born' (năm tôi sinh ra), '**the last time** they met' (lần cuối họ gặp nhau) v.v.:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "I can't meet you on Friday. That's **the day** I'm going away.", "vi": "Tôi không thể gặp bạn vào thứ Sáu. Đó là ngày tôi đi vắng." },
+                { "en": "The last time I saw her, she looked great.", "vi": "Lần cuối tôi gặp cô ấy, trông cô ấy rất tuyệt." }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "You can also use **that**:",
+              "vi": "Bạn cũng có thể dùng **that**:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "**The last time that** I saw her, she looked great.", "vi": "Lần cuối cùng mà tôi gặp cô ấy, trông cô ấy rất tuyệt." }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "We say '**the reason** I'm calling you', '**the reason** she didn't get the job' etc.",
+              "vi": "Chúng ta nói '**the reason** I'm calling you' (lý do tôi gọi cho bạn), '**the reason** she didn't get the job' (lý do cô ấy không được nhận công việc) v.v."
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "**The reason** I'm calling you is to ask your advice.", "vi": "Lý do tôi gọi cho bạn là để xin lời khuyên của bạn." }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "You can also use **that**:",
+              "vi": "Bạn cũng có thể dùng **that**:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "**The reason that** I'm calling you ... or **The reason why** I'm calling you ...", "vi": "Lý do mà tôi gọi cho bạn ..." }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "94.1 · Hoàn thành các câu bằng who hoặc whose",
+      "titleEn": "94.1 · Complete the sentences using who or whose",
+      "instructions": "Bạn đã gặp những người này tại một bữa tiệc. Hôm sau bạn kể cho bạn mình nghe về họ. Hoàn thành các câu bằng who hoặc whose.",
+      "instructionsEn": "You met these people at a party. The next day you tell a friend about them. Complete the sentences using who or whose.",
+      "examples": [
+        { "label": "1", "context": "My mother writes detective stories.", "prompt": "I met somebody ___.", "answer": "whose mother writes detective stories" }
+      ],
+      "items": [
+        { "context": "My wife is an English teacher.", "prompt": "I met a man ___.", "answer": "whose wife is an English teacher" },
+        { "context": "I own a restaurant.", "prompt": "I met a woman ___.", "answer": "who owns a restaurant" },
+        { "context": "My ambition is to climb Mount Everest.", "prompt": "I met somebody ___.", "answer": "whose ambition is to climb Mount Everest", "accept": ["whose ambition is to climb Everest"] },
+        { "context": "We've just got married.", "prompt": "I met a couple ___.", "answer": "who have just got married" },
+        { "context": "My parents used to work in a circus.", "prompt": "I met somebody ___.", "answer": "whose parents used to work in a circus" }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "94.2 · Viết câu dùng whom (trang trọng) và không dùng whom (ít trang trọng)",
+      "titleEn": "94.2 · Write a sentence with whom (more formal) and without whom (less formal)",
+      "instructions": "Với mỗi tình huống, hãy viết một câu dùng whom (trang trọng hơn) và một câu không dùng whom (ít trang trọng hơn).",
+      "instructionsEn": "For each situation write a sentence with whom (more formal) and without whom (less formal).",
+      "examples": [
+        { "label": "1a", "context": "You met a friend. You hadn't seen him for years.", "prompt": "more formal: I met a friend ___.", "answer": "whom I hadn't seen for years" },
+        { "label": "1b", "context": "You met a friend. You hadn't seen him for years.", "prompt": "less formal: I met a friend ___.", "answer": "I hadn't seen for years" }
+      ],
+      "items": [
+        { "label": "2a", "context": "You needed a lawyer. A friend of yours recommended one.", "prompt": "more formal: I went to see a lawyer ___.", "answer": "whom a friend of mine recommended", "accept": ["whom a friend of mine had recommended"] },
+        { "label": "2b", "context": "You needed a lawyer. A friend of yours recommended one.", "prompt": "less formal: I went to see a lawyer ___.", "answer": "a friend of mine recommended", "accept": ["a friend of mine had recommended"] },
+        { "label": "3a", "context": "You called your bank with a problem. You spoke to somebody, but he wasn't very helpful.", "prompt": "more formal: The person ___ wasn't very helpful.", "answer": "to whom I spoke" },
+        { "label": "3b", "context": "You called your bank with a problem. You spoke to somebody, but he wasn't very helpful.", "prompt": "less formal: The person ___.", "answer": "I spoke to wasn't very helpful" },
+        { "label": "4a", "context": "Tom was in love with a woman, but she wasn't in love with Tom.", "prompt": "more formal: The woman ___ wasn't in love with him.", "answer": "with whom Tom was in love" },
+        { "label": "4b", "context": "Tom was in love with a woman, but she wasn't in love with Tom.", "prompt": "less formal: The woman ___ wasn't in love with him.", "answer": "Tom was in love with" }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "94.3 · Hoàn thành câu bằng who/whom/whose/where",
+      "titleEn": "94.3 · Complete the sentences using who/whom/whose/where",
+      "instructions": "Hoàn thành các câu bằng who, whom, whose hoặc where.",
+      "instructionsEn": "Complete the sentences using who/whom/whose/where.",
+      "examples": [
+        { "label": "1", "prompt": "We helped some people ___ car had broken down.", "answer": "whose" }
+      ],
+      "items": [
+        { "prompt": "A cemetery is a place ___ people are buried.", "answer": "where" },
+        { "prompt": "A pacifist is a person ___ believes that all wars are wrong.", "answer": "who" },
+        { "prompt": "An orphan is a child ___ parents are dead.", "answer": "whose" },
+        { "prompt": "What's the name of the hotel ___ your parents are staying?", "answer": "where" },
+        { "prompt": "This school is only for children ___ first language is not English.", "answer": "whose" },
+        { "prompt": "The person from ___ I bought my car is a friend of my father's.", "answer": "whom" },
+        { "prompt": "I live in a friendly village ___ everybody knows everybody else.", "answer": "where" }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng whose, whom hoặc where trong mệnh đề quan hệ, ví dụ: 'I met someone whose brother went to my school.', 'That's the restaurant where we had our first date.'. Bạn cũng có thể thử các cấu trúc nói về thời gian hoặc lý do như 'the day ...', 'the reason ...', 'the last time ...', ví dụ: 'That's the day I got my first job.'",
+      "instructionsEn": "Write 2-3 English sentences using whose, whom or where in a relative clause, e.g. 'I met someone whose brother went to my school.', 'That's the restaurant where we had our first date.'. You can also try time/reason structures like 'the day ...', 'the reason ...', 'the last time ...', e.g. 'That's the day I got my first job.'",
+      "ruleSummary": "This unit teaches whose, whom, and where in relative clauses, plus the day/the time/the reason patterns. (1) WHOSE is used mostly for people and means 'his/her/their': 'A widow is a woman whose husband is dead.'; 'I met someone whose brother I went to school with.'. Compare who (subject, refers to the person) and whose (possessive): 'I met a man who knows you.' vs 'I met a man whose sister knows you.'. Do not confuse whose with who's (= who is/who has): 'I have a friend who's learning Arabic.' (who is) vs 'I have a friend whose sister is learning Arabic.' (possessive). (2) WHOM is possible instead of who when it is the object of the verb: 'George is a person whom I admire very much.'. It is also used after a preposition: 'It's important to have friends with whom you can relax.'. Whom is formal and not common in spoken English; 'a person I admire a lot' or 'a person who/that I admire a lot' is more natural. (3) WHERE introduces a relative clause about a place: 'I recently went back to the town where I grew up.'; 'The restaurant where we had lunch was near the airport.'. (4) We say 'the day/the year/the time/the last time' + clause with no relative pronoun needed, or optionally with that: 'That's the day I'm going away.'; 'The last time (that) I saw her, she looked great.'. Similarly 'the reason' + clause, optionally with that or why: 'The reason I'm calling you is to ask your advice.'; 'The reason (that/why) I'm calling you ...'. A correct student sentence should use whose/whom/where correctly in a relative clause, or correctly use one of these time/reason patterns without an unnecessary relative pronoun."
+    }
+  ]
+};
+
+export const UNIT_95_RELATIVE_CLAUSES_4: GrammarUnit = {
+  "unit": 95,
+  "slug": "relative-clauses-4",
+  "title": "Relative clauses 4: extra information clauses (1)",
+  "topic": "relative clauses",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "Hai loại mệnh đề quan hệ",
+          "headingEn": "There are two types of relative clause",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "There are two types of relative clause. Compare:",
+              "vi": "Có hai loại mệnh đề quan hệ. So sánh:"
+            },
+            {
+              "kind": "examples",
+              "heading": "Type 1",
+              "headingVi": "Loại 1 (mệnh đề xác định)",
+              "items": [
+                { "en": "The woman **who** lives next door to me is a doctor.", "vi": "Người phụ nữ sống cạnh nhà tôi là bác sĩ." },
+                { "en": "Grace works for a company **that** makes furniture.", "vi": "Grace làm việc cho một công ty sản xuất đồ nội thất." },
+                { "en": "We stayed at the hotel (**that**) you recommended.", "vi": "Chúng tôi đã ở khách sạn mà bạn giới thiệu." }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "In these examples, the relative clauses tell you which person or thing (or what kind of person or thing) the speaker means: 'The woman who lives next door to me' tells us which woman; 'a company that makes furniture' tells us what kind of company; 'the hotel (that) you recommended' tells us which hotel.",
+              "vi": "Trong các câu này, mệnh đề quan hệ cho biết đó là người hay vật nào (hoặc loại người/vật nào) mà người nói muốn nói đến: 'The woman who lives next door to me' cho biết đó là người phụ nữ nào; 'a company that makes furniture' cho biết đó là loại công ty nào; 'the hotel (that) you recommended' cho biết đó là khách sạn nào."
+            },
+            {
+              "kind": "text",
+              "text": "We do not use commas with these clauses:",
+              "vi": "Chúng ta không dùng dấu phẩy với các mệnh đề này:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "We know a lot of people **who** live in London.", "vi": "Chúng tôi biết nhiều người sống ở London." }
+              ]
+            },
+            {
+              "kind": "examples",
+              "heading": "Type 2",
+              "headingVi": "Loại 2 (mệnh đề không xác định, thêm thông tin)",
+              "items": [
+                { "en": "My brother Ben, **who** lives in Hong Kong, is an architect.", "vi": "Ben, anh trai tôi, hiện đang sống ở Hồng Kông, là một kiến trúc sư." },
+                { "en": "Anna told me about her new job, **which** she's enjoying a lot.", "vi": "Anna kể cho tôi nghe về công việc mới của cô ấy, công việc mà cô ấy rất thích." },
+                { "en": "We stayed at the Park Hotel, **which** a friend of ours recommended.", "vi": "Chúng tôi đã ở khách sạn Park Hotel, khách sạn mà một người bạn của chúng tôi giới thiệu." }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "In these examples, the relative clauses do not tell you which person or thing the speaker means. We already know which thing or person is meant: 'My brother Ben', 'Anna's new job' and 'the Park Hotel'. The relative clauses in these sentences give us extra information about the person or thing.",
+              "vi": "Trong các câu này, mệnh đề quan hệ không cho biết đó là người hay vật nào, vì chúng ta đã biết rồi: 'My brother Ben', 'Anna's new job' và 'the Park Hotel'. Mệnh đề quan hệ trong các câu này chỉ thêm thông tin về người hay vật đó."
+            },
+            {
+              "kind": "text",
+              "text": "We use commas with these clauses:",
+              "vi": "Chúng ta dùng dấu phẩy với các mệnh đề này:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "My brother Ben, **who** lives in Hong Kong, is an architect.", "vi": "Ben, anh trai tôi, hiện đang sống ở Hồng Kông, là một kiến trúc sư." }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "who/which/that trong hai loại mệnh đề",
+          "headingEn": "who/which/that in the two types of relative clause",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "In both types of relative clause we use **who** for people and **which** for things. But:",
+              "vi": "Ở cả hai loại mệnh đề quan hệ, chúng ta dùng **who** cho người và **which** cho vật. Nhưng:"
+            },
+            {
+              "kind": "text",
+              "text": "**Type 1**: You can use **that**:",
+              "vi": "**Loại 1**: Bạn có thể dùng **that**:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "Do you know anyone **who/that** speaks French and Italian?", "vi": "Bạn có biết ai nói được tiếng Pháp và tiếng Ý không?" },
+                { "en": "Grace works for a company **which/that** makes furniture.", "vi": "Grace làm việc cho một công ty sản xuất đồ nội thất." }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "**Type 2**: You cannot use **that**:",
+              "vi": "**Loại 2**: Bạn không thể dùng **that**:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "John, **who** speaks French and Italian, works as a tour guide.", "note": "not that speaks", "vi": "John, người nói được tiếng Pháp và tiếng Ý, làm hướng dẫn viên du lịch." },
+                { "en": "Anna told me about her new job, **which** she's enjoying a lot.", "vi": "Anna kể cho tôi nghe về công việc mới của cô ấy, công việc mà cô ấy rất thích." }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "**Type 1**: You can leave out **who/which/that** when it is the object (see Unit 93):",
+              "vi": "**Loại 1**: Bạn có thể bỏ **who/which/that** khi nó là tân ngữ (xem Unit 93):"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "We stayed at the hotel (**that/which**) you recommended.", "vi": "Chúng tôi đã ở khách sạn mà bạn giới thiệu." },
+                { "en": "This morning I met somebody (**who/that**) I hadn't seen for ages.", "vi": "Sáng nay tôi đã gặp một người mà đã lâu tôi không gặp." }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "**Type 2**: You cannot leave out **who** or **which**:",
+              "vi": "**Loại 2**: Bạn không thể bỏ **who** hoặc **which**:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "We stayed at the Park Hotel, **which** a friend of ours recommended.", "vi": "Chúng tôi đã ở khách sạn Park Hotel, khách sạn mà một người bạn giới thiệu." },
+                { "en": "This morning I met Chris, **who** I hadn't seen for ages.", "vi": "Sáng nay tôi đã gặp Chris, người mà đã lâu tôi không gặp." }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "**Type 1**: We do not often use **whom** in this type of clause (see Unit 94B).",
+              "vi": "**Loại 1**: Chúng ta không thường dùng **whom** trong loại mệnh đề này (xem Unit 94B)."
+            },
+            {
+              "kind": "text",
+              "text": "**Type 2**: You can use **whom** for people (when it is the object):",
+              "vi": "**Loại 2**: Bạn có thể dùng **whom** cho người (khi nó là tân ngữ):"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "This morning I met Chris, **whom** I hadn't seen for ages.", "vi": "Sáng nay tôi đã gặp Chris, người mà đã lâu tôi không gặp." }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "whose và where trong cả hai loại mệnh đề",
+          "headingEn": "whose and where in both types of relative clause",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "In both types of relative clause you can use **whose** and **where**:",
+              "vi": "Ở cả hai loại mệnh đề quan hệ, bạn đều có thể dùng **whose** và **where**:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "We helped some people **whose** car had broken down.", "vi": "Chúng tôi đã giúp vài người có xe bị hỏng." },
+                { "en": "Lisa, **whose** car had broken down, was in a very bad mood.", "vi": "Lisa, người có xe bị hỏng, đang rất bực bội." },
+                { "en": "What's the name of the place **where** you went on holiday?", "vi": "Nơi bạn đi nghỉ tên là gì?" },
+                { "en": "Kate has just been to Sweden, **where** her daughter lives.", "vi": "Kate vừa đến Thụy Điển, nơi con gái cô ấy sống." }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "95.1 · Ghép hai câu thành một câu",
+      "titleEn": "95.1 · Make one sentence from two",
+      "instructions": "Dùng thông tin trong ngoặc để tạo một mệnh đề quan hệ (Loại 2), ghép hai câu thành một.",
+      "instructionsEn": "Use the information in brackets to make a relative clause (Type 2) and make one sentence from two.",
+      "examples": [
+        { "label": "1", "context": "Catherine is very friendly. (She lives next door to us.)", "prompt": "Catherine, ___, is very friendly.", "answer": "who lives next door to us" },
+        { "label": "2", "context": "We stayed at the Park Hotel. (A friend of ours recommended this hotel.)", "prompt": "We stayed at the Park Hotel, ___.", "answer": "which a friend of ours recommended" }
+      ],
+      "items": [
+        { "context": "We drove to the airport. (The airport was not far from the city.)", "prompt": "We drove to the airport, ___.", "answer": "which was not far from the city" },
+        { "context": "Kate's husband is an airline pilot. (I have never met Kate's husband.)", "prompt": "Kate's husband, ___, is an airline pilot.", "answer": "who I've never met", "accept": ["whom I've never met"] },
+        { "context": "Lisa is away from home a lot. (Lisa's job involves a lot of travelling.)", "prompt": "Lisa, ___, is away from home a lot.", "answer": "whose job involves a lot of travelling" },
+        { "context": "Paul and Emily have a daughter, Alice. (Alice has just started school.)", "prompt": "Paul and Emily have a daughter, Alice, ___.", "answer": "who has just started school" },
+        { "context": "The new stadium will hold 90,000 spectators. (The stadium will be finished next month.)", "prompt": "The new stadium, ___, will hold 90,000 spectators.", "answer": "which will be finished next month" },
+        { "context": "My brother lives in Alaska. (Alaska is the largest state in the US.)", "prompt": "My brother lives in Alaska, ___.", "answer": "which is the largest state in the US" },
+        { "context": "Our teacher was very kind. (I have forgotten her name.)", "prompt": "Our teacher, ___, was very kind.", "answer": "whose name I have forgotten" },
+        { "context": "We enjoyed our visit to the museum. (We saw a lot of interesting things in the museum.)", "prompt": "We enjoyed our visit to the museum, ___.", "answer": "where we saw a lot of interesting things" }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "95.2 · Hoàn thành câu bằng mệnh đề quan hệ Loại 1 hoặc Loại 2",
+      "titleEn": "95.2 · Complete the sentences with a relative clause of Type 1 or Type 2",
+      "instructions": "Đọc thông tin và hoàn thành các câu, dùng dấu phẩy khi cần thiết.",
+      "instructionsEn": "Read the information and complete the sentences. Use commas where necessary.",
+      "examples": [
+        { "label": "1", "context": "My brother is an architect. (He lives in Hong Kong.)", "prompt": "My brother, ___, is an architect.", "answer": "who lives in Hong Kong" }
+      ],
+      "items": [
+        { "context": "The strike at the factory has now ended. (The strike began ten days ago.)", "prompt": "The strike at the factory, ___, has now ended.", "answer": "which began ten days ago" },
+        { "context": "I was looking for a book this morning. (I've found it now.)", "prompt": "I've found ___ this morning.", "answer": "the book I was looking for", "accept": ["the book that I was looking for", "the book which I was looking for"] },
+        { "context": "I've had my car for 15 years. (This car has never broken down.)", "prompt": "My car, ___, has never broken down.", "answer": "which I've had for 15 years" },
+        { "context": "A lot of people applied for the job. (Few of them had the necessary qualifications.)", "prompt": "Few of ___ had the necessary qualifications.", "answer": "the people who applied for the job", "accept": ["the people that applied for the job"] },
+        { "context": "Amy showed me a picture of her son. (Her son is a police officer.)", "prompt": "Amy showed me a picture of her son, ___.", "answer": "who is a police officer" }
+      ]
+    },
+    {
+      "kind": "judge_correct",
+      "title": "95.3 · Các câu sau đã đúng chưa? Sửa lại (và thêm dấu phẩy) nếu cần",
+      "titleEn": "95.3 · Are these sentences OK? Correct them (and put in commas) where necessary",
+      "instructions": "Nếu câu đã đúng, hãy đánh dấu là đúng. Nếu chưa đúng, hãy sửa lại (và thêm dấu phẩy) cho đúng.",
+      "instructionsEn": "If the sentence is correct, mark it OK. If it is not, correct it (and put in commas) where necessary.",
+      "items": [
+        {
+          "sentence": "Anna told me about her new job that she's enjoying very much.",
+          "underlined": "that she's enjoying very much",
+          "ok": false,
+          "correction": ", which she's enjoying very much"
+        },
+        {
+          "sentence": "My office that is on the second floor is very small.",
+          "underlined": "that is on the second floor",
+          "ok": false,
+          "correction": ", which is on the second floor,"
+        },
+        {
+          "sentence": "The office that I'm using at the moment is very small.",
+          "underlined": "that I'm using at the moment",
+          "ok": true
+        },
+        {
+          "sentence": "Sarah's father that used to be in the army now works for a TV company.",
+          "underlined": "that used to be in the army",
+          "ok": false,
+          "correction": ", who used to be in the army,"
+        },
+        {
+          "sentence": "The doctor that examined me couldn't find anything wrong.",
+          "underlined": "that examined me",
+          "ok": true
+        },
+        {
+          "sentence": "The sun that is one of millions of stars in the universe provides us with heat and light.",
+          "underlined": "that is one of millions of stars in the universe",
+          "ok": false,
+          "correction": ", which is one of millions of stars in the universe,"
+        }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng mệnh đề quan hệ Loại 2 (thêm thông tin, đặt trong dấu phẩy) về những người hoặc nơi chốn bạn biết, ví dụ: 'My friend Nam, who works in Hanoi, is visiting me next week.', 'We went to Da Lat, which is famous for its cool weather.'. Nhớ dùng dấu phẩy và không dùng that trong loại mệnh đề này.",
+      "instructionsEn": "Write 2-3 English sentences with a Type 2 relative clause (extra information, inside commas) about people or places you know, e.g. 'My friend Nam, who works in Hanoi, is visiting me next week.', 'We went to Da Lat, which is famous for its cool weather.'. Remember to use commas and not to use that in this type of clause.",
+      "ruleSummary": "This unit teaches the difference between Type 1 (defining, no commas) and Type 2 (non-defining/extra-information, commas) relative clauses. Type 1 identifies which person or thing is meant: 'The woman who lives next door to me is a doctor.'; 'We know a lot of people who live in London.' (no commas). Type 2 adds extra information about someone/something already identified, and always uses commas: 'My brother Ben, who lives in Hong Kong, is an architect.'; 'Anna told me about her new job, which she's enjoying a lot.'. Key differences: (1) that is possible in Type 1 ('a company which/that makes furniture') but NOT possible in Type 2 (must say 'John, who speaks French ...', not 'John, that speaks ...'). (2) who/which/that can be left out in Type 1 when it is the object ('the hotel (that) you recommended') but can NEVER be left out in Type 2 ('the Park Hotel, which a friend of ours recommended', which cannot become 'the Park Hotel, a friend of ours recommended'). (3) whom is rare in Type 1 but fine in Type 2 as the formal object form ('Chris, whom I hadn't seen for ages'). whose and where work the same way in both types: 'We helped some people whose car had broken down.' (Type 1) vs 'Lisa, whose car had broken down, was in a very bad mood.' (Type 2). A correct student sentence should use a Type 2 clause correctly: commas around it, no that, and (if it's the object) the pronoun kept in, not dropped."
+    }
+  ]
+};
+
+export const UNIT_96_RELATIVE_CLAUSES_5: GrammarUnit = {
+  "unit": 96,
+  "slug": "relative-clauses-5",
+  "title": "Relative clauses 5: extra information clauses (2)",
+  "topic": "relative clauses",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "Giới từ + whom/which",
+          "headingEn": "preposition + whom/which",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "You can use a preposition + **whom** (for people) and **which** (for things).",
+              "vi": "Bạn có thể dùng giới từ + **whom** (cho người) và **which** (cho vật)."
+            },
+            {
+              "kind": "text",
+              "text": "So you can say:",
+              "vi": "Vì vậy bạn có thể nói:"
+            },
+            {
+              "kind": "words",
+              "words": ["to whom", "with whom", "about whom"]
+            },
+            {
+              "kind": "words",
+              "words": ["of which", "without which", "from which"]
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "Mr Lee, **to whom** I spoke at the meeting, is interested in our proposal.", "vi": "Ông Lee, người mà tôi đã nói chuyện cùng trong cuộc họp, quan tâm đến đề xuất của chúng tôi." },
+                { "en": "Fortunately we had a good map, **without which** we would have got lost.", "vi": "May mắn là chúng tôi có một tấm bản đồ tốt, nếu không có nó chúng tôi đã bị lạc." }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "In spoken English we often keep the preposition after the verb in the relative clause:",
+              "vi": "Trong văn nói, chúng ta thường giữ giới từ sau động từ trong mệnh đề quan hệ:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "Katherine told me she works for a company called 'Latoma', **which** I'd never heard of before.", "vi": "Katherine nói với tôi rằng cô ấy làm việc cho một công ty tên là 'Latoma', công ty mà trước đây tôi chưa từng nghe đến." }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "We do not use **whom** when the preposition is in this position:",
+              "vi": "Chúng ta không dùng **whom** khi giới từ ở vị trí này:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "Mr Lee, **who** I spoke to at the meeting, is interested in our proposal.", "note": "not Mr Lee, whom I spoke to ...", "vi": "Ông Lee, người mà tôi đã nói chuyện cùng trong cuộc họp, quan tâm đến đề xuất của chúng tôi." }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "For prepositions in relative clauses, see also Unit 93C.",
+              "vi": "Để biết thêm về giới từ trong mệnh đề quan hệ, xem thêm Unit 93C."
+            }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "all of / most of ... + whom/which",
+          "headingEn": "all of / most of etc. + whom/which",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "You can say:",
+              "vi": "Bạn có thể nói:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "Helen has three brothers, **all of whom** are married.", "vi": "Helen có ba anh/em trai, tất cả đều đã kết hôn." },
+                { "en": "They asked me a lot of questions, **most of which** I couldn't answer.", "vi": "Họ hỏi tôi rất nhiều câu hỏi, phần lớn tôi không trả lời được." }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "In the same way you can say, for people: **many of whom**, **some of whom**, **neither of whom** etc.",
+              "vi": "Tương tự, với người bạn có thể nói: **many of whom**, **some of whom**, **neither of whom** v.v."
+            },
+            {
+              "kind": "text",
+              "text": "And for things: **none of which**, **both of which**, **one of which** etc.",
+              "vi": "Và với vật: **none of which**, **both of which**, **one of which** v.v."
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "Martin tried on three jackets, **none of which** fitted him.", "vi": "Martin thử ba chiếc áo khoác, không cái nào vừa với anh ấy." },
+                { "en": "Two men, **neither of whom** I had seen before, came into the office.", "vi": "Hai người đàn ông, cả hai tôi đều chưa từng gặp trước đây, bước vào văn phòng." },
+                { "en": "They have three cars, **two of which** they rarely use.", "vi": "Họ có ba chiếc xe, hai trong số đó họ ít khi dùng." },
+                { "en": "Sue has a lot of friends, **many of whom** she was at school with.", "vi": "Sue có rất nhiều bạn, nhiều người trong số đó cô ấy từng học chung trường." }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "You can also say **the cause of which**, **the name of which** etc.",
+              "vi": "Bạn cũng có thể nói **the cause of which**, **the name of which** v.v."
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "The house was damaged in a fire, **the cause of which** was never established.", "vi": "Ngôi nhà bị hư hại trong một vụ hỏa hoạn, mà nguyên nhân của nó chưa bao giờ được xác định." },
+                { "en": "We stayed at a beautiful hotel, **the name of which** I don't remember now.", "vi": "Chúng tôi đã ở một khách sạn rất đẹp, mà tên của nó bây giờ tôi không nhớ nữa." }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "which (không dùng what)",
+          "headingEn": "which (not what)",
+          "intro": "Study this example:",
+          "introVi": "Hãy xem ví dụ sau:",
+          "parts": [
+            {
+              "kind": "text",
+              "text": "Joe got the job. This surprised everybody. (2 sentences)",
+              "vi": "Joe đã có được công việc đó. Điều này khiến mọi người ngạc nhiên. (2 câu)"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "Joe got the job, **which** surprised everybody.", "note": "1 sentence", "vi": "Joe đã có được công việc đó, điều khiến mọi người ngạc nhiên." }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "In this example, **which** = 'the fact that Joe got the job'. We use **which** (not *what*) in sentences like these:",
+              "vi": "Trong ví dụ này, **which** = 'việc Joe đã có được công việc đó'. Chúng ta dùng **which** (không dùng *what*) trong những câu như sau:"
+            },
+            {
+              "kind": "examples",
+              "items": [
+                { "en": "Sarah couldn't meet us, **which** was a shame.", "note": "not what was a shame", "vi": "Sarah không thể gặp chúng tôi, điều đó thật đáng tiếc." },
+                { "en": "The weather was good, **which** we hadn't expected.", "note": "not what we hadn't expected", "vi": "Thời tiết đẹp, điều mà chúng tôi không ngờ tới." }
+              ]
+            },
+            {
+              "kind": "text",
+              "text": "For *what* and *that*, see Units 92D and 93D.",
+              "vi": "Để biết thêm về *what* và *that*, xem thêm Unit 92D và 93D."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "96.1 · Hoàn thành câu bằng giới từ + whom hoặc which",
+      "titleEn": "96.1 · Complete the sentences using a preposition + whom or which",
+      "instructions": "Hoàn thành các câu bằng giới từ + whom hoặc which. Chọn giới từ trong khung.",
+      "instructionsEn": "Complete the sentences. Use a preposition + whom or which. Choose a preposition from the box.",
+      "wordBank": ["after", "for", "in", "of", "of", "to", "with", "without"],
+      "examples": [
+        { "label": "1", "prompt": "Fortunately we had a good map, ___ we would have got lost.", "answer": "without which" }
+      ],
+      "items": [
+        { "prompt": "The accident, ___ two people were injured, happened late last night.", "answer": "in which" },
+        { "prompt": "I share an office with my boss, ___ I get on really well.", "answer": "with whom" },
+        { "prompt": "The wedding, ___ only family members were invited, was a lovely occasion.", "answer": "to which" },
+        { "prompt": "Ben showed me his new car, ___ he's very proud.", "answer": "of which" },
+        { "prompt": "Sarah showed us a picture of her son, ___ she's very proud.", "answer": "of whom" },
+        { "prompt": "Laura bought a very nice leather bag, ___ she paid twenty pounds.", "answer": "for which" },
+        { "prompt": "We had lunch, ___ we went for a long walk.", "answer": "after which" }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "96.2 · Hoàn thành câu bằng all of / most of ... hoặc the ... of which",
+      "titleEn": "96.2 · Complete the sentences using all of / most of etc., then the ... of which",
+      "instructions": "Dùng thông tin ở câu đầu để hoàn thành câu thứ hai bằng cấu trúc all of / most of ... whom/which, như trong ví dụ 1. Từ câu 9 trở đi, dùng cấu trúc the ... of which, như trong ví dụ 9.",
+      "instructionsEn": "Use the information in the first sentence to complete the second one, using all of / most of etc. + whom/which, as in example 1. From item 9 onward, use the ... of which, as in example 9.",
+      "examples": [
+        { "label": "1", "context": "All of Helen's brothers are married.", "prompt": "Helen has three brothers, ___.", "answer": "all of whom are married" },
+        { "label": "9", "context": "You stayed in a hotel when you were on holiday but you don't remember the name.", "prompt": "We stayed at a very nice hotel, ___.", "answer": "the name of which I don't remember" }
+      ],
+      "items": [
+        { "label": "2", "context": "Most of the information we were given was useless.", "prompt": "We were given a lot of information, ___.", "answer": "most of which was useless" },
+        { "label": "3", "context": "None of the ten people who applied for the job was suitable.", "prompt": "Ten people applied for the job, ___.", "answer": "none of whom was suitable" },
+        { "label": "4", "context": "My neighbours have two cars. They never use one of them.", "prompt": "My neighbours have two cars, ___.", "answer": "one of which they never use" },
+        { "label": "5", "context": "James won a lot of money. He gave half of it to his parents.", "prompt": "James won £100,000, ___.", "answer": "half of which he gave to his parents" },
+        { "label": "6", "context": "Both of Julia's sisters are lawyers.", "prompt": "Julia has two sisters, ___.", "answer": "both of whom are lawyers" },
+        { "label": "7", "context": "Jane replied to neither of the emails I sent her.", "prompt": "I sent Jane two emails, ___.", "answer": "neither of which she replied to" },
+        { "label": "8", "context": "I went to a party. I knew only a few of the people there.", "prompt": "There were a lot of people at the party, ___.", "answer": "only a few of whom I knew" },
+        { "label": "10", "context": "We drove along the road. The sides of the road were lined with trees.", "prompt": "We drove along the road, ___.", "answer": "the sides of which were lined with trees" },
+        { "label": "11", "context": "The aim of the company's new business plan is to save money.", "prompt": "The company has a new business plan, ___.", "answer": "the aim of which is to save money" }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "96.3 · Hoàn thành câu bằng which, chọn ý trong khung",
+      "titleEn": "96.3 · Complete the sentences with which, choosing from the box",
+      "instructions": "Chọn ý phù hợp trong khung và dùng which để hoàn thành mỗi câu.",
+      "instructionsEn": "Choose from the box and use which to complete each sentence.",
+      "wordBank": ["This is good news.", "This makes it hard to contact her.", "This was a shame.", "This means we can't go away tomorrow.", "She apologised for this", "This makes it difficult to sleep sometimes.", "This was very kind of her.", "This meant I had to wait two hours at the airport."],
+      "examples": [
+        { "label": "1", "prompt": "Laura couldn't come to the party, ___.", "answer": "which was a shame" }
+      ],
+      "items": [
+        { "prompt": "The street I live in is noisy at night, ___.", "answer": "which makes it difficult to sleep sometimes" },
+        { "prompt": "Kate let me stay at her house, ___.", "answer": "which was very kind of her" },
+        { "prompt": "Jane doesn't have a phone, ___.", "answer": "which makes it hard to contact her" },
+        { "prompt": "Alex passed his exams, ___.", "answer": "which is good news" },
+        { "prompt": "My flight was delayed, ___.", "answer": "which meant I had to wait two hours at the airport" },
+        { "prompt": "Our car has broken down, ___.", "answer": "which means we can't go away tomorrow" },
+        { "prompt": "Amy was twenty minutes late, ___.", "answer": "which she apologised for", "accept": ["for which she apologised"] }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng giới từ + whom/which, hoặc all of / most of / none of ... whom/which trong mệnh đề quan hệ, ví dụ: 'My boss, with whom I get on well, is retiring next year.', 'I have three sisters, two of whom live abroad.'. Bạn cũng có thể dùng which để nói về cả một câu trước đó, ví dụ: 'She passed the exam, which made her parents very happy.'",
+      "instructionsEn": "Write 2-3 English sentences using a preposition + whom/which, or all of / most of / none of ... whom/which in a relative clause, e.g. 'My boss, with whom I get on well, is retiring next year.', 'I have three sisters, two of whom live abroad.'. You can also use which to refer back to a whole previous sentence, e.g. 'She passed the exam, which made her parents very happy.'",
+      "ruleSummary": "This unit covers three more extra-information relative clause patterns. (1) Preposition + whom/which: 'Mr Lee, to whom I spoke at the meeting, is interested in our proposal.'; 'Fortunately we had a good map, without which we would have got lost.'. In spoken English the preposition often stays after the verb instead, and then whom becomes who or is dropped: 'Mr Lee, who I spoke to at the meeting, ...' (not whom I spoke to). (2) all of / most of / none of / both of / neither of / two of etc. + whom (people) or which (things): 'Helen has three brothers, all of whom are married.'; 'They asked me a lot of questions, most of which I couldn't answer.'; 'Martin tried on three jackets, none of which fitted him.'. Also 'the name of which' / 'the cause of which' etc.: 'We stayed at a beautiful hotel, the name of which I don't remember now.'. (3) which (not what) can refer back to a whole previous clause/idea, meaning 'the fact that ...': 'Sarah couldn't meet us, which was a shame.' (not what was a shame); 'The weather was good, which we hadn't expected.'. A correct student sentence should correctly combine a preposition with whom/which, or correctly use an 'all of / none of ... whom/which' pattern, or correctly use which to refer back to a whole idea."
+    }
+  ]
+};
+
+export const UNIT_97_ING_AND_ED_CLAUSES: GrammarUnit = {
+  "unit": 97,
+  "slug": "ing-and-ed-clauses",
+  "title": "-ing and -ed clauses (the woman talking to Tom, the boy injured in the accident)",
+  "topic": "participle clauses",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "Mệnh đề -ing",
+          "headingEn": "-ing clauses",
+          "parts": [
+            { "kind": "text", "text": "A clause is a part of a sentence. Some clauses begin with **-ing**. For example, **talking to Tom** is an -ing clause in this sentence:", "vi": "Một mệnh đề là một phần của câu. Một số mệnh đề bắt đầu bằng **-ing**. Ví dụ, **talking to Tom** là một mệnh đề -ing trong câu này:" },
+            { "kind": "examples", "items": [ { "en": "Who is the woman **talking to Tom**?", "vi": "Người phụ nữ đang nói chuyện với Tom là ai vậy?" } ] },
+            { "kind": "text", "text": "We use -ing clauses to say what somebody (or something) is (or was) doing at a particular time:", "vi": "Chúng ta dùng mệnh đề -ing để nói ai đó (hoặc cái gì đó) đang (hoặc đã đang) làm gì vào một thời điểm cụ thể:" },
+            { "kind": "examples", "items": [
+              { "en": "Who is the woman **talking to Tom**?", "note": "the woman is talking to Tom", "vi": "Người phụ nữ đang nói chuyện với Tom là ai vậy?" },
+              { "en": "Police **investigating the crime** are looking for three men.", "note": "police are investigating the crime", "vi": "Cảnh sát đang điều tra vụ án đang truy tìm ba người đàn ông." },
+              { "en": "Who were those people **waiting outside**?", "note": "they were waiting", "vi": "Những người đang đợi bên ngoài đó là ai vậy?" },
+              { "en": "I was woken up by a bell **ringing**.", "note": "a bell was ringing", "vi": "Tôi bị đánh thức bởi tiếng chuông đang reo." }
+            ] },
+            { "kind": "text", "text": "You can also use an -ing clause to say what happens all the time, not just at a particular time:", "vi": "Bạn cũng có thể dùng mệnh đề -ing để nói về điều luôn xảy ra, không chỉ tại một thời điểm cụ thể:" },
+            { "kind": "examples", "items": [
+              { "en": "The road **connecting** the two villages is very narrow.", "note": "the road connects the two villages", "vi": "Con đường nối hai ngôi làng rất hẹp." },
+              { "en": "I have a large room **overlooking** the garden.", "note": "the room overlooks the garden", "vi": "Tôi có một căn phòng lớn nhìn ra khu vườn." },
+              { "en": "Can you think of the name of a flower **beginning** with T?", "note": "the name begins with T", "vi": "Bạn có nghĩ ra tên loài hoa nào bắt đầu bằng chữ T không?" }
+            ] }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "Mệnh đề -ed",
+          "headingEn": "-ed clauses",
+          "parts": [
+            { "kind": "text", "text": "Some clauses begin with **-ed** (injured, painted etc.). For example:", "vi": "Một số mệnh đề bắt đầu bằng **-ed** (injured, painted v.v.). Ví dụ:" },
+            { "kind": "examples", "items": [ { "en": "The boy **injured in the accident** was taken to hospital.", "vi": "Cậu bé bị thương trong tai nạn đã được đưa đến bệnh viện." } ] },
+            { "kind": "text", "text": "**-ed** clauses have a passive meaning:", "vi": "Mệnh đề **-ed** mang nghĩa bị động:" },
+            { "kind": "examples", "items": [
+              { "en": "The boy **injured in the accident** was taken to hospital.", "note": "he was injured in the accident", "vi": "Cậu bé bị thương trong tai nạn đã được đưa đến bệnh viện." },
+              { "en": "George showed me some pictures **painted by his father**.", "note": "they were painted by his father", "vi": "George cho tôi xem vài bức tranh do bố anh ấy vẽ." },
+              { "en": "The gun **used in the robbery** has been found.", "note": "the gun was used in the robbery", "vi": "Khẩu súng được dùng trong vụ cướp đã được tìm thấy." }
+            ] },
+            { "kind": "text", "text": "**Injured**/**painted**/**used** are past participles. Most past participles end in **-ed**, but many are irregular (*stolen*/*made*/*built* etc.):", "vi": "**Injured**/**painted**/**used** là các phân từ quá khứ. Hầu hết phân từ quá khứ kết thúc bằng **-ed**, nhưng nhiều từ bất quy tắc (*stolen*/*made*/*built* v.v.):" },
+            { "kind": "examples", "items": [
+              { "en": "The police never found the money **stolen** in the robbery.", "vi": "Cảnh sát không bao giờ tìm thấy số tiền bị đánh cắp trong vụ cướp." },
+              { "en": "Most of the goods **made** in this factory are exported.", "vi": "Hầu hết hàng hóa được sản xuất tại nhà máy này đều được xuất khẩu." }
+            ] }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "there is / there was + mệnh đề -ing/-ed",
+          "headingEn": "there is / there was + -ing and -ed clauses",
+          "parts": [
+            { "kind": "text", "text": "You can use **there is** / **there was** (etc.) + -ing and -ed clauses:", "vi": "Bạn có thể dùng **there is** / **there was** (v.v.) + mệnh đề -ing và -ed:" },
+            { "kind": "examples", "items": [
+              { "en": "There were some children **swimming** in the river.", "vi": "Có vài đứa trẻ đang bơi dưới sông." },
+              { "en": "Is there anybody **waiting**?", "vi": "Có ai đang đợi không?" },
+              { "en": "There was a big red car **parked** outside the house.", "vi": "Có một chiếc xe hơi đỏ to đậu bên ngoài ngôi nhà." }
+            ] },
+            { "kind": "text", "text": "We use **left** in this way, with the meaning 'not used, still there':", "vi": "Chúng ta dùng **left** theo cách này, với nghĩa 'chưa dùng đến, vẫn còn đó':" },
+            { "kind": "examples", "items": [ { "en": "We've eaten nearly all the chocolates. There are only a few **left**.", "vi": "Chúng tôi đã ăn gần hết chỗ sô cô la rồi. Chỉ còn lại vài viên." } ] }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "97.1 · Ghép hai câu thành một, dùng mệnh đề -ing",
+      "titleEn": "97.1 · Make one sentence from two. Use an -ing clause",
+      "instructions": "Ghép hai câu thành một câu, dùng mệnh đề -ing.",
+      "instructionsEn": "Make one sentence from two. Complete the sentence using an -ing clause.",
+      "examples": [
+        { "label": "1", "context": "A bell was ringing. I was woken up by it.", "prompt": "I was woken up by ___.", "answer": "a bell ringing" }
+      ],
+      "items": [
+        { "context": "A taxi was taking us to the airport. It broke down.", "prompt": "The ___ broke down.", "answer": "taxi taking us to the airport" },
+        { "context": "There's a path at the end of this street. The path leads to the river.", "prompt": "At the end of the street there's ___.", "answer": "a path leading to the river" },
+        { "context": "A factory has just opened in the town. It employs 500 people.", "prompt": "___ has just opened in the town.", "answer": "A factory employing 500 people" },
+        { "context": "A man was sitting next to me on the plane. He was asleep most of the time.", "prompt": "The ___ was asleep most of the time.", "answer": "man sitting next to me on the plane" },
+        { "context": "The company sent me a brochure. It contained the information I needed.", "prompt": "The company sent me a ___.", "answer": "brochure containing the information I needed" }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "97.2 · Hoàn thành câu bằng mệnh đề -ed, chọn trong khung",
+      "titleEn": "97.2 · Complete the sentence with an -ed clause. Choose from the box",
+      "instructions": "Hoàn thành câu bằng mệnh đề -ed. Chọn cụm phù hợp trong khung.",
+      "instructionsEn": "Complete the sentence with an -ed clause. Choose from the box.",
+      "wordBank": ["damaged in the storm", "made at the meeting", "injured in the accident", "involved in the project", "stolen from the museum", "surrounded by trees"],
+      "examples": [
+        { "label": "1", "prompt": "The boy ___ was taken to hospital.", "answer": "injured in the accident" }
+      ],
+      "items": [
+        { "prompt": "The paintings ___ haven't been found yet.", "answer": "stolen from the museum" },
+        { "prompt": "We've repaired the gate ___.", "answer": "damaged in the storm" },
+        { "prompt": "Most of the suggestions ___ were not practical.", "answer": "made at the meeting" },
+        { "prompt": "Our friends live in a beautiful house ___.", "answer": "surrounded by trees" },
+        { "prompt": "Everybody ___ worked very well.", "answer": "involved in the project" }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "97.3 · Hoàn thành câu bằng dạng đúng của động từ cho sẵn",
+      "titleEn": "97.3 · Complete the sentences using the following verbs in the correct form",
+      "instructions": "Hoàn thành câu bằng dạng -ing hoặc -ed đúng của động từ trong khung.",
+      "instructionsEn": "Complete the sentences. Use the following verbs in the correct form (-ing or -ed).",
+      "wordBank": ["blow", "call", "cause", "invite", "live", "offer", "paint", "read", "ring", "sit", "study", "work"],
+      "examples": [
+        { "label": "1", "prompt": "I was woken up by a bell ___.", "answer": "ringing" },
+        { "label": "2", "prompt": "George showed me some pictures ___ by his father.", "answer": "painted" }
+      ],
+      "items": [
+        { "prompt": "Some of the people ___ to the party can't come.", "answer": "invited" },
+        { "prompt": "Somebody ___ Jack phoned while you were out.", "answer": "calling himself" },
+        { "prompt": "Life must be very unpleasant for people ___ near busy airports.", "answer": "living" },
+        { "prompt": "A few days after the interview, I received an email ___ me the job.", "answer": "offering" },
+        { "prompt": "The building was badly damaged in a fire ___ by an electrical fault.", "answer": "caused" },
+        { "prompt": "Did you see the picture of the trees ___ down in the storm?", "answer": "blown" },
+        { "prompt": "The waiting room was empty except for an old man ___ in the corner ___ a magazine.", "answer": "sitting", "extraBlanks": [ { "answer": "reading" } ] },
+        { "prompt": "Ian has a brother ___ in a bank in London and a sister ___ economics at university in Manchester.", "answer": "working", "extraBlanks": [ { "answer": "studying" } ] }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "97.4 · Dùng từ trong ngoặc để viết câu với There is / There was",
+      "titleEn": "97.4 · Use the words in brackets to make sentences with There is / There was etc.",
+      "instructions": "Dùng từ trong ngoặc để viết câu với There is / There was v.v.",
+      "instructionsEn": "Use the words in brackets to make sentences with There is / There was etc.",
+      "examples": [
+        { "label": "1", "context": "That house is empty.", "prompt": "___ (nobody / live / in it)", "answer": "There's nobody living in it." },
+        { "label": "2", "context": "The accident wasn't serious.", "prompt": "___ (nobody / injure)", "answer": "There was nobody injured." }
+      ],
+      "items": [
+        { "context": "I can hear footsteps.", "prompt": "___ (somebody / come)", "answer": "There's somebody coming.", "accept": ["There is somebody coming."] },
+        { "context": "I've spent all the money I had.", "prompt": "___ (nothing / leave)", "answer": "There's nothing left.", "accept": ["There is nothing left."] },
+        { "context": "The train was full.", "prompt": "___ (a lot of people / travel)", "answer": "There were a lot of people travelling.", "accept": ["There were a lot of people traveling."] },
+        { "context": "We were the only guests at the hotel.", "prompt": "___ (nobody else / stay there)", "answer": "There was nobody else staying there." },
+        { "context": "The piece of paper was blank.", "prompt": "___ (nothing / write / on it)", "answer": "There was nothing written on it." },
+        { "context": "The college offers English courses in the evening.", "prompt": "___ (a course / begin / next Monday)", "answer": "There's a course beginning next Monday.", "accept": ["There is a course beginning next Monday."] }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng mệnh đề -ing (ví dụ: 'the woman talking to Tom', 'a bell ringing') hoặc mệnh đề -ed (ví dụ: 'the boy injured in the accident', 'a fire caused by an electrical fault'), hoặc dùng there is/there was + mệnh đề -ing/-ed.",
+      "instructionsEn": "Write 2-3 English sentences using an -ing clause (e.g. 'the woman talking to Tom', 'a bell ringing') or an -ed clause (e.g. 'the boy injured in the accident', 'a fire caused by an electrical fault'), or there is/there was + an -ing/-ed clause.",
+      "ruleSummary": "This unit covers -ing and -ed clauses, a way to shorten a relative clause by dropping the relative pronoun and auxiliary verb. An -ing clause has an active meaning and describes what somebody/something is (or was) doing at a particular time, or something that happens all the time: 'Who is the woman talking to Tom?' (= the woman who is talking to Tom); 'Police investigating the crime are looking for three men.'; 'I have a large room overlooking the garden.'. An -ed clause has a passive meaning, using the past participle (regular -ed or irregular: stolen/made/built etc.): 'The boy injured in the accident was taken to hospital.' (= who was injured); 'George showed me some pictures painted by his father.'. There is / there was etc. can be followed directly by an -ing or -ed clause: 'There were some children swimming in the river.'; 'There was a big red car parked outside the house.'; left used this way means 'not used, still there': 'There are only a few chocolates left.'. A correct student sentence should use an -ing clause with active/ongoing meaning, or an -ed clause (often a past participle) with passive meaning, correctly attached to the noun it describes."
+    }
+  ]
+};
+
+export const UNIT_98_ADJECTIVES_ING_AND_ED: GrammarUnit = {
+  "unit": 98,
+  "slug": "adjectives-ing-and-ed",
+  "title": "Adjectives ending in -ing and -ed (boring/bored etc.)",
+  "topic": "adjectives",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "Tính từ -ing và -ed",
+          "headingEn": "-ing and -ed adjectives",
+          "intro": "Study this example situation:",
+          "introVi": "Hãy xem tình huống ví dụ này:",
+          "parts": [
+            { "kind": "text", "text": "Many adjectives end in **-ing** and **-ed**, for example: **boring** and **bored**.", "vi": "Nhiều tính từ kết thúc bằng **-ing** và **-ed**, ví dụ: **boring** và **bored**." },
+            { "kind": "situation", "text": "Jane has been doing the same job for a very long time. Every day she does exactly the same thing again and again. She doesn't enjoy her job any more and would like to do something different.", "vi": "Jane đã làm cùng một công việc trong một thời gian rất dài. Ngày nào cô ấy cũng làm đi làm lại đúng một việc. Cô ấy không còn thích công việc của mình nữa và muốn làm điều gì đó khác." },
+            { "kind": "examples", "items": [
+              { "en": "Jane's job is **boring**.", "vi": "Công việc của Jane thật nhàm chán." },
+              { "en": "Jane is **bored** with her job.", "vi": "Jane cảm thấy chán với công việc của mình." }
+            ] },
+            { "kind": "text", "text": "Somebody is **bored** or gets **bored** if something (or somebody else) is **boring**. If something is **boring**, you get **bored** with it. So:", "vi": "Ai đó **bored** (chán) hoặc trở nên **bored** nếu điều gì đó (hoặc ai đó khác) **boring** (gây chán). Nếu điều gì đó **boring**, bạn sẽ **bored** với nó. Vì vậy:" },
+            { "kind": "examples", "items": [
+              { "en": "Jane **is bored** because her job **is boring**.", "vi": "Jane thấy chán vì công việc của cô ấy nhàm chán." },
+              { "en": "Jane's job **is boring**, so Jane **is bored**.", "note": "not Jane is boring", "vi": "Công việc của Jane nhàm chán, nên Jane thấy chán." }
+            ] },
+            { "kind": "text", "text": "If a person is **boring**, this means that they make other people **bored**:", "vi": "Nếu một người **boring**, nghĩa là người đó khiến người khác cảm thấy **bored**:" },
+            { "kind": "examples", "items": [ { "en": "Paul always talks about the same things. He's really **boring**.", "vi": "Paul lúc nào cũng nói về những chuyện y hệt nhau. Anh ấy thật sự nhàm chán." } ] }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "So sánh tính từ -ing và -ed",
+          "headingEn": "compare adjectives ending in -ing and -ed",
+          "parts": [
+            { "kind": "table", "table": { "headers": ["-ing", "-ed"], "variant": "grid", "rows": [
+              ["My job is **boring**.", "I'm **bored** with my job."],
+              ["My job is **interesting**.", "I'm not **interested** in my job any more."],
+              ["My job is **tiring**.", "I get very **tired** doing my job."],
+              ["My job is **satisfying**.", "I'm not **satisfied** with my job."],
+              ["My job is **depressing**.", "My job makes me **depressed**."]
+            ] } },
+            { "kind": "text", "text": "In these examples, the **-ing** adjective tells you about the job. The **-ed** adjective tells you how somebody feels (about the job).", "vi": "Trong các ví dụ này, tính từ **-ing** cho biết về công việc. Tính từ **-ed** cho biết cảm giác của ai đó (về công việc)." },
+            { "kind": "examples", "heading": "interesting / interested", "headingVi": "interesting / interested", "items": [
+              { "en": "Julia thinks politics is **interesting**.", "vi": "Julia thấy chính trị thú vị." },
+              { "en": "Did you meet anyone **interesting** at the party?", "vi": "Bạn có gặp ai thú vị ở bữa tiệc không?" },
+              { "en": "Julia is **interested** in politics.", "note": "not interesting in politics", "vi": "Julia quan tâm đến chính trị." },
+              { "en": "Are you **interested** in buying a car? I'm trying to sell mine.", "vi": "Bạn có quan tâm đến việc mua xe không? Tôi đang định bán xe của mình." }
+            ] },
+            { "kind": "examples", "heading": "surprising / surprised", "headingVi": "surprising / surprised", "items": [
+              { "en": "It was **surprising** that he passed the exam.", "vi": "Thật ngạc nhiên là anh ấy đã thi đậu." },
+              { "en": "Everybody was **surprised** that he passed the exam.", "vi": "Mọi người đều ngạc nhiên vì anh ấy đã thi đậu." }
+            ] },
+            { "kind": "examples", "heading": "disappointing / disappointed", "headingVi": "disappointing / disappointed", "items": [
+              { "en": "The movie was **disappointing**. We expected it to be better.", "vi": "Bộ phim thật đáng thất vọng. Chúng tôi đã mong nó hay hơn." },
+              { "en": "We were **disappointed** with the movie. We expected it to be better.", "vi": "Chúng tôi thất vọng về bộ phim. Chúng tôi đã mong nó hay hơn." }
+            ] },
+            { "kind": "examples", "heading": "shocking / shocked", "headingVi": "shocking / shocked", "items": [
+              { "en": "The news was **shocking**.", "vi": "Tin tức đó thật gây sốc." },
+              { "en": "I was **shocked** when I heard the news.", "vi": "Tôi đã sốc khi nghe tin đó." }
+            ] }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "98.1 · Hoàn thành câu cho mỗi tình huống, dùng từ trong ngoặc + -ing hoặc -ed",
+      "titleEn": "98.1 · Complete the sentences for each situation. Use the word in brackets + -ing or -ed",
+      "instructions": "Hoàn thành câu cho mỗi tình huống bằng từ trong ngoặc, thêm -ing hoặc -ed.",
+      "instructionsEn": "Complete the sentences for each situation. Use the word in brackets + -ing or -ed.",
+      "examples": [
+        { "label": "1a", "context": "The movie wasn't as good as we had expected. (disappoint...)", "prompt": "The movie was ___.", "answer": "disappointing" },
+        { "label": "1b", "context": "The movie wasn't as good as we had expected. (disappoint...)", "prompt": "We were ___ with the movie.", "answer": "disappointed" }
+      ],
+      "items": [
+        { "label": "2a", "context": "Donna teaches young children. It's a very hard job, but she enjoys it. (exhaust...)", "prompt": "She enjoys her job, but it's often ___.", "answer": "exhausting" },
+        { "label": "2b", "context": "Donna teaches young children. It's a very hard job, but she enjoys it. (exhaust...)", "prompt": "At the end of a day's work, she is often ___.", "answer": "exhausted" },
+        { "label": "3a", "context": "It's been raining all day. I hate this weather. (depress...)", "prompt": "This weather is ___.", "answer": "depressing" },
+        { "label": "3b", "context": "It's been raining all day. I hate this weather. (depress...)", "prompt": "This weather makes me ___.", "answer": "depressed" },
+        { "label": "3c", "context": "It's been raining all day. I hate this weather. (depress...)", "prompt": "It's silly to get ___ because of the weather.", "answer": "depressed" },
+        { "label": "4a", "context": "Clare is going to Mexico next month. She's never been there before. (excit...)", "prompt": "It will be an ___ experience for her.", "answer": "exciting" },
+        { "label": "4b", "context": "Clare is going to Mexico next month. She's never been there before. (excit...)", "prompt": "Going to new places is always ___.", "answer": "exciting" },
+        { "label": "4c", "context": "Clare is going to Mexico next month. She's never been there before. (excit...)", "prompt": "She is really ___ about going to Mexico.", "answer": "excited" }
+      ]
+    },
+    {
+      "kind": "fill_mc",
+      "title": "98.2 · Chọn từ đúng",
+      "titleEn": "98.2 · Choose the correct word",
+      "instructions": "Chọn từ đúng trong mỗi câu.",
+      "instructionsEn": "Choose the correct word.",
+      "examples": [
+        { "label": "1", "prompt": "I was ___ with the movie. I had expected it to be better.", "answer": "disappointed" }
+      ],
+      "items": [
+        { "before": "I'm not particularly", "after": "in football.", "options": ["interesting", "interested"], "answer": "interested" },
+        { "before": "The new project sounds", "after": ". I'm looking forward to working on it.", "options": ["exciting", "excited"], "answer": "exciting" },
+        { "before": "It can be", "after": "when you have to ask people for money.", "options": ["embarrassing", "embarrassed"], "answer": "embarrassing" },
+        { "before": "Do you easily get", "after": "?", "options": ["embarrassing", "embarrassed"], "answer": "embarrassed" },
+        { "before": "I'd never expected to get the job. I was", "after": "when I was offered it.", "options": ["amazing", "amazed"], "answer": "amazed" },
+        { "before": "She's learnt very fast. She's made", "after": "progress.", "options": ["amazing", "amazed"], "answer": "amazing" },
+        { "before": "I didn't find the situation funny. I was not", "after": ".", "options": ["amusing", "amused"], "answer": "amused" },
+        { "before": "I'm", "after": "in joining the club. How much does it cost?", "options": ["interesting", "interested"], "answer": "interested" },
+        { "label": "10a", "before": "It was a really", "after": "experience.", "options": ["terrifying", "terrified"], "answer": "terrifying" },
+        { "label": "10b", "before": "Everybody was very", "after": ".", "options": ["shocking", "shocked"], "answer": "shocked" },
+        { "label": "11a", "before": "Why do you always look so", "after": "?", "options": ["boring", "bored"], "answer": "bored" },
+        { "label": "11b", "before": "Is your life really so", "after": "?", "options": ["boring", "bored"], "answer": "boring" },
+        { "label": "12a", "before": "He's one of the most", "after": "people I've ever met.", "options": ["boring", "bored"], "answer": "boring" },
+        { "label": "12b", "before": "He never stops talking and he never says anything", "after": ".", "options": ["interesting", "interested"], "answer": "interesting" }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "98.3 · Hoàn thành mỗi câu bằng một từ trong khung",
+      "titleEn": "98.3 · Complete each sentence using a word from the box",
+      "instructions": "Hoàn thành mỗi câu bằng một từ phù hợp trong khung.",
+      "instructionsEn": "Complete each sentence using a word from the box.",
+      "wordBank": ["amusing", "amused", "annoying", "annoyed", "boring", "bored", "confusing", "confused", "disgusting", "disgusted", "exciting", "excited", "exhausting", "exhausted", "interesting", "interested", "surprising", "surprised"],
+      "examples": [
+        { "label": "1", "prompt": "You work very hard. It's not ___ that you're always tired.", "answer": "surprising" }
+      ],
+      "items": [
+        { "prompt": "Some people get ___ very easily. They always need something new.", "answer": "bored" },
+        { "prompt": "The teacher's explanation was ___. Nobody understood it.", "answer": "confusing" },
+        { "prompt": "The kitchen hadn't been cleaned for ages. It was really ___.", "answer": "disgusting" },
+        { "prompt": "I don't go to art galleries very often. I'm not very ___ in art.", "answer": "interested" },
+        { "prompt": "There's no need to get ___ just because I'm a few minutes late.", "answer": "annoyed" },
+        { "prompt": "The lecture was ___. I fell asleep.", "answer": "boring" },
+        { "prompt": "I've been working very hard all day and now I'm ___.", "answer": "exhausted" },
+        { "prompt": "I'm starting a new job next week. I'm very ___ about it.", "answer": "excited" },
+        { "prompt": "Steve is good at telling funny stories. He can be very ___.", "answer": "amusing" },
+        { "prompt": "Helen is a very ___ person. She knows a lot, she's travelled a lot and she's done lots of different things.", "answer": "interesting" }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng tính từ -ing để mô tả một sự vật/sự việc (ví dụ: 'The movie was boring.') và tính từ -ed tương ứng để mô tả cảm giác của một người (ví dụ: 'I was bored.').",
+      "instructionsEn": "Write 2-3 English sentences using an -ing adjective to describe a thing/situation (e.g. 'The movie was boring.') and its matching -ed adjective to describe how somebody feels (e.g. 'I was bored.').",
+      "ruleSummary": "This unit covers pairs of adjectives ending in -ing (boring, interesting, tiring, satisfying, depressing, exciting, surprising, disappointing, shocking, amusing, annoying, confusing, disgusting, exhausting etc.) and -ed (bored, interested, tired, satisfied, depressed, excited, surprised, disappointed, shocked, amused, annoyed, confused, disgusted, exhausted etc.). The -ing form describes the thing or situation itself: 'My job is boring.'; 'The news was shocking.'; 'The movie was disappointing.'. The -ed form describes how a person feels because of that thing: 'I'm bored with my job.'; 'I was shocked when I heard the news.'; 'We were disappointed with the movie.'. If a person is described with the -ing form, it means they cause that feeling in others: 'He's really boring.' (he makes other people bored). A correct student sentence should use the -ing form for the thing/situation causing a feeling, and the -ed form for the person who has that feeling."
+    }
+  ]
+};
+
+export const UNIT_99_ADJECTIVES_ORDER_AND_LOOK_FEEL_SOUND: GrammarUnit = {
+  "unit": 99,
+  "slug": "adjectives-order-and-look-feel-sound",
+  "title": "Adjectives: a nice new house, you look tired",
+  "topic": "adjectives",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "Tính từ chỉ quan điểm và tính từ chỉ sự thật",
+          "headingEn": "opinion adjectives and fact adjectives",
+          "parts": [
+            { "kind": "text", "text": "Sometimes we use two or more adjectives together:", "vi": "Đôi khi chúng ta dùng hai hoặc nhiều tính từ cùng nhau:" },
+            { "kind": "examples", "items": [
+              { "en": "My brother lives in a **nice new** house.", "vi": "Anh trai tôi sống trong một ngôi nhà mới đẹp." },
+              { "en": "In the kitchen there was a **beautiful large round wooden** table.", "vi": "Trong bếp có một cái bàn gỗ tròn to đẹp." }
+            ] },
+            { "kind": "text", "text": "Adjectives like *new*/*large*/*round*/*wooden* are **fact** adjectives. They give us information about age, size, colour etc.", "vi": "Những tính từ như *new*/*large*/*round*/*wooden* là tính từ chỉ **sự thật**. Chúng cho biết thông tin về tuổi, kích thước, màu sắc v.v." },
+            { "kind": "text", "text": "Adjectives like *nice*/*beautiful* are **opinion** adjectives. They tell us what the speaker thinks of something or somebody.", "vi": "Những tính từ như *nice*/*beautiful* là tính từ chỉ **quan điểm**. Chúng cho biết người nói nghĩ gì về một sự vật hay một người nào đó." },
+            { "kind": "text", "text": "**Opinion** adjectives usually go before **fact** adjectives.", "vi": "Tính từ chỉ **quan điểm** thường đứng trước tính từ chỉ **sự thật**." },
+            { "kind": "table", "table": { "headers": ["opinion", "fact", "noun"], "variant": "grid", "rows": [
+              ["a nice", "long", "summer holiday"],
+              ["an interesting", "young", "man"],
+              ["delicious", "hot", "vegetable soup"],
+              ["a beautiful", "large round wooden", "table"]
+            ] } }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "Thứ tự các tính từ chỉ sự thật",
+          "headingEn": "the order of fact adjectives",
+          "parts": [
+            { "kind": "text", "text": "Sometimes we use two or more fact adjectives together. Usually (not always) we put fact adjectives in this order:", "vi": "Đôi khi chúng ta dùng hai hoặc nhiều tính từ chỉ sự thật cùng nhau. Thông thường (không phải luôn luôn), chúng ta sắp xếp các tính từ chỉ sự thật theo thứ tự sau:" },
+            { "kind": "table", "table": { "variant": "list", "rows": [
+              ["1", "how big?"],
+              ["2", "how old?"],
+              ["3", "what colour?"],
+              ["4", "where from?"],
+              ["5", "what is it made of?"]
+            ] } },
+            { "kind": "examples", "items": [
+              { "en": "a **tall young** man", "note": "1, 2", "vi": "một người đàn ông cao và trẻ" },
+              { "en": "a **large wooden** table", "note": "1, 5", "vi": "một cái bàn gỗ to" },
+              { "en": "**big blue** eyes", "note": "1, 3", "vi": "đôi mắt to màu xanh" },
+              { "en": "an **old Russian** song", "note": "2, 4", "vi": "một bài hát Nga cũ" },
+              { "en": "a **small black plastic** bag", "note": "1, 3, 5", "vi": "một cái túi nhựa đen nhỏ" },
+              { "en": "an **old white cotton** shirt", "note": "2, 3, 5", "vi": "một cái áo sơ mi vải cotton trắng cũ" }
+            ] },
+            { "kind": "text", "text": "Adjectives of size and length (*big*/*small*/*tall*/*short*/*long* etc.) usually go before adjectives of shape and width (*round*/*fat*/*thin*/*slim*/*wide* etc.):", "vi": "Tính từ chỉ kích thước và chiều dài (*big*/*small*/*tall*/*short*/*long* v.v.) thường đứng trước tính từ chỉ hình dạng và bề rộng (*round*/*fat*/*thin*/*slim*/*wide* v.v.):" },
+            { "kind": "examples", "items": [
+              { "en": "a **large round** table", "vi": "một cái bàn tròn to" },
+              { "en": "a **tall thin** girl", "vi": "một cô gái cao và gầy" },
+              { "en": "a **long narrow** street", "vi": "một con phố dài và hẹp" }
+            ] },
+            { "kind": "text", "text": "When there are two or more colour adjectives, we use **and**:", "vi": "Khi có hai hoặc nhiều tính từ chỉ màu sắc, chúng ta dùng **and**:" },
+            { "kind": "examples", "items": [
+              { "en": "a **black and white** dress", "vi": "một chiếc váy đen trắng" },
+              { "en": "a **red, white and green** flag", "vi": "một lá cờ đỏ, trắng và xanh lá" }
+            ] },
+            { "kind": "text", "text": "This does not usually happen with other adjectives before a noun:", "vi": "Điều này thường không xảy ra với các tính từ khác đứng trước danh từ:" },
+            { "kind": "examples", "items": [ { "en": "a **long black** dress", "note": "not a long and black dress", "vi": "một chiếc váy đen dài" } ] }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "Tính từ sau be/get/become/seem và look/feel/sound/taste/smell",
+          "headingEn": "adjectives after be/get/become/seem, and look/feel/sound/taste/smell",
+          "parts": [
+            { "kind": "text", "text": "We use adjectives after **be**/**get**/**become**/**seem**:", "vi": "Chúng ta dùng tính từ sau **be**/**get**/**become**/**seem**:" },
+            { "kind": "examples", "items": [
+              { "en": "Be **careful**!", "vi": "Cẩn thận đấy!" },
+              { "en": "I'm **tired** and I'm getting **hungry**.", "vi": "Tôi mệt và tôi đang bắt đầu đói." },
+              { "en": "As the film went on, it became more and more **boring**.", "vi": "Khi bộ phim tiếp diễn, nó ngày càng trở nên nhàm chán." },
+              { "en": "Your friend seems very **nice**.", "vi": "Bạn của bạn có vẻ rất tốt bụng." }
+            ] },
+            { "kind": "text", "text": "We also use adjectives to say how somebody/something **looks**, **feels**, **sounds**, **tastes** or **smells**:", "vi": "Chúng ta cũng dùng tính từ để nói ai đó/cái gì đó trông **thế nào**, cảm thấy **thế nào**, nghe có vẻ **thế nào**, có vị **thế nào** hoặc có mùi **thế nào**:" },
+            { "kind": "examples", "items": [
+              { "en": "You **look tired**. / I **feel tired**. / She **sounds tired**.", "vi": "Trông bạn có vẻ mệt. / Tôi cảm thấy mệt. / Nghe giọng cô ấy có vẻ mệt." },
+              { "en": "The dinner **smells** good.", "vi": "Bữa tối có mùi thơm ngon." },
+              { "en": "This tea **tastes** a bit strange.", "vi": "Trà này có vị hơi lạ." }
+            ] },
+            { "kind": "text", "text": "But to say how somebody does something you must use an **adverb** (see Units 100-101):", "vi": "Nhưng để nói ai đó làm việc gì đó như thế nào, bạn phải dùng **trạng từ** (xem Unit 100-101):" },
+            { "kind": "examples", "items": [
+              { "en": "**Drive carefully**!", "note": "not Drive careful", "vi": "Lái xe cẩn thận nhé!" },
+              { "en": "Suzanne **plays** the piano **very well**.", "note": "not plays ... very good", "vi": "Suzanne chơi piano rất giỏi." }
+            ] }
+          ]
+        },
+        {
+          "label": "D",
+          "heading": "the first two days, the next few weeks...",
+          "headingEn": "the first two days, the next few weeks etc.",
+          "parts": [
+            { "kind": "text", "text": "We say **the first two days**, **the next few weeks**, **the last ten minutes** etc.:", "vi": "Chúng ta nói **the first two days**, **the next few weeks**, **the last ten minutes** v.v.:" },
+            { "kind": "examples", "items": [
+              { "en": "I didn't enjoy **the first two days** of the course.", "note": "not the two first days", "vi": "Tôi đã không thích hai ngày đầu của khóa học." },
+              { "en": "They'll be away for **the next few weeks**.", "note": "not the few next weeks", "vi": "Họ sẽ đi vắng trong vài tuần tới." }
+            ] }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "99.1 · Sắp xếp các tính từ trong ngoặc đúng vị trí",
+      "titleEn": "99.1 · Put the adjectives in brackets in the correct position",
+      "instructions": "Sắp xếp tính từ trong ngoặc vào đúng vị trí để hoàn thành cụm từ.",
+      "instructionsEn": "Put the adjectives in brackets in the correct position.",
+      "examples": [
+        { "label": "1", "context": "a beautiful table (wooden / round)", "prompt": "___", "answer": "a beautiful round wooden table" }
+      ],
+      "items": [
+        { "context": "an unusual ring (gold)", "prompt": "___", "answer": "an unusual gold ring" },
+        { "context": "an old house (beautiful)", "prompt": "___", "answer": "a beautiful old house" },
+        { "context": "red gloves (leather)", "prompt": "___", "answer": "red leather gloves" },
+        { "context": "an American film (old)", "prompt": "___", "answer": "an old American film" },
+        { "context": "pink flowers (tiny)", "prompt": "___", "answer": "tiny pink flowers" },
+        { "context": "a long face (thin)", "prompt": "___", "answer": "a long thin face" },
+        { "context": "big clouds (black)", "prompt": "___", "answer": "big black clouds" },
+        { "context": "a sunny day (lovely)", "prompt": "___", "answer": "a lovely sunny day" },
+        { "context": "an ugly dress (yellow)", "prompt": "___", "answer": "an ugly yellow dress" },
+        { "context": "a wide avenue (long)", "prompt": "___", "answer": "a long wide avenue" },
+        { "context": "important ideas (new)", "prompt": "___", "answer": "important new ideas" },
+        { "context": "a new sweater (green / nice)", "prompt": "___", "answer": "a nice new green sweater" },
+        { "context": "a metal box (black / small)", "prompt": "___", "answer": "a small black metal box" },
+        { "context": "long hair (black / beautiful)", "prompt": "___", "answer": "beautiful long black hair" },
+        { "context": "an old painting (interesting / French)", "prompt": "___", "answer": "an interesting old French painting" },
+        { "context": "a large umbrella (red / yellow)", "prompt": "___", "answer": "a large red and yellow umbrella" },
+        { "context": "a big cat (black / white / fat)", "prompt": "___", "answer": "a big fat black and white cat" }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "99.2 · Hoàn thành mỗi câu bằng một động từ (đúng dạng) và một tính từ trong khung",
+      "titleEn": "99.2 · Complete each sentence with a verb (in the correct form) and an adjective from the boxes",
+      "instructions": "Hoàn thành mỗi câu bằng một động từ (chia đúng dạng) và một tính từ, chọn trong hai khung cho sẵn.",
+      "instructionsEn": "Complete each sentence with a verb (in the correct form) and an adjective from the boxes.",
+      "wordBank": ["feel", "look", "seem", "smell", "sound", "taste", "awful", "nervous", "interesting", "nice", "upset", "wet"],
+      "examples": [
+        { "label": "1", "prompt": "Helen ___ this morning. Do you know what was wrong?", "answer": "seemed upset" }
+      ],
+      "items": [
+        { "prompt": "I can't eat this. I've just tried it and it ___.", "answer": "tastes awful" },
+        { "prompt": "It's normal to ___ before an exam or an interview.", "answer": "feel nervous" },
+        { "prompt": "What beautiful flowers! They ___ too.", "answer": "smell nice" },
+        { "prompt": "You ___. Have you been out in the rain?", "answer": "look wet" },
+        { "prompt": "James told me about his new job. It ___, much better than his old job.", "answer": "sounds interesting" }
+      ]
+    },
+    {
+      "kind": "fill_mc",
+      "title": "99.3 · Chọn từ đúng",
+      "titleEn": "99.3 · Put in the correct word",
+      "instructions": "Chọn từ đúng (tính từ hay trạng từ) cho mỗi câu.",
+      "instructionsEn": "Put in the correct word.",
+      "examples": [
+        { "label": "1", "prompt": "This tea tastes a bit ___.", "answer": "strange" }
+      ],
+      "items": [
+        { "before": "I usually feel", "after": "when the sun is shining.", "options": ["happy", "happily"], "answer": "happy" },
+        { "before": "The children were playing", "after": "in the garden.", "options": ["happy", "happily"], "answer": "happily" },
+        { "before": "You look", "after": "! Are you all right?", "options": ["terrible", "terribly"], "answer": "terrible" },
+        { "before": "There's no point in doing a job if you don't do it", "after": ".", "options": ["proper", "properly"], "answer": "properly" },
+        { "before": "The soup tastes", "after": ". Can you give me the recipe?", "options": ["good", "well"], "answer": "good" },
+        { "before": "Please hurry up! You're always so", "after": "!", "options": ["slow", "slowly"], "answer": "slow" },
+        { "before": "A customer in the restaurant was behaving", "after": ".", "options": ["bad", "badly"], "answer": "badly" },
+        { "before": "The customer became", "after": "when the manager asked him to leave.", "options": ["violent", "violently"], "answer": "violent" }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "99.4 · Viết lại theo cách khác, dùng the first .../the next .../the last ...",
+      "titleEn": "99.4 · Write the following in another way using the first ... / the next ... / the last ...",
+      "instructions": "Viết lại mỗi cụm sau theo cách khác, dùng the first .../the next .../the last ...",
+      "instructionsEn": "Write the following in another way using the first ... / the next ... / the last ... .",
+      "examples": [
+        { "label": "1", "context": "the first day and the second day of the course", "prompt": "___", "answer": "the first two days of the course" },
+        { "label": "2", "context": "next week and the week after", "prompt": "___", "answer": "the next two weeks" }
+      ],
+      "items": [
+        { "context": "yesterday and the day before yesterday", "prompt": "___", "answer": "the last two days" },
+        { "context": "the first week and the second week of May", "prompt": "___", "answer": "the first two weeks of May" },
+        { "context": "tomorrow and a few days after that", "prompt": "___", "answer": "the next few days" },
+        { "context": "questions 1, 2 and 3 in the exam", "prompt": "___", "answer": "the first three questions in the exam" },
+        { "context": "next year and the year after", "prompt": "___", "answer": "the next two years" },
+        { "context": "the last day of our holiday and the two days before that", "prompt": "___", "answer": "the last three days of our holiday" }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng nhiều tính từ cùng lúc theo đúng thứ tự (ví dụ: 'a beautiful old French painting'), hoặc dùng tính từ sau look/feel/sound/taste/smell (ví dụ: 'You look tired.').",
+      "instructionsEn": "Write 2-3 English sentences using more than one adjective in the correct order (e.g. 'a beautiful old French painting'), or an adjective after look/feel/sound/taste/smell (e.g. 'You look tired.').",
+      "ruleSummary": "This unit covers adjective order and adjectives after linking verbs. Opinion adjectives (nice, beautiful, interesting) usually go before fact adjectives (new, large, round, wooden): 'a nice new house'. Among fact adjectives, the usual order is: how big, how old, what colour, where from, what made of: 'a tall young man', 'an old white cotton shirt'. Size/length adjectives (big/small/tall/long) usually go before shape/width adjectives (round/fat/thin/wide): 'a large round table'. Two or more colour adjectives are joined with and: 'a black and white dress', but this and is not used with other adjective combinations: 'a long black dress' (not a long and black dress). Adjectives (not adverbs) are used after be/get/become/seem and after look/feel/sound/taste/smell: 'Your friend seems nice.'; 'You look tired.'; 'This tea tastes strange.'. But an adverb is needed to say how somebody does something: 'Drive carefully!' (not Drive careful); 'Suzanne plays the piano very well.'. We also say 'the first two days', 'the next few weeks', 'the last ten minutes' (not 'the two first days'). A correct student sentence should order multiple adjectives correctly (opinion before fact, then big/old/colour/origin/material), or correctly use an adjective (not an adverb) after a linking verb like look/feel/sound/taste/smell."
+    }
+  ]
+};

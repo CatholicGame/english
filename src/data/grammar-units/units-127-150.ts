@@ -580,3 +580,1786 @@ export const UNIT_129_NOUN_PREPOSITION_REASON_FOR_CAUSE_OF: GrammarUnit = {
     }
   ]
 };
+export const UNIT_130_ADJECTIVE_PREPOSITION_1: GrammarUnit = {
+  "unit": 130,
+  "slug": "adjective-plus-preposition-1",
+  "title": "Adjective + preposition 1",
+  "topic": "conjunctions and prepositions",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "nice of you, nice to me",
+          "headingEn": "nice of you, nice to me",
+          "parts": [
+            { "kind": "text", "text": "**nice** / **kind** / **good** / **generous** / **polite** / **honest** / **stupid** / **silly** etc. **OF** somebody (to do something):", "vi": "**nice** (tử tế) / **kind** (tốt bụng) / **good** (tốt) / **generous** (hào phóng) / **polite** (lịch sự) / **honest** (trung thực) / **stupid** (ngốc) / **silly** (khờ dại) v.v. **OF** ai đó (khi làm gì): dùng để nhận xét về một hành động ai đó vừa làm." },
+            { "kind": "examples", "items": [
+              { "en": "Thank you. It was very **nice of** you to help me.", "vi": "Cảm ơn bạn. Bạn thật tử tế khi giúp tôi." },
+              { "en": "It was **stupid of** me to go out without a coat in such cold weather.", "vi": "Thật ngốc khi tôi ra ngoài mà không mặc áo khoác trong thời tiết lạnh như vậy." }
+            ] },
+            { "kind": "text", "text": "(be) **nice** / **kind** / **good** / **generous** / **polite** / **rude** / **friendly** / **cruel** etc. **TO** somebody:", "vi": "(be) **nice** / **kind** / **good** / **generous** / **polite** / **rude** (thô lỗ) / **friendly** (thân thiện) / **cruel** (tàn nhẫn) v.v. **TO** ai đó: dùng để nói về cách cư xử với ai đó." },
+            { "kind": "examples", "items": [
+              { "en": "They have always been very **nice to** me.", "note": "(not with me)", "vi": "Họ luôn luôn rất tử tế với tôi." },
+              { "en": "Why were you so unfriendly **to** Lucy?", "vi": "Sao bạn lại không thân thiện với Lucy như vậy?" }
+            ] }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "tính từ + about / with",
+          "headingEn": "adjective + about / with",
+          "parts": [
+            { "kind": "text", "text": "**angry** / **annoyed** / **furious** / **upset ABOUT** something, or **WITH** somebody **FOR** doing something:", "vi": "**angry** (tức giận) / **annoyed** (khó chịu) / **furious** (giận dữ) / **upset** (buồn bực) **ABOUT** một việc gì đó, hoặc **WITH** ai đó **FOR** việc họ đã làm:" },
+            { "kind": "examples", "items": [
+              { "en": "There's no point in getting **angry about** things that don't matter.", "vi": "Chẳng ích gì khi tức giận về những chuyện không quan trọng." },
+              { "en": "Are you **annoyed with** me **for** being late?", "vi": "Bạn có khó chịu với tôi vì tôi đến muộn không?" },
+              { "en": "Lisa is **upset about** not being invited to the party.", "vi": "Lisa buồn vì không được mời đến bữa tiệc." }
+            ] },
+            { "kind": "text", "text": "**excited** / **worried** / **nervous** / **happy** etc. **ABOUT** something:", "vi": "**excited** (hào hứng) / **worried** (lo lắng) / **nervous** (hồi hộp) / **happy** (vui) v.v. **ABOUT** một việc gì đó:" },
+            { "kind": "examples", "items": [
+              { "en": "Are you **nervous about** the exam?", "vi": "Bạn có hồi hộp về kỳ thi không?" }
+            ] },
+            { "kind": "text", "text": "**pleased** / **satisfied** / **happy** / **delighted** / **disappointed WITH** something you get or experience:", "vi": "**pleased** (hài lòng) / **satisfied** (thoả mãn) / **happy** / **delighted** (rất vui) / **disappointed** (thất vọng) **WITH** một điều gì đó bạn nhận được hoặc trải qua:" },
+            { "kind": "examples", "items": [
+              { "en": "They were **delighted with** the present I gave them.", "vi": "Họ rất vui với món quà tôi tặng." },
+              { "en": "Were you **happy with** your exam results?", "vi": "Bạn có hài lòng với kết quả thi của mình không?" }
+            ] }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "tính từ + at / by / with / of",
+          "headingEn": "adjective + at / by / with / of",
+          "parts": [
+            { "kind": "text", "text": "**surprised** / **shocked** / **amazed** / **astonished** / **upset AT** / **BY** something:", "vi": "**surprised** (ngạc nhiên) / **shocked** (sốc) / **amazed** (kinh ngạc) / **astonished** (sửng sốt) / **upset AT** / **BY** một điều gì đó:" },
+            { "kind": "examples", "items": [
+              { "en": "Everybody was **surprised at** the news. or ... **by** the news.", "vi": "Mọi người đều ngạc nhiên trước tin đó." },
+              { "en": "I hope you weren't **shocked by** what I said. or ... **at** what I said.", "vi": "Tôi hy vọng bạn không sốc vì những gì tôi nói." }
+            ] },
+            { "kind": "text", "text": "**impressed WITH** / **BY** somebody/something:", "vi": "**impressed** (ấn tượng) **WITH** / **BY** ai đó/điều gì đó:" },
+            { "kind": "examples", "items": [
+              { "en": "I'm very **impressed with** (or **by**) her English. It's very good.", "vi": "Tôi rất ấn tượng với tiếng Anh của cô ấy. Nó rất tốt." }
+            ] },
+            { "kind": "text", "text": "**fed up** / **bored WITH** something:", "vi": "**fed up** (chán ngấy) / **bored** (chán) **WITH** một điều gì đó:" },
+            { "kind": "examples", "items": [
+              { "en": "I don't enjoy my job any more. I'm **fed up with** it. / I'm **bored with** it.", "vi": "Tôi không còn thích công việc của mình nữa. Tôi chán ngấy nó rồi. / Tôi chán nó rồi." }
+            ] },
+            { "kind": "text", "text": "**tired OF** something:", "vi": "**tired OF** (chán, mệt mỏi vì) một điều gì đó:" },
+            { "kind": "examples", "items": [
+              { "en": "Come on, let's go! I'm **tired of** waiting.", "vi": "Thôi nào, đi thôi! Tôi chán phải chờ đợi rồi." }
+            ] }
+          ]
+        },
+        {
+          "label": "D",
+          "heading": "sorry about / for",
+          "headingEn": "sorry about / for",
+          "parts": [
+            { "kind": "text", "text": "**sorry ABOUT** a situation or something that happened:", "vi": "**sorry ABOUT** một tình huống hoặc một điều gì đó đã xảy ra:" },
+            { "kind": "examples", "items": [
+              { "en": "I'm **sorry about** the mess. I'll clear it up later.", "vi": "Tôi xin lỗi vì sự bừa bộn này. Tôi sẽ dọn dẹp sau." },
+              { "en": "**Sorry about** last night.", "note": "(= Sorry about something that happened last night)", "vi": "Xin lỗi về chuyện tối qua." }
+            ] },
+            { "kind": "text", "text": "**sorry FOR** / **ABOUT** something you did or caused:", "vi": "**sorry FOR** / **ABOUT** một điều gì đó chính bạn đã làm hoặc gây ra:" },
+            { "kind": "examples", "items": [
+              { "en": "I'm **sorry for** shouting at you yesterday.", "note": "(or sorry about shouting)", "vi": "Tôi xin lỗi vì đã quát bạn hôm qua." },
+              { "en": "**Sorry for** the delay.", "note": "(or Sorry about the delay)", "vi": "Xin lỗi vì sự chậm trễ." }
+            ] },
+            { "kind": "text", "text": "You can also say 'I'm sorry I (did something)':", "vi": "Bạn cũng có thể nói 'I'm sorry I (đã làm gì đó)':" },
+            { "kind": "examples", "items": [
+              { "en": "I'm **sorry I** shouted at you yesterday.", "vi": "Tôi xin lỗi vì đã quát bạn hôm qua." }
+            ] },
+            { "kind": "text", "text": "**feel** / **be sorry FOR** somebody in a bad situation:", "vi": "**feel** / **be sorry FOR** ai đó đang gặp hoàn cảnh khó khăn:" },
+            { "kind": "examples", "items": [
+              { "en": "I feel **sorry for** Mark. He's had a lot of bad luck.", "note": "(not I feel sorry about Mark)", "vi": "Tôi thấy tội nghiệp cho Mark. Anh ấy đã gặp rất nhiều xui xẻo." }
+            ] }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "130.1 · Hoàn thành câu dùng nice of ..., kind of ...",
+      "titleEn": "130.1 · Complete the sentences using nice of ..., kind of ... etc.",
+      "instructions": "Hoàn thành câu thứ hai bằng cách dùng tính từ trong ngoặc + of.",
+      "instructionsEn": "Complete the sentences using nice of ..., kind of ... etc.",
+      "examples": [
+        { "label": "1", "context": "Tom offered to drive me to the airport. (nice)", "prompt": "___", "answer": "That was nice of him." }
+      ],
+      "items": [
+        { "context": "I needed money and Lisa gave me some. (generous)", "prompt": "___", "answer": "That was generous of her." },
+        { "context": "They didn't invite us to their party. (not very nice)", "prompt": "___", "answer": "That wasn't very nice of them." },
+        { "context": "Can I help you with your luggage? (very kind)", "prompt": "___", "answer": "That's very kind of you." },
+        { "context": "Kevin never says 'thank you'. (not very polite)", "prompt": "___", "answer": "That isn't very polite of him." },
+        { "context": "They've had an argument and now they refuse to speak to each other. (a bit childish)", "prompt": "___", "answer": "That's a bit childish of them." }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "130.2 · Điền tính từ + giới từ",
+      "titleEn": "130.2 · Complete the sentences using an adjective + preposition",
+      "instructions": "Điền một tính từ trong khung + giới từ phù hợp vào chỗ trống.",
+      "instructionsEn": "Complete the sentences using an adjective + preposition. Choose from the box.",
+      "wordBank": ["amazed", "angry", "bored", "careless", "excited", "impressed", "kind", "nervous"],
+      "examples": [
+        { "label": "1", "prompt": "Are you ___ the exam?", "answer": "nervous about" }
+      ],
+      "items": [
+        { "prompt": "Thank you for all you've done. You've been very ___ me.", "answer": "kind to" },
+        { "prompt": "What have I done wrong? Why are you ___ me?", "answer": "angry with" },
+        { "prompt": "You must be very ___ your trip next week. It sounds really great.", "answer": "excited about" },
+        { "prompt": "I wasn't ___ the service in the restaurant. We had to wait ages.", "answer": "impressed with", "accept": ["impressed by"] },
+        { "prompt": "Ben isn't very happy at college. He says he's ___ the course he's doing.", "answer": "bored with" },
+        { "prompt": "I'd never seen so many people before. I was ___ the crowds.", "answer": "amazed at", "accept": ["amazed by"] },
+        { "prompt": "It was ___ you to leave the car unlocked while you were shopping.", "answer": "careless of" }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "130.3 · Điền giới từ phù hợp",
+      "titleEn": "130.3 · Put in the correct preposition",
+      "instructions": "Điền giới từ phù hợp vào chỗ trống.",
+      "instructionsEn": "Put in the correct preposition.",
+      "wordBank": ["of", "to", "with", "at", "about", "for"],
+      "examples": [
+        { "label": "1", "prompt": "They were delighted ___ the present I gave them.", "answer": "with" }
+      ],
+      "items": [
+        { "prompt": "It was nice ___ you to come and see me when I was ill.", "answer": "of" },
+        { "prompt": "Why are you always so rude ___ people? Why can't you be more polite?", "answer": "to" },
+        { "prompt": "We always have the same food every day. I'm fed up ___ it.", "answer": "with" },
+        { "prompt": "We had a good holiday, but we were disappointed ___ the hotel.", "answer": "with" },
+        { "prompt": "I can't understand people who are cruel ___ animals.", "answer": "to" },
+        { "prompt": "I was surprised ___ the way he behaved. It was completely out of character.", "answer": "at", "accept": ["by"] },
+        { "prompt": "I've been trying to learn Japanese, but I'm not very satisfied ___ my progress.", "answer": "with" },
+        { "prompt": "Tanya doesn't look very well. I'm worried ___ her.", "answer": "about" },
+        { "prompt": "I'm sorry ___ yesterday. I completely forgot we'd arranged to meet.", "answer": "about", "accept": ["for"] },
+        { "prompt": "There's no point in feeling sorry ___ yourself. It won't help you.", "answer": "for" },
+        { "prompt": "Are you still upset ___ what I said to you yesterday?", "answer": "about" },
+        { "prompt": "Some people say Kate is unfriendly, but she's always been very nice ___ me.", "answer": "to" },
+        { "prompt": "I'm tired ___ doing the same thing every day. I need a change.", "answer": "of" },
+        { "prompt": "We interviewed ten people for the job, and we weren't impressed ___ any of them.", "answer": "with", "accept": ["by"] },
+        { "prompt": "Vicky is annoyed ___ me because I didn't agree with her.", "answer": "with" },
+        { "prompt": "I'm sorry ___ the smell in this room. I've just finished painting it.", "answer": "about", "accept": ["for"] },
+        { "prompt": "I was shocked ___ what I saw. I'd never seen anything like it before.", "answer": "at", "accept": ["by"] },
+        { "prompt": "Jack is sorry ___ what he did. He won't do it again.", "answer": "for", "accept": ["about"] },
+        { "prompt": "The hotel was incredibly expensive. I was amazed ___ the price of a room.", "answer": "at", "accept": ["by"] },
+        { "prompt": "Paul made the wrong decision. It was honest ___ him to admit it.", "answer": "of" },
+        { "prompt": "You've been very generous ___ me. You've helped me a lot.", "answer": "to" },
+        { "prompt": "Our neighbours were very angry ___ the noise we made.", "answer": "about" },
+        { "prompt": "Our neighbours were furious ___ us ___ making so much noise.", "answer": "with", "extraBlanks": [{ "answer": "for" }] }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng tính từ + giới từ, ví dụ 'It was kind of you to help me.', 'I'm worried about my exam.', 'She's angry with me for being late.'.",
+      "instructionsEn": "Write 2-3 English sentences using adjective + preposition, e.g. 'It was kind of you to help me.', 'I'm worried about my exam.', 'She's angry with me for being late.'.",
+      "ruleSummary": "This unit covers fixed adjective + preposition combinations. Judging an action: nice/kind/good/generous/polite/honest/stupid/silly OF somebody (to do something). Describing behaviour towards somebody: nice/kind/good/generous/polite/rude/friendly/cruel TO somebody. Feelings: angry/annoyed/furious/upset ABOUT something or WITH somebody FOR doing something; excited/worried/nervous/happy ABOUT something; pleased/satisfied/happy/delighted/disappointed WITH something. Reactions: surprised/shocked/amazed/astonished/upset AT or BY something; impressed WITH or BY; fed up/bored WITH; tired OF. Apologising: sorry ABOUT a situation, sorry FOR/ABOUT something you did, sorry FOR somebody in a bad situation. A correct student sentence should pair each adjective with its fixed preposition rather than a different one that happens to translate literally from Vietnamese."
+    }
+  ]
+};
+
+export const UNIT_131_ADJECTIVE_PREPOSITION_2: GrammarUnit = {
+  "unit": 131,
+  "slug": "adjective-plus-preposition-2",
+  "title": "Adjective + preposition 2",
+  "topic": "conjunctions and prepositions",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "tính từ + of",
+          "headingEn": "adjective + of",
+          "parts": [
+            { "kind": "text", "text": "**afraid** / **scared** / **frightened** / **terrified OF** ...:", "vi": "**afraid** / **scared** / **frightened** / **terrified OF** ... (sợ):" },
+            { "kind": "examples", "items": [
+              { "en": "'Are you **afraid of** spiders?' 'Yes, I'm **terrified of** them.'", "vi": "'Bạn có sợ nhện không?' 'Có, tôi cực kỳ sợ chúng.'" }
+            ] },
+            { "kind": "text", "text": "**fond** / **proud** / **ashamed** / **jealous** / **envious OF** ...:", "vi": "**fond** (quý mến) / **proud** (tự hào) / **ashamed** (xấu hổ) / **jealous** (ghen tị) / **envious** (đố kỵ) **OF** ...:" },
+            { "kind": "examples", "items": [
+              { "en": "Why is he so **jealous of** other people?", "vi": "Sao anh ta lại ghen tị với người khác như vậy?" }
+            ] },
+            { "kind": "text", "text": "**suspicious** / **critical** / **tolerant OF** ...:", "vi": "**suspicious** (nghi ngờ) / **critical** (chỉ trích) / **tolerant** (khoan dung) **OF** ...:" },
+            { "kind": "examples", "items": [
+              { "en": "They didn't trust me. They were **suspicious of** my motives.", "vi": "Họ không tin tôi. Họ nghi ngờ động cơ của tôi." }
+            ] },
+            { "kind": "text", "text": "**aware** / **conscious OF** ...:", "vi": "**aware** / **conscious OF** ... (nhận thức được, biết về):" },
+            { "kind": "examples", "items": [
+              { "en": "'Did you know he was married?' 'No, I wasn't **aware of** that.'", "vi": "'Bạn có biết anh ấy đã kết hôn chưa?' 'Không, tôi không biết điều đó.'" }
+            ] },
+            { "kind": "text", "text": "**capable** / **incapable OF** ...:", "vi": "**capable** / **incapable OF** ... (có/không có khả năng):" },
+            { "kind": "examples", "items": [
+              { "en": "I'm sure you are **capable of** doing the job well.", "vi": "Tôi chắc chắn bạn có khả năng làm tốt công việc này." }
+            ] },
+            { "kind": "text", "text": "**full** / **short OF** ...:", "vi": "**full OF** ... (đầy) / **short OF** ... (thiếu):" },
+            { "kind": "examples", "items": [
+              { "en": "Amy is a very active person. She's always **full of** energy.", "vi": "Amy là một người rất năng động. Cô ấy luôn tràn đầy năng lượng." },
+              { "en": "I'm a bit **short of** money. Can you lend me some?", "vi": "Tôi hơi thiếu tiền. Bạn có thể cho tôi mượn một ít không?" }
+            ] },
+            { "kind": "text", "text": "**typical OF** ...:", "vi": "**typical OF** ... (điển hình của, đúng là kiểu của):" },
+            { "kind": "examples", "items": [
+              { "en": "He's late again. It's **typical of** him to keep everybody waiting.", "vi": "Anh ta lại đến muộn. Đúng là kiểu của anh ta, bắt mọi người phải chờ." }
+            ] },
+            { "kind": "text", "text": "**certain** / **sure OF** or **ABOUT** ...:", "vi": "**certain** / **sure OF** hoặc **ABOUT** ... (chắc chắn về):" },
+            { "kind": "examples", "items": [
+              { "en": "I think she's arriving this evening, but I'm not **sure of** that. or ... not **sure about** that.", "vi": "Tôi nghĩ cô ấy sẽ đến tối nay, nhưng tôi không chắc chắn về điều đó." }
+            ] }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "tính từ + at / to / from / in / on / with / for",
+          "headingEn": "adjective + at / to / from / in / on / with / for",
+          "parts": [
+            { "kind": "text", "text": "**good** / **bad** / **brilliant** / **better** / **hopeless** etc. **AT** ...:", "vi": "**good** / **bad** / **brilliant** (xuất sắc) / **better** / **hopeless** (kém, dở) v.v. **AT** ... (giỏi/kém về):" },
+            { "kind": "examples", "items": [
+              { "en": "I'm not very **good at** repairing things.", "note": "(not good in repairing things)", "vi": "Tôi không giỏi sửa chữa đồ đạc lắm." }
+            ] },
+            { "kind": "text", "text": "**married** / **engaged TO** ...:", "vi": "**married** (đã kết hôn) / **engaged** (đính hôn) **TO** ...:" },
+            { "kind": "examples", "items": [
+              { "en": "Louise is **married to** an American.", "note": "(not married with)", "vi": "Louise đã kết hôn với một người Mỹ." }
+            ] },
+            { "kind": "text", "text": "but Louise is **married with** three children. (= she is married and has three children)", "vi": "nhưng Louise is **married with** three children nghĩa là cô ấy đã kết hôn và có ba con." },
+            { "kind": "text", "text": "**similar TO** ...:", "vi": "**similar TO** ... (giống với):" },
+            { "kind": "examples", "items": [
+              { "en": "Your handwriting is **similar to** mine.", "vi": "Chữ viết tay của bạn giống với chữ của tôi." }
+            ] },
+            { "kind": "text", "text": "**different FROM** or **different TO** ...:", "vi": "**different FROM** hoặc **different TO** ... (khác với):" },
+            { "kind": "examples", "items": [
+              { "en": "The film was **different from** what I'd expected. or ... **different to** what I'd expected.", "vi": "Bộ phim khác với những gì tôi mong đợi." }
+            ] },
+            { "kind": "text", "text": "**interested IN** ...:", "vi": "**interested IN** ... (quan tâm đến):" },
+            { "kind": "examples", "items": [
+              { "en": "Are you **interested in** art?", "vi": "Bạn có quan tâm đến nghệ thuật không?" }
+            ] },
+            { "kind": "text", "text": "**keen ON** ...:", "vi": "**keen ON** ... (thích, hào hứng với):" },
+            { "kind": "examples", "items": [
+              { "en": "We stayed at home. Chris wasn't **keen on** going out.", "vi": "Chúng tôi ở nhà. Chris không hào hứng với việc đi ra ngoài." }
+            ] },
+            { "kind": "text", "text": "**dependent ON** ... (but **independent OF** ...):", "vi": "**dependent ON** ... (phụ thuộc vào), nhưng **independent OF** ... (độc lập với):" },
+            { "kind": "examples", "items": [
+              { "en": "I don't want to be **dependent on** anybody.", "vi": "Tôi không muốn phụ thuộc vào bất kỳ ai." }
+            ] },
+            { "kind": "text", "text": "**crowded WITH** (people etc.):", "vi": "**crowded WITH** (đông đúc bởi) (người v.v.):" },
+            { "kind": "examples", "items": [
+              { "en": "The streets were **crowded with** tourists.", "note": "(but ... full of tourists)", "vi": "Các con phố đông đúc khách du lịch." }
+            ] },
+            { "kind": "text", "text": "**famous FOR** ...:", "vi": "**famous FOR** ... (nổi tiếng về):" },
+            { "kind": "examples", "items": [
+              { "en": "The Italian city of Florence is **famous for** its art treasures.", "vi": "Thành phố Florence của Ý nổi tiếng về những kho báu nghệ thuật." }
+            ] },
+            { "kind": "text", "text": "**responsible FOR** ...:", "vi": "**responsible FOR** ... (chịu trách nhiệm về):" },
+            { "kind": "examples", "items": [
+              { "en": "Who was **responsible for** all that noise last night?", "vi": "Ai đã chịu trách nhiệm về tất cả tiếng ồn tối qua vậy?" }
+            ] }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "131.1 · Điền tính từ + of",
+      "titleEn": "131.1 · Complete the sentences using an adjective + of",
+      "instructions": "Điền một tính từ trong khung + of vào chỗ trống.",
+      "instructionsEn": "Complete the sentences using an adjective + of. Choose from the box.",
+      "wordBank": ["ashamed", "aware", "capable", "envious", "proud", "scared", "short", "typical"],
+      "examples": [
+        { "label": "1", "prompt": "I'm a bit ___ money. Can you lend me some?", "answer": "short of" }
+      ],
+      "items": [
+        { "context": "My children have done very well.", "prompt": "I'm ___ them.", "answer": "proud of" },
+        { "context": "What I did was very bad.", "prompt": "I'm ___ myself.", "answer": "ashamed of" },
+        { "context": "She always behaves like that.", "prompt": "It's ___ her.", "answer": "typical of" },
+        { "context": "He wouldn't be able to run his own business.", "prompt": "He's not ___ it.", "answer": "capable of" },
+        { "context": "I don't like going up ladders.", "prompt": "I'm ___ heights.", "answer": "scared of" },
+        { "context": "Nobody told me she was ill.", "prompt": "I wasn't ___ it.", "answer": "aware of" },
+        { "context": "I wish I had what Sarah has.", "prompt": "I'm ___ her.", "answer": "envious of" }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "131.3 · Điền tính từ + giới từ",
+      "titleEn": "131.3 · Complete the sentences using an adjective + preposition",
+      "instructions": "Điền một tính từ trong khung + giới từ phù hợp vào chỗ trống. (Bài 131.2 yêu cầu viết câu về bản thân nên không đưa vào đây; hãy luyện chủ đề đó ở phần Luyện với AI.)",
+      "instructionsEn": "Complete the sentences using an adjective + preposition. Choose from the box. (Exercise 131.2 asks you to write personal sentences about yourself and is skipped here; practise that theme in the AI practice step instead.)",
+      "wordBank": ["afraid", "capable", "different", "interested", "proud", "responsible", "similar", "sure"],
+      "examples": [
+        { "label": "1", "prompt": "I think she's arriving this evening, but I'm not ___ that.", "answer": "sure of" }
+      ],
+      "items": [
+        { "prompt": "Your camera is ___ mine, but it isn't exactly the same.", "answer": "similar to" },
+        { "prompt": "Don't worry. I'll look after you. There's nothing to be ___.", "answer": "afraid of" },
+        { "prompt": "I never watch the news on TV. I'm not ___ the news.", "answer": "interested in" },
+        { "prompt": "The editor is the person who is ___ what appears in a newspaper.", "answer": "responsible for" },
+        { "prompt": "Sarah is a keen gardener and is very ___ her garden.", "answer": "proud of" },
+        { "prompt": "I was surprised when I first met Tina. She was ___ what I expected.", "answer": "different from", "accept": ["different to"] },
+        { "prompt": "Ben could become world champion one day. He's ___ it.", "answer": "capable of" }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "131.4 · Viết lại câu thứ hai",
+      "titleEn": "131.4 · Complete the second sentence so that it means the same as the first",
+      "instructions": "Hoàn thành câu thứ hai sao cho có nghĩa giống câu thứ nhất, dùng tính từ + giới từ phù hợp.",
+      "instructionsEn": "Complete the second sentence so that it means the same as the first, using a suitable adjective + preposition.",
+      "examples": [
+        { "label": "1", "context": "There were lots of tourists in the streets.", "prompt": "The streets were crowded ___.", "answer": "with tourists" }
+      ],
+      "items": [
+        { "context": "There was a lot of furniture in the room.", "prompt": "The room was full ___.", "answer": "of furniture" },
+        { "context": "I don't like sport very much.", "prompt": "I'm not very keen ___.", "answer": "on sport" },
+        { "context": "We don't have enough time.", "prompt": "We're short ___.", "answer": "of time" },
+        { "context": "Helen does her job very well.", "prompt": "Helen is very good ___.", "answer": "at her job" },
+        { "context": "Steven's wife is a doctor.", "prompt": "Steven is married ___.", "answer": "to a doctor" },
+        { "context": "I don't trust Robert.", "prompt": "I'm suspicious ___.", "answer": "of Robert" },
+        { "context": "My problem is not the same as yours.", "prompt": "My problem is different ___.", "answer": "from yours", "accept": ["to yours"] }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "131.5 · Điền giới từ phù hợp",
+      "titleEn": "131.5 · Put in the correct preposition",
+      "instructions": "Điền giới từ phù hợp vào chỗ trống.",
+      "instructionsEn": "Put in the correct preposition.",
+      "wordBank": ["of", "for", "in", "with", "on"],
+      "examples": [
+        { "label": "1", "prompt": "Amy is always full ___ energy.", "answer": "of" }
+      ],
+      "items": [
+        { "prompt": "My home town is not a very interesting place. It's not famous ___ anything.", "answer": "for" },
+        { "prompt": "Kate is very fond ___ her younger brother.", "answer": "of" },
+        { "prompt": "You look bored. You don't seem interested ___ what I'm saying.", "answer": "in" },
+        { "context": "'Our flight departs at 10.35.'", "prompt": "'Are you sure ___ that?'", "answer": "of", "accept": ["about"] },
+        { "prompt": "I wanted to go out for a meal, but nobody else was keen ___ the idea.", "answer": "on" },
+        { "prompt": "These days everybody is aware ___ the dangers of smoking.", "answer": "of" },
+        { "prompt": "The station platform was crowded ___ people waiting for the train.", "answer": "with" },
+        { "prompt": "Mark has no money of his own. He's completely dependent ___ his parents.", "answer": "on" },
+        { "prompt": "We're short ___ staff in our office right now. We need more people to do the work.", "answer": "of" }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng tính từ + giới từ, ví dụ 'I'm afraid of spiders.', 'She's interested in art.', 'I'm not very good at cooking, but I'm proud of my English.' Bạn cũng có thể viết về những điều mình giỏi hoặc chưa giỏi.",
+      "instructionsEn": "Write 2-3 English sentences using adjective + preposition, e.g. 'I'm afraid of spiders.', 'She's interested in art.', 'I'm not very good at cooking, but I'm proud of my English.' You can also write about things you're good at or not very good at.",
+      "ruleSummary": "This unit covers fixed adjective + preposition combinations. Adjective + of: afraid/scared/frightened/terrified of; fond/proud/ashamed/jealous/envious of; suspicious/critical/tolerant of; aware/conscious of; capable/incapable of; full/short of; typical of; certain/sure of or about. Adjective + at/to/from/in/on/with/for: good/bad/brilliant/hopeless AT; married/engaged TO (but married with children); similar TO; different FROM or TO; interested IN; keen ON; dependent ON (but independent OF); crowded WITH; famous FOR; responsible FOR. A correct student sentence should pair each adjective with its fixed preposition rather than a different one that happens to translate literally from Vietnamese."
+    }
+  ]
+};
+
+export const UNIT_132_VERB_PREPOSITION_1_TO_AND_AT: GrammarUnit = {
+  "unit": 132,
+  "slug": "verb-plus-preposition-1-to-and-at",
+  "title": "Verb + preposition 1: to and at",
+  "topic": "conjunctions and prepositions",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "động từ + to",
+          "headingEn": "verb + to",
+          "parts": [
+            { "kind": "text", "text": "**talk** / **speak TO** somebody (talk/speak *with* is also possible):", "vi": "**talk** / **speak TO** ai đó (talk/speak *with* cũng dùng được):" },
+            { "kind": "examples", "items": [
+              { "en": "Who were you **talking to**?", "vi": "Bạn vừa nói chuyện với ai vậy?" }
+            ] },
+            { "kind": "text", "text": "**listen TO** ...:", "vi": "**listen TO** ... (nghe):" },
+            { "kind": "examples", "items": [
+              { "en": "When I'm driving, I like to **listen to** the radio.", "note": "(not listen the radio)", "vi": "Khi lái xe, tôi thích nghe đài." }
+            ] },
+            { "kind": "text", "text": "**apologise TO** somebody (for ...):", "vi": "**apologise TO** ai đó (vì ...) (xin lỗi):" },
+            { "kind": "examples", "items": [
+              { "en": "They **apologised to** me for their mistake.", "note": "(not apologised me)", "vi": "Họ đã xin lỗi tôi vì sai lầm của họ." }
+            ] },
+            { "kind": "text", "text": "**explain** something **TO** somebody:", "vi": "**explain** điều gì đó **TO** ai đó (giải thích cho ai đó):" },
+            { "kind": "examples", "items": [
+              { "en": "Can you **explain** this word **to** me?", "note": "(not explain me this word)", "vi": "Bạn có thể giải thích từ này cho tôi được không?" }
+            ] },
+            { "kind": "text", "text": "**explain** / **describe** (to somebody) what/how/why ...:", "vi": "**explain** / **describe** (cho ai đó) điều gì/thế nào/tại sao ...:" },
+            { "kind": "examples", "items": [
+              { "en": "I **explained to** them why I was worried.", "note": "(not I explained them)", "vi": "Tôi đã giải thích cho họ lý do tôi lo lắng." },
+              { "en": "Let me **describe to** you what I saw.", "note": "(not Let me describe you)", "vi": "Để tôi kể cho bạn nghe những gì tôi đã thấy." }
+            ] }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "phone ai đó, ask ai đó v.v. (không có to)",
+          "headingEn": "phone somebody, ask somebody etc. (without to)",
+          "parts": [
+            { "kind": "text", "text": "**phone** / **call** / **email** / **text** somebody:", "vi": "**phone** / **call** / **email** / **text** ai đó (không cần to):" },
+            { "kind": "examples", "items": [
+              { "en": "I **called** the airline to cancel my flight.", "note": "(not called to the airline)", "vi": "Tôi đã gọi cho hãng hàng không để huỷ chuyến bay." }
+            ] },
+            { "kind": "text", "text": "But we say 'write (a letter) to somebody'.", "vi": "Nhưng ta nói 'write (a letter) to somebody' (viết thư cho ai đó)." },
+            { "kind": "text", "text": "**answer** somebody/something:", "vi": "**answer** ai đó/điều gì đó (không cần to):" },
+            { "kind": "examples", "items": [
+              { "en": "You didn't **answer** my email.", "note": "(not answer to my email)", "vi": "Bạn đã không trả lời email của tôi." }
+            ] },
+            { "kind": "text", "text": "But we say **reply to** (an email / a letter etc.).", "vi": "Nhưng ta nói **reply to** (một email / một bức thư v.v.)." },
+            { "kind": "text", "text": "**ask** somebody (a question):", "vi": "**ask** ai đó (một câu hỏi) (không cần to):" },
+            { "kind": "examples", "items": [
+              { "en": "If there's anything you want to know, you can **ask** me.", "note": "(not ask to me)", "vi": "Nếu có điều gì bạn muốn biết, bạn có thể hỏi tôi." }
+            ] },
+            { "kind": "text", "text": "**thank** somebody (for ...):", "vi": "**thank** ai đó (vì ...) (không cần to):" },
+            { "kind": "examples", "items": [
+              { "en": "He **thanked** me for helping him.", "note": "(not He thanked to me)", "vi": "Anh ấy đã cảm ơn tôi vì đã giúp anh ấy." }
+            ] }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "động từ + at",
+          "headingEn": "verb + at",
+          "parts": [
+            { "kind": "text", "text": "**look** / **stare** / **glance AT** ..., **have a look** / **take a look AT** ...:", "vi": "**look** / **stare** (nhìn chằm chằm) / **glance** (liếc nhìn) **AT** ..., **have a look** / **take a look AT** ...:" },
+            { "kind": "examples", "items": [
+              { "en": "Why are you **looking at** me like that?", "vi": "Sao bạn lại nhìn tôi như vậy?" }
+            ] },
+            { "kind": "text", "text": "**laugh AT** ...:", "vi": "**laugh AT** ... (cười nhạo):" },
+            { "kind": "examples", "items": [
+              { "en": "I look stupid with this haircut. Everybody will **laugh at** me.", "vi": "Tôi trông ngốc nghếch với kiểu tóc này. Mọi người sẽ cười nhạo tôi mất." }
+            ] },
+            { "kind": "text", "text": "**aim** / **point** (something) **AT** ..., **shoot** / **fire** (a gun) **AT** ...:", "vi": "**aim** / **point** (điều gì đó) **AT** ... (chĩa, chỉ vào), **shoot** / **fire** (súng) **AT** ... (bắn vào):" },
+            { "kind": "examples", "items": [
+              { "en": "Don't **point** that knife **at** me. It's dangerous.", "vi": "Đừng chĩa con dao đó vào tôi. Nguy hiểm lắm." },
+              { "en": "We saw someone with a gun **shooting at** birds, but he didn't hit any.", "vi": "Chúng tôi thấy một người cầm súng bắn vào lũ chim, nhưng anh ta không trúng con nào." }
+            ] }
+          ]
+        },
+        {
+          "label": "D",
+          "heading": "một số động từ theo sau bởi at hoặc to, với nghĩa khác nhau",
+          "headingEn": "Some verbs can be followed by at or to, with a difference in meaning",
+          "parts": [
+            { "kind": "text", "text": "**shout AT** somebody (when you are angry or aggressive):", "vi": "**shout AT** ai đó (khi bạn đang giận dữ hoặc hung hăng):" },
+            { "kind": "examples", "items": [
+              { "en": "He got very angry and started **shouting at** me.", "vi": "Anh ta rất giận và bắt đầu quát vào mặt tôi." }
+            ] },
+            { "kind": "text", "text": "**shout TO** somebody (so that they can hear you):", "vi": "**shout TO** ai đó (để họ có thể nghe thấy bạn):" },
+            { "kind": "examples", "items": [
+              { "en": "He **shouted to** me from the other side of the street.", "vi": "Anh ấy hét gọi tôi từ phía bên kia đường." }
+            ] },
+            { "kind": "text", "text": "**throw** something **AT** somebody/something (to hit them):", "vi": "**throw** điều gì đó **AT** ai đó/vật gì đó (để ném trúng họ):" },
+            { "kind": "examples", "items": [
+              { "en": "Somebody **threw** an egg **at** the politician.", "vi": "Ai đó đã ném một quả trứng vào chính trị gia đó." }
+            ] },
+            { "kind": "text", "text": "**throw** something **TO** somebody (for somebody to catch):", "vi": "**throw** điều gì đó **TO** ai đó (để họ bắt lấy):" },
+            { "kind": "examples", "items": [
+              { "en": "Lisa shouted 'Catch!' and **threw** the keys **to** me from the window.", "vi": "Lisa hét lên 'Bắt lấy!' rồi ném chìa khoá cho tôi từ cửa sổ." }
+            ] }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "fill_mc",
+      "title": "132.1 · Câu nào đúng?",
+      "titleEn": "132.1 · Which is correct?",
+      "instructions": "Chọn câu đúng.",
+      "instructionsEn": "Which is correct?",
+      "examples": [
+        { "label": "1", "prompt": "___", "answer": "Can you explain this word to me?" }
+      ],
+      "items": [
+        { "before": "", "after": "", "options": ["I got angry with Mark. Afterwards, I apologised to him.", "I got angry with Mark. Afterwards, I apologised him."], "answer": "I got angry with Mark. Afterwards, I apologised to him." },
+        { "before": "", "after": "", "options": ["Amy won't be able to help you. There's no point in asking to her.", "Amy won't be able to help you. There's no point in asking her."], "answer": "Amy won't be able to help you. There's no point in asking her." },
+        { "before": "", "after": "", "options": ["I need somebody to explain me what I have to do.", "I need somebody to explain to me what I have to do."], "answer": "I need somebody to explain to me what I have to do." },
+        { "before": "", "after": "", "options": ["They didn't understand the system, so I explained it to them.", "They didn't understand the system, so I explained it them."], "answer": "They didn't understand the system, so I explained it to them." },
+        { "before": "", "after": "", "options": ["I like to sit on the beach and listen to the sound of the sea.", "I like to sit on the beach and listen the sound of the sea."], "answer": "I like to sit on the beach and listen to the sound of the sea." },
+        { "before": "", "after": "", "options": ["I asked them to describe me exactly what happened.", "I asked them to describe to me exactly what happened."], "answer": "I asked them to describe to me exactly what happened." },
+        { "before": "", "after": "", "options": ["We'd better phone the restaurant to reserve a table.", "We'd better phone to the restaurant to reserve a table."], "answer": "We'd better phone the restaurant to reserve a table." },
+        { "before": "", "after": "", "options": ["It was a difficult question. I couldn't answer to it.", "It was a difficult question. I couldn't answer it."], "answer": "It was a difficult question. I couldn't answer it." },
+        { "before": "", "after": "", "options": ["I explained everybody the reasons for my decision.", "I explained to everybody the reasons for my decision."], "answer": "I explained to everybody the reasons for my decision." },
+        { "before": "", "after": "", "options": ["I thanked everybody for all the help they had given me.", "I thanked to everybody for all the help they had given me."], "answer": "I thanked everybody for all the help they had given me." },
+        { "before": "", "after": "", "options": ["My friend texted to me to let me know she was going to be late.", "My friend texted me to let me know she was going to be late."], "answer": "My friend texted me to let me know she was going to be late." }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "132.2 · Điền động từ + giới từ phù hợp",
+      "titleEn": "132.2 · Complete the sentences with a verb + the correct preposition",
+      "instructions": "Điền một động từ trong khung + giới từ phù hợp vào chỗ trống.",
+      "instructionsEn": "Complete the sentences. Use these verbs + the correct preposition.",
+      "wordBank": ["explain", "laugh", "listen", "look", "point", "reply", "speak", "throw"],
+      "examples": [
+        { "label": "1", "prompt": "I look stupid with this haircut. Everybody will ___ me.", "answer": "laugh at" },
+        { "label": "2", "prompt": "I don't understand this. Can you ___ it ___ me?", "answer": "explain", "extraBlanks": [{ "answer": "to" }] }
+      ],
+      "items": [
+        { "prompt": "We live in the same building, but we've never ___ one another.", "answer": "spoken to", "accept": ["talked to"] },
+        { "prompt": "Be careful with those scissors! Don't ___ them ___ me!", "answer": "point", "extraBlanks": [{ "answer": "at" }] },
+        { "prompt": "You shouldn't ___ directly ___ the sun. You'll damage your eyes.", "answer": "look", "extraBlanks": [{ "answer": "at" }] },
+        { "prompt": "Please ___ me! I've got something important to tell you.", "answer": "listen to" },
+        { "prompt": "Don't ___ stones ___ the birds!", "answer": "throw", "extraBlanks": [{ "answer": "at" }] },
+        { "prompt": "If you don't want that sandwich, ___ it ___ the birds. They'll eat it.", "answer": "throw", "extraBlanks": [{ "answer": "to" }] },
+        { "prompt": "I tried to contact Tina, but she didn't ___ my emails.", "answer": "reply to" }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "132.3 · Điền to hoặc at",
+      "titleEn": "132.3 · Put in to or at",
+      "instructions": "Điền to hoặc at vào chỗ trống.",
+      "instructionsEn": "Put in to or at.",
+      "wordBank": ["to", "at"],
+      "examples": [
+        { "label": "1", "prompt": "They apologised ___ me for what happened.", "answer": "to" }
+      ],
+      "items": [
+        { "prompt": "I glanced ___ my watch to see what time it was.", "answer": "at" },
+        { "prompt": "Please don't shout ___ me! Try to calm down.", "answer": "at" },
+        { "prompt": "I saw Lisa and shouted ___ her, but she didn't hear me.", "answer": "to" },
+        { "prompt": "Don't listen ___ what he says. He doesn't know what he's talking about.", "answer": "to" },
+        { "prompt": "What's so funny? What are you laughing ___?", "answer": "at" },
+        { "prompt": "Is it all right if I have a look ___ your magazine?", "answer": "at" },
+        { "prompt": "I'm lonely. I need somebody to talk ___.", "answer": "to" },
+        { "prompt": "She was so angry she threw a book ___ the wall.", "answer": "at" },
+        { "prompt": "The woman sitting opposite me on the train kept staring ___ me.", "answer": "at" },
+        { "prompt": "Do you have a moment? I need to speak ___ you.", "answer": "to" }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng động từ + to hoặc at, ví dụ 'Can you explain this to me?', 'I called my friend to ask for help.', 'Everybody laughed at his joke.'.",
+      "instructionsEn": "Write 2-3 English sentences using a verb + to or at, e.g. 'Can you explain this to me?', 'I called my friend to ask for help.', 'Everybody laughed at his joke.'.",
+      "ruleSummary": "This unit covers verb + to and verb + at. Verb + to: talk/speak to, listen to, apologise to, explain/describe something to somebody. No preposition: phone/call/email/text somebody, answer somebody/something, ask somebody, thank somebody (but write to somebody, reply to an email). Verb + at: look/stare/glance at, laugh at, aim/point/shoot/fire at. Some verbs take at or to with a difference in meaning: shout at somebody (angry) vs shout to somebody (so they can hear); throw something at somebody (to hit them) vs throw something to somebody (to catch). A correct student sentence should use the right preposition (or none) for each verb rather than one that happens to translate literally from Vietnamese."
+    }
+  ]
+};
+
+export const UNIT_133_VERB_PREPOSITION_2_ABOUT_FOR_OF_AFTER: GrammarUnit = {
+  "unit": 133,
+  "slug": "verb-plus-preposition-2-about-for-of-after",
+  "title": "Verb + preposition 2: about/for/of/after",
+  "topic": "conjunctions and prepositions",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "động từ + about",
+          "headingEn": "verb + about",
+          "parts": [
+            { "kind": "text", "text": "**talk** / **read** / **know ABOUT** ...:", "vi": "**talk** / **read** / **know ABOUT** ... (nói chuyện/đọc/biết về):" },
+            { "kind": "examples", "items": [
+              { "en": "We **talked about** a lot of things at the meeting.", "vi": "Chúng tôi đã nói về rất nhiều thứ trong cuộc họp." }
+            ] },
+            { "kind": "text", "text": "**have a discussion ABOUT** something:", "vi": "**have a discussion ABOUT** something (có một cuộc thảo luận về):" },
+            { "kind": "examples", "items": [
+              { "en": "We **had a discussion about** what we should do.", "vi": "Chúng tôi đã thảo luận về việc chúng tôi nên làm gì." }
+            ] },
+            { "kind": "text", "text": "But we say '**discuss** something' (no preposition):", "vi": "Nhưng ta nói '**discuss** something' (không có giới từ):" },
+            { "kind": "examples", "items": [
+              { "en": "We **discussed** what we should do.", "note": "(not discussed about)", "vi": "Chúng tôi đã thảo luận việc chúng tôi nên làm gì." }
+            ] },
+            { "kind": "text", "text": "**do something** / **nothing ABOUT** something (= do something/nothing to improve a situation):", "vi": "**do something** / **nothing ABOUT** something (= làm gì đó/không làm gì để cải thiện tình hình):" },
+            { "kind": "examples", "items": [
+              { "en": "If you're worried about the problem, you should **do something about** it.", "vi": "Nếu bạn lo lắng về vấn đề đó, bạn nên làm gì đó để giải quyết nó." }
+            ] }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "động từ + for",
+          "headingEn": "verb + for",
+          "parts": [
+            { "kind": "text", "text": "**ask** (somebody) **FOR** ...:", "vi": "**ask** (ai đó) **FOR** ... (xin, yêu cầu):" },
+            { "kind": "examples", "items": [
+              { "en": "I sent an email to the company **asking** them **for** more information about the job.", "vi": "Tôi đã gửi email cho công ty để xin thêm thông tin về công việc." }
+            ] },
+            { "kind": "text", "text": "But we say '**ask** somebody **the way** / **the time**' etc. (no preposition):", "vi": "Nhưng ta nói '**ask** somebody **the way** / **the time**' v.v. (không có giới từ):" },
+            { "kind": "examples", "items": [
+              { "en": "I **asked** somebody **the way** to the station.", "vi": "Tôi đã hỏi ai đó đường đến ga." }
+            ] },
+            { "kind": "text", "text": "**apply** (TO a company etc.) **FOR** a job etc.:", "vi": "**apply** (TO một công ty v.v.) **FOR** a job (nộp đơn xin việc v.v.):" },
+            { "kind": "examples", "items": [
+              { "en": "I think you could do this job. Why don't you **apply for** it?", "vi": "Tôi nghĩ bạn có thể làm công việc này. Sao bạn không nộp đơn xin việc đó?" }
+            ] },
+            { "kind": "text", "text": "**wait FOR** somebody, **wait FOR** something (to happen):", "vi": "**wait FOR** somebody, **wait FOR** something (chờ ai đó/chờ điều gì xảy ra):" },
+            { "kind": "examples", "items": [
+              { "en": "Don't **wait for** me. I'll join you later.", "vi": "Đừng chờ tôi. Tôi sẽ đến sau." },
+              { "en": "I'm not going out yet. I'm **waiting for** the rain to stop.", "vi": "Tôi chưa ra ngoài đâu. Tôi đang chờ trời tạnh mưa." }
+            ] },
+            { "kind": "text", "text": "**search** (a person / a place / a bag etc.) **FOR** ...:", "vi": "**search** (một người/một nơi/một cái túi v.v.) **FOR** ... (lục soát để tìm):" },
+            { "kind": "examples", "items": [
+              { "en": "I've **searched** the house **for** my keys, but I still can't find them.", "vi": "Tôi đã lục khắp nhà để tìm chìa khoá, nhưng vẫn không thấy." }
+            ] },
+            { "kind": "text", "text": "**leave** (a place) **FOR** another place:", "vi": "**leave** (một nơi) **FOR** another place (rời khỏi nơi này để đến nơi khác):" },
+            { "kind": "examples", "items": [
+              { "en": "I haven't seen her since she **left** (home) **for** work.", "note": "(not left to work)", "vi": "Tôi không gặp cô ấy kể từ khi cô ấy rời nhà đi làm." }
+            ] }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "take care of, care for và care about",
+          "headingEn": "take care of, care for and care about",
+          "parts": [
+            { "kind": "text", "text": "**take care OF** ... (= look after, keep safe, take responsibility for):", "vi": "**take care OF** ... (= chăm sóc, giữ an toàn, chịu trách nhiệm về):" },
+            { "kind": "examples", "items": [
+              { "en": "Don't worry about me. I can **take care of** myself.", "vi": "Đừng lo cho tôi. Tôi có thể tự chăm sóc bản thân." },
+              { "en": "I'll **take care of** the travel arrangements. You don't need to do anything.", "vi": "Tôi sẽ lo việc sắp xếp chuyến đi. Bạn không cần làm gì cả." }
+            ] },
+            { "kind": "text", "text": "**care FOR** somebody (= take care of them, keep them safe):", "vi": "**care FOR** somebody (= chăm sóc ai đó, giữ họ an toàn):" },
+            { "kind": "examples", "items": [
+              { "en": "Alan is 85 and lives alone. He needs somebody to **care for** him.", "vi": "Alan đã 85 tuổi và sống một mình. Ông ấy cần ai đó chăm sóc." }
+            ] },
+            { "kind": "text", "text": "**I don't care FOR** something (= I don't like it):", "vi": "**I don't care FOR** something (= tôi không thích điều đó):" },
+            { "kind": "examples", "items": [
+              { "en": "I **don't care for** hot weather.", "note": "(= I don't like ...)", "vi": "Tôi không thích thời tiết nóng." }
+            ] },
+            { "kind": "text", "text": "**care ABOUT** ... (= think that somebody/something is important):", "vi": "**care ABOUT** ... (= nghĩ rằng ai đó/điều gì đó quan trọng, quan tâm đến):" },
+            { "kind": "examples", "items": [
+              { "en": "He's very selfish. He doesn't **care about** other people.", "vi": "Anh ta rất ích kỷ. Anh ta không quan tâm đến người khác." }
+            ] },
+            { "kind": "text", "text": "**care what/where/how** ... etc. (without *about*):", "vi": "**care what/where/how** ... v.v. (không dùng *about*):" },
+            { "kind": "examples", "items": [
+              { "en": "You can do what you like. I **don't care what** you do.", "vi": "Bạn thích làm gì thì làm. Tôi không quan tâm bạn làm gì." }
+            ] }
+          ]
+        },
+        {
+          "label": "D",
+          "heading": "look for và look after",
+          "headingEn": "look for and look after",
+          "parts": [
+            { "kind": "text", "text": "**look FOR** ... (= search for, try to find):", "vi": "**look FOR** ... (= tìm kiếm):" },
+            { "kind": "examples", "items": [
+              { "en": "I've lost my keys. Can you help me to **look for** them?", "vi": "Tôi bị mất chìa khoá. Bạn có thể giúp tôi tìm không?" }
+            ] },
+            { "kind": "text", "text": "**look AFTER** ... (= take care of, keep safe or in good condition):", "vi": "**look AFTER** ... (= chăm sóc, giữ an toàn hoặc tình trạng tốt):" },
+            { "kind": "examples", "items": [
+              { "en": "Alan is 85 and lives alone. He needs somebody to **look after** him.", "note": "(not look for)", "vi": "Alan đã 85 tuổi và sống một mình. Ông ấy cần ai đó chăm sóc." },
+              { "en": "You can borrow this book, but please **look after** it.", "vi": "Bạn có thể mượn cuốn sách này, nhưng hãy giữ gìn nó cẩn thận." }
+            ] }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "fill_mc",
+      "title": "133.1 · Câu nào đúng?",
+      "titleEn": "133.1 · Which is right?",
+      "instructions": "Chọn cách diễn đạt đúng.",
+      "instructionsEn": "Which is right?",
+      "examples": [
+        { "label": "1", "prompt": "We ___, but we couldn't find him.", "answer": "searched everywhere for Joe" }
+      ],
+      "items": [
+        { "before": "I sent her an email. Now I'm ", "after": "", "options": ["waiting for her to reply", "waiting her to reply"], "answer": "waiting for her to reply" },
+        { "before": "A security guard ", "after": " as I entered the building.", "options": ["searched my bag", "searched for my bag"], "answer": "searched my bag" },
+        { "before": "I paid the taxi driver and ", "after": "", "options": ["asked him a receipt", "asked him for a receipt"], "answer": "asked him for a receipt" },
+        { "before": "I wanted to get to the city centre, so I stopped a man ", "after": "", "options": ["to ask the way", "to ask for the way"], "answer": "to ask the way" },
+        { "before": "We ", "after": ", but we didn't reach a decision.", "options": ["discussed about the problem", "discussed the problem"], "answer": "discussed the problem" },
+        { "before": "There are many problems, but the government does ", "after": "", "options": ["nothing for them", "nothing about them"], "answer": "nothing about them" },
+        { "before": "My flight is at 9.30. What time do I need to leave the hotel ", "after": "?", "options": ["to the airport", "for the airport"], "answer": "for the airport" }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "133.2 · Điền giới từ phù hợp (nếu cần)",
+      "titleEn": "133.2 · Put in the correct preposition",
+      "instructions": "Điền giới từ phù hợp vào chỗ trống. Nếu câu không cần giới từ, gõ dấu - để đánh dấu là không cần thêm từ.",
+      "instructionsEn": "Put in the correct preposition. If no preposition is necessary, type - to mark that nothing is needed.",
+      "wordBank": ["to", "for", "about", "-"],
+      "examples": [
+        { "label": "1", "prompt": "I'm not going out yet. I'm waiting ___ the rain to stop.", "answer": "for" }
+      ],
+      "items": [
+        { "prompt": "I've applied ___ three universities. I hope one of them accepts me.", "answer": "to" },
+        { "prompt": "If you don't want the job, there's no point in applying ___ it.", "answer": "for" },
+        { "prompt": "I don't want to talk ___ what happened last night. Let's forget it.", "answer": "about" },
+        { "prompt": "I don't want to discuss ___ what happened last night. Let's forget it.", "answer": "-" },
+        { "prompt": "We had an interesting discussion ___ the problem, but we didn't reach a decision.", "answer": "about" },
+        { "prompt": "My friends are in Italy. They're in Rome now and tomorrow they leave ___ Milan.", "answer": "for" },
+        { "prompt": "The roof of the house is in bad condition. We need to do something ___ it.", "answer": "about" }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "133.3 · Điền giới từ sau care (nếu cần)",
+      "titleEn": "133.3 · Put in the correct preposition after care",
+      "instructions": "Điền giới từ phù hợp sau care vào chỗ trống. Nếu câu không cần giới từ, gõ dấu - để đánh dấu là không cần thêm từ.",
+      "instructionsEn": "Put in the correct preposition after care. If no preposition is necessary, type - to mark that nothing is needed.",
+      "wordBank": ["of", "for", "about", "-"],
+      "examples": [
+        { "label": "1", "prompt": "He's very selfish. He doesn't care ___ other people.", "answer": "about" }
+      ],
+      "items": [
+        { "prompt": "Who's going to take care ___ you when you are old?", "answer": "of" },
+        { "prompt": "She doesn't care ___ the exam. She doesn't care whether she passes or fails.", "answer": "about" },
+        { "prompt": "I don't like this coat very much. I don't care ___ the colour.", "answer": "for" },
+        { "prompt": "Don't worry about the shopping. I'll take care ___ that.", "answer": "of" },
+        { "prompt": "He gave up his job to care ___ his elderly father.", "answer": "for" },
+        { "prompt": "I want to have a good holiday. I don't care ___ the cost.", "answer": "about" },
+        { "prompt": "I want to have a good holiday. I don't care ___ how much it costs.", "answer": "-" }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "133.4 · Điền look for hoặc look after",
+      "titleEn": "133.4 · Complete the sentences with look for or look after",
+      "instructions": "Điền look for hoặc look after ở dạng đúng (looks/looked/looking) vào chỗ trống.",
+      "instructionsEn": "Complete the sentences with look for or look after. Use the correct form of look (looks/looked/looking).",
+      "examples": [
+        { "label": "1", "prompt": "I ___ my keys, but I couldn't find them anywhere.", "answer": "looked for" }
+      ],
+      "items": [
+        { "prompt": "Kate is ___ a job. I hope she finds one soon.", "answer": "looking for" },
+        { "prompt": "Who ___ you when you were ill?", "answer": "looked after" },
+        { "prompt": "The car park was full, so we had to ___ somewhere else to park.", "answer": "look for" },
+        { "prompt": "A child minder is somebody who ___ other people's children.", "answer": "looks after" },
+        { "prompt": "I'm ___ Lisa. I need to ask her something. Have you seen her?", "answer": "looking for" }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "133.5 · Điền động từ + giới từ",
+      "titleEn": "133.5 · Complete the sentences with these verbs + a preposition",
+      "instructions": "Điền một động từ trong khung (ở dạng đúng) + giới từ phù hợp vào chỗ trống.",
+      "instructionsEn": "Complete the sentences with these verbs (in the correct form) + a preposition.",
+      "wordBank": ["apply", "ask", "do", "leave", "look", "search", "talk", "wait"],
+      "examples": [
+        { "label": "1", "prompt": "Police are ___ a man who escaped from prison.", "answer": "searching for" }
+      ],
+      "items": [
+        { "prompt": "Sarah wasn't ready. We had to ___ her.", "answer": "wait for" },
+        { "prompt": "I think Amy likes her job, but she doesn't ___ it much.", "answer": "talk about" },
+        { "prompt": "Don't ___ me ___ money. I don't have any.", "answer": "ask", "extraBlanks": [{ "answer": "for" }] },
+        { "prompt": "Ben is unemployed. He has ___ several jobs, but hasn't had any luck.", "answer": "applied for" },
+        { "prompt": "If something is wrong, why don't you ___ something ___ it?", "answer": "do", "extraBlanks": [{ "answer": "about" }] },
+        { "prompt": "Helen's car is very old, but she ___ it. It's in excellent condition.", "answer": "looks after" },
+        { "prompt": "Diane is from Boston, but now she lives in Paris. She ___ Boston ___ Paris when she was 19.", "answer": "left", "extraBlanks": [{ "answer": "for" }] }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng động từ + about/for/of/after, ví dụ 'I'm waiting for the bus.', 'Can you look after my bag?', 'We discussed the plan yesterday.'.",
+      "instructionsEn": "Write 2-3 English sentences using a verb + about/for/of/after, e.g. 'I'm waiting for the bus.', 'Can you look after my bag?', 'We discussed the plan yesterday.'.",
+      "ruleSummary": "This unit covers verb + about, verb + for, and take care of / care for / care about / look for / look after. Verb + about: talk/read/know about, have a discussion about (but discuss something, no preposition), do something/nothing about a problem. Verb + for: ask (somebody) for (but ask somebody the way/the time, no preposition), apply (to a company) for a job, wait for, search (a place) for, leave (a place) for another place. take care OF = look after; care FOR somebody = look after them, or I don't care for something = I don't like it; care ABOUT = think it's important; care what/where/how (without about). look FOR = search/try to find; look AFTER = take care of. A correct student sentence should use the right preposition (or none) for each verb rather than one that happens to translate literally from Vietnamese."
+    }
+  ]
+};
+
+export const UNIT_134_VERB_PREPOSITION_3_ABOUT_AND_OF: GrammarUnit = {
+  "unit": 134,
+  "slug": "verb-plus-preposition-3-about-and-of",
+  "title": "Verb + preposition 3: about and of",
+  "topic": "conjunctions and prepositions",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "hear about / hear of / hear from",
+          "headingEn": "hear about / hear of / hear from",
+          "parts": [
+            { "kind": "text", "text": "**hear ABOUT** ... (= be told about something):", "vi": "**hear ABOUT** ... (= được kể/nghe kể về điều gì đó):" },
+            { "kind": "examples", "items": [
+              { "en": "Did you **hear about** the fire at the hotel?", "vi": "Bạn có nghe về vụ cháy ở khách sạn không?" }
+            ] },
+            { "kind": "text", "text": "**hear OF** ... (= know that somebody/something exists):", "vi": "**hear OF** ... (= biết rằng ai đó/điều gì đó tồn tại):" },
+            { "kind": "examples", "items": [
+              { "en": "A: Who is Tom Hart? B: I have no idea. I've never **heard of** him.", "note": "(not heard from him)", "vi": "A: Tom Hart là ai vậy? B: Tôi không biết. Tôi chưa bao giờ nghe nói về anh ta." }
+            ] },
+            { "kind": "text", "text": "**hear FROM** ... (= be in contact with somebody):", "vi": "**hear FROM** ... (= nhận được liên lạc từ ai đó):" },
+            { "kind": "examples", "items": [
+              { "en": "A: Have you **heard from** Jane recently? B: Yes, she called me a few days ago.", "vi": "A: Gần đây bạn có tin tức gì từ Jane không? B: Có, cô ấy đã gọi cho tôi vài ngày trước." }
+            ] }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "think about / think of",
+          "headingEn": "think about / think of",
+          "parts": [
+            { "kind": "text", "text": "**think ABOUT** something (= consider it, concentrate your mind on it):", "vi": "**think ABOUT** something (= cân nhắc, tập trung suy nghĩ về điều gì đó):" },
+            { "kind": "examples", "items": [
+              { "en": "I've **thought about** what you said and I've decided to take your advice.", "vi": "Tôi đã suy nghĩ về những gì bạn nói và quyết định nghe theo lời khuyên của bạn." },
+              { "en": "A: Will you lend me the money? B: I'll **think about** it.", "note": "(not think of it)", "vi": "A: Bạn có cho tôi vay tiền không? B: Tôi sẽ suy nghĩ về việc đó." }
+            ] },
+            { "kind": "text", "text": "**think OF** something (= produce an idea):", "vi": "**think OF** something (= nghĩ ra một ý tưởng):" },
+            { "kind": "examples", "items": [
+              { "en": "It was my idea. I **thought of** it first.", "note": "(not thought about it)", "vi": "Đó là ý tưởng của tôi. Tôi đã nghĩ ra nó đầu tiên." },
+              { "en": "I felt embarrassed. I couldn't **think of** anything to say.", "note": "(not think about anything)", "vi": "Tôi cảm thấy ngượng ngùng. Tôi không nghĩ ra được điều gì để nói." }
+            ] },
+            { "kind": "text", "text": "We also use **think of** when we ask for or give an opinion:", "vi": "Ta cũng dùng **think of** khi hỏi hoặc đưa ra ý kiến:" },
+            { "kind": "examples", "items": [
+              { "en": "A: What did you **think of** the movie? B: I didn't **think** much **of** it.", "note": "(= I didn't like it much)", "vi": "A: Bạn thấy bộ phim thế nào? B: Tôi không thích nó lắm." }
+            ] },
+            { "kind": "text", "text": "Sometimes the difference is very small and you can use *of* or *about*:", "vi": "Đôi khi sự khác biệt rất nhỏ và bạn có thể dùng *of* hoặc *about*:" },
+            { "kind": "examples", "items": [
+              { "en": "When I'm alone, I often **think of** you. or ... **think about** you.", "vi": "Khi ở một mình, tôi thường nghĩ về bạn." }
+            ] },
+            { "kind": "text", "text": "You can say **think of** or **think about** doing something (for possible future actions):", "vi": "Bạn có thể nói **think of** hoặc **think about** doing something (cho những việc có thể làm trong tương lai):" },
+            { "kind": "examples", "items": [
+              { "en": "My sister is **thinking of** going to Canada. or ... **thinking about** going ...", "vi": "Chị tôi đang định đi Canada." }
+            ] }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "dream about / dream of",
+          "headingEn": "dream about / dream of",
+          "parts": [
+            { "kind": "text", "text": "**dream ABOUT** ... (when you are asleep):", "vi": "**dream ABOUT** ... (khi bạn đang ngủ):" },
+            { "kind": "examples", "items": [
+              { "en": "I dreamt **about** you last night.", "vi": "Tối qua tôi mơ thấy bạn." }
+            ] },
+            { "kind": "text", "text": "**dream OF/ABOUT** being something / doing something (= imagine):", "vi": "**dream OF/ABOUT** being something / doing something (= tưởng tượng, mơ ước):" },
+            { "kind": "examples", "items": [
+              { "en": "Do you **dream of** being rich and famous? or ... **dream about** being rich ...", "vi": "Bạn có mơ ước trở nên giàu có và nổi tiếng không?" }
+            ] },
+            { "kind": "text", "text": "**I wouldn't dream OF** doing something (= I would never do it):", "vi": "**I wouldn't dream OF** doing something (= tôi sẽ không bao giờ làm điều đó):" },
+            { "kind": "examples", "items": [
+              { "en": "'Don't tell anyone what I said.' 'No, I **wouldn't dream of** it.'", "vi": "'Đừng nói với ai những gì tôi vừa nói.' 'Không, tôi sẽ không bao giờ làm thế đâu.'" }
+            ] }
+          ]
+        },
+        {
+          "label": "D",
+          "heading": "complain about / complain of",
+          "headingEn": "complain about / complain of",
+          "parts": [
+            { "kind": "text", "text": "**complain** (TO somebody) **ABOUT** ... (= say that you are not satisfied):", "vi": "**complain** (TO ai đó) **ABOUT** ... (= than phiền rằng bạn không hài lòng):" },
+            { "kind": "examples", "items": [
+              { "en": "We **complained to** the manager of the restaurant **about** the food.", "vi": "Chúng tôi đã phàn nàn với quản lý nhà hàng về món ăn." }
+            ] },
+            { "kind": "text", "text": "**complain OF** a pain, an illness etc. (= say that you have a pain etc.):", "vi": "**complain OF** a pain, an illness v.v. (= nói rằng bạn bị đau, ốm v.v.):" },
+            { "kind": "examples", "items": [
+              { "en": "We called the doctor because George was **complaining of** a pain in his stomach.", "vi": "Chúng tôi đã gọi bác sĩ vì George kêu đau bụng." }
+            ] }
+          ]
+        },
+        {
+          "label": "E",
+          "heading": "remind somebody about / remind somebody of",
+          "headingEn": "remind somebody about / remind somebody of",
+          "parts": [
+            { "kind": "text", "text": "**remind** somebody **ABOUT** ... (= tell somebody not to forget):", "vi": "**remind** somebody **ABOUT** ... (= nhắc ai đó đừng quên):" },
+            { "kind": "examples", "items": [
+              { "en": "It's good you **reminded me about** the meeting. I'd completely forgotten about it.", "vi": "May mà bạn nhắc tôi về cuộc họp. Tôi đã quên bẵng nó mất." }
+            ] },
+            { "kind": "text", "text": "**remind** somebody **OF** ... (= cause somebody to remember):", "vi": "**remind** somebody **OF** ... (= làm ai đó nhớ lại):" },
+            { "kind": "examples", "items": [
+              { "en": "This house **reminds me of** the one I lived in when I was a child.", "vi": "Ngôi nhà này làm tôi nhớ đến ngôi nhà tôi từng sống khi còn nhỏ." },
+              { "en": "Look at this photograph of Richard. Who does he **remind you of**?", "vi": "Nhìn bức ảnh của Richard này xem. Anh ấy làm bạn nhớ đến ai vậy?" }
+            ] }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "134.1 · Điền hear + giới từ",
+      "titleEn": "134.1 · Complete the sentences using hear + a preposition",
+      "instructions": "Điền hear hoặc heard + giới từ phù hợp (about/of/from) vào chỗ trống.",
+      "instructionsEn": "Complete the sentences using hear or heard + a preposition (about/of/from).",
+      "wordBank": ["about", "of", "from"],
+      "examples": [
+        { "label": "1", "prompt": "I'm surprised you haven't ___ her. She's quite famous.", "answer": "heard of" }
+      ],
+      "items": [
+        { "prompt": "'Did you ___ the accident last night?' 'No, what happened?'", "answer": "hear about" },
+        { "prompt": "Sarah used to call me quite often, but I haven't ___ her for a long time now.", "answer": "heard from" },
+        { "prompt": "'Have you ___ William Hudson?' 'No. Who is he?'", "answer": "heard of" },
+        { "prompt": "Thanks for your email. It was good to ___ you.", "answer": "hear from" },
+        { "prompt": "'Do you want to ___ our trip?' 'Not now. Tell me later.'", "answer": "hear about" },
+        { "prompt": "I live in a very small town. You've probably never ___ it.", "answer": "heard of" }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "134.2 · Điền think about hoặc think of",
+      "titleEn": "134.2 · Complete the sentences using think about or think of",
+      "instructions": "Điền think about hoặc think of ở dạng đúng (think/thinking/thought) vào chỗ trống. Đôi khi cả hai đều đúng.",
+      "instructionsEn": "Complete the sentences using think about or think of. Sometimes both about and of are possible. Use the correct form of think (think/thinking/thought).",
+      "examples": [
+        { "label": "1", "prompt": "I've ___ what you said and I've decided to take your advice.", "answer": "thought about" }
+      ],
+      "items": [
+        { "prompt": "I need time to make decisions. I like to ___ things carefully.", "answer": "think about" },
+        { "prompt": "You look serious. What are you ___?", "answer": "thinking about" },
+        { "prompt": "That's a good idea. Why didn't I ___ that?", "answer": "think of" },
+        { "prompt": "I don't really want to meet Tom tonight. I'll have to ___ an excuse.", "answer": "think of" },
+        { "prompt": "I'm ___ buying a new car. What would you advise me to buy?", "answer": "thinking of", "accept": ["thinking about"] },
+        { "prompt": "When I was offered the job, I didn't accept immediately. I went away and ___ it for a while. In the end I decided to take the job.", "answer": "thought about" },
+        { "context": "A: I've just finished reading the book you lent me.", "prompt": "B: What did you ___ it? Did you like it?", "answer": "think of" },
+        { "context": "A: Will you be able to help me?", "prompt": "B: I'm not sure. I'll ___ it.", "answer": "think about" },
+        { "prompt": "I don't ___ much ___ this coffee. It's like water.", "answer": "think", "extraBlanks": [{ "answer": "of" }] },
+        { "prompt": "Katherine is homesick. She's always ___ her family back home.", "answer": "thinking of", "accept": ["thinking about"] },
+        { "context": "A: Do you think I should apply to do the course?", "prompt": "B: I can't ___ any reason why not.", "answer": "think of" }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "134.3 · Điền giới từ phù hợp",
+      "titleEn": "134.3 · Put in the correct preposition",
+      "instructions": "Điền giới từ phù hợp vào chỗ trống.",
+      "instructionsEn": "Put in the correct preposition.",
+      "wordBank": ["about", "of"],
+      "examples": [
+        { "label": "1", "prompt": "Did you hear ___ the fire at the hotel yesterday?", "answer": "about" }
+      ],
+      "items": [
+        { "prompt": "I love living here. I wouldn't dream ___ going anywhere else.", "answer": "of" },
+        { "context": "A: I had a strange dream last night.", "prompt": "B: Did you? What did you dream ___?", "answer": "about" },
+        { "prompt": "I love this music. It reminds me ___ a warm day in spring.", "answer": "of" },
+        { "context": "A: We've got no money. What are we going to do?", "prompt": "B: Don't worry. I'll think ___ something.", "answer": "of" },
+        { "prompt": "Our neighbours complained ___ us ___ the noise we made.", "answer": "to", "extraBlanks": [{ "answer": "about" }] },
+        { "prompt": "Paul was complaining ___ pains in his chest, so he went to the doctor.", "answer": "of" },
+        { "prompt": "He loves his job. He thinks ___ it all the time, he dreams ___ it, he talks ___ it and I'm fed up with hearing ___ it.", "answer": "about", "extraBlanks": [{ "answer": "about" }, { "answer": "about" }, { "answer": "about" }] }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "134.4 · Điền động từ + giới từ",
+      "titleEn": "134.4 · Complete the sentences with these verbs + a preposition",
+      "instructions": "Điền một động từ trong khung (ở dạng đúng) + giới từ phù hợp vào chỗ trống.",
+      "instructionsEn": "Complete the sentences using these verbs (in the correct form) + a preposition.",
+      "wordBank": ["complain", "dream", "hear", "remind", "remind", "think", "think"],
+      "examples": [
+        { "label": "1", "prompt": "It was my idea. I ___ it first.", "answer": "thought of" }
+      ],
+      "items": [
+        { "prompt": "Ben is never satisfied. He's always ___ your proposal.", "answer": "complaining about" },
+        { "prompt": "I can't make a decision yet. I need time to ___ it.", "answer": "think about" },
+        { "prompt": "He's not a well-known singer. Not many people have ___ him.", "answer": "heard of" },
+        { "context": "A: You wouldn't go away without telling me, would you?", "prompt": "B: Of course not. I wouldn't ___ it.", "answer": "dream of" },
+        { "prompt": "I would have forgotten my appointment if you hadn't ___ me ___ it.", "answer": "reminded", "extraBlanks": [{ "answer": "about" }] },
+        { "prompt": "Do you see that man over there? Does he ___ you ___ anybody you know?", "answer": "remind", "extraBlanks": [{ "answer": "of" }] }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng hear/think/dream/complain/remind + giới từ, ví dụ 'I've never heard of that singer.', 'I'm thinking of learning a new language.', 'This song reminds me of my childhood.'.",
+      "instructionsEn": "Write 2-3 English sentences using hear/think/dream/complain/remind + a preposition, e.g. 'I've never heard of that singer.', 'I'm thinking of learning a new language.', 'This song reminds me of my childhood.'.",
+      "ruleSummary": "This unit covers hear about (be told)/hear of (know it exists)/hear from (be in contact); think about (consider) vs think of (produce an idea, or give an opinion, though the difference is sometimes small); dream about (when asleep) and dream of/about (imagine, 'I wouldn't dream of doing something' = I'd never do it); complain (to somebody) about (say you're not satisfied) vs complain of a pain/illness; and remind somebody about (so they don't forget) vs remind somebody of (cause them to remember something/someone). A correct student sentence should pick the preposition matching the intended meaning rather than defaulting to the same one every time."
+    }
+  ]
+};
+
+export const UNIT_135_VERB_PREPOSITION_4_OF_FOR_FROM_ON: GrammarUnit = {
+  "unit": 135,
+  "slug": "verb-plus-preposition-4-of-for-from-on",
+  "title": "Verb + preposition 4: of/for/from/on",
+  "topic": "conjunctions and prepositions",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "động từ + of",
+          "headingEn": "verb + of",
+          "parts": [
+            { "kind": "text", "text": "**accuse** / **suspect** somebody **OF** ...:", "vi": "**accuse** (buộc tội) / **suspect** (nghi ngờ) somebody **OF** ...:" },
+            { "kind": "examples", "items": [
+              { "en": "Tina **accused** me **of** being selfish.", "vi": "Tina buộc tội tôi ích kỷ." },
+              { "en": "Some students were **suspected of** cheating in the exam.", "vi": "Một số sinh viên bị nghi ngờ gian lận trong kỳ thi." }
+            ] },
+            { "kind": "text", "text": "**approve** / **disapprove OF** ...:", "vi": "**approve** (tán thành) / **disapprove** (không tán thành) **OF** ...:" },
+            { "kind": "examples", "items": [
+              { "en": "His parents don't **approve of** what he does, but they can't stop him.", "vi": "Bố mẹ anh ấy không tán thành việc anh ấy làm, nhưng họ không thể ngăn cản." }
+            ] },
+            { "kind": "text", "text": "**die OF** or **die FROM** an illness etc.:", "vi": "**die OF** hoặc **die FROM** an illness v.v. (chết vì):" },
+            { "kind": "examples", "items": [
+              { "en": "'What did he die of?' 'A heart attack.'", "vi": "'Ông ấy mất vì bệnh gì?' 'Một cơn đau tim.'" }
+            ] },
+            { "kind": "text", "text": "**consist OF** ...:", "vi": "**consist OF** ... (bao gồm):" },
+            { "kind": "examples", "items": [
+              { "en": "We had an enormous meal. It **consisted of** seven courses.", "vi": "Chúng tôi đã ăn một bữa thịnh soạn. Nó gồm bảy món." }
+            ] }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "động từ + for",
+          "headingEn": "verb + for",
+          "parts": [
+            { "kind": "text", "text": "**pay** (somebody) **FOR** ...:", "vi": "**pay** (ai đó) **FOR** ... (trả tiền cho):" },
+            { "kind": "examples", "items": [
+              { "en": "We didn't have enough money to **pay for** the meal.", "note": "(not pay the meal)", "vi": "Chúng tôi không có đủ tiền để trả cho bữa ăn." }
+            ] },
+            { "kind": "text", "text": "But we say '**pay a bill** / **a fine** / **a fee** / **tax** / **rent** / **a sum of money**' etc. (no preposition):", "vi": "Nhưng ta nói '**pay a bill** / **a fine** / **a fee** / **tax** / **rent** / **a sum of money**' v.v. (không có giới từ):" },
+            { "kind": "examples", "items": [
+              { "en": "We didn't have enough money to **pay** the rent.", "vi": "Chúng tôi không có đủ tiền để trả tiền thuê nhà." }
+            ] },
+            { "kind": "text", "text": "**thank** / **forgive** somebody **FOR** ...:", "vi": "**thank** / **forgive** (tha thứ) somebody **FOR** ...:" },
+            { "kind": "examples", "items": [
+              { "en": "I'll never **forgive** them **for** what they did.", "vi": "Tôi sẽ không bao giờ tha thứ cho họ vì những gì họ đã làm." }
+            ] },
+            { "kind": "text", "text": "**apologise** (TO somebody) **FOR** ...:", "vi": "**apologise** (TO ai đó) **FOR** ... (xin lỗi vì):" },
+            { "kind": "examples", "items": [
+              { "en": "When I realised I was wrong, I **apologised** (to them) **for** my mistake.", "vi": "Khi nhận ra mình sai, tôi đã xin lỗi (họ) vì sai lầm của mình." }
+            ] },
+            { "kind": "text", "text": "**blame** somebody/something **FOR** ..., somebody **is to blame FOR** ...:", "vi": "**blame** somebody/something **FOR** ..., somebody **is to blame FOR** ... (đổ lỗi cho ai/việc gì vì):" },
+            { "kind": "examples", "items": [
+              { "en": "Everybody **blamed** me **for** the accident.", "vi": "Mọi người đều đổ lỗi cho tôi về vụ tai nạn." },
+              { "en": "Everybody said that I **was to blame for** the accident.", "vi": "Mọi người nói rằng tôi là người phải chịu trách nhiệm về vụ tai nạn." }
+            ] },
+            { "kind": "text", "text": "**blame** (a problem etc.) **ON** ...:", "vi": "**blame** (một vấn đề v.v.) **ON** ... (đổ lỗi việc gì đó cho):" },
+            { "kind": "examples", "items": [
+              { "en": "It wasn't my fault. Don't **blame** it **on** me.", "vi": "Đó không phải lỗi của tôi. Đừng đổ lỗi cho tôi." }
+            ] }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "động từ + from",
+          "headingEn": "verb + from",
+          "parts": [
+            { "kind": "text", "text": "**suffer FROM** an illness etc.:", "vi": "**suffer FROM** an illness v.v. (mắc phải, chịu đựng):" },
+            { "kind": "examples", "items": [
+              { "en": "There's been an increase in the number of people **suffering from** heart disease.", "vi": "Đã có sự gia tăng số người mắc bệnh tim." }
+            ] },
+            { "kind": "text", "text": "**protect** somebody/something **FROM** ...:", "vi": "**protect** somebody/something **FROM** ... (bảo vệ khỏi):" },
+            { "kind": "examples", "items": [
+              { "en": "Sun cream **protects** the skin **from** the sun.", "vi": "Kem chống nắng bảo vệ da khỏi ánh nắng mặt trời." }
+            ] }
+          ]
+        },
+        {
+          "label": "D",
+          "heading": "động từ + on",
+          "headingEn": "verb + on",
+          "parts": [
+            { "kind": "text", "text": "**depend ON** ..., **rely ON** ...:", "vi": "**depend ON** ..., **rely ON** ... (phụ thuộc vào, tin cậy vào):" },
+            { "kind": "examples", "items": [
+              { "en": "I don't know what time we'll arrive. It **depends on** the traffic.", "vi": "Tôi không biết mấy giờ chúng tôi sẽ đến. Còn tuỳ vào tình hình giao thông." },
+              { "en": "You can **rely on** Anna. She always keeps her promises.", "vi": "Bạn có thể tin cậy vào Anna. Cô ấy luôn giữ lời hứa." }
+            ] },
+            { "kind": "text", "text": "You can use **depend** + when/where/how etc. with or without *on*:", "vi": "Bạn có thể dùng **depend** + when/where/how v.v. có hoặc không có *on*:" },
+            { "kind": "examples", "items": [
+              { "en": "'Are you going to buy it?' 'It **depends how** much it is.' (or 'It depends **on** how much ...')", "vi": "'Bạn có định mua nó không?' 'Còn tuỳ giá bao nhiêu.'" }
+            ] },
+            { "kind": "text", "text": "**live ON** money/food:", "vi": "**live ON** money/food (sống nhờ vào, sống dựa vào):" },
+            { "kind": "examples", "items": [
+              { "en": "Michael's salary is very low. It isn't enough to **live on**.", "vi": "Lương của Michael rất thấp. Nó không đủ để sống." }
+            ] },
+            { "kind": "text", "text": "**congratulate** / **compliment** somebody **ON** ...:", "vi": "**congratulate** (chúc mừng) / **compliment** (khen ngợi) somebody **ON** ...:" },
+            { "kind": "examples", "items": [
+              { "en": "I **congratulated** her **on** doing so well in her exams.", "vi": "Tôi đã chúc mừng cô ấy vì đã làm bài thi rất tốt." },
+              { "en": "The meal was really good. I **complimented** Mark **on** his cooking skills.", "vi": "Bữa ăn rất ngon. Tôi đã khen Mark về tài nấu ăn." }
+            ] }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "135.1 · Điền giới từ phù hợp (nếu cần)",
+      "titleEn": "135.1 · Put in the correct preposition",
+      "instructions": "Điền giới từ phù hợp vào chỗ trống. Nếu câu không cần giới từ, gõ dấu - để đánh dấu là không cần thêm từ.",
+      "instructionsEn": "Put in the correct preposition. If no preposition is necessary, type - to mark that nothing is needed.",
+      "wordBank": ["of", "for", "on", "-"],
+      "examples": [
+        { "label": "1", "prompt": "Some students were suspected ___ cheating in the exam.", "answer": "of" }
+      ],
+      "items": [
+        { "prompt": "Are you going to apologise ___ what you did?", "answer": "for" },
+        { "prompt": "The apartment consists ___ three rooms, a kitchen and bathroom.", "answer": "of" },
+        { "prompt": "I was accused ___ lying, but I was telling the truth.", "answer": "of" },
+        { "prompt": "We finished our meal, paid ___ the bill, and left the restaurant.", "answer": "-" },
+        { "prompt": "The accident was my fault, so I had to pay ___ the repairs.", "answer": "for" },
+        { "prompt": "Some people are dying ___ hunger, while others eat too much.", "answer": "of", "accept": ["from"] },
+        { "prompt": "I called Helen to thank her ___ the present she sent me.", "answer": "for" },
+        { "prompt": "The government is popular. Most people approve ___ its policies.", "answer": "of" },
+        { "prompt": "Do you blame the government ___ our economic problems?", "answer": "for" },
+        { "prompt": "When something goes wrong, you always blame it ___ other people.", "answer": "on" },
+        { "prompt": "Forgive me ___ interrupting, but I'd like to ask you something.", "answer": "for" }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "135.2 · Viết lại câu thứ hai",
+      "titleEn": "135.2 · Complete the second sentence so that it means the same as the first",
+      "instructions": "Hoàn thành câu thứ hai sao cho có nghĩa giống câu thứ nhất, dùng động từ + giới từ phù hợp.",
+      "instructionsEn": "Complete the second sentence so that it means the same as the first, using a suitable verb + preposition.",
+      "examples": [
+        { "label": "1", "context": "Sue said that I was selfish.", "prompt": "Sue accused me ___.", "answer": "of being selfish" }
+      ],
+      "items": [
+        { "context": "The misunderstanding was my fault, so I apologised.", "prompt": "I apologised ___.", "answer": "for the misunderstanding" },
+        { "context": "Jane won the tournament, so I congratulated her.", "prompt": "I congratulated ___.", "answer": "her on winning the tournament" },
+        { "context": "He has enemies, and he has a bodyguard to protect him.", "prompt": "He has a bodyguard to protect ___.", "answer": "him from his enemies" },
+        { "context": "Sandra eats only bread and eggs.", "prompt": "Sandra lives ___.", "answer": "on bread and eggs" },
+        { "context": "You can't say that the bad weather is my fault.", "prompt": "You can't blame ___.", "answer": "the bad weather on me", "accept": ["me for the bad weather"] },
+        { "context": "The police thought my friend had stolen a car.", "prompt": "The police suspected ___.", "answer": "my friend of stealing a car" }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "135.3 · Điền động từ + giới từ",
+      "titleEn": "135.3 · Complete the sentences with these verbs + a preposition",
+      "instructions": "Điền một động từ trong khung (ở dạng đúng) + giới từ phù hợp vào chỗ trống.",
+      "instructionsEn": "Complete the sentences using these verbs (in the correct form) + a preposition.",
+      "wordBank": ["accuse", "apologise", "approve", "congratulate", "depend", "live", "pay", "suffer"],
+      "examples": [
+        { "label": "1", "prompt": "His parents don't ___ what he does, but they can't stop him.", "answer": "approve of" }
+      ],
+      "items": [
+        { "prompt": "When you went to the theatre with Paul, who ___ the tickets?", "answer": "paid for" },
+        { "prompt": "It's not pleasant when you are ___ something you didn't do.", "answer": "accused of" },
+        { "prompt": "We hope to go to the beach tomorrow, but it ___ the weather.", "answer": "depends on" },
+        { "prompt": "Things are cheap there. You can ___ very little money.", "answer": "live on" },
+        { "prompt": "You were rude to Lisa. I think you should ___ her.", "answer": "apologise to" },
+        { "prompt": "Alex ___ back pain. He spends too much time working at his desk.", "answer": "suffers from" },
+        { "prompt": "I called Jack to ___ him ___ passing his driving test.", "answer": "congratulate", "extraBlanks": [{ "answer": "on" }] }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "135.4 · Điền giới từ phù hợp (nếu cần)",
+      "titleEn": "135.4 · Put in the correct preposition",
+      "instructions": "Điền giới từ phù hợp vào chỗ trống. Nếu câu không cần giới từ, gõ dấu - để đánh dấu là không cần thêm từ.",
+      "instructionsEn": "Put in the correct preposition. If no preposition is necessary, type - to mark that nothing is needed.",
+      "wordBank": ["from", "on", "for", "of", "-"],
+      "examples": [
+        { "label": "1", "prompt": "I'll never forgive them ___ what they did.", "answer": "for" }
+      ],
+      "items": [
+        { "prompt": "Vaccinations may protect you ___ a number of diseases.", "answer": "from" },
+        { "prompt": "You know you can always rely ___ me if you need any help.", "answer": "on" },
+        { "prompt": "Sophie will have to borrow money to pay ___ her college fees.", "answer": "for" },
+        { "prompt": "She's often unwell. She suffers ___ very bad headaches.", "answer": "from" },
+        { "prompt": "I don't know whether I'll go out tonight. It depends ___ how I feel.", "answer": "on", "accept": ["-"] },
+        { "prompt": "Anna doesn't have a job. She depends ___ her parents for money.", "answer": "on" },
+        { "prompt": "My usual breakfast consists ___ fruit, cereal and coffee.", "answer": "of" },
+        { "prompt": "I complimented her ___ her English. It was really good.", "answer": "on" }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng động từ + of/for/from/on, ví dụ 'I congratulated her on her new job.', 'This depends on the weather.', 'She suffers from headaches.'.",
+      "instructionsEn": "Write 2-3 English sentences using a verb + of/for/from/on, e.g. 'I congratulated her on her new job.', 'This depends on the weather.', 'She suffers from headaches.'.",
+      "ruleSummary": "This unit covers verb + of (accuse/suspect somebody of, approve/disapprove of, die of/from, consist of), verb + for (pay somebody for, but pay a bill/fine/fee/tax/rent with no preposition; thank/forgive somebody for; apologise (to somebody) for; blame somebody for, or blame something on somebody), verb + from (suffer from, protect somebody/something from), and verb + on (depend on/rely on, live on money/food, congratulate/compliment somebody on). A correct student sentence should use the right preposition (or none) for each verb rather than one that happens to translate literally from Vietnamese."
+    }
+  ]
+};
+
+export const UNIT_136_VERB_PREPOSITION_5_IN_INTO_WITH_TO_ON: GrammarUnit = {
+  "unit": 136,
+  "slug": "verb-plus-preposition-5-in-into-with-to-on",
+  "title": "Verb + preposition 5: in/into/with/to/on",
+  "topic": "conjunctions and prepositions",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "động từ + in",
+          "headingEn": "verb + in",
+          "parts": [
+            { "kind": "text", "text": "**believe IN** ... = believe that something exists, believe that it's good to do something:", "vi": "**believe IN** ... (tin là có, tin rằng nên làm gì đó):" },
+            { "kind": "examples", "items": [
+              { "en": "Do you **believe in** God? (= do you believe that God exists?)", "vi": "Bạn có tin có Chúa không? (= bạn có tin rằng Chúa tồn tại không?)" },
+              { "en": "I **believe in** saying what I think. (= I believe it is right to say what I think)", "vi": "Tôi tin là nên nói ra điều mình nghĩ. (= tôi tin rằng nói ra điều mình nghĩ là đúng)" }
+            ] },
+            { "kind": "text", "text": "but 'believe something' (= believe that it is true), 'believe somebody' (= believe what they say):", "vi": "nhưng 'believe something' (tin rằng điều gì đó là đúng), 'believe somebody' (tin lời ai đó nói):" },
+            { "kind": "examples", "items": [
+              { "en": "The story can't be true. I don't **believe** it.", "note": "(not believe in it)", "vi": "Câu chuyện đó không thể có thật. Tôi không tin nó." }
+            ] },
+            { "kind": "text", "text": "**specialise IN** ...:", "vi": "**specialise IN** ... (chuyên về):" },
+            { "kind": "examples", "items": [
+              { "en": "Helen is a lawyer. She **specialises in** company law.", "vi": "Helen là luật sư. Cô ấy chuyên về luật doanh nghiệp." }
+            ] },
+            { "kind": "text", "text": "**succeed IN** ...:", "vi": "**succeed IN** ... (thành công trong việc):" },
+            { "kind": "examples", "items": [
+              { "en": "I hope you **succeed in** finding the job you want.", "vi": "Tôi hy vọng bạn thành công trong việc tìm được công việc mình muốn." }
+            ] }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "động từ + into",
+          "headingEn": "verb + into",
+          "parts": [
+            { "kind": "text", "text": "**break INTO** ...:", "vi": "**break INTO** ... (đột nhập vào):" },
+            { "kind": "examples", "items": [
+              { "en": "Our house was **broken into** a few days ago, but nothing was stolen.", "vi": "Nhà chúng tôi bị đột nhập vài ngày trước, nhưng không có gì bị mất." }
+            ] },
+            { "kind": "text", "text": "**crash / drive / bump / run INTO** ...:", "vi": "**crash / drive / bump / run INTO** ... (đâm vào):" },
+            { "kind": "examples", "items": [
+              { "en": "He lost control of the car and **crashed into** a wall.", "vi": "Anh ấy mất lái và đâm vào một bức tường." }
+            ] },
+            { "kind": "text", "text": "**divide / cut / split** something **INTO** two or more parts:", "vi": "**divide / cut / split** cái gì đó **INTO** hai phần trở lên (chia thành):" },
+            { "kind": "examples", "items": [
+              { "en": "The book is **divided into** three parts.", "vi": "Cuốn sách được chia thành ba phần." }
+            ] },
+            { "kind": "text", "text": "**translate** a book etc. **FROM** one language **INTO** another:", "vi": "**translate** một cuốn sách v.v. **FROM** ngôn ngữ này **INTO** ngôn ngữ khác (dịch từ ... sang ...):" },
+            { "kind": "examples", "items": [
+              { "en": "She's a famous writer. Her books have been **translated into** many languages.", "vi": "Cô ấy là nhà văn nổi tiếng. Sách của cô ấy đã được dịch sang nhiều ngôn ngữ." }
+            ] }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "động từ + with",
+          "headingEn": "verb + with",
+          "parts": [
+            { "kind": "text", "text": "**collide WITH** ...:", "vi": "**collide WITH** ... (va chạm với):" },
+            { "kind": "examples", "items": [
+              { "en": "There was an accident this morning. A bus **collided with** a car.", "vi": "Sáng nay đã xảy ra một vụ tai nạn. Một xe buýt va chạm với một xe ô tô." }
+            ] },
+            { "kind": "text", "text": "**fill** something **WITH** ... (but *full of*, see Unit 131A):", "vi": "**fill** cái gì đó **WITH** ... (đổ đầy bằng) (nhưng *full of*, xem Unit 131A):" },
+            { "kind": "examples", "items": [
+              { "en": "Take this saucepan and **fill** it **with** water.", "vi": "Lấy cái nồi này và đổ đầy nước vào." }
+            ] },
+            { "kind": "text", "text": "**provide / supply** somebody **WITH** ...:", "vi": "**provide / supply** ai đó **WITH** ... (cung cấp cho):" },
+            { "kind": "examples", "items": [
+              { "en": "The school **provides** all its students **with** books.", "vi": "Nhà trường cung cấp sách cho tất cả học sinh." }
+            ] }
+          ]
+        },
+        {
+          "label": "D",
+          "heading": "động từ + to",
+          "headingEn": "verb + to",
+          "parts": [
+            { "kind": "text", "text": "**happen TO** ...:", "vi": "**happen TO** ... (xảy ra với):" },
+            { "kind": "examples", "items": [
+              { "en": "What **happened to** that gold watch you used to have? (= where is it now?)", "vi": "Chuyện gì đã xảy ra với chiếc đồng hồ vàng bạn từng có? (= giờ nó ở đâu?)" }
+            ] },
+            { "kind": "text", "text": "**invite** somebody **TO** a party / a wedding etc.:", "vi": "**invite** ai đó **TO** một bữa tiệc / một đám cưới v.v. (mời ai đến):" },
+            { "kind": "examples", "items": [
+              { "en": "They only **invited** a few people **to** their wedding.", "vi": "Họ chỉ mời vài người đến đám cưới của họ." }
+            ] },
+            { "kind": "text", "text": "**prefer** one thing **TO** another:", "vi": "**prefer** cái này **TO** cái kia (thích cái này hơn cái kia):" },
+            { "kind": "examples", "items": [
+              { "en": "I **prefer** tea **to** coffee.", "vi": "Tôi thích trà hơn cà phê." }
+            ] }
+          ]
+        },
+        {
+          "label": "E",
+          "heading": "động từ + on",
+          "headingEn": "verb + on",
+          "parts": [
+            { "kind": "text", "text": "**concentrate ON** ...:", "vi": "**concentrate ON** ... (tập trung vào):" },
+            { "kind": "examples", "items": [
+              { "en": "I tried to **concentrate on** my work, but I kept thinking about other things.", "vi": "Tôi cố tập trung vào công việc, nhưng cứ nghĩ về những chuyện khác." }
+            ] },
+            { "kind": "text", "text": "**insist ON** ...:", "vi": "**insist ON** ... (khăng khăng đòi):" },
+            { "kind": "examples", "items": [
+              { "en": "I wanted to go alone, but some friends of mine **insisted on** coming with me.", "vi": "Tôi muốn đi một mình, nhưng vài người bạn cứ khăng khăng đòi đi cùng tôi." }
+            ] },
+            { "kind": "text", "text": "**spend** (money) **ON** ...:", "vi": "**spend** (tiền) **ON** ... (chi tiêu vào):" },
+            { "kind": "examples", "items": [
+              { "en": "How much do you **spend on** food each week?", "vi": "Bạn chi bao nhiêu tiền cho thức ăn mỗi tuần?" }
+            ] }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "136.1 · Điền động từ + giới từ",
+      "titleEn": "136.1 · Complete the sentences using these verbs + a preposition",
+      "instructions": "Điền một động từ trong khung (ở dạng đúng) + giới từ phù hợp vào chỗ trống.",
+      "instructionsEn": "Complete the sentences using these verbs (in the correct form) + a preposition.",
+      "wordBank": ["believe", "break", "concentrate", "divide", "drive", "fill", "happen", "insist", "invite", "succeed"],
+      "examples": [
+        { "label": "1", "prompt": "I wanted to go alone, but my friends ___ coming with me.", "answer": "insisted on" }
+      ],
+      "items": [
+        { "prompt": "I haven't seen Mike for ages. I wonder what has ___ him.", "answer": "happened to" },
+        { "prompt": "It's a very large house. It's ___ four apartments.", "answer": "divided into" },
+        { "prompt": "We've been ___ the party, but unfortunately we can't go.", "answer": "invited to" },
+        { "prompt": "I don't ___ ghosts. I think people imagine that they see them.", "answer": "believe in" },
+        { "prompt": "Steve gave me an empty bucket and told me to ___ it ___ water.", "answer": "fill", "extraBlanks": [{ "answer": "with" }] },
+        { "prompt": "A burglar is someone who ___ a house to steal things.", "answer": "breaks into" },
+        { "prompt": "Don't try and do two things together. ___ one thing at a time.", "answer": "concentrate on" },
+        { "prompt": "It wasn't easy, but in the end we ___ finding a solution to the problem.", "answer": "succeeded in" },
+        { "prompt": "The car in front of me stopped suddenly. Unfortunately I couldn't stop in time and ___ the back of it.", "answer": "drove into", "accept": ["crashed into"] }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "136.2 · Viết lại câu thứ hai",
+      "titleEn": "136.2 · Complete the second sentence so that it means the same as the first",
+      "instructions": "Hoàn thành câu thứ hai sao cho có nghĩa giống câu thứ nhất, dùng động từ + giới từ phù hợp.",
+      "instructionsEn": "Complete the second sentence so that it means the same as the first, using a suitable verb + preposition.",
+      "examples": [
+        { "label": "1", "context": "There was a collision between a bus and a car.", "prompt": "___", "answer": "A bus collided with a car." }
+      ],
+      "items": [
+        { "context": "I don't mind big cities, but I prefer small towns.", "prompt": "I prefer ___.", "answer": "small towns to big cities" },
+        { "context": "I got all the information I needed from the company.", "prompt": "The company provided me ___.", "answer": "with all the information I needed" },
+        { "context": "This morning I bought a pair of shoes, which cost eighty pounds.", "prompt": "This morning I spent ___.", "answer": "eighty pounds on a pair of shoes", "accept": ["eighty pounds on the shoes"] },
+        { "context": "There are ten districts in the city.", "prompt": "The city is divided ___.", "answer": "into ten districts" }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "136.3 · Điền giới từ phù hợp (nếu cần)",
+      "titleEn": "136.3 · Put in the correct preposition",
+      "instructions": "Điền giới từ phù hợp vào chỗ trống. Nếu câu không cần giới từ, gõ dấu - để đánh dấu là không cần thêm từ.",
+      "instructionsEn": "Put in the correct preposition. If no preposition is necessary, type - to mark that nothing is needed.",
+      "wordBank": ["to", "on", "in", "with", "into", "-"],
+      "examples": [
+        { "label": "1", "prompt": "The school provides all its students ___ books.", "answer": "with" }
+      ],
+      "items": [
+        { "prompt": "A strange thing happened ___ me a few days ago.", "answer": "to" },
+        { "prompt": "Mark decided to give up sport to concentrate ___ his studies.", "answer": "on" },
+        { "prompt": "Money should be used well. I don't believe ___ wasting it.", "answer": "in" },
+        { "prompt": "My present job isn't wonderful, but I prefer it ___ what I did before.", "answer": "to" },
+        { "prompt": "I hope you succeed ___ getting what you want.", "answer": "in" },
+        { "prompt": "Ben was injured playing football when he collided ___ another player.", "answer": "with" },
+        { "prompt": "There was an awful noise as the car crashed ___ a tree.", "answer": "into" },
+        { "prompt": "Patrick is a photographer. He specialises ___ sports photography.", "answer": "in" },
+        { "prompt": "Joe doesn't spend much money ___ clothes.", "answer": "on" },
+        { "prompt": "I was amazed when I heard the news. I couldn't believe ___ it.", "answer": "-" },
+        { "prompt": "Somebody broke ___ my car and stole my bag.", "answer": "into" },
+        { "prompt": "I was quite cold, but Tom insisted ___ having the window open.", "answer": "on" },
+        { "prompt": "The teacher decided to split the class ___ four groups.", "answer": "into" },
+        { "prompt": "I filled the tank, but unfortunately I filled it ___ the wrong kind of fuel.", "answer": "with" },
+        { "prompt": "Some things are difficult to translate ___ one language ___ another.", "answer": "from", "extraBlanks": [{ "answer": "into" }] }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh về bản thân dùng động từ + giới từ đã học, ví dụ bạn thường chi tiền vào việc gì (spend money on), bạn thích cái gì hơn cái gì (prefer ... to ...), một nhà hàng nào đó chuyên về món gì (specialise in), v.v.",
+      "instructionsEn": "Write 2-3 English sentences about yourself using the verb + preposition combinations from this unit, e.g. what you spend money on, what you prefer to what, what a restaurant specialises in, etc.",
+      "ruleSummary": "This unit covers verb + in (believe in, specialise in, succeed in, but believe something/somebody with no preposition), verb + into (break into, crash/drive/bump/run into, divide/cut/split something into, translate a book from one language into another), verb + with (collide with, fill something with, provide/supply somebody with), verb + to (happen to, invite somebody to, prefer one thing to another), and verb + on (concentrate on, insist on, spend money on). A correct student sentence should use the right preposition for each verb rather than one that happens to translate literally from Vietnamese."
+    }
+  ]
+};
+
+export const UNIT_137_PHRASAL_VERBS_1_INTRODUCTION: GrammarUnit = {
+  "unit": 137,
+  "slug": "phrasal-verbs-1-introduction",
+  "title": "Phrasal verbs 1: Introduction",
+  "topic": "phrasal verbs",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "động từ cụm (phrasal verbs) là gì",
+          "headingEn": "what a phrasal verb is",
+          "parts": [
+            { "kind": "text", "text": "We often use verbs with:", "vi": "Chúng ta thường dùng động từ với:" },
+            { "kind": "words", "words": ["in", "on", "up", "away", "by", "about", "over", "round or around", "out", "off", "down", "back", "through", "along", "forward"] },
+            { "kind": "text", "text": "So you can say **look out** / **get on** / **take off** / **run away** etc. These are *phrasal verbs*.", "vi": "Vì vậy bạn có thể nói **look out** / **get on** / **take off** / **run away** v.v. Đây gọi là *phrasal verbs* (động từ cụm)." },
+            { "kind": "text", "text": "We often use *on*/*off*/*out* etc. with verbs of movement. For example:", "vi": "Chúng ta thường dùng *on*/*off*/*out* v.v. với các động từ chỉ chuyển động. Ví dụ:" },
+            { "kind": "examples", "items": [
+              { "en": "The bus was full. We couldn't **get on**.", "vi": "Xe buýt đầy chỗ. Chúng tôi không lên được." },
+              { "en": "A woman got into the car and **drove off**.", "vi": "Một người phụ nữ lên xe rồi lái đi mất." },
+              { "en": "Sarah is leaving tomorrow and **coming back** on Saturday.", "vi": "Sarah sẽ rời đi vào ngày mai và quay lại vào thứ Bảy." },
+              { "en": "When I touched him on the shoulder, he **turned round**.", "vi": "Khi tôi chạm vào vai anh ấy, anh ấy quay người lại." }
+            ] }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "tiểu từ có thể tạo nghĩa riêng cho động từ",
+          "headingEn": "the particle can give the verb a new meaning",
+          "intro": "Often the second word (on/off/out etc.) gives a special meaning to the verb. For example:",
+          "introVi": "Thường thì từ thứ hai (on/off/out v.v.) tạo cho động từ một nghĩa hoàn toàn riêng. Ví dụ:",
+          "parts": [
+            { "kind": "examples", "items": [
+              { "en": "Sorry I'm late. The car **broke down**.", "note": "(= the engine stopped working)", "vi": "Xin lỗi vì tôi đến muộn. Xe của tôi bị hỏng dọc đường." },
+              { "en": "I never **found out** who sent me the flowers.", "note": "(= I never discovered)", "vi": "Tôi không bao giờ biết được ai đã gửi hoa cho tôi." },
+              { "en": "It was my first flight. I was nervous as the plane **took off**.", "note": "(= went into the air)", "vi": "Đó là chuyến bay đầu tiên của tôi. Tôi lo lắng khi máy bay cất cánh." },
+              { "en": "I tried many times to contact her. In the end I **gave up**.", "note": "(= stopped trying)", "vi": "Tôi đã cố liên lạc với cô ấy nhiều lần. Cuối cùng tôi bỏ cuộc." },
+              { "en": "How was the exam? How did you **get on**?", "note": "(= How did you do?)", "vi": "Kỳ thi thế nào? Bạn làm bài ra sao?" },
+              { "en": "My French isn't good, but it's enough to **get by**.", "note": "(= enough to manage)", "vi": "Tiếng Pháp của tôi không giỏi, nhưng đủ để xoay xở." }
+            ] },
+            { "kind": "text", "text": "For more phrasal verbs, see Units 138-145.", "vi": "Xem thêm các động từ cụm khác ở Units 138-145." }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "động từ cụm + giới từ",
+          "headingEn": "phrasal verb + preposition",
+          "intro": "Sometimes a phrasal verb is followed by a preposition. For example:",
+          "introVi": "Đôi khi một động từ cụm còn theo sau bởi một giới từ. Ví dụ:",
+          "parts": [
+            { "kind": "examples", "items": [
+              { "en": "We **looked up at** the plane as it flew above us.", "vi": "Chúng tôi ngước nhìn lên chiếc máy bay khi nó bay qua trên đầu." },
+              { "en": "Why did you **run away from** me?", "vi": "Sao bạn lại chạy trốn khỏi tôi?" },
+              { "en": "You're walking too fast. I can't **keep up with** you.", "vi": "Bạn đi nhanh quá. Tôi không theo kịp bạn." },
+              { "en": "Are you **looking forward to** your trip?", "vi": "Bạn có đang mong chờ chuyến đi của mình không?" }
+            ] }
+          ]
+        },
+        {
+          "label": "D",
+          "heading": "động từ cụm có tân ngữ",
+          "headingEn": "phrasal verbs with an object",
+          "parts": [
+            { "kind": "text", "text": "Sometimes a phrasal verb has an object. For example:", "vi": "Đôi khi một động từ cụm có tân ngữ. Ví dụ:" },
+            { "kind": "examples", "items": [
+              { "en": "I **turned on** the light. (the light is the object)", "vi": "Tôi bật đèn lên. (đèn là tân ngữ)" }
+            ] },
+            { "kind": "text", "text": "Usually there are two possible positions for the object. You can say:", "vi": "Thường có hai vị trí có thể đặt tân ngữ. Bạn có thể nói:" },
+            { "kind": "examples", "items": [
+              { "en": "I **turned on** the light.", "vi": "Tôi bật đèn lên." },
+              { "en": "I **turned** the light **on**.", "vi": "Tôi bật đèn lên." }
+            ] },
+            { "kind": "text", "text": "But if the object is a pronoun (it/them/me/him etc.), only one position is possible:", "vi": "Nhưng nếu tân ngữ là đại từ (it/them/me/him v.v.), chỉ có một vị trí duy nhất là đúng:" },
+            { "kind": "examples", "items": [
+              { "en": "I **turned it on**.", "note": "(not I turned on it)", "vi": "Tôi bật nó lên." }
+            ] },
+            { "kind": "text", "text": "In the same way, you can say:", "vi": "Tương tự, bạn có thể nói:" },
+            { "kind": "examples", "items": [
+              { "en": "I'm going to **take off** my shoes.", "vi": "Tôi sắp cởi giày ra." },
+              { "en": "I'm going to **take** my shoes **off**.", "vi": "Tôi sắp cởi giày ra." },
+              { "en": "These shoes are uncomfortable. I'm going to **take them off**.", "note": "(not take off them)", "vi": "Đôi giày này không thoải mái. Tôi sẽ cởi chúng ra." }
+            ] },
+            { "kind": "examples", "items": [
+              { "en": "Don't **wake up** the baby.", "vi": "Đừng đánh thức em bé dậy." },
+              { "en": "Don't **wake** the baby **up**.", "vi": "Đừng đánh thức em bé dậy." },
+              { "en": "The baby is asleep. Don't **wake her up**.", "note": "(not wake up her)", "vi": "Em bé đang ngủ. Đừng đánh thức bé dậy." }
+            ] },
+            { "kind": "examples", "items": [
+              { "en": "Don't **throw away** this box.", "vi": "Đừng vứt cái hộp này đi." },
+              { "en": "Don't **throw** this box **away**.", "vi": "Đừng vứt cái hộp này đi." },
+              { "en": "I want to keep this box, so don't **throw it away**.", "note": "(not throw away it)", "vi": "Tôi muốn giữ cái hộp này, vậy nên đừng vứt nó đi." }
+            ] }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "137.1 · Điền động từ + tiểu từ",
+      "titleEn": "137.1 · Complete each sentence using a verb (in the correct form) + a particle",
+      "instructions": "Điền một động từ trong khung A (ở dạng đúng) + một từ trong khung B vào chỗ trống.",
+      "instructionsEn": "Complete each sentence using a verb from A (in the correct form) + a word from B.",
+      "wordBank": ["be", "break", "come", "fly", "get", "go", "look", "sit", "speak", "take", "away", "back", "by", "down", "off", "on", "out", "round", "up"],
+      "examples": [
+        { "label": "1", "prompt": "Sarah is leaving tomorrow and ___ on Saturday.", "answer": "coming back" }
+      ],
+      "items": [
+        { "prompt": "I've been standing a long time. I'm going to ___ for a bit.", "answer": "sit down" },
+        { "prompt": "It's a very busy airport. There are planes landing and ___ all the time.", "answer": "taking off" },
+        { "prompt": "A cat tried to catch the bird, but it ___ just in time.", "answer": "flew away" },
+        { "prompt": "We were trapped in the building. We couldn't ___.", "answer": "get out" },
+        { "prompt": "I can't hear you very well. Can you ___ a little?", "answer": "speak up" },
+        { "prompt": "Ben's salary is very low, but it's enough to ___.", "answer": "get by" },
+        { "prompt": "Everything is so expensive now. Prices have ___ a lot.", "answer": "gone up" },
+        { "prompt": "I heard a noise behind me, so I ___ to see what it was.", "answer": "looked round" },
+        { "prompt": "I'm going out now to do some shopping. I'll ___ in about an hour.", "answer": "be back" },
+        { "prompt": "Our car ___ on the motorway and we had to call for help.", "answer": "broke down" },
+        { "prompt": "How is your new job? How are you ___?", "answer": "getting on" }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "137.2 · Điền từ + giới từ",
+      "titleEn": "137.2 · Complete each sentence using a word from A and a word from B",
+      "instructions": "Điền một từ trong khung A + một từ trong khung B vào chỗ trống.",
+      "instructionsEn": "Complete each sentence using a word from A and a word from B.",
+      "wordBank": ["away", "in", "up", "back", "out", "at", "to", "with", "about", "through", "forward"],
+      "examples": [
+        { "label": "1", "prompt": "You're walking too fast. I can't ___ you.", "answer": "keep up with" }
+      ],
+      "items": [
+        { "prompt": "My holidays are nearly over. Next week I'll be ___ work.", "answer": "back at" },
+        { "prompt": "We went ___ the top floor of the building to admire the view.", "answer": "up to" },
+        { "prompt": "The meeting tomorrow is going to be difficult. I'm not looking ___ it.", "answer": "forward to" },
+        { "prompt": "There was a bank robbery last week. The robbers got ___ £50,000.", "answer": "away with" },
+        { "prompt": "I love to look ___ the stars in the night sky.", "answer": "up at" },
+        { "prompt": "I was sitting in the kitchen when a bird flew ___ the open window.", "answer": "in through" },
+        { "prompt": "How do you know about the plan? How did you find ___ it?", "answer": "out about" }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "137.3 · Điền động từ cụm + it/them/me",
+      "titleEn": "137.3 · Complete the sentences using these phrasal verbs + it/them/me",
+      "instructions": "Điền một cụm động từ trong khung (kèm it/them/me phù hợp) vào chỗ trống.",
+      "instructionsEn": "Complete the sentences using these phrasal verbs + it/them/me.",
+      "wordBank": ["wake up", "get out", "give back", "switch on", "take off", "throw away"],
+      "examples": [
+        { "label": "1", "prompt": "I want to keep this box. Don't ___.", "answer": "throw it away" }
+      ],
+      "items": [
+        { "prompt": "I'm going to bed now. Can you ___ at 6.30?", "answer": "wake me up" },
+        { "prompt": "I've got something in my eye and I can't ___.", "answer": "get it out" },
+        { "prompt": "I don't like it when people borrow things and don't ___.", "answer": "give them back" },
+        { "prompt": "I want to use the hair dryer. How do I ___?", "answer": "switch it on" },
+        { "prompt": "My shoes are dirty. I'd better ___ before going into the house.", "answer": "take them off" }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "137.4 · Điền từ trong ngoặc",
+      "titleEn": "137.4 · Complete the sentences. Use the word in brackets",
+      "instructions": "Hoàn thành câu bằng cách dùng từ trong ngoặc.",
+      "instructionsEn": "Complete the sentences. Use the word in brackets.",
+      "examples": [
+        { "label": "1", "context": "I want to keep it.", "prompt": "___", "answer": "Don't throw away this box." },
+        { "label": "2", "context": "I don't want this newspaper.", "prompt": "___", "answer": "You can throw it away." }
+      ],
+      "items": [
+        { "prompt": "These books are Lisa's. I have to give ___ to her. (back)", "answer": "them back" },
+        { "prompt": "We can turn ___. Nobody is watching it. (off)", "answer": "it off" },
+        { "prompt": "Shh! My mother is asleep. I don't want to wake ___. (up)", "answer": "her up" },
+        { "prompt": "It's cold today. You should put ___ if you go out. (on)", "answer": "a coat on", "accept": ["your coat on"] },
+        { "prompt": "It was only a small fire. I was able to put ___ easily. (out)", "answer": "it out" },
+        { "prompt": "It's a bit dark in this room. Shall I turn ___? (on)", "answer": "the light on" },
+        { "context": "A: The hotel is more expensive than when we stayed here last year.", "prompt": "B: Yes, they've put ___. (up)", "answer": "the prices up", "accept": ["prices up"] },
+        { "context": "A: How did the vase get broken?", "prompt": "B: I'm afraid I knocked ___ while I was cleaning. (over)", "answer": "it over" }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng động từ cụm (phrasal verbs) đã học, ví dụ 'The plane took off on time.', 'I can't keep up with you.', 'Don't throw it away.'.",
+      "instructionsEn": "Write 2-3 English sentences using phrasal verbs from this unit, e.g. 'The plane took off on time.', 'I can't keep up with you.', 'Don't throw it away.'.",
+      "ruleSummary": "This unit introduces phrasal verbs: verb + particle (in/on/up/away/out/off/down/back/round/through/along/forward/by/about/over). Sometimes the particle gives the verb a special meaning (break down = stop working, find out = discover, take off = leave the ground, give up = stop trying, get on = how you are doing, get by = manage). A phrasal verb can be followed by a further preposition (look up at, run away from, keep up with, look forward to). When a phrasal verb has an object, a noun object can go before or after the particle (turn on the light / turn the light on), but a pronoun object must go between the verb and the particle (turn it on, not turn on it)."
+    }
+  ]
+};
+
+export const UNIT_138_PHRASAL_VERBS_2_IN_OUT: GrammarUnit = {
+  "unit": 138,
+  "slug": "phrasal-verbs-2-in-out",
+  "title": "Phrasal verbs 2: in/out",
+  "topic": "phrasal verbs",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "so sánh in và out",
+          "headingEn": "comparing in and out",
+          "parts": [
+            { "kind": "text", "text": "**in** = into a room, a building, a car etc.:", "vi": "**in** = vào một căn phòng, một tòa nhà, một chiếc xe v.v. (vào trong):" },
+            { "kind": "examples", "items": [
+              { "en": "How did the thieves get **in**?", "vi": "Bọn trộm đã vào bằng cách nào?" },
+              { "en": "Here's a key, so you can let yourself **in**.", "vi": "Đây là chìa khóa, để bạn có thể tự mở cửa vào." },
+              { "en": "Lisa walked up to the edge of the pool and dived **in**. (= into the water)", "vi": "Lisa đi đến mép bể bơi rồi nhảy xuống. (= xuống nước)" },
+              { "en": "I've got a new apartment. I'm moving **in** on Friday.", "vi": "Tôi có căn hộ mới. Tôi sẽ dọn vào ở thứ Sáu này." },
+              { "en": "As soon as I got to the airport, I checked **in**.", "vi": "Ngay khi đến sân bay, tôi đã làm thủ tục check-in." }
+            ] },
+            { "kind": "text", "text": "In the same way you can say **go in**, **come in**, **walk in**, **break in** etc.", "vi": "Tương tự, bạn có thể nói **go in**, **come in**, **walk in**, **break in** v.v." },
+            { "kind": "text", "text": "Compare *in* and *into*:", "vi": "So sánh *in* và *into*:" },
+            { "kind": "examples", "items": [
+              { "en": "I'm moving **in** on Friday.", "vi": "Tôi sẽ dọn vào ở thứ Sáu này." },
+              { "en": "I'm moving **into** my new flat on Friday.", "vi": "Tôi sẽ dọn vào căn hộ mới của mình vào thứ Sáu." }
+            ] },
+            { "kind": "text", "text": "**out** = out of a room, a building, a car etc.:", "vi": "**out** = ra khỏi một căn phòng, một tòa nhà, một chiếc xe v.v. (ra ngoài):" },
+            { "kind": "examples", "items": [
+              { "en": "Stay in the car. Don't get **out**.", "vi": "Cứ ngồi trong xe. Đừng ra ngoài." },
+              { "en": "I had no key, so I was locked **out**.", "vi": "Tôi không có chìa khóa nên bị khóa ở ngoài." },
+              { "en": "She swam up and down the pool, and then climbed **out**.", "vi": "Cô ấy bơi qua lại trong bể, rồi trèo lên bờ." },
+              { "en": "Andy opened the window and looked **out**.", "vi": "Andy mở cửa sổ và nhìn ra ngoài." },
+              { "en": "We paid the hotel bill and checked **out**.", "vi": "Chúng tôi thanh toán tiền khách sạn và làm thủ tục check-out." }
+            ] },
+            { "kind": "text", "text": "In the same way you can say **go out**, **get out**, **move out**, **let** somebody **out** etc.", "vi": "Tương tự, bạn có thể nói **go out**, **get out**, **move out**, **let** ai đó **out** v.v." },
+            { "kind": "text", "text": "Compare *out* and *out of*:", "vi": "So sánh *out* và *out of*:" },
+            { "kind": "examples", "items": [
+              { "en": "She climbed **out**.", "vi": "Cô ấy trèo ra." },
+              { "en": "She climbed **out of** the pool.", "vi": "Cô ấy trèo ra khỏi bể bơi." }
+            ] }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "các động từ khác + in",
+          "headingEn": "other verbs + in",
+          "parts": [
+            { "kind": "text", "text": "**drop in** = visit somebody at home without arranging this:", "vi": "**drop in** = ghé thăm ai đó tại nhà mà không hẹn trước (ghé qua):" },
+            { "kind": "examples", "items": [
+              { "en": "I **dropped in** to see Chris on my way home.", "vi": "Tôi đã ghé qua thăm Chris trên đường về nhà." }
+            ] },
+            { "kind": "text", "text": "**join in** = take part in something that is already going on:", "vi": "**join in** = tham gia vào việc gì đó đang diễn ra:" },
+            { "kind": "examples", "items": [
+              { "en": "They were playing cards, so I **joined in**.", "vi": "Họ đang chơi bài, nên tôi tham gia cùng." }
+            ] },
+            { "kind": "text", "text": "**plug in** an electrical machine = connect it to the electricity supply:", "vi": "**plug in** một thiết bị điện = cắm nó vào nguồn điện:" },
+            { "kind": "examples", "items": [
+              { "en": "The fridge isn't working because you haven't **plugged** it **in**.", "vi": "Tủ lạnh không hoạt động vì bạn chưa cắm điện cho nó." }
+            ] },
+            { "kind": "text", "text": "**take** somebody **in** = deceive somebody:", "vi": "**take** ai đó **in** = lừa gạt ai đó:" },
+            { "kind": "examples", "items": [
+              { "en": "The man said he was a policeman and I believed him. I was completely **taken in**.", "vi": "Người đàn ông nói ông ta là cảnh sát và tôi đã tin. Tôi đã hoàn toàn bị lừa." }
+            ] },
+            { "kind": "text", "text": "**fill in** or **fill out** a form, a questionnaire etc. = write the necessary information on a form:", "vi": "**fill in** hoặc **fill out** một biểu mẫu, bảng câu hỏi v.v. = điền các thông tin cần thiết vào biểu mẫu:" },
+            { "kind": "examples", "items": [
+              { "en": "Please **fill in** the application form and send it to us by 28 February.", "vi": "Vui lòng điền vào đơn đăng ký và gửi lại cho chúng tôi trước ngày 28 tháng Hai." },
+              { "en": "or: Please **fill out** the application form ...", "vi": "hoặc: Vui lòng điền đơn đăng ký ..." }
+            ] }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "các động từ khác + out",
+          "headingEn": "other verbs + out",
+          "parts": [
+            { "kind": "text", "text": "**eat out** = eat at a restaurant, not at home:", "vi": "**eat out** = ăn ở nhà hàng, không ăn ở nhà:" },
+            { "kind": "examples", "items": [
+              { "en": "There wasn't anything to eat at home, so we decided to **eat out**.", "vi": "Ở nhà không có gì để ăn, nên chúng tôi quyết định ra ngoài ăn." }
+            ] },
+            { "kind": "text", "text": "**drop out** of college / university / a course / a race = stop before you have completely finished:", "vi": "**drop out** of college / university / a course / a race = bỏ dở giữa chừng trước khi hoàn thành:" },
+            { "kind": "examples", "items": [
+              { "en": "Gary went to university but **dropped out** after a year.", "vi": "Gary đã vào đại học nhưng bỏ học sau một năm." }
+            ] },
+            { "kind": "text", "text": "**get out of** something that you arranged to do = avoid doing it:", "vi": "**get out of** việc gì đó bạn đã hẹn làm = tránh không phải làm việc đó:" },
+            { "kind": "examples", "items": [
+              { "en": "I promised I'd go to the wedding. I don't want to go, but I can't **get out of** it now.", "vi": "Tôi đã hứa sẽ đi dự đám cưới. Tôi không muốn đi, nhưng giờ không thể thoái thác được nữa." }
+            ] },
+            { "kind": "text", "text": "**leave** something **out** = omit it, not include it:", "vi": "**leave** cái gì đó **out** = bỏ qua, không đưa vào:" },
+            { "kind": "examples", "items": [
+              { "en": "In the sentence 'She said that she was ill', you can **leave out** the word 'that'.", "vi": "Trong câu 'She said that she was ill', bạn có thể bỏ từ 'that'." }
+            ] },
+            { "kind": "text", "text": "**cross** something **out** = write a line through something:", "vi": "**cross** cái gì đó **out** = gạch bỏ đi:" },
+            { "kind": "examples", "items": [
+              { "en": "Some of the names on the list had been **crossed out**.", "vi": "Một số tên trong danh sách đã bị gạch bỏ." }
+            ] }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "138.1 · Hoàn thành câu",
+      "titleEn": "138.1 · Complete the sentences",
+      "instructions": "Điền động từ phù hợp vào chỗ trống.",
+      "instructionsEn": "Complete the sentences.",
+      "wordBank": ["eat", "drop", "fill", "move", "check", "plug", "dive"],
+      "examples": [
+        { "label": "1", "prompt": "___", "answer": "Here's a key so that you can let yourself in." }
+      ],
+      "items": [
+        { "prompt": "Lisa doesn't like cooking, so she ___ out a lot.", "answer": "eats" },
+        { "prompt": "If you're in our part of town, you should ___ in and say hello.", "answer": "drop" },
+        { "prompt": "Could you ___ in this questionnaire? It will only take five minutes.", "answer": "fill" },
+        { "prompt": "Amy isn't living in this house any more. She ___ out a few weeks ago.", "answer": "moved" },
+        { "prompt": "After breakfast, we ___ out of the hotel and got a taxi to the airport.", "answer": "checked" },
+        { "prompt": "I wanted to charge my phone, but there was nowhere to ___ the charger in.", "answer": "plug" },
+        { "prompt": "Paul started doing a Spanish course, but he ___ out after a few weeks.", "answer": "dropped" },
+        { "prompt": "Be careful! The water isn't very deep here, so don't ___ in.", "answer": "dive" }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "138.2 · Điền in, into, out hoặc out of",
+      "titleEn": "138.2 · Complete the sentences with in, into, out or out of",
+      "instructions": "Điền in, into, out hoặc out of vào chỗ trống.",
+      "instructionsEn": "Complete the sentences with in, into, out or out of.",
+      "wordBank": ["in", "into", "out", "out of"],
+      "examples": [
+        { "label": "1", "prompt": "I've got a new flat. I'm moving ___ on Friday.", "answer": "in" }
+      ],
+      "items": [
+        { "prompt": "We arrived at the hotel and checked ___.", "answer": "in" },
+        { "prompt": "When are you moving ___ your new flat?", "answer": "into" },
+        { "prompt": "The car stopped and the driver got ___.", "answer": "out" },
+        { "prompt": "Thieves broke ___ the house and stole some jewellery.", "answer": "into" },
+        { "prompt": "How did the thieves break ___? Through a window?", "answer": "in" },
+        { "prompt": "He opened his wallet and something fell ___.", "answer": "out" },
+        { "prompt": "Kate was angry and walked ___ the meeting.", "answer": "out of" }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "138.3 · Điền động từ + in hoặc out (of)",
+      "titleEn": "138.3 · Complete the sentences using a verb + in or out (of)",
+      "instructions": "Điền một động từ + in hoặc out (of) phù hợp vào chỗ trống.",
+      "instructionsEn": "Complete the sentences using a verb + in or out (of).",
+      "examples": [
+        { "label": "1", "prompt": "Lisa walked to the edge of the pool, ___ and swam to the other end.", "answer": "dived in" }
+      ],
+      "items": [
+        { "prompt": "Not all the runners finished the race. Three of them ___.", "answer": "dropped out" },
+        { "prompt": "I went to see Joe and Sophie in their new house. They ___ last week.", "answer": "moved in" },
+        { "prompt": "I've told you everything you need to know. I don't think I've ___ anything.", "answer": "left out" },
+        { "prompt": "Some people in the crowd started singing. Then a few more people ___ and soon everybody was singing.", "answer": "joined in" },
+        { "prompt": "Don't be ___ by him. If I were you, I wouldn't believe anything he says.", "answer": "taken in" },
+        { "prompt": "I ___ to see Laura a few days ago. She was fine.", "answer": "dropped in" }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "138.4 · Dùng đúng dạng của từ trong ngoặc",
+      "titleEn": "138.4 · Complete the sentences. Use the word in brackets in the correct form",
+      "instructions": "Hoàn thành câu, dùng đúng dạng của từ trong ngoặc.",
+      "instructionsEn": "Complete the sentences. Use the word in brackets in the correct form.",
+      "examples": [
+        { "label": "1", "context": "A: The fridge isn't working.", "prompt": "B: That's because you haven't ___. (plug)", "answer": "plugged it in" }
+      ],
+      "items": [
+        { "context": "A: What do I have to do with these forms?", "prompt": "B: ___ and send them to this address. (fill)", "answer": "fill them in", "accept": ["fill them out"] },
+        { "context": "A: I've made a mistake on this form.", "prompt": "B: That's OK. Just ___ and correct it. (cross)", "answer": "cross it out" },
+        { "context": "A: Have you been to the new club I told you about?", "prompt": "B: No. We went there, but they wouldn't ___ because we weren't members. (let)", "answer": "let us in" },
+        { "context": "A: Can we meet tomorrow at ten?", "prompt": "B: Probably. I have another meeting, but I think I can ___. (get)", "answer": "get out of it" }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "138.5 · Viết lại câu thứ hai",
+      "titleEn": "138.5 · Complete the second sentence so that it means the same as the first",
+      "instructions": "Hoàn thành câu thứ hai sao cho có nghĩa giống câu thứ nhất, dùng động từ cụm ở mục B hoặc C.",
+      "instructionsEn": "Complete the second sentence so that it means the same as the first. Use a verb from Sections B or C.",
+      "examples": [
+        { "label": "1", "context": "Let's go to a restaurant tonight.", "prompt": "___", "answer": "Let's eat out tonight." }
+      ],
+      "items": [
+        { "context": "Why didn't you finish college?", "prompt": "Why did you ___?", "answer": "drop out of college" },
+        { "context": "Please complete the application form.", "prompt": "Please ___ form.", "answer": "fill in the application" },
+        { "context": "I can't avoid going to the party.", "prompt": "I can't ___ to the party.", "answer": "get out of going" },
+        { "context": "I thought the email was genuine, but it wasn't.", "prompt": "I was completely ___ the email.", "answer": "taken in by" },
+        { "context": "You must come and see us sometime.", "prompt": "You must ___ sometime.", "answer": "drop in" },
+        { "context": "Steve was upset because he wasn't chosen for the team.", "prompt": "Steve was upset because he ___ the team.", "answer": "was left out of" }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng các cụm động từ in/out đã học, ví dụ 'I dropped in to see a friend.', 'We decided to eat out.', 'Don't leave anything out.'.",
+      "instructionsEn": "Write 2-3 English sentences using the in/out phrasal verbs from this unit, e.g. 'I dropped in to see a friend.', 'We decided to eat out.', 'Don't leave anything out.'.",
+      "ruleSummary": "This unit covers in (into a room/building/car: get in, let somebody in, dive in, move in, check in) versus out (out of a room/building/car: get out, locked out, climb out, look out, check out), plus other verbs with in (drop in = visit unannounced, join in = take part, plug in, take somebody in = deceive, fill in/fill out a form) and other verbs with out (eat out, drop out of college/a course, get out of something arranged, leave something out = omit, cross something out)."
+    }
+  ]
+};

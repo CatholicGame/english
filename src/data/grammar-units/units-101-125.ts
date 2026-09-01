@@ -2021,3 +2021,525 @@ export const UNIT_111_STILL_ANY_MORE_YET_ALREADY: GrammarUnit = {
     }
   ]
 };
+
+export const UNIT_112_EVEN: GrammarUnit = {
+  "unit": 112,
+  "slug": "even",
+  "title": "even",
+  "topic": "adverbs",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "intro": "Hãy xem xét tình huống ví dụ sau:",
+          "introVi": "Hãy xem xét tình huống ví dụ sau:",
+          "parts": [
+            { "kind": "situation", "text": "Tina loves watching TV. She has a television in every room of the house, even the bathroom.", "vi": "Tina rất thích xem TV. Cô ấy có một chiếc TV trong mọi phòng của căn nhà, kể cả phòng tắm." },
+            { "kind": "text", "text": "We use **even** to say that something is unusual or surprising. It is not usual to have a television in the bathroom.", "vi": "Chúng ta dùng **even** để nói điều gì đó bất thường hoặc đáng ngạc nhiên. Có TV trong phòng tắm là điều không bình thường." },
+            { "kind": "text", "text": "Some more examples:", "vi": "Thêm một số ví dụ:" },
+            { "kind": "examples", "items": [
+              { "en": "These pictures are really awful. **Even** I take better pictures than these.", "note": "(and I'm certainly not a good photographer)", "vi": "Mấy tấm ảnh này thật tệ. Ngay cả tôi cũng chụp đẹp hơn thế." },
+              { "en": "He always wears a coat, **even** in hot weather.", "vi": "Anh ấy lúc nào cũng mặc áo khoác, kể cả khi trời nóng." },
+              { "en": "The print was very small. I couldn't read it, **even** with glasses.", "vi": "Chữ in rất nhỏ. Tôi không đọc được, dù có đeo kính." },
+              { "en": "Nobody would help her, **not even** her best friend.", "note": "or Not even her best friend would help her.", "vi": "Không ai chịu giúp cô ấy, kể cả bạn thân nhất của cô ấy." }
+            ] }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "even với động từ / even ở dạng phủ định",
+          "headingEn": "even with a verb / even in a negative",
+          "parts": [
+            { "kind": "text", "text": "You can use **even** with the verb in the middle of a sentence (see Unit 110):", "vi": "Bạn có thể đặt **even** ở giữa câu, cùng với động từ (xem Unit 110):" },
+            { "kind": "examples", "items": [
+              { "en": "Laura has travelled all over the world. She's **even** been to the Antarctic.", "vi": "Laura đã đi du lịch khắp thế giới. Cô ấy thậm chí đã đến cả Nam Cực." },
+              { "en": "They are very rich. They **even** have their own private jet.", "vi": "Họ rất giàu. Họ thậm chí còn có riêng một chiếc máy bay phản lực." }
+            ] },
+            { "kind": "text", "text": "You can use **even** with a negative (**not even**, **can't even**, **don't even** etc.):", "vi": "Bạn có thể dùng **even** với dạng phủ định (**not even**, **can't even**, **don't even**, v.v.):" },
+            { "kind": "examples", "items": [
+              { "en": "I can't cook. I can't **even** boil an egg.", "note": "(and boiling an egg is very easy)", "vi": "Tôi không biết nấu ăn. Tôi thậm chí không luộc nổi một quả trứng." },
+              { "en": "They weren't very friendly to us. They didn't **even** say hello.", "vi": "Họ không thân thiện với chúng tôi lắm. Họ thậm chí còn không chào." },
+              { "en": "Jessica is very fit. She's been running quite fast and she's **not even** out of breath.", "vi": "Jessica rất khỏe. Cô ấy đã chạy khá nhanh mà còn chưa thở dốc." }
+            ] }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "even + so sánh hơn",
+          "headingEn": "even + comparative",
+          "parts": [
+            { "kind": "text", "text": "You can use **even** + comparative (cheaper / more expensive etc.):", "vi": "Bạn có thể dùng **even** + tính từ so sánh hơn (cheaper / more expensive, v.v.):" },
+            { "kind": "examples", "items": [
+              { "en": "I got up very early, but Jack got up **even earlier**.", "vi": "Tôi đã dậy rất sớm, nhưng Jack còn dậy sớm hơn." },
+              { "en": "I knew I didn't have much money, but I have **even less** than I thought.", "vi": "Tôi biết mình không có nhiều tiền, nhưng hoá ra còn ít hơn tôi tưởng." },
+              { "en": "We were very surprised to get an email from her. We were **even more surprised** when she came to see us a few days later.", "vi": "Chúng tôi đã rất ngạc nhiên khi nhận được email của cô ấy. Chúng tôi còn ngạc nhiên hơn khi vài ngày sau cô ấy đến thăm." }
+            ] }
+          ]
+        },
+        {
+          "label": "D",
+          "heading": "even though / even when / even if",
+          "headingEn": "even though / even when / even if",
+          "parts": [
+            { "kind": "text", "text": "We use **even though / even when / even if** + subject + verb:", "vi": "Chúng ta dùng **even though / even when / even if** + chủ ngữ + động từ:" },
+            { "kind": "examples", "items": [
+              { "en": "**Even though** Tina can't drive, she has a car.", "vi": "Dù Tina không biết lái xe, cô ấy vẫn có một chiếc ô tô." },
+              { "en": "He never shouts, **even when** he's angry.", "vi": "Anh ấy không bao giờ quát tháo, kể cả khi tức giận." },
+              { "en": "This river is dangerous. It's dangerous to swim in it, **even if** you're a strong swimmer.", "vi": "Con sông này nguy hiểm. Bơi trong đó rất nguy hiểm, dù bạn có bơi giỏi đến đâu." }
+            ] },
+            { "kind": "text", "text": "We do not use **even** + subject + verb. We say:", "vi": "Chúng ta không dùng **even** + chủ ngữ + động từ. Chúng ta nói:" },
+            { "kind": "examples", "items": [
+              { "en": "**Even though** she can't drive, she has a car.", "note": "(not even she can't drive)", "vi": "Dù cô ấy không biết lái xe, cô ấy vẫn có một chiếc ô tô." },
+              { "en": "I can't reach the shelf **even if** I stand on a chair.", "note": "(not even I stand)", "vi": "Tôi vẫn không với tới cái kệ dù có đứng lên ghế." }
+            ] },
+            { "kind": "text", "text": "Compare **even if** and **even** (without if):", "vi": "So sánh **even if** và **even** (không có if):" },
+            { "kind": "examples", "items": [
+              { "en": "It's dangerous to swim here **even if** you're a strong swimmer.", "note": "(not even you are)", "vi": "Bơi ở đây nguy hiểm dù bạn có bơi giỏi đến đâu." },
+              { "en": "The river is dangerous, **even for** strong swimmers.", "vi": "Con sông này nguy hiểm, ngay cả với người bơi giỏi." }
+            ] },
+            { "kind": "text", "text": "Compare **even if** and **if**:", "vi": "So sánh **even if** và **if**:" },
+            { "kind": "examples", "items": [
+              { "en": "We're going to the beach tomorrow. It doesn't matter what the weather is like. We're going **even if** the weather is bad.", "vi": "Ngày mai chúng tôi sẽ đi biển. Thời tiết thế nào cũng không quan trọng. Chúng tôi vẫn đi dù trời có xấu." },
+              { "en": "We want to go to the beach tomorrow, but we won't go **if** the weather is bad.", "vi": "Chúng tôi muốn đi biển vào ngày mai, nhưng sẽ không đi nếu trời xấu." }
+            ] }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "112.1 · Hoàn thành câu dùng even hoặc not even",
+      "titleEn": "112.1 · Use the information given to complete the sentences using even or not even",
+      "instructions": "Amy, Kate và Lisa là ba người bạn cùng đi nghỉ với nhau. Dùng thông tin đã cho về họ để hoàn thành các câu, dùng even hoặc not even.",
+      "instructionsEn": "Amy, Kate and Lisa are three friends who went on holiday together. Use the information given about them to complete the sentences using even or not even.",
+      "passage": "Amy: thường vui vẻ / thường đúng giờ / thích dậy sớm / rất quan tâm đến nghệ thuật\nKate: không mấy hứng thú với nghệ thuật / thường ủ rũ / thường ghét ở khách sạn / ít khi dùng máy ảnh\nLisa: hầu như luôn đến trễ / là người mê chụp ảnh / thích ở khách sạn / không giỏi việc dậy sớm",
+      "passageEn": "Amy: is usually happy / is usually on time / likes to get up early / is very interested in art\nKate: isn't very keen on art / is usually miserable / usually hates hotels / doesn't use her camera much\nLisa: is almost always late / is a keen photographer / loves staying in hotels / isn't very good at getting up",
+      "examples": [
+        { "label": "1", "prompt": "They stayed at a hotel. Everybody liked it, ___.", "answer": "even Kate" }
+      ],
+      "items": [
+        { "label": "2", "prompt": "They arranged to meet. They all arrived on time, ___.", "answer": "even Lisa" },
+        { "label": "3", "prompt": "They went to an art gallery. Nobody enjoyed it, ___.", "answer": "not even Amy" },
+        { "label": "4", "prompt": "Yesterday they had to get up early. They all managed to do this, ___.", "answer": "even Lisa" },
+        { "label": "5", "prompt": "They were together yesterday. They were all in a good mood, ___.", "answer": "even Kate" },
+        { "label": "6", "prompt": "None of them took any pictures, ___.", "answer": "not even Lisa" }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "112.2 · Viết câu với even, dùng từ trong ngoặc",
+      "titleEn": "112.2 · Make sentences with even. Use the words in brackets",
+      "instructions": "Viết câu với even, dùng từ trong ngoặc. Sau đó viết câu với even ở dạng phủ định (didn't even, can't even, v.v.).",
+      "instructionsEn": "Make sentences with even. Use the words in brackets. Now make sentences with a negative + even (didn't even, can't even etc.).",
+      "examples": [
+        { "label": "1", "context": "Laura has been all over the world. (the Antarctic)", "prompt": "___", "answer": "She has even been to the Antarctic." },
+        { "label": "5", "context": "They didn't say anything to us. (hello)", "prompt": "___", "answer": "They didn't even say hello." }
+      ],
+      "items": [
+        { "label": "2", "context": "We painted the whole room. (the floor)", "prompt": "We ___.", "answer": "even painted the floor" },
+        { "label": "3", "context": "Rachel has met lots of famous people. (the prime minister)", "prompt": "She ___.", "answer": "has even met the prime minister" },
+        { "label": "4", "context": "You could hear the noise from a long way away. (from the next street)", "prompt": "You ___.", "answer": "could even hear it from the next street" },
+        { "label": "6", "context": "I can't remember anything about her. (her name)", "prompt": "I ___.", "answer": "can't even remember her name" },
+        { "label": "7", "context": "There isn't anything to do in this town. (a cinema)", "prompt": "___", "answer": "There isn't even a cinema." },
+        { "label": "8", "context": "He didn't tell anybody where he was going. (his wife)", "prompt": "___", "answer": "He didn't even tell his wife where he was going." },
+        { "label": "9", "context": "I don't know anyone in our street. (my neighbours)", "prompt": "___", "answer": "I don't even know my neighbours." }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "112.3 · Hoàn thành câu dùng even + tính từ so sánh hơn",
+      "titleEn": "112.3 · Complete the sentences using even + comparative",
+      "instructions": "Hoàn thành câu dùng even + tính từ so sánh hơn.",
+      "instructionsEn": "Complete the sentences using even + comparative.",
+      "examples": [
+        { "label": "1", "prompt": "It was very hot yesterday, but today it's ___.", "answer": "even hotter" }
+      ],
+      "items": [
+        { "label": "2", "prompt": "The church is 700 years old, but the house next to it is ___.", "answer": "even older" },
+        { "label": "3", "prompt": "That's a very good idea, but I've got an ___ one.", "answer": "even better" },
+        { "label": "4", "prompt": "The first question was very difficult to answer. The second one was ___.", "answer": "even more difficult", "accept": ["even harder"] },
+        { "label": "5", "prompt": "I did very badly in the exam, but most of my friends did ___.", "answer": "even worse" },
+        { "label": "6", "prompt": "Neither of us was hungry. I ate very little and my friend ate ___.", "answer": "even less" }
+      ]
+    },
+    {
+      "kind": "fill_mc",
+      "title": "112.4 · Hoàn thành câu, chọn if, even, even if hoặc even though",
+      "titleEn": "112.4 · Complete the sentences. Choose from: if, even, even if, even though",
+      "instructions": "Hoàn thành câu, chọn if, even, even if hoặc even though.",
+      "instructionsEn": "Complete the sentences. Choose from: if even even if even though.",
+      "wordBank": ["if", "even", "even if", "even though"],
+      "examples": [
+        { "label": "1", "prompt": "___ she can't drive, she has a car.", "answer": "Even though" }
+      ],
+      "items": [
+        { "label": "2", "before": "The bus leaves in five minutes, but we can still catch it", "after": "we run.", "options": ["if", "even", "even if", "even though"], "answer": "if" },
+        { "label": "3", "before": "The bus leaves in two minutes. We won't catch it now", "after": "we run.", "options": ["if", "even", "even if", "even though"], "answer": "even if" },
+        { "label": "4", "before": "Mark's Spanish isn't very good,", "after": "after three years in Spain.", "options": ["if", "even", "even if", "even though"], "answer": "even" },
+        { "label": "5", "before": "Mark's Spanish isn't very good,", "after": "he lived in Spain for three years.", "options": ["if", "even", "even if", "even though"], "answer": "even though" },
+        { "label": "6", "before": "", "after": "with the heating on, it was cold in the house.", "options": ["If", "Even", "Even if", "Even though"], "answer": "Even" },
+        { "label": "7", "before": "I couldn't sleep", "after": "I was very tired.", "options": ["if", "even", "even if", "even though"], "answer": "even though" },
+        { "label": "8", "before": "I won't forgive them for what they did,", "after": "they apologise.", "options": ["if", "even", "even if", "even though"], "answer": "even if" },
+        { "label": "9", "before": "", "after": "I hadn't eaten anything for 24 hours, I wasn't hungry.", "options": ["If", "Even", "Even if", "Even though"], "answer": "Even though" }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng even, even though hoặc even if, ví dụ 'I always arrive early, even when the traffic is bad.' hoặc 'She wouldn't help, even though I asked her twice.'.",
+      "instructionsEn": "Write 2-3 English sentences using even, even though or even if, e.g. 'I always arrive early, even when the traffic is bad.' or 'She wouldn't help, even though I asked her twice.'.",
+      "ruleSummary": "This unit covers even. Even shows that something is unusual or surprising: 'He always wears a coat, even in hot weather.' It goes with the verb in the middle of the sentence ('She's even been to the Antarctic.') and can combine with a negative ('I can't even boil an egg.', 'not even her best friend'). Even + comparative intensifies a comparison: 'Jack got up even earlier.' Even though / even when / even if are followed by subject + verb, not by 'even' alone: 'Even though Tina can't drive, she has a car.' (not 'even she can't drive'). Even if introduces a possible future condition that doesn't change the result ('We're going even if the weather is bad.'), which is different from a plain if-clause. A correct student sentence should use even though/even when/even if with a full clause, and keep the position rules for even with a verb or a comparative."
+    }
+  ]
+};
+
+export const UNIT_113_ALTHOUGH_THOUGH_EVEN_THOUGH_IN_SPITE_OF_DESPITE: GrammarUnit = {
+  "unit": 113,
+  "slug": "although-though-even-though-in-spite-of-despite",
+  "title": "although, though, even though, in spite of, despite",
+  "topic": "conjunctions and prepositions",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "intro": "Hãy xem xét tình huống ví dụ sau:",
+          "introVi": "Hãy xem xét tình huống ví dụ sau:",
+          "parts": [
+            { "kind": "situation", "text": "Last year Paul and Sarah had a holiday by the sea. It rained a lot, but they had a good time.", "vi": "Năm ngoái Paul và Sarah đi nghỉ ở biển. Trời mưa rất nhiều, nhưng họ vẫn có một kỳ nghỉ vui vẻ." },
+            { "kind": "text", "text": "You can say:", "vi": "Bạn có thể nói:" },
+            { "kind": "examples", "items": [
+              { "en": "**Although** it rained a lot, they had a good time.", "note": "(= It rained a lot, but they ...)", "vi": "Mặc dù trời mưa rất nhiều, họ vẫn có một kỳ nghỉ vui vẻ." },
+              { "en": "**In spite of** the rain, they had a good time.", "vi": "Bất chấp cơn mưa, họ vẫn có một kỳ nghỉ vui vẻ." },
+              { "en": "**Despite** the rain, they had a good time.", "vi": "Bất chấp cơn mưa, họ vẫn có một kỳ nghỉ vui vẻ." }
+            ] }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "although + chủ ngữ + động từ",
+          "headingEn": "although + subject + verb",
+          "parts": [
+            { "kind": "text", "text": "After **although** we use a subject + verb:", "vi": "Sau **although**, chúng ta dùng chủ ngữ + động từ:" },
+            { "kind": "examples", "items": [
+              { "en": "**Although** it rained a lot, they had a good time.", "vi": "Mặc dù trời mưa rất nhiều, họ vẫn có một kỳ nghỉ vui vẻ." },
+              { "en": "I didn't apply for the job **although** I had the necessary qualifications.", "vi": "Tôi đã không nộp đơn xin việc, mặc dù tôi có đủ bằng cấp cần thiết." }
+            ] },
+            { "kind": "text", "text": "Compare the meaning of **although** and **because**:", "vi": "So sánh nghĩa của **although** và **because**:" },
+            { "kind": "examples", "items": [
+              { "en": "We went out **although** it was raining heavily.", "vi": "Chúng tôi đã ra ngoài mặc dù trời mưa rất to." },
+              { "en": "We didn't go out **because** it was raining heavily.", "vi": "Chúng tôi đã không ra ngoài vì trời mưa rất to." }
+            ] }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "in spite of / despite + danh từ hoặc -ing",
+          "headingEn": "in spite of / despite + noun or -ing",
+          "parts": [
+            { "kind": "text", "text": "After **in spite of** or **despite**, we use a noun, a pronoun (*this/that/what* etc.) or **-ing**:", "vi": "Sau **in spite of** hoặc **despite**, chúng ta dùng một danh từ, một đại từ (*this/that/what*, v.v.) hoặc dạng **-ing**:" },
+            { "kind": "examples", "items": [
+              { "en": "**In spite of** the rain, we had a good time.", "vi": "Bất chấp cơn mưa, chúng tôi đã có một khoảng thời gian vui vẻ." },
+              { "en": "She wasn't well, but **in spite of this** she continued working.", "vi": "Cô ấy không khoẻ, nhưng bất chấp điều đó cô ấy vẫn tiếp tục làm việc." },
+              { "en": "**In spite of** what I said yesterday, I still love you.", "vi": "Bất chấp những gì tôi đã nói hôm qua, tôi vẫn yêu bạn." },
+              { "en": "I didn't apply for the job **in spite of having** the necessary qualifications.", "vi": "Tôi đã không nộp đơn xin việc dù có đủ bằng cấp cần thiết." }
+            ] },
+            { "kind": "text", "text": "**Despite** is the same as **in spite of**. We say *in spite of*, but *despite* (without *of*):", "vi": "**Despite** có nghĩa giống **in spite of**. Chúng ta nói *in spite of*, nhưng *despite* thì không có *of*:" },
+            { "kind": "examples", "items": [
+              { "en": "She wasn't well, but **despite this** she continued working.", "note": "(not despite of this)", "vi": "Cô ấy không khoẻ, nhưng bất chấp điều đó cô ấy vẫn tiếp tục làm việc." }
+            ] },
+            { "kind": "text", "text": "You can say '*in spite of the fact (that) ...*' and '*despite the fact (that) ...*':", "vi": "Bạn có thể nói '*in spite of the fact (that) ...*' và '*despite the fact (that) ...*':" },
+            { "kind": "examples", "items": [
+              { "en": "I didn't apply for the job **in spite of the fact that** I had the necessary qualifications.", "vi": "Tôi đã không nộp đơn xin việc, mặc dù thực tế là tôi có đủ bằng cấp cần thiết." },
+              { "en": "I didn't apply for the job **despite the fact that** I had the necessary qualifications.", "vi": "Tôi đã không nộp đơn xin việc, mặc dù thực tế là tôi có đủ bằng cấp cần thiết." }
+            ] },
+            { "kind": "text", "text": "Compare **in spite of** and **because of**:", "vi": "So sánh **in spite of** và **because of**:" },
+            { "kind": "examples", "items": [
+              { "en": "We went out **in spite of** the rain.", "note": "(or ... despite the rain.)", "vi": "Chúng tôi đã ra ngoài bất chấp cơn mưa." },
+              { "en": "We didn't go out **because of** the rain.", "vi": "Chúng tôi đã không ra ngoài vì cơn mưa." }
+            ] }
+          ]
+        },
+        {
+          "label": "D",
+          "heading": "although so sánh với in spite of / despite",
+          "headingEn": "although compared with in spite of / despite",
+          "parts": [
+            { "kind": "text", "text": "Compare **although** and **in spite of / despite**:", "vi": "So sánh **although** và **in spite of / despite**:" },
+            { "kind": "examples", "items": [
+              { "en": "**Although** the traffic was bad, we arrived on time.", "note": "(not in spite of the traffic was bad)", "vi": "Mặc dù giao thông tệ, chúng tôi vẫn đến đúng giờ." },
+              { "en": "**In spite of** the traffic, we arrived on time.", "vi": "Bất chấp giao thông tệ, chúng tôi vẫn đến đúng giờ." },
+              { "en": "I couldn't sleep **although** I was very tired.", "vi": "Tôi không ngủ được dù rất mệt." },
+              { "en": "I couldn't sleep **despite** being very tired.", "note": "(not despite I was tired)", "vi": "Tôi không ngủ được dù rất mệt." }
+            ] }
+          ]
+        },
+        {
+          "label": "E",
+          "heading": "though = although",
+          "headingEn": "though = although",
+          "parts": [
+            { "kind": "text", "text": "**Though** = **although**:", "vi": "**Though** = **although**:" },
+            { "kind": "examples", "items": [
+              { "en": "I didn't apply for the job **though** I had the necessary qualifications.", "vi": "Tôi đã không nộp đơn xin việc dù tôi có đủ bằng cấp cần thiết." }
+            ] },
+            { "kind": "text", "text": "In spoken English we often use **though** at the end of a sentence:", "vi": "Trong tiếng Anh nói, chúng ta thường dùng **though** ở cuối câu:" },
+            { "kind": "examples", "items": [
+              { "en": "The house isn't so nice. I like the garden **though**.", "note": "(= but I like the garden)", "vi": "Ngôi nhà không đẹp lắm. Nhưng tôi thích khu vườn." },
+              { "en": "I see them every day. I've never spoken to them **though**.", "note": "(= but I've never spoken to them)", "vi": "Tôi gặp họ mỗi ngày. Nhưng tôi chưa bao giờ nói chuyện với họ." }
+            ] },
+            { "kind": "text", "text": "**Even though** (but not *even* alone) is similar to *although*:", "vi": "**Even though** (nhưng không dùng *even* một mình) có nghĩa gần giống *although*:" },
+            { "kind": "examples", "items": [
+              { "en": "**Even though** I was really tired, I couldn't sleep.", "note": "(not even I was really tired)", "vi": "Dù tôi rất mệt, tôi vẫn không ngủ được." }
+            ] }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "113.1 · Hoàn thành câu, dùng although + câu trong khung",
+      "titleEn": "113.1 · Complete the sentences. Use although + a sentence from the box",
+      "instructions": "Hoàn thành câu, dùng although + một câu trong khung.",
+      "instructionsEn": "Complete the sentences. Use although + a sentence from the box.",
+      "wordBank": ["I didn't speak the language well", "she has a very important job", "I had never seen her before", "we don't like them very much", "it was quite cold", "the heating was on", "I'd met her twice before", "we've known each other a long time"],
+      "examples": [
+        { "label": "1", "prompt": "Although ___, she isn't well-paid.", "answer": "she has a very important job" }
+      ],
+      "items": [
+        { "label": "2", "prompt": "Although ___, I recognised her from a photo.", "answer": "I had never seen her before" },
+        { "label": "3", "prompt": "Sarah wasn't wearing a coat although ___.", "answer": "it was quite cold" },
+        { "label": "4", "prompt": "We decided to invite them to the party although ___.", "answer": "we don't like them very much" },
+        { "label": "5", "prompt": "Although ___, the room wasn't warm.", "answer": "the heating was on" },
+        { "label": "6", "prompt": "Although ___, I managed to make myself understood.", "answer": "I didn't speak the language well" },
+        { "label": "7", "prompt": "I didn't recognise her although ___.", "answer": "I'd met her twice before", "accept": ["I had met her twice before"] },
+        { "label": "8", "prompt": "We're not close friends although ___.", "answer": "we've known each other a long time", "accept": ["we have known each other a long time"] }
+      ]
+    },
+    {
+      "kind": "fill_mc",
+      "title": "113.2 · Hoàn thành câu, dùng although / in spite of / because / because of",
+      "titleEn": "113.2 · Complete the sentences with although / in spite of / because / because of",
+      "instructions": "Hoàn thành câu, dùng although, in spite of, because hoặc because of.",
+      "instructionsEn": "Complete the sentences with although / in spite of / because / because of.",
+      "wordBank": ["although", "in spite of", "because", "because of"],
+      "examples": [
+        { "label": "1", "prompt": "___", "answer": "Although it rained a lot, we had a good time." }
+      ],
+      "items": [
+        { "label": "2a", "before": "", "after": "all our careful plans, a lot of things went wrong.", "options": ["Although", "In spite of", "Because", "Because of"], "answer": "In spite of" },
+        { "label": "2b", "before": "", "after": "we'd planned everything carefully, a lot of things went wrong.", "options": ["Although", "In spite of", "Because", "Because of"], "answer": "Although" },
+        { "label": "3a", "before": "I went home early", "after": "I was feeling unwell.", "options": ["although", "in spite of", "because", "because of"], "answer": "because" },
+        { "label": "3b", "before": "I went to work the next day", "after": "I was still feeling unwell.", "options": ["although", "in spite of", "because", "because of"], "answer": "although" },
+        { "label": "4a", "before": "Chris only accepted the job", "after": "the salary, which was very high.", "options": ["although", "in spite of", "because", "because of"], "answer": "because of" },
+        { "label": "4b", "before": "Sam accepted the job", "after": "the salary, which was rather low.", "options": ["although", "in spite of", "because", "because of"], "answer": "in spite of" },
+        { "label": "5a", "before": "", "after": "there was a lot of noise, I slept quite well.", "options": ["Although", "In spite of", "Because", "Because of"], "answer": "Although" },
+        { "label": "5b", "before": "I couldn't get to sleep", "after": "the noise.", "options": ["although", "in spite of", "because", "because of"], "answer": "because of" }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "113.3 · Ghép hai câu thành một, dùng từ trong ngoặc",
+      "titleEn": "113.3 · Make one sentence from two. Use the word(s) in brackets in your sentences",
+      "instructions": "Ghép hai câu thành một câu, dùng từ trong ngoặc.",
+      "instructionsEn": "Make one sentence from two. Use the word(s) in brackets in your sentences.",
+      "examples": [
+        { "label": "1", "context": "I couldn't sleep. I was very tired. (despite)", "prompt": "___", "answer": "I couldn't sleep despite being very tired." }
+      ],
+      "items": [
+        { "label": "2", "context": "We played quite well. We lost the game. (in spite of)", "prompt": "In spite ___.", "answer": "of playing quite well, we lost the game" },
+        { "label": "3", "context": "I'd hurt my foot. I managed to walk home. (although)", "prompt": "___", "answer": "Although I'd hurt my foot, I managed to walk home.", "accept": ["I managed to walk home although I'd hurt my foot."] },
+        { "label": "4", "context": "I enjoyed the film. The story was silly. (in spite of)", "prompt": "___", "answer": "I enjoyed the film in spite of the silly story.", "accept": ["In spite of the silly story, I enjoyed the film."] },
+        { "label": "5", "context": "We live in the same building. We hardly ever see each other. (despite)", "prompt": "___", "answer": "Despite living in the same building, we hardly ever see each other.", "accept": ["We hardly ever see each other despite living in the same building."] },
+        { "label": "6", "context": "They came to the party. They hadn't been invited. (even though)", "prompt": "___", "answer": "They came to the party even though they hadn't been invited." }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "113.4 · Dùng từ trong ngoặc để viết câu kết thúc bằng though",
+      "titleEn": "113.4 · Use the words in brackets to make a sentence with though at the end",
+      "instructions": "Dùng từ trong ngoặc để viết câu kết thúc bằng though.",
+      "instructionsEn": "Use the words in brackets to make a sentence with though at the end.",
+      "examples": [
+        { "label": "1", "context": "The house isn't very nice. (like / garden)", "prompt": "___", "answer": "I like the garden though." }
+      ],
+      "items": [
+        { "label": "2", "context": "I enjoyed reading the book. (very long)", "prompt": "___", "answer": "It was very long though." },
+        { "label": "3", "context": "We didn't like the food. (ate)", "prompt": "___", "answer": "We ate it though.", "accept": ["We ate it all though."] },
+        { "label": "4", "context": "Laura is very nice. (don't like / husband)", "prompt": "I ___.", "answer": "don't like her husband though" }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng although, in spite of, despite hoặc even though, ví dụ để kể một điều bạn vẫn làm dù gặp khó khăn, giống bài tập 'He passed the exam although he hadn't studied much.'.",
+      "instructionsEn": "Write 2-3 English sentences using although, in spite of, despite or even though, e.g. about something you did even though it was difficult, like 'He passed the exam although he hadn't studied much.'.",
+      "ruleSummary": "This unit covers although, though, even though, in spite of and despite, all used to link a contrast. After although/though/even though we use a subject + verb: 'Although it rained a lot, they had a good time.' After in spite of/despite we use a noun, a pronoun (this/that/what), or -ing, never a clause: 'In spite of the rain, we had a good time.', 'I didn't apply for the job despite having the necessary qualifications.' (not despite I had ...). Despite is used exactly like in spite of but without 'of' (not despite of this). Compare with because/because of, which give a reason rather than a contrast: 'We went out although/in spite of the rain' vs 'We didn't go out because of the rain.' Though can also come at the end of a spoken sentence meaning 'but': 'I like the garden though.' A correct student sentence should follow a clause with although/though/even though, and a noun phrase or -ing with in spite of/despite."
+    }
+  ]
+};
+
+export const UNIT_114_IN_CASE: GrammarUnit = {
+  "unit": 114,
+  "slug": "in-case",
+  "title": "in case",
+  "topic": "conjunctions and prepositions",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "intro": "Hãy xem xét tình huống ví dụ sau:",
+          "introVi": "Hãy xem xét tình huống ví dụ sau:",
+          "parts": [
+            { "kind": "situation", "text": "Your car should have a spare wheel in case you have a puncture.", "vi": "Xe của bạn nên có một bánh xe dự phòng, phòng khi bạn bị thủng lốp." },
+            { "kind": "text", "text": "(= because it is possible you will have a puncture)", "vi": "(= vì có thể bạn sẽ bị thủng lốp)" },
+            { "kind": "text", "text": "**in case something happens** = because it is possible it will happen", "vi": "**in case something happens** = vì có thể điều đó sẽ xảy ra" },
+            { "kind": "text", "text": "Some more examples of in case:", "vi": "Thêm một số ví dụ về in case:" },
+            { "kind": "examples", "items": [
+              { "en": "I'd better write down my password **in case** I forget it.", "note": "(= because it is possible I will forget it)", "vi": "Tôi nên viết mật khẩu ra, phòng khi tôi quên mất." },
+              { "en": "Shall I draw a map for you **in case** you have a problem finding our house?", "note": "(= because it is possible you will have problems finding it)", "vi": "Tôi vẽ cho bạn một tấm bản đồ nhé, phòng khi bạn gặp khó khăn tìm nhà chúng tôi?" },
+              { "en": "I'll remind them about the meeting **in case** they've forgotten.", "note": "(= because it is possible they have forgotten)", "vi": "Tôi sẽ nhắc họ về cuộc họp, phòng khi họ đã quên." }
+            ] },
+            { "kind": "text", "text": "We use **just in case** for a smaller possibility:", "vi": "Chúng ta dùng **just in case** khi khả năng xảy ra thấp hơn:" },
+            { "kind": "examples", "items": [
+              { "en": "I don't think it will rain, but I'll take an umbrella **just in case**.", "note": "(= just in case it rains)", "vi": "Tôi không nghĩ trời sẽ mưa, nhưng tôi vẫn mang theo ô, phòng khi." }
+            ] },
+            { "kind": "text", "text": "We do not use **will** after **in case** (see also Unit 25):", "vi": "Chúng ta không dùng **will** sau **in case** (xem thêm Unit 25):" },
+            { "kind": "examples", "items": [
+              { "en": "I'll write down my password **in case** I forget it.", "note": "(not in case I will forget)", "vi": "Tôi sẽ viết mật khẩu ra, phòng khi tôi quên mất." }
+            ] }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "in case và if",
+          "headingEn": "in case and if",
+          "parts": [
+            { "kind": "text", "text": "**In case** and **if** are not the same. We use **in case** to say why somebody does (or doesn't do) something. You do something now in case something happens later.", "vi": "**In case** và **if** không giống nhau. Chúng ta dùng **in case** để nói lý do vì sao ai đó làm (hoặc không làm) điều gì. Bạn làm điều gì đó ngay bây giờ, phòng khi sau này có chuyện xảy ra." },
+            { "kind": "table", "table": { "headers": ["in case", "if"], "rows": [
+              ["We'll buy some more food in case Tom comes. (= Maybe Tom will come. We'll buy some more food now, whether he comes or not. Then we'll already have the food if he comes.)", "We'll buy some more food if Tom comes. (= Maybe Tom will come. If he comes, we'll buy some more food. If he doesn't come, we won't buy any more food.)"],
+              ["I'll give you my phone number in case you need to contact me.", "You can call me on this number if you need to contact me."],
+              ["You should insure your bike in case it is stolen.", "You should inform the police if your bike is stolen."]
+            ] } }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "in case + thì quá khứ",
+          "headingEn": "in case + past",
+          "parts": [
+            { "kind": "text", "text": "You can use **in case + past** to say why somebody did something:", "vi": "Bạn có thể dùng **in case + thì quá khứ** để nói lý do vì sao ai đó đã làm điều gì:" },
+            { "kind": "examples", "items": [
+              { "en": "I gave him my phone number **in case** he needed to contact me.", "note": "(= because it was possible that he would need to contact me)", "vi": "Tôi đã đưa số điện thoại cho anh ấy, phòng khi anh ấy cần liên lạc với tôi." },
+              { "en": "I drew a map for Sarah **in case** she had a problem finding our house.", "vi": "Tôi đã vẽ bản đồ cho Sarah, phòng khi cô ấy gặp khó khăn tìm nhà chúng tôi." },
+              { "en": "We rang the doorbell again **in case** they hadn't heard it the first time.", "vi": "Chúng tôi đã bấm chuông lại lần nữa, phòng khi lần đầu họ chưa nghe thấy." }
+            ] }
+          ]
+        },
+        {
+          "label": "D",
+          "heading": "in case of",
+          "headingEn": "in case of",
+          "parts": [
+            { "kind": "text", "text": "**In case of** = if there is ... (especially on notices, instructions etc.):", "vi": "**In case of** = nếu có ... (thường thấy trên biển báo, hướng dẫn, v.v.):" },
+            { "kind": "examples", "items": [
+              { "en": "**In case of** fire, please leave the building as quickly as possible.", "note": "(= if there is a fire)", "vi": "Nếu có hoả hoạn, xin hãy rời khỏi toà nhà càng nhanh càng tốt." },
+              { "en": "**In case of** emergency, call this number.", "note": "(= if there is an emergency)", "vi": "Nếu có trường hợp khẩn cấp, hãy gọi số này." }
+            ] }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "114.1 · Hoàn thành câu dùng in case",
+      "titleEn": "114.1 · Complete the sentences using in case",
+      "instructions": "Sophie chuẩn bị đi bộ đường dài ở vùng nông thôn. Bạn lo lắng cho cô ấy vì: có thể cô ấy sẽ khát nước / cô ấy có thể cần gọi cho ai đó / có thể cô ấy sẽ thấy cô đơn / có thể cô ấy sẽ bị lạc / có thể cô ấy sẽ đói / có thể trời sẽ mưa. Bạn khuyên cô ấy mang theo vài thứ. Hoàn thành câu, dùng in case.",
+      "instructionsEn": "Sophie is going for a long walk in the country. You're worried about her because: perhaps she'll be thirsty / she might need to call somebody / maybe she'll get lonely / it's possible she'll get lost / perhaps she'll get hungry / maybe it will rain. You advise her to take some things with her. Complete the sentences using in case.",
+      "examples": [
+        { "label": "1", "prompt": "Take a map ___.", "answer": "in case you get lost" }
+      ],
+      "items": [
+        { "label": "2", "prompt": "You should take some chocolate ___.", "answer": "in case you get hungry", "accept": ["in case she gets hungry"] },
+        { "label": "3", "prompt": "You'll need an anorak ___.", "answer": "in case it rains" },
+        { "label": "4", "prompt": "Take plenty of water ___.", "answer": "in case you get thirsty", "accept": ["in case you feel thirsty"] },
+        { "label": "5", "prompt": "Don't forget your phone ___.", "answer": "in case you need to call somebody", "accept": ["in case you need to phone somebody"] },
+        { "label": "6", "prompt": "Shall I come with you ___?", "answer": "in case you get lonely", "accept": ["in case you feel lonely"] }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "114.2 · Bạn nói gì trong các tình huống sau? Dùng in case",
+      "titleEn": "114.2 · What do you say in these situations? Use in case",
+      "instructions": "Bạn nói gì trong các tình huống sau? Dùng in case.",
+      "instructionsEn": "What do you say in these situations? Use in case.",
+      "examples": [
+        { "label": "1", "context": "Có thể Jane sẽ cần liên lạc với bạn, nên bạn đưa cho cô ấy số điện thoại của mình.", "contextEn": "It's possible that Jane will need to contact you, so you give her your phone number.", "prompt": "___", "answer": "I'll give you my phone number in case you need to contact me." }
+      ],
+      "items": [
+        { "label": "2", "context": "Một người bạn sắp đi xa trong thời gian dài. Có thể bạn sẽ không gặp lại cô ấy trước khi cô ấy đi, nên bạn quyết định nói lời tạm biệt ngay bây giờ.", "contextEn": "A friend of yours is going away for a long time. Maybe you won't see her again before she goes, so you decide to say goodbye now.", "prompt": "I'll say goodbye now ___.", "answer": "in case I don't see you again" },
+        { "label": "3", "context": "Bạn đang mua thực phẩm ở siêu thị cùng một người bạn. Bạn nghĩ mình đã mua đủ mọi thứ cần thiết, nhưng có thể đã quên thứ gì đó. Bạn của bạn có danh sách. Bạn nhờ cô ấy kiểm tra lại.", "contextEn": "You are buying food in a supermarket with a friend. You think you have everything you need, but maybe you've forgotten something. Your friend has the list. You ask her to check it.", "prompt": "Can you ___?", "answer": "check the list in case we've forgotten something", "accept": ["check the list in case I've forgotten something"] },
+        { "label": "4", "context": "Bạn đang đi mua sắm cùng một người bạn. Cô ấy vừa mua một chiếc quần jeans, nhưng chưa thử. Có thể nó sẽ không vừa, nên bạn khuyên cô ấy giữ lại hoá đơn.", "contextEn": "You're shopping with a friend. She's just bought some jeans, but she didn't try them on. Maybe they won't fit her, so you advise her to keep the receipt.", "prompt": "Keep ___.", "answer": "the receipt in case they don't fit you", "accept": ["the receipt in case they don't fit"] }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "114.3 · Viết lại câu dùng in case",
+      "titleEn": "114.3 · Complete the sentences using in case",
+      "instructions": "Viết lại mỗi câu, dùng in case.",
+      "instructionsEn": "Complete the sentences using in case.",
+      "examples": [
+        { "label": "1", "context": "It was possible that it would rain, so I took an umbrella.", "prompt": "___", "answer": "I took an umbrella in case it rained." }
+      ],
+      "items": [
+        { "label": "2", "context": "I thought that I might forget the name of the book. So I wrote it down.", "prompt": "I wrote down the name of the book ___.", "answer": "in case I forgot it" },
+        { "label": "3", "context": "I thought my parents might be worried about me. So I phoned them.", "prompt": "I phoned my parents ___.", "answer": "in case they were worried about me" },
+        { "label": "4", "context": "I sent an email to Lisa, but she didn't reply. So I sent another email because maybe she didn't get the first one.", "prompt": "I sent her another email ___.", "answer": "in case she hadn't got the first one", "accept": ["in case she hadn't received the first one", "in case she didn't get the first one"] },
+        { "label": "5", "context": "I met some people when I was on holiday in France. They said they might come to London one day. I live in London, so I gave them my phone number.", "prompt": "I gave them my phone number ___.", "answer": "in case they came to London" }
+      ]
+    },
+    {
+      "kind": "fill_mc",
+      "title": "114.4 · Điền in case hoặc if",
+      "titleEn": "114.4 · Put in in case or if",
+      "instructions": "Điền in case hoặc if vào chỗ trống.",
+      "instructionsEn": "Put in in case or if.",
+      "wordBank": ["in case", "if"],
+      "examples": [
+        { "label": "1", "prompt": "I'll draw a map for you ___ you have a problem finding our house.", "answer": "in case" },
+        { "label": "2", "prompt": "You should tell the police ___ you have any information about the crime.", "answer": "if" }
+      ],
+      "items": [
+        { "label": "3", "before": "I hope you'll come to Australia sometime.", "after": "you come, you must visit us.", "options": ["In case", "If"], "answer": "If" },
+        { "label": "4", "before": "I made a copy of the document", "after": "something happens to the original.", "options": ["in case", "if"], "answer": "in case" },
+        { "label": "5", "before": "This book belongs to Kate. Can you give it to her", "after": "you see her?", "options": ["in case", "if"], "answer": "if" },
+        { "label": "6", "before": "Write your name and phone number on your bag", "after": "you lose it.", "options": ["in case", "if"], "answer": "in case" },
+        { "label": "7", "before": "Go to the lost property office", "after": "you lose your bag.", "options": ["in case", "if"], "answer": "if" },
+        { "label": "8", "before": "The burglar alarm will ring", "after": "somebody tries to break into the house.", "options": ["in case", "if"], "answer": "if" },
+        { "label": "9", "before": "You should lock your bike to something", "after": "somebody tries to steal it.", "options": ["in case", "if"], "answer": "in case" },
+        { "label": "10", "before": "I was advised to get insurance", "after": "I needed medical treatment while I was abroad.", "options": ["in case", "if"], "answer": "in case" }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng in case, ví dụ 'I'll take an umbrella in case it rains.' hoặc 'I wrote down her number in case I forgot it.'.",
+      "instructionsEn": "Write 2-3 English sentences using in case, e.g. 'I'll take an umbrella in case it rains.' or 'I wrote down her number in case I forgot it.'.",
+      "ruleSummary": "This unit covers in case. In case something happens means 'because it is possible it will happen' - you do something now as a precaution, before knowing whether the thing will actually happen: 'I'd better write down my password in case I forget it.' This is different from if, which describes a direct condition-and-result: compare 'We'll buy some more food in case Tom comes' (we buy the food now regardless) with 'We'll buy some more food if Tom comes' (we only buy it after he comes). In case + past explains why someone did something: 'I gave him my phone number in case he needed to contact me.' We do not use will after in case (not 'in case I will forget'). In case of (+ noun) means 'if there is', often on notices: 'In case of fire, leave the building.' A correct student sentence should use in case to give an advance reason for an action, not as a substitute for a plain if-conditional."
+    }
+  ]
+};

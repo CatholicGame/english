@@ -3382,3 +3382,171 @@ export const UNIT_144_PHRASAL_VERBS_8_UP_2: GrammarUnit = {
     }
   ]
 };
+
+export const UNIT_145_PHRASAL_VERBS_9_AWAY_BACK: GrammarUnit = {
+  "unit": 145,
+  "slug": "phrasal-verbs-9-away-back",
+  "title": "Phrasal verbs 9: away/back",
+  "topic": "phrasal verbs",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "So sánh away và back",
+          "headingEn": "Compare away and back",
+          "parts": [
+            { "kind": "text", "text": "**away** = away from home:", "vi": "**away** = rời khỏi nhà:" },
+            { "kind": "examples", "items": [
+              { "en": "We're going **away** on holiday today.", "vi": "Hôm nay chúng tôi đi nghỉ mát." }
+            ] },
+            { "kind": "text", "text": "**away** = away from a place, a person etc.:", "vi": "**away** = rời xa một nơi, một người v.v.:" },
+            { "kind": "examples", "items": [
+              { "en": "Sarah got into her car, started the engine and drove **away**.", "vi": "Sarah lên xe, khởi động máy và lái xe đi mất." },
+              { "en": "I tried to take a picture of the bird, but it flew **away**.", "vi": "Tôi cố chụp ảnh con chim, nhưng nó đã bay mất." },
+              { "en": "I dropped the ticket, and it blew **away** in the wind.", "vi": "Tôi làm rơi vé, và nó bị gió thổi bay mất." },
+              { "en": "The police searched the house and took **away** a computer.", "vi": "Cảnh sát khám nhà và mang đi một chiếc máy tính." }
+            ] },
+            { "kind": "text", "text": "In the same way you can say **walk away**, **run away**, **look away** etc.", "vi": "Tương tự, bạn có thể nói **walk away**, **run away**, **look away** v.v." },
+            { "kind": "text", "text": "**back** = back home:", "vi": "**back** = trở về nhà:" },
+            { "kind": "examples", "items": [
+              { "en": "We'll be **back** in three weeks.", "vi": "Chúng tôi sẽ về trong ba tuần nữa." }
+            ] },
+            { "kind": "text", "text": "**back** = back to a place, a person etc.:", "vi": "**back** = trở lại một nơi, một người v.v.:" },
+            { "kind": "examples", "items": [
+              { "en": "a: I'm going out now. b: What time will you be **back**?", "vi": "a: Tôi ra ngoài đây. b: Mấy giờ bạn về?" },
+              { "en": "After eating at a restaurant, we walked **back** to our hotel.", "vi": "Sau khi ăn ở nhà hàng, chúng tôi đi bộ về khách sạn." },
+              { "en": "I've still got Jane's keys. I forgot to give them **back** to her.", "vi": "Tôi vẫn còn giữ chìa khóa của Jane. Tôi quên trả lại cho cô ấy." },
+              { "en": "When you've finished with that book, can you put it **back** on the shelf?", "vi": "Khi nào đọc xong quyển sách đó, bạn để nó lại lên kệ được không?" }
+            ] },
+            { "kind": "text", "text": "In the same way you can say **go back**, **come back**, **get back**, **take** something **back** etc.", "vi": "Tương tự, bạn có thể nói **go back**, **come back**, **get back**, **take** something **back** v.v." }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "Các động từ khác + away",
+          "headingEn": "Other verbs + away",
+          "parts": [
+            { "kind": "text", "text": "**get away** = escape, leave with difficulty:", "vi": "**get away** = trốn thoát, rời đi một cách khó khăn:" },
+            { "kind": "examples", "items": [
+              { "en": "We tried to catch the thief, but she **got away**.", "vi": "Chúng tôi cố bắt tên trộm, nhưng cô ta đã trốn thoát." }
+            ] },
+            { "kind": "text", "text": "**get away with** something = do something wrong without being caught:", "vi": "**get away with** something = làm điều sai trái mà không bị phát hiện:" },
+            { "kind": "examples", "items": [
+              { "en": "I parked in a no-parking zone, but I **got away with** it. I didn't have to pay a fine.", "vi": "Tôi đỗ xe ở khu vực cấm đỗ, nhưng tôi thoát được. Tôi không phải nộp phạt." }
+            ] },
+            { "kind": "text", "text": "**keep away** (from ...) = don't go near:", "vi": "**keep away** (from ...) = tránh xa, không lại gần:" },
+            { "kind": "examples", "items": [
+              { "en": "**Keep away** from the edge of the pool. You might fall in.", "vi": "Tránh xa mép bể bơi ra. Bạn có thể ngã xuống đấy." }
+            ] },
+            { "kind": "text", "text": "**give** something **away** = give it to somebody else because you don't want it any more:", "vi": "**give** something **away** = cho ai đó vì không muốn dùng nữa:" },
+            { "kind": "examples", "items": [
+              { "en": "`Did you sell your bike?' `No, I **gave** it **away** to a friend.'", "vi": "\"Bạn bán xe đạp rồi à?\" \"Không, tôi cho một người bạn rồi.\"" }
+            ] },
+            { "kind": "text", "text": "**put** something **away** = put it in the place where it is usually kept:", "vi": "**put** something **away** = cất vào chỗ vẫn thường để:" },
+            { "kind": "examples", "items": [
+              { "en": "When the children finished playing with their toys, they **put** them **away**.", "vi": "Khi chơi xong đồ chơi, bọn trẻ cất chúng đi." }
+            ] },
+            { "kind": "text", "text": "**throw** something **away** = put it in the rubbish:", "vi": "**throw** something **away** = vứt vào thùng rác:" },
+            { "kind": "examples", "items": [
+              { "en": "I kept the letter, but I **threw away** the envelope.", "vi": "Tôi giữ lại lá thư, nhưng vứt cái phong bì đi." }
+            ] }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "Các động từ khác + back",
+          "headingEn": "Other verbs + back",
+          "parts": [
+            { "kind": "text", "text": "**wave back** / **smile back** / **shout back** / **hit** somebody **back**:", "vi": "**wave back** / **smile back** / **shout back** / **hit** somebody **back** (vẫy lại / cười lại / hét đáp lại / đánh trả):" },
+            { "kind": "examples", "items": [
+              { "en": "I waved to her, and she **waved back**.", "vi": "Tôi vẫy tay với cô ấy, và cô ấy vẫy lại." }
+            ] },
+            { "kind": "text", "text": "**call**/**phone**/**ring** (somebody) **back** = return a phone call:", "vi": "**call**/**phone**/**ring** (somebody) **back** = gọi lại cho ai đó:" },
+            { "kind": "examples", "items": [
+              { "en": "I can't talk to you now. I'll **call** you **back** in ten minutes.", "vi": "Bây giờ tôi không nói chuyện được. Tôi sẽ gọi lại cho bạn sau mười phút." }
+            ] },
+            { "kind": "text", "text": "**get back to** somebody = reply to them by phone etc.:", "vi": "**get back to** somebody = trả lời lại ai đó (qua điện thoại v.v.):" },
+            { "kind": "examples", "items": [
+              { "en": "I sent him an email, but he never **got back to** me.", "vi": "Tôi đã gửi email cho anh ấy, nhưng anh ấy không bao giờ trả lời lại." }
+            ] },
+            { "kind": "text", "text": "**look back** (on something) = think about what happened in the past:", "vi": "**look back** (on something) = nhìn lại, nghĩ về những gì đã xảy ra trong quá khứ:" },
+            { "kind": "examples", "items": [
+              { "en": "My first job was in a travel agency. I didn't like it much at the time but, **looking back** on it, I learnt a lot and it was a useful experience.", "vi": "Công việc đầu tiên của tôi là ở một công ty du lịch. Lúc đó tôi không thích lắm, nhưng nhìn lại thì tôi đã học được nhiều điều và đó là một trải nghiệm hữu ích." }
+            ] },
+            { "kind": "text", "text": "**pay back** money, **pay** somebody **back**:", "vi": "**pay back** money, **pay** somebody **back** (trả lại tiền, trả nợ ai đó):" },
+            { "kind": "examples", "items": [
+              { "en": "If you borrow money, you have to **pay** it **back**.", "vi": "Nếu bạn vay tiền, bạn phải trả lại." },
+              { "en": "Thanks for lending me the money. I'll **pay** you **back** next week.", "vi": "Cảm ơn đã cho tôi vay tiền. Tuần sau tôi sẽ trả lại cho bạn." }
+            ] }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "145.2 · Hoàn thành câu, dùng động từ + away hoặc back",
+      "titleEn": "145.2 · Complete the sentences using a verb + away or back",
+      "instructions": "Điền một động từ + away hoặc back phù hợp vào chỗ trống, dùng đúng thì.",
+      "instructionsEn": "Complete the sentences using a verb + away or back.",
+      "examples": [
+        { "label": "1", "prompt": "___", "answer": "I was away all day yesterday. I got back very late." }
+      ],
+      "items": [
+        { "prompt": "I haven't seen our neighbours for a while. I think they must ___.", "answer": "have gone away" },
+        { "prompt": "'I'm going out now.' 'OK. What time will you ___?'", "answer": "be back" },
+        { "prompt": "I saw a man trying to break into a car. When he saw me, he ___.", "answer": "ran away" },
+        { "prompt": "If you cheat in the exam, you might ___ with it or you might get caught.", "answer": "get away" },
+        { "prompt": "Be careful! That's an electric fence. Make sure you ___ from it.", "answer": "keep away" },
+        { "prompt": "He wasn't very friendly. I smiled at him, but he didn't ___.", "answer": "smile back" }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "145.3 · Hoàn thành câu, mỗi chỗ trống chỉ dùng một từ",
+      "titleEn": "145.3 · Complete the sentences. Use only one word each time",
+      "instructions": "Điền đúng một từ vào mỗi chỗ trống.",
+      "instructionsEn": "Complete the sentences. Use only one word each time.",
+      "examples": [
+        { "label": "1", "prompt": "___", "answer": "The woman got into her car, started the engine and drove away." }
+      ],
+      "items": [
+        { "prompt": "This box could be useful, so I won't ___ it away.", "answer": "throw" },
+        { "prompt": "Jane doesn't do anything at work. I don't know how she ___ away with it.", "answer": "gets" },
+        { "prompt": "I'm going out now. I'll ___ back in about an hour.", "answer": "be" },
+        { "prompt": "You should think more about the future. Don't ___ back all the time.", "answer": "look" },
+        { "prompt": "Gary is very generous. He won some money in the lottery and ___ it all away.", "answer": "gave" },
+        { "prompt": "I'll ___ back to you as soon as I have the information you need.", "answer": "get" },
+        { "prompt": "I washed the dishes, dried them and ___ them away.", "answer": "put" }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "145.4 · Hoàn thành câu, dùng động từ trong ngoặc + away hoặc back",
+      "titleEn": "145.4 · Complete the sentences using the verb in brackets + away or back",
+      "instructions": "Điền động từ trong ngoặc (chia đúng dạng) + away hoặc back vào chỗ trống.",
+      "instructionsEn": "Complete the sentences using the verb in brackets + away or back.",
+      "examples": [
+        { "label": "1", "context": "a: Do you still have my keys?", "prompt": "b: No. Don't you remember? I ___ yesterday. (give)", "answer": "gave them back to you" }
+      ],
+      "items": [
+        { "context": "a: Do you want this magazine?", "prompt": "b: No, I've finished with it. You can ___. (throw)", "answer": "throw it away" },
+        { "context": "a: How are your new jeans? Do they fit you OK?", "prompt": "b: No, they're too tight. I'm going to ___ to the shop. (take)", "answer": "take them back" },
+        { "context": "a: Here's the money you asked me to lend you.", "prompt": "b: Thanks. I'll ___ as soon as I can. (pay)", "answer": "pay you back" },
+        { "context": "a: What happened to all the books you used to have?", "prompt": "b: I didn't want them any more, so I ___. (give)", "answer": "gave them away" },
+        { "context": "a: Did you phone Sarah?", "prompt": "b: Yes, I left a message for her, but she hasn't ___. (call)", "answer": "called me back", "accept": ["called back"] }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng các cụm động từ đã học, ví dụ 'We're going away next week.', 'I'll call you back later.', 'Don't throw it away.'.",
+      "instructionsEn": "Write 2-3 English sentences using the phrasal verbs from this unit, e.g. 'We're going away next week.', 'I'll call you back later.', 'Don't throw it away.'.",
+      "ruleSummary": "This unit covers away meaning away from home or from a place/person (go away, drive away, fly away, blow away, take something away, walk away, run away, look away) and back meaning back home or back to a place/person (be back, walk back, give something back, put something back, go back, come back, get back, take something back), plus other verbs + away (get away = escape, get away with something = do wrong without being caught, keep away (from) = don't go near, give/put/throw something away) and other verbs + back (wave back/smile back/shout back/hit somebody back, call/phone/ring somebody back = return a call, get back to somebody = reply, look back (on something) = think about the past, pay back money/pay somebody back)."
+    }
+  ]
+};

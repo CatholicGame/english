@@ -14,9 +14,12 @@ export default function GrammarUnitsPage() {
   const { progress } = useProgress();
   const { isUnlocked } = useSubscriptionStore();
   const [showPurchase, setShowPurchase] = useState(false);
+  const [query, setQuery] = useState("");
   const total = UNITS_META.length;
   const doneCount = UNITS_META.filter((u) => lvlOf(progress, u.slug) > 0).length;
   const donePct = total ? Math.round((doneCount / total) * 100) : 0;
+  const q = query.trim();
+  const visibleUnits = q ? UNITS_META.filter((u) => String(u.unit).startsWith(q)) : UNITS_META;
 
   return (
     <div className="flex-1 lg:flex lg:flex-row lg:items-stretch lg:gap-8 lg:px-4 lg:py-6">
@@ -52,9 +55,25 @@ export default function GrammarUnitsPage() {
       </div>
 
       <div className="lg:flex-1">
-        <div className="label-xs px-4 pt-4 pb-2 lg:px-0">Units</div>
+        <div className="px-4 pt-4 pb-2 lg:px-0">
+          <div className="label-xs mb-2">Units</div>
+          <input
+            type="text"
+            inputMode="numeric"
+            pattern="[0-9]*"
+            value={query}
+            onChange={(e) => setQuery(e.target.value.replace(/[^0-9]/g, ""))}
+            placeholder="Tìm theo số thứ tự (VD: 12)"
+            className="input w-full"
+          />
+        </div>
         <div className="lg:grid lg:grid-cols-2 lg:gap-x-4">
-          {UNITS_META.map((u) => {
+          {visibleUnits.length === 0 && (
+            <div className="px-4 py-3 text-[16px] text-neutral-500 lg:col-span-2">
+              Không tìm thấy unit nào.
+            </div>
+          )}
+          {visibleUnits.map((u) => {
             const done = lvlOf(progress, u.slug) > 0;
             const locked = u.available && isGrammarUnitLocked(u.unit, isUnlocked);
             const body = (

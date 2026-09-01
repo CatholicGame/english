@@ -2363,3 +2363,1022 @@ export const UNIT_138_PHRASAL_VERBS_2_IN_OUT: GrammarUnit = {
     }
   ]
 };
+
+export const UNIT_139_PHRASAL_VERBS_3_OUT: GrammarUnit = {
+  "unit": 139,
+  "slug": "phrasal-verbs-3-out",
+  "title": "Phrasal verbs 3: out",
+  "topic": "phrasal verbs",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "out = không còn cháy, không còn sáng",
+          "headingEn": "out = not burning, not shining",
+          "parts": [
+            { "kind": "words", "words": ["go out", "put out a fire / a cigarette / a light", "turn out a light", "blow out a candle"] },
+            { "kind": "examples", "items": [
+              { "en": "Suddenly all the lights in the building went **out**.", "vi": "Đột nhiên tất cả đèn trong tòa nhà đều tắt." },
+              { "en": "I **put** the fire **out** with a fire extinguisher.", "vi": "Tôi dập tắt đám cháy bằng bình chữa cháy." },
+              { "en": "I **turned** the lights **out** before leaving.", "vi": "Tôi tắt đèn trước khi rời đi." },
+              { "en": "We don't need the candle. You can **blow** it **out**.", "vi": "Chúng ta không cần nến nữa. Bạn có thể thổi tắt nó." }
+            ] }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "work out",
+          "headingEn": "work out",
+          "parts": [
+            { "kind": "text", "text": "**work out** = do physical exercises:", "vi": "**work out** = tập thể dục:" },
+            { "kind": "examples", "items": [
+              { "en": "Rachel **works out** at the gym three times a week.", "vi": "Rachel tập thể dục ở phòng gym ba lần một tuần." }
+            ] },
+            { "kind": "text", "text": "**work out** = develop, progress:", "vi": "**work out** = tiến triển, diễn ra theo một hướng nào đó:" },
+            { "kind": "examples", "items": [
+              { "en": "Good luck for the future. I hope everything **works out** well for you.", "vi": "Chúc bạn may mắn trong tương lai. Tôi hy vọng mọi việc sẽ suôn sẻ với bạn." },
+              { "en": "A: Why did James leave the company? B: Things didn't **work out**. (= things didn't work out well)", "vi": "A: Tại sao James lại rời công ty? B: Mọi việc không suôn sẻ." }
+            ] },
+            { "kind": "text", "text": "**work out** (for calculations):", "vi": "**work out** (dùng khi tính toán):" },
+            { "kind": "examples", "items": [
+              { "en": "The total bill for three people is £97.35. That **works out** at £32.45 each.", "vi": "Tổng hóa đơn cho ba người là 97,35 bảng. Tính ra mỗi người khoảng 32,45 bảng." }
+            ] },
+            { "kind": "text", "text": "**work** (something) **out** = calculate:", "vi": "**work** (something) **out** = tính toán ra:" },
+            { "kind": "examples", "items": [
+              { "en": "345 x 76? I need a calculator. I can't **work** it **out** in my head.", "vi": "345 x 76 à? Tôi cần máy tính. Tôi không thể tính nhẩm được." }
+            ] },
+            { "kind": "text", "text": "**work out** or **figure out** = understand, think about a problem and find an answer:", "vi": "**work out** hoặc **figure out** = hiểu ra, suy nghĩ về một vấn đề và tìm ra câu trả lời:" },
+            { "kind": "examples", "items": [
+              { "en": "Investigators are trying to **work out** what caused the accident. or Investigators are trying to **figure out** what caused the accident.", "vi": "Các nhà điều tra đang cố gắng tìm ra nguyên nhân gây ra vụ tai nạn." }
+            ] }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "các động từ khác + out",
+          "headingEn": "other verbs + out",
+          "parts": [
+            { "kind": "text", "text": "**carry out** an order / an experiment / a survey / an investigation / a plan etc.:", "vi": "**carry out** một mệnh lệnh / thí nghiệm / cuộc khảo sát / cuộc điều tra / kế hoạch v.v. (thực hiện, tiến hành):" },
+            { "kind": "examples", "items": [
+              { "en": "Soldiers are expected to **carry out** orders.", "vi": "Binh lính được yêu cầu phải thực hiện mệnh lệnh." },
+              { "en": "An investigation into the accident will be **carried out**.", "vi": "Một cuộc điều tra về vụ tai nạn sẽ được tiến hành." }
+            ] },
+            { "kind": "text", "text": "**find out** that/what/when (etc.) ..., **find out about** ... = get information about:", "vi": "**find out** that/what/when ..., **find out about** ... = tìm hiểu, tìm ra thông tin về:" },
+            { "kind": "examples", "items": [
+              { "en": "The police never **found out** who committed the crime.", "vi": "Cảnh sát không bao giờ tìm ra ai đã gây ra tội ác." },
+              { "en": "I just **found out** that it's Helen's birthday today.", "vi": "Tôi vừa mới biết hôm nay là sinh nhật Helen." },
+              { "en": "I checked a few websites to **find out about** hotels in the town.", "vi": "Tôi đã xem vài trang web để tìm hiểu về các khách sạn trong thị trấn." }
+            ] },
+            { "kind": "text", "text": "**give/hand** things **out** = give to each person:", "vi": "**give/hand** things **out** = phát cho từng người:" },
+            { "kind": "examples", "items": [
+              { "en": "At the end of the lecture, the speaker **gave out** information sheets to the audience.", "vi": "Cuối buổi giảng, diễn giả đã phát tờ thông tin cho khán giả." }
+            ] },
+            { "kind": "text", "text": "**point** something **out** (to somebody) = draw attention to it:", "vi": "**point** something **out** (to somebody) = chỉ ra, lưu ý ai đó về điều gì:" },
+            { "kind": "examples", "items": [
+              { "en": "As we drove through the city, the tour guide **pointed out** all the sights.", "vi": "Khi chúng tôi lái xe qua thành phố, hướng dẫn viên đã chỉ ra tất cả các điểm tham quan." },
+              { "en": "I didn't realise I'd made a mistake until somebody **pointed** it **out** to me.", "vi": "Tôi không nhận ra mình đã sai cho đến khi có người chỉ ra cho tôi." }
+            ] },
+            { "kind": "text", "text": "**run out** (of something):", "vi": "**run out** (of something) = hết, dùng hết:" },
+            { "kind": "examples", "items": [
+              { "en": "We **ran out of** petrol on the motorway. (= we used all our petrol)", "vi": "Chúng tôi hết xăng trên đường cao tốc." }
+            ] },
+            { "kind": "text", "text": "**sort** something **out** = find a solution to, put in order:", "vi": "**sort** something **out** = giải quyết, sắp xếp lại cho gọn gàng:" },
+            { "kind": "examples", "items": [
+              { "en": "There are a few problems we need to **sort out**.", "vi": "Có vài vấn đề chúng ta cần giải quyết." },
+              { "en": "All these papers are mixed up. I'll have to **sort** them **out**.", "vi": "Mấy tờ giấy này bị lẫn lộn hết cả. Tôi sẽ phải sắp xếp lại." }
+            ] },
+            { "kind": "text", "text": "**turn out** to be ... / **turn out** good/nice etc. / **turn out** that ...:", "vi": "**turn out** to be ... / **turn out** good/nice v.v. / **turn out** that ... = hóa ra là:" },
+            { "kind": "examples", "items": [
+              { "en": "Nobody believed Paul at first, but he **turned out** to be right. (= it became clear in the end that he was right)", "vi": "Lúc đầu không ai tin Paul, nhưng hóa ra anh ấy đúng." },
+              { "en": "The weather wasn't so good in the morning, but it **turned out** nice later.", "vi": "Buổi sáng thời tiết không đẹp lắm, nhưng sau đó hóa ra lại đẹp." },
+              { "en": "I thought they knew each other, but it **turned out** that they'd never met.", "vi": "Tôi tưởng họ biết nhau, nhưng hóa ra họ chưa từng gặp nhau." }
+            ] },
+            { "kind": "text", "text": "**try out** a machine, a system, a new idea etc. = test it to see if it is OK:", "vi": "**try out** a machine, a system, a new idea v.v. = thử nghiệm để xem có ổn không:" },
+            { "kind": "examples", "items": [
+              { "en": "The company is **trying out** some new software at the moment.", "vi": "Công ty hiện đang thử nghiệm phần mềm mới." }
+            ] }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "match_pairs",
+      "title": "139.1 · Từ nào đi với từ nào?",
+      "titleEn": "139.1 · Which words can go together?",
+      "instructions": "Chọn danh từ phù hợp với mỗi động từ cụm trong khung. Chạm một động từ cụm bên trái, sau đó chạm danh từ phù hợp bên phải.",
+      "instructionsEn": "Choose from the list which noun goes with each phrasal verb. Tap a phrasal verb on the left, then tap the noun that goes with it.",
+      "left": ["turn out", "blow out", "carry out", "put out", "try out", "sort out"],
+      "right": ["a light", "a candle", "an order", "a fire", "a new product", "a problem"],
+      "answers": ["a light", "a candle", "an order", "a fire", "a new product", "a problem"]
+    },
+    {
+      "kind": "type_fill",
+      "title": "139.2 · Hoàn thành câu, dùng động từ + out",
+      "titleEn": "139.2 · Complete the sentences using a verb + out",
+      "instructions": "Điền một động từ + out phù hợp vào chỗ trống, dùng đúng thì.",
+      "instructionsEn": "Complete the sentences using a verb + out.",
+      "examples": [
+        { "label": "1", "prompt": "___", "answer": "The company is trying out a new computer system at the moment." }
+      ],
+      "items": [
+        { "prompt": "Steve is very fit. He does a lot of sport and ___ regularly.", "answer": "works out" },
+        { "prompt": "The road will be closed for two days while building work is ___.", "answer": "carried out" },
+        { "prompt": "We didn't manage to discuss everything at the meeting. We ___ of time.", "answer": "ran out" },
+        { "prompt": "You have to ___ the problem yourself. I can't do it for you.", "answer": "sort out" },
+        { "prompt": "I need to ___ what happened exactly. It's not clear at the moment.", "answer": "find out" },
+        { "prompt": "The new drug will be ___ on a small group of patients.", "answer": "tried out" },
+        { "prompt": "I thought the two books were the same until someone ___ the difference.", "answer": "pointed out" },
+        { "prompt": "They got married a few years ago, but it didn't ___ and they separated.", "answer": "work out" },
+        { "prompt": "There was a power cut and all the lights ___.", "answer": "went out" },
+        { "prompt": "We thought she was American at first, but she ___ to be Swedish.", "answer": "turned out" },
+        { "prompt": "Sometimes it ___ cheaper to eat in a restaurant than to cook at home.", "answer": "works out" },
+        { "prompt": "How did you ___ about the project? Did somebody tell you?", "answer": "find out" },
+        { "prompt": "It took firefighters two hours to ___ the fire.", "answer": "put out" },
+        { "prompt": "I can't ___ how the water is getting into the house.", "answer": "work out", "accept": ["figure out"] }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "139.4 · Hoàn thành câu, mỗi lần dùng động từ + out",
+      "titleEn": "139.4 · Complete the sentences. Each time use a verb + out",
+      "instructions": "Hoàn thành câu trả lời của B, mỗi lần dùng một động từ + out.",
+      "instructionsEn": "Complete the sentences. Each time use a verb + out.",
+      "examples": [
+        { "label": "1", "context": "A: Was the fire serious?", "prompt": "B: No, we were able to ___", "answer": "put it out" }
+      ],
+      "items": [
+        { "context": "A: This recipe looks interesting.", "prompt": "B: Yes, let's ___", "answer": "try it out" },
+        { "context": "A: How much money do I owe you exactly?", "prompt": "B: Just a moment. I'll have to ___", "answer": "work it out" },
+        { "context": "A: What happened about your problem with your bank?", "prompt": "B: It's OK now. I went to see them and we ___", "answer": "sorted it out" },
+        { "context": "A: You've written the wrong date on this form.", "prompt": "B: Oh, so I have. Thanks for ___", "answer": "pointing it out" }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng các cụm động từ + out đã học, ví dụ 'We ran out of milk.', 'Can you sort this problem out?', 'It turned out to be a mistake.'.",
+      "instructionsEn": "Write 2-3 English sentences using the verb + out phrasal verbs from this unit, e.g. 'We ran out of milk.', 'Can you sort this problem out?', 'It turned out to be a mistake.'.",
+      "ruleSummary": "This unit covers verb + out meaning not burning/not shining (go out, put out a fire/cigarette/light, turn out a light, blow out a candle), work out (do physical exercise, develop or progress well or badly, work out at a calculated total, work something out/figure out = calculate or understand something), and other verbs + out (carry out an order/experiment/survey/plan, find out that/what/about = get information, give/hand out = distribute to each person, point something out = draw attention to it, run out (of something) = have none left, sort something out = solve a problem or put things in order, turn out to be/nice/that = it becomes clear that, try out a machine/system/idea = test it)."
+    }
+  ]
+};
+
+export const UNIT_140_PHRASAL_VERBS_4_ON_OFF_1: GrammarUnit = {
+  "unit": 140,
+  "slug": "phrasal-verbs-4-on-off-1",
+  "title": "Phrasal verbs 4: on/off (1)",
+  "topic": "phrasal verbs",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "on và off cho đèn, máy móc v.v.",
+          "headingEn": "on and off for lights, machines etc.",
+          "parts": [
+            { "kind": "text", "text": "We say **the light is on** / **put the light on** / **leave the light on** etc.", "vi": "Ta nói **the light is on** / **put the light on** / **leave the light on** (đèn đang bật / bật đèn / để đèn bật) v.v." },
+            { "kind": "text", "text": "**turn the light on/off** or **switch the light on/off**:", "vi": "**turn the light on/off** hoặc **switch the light on/off** (bật/tắt đèn):" },
+            { "kind": "examples", "items": [
+              { "en": "Shall I leave the lights on or turn them off?", "vi": "Tôi có nên để đèn bật hay tắt đi?" },
+              { "en": "'Is the heating on?' 'No, I switched it off.'", "vi": "'Máy sưởi có đang bật không?' 'Không, tôi đã tắt rồi.'" }
+            ] },
+            { "kind": "text", "text": "also **put** (music, a song) **on**, **put the kettle on**:", "vi": "ngoài ra còn có **put** (nhạc, một bài hát) **on**, **put the kettle on** (bật nhạc, đun ấm nước):" },
+            { "kind": "examples", "items": [
+              { "en": "Let's put some music on. What would you like to hear?", "vi": "Bật nhạc lên đi. Bạn muốn nghe gì?" },
+              { "en": "We need boiling water, so I'll put the kettle on.", "vi": "Chúng ta cần nước sôi, nên tôi sẽ đun ấm nước." }
+            ] }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "on và off cho sự kiện v.v.",
+          "headingEn": "on and off for events etc.",
+          "parts": [
+            { "kind": "text", "text": "**go on** = happen:", "vi": "**go on** = xảy ra, diễn ra:" },
+            { "kind": "examples", "items": [
+              { "en": "What's all that noise? What's **going on**? (= what's happening)", "vi": "Tiếng ồn gì vậy? Chuyện gì đang xảy ra vậy?" }
+            ] },
+            { "kind": "text", "text": "**call** something **off** = cancel it:", "vi": "**call** something **off** = hủy bỏ:" },
+            { "kind": "examples", "items": [
+              { "en": "The concert in the park had to be **called off** because of the weather.", "vi": "Buổi hòa nhạc ngoài công viên phải hủy vì thời tiết." }
+            ] },
+            { "kind": "text", "text": "**put** something **off**, **put off** doing something = delay it:", "vi": "**put** something **off**, **put off** doing something = hoãn lại:" },
+            { "kind": "examples", "items": [
+              { "en": "The election has been **put off** until January.", "vi": "Cuộc bầu cử đã bị hoãn đến tháng Giêng." },
+              { "en": "We can't **put off** making a decision. We have to decide now.", "vi": "Chúng ta không thể trì hoãn việc ra quyết định. Chúng ta phải quyết định ngay bây giờ." }
+            ] }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "on và off cho quần áo v.v.",
+          "headingEn": "on and off for clothes etc.",
+          "parts": [
+            { "kind": "text", "text": "**put on** clothes, glasses, make-up, a seat belt etc.:", "vi": "**put on** quần áo, kính, trang điểm, dây an toàn v.v. (mặc/đeo vào):" },
+            { "kind": "examples", "items": [
+              { "en": "My hands were cold, so I **put** my gloves **on**.", "vi": "Tay tôi bị lạnh nên tôi đã đeo găng tay vào." }
+            ] },
+            { "kind": "text", "text": "**put on** weight = get heavier:", "vi": "**put on** weight = tăng cân:" },
+            { "kind": "examples", "items": [
+              { "en": "I've **put on** two kilos in the last month.", "vi": "Tháng vừa rồi tôi đã tăng hai cân." }
+            ] },
+            { "kind": "text", "text": "**try on** clothes (to see if they fit):", "vi": "**try on** clothes = thử quần áo (để xem có vừa không):" },
+            { "kind": "examples", "items": [
+              { "en": "I **tried on** a jacket in the shop, but it didn't look right.", "vi": "Tôi đã thử một chiếc áo khoác trong cửa hàng, nhưng trông không hợp." }
+            ] },
+            { "kind": "text", "text": "**take off** clothes, glasses etc.:", "vi": "**take off** quần áo, kính v.v. (cởi/tháo ra):" },
+            { "kind": "examples", "items": [
+              { "en": "It was warm, so I **took off** my coat.", "vi": "Trời ấm nên tôi đã cởi áo khoác ra." }
+            ] }
+          ]
+        },
+        {
+          "label": "D",
+          "heading": "off = rời khỏi một người hoặc nơi nào đó",
+          "headingEn": "off = away from a person or place",
+          "parts": [
+            { "kind": "text", "text": "**be off** (to a place):", "vi": "**be off** (to a place) = lên đường, sắp đi đâu đó:" },
+            { "kind": "examples", "items": [
+              { "en": "Tomorrow I'm **off** to Paris. / I'm **off** on holiday. (= I'm going to Paris / I'm going on holiday)", "vi": "Ngày mai tôi sẽ đi Paris. / Tôi sắp đi nghỉ." }
+            ] },
+            { "kind": "text", "text": "**walk off** / **run off** / **drive off** / **ride off** / **go off** (similar to walk away / run away etc.):", "vi": "**walk off** / **run off** / **drive off** / **ride off** / **go off** (tương tự walk away / run away, nghĩa là bỏ đi):" },
+            { "kind": "examples", "items": [
+              { "en": "Anna got on her bike and **rode off**.", "vi": "Anna lên xe đạp rồi phóng đi." },
+              { "en": "Mark left home at the age of eighteen and **went off** to Canada.", "vi": "Mark rời nhà năm mười tám tuổi và đi sang Canada." }
+            ] },
+            { "kind": "text", "text": "**set off** = start a journey:", "vi": "**set off** = bắt đầu lên đường, khởi hành:" },
+            { "kind": "examples", "items": [
+              { "en": "We **set off** early to avoid the traffic. (= We left early)", "vi": "Chúng tôi khởi hành sớm để tránh tắc đường." }
+            ] },
+            { "kind": "text", "text": "**take off** = leave the ground (for planes):", "vi": "**take off** = cất cánh (dùng cho máy bay):" },
+            { "kind": "examples", "items": [
+              { "en": "After a long delay, the plane finally **took off**.", "vi": "Sau một thời gian dài trì hoãn, máy bay cuối cùng cũng cất cánh." }
+            ] },
+            { "kind": "text", "text": "**see** somebody **off** = go with them to the airport/station to say goodbye:", "vi": "**see** somebody **off** = tiễn ai đó ra sân bay/nhà ga:" },
+            { "kind": "examples", "items": [
+              { "en": "Helen was going away. We went to the station with her to **see** her **off**.", "vi": "Helen sắp đi xa. Chúng tôi đến nhà ga cùng cô ấy để tiễn cô ấy." }
+            ] }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "140.1 · Hoàn thành câu, dùng put on",
+      "titleEn": "140.1 · Complete the sentences using put on + the following",
+      "instructions": "Điền put on + một cụm từ phù hợp trong khung vào chỗ trống.",
+      "instructionsEn": "Complete the sentences using put on + the following.",
+      "wordBank": ["some music", "the heating", "the kettle", "the light", "the oven"],
+      "examples": [
+        { "label": "1", "prompt": "It was getting dark, so I ___.", "answer": "put the light on" }
+      ],
+      "items": [
+        { "prompt": "It was getting cold, so I ___.", "answer": "put the heating on" },
+        { "prompt": "I wanted to bake a cake, so I ___.", "answer": "put the oven on" },
+        { "prompt": "I wanted to make some tea, so I ___.", "answer": "put the kettle on" },
+        { "prompt": "I wanted to relax, so I ___.", "answer": "put some music on" }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "140.2 · Hoàn thành câu, dùng động từ + on hoặc off",
+      "titleEn": "140.2 · Complete the sentences. Use a verb + on or off",
+      "instructions": "Điền một động từ + on hoặc off phù hợp vào chỗ trống, dùng đúng thì.",
+      "instructionsEn": "Complete the sentences. Use a verb + on or off.",
+      "examples": [
+        { "label": "1", "prompt": "It was hot in the cinema, so I ___ my jacket.", "answer": "took off" }
+      ],
+      "items": [
+        { "prompt": "What are all these people doing? What's ___?", "answer": "going on" },
+        { "prompt": "The weather was too bad for the plane to ___, so the flight was delayed.", "answer": "take off" },
+        { "prompt": "Rachel got into her car and ___ at high speed.", "answer": "drove off" },
+        { "prompt": "Tim is too thin. He needs to ___ weight.", "answer": "put on" },
+        { "prompt": "We spent the whole day walking. We ___ at 8 am and walked for ten hours.", "answer": "set off" },
+        { "prompt": "Don't ___ until tomorrow what you can do today.", "answer": "put off" },
+        { "prompt": "They've changed their minds about getting married. The wedding has been ___.", "answer": "called off" },
+        { "prompt": "Are you cold? Shall I get you a sweater to ___?", "answer": "put on" },
+        { "prompt": "I ___ some jeans in the shop, but they were too tight.", "answer": "tried on" },
+        { "prompt": "When I go away, I prefer to be alone at the station or airport. I don't like it when people come to ___ me ___.", "answer": "see", "extraBlanks": [{ "answer": "off" }] },
+        { "prompt": "I need to make an appointment to see the dentist, but I keep ___ it.", "answer": "putting off" }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng các cụm động từ on/off đã học, ví dụ 'I put the kettle on.', 'The match was called off.', 'We set off early.'.",
+      "instructionsEn": "Write 2-3 English sentences using the on/off phrasal verbs from this unit, e.g. 'I put the kettle on.', 'The match was called off.', 'We set off early.'.",
+      "ruleSummary": "This unit covers on/off for lights and machines (the light is on, put/turn/switch the light on or off, put the kettle/music on), on/off for events (go on = happen, call something off = cancel, put something off = delay), on/off for clothes (put on/take off clothes or glasses, put on weight, try on clothes), and off meaning away from a person or place (be off to a place, walk/run/drive/ride/go off, set off = start a journey, take off = a plane leaves the ground, see somebody off = go with them to say goodbye)."
+    }
+  ]
+};
+
+export const UNIT_141_PHRASAL_VERBS_5_ON_OFF_2: GrammarUnit = {
+  "unit": 141,
+  "slug": "phrasal-verbs-5-on-off-2",
+  "title": "Phrasal verbs 5: on/off (2)",
+  "topic": "phrasal verbs",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "động từ + on = tiếp tục làm gì",
+          "headingEn": "verb + on = continue doing something",
+          "parts": [
+            { "kind": "text", "text": "**go on** = continue:", "vi": "**go on** = tiếp tục:" },
+            { "kind": "examples", "items": [
+              { "en": "The party **went on** until 4 o'clock in the morning.", "vi": "Bữa tiệc kéo dài đến 4 giờ sáng." }
+            ] },
+            { "kind": "text", "text": "**go on** / **carry on** doing something = continue doing it:", "vi": "**go on** / **carry on** doing something = tiếp tục làm việc gì:" },
+            { "kind": "examples", "items": [
+              { "en": "We can't **go on** spending money like this. We'll have nothing left soon.", "vi": "Chúng ta không thể tiếp tục tiêu tiền kiểu này được. Chúng ta sẽ sớm chẳng còn gì." },
+              { "en": "I don't want to **carry on** working here. I'm going to look for another job.", "vi": "Tôi không muốn tiếp tục làm việc ở đây nữa. Tôi sẽ tìm một công việc khác." }
+            ] },
+            { "kind": "text", "text": "**go on with** / **carry on with** something = continue it:", "vi": "**go on with** / **carry on with** something = tiếp tục việc gì:" },
+            { "kind": "examples", "items": [
+              { "en": "Don't let me disturb you. Please **carry on with** what you're doing.", "vi": "Đừng để tôi làm phiền bạn. Cứ tiếp tục việc bạn đang làm đi." }
+            ] },
+            { "kind": "text", "text": "**keep on** doing (or **keep** doing) something = do it continuously or repeatedly:", "vi": "**keep on** doing (hoặc **keep** doing) something = liên tục hoặc lặp đi lặp lại làm việc gì:" },
+            { "kind": "examples", "items": [
+              { "en": "He **keeps on** criticising me. It's not fair! (or He **keeps** criticising me.)", "vi": "Anh ta cứ liên tục chỉ trích tôi. Không công bằng chút nào!" }
+            ] },
+            { "kind": "text", "text": "**drive on** / **walk on** / **play on** = continue driving/walking/playing etc.:", "vi": "**drive on** / **walk on** / **play on** = tiếp tục lái xe/đi bộ/chơi v.v.:" },
+            { "kind": "examples", "items": [
+              { "en": "Shall we stop at this petrol station or shall we **drive on** to the next one?", "vi": "Chúng ta có nên dừng ở trạm xăng này không, hay là lái tiếp đến trạm sau?" }
+            ] }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "get on",
+          "headingEn": "get on",
+          "parts": [
+            { "kind": "text", "text": "**get on** = progress:", "vi": "**get on** = tiến triển, diễn ra như thế nào:" },
+            { "kind": "examples", "items": [
+              { "en": "How are you **getting on** in your new job? (= How is it going?)", "vi": "Công việc mới của bạn đang tiến triển thế nào?" }
+            ] },
+            { "kind": "text", "text": "**get on** (with somebody) = have a good relationship:", "vi": "**get on** (with somebody) = hòa hợp, có mối quan hệ tốt với ai đó:" },
+            { "kind": "examples", "items": [
+              { "en": "Joanne and Karen don't **get on**. They're always arguing.", "vi": "Joanne và Karen không hòa hợp với nhau. Họ luôn cãi vã." },
+              { "en": "Richard **gets on** well with his neighbours. They're all very friendly.", "vi": "Richard hòa hợp tốt với hàng xóm. Họ đều rất thân thiện." }
+            ] },
+            { "kind": "text", "text": "**get on with** something = continue something you have to do, usually after an interruption:", "vi": "**get on with** something = tiếp tục việc gì đó phải làm, thường là sau khi bị gián đoạn:" },
+            { "kind": "examples", "items": [
+              { "en": "I must **get on with** my work. I have a lot to do.", "vi": "Tôi phải tiếp tục công việc của mình. Tôi còn nhiều việc phải làm." }
+            ] }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "động từ + off",
+          "headingEn": "verb + off",
+          "parts": [
+            { "kind": "text", "text": "**doze off** / **drop off** / **nod off** = fall asleep:", "vi": "**doze off** / **drop off** / **nod off** = ngủ thiếp đi:" },
+            { "kind": "examples", "items": [
+              { "en": "I **dozed off** during the lecture. It was very boring.", "vi": "Tôi đã ngủ thiếp đi trong buổi giảng. Nó rất buồn tẻ." }
+            ] },
+            { "kind": "text", "text": "**finish** something **off** = do the last part of it:", "vi": "**finish** something **off** = hoàn thành nốt phần cuối:" },
+            { "kind": "examples", "items": [
+              { "en": "A: Have you finished painting the kitchen? B: Nearly. I'll **finish** it **off** tomorrow.", "vi": "A: Bạn sơn xong bếp chưa? B: Gần xong rồi. Tôi sẽ làm nốt vào ngày mai." }
+            ] },
+            { "kind": "text", "text": "**go off** = make an alarm sound:", "vi": "**go off** = phát ra tiếng báo động, reo lên:" },
+            { "kind": "examples", "items": [
+              { "en": "Did you hear the alarm **go off**?", "vi": "Bạn có nghe thấy chuông báo động reo không?" }
+            ] },
+            { "kind": "text", "text": "**put** somebody **off** (doing) something so that they don't want it or want to do it any more:", "vi": "**put** somebody **off** (doing) something = khiến ai đó không còn muốn làm/muốn có nữa:" },
+            { "kind": "examples", "items": [
+              { "en": "We wanted to go to the exhibition, but we were **put off** by the long queue. (= we didn't go because of the long queue)", "vi": "Chúng tôi muốn đi xem triển lãm, nhưng đã nản lòng vì hàng người xếp dài." },
+              { "en": "What **put** you **off** applying for the job? Was the salary too low?", "vi": "Điều gì khiến bạn không muốn nộp đơn xin việc nữa? Lương quá thấp à?" }
+            ] },
+            { "kind": "text", "text": "**rip** somebody **off** / **be ripped off** = cheat somebody / be cheated:", "vi": "**rip** somebody **off** / **be ripped off** = lừa ai đó / bị lừa (mất tiền oan):" },
+            { "kind": "examples", "items": [
+              { "en": "Did you really pay £2,000 for that painting? I think you were **ripped off**. (= you paid too much)", "vi": "Bạn thật sự đã trả 2.000 bảng cho bức tranh đó à? Tôi nghĩ bạn đã bị hớ." }
+            ] },
+            { "kind": "text", "text": "**show off** = try to impress people with your ability, your knowledge etc.:", "vi": "**show off** = cố gây ấn tượng với người khác bằng khả năng, kiến thức v.v. (khoe khoang):" },
+            { "kind": "examples", "items": [
+              { "en": "Look at that boy on the bike riding with no hands. He's just **showing off**.", "vi": "Nhìn thằng bé đi xe đạp không cần tay kìa. Nó chỉ đang khoe mẽ thôi." }
+            ] },
+            { "kind": "text", "text": "**tell** somebody **off** = speak angrily to somebody because they did something wrong:", "vi": "**tell** somebody **off** = mắng ai đó vì họ đã làm sai điều gì:" },
+            { "kind": "examples", "items": [
+              { "en": "Clare's mother **told** her **off** for wearing dirty shoes in the house.", "vi": "Mẹ của Clare đã mắng cô bé vì đi giày bẩn vào nhà." }
+            ] }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "fill_mc",
+      "title": "141.1 · Những câu này có nghĩa là gì?",
+      "titleEn": "141.1 · What do these sentences mean?",
+      "instructions": "Chọn ý nghĩa đúng cho mỗi câu.",
+      "instructionsEn": "Choose what each sentence means.",
+      "examples": [
+        { "label": "1", "context": "I carried on studying.", "prompt": "___", "answer": "I continued studying." }
+      ],
+      "items": [
+        { "context": "I nodded off.", "before": "", "after": "", "options": ["I agreed.", "I felt sick.", "I fell asleep."], "answer": "I fell asleep." },
+        { "context": "We were ripped off.", "before": "", "after": "", "options": ["We were attacked.", "We paid too much.", "Our clothes were torn."], "answer": "We paid too much." },
+        { "context": "I told them off.", "before": "", "after": "", "options": ["I criticised them.", "I was satisfied with them.", "I told them to go away."], "answer": "I criticised them." },
+        { "context": "They don't get on.", "before": "", "after": "", "options": ["They don't like each other much.", "They are lazy.", "They don't know each other."], "answer": "They don't like each other much." },
+        { "context": "He was showing off.", "before": "", "after": "", "options": ["He was joking.", "He was trying to impress us.", "He wasn't telling the truth."], "answer": "He was trying to impress us." }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "141.2 · Hoàn thành câu, dùng động từ + on hoặc off",
+      "titleEn": "141.2 · Complete each sentence using a verb + on or off",
+      "instructions": "Điền một động từ + on hoặc off phù hợp vào chỗ trống, dùng đúng thì.",
+      "instructionsEn": "Complete each sentence using a verb + on or off.",
+      "examples": [
+        { "label": "1", "prompt": "___", "answer": "We can't go on spending money like this. We'll have nothing left soon." }
+      ],
+      "items": [
+        { "prompt": "I'm not ready to go home yet. I have a few things to ___.", "answer": "finish off" },
+        { "prompt": "'Shall I stop the car here?' 'No, ___ a bit further.'", "answer": "drive on" },
+        { "prompt": "Dan paid too much for the car he bought. I think he was ___.", "answer": "ripped off" },
+        { "prompt": "Emma is enjoying her course at university. She's ___ very well.", "answer": "getting on" },
+        { "prompt": "The fire alarm ___ and everybody had to leave the building.", "answer": "went off" },
+        { "prompt": "Ben was ___ by his boss for being late for work repeatedly.", "answer": "told off" },
+        { "prompt": "The meeting has only just finished. It ___ longer than expected.", "answer": "went on" },
+        { "prompt": "I really like working with my colleagues. We all ___ really well together.", "answer": "get on" },
+        { "prompt": "I ___ making the same mistake. It's very frustrating.", "answer": "keep on" },
+        { "prompt": "I've just had a coffee break, and now I must ___ with my work.", "answer": "get on" },
+        { "prompt": "Peter likes people to know how clever he is. He's always ___.", "answer": "showing off" },
+        { "prompt": "We decided not to go to the concert. We were ___ by the cost of tickets.", "answer": "put off" },
+        { "prompt": "Jack paused for a moment and then ___ with his story.", "answer": "carried on", "accept": ["went on"] },
+        { "prompt": "I was so tired at work today. I nearly ___ at my desk a couple of times.", "answer": "dozed off", "accept": ["nodded off", "dropped off"] }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "141.3 · Hoàn thành câu, dùng từ trong khung + on hoặc off",
+      "titleEn": "141.3 · Complete the sentences. Use a verb (in the correct form) + on or off",
+      "instructions": "Điền một động từ trong khung (chia đúng dạng) + on hoặc off vào chỗ trống. Đôi khi bạn sẽ cần thêm từ khác.",
+      "instructionsEn": "Complete the sentences. Use a verb (in the correct form) + on or off. Sometimes you will need other words as well.",
+      "wordBank": ["carry", "finish", "get", "get", "go", "keep", "rip", "tell"],
+      "examples": [
+        { "label": "1", "context": "A: How are you getting on in your new job?", "prompt": "B: ___", "answer": "Fine, thanks. It's going very well." }
+      ],
+      "items": [
+        { "context": "A: What's Tanya like?", "prompt": "B: She's very nice and easy-going. She ___ everybody.", "answer": "gets on well with" },
+        { "context": "A: Is Gary going to retire soon?", "prompt": "B: No, he likes his job and wants to ___ working.", "answer": "keep on", "accept": ["carry on"] },
+        { "context": "A: Have you written the letter you had to write?", "prompt": "B: I've started it. I'll ___ tomorrow.", "answer": "finish it off" },
+        { "context": "A: We took a taxi to the airport. It cost £40.", "prompt": "B: £40! Normally it costs about £20. You ___.", "answer": "were ripped off" },
+        { "context": "A: Why were you late for work this morning?", "prompt": "B: I overslept. My alarm clock didn't ___.", "answer": "go off" },
+        { "context": "A: Some children at the next table in the restaurant were behaving very badly.", "prompt": "B: Why didn't their parents ___?", "answer": "tell them off" },
+        { "context": "A: Is Kate good at making decisions?", "prompt": "B: No, she isn't. ___ changing her mind.", "answer": "She keeps on" }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng các cụm động từ đã học, ví dụ 'I carried on working.', 'We get on really well.', 'The alarm went off.'.",
+      "instructionsEn": "Write 2-3 English sentences using the phrasal verbs from this unit, e.g. 'I carried on working.', 'We get on really well.', 'The alarm went off.'.",
+      "ruleSummary": "This unit covers verb + on meaning continue (go on/carry on doing something, go on with/carry on with something, keep on doing something, drive on/walk on/play on), get on (progress: how are you getting on?, get on with somebody = have a good relationship, get on with something = continue it after an interruption), and verb + off (doze off/drop off/nod off = fall asleep, finish something off = do the last part, go off = an alarm sounds, put somebody off (doing) something = discourage them, rip somebody off/be ripped off = cheat or be cheated, show off = try to impress people, tell somebody off = speak angrily to them for doing something wrong)."
+    }
+  ]
+};
+
+export const UNIT_142_PHRASAL_VERBS_6_UP_DOWN: GrammarUnit = {
+  "unit": 142,
+  "slug": "phrasal-verbs-6-up-down",
+  "title": "Phrasal verbs 6: up/down",
+  "topic": "phrasal verbs",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "So sánh up và down",
+          "headingEn": "Compare up and down",
+          "parts": [
+            { "kind": "text", "text": "**put** something **up** (on a wall etc.):", "vi": "**put** something **up** (treo gì lên tường v.v.):" },
+            { "kind": "examples", "items": [
+              { "en": "I **put** a picture **up** on the wall.", "vi": "Tôi treo một bức tranh lên tường." }
+            ] },
+            { "kind": "text", "text": "**take** something **down** (from a wall etc.):", "vi": "**take** something **down** (gỡ gì xuống từ trên tường v.v.):" },
+            { "kind": "examples", "items": [
+              { "en": "I didn't like the picture, so I **took** it **down**.", "vi": "Tôi không thích bức tranh đó, nên tôi đã gỡ nó xuống." }
+            ] },
+            { "kind": "text", "text": "**pick** something **up**:", "vi": "**pick** something **up** (nhặt lên):" },
+            { "kind": "examples", "items": [
+              { "en": "There was a letter on the floor. I **picked** it **up** and looked at it.", "vi": "Có một lá thư trên sàn nhà. Tôi nhặt nó lên và xem thử." }
+            ] },
+            { "kind": "text", "text": "**put** something **down**:", "vi": "**put** something **down** (đặt xuống):" },
+            { "kind": "examples", "items": [
+              { "en": "I stopped writing and **put down** my pen.", "vi": "Tôi ngừng viết và đặt bút xuống." }
+            ] },
+            { "kind": "text", "text": "**stand up**:", "vi": "**stand up** (đứng dậy):" },
+            { "kind": "examples", "items": [
+              { "en": "Alan **stood up** and walked out.", "vi": "Alan đứng dậy và đi ra ngoài." }
+            ] },
+            { "kind": "text", "text": "**sit down** / **bend down** / **lie down**:", "vi": "**sit down** / **bend down** / **lie down** (ngồi xuống / cúi xuống / nằm xuống):" },
+            { "kind": "examples", "items": [
+              { "en": "I **bent down** to tie my shoelace.", "vi": "Tôi cúi xuống buộc dây giày." }
+            ] },
+            { "kind": "text", "text": "**turn** something **up**:", "vi": "**turn** something **up** (vặn to lên):" },
+            { "kind": "examples", "items": [
+              { "en": "I can't hear the TV. Can you **turn** it **up** a bit?", "vi": "Tôi không nghe rõ tivi. Bạn vặn to lên một chút được không?" }
+            ] },
+            { "kind": "text", "text": "**turn** something **down**:", "vi": "**turn** something **down** (vặn nhỏ xuống):" },
+            { "kind": "examples", "items": [
+              { "en": "The oven is too hot. **Turn** it **down** to 150 degrees.", "vi": "Lò nướng nóng quá. Vặn nhỏ xuống 150 độ đi." }
+            ] }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "knock down, cut down v.v. = phá hủy",
+          "headingEn": "knock down, cut down etc.",
+          "parts": [
+            { "kind": "text", "text": "**knock down** a building / **blow** something **down** / **cut** something **down** etc.:", "vi": "**knock down** a building / **blow** something **down** / **cut** something **down** v.v. (phá dỡ / thổi đổ / chặt hạ):" },
+            { "kind": "examples", "items": [
+              { "en": "Some old houses were **knocked down** to make way for the new shopping centre.", "vi": "Một số ngôi nhà cũ đã bị phá dỡ để nhường chỗ cho trung tâm mua sắm mới." },
+              { "en": "Why did you **cut down** the tree in your garden?", "vi": "Sao bạn lại chặt cây trong vườn nhà mình vậy?" }
+            ] },
+            { "kind": "text", "text": "**be knocked down** (by a car etc.):", "vi": "**be knocked down** (bị đâm ngã, bởi ô tô v.v.):" },
+            { "kind": "examples", "items": [
+              { "en": "A man was **knocked down** by a car and taken to hospital.", "vi": "Một người đàn ông bị ô tô đâm và được đưa đến bệnh viện." }
+            ] },
+            { "kind": "text", "text": "**burn down** = be destroyed by fire:", "vi": "**burn down** = bị thiêu rụi:" },
+            { "kind": "examples", "items": [
+              { "en": "They were able to put out the fire before the house **burnt down**.", "vi": "Họ đã dập được lửa trước khi ngôi nhà bị thiêu rụi." }
+            ] }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "down = giảm bớt, ít đi",
+          "headingEn": "down = getting less",
+          "parts": [
+            { "kind": "text", "text": "**slow down** = go more slowly:", "vi": "**slow down** = đi chậm lại:" },
+            { "kind": "examples", "items": [
+              { "en": "You're driving too fast. **Slow down**.", "vi": "Bạn đang lái xe quá nhanh. Chạy chậm lại đi." }
+            ] },
+            { "kind": "text", "text": "**calm** (somebody) **down** = become calmer, make somebody calmer:", "vi": "**calm** (somebody) **down** = bình tĩnh lại, làm ai đó bình tĩnh lại:" },
+            { "kind": "examples", "items": [
+              { "en": "**Calm down**. There's no point in getting angry.", "vi": "Bình tĩnh lại đi. Tức giận cũng chẳng ích gì." }
+            ] },
+            { "kind": "text", "text": "**cut down** (on something) = eat, drink or do something less often:", "vi": "**cut down** (on something) = ăn, uống hoặc làm gì đó ít lại:" },
+            { "kind": "examples", "items": [
+              { "en": "I'm trying to **cut down** on coffee. I drink too much of it.", "vi": "Tôi đang cố uống cà phê ít lại. Tôi uống nhiều quá." }
+            ] }
+          ]
+        },
+        {
+          "label": "D",
+          "heading": "Các động từ khác + down",
+          "headingEn": "Other verbs + down",
+          "parts": [
+            { "kind": "text", "text": "**break down** = stop working (for machines, cars, relationships etc.):", "vi": "**break down** = ngừng hoạt động (máy móc, ô tô, mối quan hệ v.v.):" },
+            { "kind": "examples", "items": [
+              { "en": "The car **broke down** and I had to phone for help.", "vi": "Xe bị hỏng và tôi phải gọi điện nhờ giúp đỡ." },
+              { "en": "Their marriage **broke down** after only a few months.", "vi": "Cuộc hôn nhân của họ tan vỡ chỉ sau vài tháng." }
+            ] },
+            { "kind": "text", "text": "**close down** / **shut down** = stop doing business:", "vi": "**close down** / **shut down** = ngừng kinh doanh, đóng cửa:" },
+            { "kind": "examples", "items": [
+              { "en": "There used to be a shop at the end of the street. It **closed down** a few years ago.", "vi": "Trước đây có một cửa hàng ở cuối phố. Nó đã đóng cửa vài năm trước." }
+            ] },
+            { "kind": "text", "text": "**let** somebody **down** = disappoint them because you didn't do what they hoped:", "vi": "**let** somebody **down** = làm ai đó thất vọng vì không làm được điều họ mong đợi:" },
+            { "kind": "examples", "items": [
+              { "en": "You can always rely on Paul. He'll never **let** you **down**.", "vi": "Bạn luôn có thể tin tưởng Paul. Anh ấy sẽ không bao giờ làm bạn thất vọng." }
+            ] },
+            { "kind": "text", "text": "**turn** somebody/something **down** = refuse an application, an offer etc.:", "vi": "**turn** somebody/something **down** = từ chối một đơn xin, một lời đề nghị v.v.:" },
+            { "kind": "examples", "items": [
+              { "en": "I applied for several jobs, but I was **turned down** for all of them.", "vi": "Tôi đã nộp đơn xin nhiều công việc, nhưng đều bị từ chối cả." },
+              { "en": "Rachel was offered the job, but she decided to **turn** it **down**.", "vi": "Rachel được đề nghị nhận công việc đó, nhưng cô ấy quyết định từ chối." }
+            ] },
+            { "kind": "text", "text": "**write** something **down** = write something on paper because you may need the information later:", "vi": "**write** something **down** = viết ra giấy vì có thể sau này cần dùng đến:" },
+            { "kind": "examples", "items": [
+              { "en": "I can't remember Ben's address. I **wrote** it **down**, but I can't find it.", "vi": "Tôi không nhớ địa chỉ của Ben. Tôi đã viết ra rồi, nhưng giờ không tìm thấy." }
+            ] }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "142.2 · Hoàn thành câu, dùng từ trong khung + down",
+      "titleEn": "142.2 · Complete the sentences. Use a verb (in the correct form) + down",
+      "instructions": "Điền một động từ trong khung (chia đúng dạng) + down vào chỗ trống.",
+      "instructionsEn": "Complete the sentences. Use a verb (in the correct form) + down. Choose from the box.",
+      "wordBank": ["calm", "cut", "let", "take", "turn", "write"],
+      "examples": [
+        { "label": "1", "prompt": "___", "answer": "I don't like this picture on the wall. I'm going to take it down." }
+      ],
+      "items": [
+        { "prompt": "The music was too loud, so I ___.", "answer": "turned it down" },
+        { "prompt": "David was very angry. I tried to ___.", "answer": "calm him down" },
+        { "prompt": "I promised I would help Anna. I don't want to ___.", "answer": "let her down" },
+        { "prompt": "I've forgotten my password. I should have ___.", "answer": "written it down", "accept": ["wrote it down"] },
+        { "prompt": "Those trees are beautiful. Please don't ___.", "answer": "cut them down" }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "142.3 · Hoàn thành câu, dùng động từ + down",
+      "titleEn": "142.3 · Complete the sentences using a verb + down",
+      "instructions": "Điền một động từ + down phù hợp vào chỗ trống, dùng đúng thì.",
+      "instructionsEn": "Complete the sentences using a verb + down.",
+      "examples": [
+        { "label": "1", "prompt": "___", "answer": "I stopped writing and put down my pen." }
+      ],
+      "items": [
+        { "prompt": "I was really angry. It took me a long time to ___.", "answer": "calm down" },
+        { "prompt": "The train ___ as it approached the station.", "answer": "slowed down" },
+        { "prompt": "Sarah applied to study medicine at university, but she ___.", "answer": "was turned down" },
+        { "prompt": "Our car is very reliable. It has never ___.", "answer": "broken down" },
+        { "prompt": "I spend too much money. I'm going to ___ on things I don't need.", "answer": "cut down" },
+        { "prompt": "I didn't play well. I felt that I had ___ the other players in the team.", "answer": "let down" },
+        { "prompt": "The shop ___ because it was losing money.", "answer": "closed down" },
+        { "prompt": "It's a very ugly building. Many people would like it to ___.", "answer": "be knocked down", "accept": ["be pulled down"] },
+        { "prompt": "I can't understand why you ___ the chance of working in another country for a year. It would have been a great experience for you.", "answer": "turned down" },
+        { "prompt": "I didn't see the accident. Someone told me that a boy ___ as he was crossing the road.", "answer": "was knocked down" },
+        { "prompt": "Peter got married when he was 20, but unfortunately the marriage ___ a few years later.", "answer": "broke down" }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng các cụm động từ đã học, ví dụ 'I picked it up.', 'The car broke down.', 'Please don't let me down.'.",
+      "instructionsEn": "Write 2-3 English sentences using the phrasal verbs from this unit, e.g. 'I picked it up.', 'The car broke down.', 'Please don't let me down.'.",
+      "ruleSummary": "This unit covers verb + up/down pairs (put something up/take something down, pick something up/put something down, stand up/sit down, bend down, lie down, turn something up/turn something down), destruction (knock down a building, cut something down, be knocked down by a car, burn down), down meaning getting less (slow down, calm somebody down, cut down on something), and other verbs + down (break down = stop working, close down/shut down = stop doing business, let somebody down = disappoint them, turn somebody/something down = refuse, write something down = note it for later)."
+    }
+  ]
+};
+
+export const UNIT_143_PHRASAL_VERBS_7_UP_1: GrammarUnit = {
+  "unit": 143,
+  "slug": "phrasal-verbs-7-up-1",
+  "title": "Phrasal verbs 7: up (1)",
+  "topic": "phrasal verbs",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "Tiến lại gần, bắt kịp, theo kịp",
+          "headingEn": "go up, come up, approach; catch up; keep up",
+          "parts": [
+            { "kind": "text", "text": "**go up**, **come up**, **walk up** (to ...) = approach:", "vi": "**go up**, **come up**, **walk up** (to ...) = tiến lại gần:" },
+            { "kind": "examples", "items": [
+              { "en": "A man **came up** to me in the street and asked me for money.", "vi": "Một người đàn ông tiến lại gần tôi trên phố và xin tiền." }
+            ] },
+            { "kind": "text", "text": "**catch up** (with somebody), **catch** somebody **up** = move faster than people in front of you so that you reach them:", "vi": "**catch up** (with somebody), **catch** somebody **up** = đi nhanh hơn để bắt kịp người phía trước:" },
+            { "kind": "examples", "items": [
+              { "en": "I'm not ready to go yet. You go on and I'll **catch up** with you / I'll **catch** you **up**.", "vi": "Tôi chưa sẵn sàng đi đâu. Bạn cứ đi trước, tôi sẽ bắt kịp sau." }
+            ] },
+            { "kind": "text", "text": "**keep up** (with somebody) = continue at the same speed or level:", "vi": "**keep up** (with somebody) = tiếp tục đi cùng tốc độ hoặc trình độ với ai đó:" },
+            { "kind": "examples", "items": [
+              { "en": "You're walking too fast. I can't **keep up** (with you).", "vi": "Bạn đi nhanh quá. Tôi không theo kịp." },
+              { "en": "You're doing well. **Keep it up**!", "vi": "Bạn đang làm tốt lắm. Cứ tiếp tục phát huy nhé!" }
+            ] }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "Bắt đầu, thành lập, sắp xếp",
+          "headingEn": "set up, take up, fix up",
+          "parts": [
+            { "kind": "text", "text": "**set up** an organisation, a company, a business, a system, a website etc. = start it:", "vi": "**set up** an organisation, a company, a business, a system, a website v.v. = thành lập, khởi tạo:" },
+            { "kind": "examples", "items": [
+              { "en": "The government has **set up** a committee to investigate the problem.", "vi": "Chính phủ đã thành lập một ủy ban để điều tra vấn đề này." }
+            ] },
+            { "kind": "text", "text": "**take up** a hobby, a sport, an activity etc. = start doing it:", "vi": "**take up** a hobby, a sport, an activity v.v. = bắt đầu làm gì đó (thú vui, môn thể thao ...):" },
+            { "kind": "examples", "items": [
+              { "en": "Laura **took up** photography a few years ago. She takes really good pictures.", "vi": "Laura bắt đầu chơi nhiếp ảnh vài năm trước. Cô ấy chụp ảnh rất đẹp." }
+            ] },
+            { "kind": "text", "text": "**fix up** a meeting etc. = arrange it:", "vi": "**fix up** a meeting v.v. = sắp xếp, thu xếp:" },
+            { "kind": "examples", "items": [
+              { "en": "We've **fixed up** a meeting for next Monday.", "vi": "Chúng tôi đã sắp xếp một cuộc họp vào thứ Hai tới." }
+            ] }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "Lớn lên, nuôi dạy",
+          "headingEn": "grow up, bring up",
+          "parts": [
+            { "kind": "text", "text": "**grow up** = become an adult:", "vi": "**grow up** = trưởng thành, lớn lên:" },
+            { "kind": "examples", "items": [
+              { "en": "Amy was born in Hong Kong but **grew up** in Australia.", "vi": "Amy sinh ra ở Hồng Kông nhưng lớn lên ở Úc." }
+            ] },
+            { "kind": "text", "text": "**bring up** a child = raise, look after a child:", "vi": "**bring up** a child = nuôi dạy một đứa trẻ:" },
+            { "kind": "examples", "items": [
+              { "en": "Her parents died when she was a child and she was **brought up** by her grandparents.", "vi": "Cha mẹ cô ấy mất khi cô còn nhỏ và cô được ông bà nuôi dạy." }
+            ] }
+          ]
+        },
+        {
+          "label": "D",
+          "heading": "Dọn dẹp",
+          "headingEn": "clean up, clear up, tidy up, wash up",
+          "parts": [
+            { "kind": "text", "text": "**clean up**, **clear up**, **tidy up** = make something clean, tidy etc.:", "vi": "**clean up**, **clear up**, **tidy up** = dọn dẹp, làm sạch sẽ, gọn gàng:" },
+            { "kind": "examples", "items": [
+              { "en": "Look at this mess! Who's going to **tidy up**? (or ... to **tidy** it **up**.)", "vi": "Nhìn đống bừa bộn này kìa! Ai sẽ dọn dẹp đây?" }
+            ] },
+            { "kind": "text", "text": "**wash up** = wash the plates, dishes etc. after a meal:", "vi": "**wash up** = rửa bát đĩa sau bữa ăn:" },
+            { "kind": "examples", "items": [
+              { "en": "I hate **washing up**. (or I hate doing the washing-up.)", "vi": "Tôi ghét rửa bát." }
+            ] }
+          ]
+        },
+        {
+          "label": "E",
+          "heading": "Kết cục, và các cụm khác với up",
+          "headingEn": "end up, give up, make up, turn up, use up",
+          "parts": [
+            { "kind": "text", "text": "**end up** somewhere, **end up** doing something etc.:", "vi": "**end up** somewhere, **end up** doing something v.v. = cuối cùng rơi vào tình huống nào đó:" },
+            { "kind": "examples", "items": [
+              { "en": "There was a fight in the street and three men **ended up** in hospital. (= that's what happened to these men in the end)", "vi": "Có một vụ ẩu đả trên phố và cuối cùng ba người đàn ông phải vào bệnh viện." },
+              { "en": "I couldn't find a hotel and **ended up** sleeping on a bench at the station. (= that's what happened to me in the end)", "vi": "Tôi không tìm được khách sạn nên cuối cùng phải ngủ trên ghế đá ở nhà ga." }
+            ] },
+            { "kind": "text", "text": "**give up** = stop trying, **give** something **up** = stop doing it:", "vi": "**give up** = từ bỏ, ngừng cố gắng; **give** something **up** = từ bỏ việc gì:" },
+            { "kind": "examples", "items": [
+              { "en": "Don't **give up**. Keep trying!", "vi": "Đừng bỏ cuộc. Cứ cố gắng tiếp đi!" },
+              { "en": "Sue got bored with her job and decided to **give** it **up**. (= stop doing it)", "vi": "Sue chán công việc của mình và quyết định nghỉ." }
+            ] },
+            { "kind": "text", "text": "**make up** something, **be made up of** something:", "vi": "**make up** something, **be made up of** something = tạo thành, cấu thành từ:" },
+            { "kind": "examples", "items": [
+              { "en": "Children under 16 **make up** half the population of the city. (= half the population are children under 16)", "vi": "Trẻ em dưới 16 tuổi chiếm một nửa dân số thành phố." },
+              { "en": "Air **is made up** mainly of nitrogen and oxygen. (= Air consists of ...)", "vi": "Không khí chủ yếu được cấu thành từ nitơ và oxy." }
+            ] },
+            { "kind": "text", "text": "**take up** space or time = use space or time:", "vi": "**take up** space or time = chiếm không gian hoặc thời gian:" },
+            { "kind": "examples", "items": [
+              { "en": "Most of the space in the room was **taken up** by a large table.", "vi": "Phần lớn không gian trong phòng bị một chiếc bàn lớn chiếm chỗ." }
+            ] },
+            { "kind": "text", "text": "**turn up**, **show up** = arrive, appear:", "vi": "**turn up**, **show up** = đến, xuất hiện:" },
+            { "kind": "examples", "items": [
+              { "en": "We arranged to meet David last night, but he didn't **turn up**.", "vi": "Chúng tôi đã hẹn gặp David tối qua, nhưng anh ấy không xuất hiện." }
+            ] },
+            { "kind": "text", "text": "**use** something **up** = use all of it so that nothing is left:", "vi": "**use** something **up** = dùng hết, không còn lại gì:" },
+            { "kind": "examples", "items": [
+              { "en": "I'm going to make soup. We have a lot of vegetables and I want to **use** them **up**.", "vi": "Tôi sẽ nấu súp. Chúng ta có nhiều rau và tôi muốn dùng hết chúng." }
+            ] }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "143.2 · Hoàn thành câu, dùng từ trong khung + up",
+      "titleEn": "143.2 · Complete the sentences. Use a verb (in the correct form) + up",
+      "instructions": "Điền một động từ trong khung (chia đúng dạng) + up vào chỗ trống.",
+      "instructionsEn": "Complete the sentences. Use a verb (in the correct form) + up. Choose from the box.",
+      "wordBank": ["end", "end", "give", "give", "grow", "make", "take", "take", "turn", "use", "wash"],
+      "examples": [
+        { "label": "1", "prompt": "___", "answer": "I couldn't find a hotel and ended up sleeping on a bench at the station." }
+      ],
+      "items": [
+        { "prompt": "I'm feeling very tired now. I've ___ all my energy.", "answer": "used up" },
+        { "prompt": "After dinner I ___ and put the dishes away.", "answer": "washed up" },
+        { "prompt": "People often ask children what they want to be when they ___.", "answer": "grow up" },
+        { "prompt": "We arranged to meet Tom, but he didn't ___.", "answer": "turn up", "accept": ["show up"] },
+        { "prompt": "Two years ago James ___ his studies to be a professional footballer.", "answer": "gave up" },
+        { "prompt": "I don't do any sports right now, but I'm thinking of ___ tennis.", "answer": "taking up" },
+        { "prompt": "You don't have enough determination. You ___ too easily.", "answer": "give up" },
+        { "prompt": "Karen travelled a lot for a few years and ___ in Canada, where she still lives.", "answer": "ended up" },
+        { "prompt": "I do a lot of gardening. It ___ most of my free time.", "answer": "takes up" },
+        { "prompt": "There are two universities in the city. Students ___ 20 per cent of the population.", "answer": "make up" }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "143.3 · Hoàn thành câu, dùng từ trong khung + up",
+      "titleEn": "143.3 · Complete the sentences. Use a verb + up (with any other necessary words)",
+      "instructions": "Điền một động từ trong khung + up (thêm từ khác nếu cần) vào chỗ trống.",
+      "instructionsEn": "Complete the sentences using a verb + up (with any other necessary words). Choose from the box.",
+      "wordBank": ["bring", "catch", "fix", "give", "give", "go", "keep", "keep", "make", "set", "tidy"],
+      "examples": [
+        { "label": "1", "prompt": "___", "answer": "Sue got bored with her job and decided to give it up." },
+        { "label": "2", "prompt": "___", "answer": "I'm not ready yet. You go on and I'll catch up with you." }
+      ],
+      "items": [
+        { "prompt": "The room is in a mess. I'd better ___.", "answer": "tidy up", "accept": ["tidy it up"] },
+        { "prompt": "We expect to go away on holiday in July, but we haven't ___ yet.", "answer": "fixed anything up", "accept": ["fixed it up"] },
+        { "prompt": "Steven is having problems at school. He can't ___ the rest of the class.", "answer": "keep up with" },
+        { "prompt": "I ___ in the country, but I have always preferred cities.", "answer": "was brought up" },
+        { "prompt": "Our team lost the game. We started well, but we couldn't ___.", "answer": "keep it up" },
+        { "prompt": "I saw Mike at the party, so I ___ him and said hello.", "answer": "went up to" },
+        { "prompt": "Helen has her own website. A friend of hers helped her to ___.", "answer": "set it up" },
+        { "prompt": "Ben was learning to play the guitar, but he found it hard and in the end he ___.", "answer": "gave it up" },
+        { "prompt": "When I was on holiday, I joined a tour group. The group ___ two Americans, three Japanese, five Germans and myself.", "answer": "was made up of" }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng các cụm động từ đã học, ví dụ 'I grew up in a small town.', 'She set up her own business.', 'Don't give up!'.",
+      "instructionsEn": "Write 2-3 English sentences using the phrasal verbs from this unit, e.g. 'I grew up in a small town.', 'She set up her own business.', 'Don't give up!'.",
+      "ruleSummary": "This unit covers verb + up meaning approach and keep pace (go up/come up/walk up to = approach, catch up (with somebody) = reach people ahead, keep up (with somebody) = continue at the same speed), starting things (set up an organisation/business, take up a hobby, fix up a meeting), grow up/bring up a child, tidying (clean up/clear up/tidy up, wash up), and other verb + up phrases (end up somewhere/doing something, give up = stop trying, make up something/be made up of something, take up space or time, turn up/show up = arrive, use something up = use all of it)."
+    }
+  ]
+};
+
+export const UNIT_144_PHRASAL_VERBS_8_UP_2: GrammarUnit = {
+  "unit": 144,
+  "slug": "phrasal-verbs-8-up-2",
+  "title": "Phrasal verbs 8: up (2)",
+  "topic": "phrasal verbs",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "Nhắc đến, bịa ra",
+          "headingEn": "bring up, come up, come up with, make up",
+          "parts": [
+            { "kind": "text", "text": "**bring up** a topic etc. = introduce it in a conversation:", "vi": "**bring up** a topic v.v. = đưa ra, nhắc đến trong cuộc trò chuyện:" },
+            { "kind": "examples", "items": [
+              { "en": "I don't want to hear any more about this. Please don't **bring** it **up** again.", "vi": "Tôi không muốn nghe thêm về chuyện này nữa. Làm ơn đừng nhắc lại nữa." }
+            ] },
+            { "kind": "text", "text": "**come up** = be introduced in a conversation:", "vi": "**come up** = được nhắc đến trong cuộc trò chuyện:" },
+            { "kind": "examples", "items": [
+              { "en": "Some interesting things **came up** in our discussion yesterday.", "vi": "Một vài điều thú vị đã được nhắc đến trong buổi thảo luận hôm qua." }
+            ] },
+            { "kind": "text", "text": "**come up with** an idea, a suggestion etc. = produce an idea:", "vi": "**come up with** an idea, a suggestion v.v. = nghĩ ra, đề xuất một ý tưởng:" },
+            { "kind": "examples", "items": [
+              { "en": "Sarah is very creative. She's always **coming up with** new ideas.", "vi": "Sarah rất sáng tạo. Cô ấy luôn nghĩ ra những ý tưởng mới." }
+            ] },
+            { "kind": "text", "text": "**make** something **up** = invent something that is not true:", "vi": "**make** something **up** = bịa đặt điều gì đó không có thật:" },
+            { "kind": "examples", "items": [
+              { "en": "What Kevin told you about himself wasn't true. He **made** it all **up**.", "vi": "Những gì Kevin kể về bản thân không phải sự thật. Anh ta bịa ra hết đấy." }
+            ] }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "Vui lên, tiết kiệm, quang đãng",
+          "headingEn": "cheer up, save up, clear up",
+          "parts": [
+            { "kind": "text", "text": "**cheer up** = be happier, **cheer** somebody **up** = make somebody feel happier:", "vi": "**cheer up** = vui lên; **cheer** somebody **up** = làm ai đó vui hơn:" },
+            { "kind": "examples", "items": [
+              { "en": "You look so sad! **Cheer up**!", "vi": "Trông bạn buồn quá! Vui lên đi!" },
+              { "en": "Helen is depressed. What can we do to **cheer** her **up**?", "vi": "Helen đang chán nản. Chúng ta có thể làm gì để cô ấy vui lên?" }
+            ] },
+            { "kind": "text", "text": "**save up** for something / to do something = save money to buy something:", "vi": "**save up** for something / to do something = tiết kiệm tiền để mua/làm gì đó:" },
+            { "kind": "examples", "items": [
+              { "en": "Dan is **saving up** for a trip to New Zealand.", "vi": "Dan đang tiết kiệm tiền cho chuyến đi New Zealand." }
+            ] },
+            { "kind": "text", "text": "**clear up** = become bright (for weather):", "vi": "**clear up** = trời quang đãng trở lại (thời tiết):" },
+            { "kind": "examples", "items": [
+              { "en": "It was raining when I got up, but it **cleared up** later.", "vi": "Lúc tôi dậy trời đang mưa, nhưng sau đó trời quang trở lại." }
+            ] }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "Nổ tung, xé, đánh đập",
+          "headingEn": "blow up, tear up, beat up",
+          "parts": [
+            { "kind": "text", "text": "**blow up** = explode, **blow** something **up** = destroy it with a bomb etc.:", "vi": "**blow up** = nổ tung; **blow** something **up** = phá hủy bằng bom v.v.:" },
+            { "kind": "examples", "items": [
+              { "en": "The engine caught fire and **blew up**.", "vi": "Động cơ bốc cháy và nổ tung." },
+              { "en": "The bridge was **blown up** during the war.", "vi": "Cây cầu đã bị đánh bom trong chiến tranh." }
+            ] },
+            { "kind": "text", "text": "**tear** something **up** = tear it into pieces:", "vi": "**tear** something **up** = xé vụn ra:" },
+            { "kind": "examples", "items": [
+              { "en": "I didn't read the letter. I just **tore** it **up** and threw it away.", "vi": "Tôi không đọc lá thư. Tôi chỉ xé nó ra rồi vứt đi." }
+            ] },
+            { "kind": "text", "text": "**beat** somebody **up** = hit someone repeatedly so that they are badly hurt:", "vi": "**beat** somebody **up** = đánh đập ai đó liên tục đến mức bị thương nặng:" },
+            { "kind": "examples", "items": [
+              { "en": "A friend of mine was attacked and **beaten up**. He had to go to hospital.", "vi": "Một người bạn của tôi bị tấn công và đánh đập. Anh ấy phải nhập viện." }
+            ] }
+          ]
+        },
+        {
+          "label": "D",
+          "heading": "Chia tay, sửa sang, chịu đựng",
+          "headingEn": "break up, do up, look up, put up with, hold up, mix up",
+          "parts": [
+            { "kind": "text", "text": "**break up**, **split up** (with somebody) = separate:", "vi": "**break up**, **split up** (with somebody) = chia tay, chấm dứt quan hệ:" },
+            { "kind": "examples", "items": [
+              { "en": "I'm surprised to hear that Kate and Paul have **split up**. They seemed very happy together.", "vi": "Tôi ngạc nhiên khi nghe Kate và Paul đã chia tay. Họ có vẻ rất hạnh phúc bên nhau." }
+            ] },
+            { "kind": "text", "text": "**do up** a coat, a shoelace, buttons etc. = fasten, tie etc.:", "vi": "**do up** a coat, a shoelace, buttons v.v. = cài, buộc, kéo khóa v.v.:" },
+            { "kind": "examples", "items": [
+              { "en": "It's quite cold. **Do up** your coat before you go out.", "vi": "Trời khá lạnh. Cài áo khoác lại trước khi ra ngoài." }
+            ] },
+            { "kind": "text", "text": "**do up** a building, a room etc. = repair and improve it:", "vi": "**do up** a building, a room v.v. = sửa sang, tân trang lại:" },
+            { "kind": "examples", "items": [
+              { "en": "The kitchen looks great now that it has been **done up**.", "vi": "Nhà bếp trông đẹp hẳn ra sau khi được tân trang lại." }
+            ] },
+            { "kind": "text", "text": "**look** something **up** in a dictionary/encyclopaedia etc.:", "vi": "**look** something **up** in a dictionary/encyclopaedia v.v. = tra cứu:" },
+            { "kind": "examples", "items": [
+              { "en": "If you don't know the meaning of a word, you can **look** it **up** (in a dictionary).", "vi": "Nếu bạn không biết nghĩa của một từ, bạn có thể tra từ điển." }
+            ] },
+            { "kind": "text", "text": "**put up with** something = tolerate a difficult situation or person:", "vi": "**put up with** something = chịu đựng một tình huống hoặc người khó chịu:" },
+            { "kind": "examples", "items": [
+              { "en": "We live on a busy road, so we have to **put up with** a lot of noise from the traffic.", "vi": "Chúng tôi sống ở một con đường đông đúc, nên phải chịu đựng nhiều tiếng ồn từ xe cộ." }
+            ] },
+            { "kind": "text", "text": "**hold up** a person, a plan etc. = delay:", "vi": "**hold up** a person, a plan v.v. = làm chậm trễ, trì hoãn:" },
+            { "kind": "examples", "items": [
+              { "en": "Don't wait for me. I don't want to **hold** you **up**.", "vi": "Đừng đợi tôi. Tôi không muốn làm bạn chậm trễ." },
+              { "en": "Plans to build a new factory have been **held up** because of financial problems.", "vi": "Kế hoạch xây dựng nhà máy mới đã bị trì hoãn vì vấn đề tài chính." }
+            ] },
+            { "kind": "text", "text": "**mix up** people/things, **get** people/things **mixed up** = you think one is the other:", "vi": "**mix up** people/things, **get** people/things **mixed up** = nhầm lẫn người/vật này với người/vật khác:" },
+            { "kind": "examples", "items": [
+              { "en": "The two brothers look very similar. People often **mix** them **up**. (or ... people often get them **mixed up**.)", "vi": "Hai anh em trông rất giống nhau. Mọi người thường nhầm lẫn họ." }
+            ] }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "match_pairs",
+      "title": "144.1 · Câu nào đi với cụm từ nào?",
+      "titleEn": "144.1 · Which goes with which?",
+      "instructions": "Ghép mỗi câu bên trái với cụm từ phù hợp bên phải. Chạm một câu bên trái, sau đó chạm cụm từ phù hợp bên phải.",
+      "instructionsEn": "Match each sentence on the left with the phrase on the right that completes it. Tap a sentence on the left, then tap the phrase that goes with it.",
+      "left": ["He was angry and tore up", "Jane came up with", "Paul is always making up", "I think you should do up", "I don't think you should bring up", "I'm saving up for", "We had to put up with"],
+      "right": ["a motorbike", "a lot of bad weather", "your jacket", "a good suggestion", "excuses", "the letter", "that subject"],
+      "answers": ["the letter", "a good suggestion", "excuses", "your jacket", "that subject", "a motorbike", "a lot of bad weather"]
+    },
+    {
+      "kind": "type_fill",
+      "title": "144.2 · Hoàn thành câu, dùng động từ + up",
+      "titleEn": "144.2 · Complete the sentences using a verb + up",
+      "instructions": "Điền một động từ + up (thêm 1-2 từ khác nếu cần) vào chỗ trống.",
+      "instructionsEn": "Complete the sentences using a verb + up. You will need two or three words each time.",
+      "examples": [
+        { "label": "1", "prompt": "___", "answer": "The weather was horrible this morning, but it's cleared up now." }
+      ],
+      "items": [
+        { "prompt": "Lisa was late because she was ___ in the traffic.", "answer": "held up" },
+        { "prompt": "They bought an old house and ___. It's really nice now.", "answer": "done it up", "accept": ["done up"] },
+        { "prompt": "Joe was really depressed. We took him out for a meal to ___.", "answer": "cheer him up" }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "144.3 · Hoàn thành câu, dùng động từ + up",
+      "titleEn": "144.3 · Complete the sentences using a verb + up",
+      "instructions": "Điền một động từ + up phù hợp vào chỗ trống, dùng đúng thì.",
+      "instructionsEn": "Complete the sentences using a verb + up.",
+      "examples": [
+        { "label": "1", "prompt": "___", "answer": "Some interesting things came up in our discussion yesterday." }
+      ],
+      "items": [
+        { "prompt": "The ship ___ and sank. The cause of the explosion was never discovered.", "answer": "blew up" },
+        { "prompt": "James was attacked and ___ by three men he'd never seen before.", "answer": "beaten up", "accept": ["beat up"] },
+        { "prompt": "Robert and Tina aren't together any more. They've ___.", "answer": "split up", "accept": ["broken up"] },
+        { "prompt": "My hands were so cold, I found it hard to ___ my shoelaces.", "answer": "do up" },
+        { "prompt": "It's been raining all morning. Let's hope it ___ this afternoon.", "answer": "clears up" },
+        { "prompt": "I turned up for the party on the wrong day. I got the dates ___.", "answer": "mixed up" }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "144.4 · Hoàn thành câu, dùng động từ + up",
+      "titleEn": "144.4 · Complete the sentences using a verb + up",
+      "instructions": "Điền một động từ + up (thêm từ khác nếu cần) vào chỗ trống.",
+      "instructionsEn": "Complete the sentences using a verb + up. You will need other words as well.",
+      "examples": [
+        { "label": "1", "prompt": "___", "answer": "Don't wait for me. I don't want to hold you up." }
+      ],
+      "items": [
+        { "prompt": "I don't know what this word means. I'll have to ___.", "answer": "look it up" },
+        { "prompt": "I'm fed up with the way my boss treats me. I don't see why I should ___ it.", "answer": "put up with" },
+        { "prompt": "I don't believe the story you're telling me. I think you're ___.", "answer": "making it up" },
+        { "prompt": "The problem was complicated, but we managed to ___ a solution.", "answer": "come up with" },
+        { "prompt": "Before you throw these documents away, you should ___.", "answer": "tear them up" },
+        { "prompt": "I'm trying to spend less money at the moment. I'm ___ a holiday.", "answer": "saving up for" },
+        { "prompt": "Tina doesn't like talking about the accident, so it's better not to ___.", "answer": "bring it up" },
+        { "prompt": "The words 'there' and 'their' sound the same, so it's easy to ___.", "answer": "mix them up", "accept": ["get them mixed up"] }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng các cụm động từ đã học, ví dụ 'Don't bring that up again.', 'We split up last year.', 'I have to put up with a lot of noise.'.",
+      "instructionsEn": "Write 2-3 English sentences using the phrasal verbs from this unit, e.g. 'Don't bring that up again.', 'We split up last year.', 'I have to put up with a lot of noise.'.",
+      "ruleSummary": "This unit covers bring up a topic = introduce it, come up = be mentioned, come up with an idea = produce it, make something up = invent something untrue, cheer up/cheer somebody up, save up for something, clear up = weather becomes bright, blow up/blow something up = explode/destroy with a bomb, tear something up = tear into pieces, beat somebody up, break up/split up = separate, do up a coat/a building = fasten or renovate, look something up in a dictionary, put up with something = tolerate it, hold somebody/something up = delay, and mix up people/things = confuse one with the other."
+    }
+  ]
+};

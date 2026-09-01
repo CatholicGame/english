@@ -2543,3 +2543,1964 @@ export const UNIT_114_IN_CASE: GrammarUnit = {
     }
   ]
 };
+
+export const UNIT_115_UNLESS_AS_LONG_AS_PROVIDED: GrammarUnit = {
+  "unit": 115,
+  "slug": "unless-as-long-as-provided",
+  "title": "unless, as long as, provided",
+  "topic": "conjunctions and prepositions",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "unless",
+          "headingEn": "unless",
+          "intro": "Hãy xem xét tình huống ví dụ sau:",
+          "introVi": "Hãy xem xét tình huống ví dụ sau:",
+          "parts": [
+            { "kind": "situation", "text": "The club is for members only. You can't go in unless you are a member.", "vi": "Câu lạc bộ này chỉ dành cho hội viên. Bạn không thể vào trừ khi bạn là hội viên." },
+            { "kind": "text", "text": "This means:", "vi": "Điều này có nghĩa là:" },
+            { "kind": "examples", "items": [
+              { "en": "You can't go in except if you are a member.", "vi": "Bạn không thể vào, trừ khi bạn là hội viên." },
+              { "en": "You can go in only if you are a member.", "vi": "Bạn chỉ có thể vào nếu bạn là hội viên." }
+            ] },
+            { "kind": "text", "text": "**unless** = *except if*", "vi": "**unless** = *trừ khi*" },
+            { "kind": "text", "text": "Some more examples of **unless**:", "vi": "Thêm một số ví dụ về **unless**:" },
+            { "kind": "examples", "items": [
+              { "en": "I'll see you tomorrow **unless** I have to work late.", "note": "(= except if I have to work late)", "vi": "Tôi sẽ gặp bạn vào ngày mai, trừ khi tôi phải làm việc muộn." },
+              { "en": "There are no buses to the beach. **Unless** you have a car, it's difficult to get there.", "note": "(= except if you have a car)", "vi": "Không có xe buýt tới bãi biển. Trừ khi bạn có ô tô, nếu không sẽ rất khó để tới đó." },
+              { "en": "'Shall I tell Lisa what happened?' 'Not **unless** she asks you.'", "note": "(= tell her only if she asks you)", "vi": "'Tôi có nên kể cho Lisa biết chuyện gì đã xảy ra không?' 'Đừng, trừ khi cô ấy hỏi bạn.'" },
+              { "en": "Ben hates to complain. He wouldn't complain about something **unless** it was really bad.", "note": "(= except if it was really bad)", "vi": "Ben ghét phàn nàn. Anh ấy sẽ không phàn nàn về điều gì đó trừ khi nó thực sự tệ." },
+              { "en": "We can take a taxi to the restaurant, **unless** you'd prefer to walk.", "note": "(= except if you'd prefer to walk)", "vi": "Chúng ta có thể bắt taxi tới nhà hàng, trừ khi bạn muốn đi bộ." }
+            ] },
+            { "kind": "text", "text": "Instead of **unless** it is often possible to say *if ... not*:", "vi": "Thay vì dùng **unless**, ta thường có thể nói *if ... not*:" },
+            { "kind": "examples", "items": [
+              { "en": "**Unless** we leave now, we'll be late. or If we don't leave now, we'll be late.", "vi": "Trừ khi chúng ta đi ngay bây giờ, chúng ta sẽ bị muộn. Hoặc: Nếu chúng ta không đi ngay bây giờ, chúng ta sẽ bị muộn." }
+            ] }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "as long as / so long as và provided / providing",
+          "headingEn": "as long as / so long as and provided / providing",
+          "parts": [
+            { "kind": "text", "text": "You can say **as long as** or **so long as** (= *if*, *on condition that*):", "vi": "Bạn có thể nói **as long as** hoặc **so long as** (= *nếu*, *với điều kiện là*):" },
+            { "kind": "examples", "items": [
+              { "en": "You can borrow my car **as long as** you promise not to drive too fast. or ... **so long as** you promise not to drive too fast.", "vi": "Bạn có thể mượn xe của tôi, miễn là bạn hứa không lái quá nhanh." }
+            ] },
+            { "kind": "text", "text": "(= You can borrow my car, but you must promise not to drive too fast. This is a condition.)", "vi": "(= Bạn có thể mượn xe của tôi, nhưng bạn phải hứa sẽ không lái quá nhanh. Đây là một điều kiện.)" },
+            { "kind": "text", "text": "You can also say **provided (that)** or **providing (that)**:", "vi": "Bạn cũng có thể nói **provided (that)** hoặc **providing (that)**:" },
+            { "kind": "examples", "items": [
+              { "en": "Travelling by car is convenient **provided (that)** you have somewhere to park. or ... **providing (that)** you have somewhere to park.", "vi": "Đi lại bằng ô tô rất tiện lợi, miễn là bạn có chỗ để đỗ xe." }
+            ] },
+            { "kind": "text", "text": "(= It's convenient but only if you have somewhere to park.)", "vi": "(= Việc đó tiện lợi, nhưng chỉ khi bạn có chỗ đỗ xe.)" },
+            { "kind": "examples", "items": [
+              { "en": "**Providing (that)** the room is clean, I don't mind which hotel we stay at. or **Provided (that)** the room is clean, I don't mind which hotel we stay at.", "vi": "Miễn là căn phòng sạch sẽ, tôi không quan tâm chúng ta ở khách sạn nào." }
+            ] },
+            { "kind": "text", "text": "(= The room must be clean, but otherwise I don't mind.)", "vi": "(= Căn phòng phải sạch sẽ, nhưng ngoài ra thì tôi không quan tâm gì khác.)" }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "unless / as long as v.v. khi nói về tương lai",
+          "headingEn": "unless / as long as etc. for the future",
+          "parts": [
+            { "kind": "text", "text": "When we are talking about the future, we do not use **will** after **unless** / **as long as** / **so long as** / **provided** / **providing**. We use a present tense (see Unit 25):", "vi": "Khi nói về tương lai, chúng ta không dùng **will** sau **unless** / **as long as** / **so long as** / **provided** / **providing**. Chúng ta dùng thì hiện tại (xem Unit 25):" },
+            { "kind": "examples", "items": [
+              { "en": "I'm not going out **unless** it stops raining.", "note": "(not unless it will stop)", "vi": "Tôi sẽ không ra ngoài trừ khi trời tạnh mưa." },
+              { "en": "**Providing** the weather is good, we're going to have a picnic tomorrow.", "note": "(not providing the weather will be good)", "vi": "Miễn là thời tiết đẹp, chúng tôi sẽ đi dã ngoại vào ngày mai." }
+            ] }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "115.1 · Viết lại câu, dùng unless",
+      "titleEn": "115.1 · Write a new sentence with the same meaning. Use unless in your sentence",
+      "instructions": "Viết lại mỗi câu sao cho có nghĩa tương tự, dùng unless.",
+      "instructionsEn": "Write a new sentence with the same meaning. Use unless in your sentence.",
+      "examples": [
+        { "label": "1", "context": "You must try a bit harder, or you won't pass the exam.", "prompt": "___.", "answer": "You won't pass the exam unless you try a bit harder" }
+      ],
+      "items": [
+        { "context": "Listen carefully, or you won't know what to do.", "prompt": "You won't know what to do ___.", "answer": "unless you listen carefully" },
+        { "context": "She must apologise to me, or I'll never speak to her again.", "prompt": "___.", "answer": "I'll never speak to her again unless she apologises to me" },
+        { "context": "You have to speak very slowly, or he won't understand you.", "prompt": "___.", "answer": "He won't understand you unless you speak very slowly" },
+        { "context": "Business must improve soon, or the company will have to close.", "prompt": "___.", "answer": "The company will have to close unless business improves soon" },
+        { "context": "We need to do something soon, or the problem will get worse.", "prompt": "___.", "answer": "The problem will get worse unless we do something soon" }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "115.2 · Viết câu dùng unless",
+      "titleEn": "115.2 · Write sentences with unless",
+      "instructions": "Viết câu dùng unless.",
+      "instructionsEn": "Write sentences with unless.",
+      "examples": [
+        { "label": "1", "context": "The club isn't open to everyone. You're allowed in only if you're a member.", "prompt": "___.", "answer": "You aren't allowed in the club unless you're a member" }
+      ],
+      "items": [
+        { "context": "I don't want to go to the party alone. I'm going only if you go too.", "prompt": "I'm not going ___.", "answer": "unless you go too" },
+        { "context": "Don't worry about the dog. It will chase you only if you move suddenly.", "prompt": "The dog ___.", "answer": "won't chase you unless you move suddenly" },
+        { "context": "Ben isn't very talkative. He'll speak to you only if you ask him something.", "prompt": "Ben ___.", "answer": "won't speak to you unless you ask him something" },
+        { "context": "Today is a public holiday. The doctor will see you only if it's an emergency.", "prompt": "The doctor ___.", "answer": "won't see you unless it's an emergency" }
+      ]
+    },
+    {
+      "kind": "fill_mc",
+      "title": "115.3 · Chọn từ đúng",
+      "titleEn": "115.3 · Which is correct?",
+      "instructions": "Chọn từ đúng cho mỗi câu.",
+      "instructionsEn": "Which is correct?",
+      "examples": [
+        { "label": "1", "prompt": "You can borrow my car ___ you promise not to drive too fast.", "answer": "as long as" }
+      ],
+      "items": [
+        { "before": "We're going to the beach tomorrow", "after": "the weather is bad.", "options": ["unless", "providing"], "answer": "unless" },
+        { "before": "We're going to the beach tomorrow", "after": "the weather is good.", "options": ["unless", "providing"], "answer": "providing" },
+        { "before": "I don't mind if you come home late", "after": "you come in quietly.", "options": ["unless", "as long as"], "answer": "as long as" },
+        { "before": "I'm going now", "after": "you want me to stay.", "options": ["unless", "provided"], "answer": "unless" },
+        { "before": "I don't watch TV", "after": "I have nothing else to do.", "options": ["unless", "as long as"], "answer": "unless" },
+        { "before": "Children are allowed to use the swimming pool", "after": "they are with an adult.", "options": ["unless", "provided"], "answer": "provided" },
+        { "before": "", "after": "they are with an adult, children are not allowed to use the swimming pool.", "options": ["Unless", "Provided"], "answer": "Unless" },
+        { "before": "We can sit here in the corner", "after": "you'd rather sit by the window.", "options": ["unless", "as long as"], "answer": "unless" },
+        { "context": "A: Our holiday cost a lot of money.", "before": "B: Did it? Well, that doesn't matter", "after": "you enjoyed yourselves.", "options": ["unless", "as long as"], "answer": "as long as" }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng unless, as long as, hoặc provided/providing để hoàn thành ý riêng của bạn (ví dụ 'I like hot weather as long as it's not too humid.', 'We'll be late unless we take a taxi.').",
+      "instructionsEn": "Write 2-3 English sentences using unless, as long as, or provided/providing to complete your own ideas (e.g. 'I like hot weather as long as it's not too humid.', 'We'll be late unless we take a taxi.').",
+      "ruleSummary": "This unit covers unless, as long as / so long as, and provided/providing (that). Unless means 'except if': 'You can't go in unless you are a member.' As long as / so long as and provided/providing (that) mean 'if, on condition that': 'You can borrow my car as long as you promise not to drive too fast.'; 'Travelling by car is convenient provided (that) you have somewhere to park.' When talking about the future, we do not use will after unless/as long as/provided/providing; we use a present tense instead: 'I'm not going out unless it stops raining' (not 'unless it will stop'); 'Providing the weather is good, we're going to have a picnic tomorrow' (not 'providing the weather will be good'). A correct student sentence should use unless for an exception/negative condition and as long as/provided/providing for a positive condition, always with a present tense verb when referring to the future."
+    }
+  ]
+};
+
+export const UNIT_116_AS: GrammarUnit = {
+  "unit": 116,
+  "slug": "as-at-the-same-time-as-because",
+  "title": "as (as I walked ... / as I was ... etc.)",
+  "topic": "conjunctions and prepositions",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "as = cùng một lúc",
+          "headingEn": "as = at the same time as",
+          "parts": [
+            { "kind": "text", "text": "You can use **as** when two things happen together at the same time:", "vi": "Bạn có thể dùng **as** khi hai việc xảy ra cùng một lúc:" },
+            { "kind": "examples", "items": [
+              { "en": "We all waved goodbye to Liz **as** she drove away.", "note": "(we waved and she drove away at the same time)", "vi": "Chúng tôi vẫy tay chào tạm biệt Liz khi cô ấy lái xe đi." },
+              { "en": "**As** I walked along the street, I looked in the shop windows.", "vi": "Khi tôi đi dọc con phố, tôi nhìn vào các cửa hàng." },
+              { "en": "Can you turn off the light **as** you go out, please?", "vi": "Bạn tắt đèn giúp khi ra ngoài được không?" }
+            ] },
+            { "kind": "text", "text": "Or you can say that something happened **as** you were doing something else (in the middle of doing something else):", "vi": "Hoặc bạn có thể nói điều gì đó xảy ra **as** (trong khi) bạn đang làm việc khác:" },
+            { "kind": "examples", "items": [
+              { "en": "Kate slipped **as** she was getting off the bus.", "vi": "Kate bị trượt chân khi đang xuống xe buýt." },
+              { "en": "We met Paul **as** we were leaving the hotel.", "vi": "Chúng tôi gặp Paul khi đang rời khách sạn." }
+            ] },
+            { "kind": "text", "text": "For the past continuous (*was getting* / *were leaving* etc.), see Unit 6.", "vi": "Về thì quá khứ tiếp diễn (*was getting* / *were leaving* v.v.), xem Unit 6." },
+            { "kind": "text", "text": "You can also use **just as** (= exactly at that moment):", "vi": "Bạn cũng có thể dùng **just as** (= chính xác vào lúc đó):" },
+            { "kind": "examples", "items": [
+              { "en": "**Just as** I sat down, the doorbell rang.", "vi": "Ngay khi tôi vừa ngồi xuống, chuông cửa reo." },
+              { "en": "I had to leave **just as** the conversation was getting interesting.", "vi": "Tôi phải rời đi đúng lúc cuộc trò chuyện đang trở nên thú vị." }
+            ] },
+            { "kind": "text", "text": "We also use **as** when two things happen together in a longer period of time:", "vi": "Chúng ta cũng dùng **as** khi hai việc xảy ra cùng nhau trong một khoảng thời gian dài hơn:" },
+            { "kind": "examples", "items": [
+              { "en": "**As** the day went on, the weather got worse.", "vi": "Khi ngày trôi qua, thời tiết trở nên tệ hơn." },
+              { "en": "I began to enjoy the job more **as** I got used to it.", "vi": "Tôi bắt đầu thích công việc hơn khi tôi đã quen với nó." }
+            ] },
+            { "kind": "text", "text": "Compare **as** and **when**:", "vi": "So sánh **as** và **when**:" },
+            { "kind": "table", "table": { "headers": ["as", "when"], "rows": [
+              ["We use as only if two things happen at the same time.", "Use when (not as) if one thing happens after another."],
+              ["**As** I drove home, I listened to music. (= at the same time)", "**When** I got home, I had something to eat. (not as I got home)"]
+            ] } }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "as = vì",
+          "headingEn": "as = because",
+          "parts": [
+            { "kind": "text", "text": "**As** also means *because*:", "vi": "**As** cũng có nghĩa là *because* (bởi vì):" },
+            { "kind": "examples", "items": [
+              { "en": "**As** I was hungry, I decided to find somewhere to eat.", "note": "(= because I was hungry)", "vi": "Vì tôi đói, tôi quyết định tìm chỗ nào đó để ăn." },
+              { "en": "**As** it's late and we're tired, let's get a taxi home.", "note": "(= because it's late ...)", "vi": "Vì đã muộn và chúng ta đều mệt, hãy bắt taxi về nhà thôi." },
+              { "en": "We watched TV all evening **as** we didn't have anything better to do.", "vi": "Chúng tôi xem TV cả buổi tối vì không có việc gì hay hơn để làm." },
+              { "en": "**As** I don't watch TV any more, I gave my television to a friend of mine.", "vi": "Vì tôi không xem TV nữa, tôi đã cho một người bạn chiếc TV của mình." }
+            ] },
+            { "kind": "text", "text": "You can also use **since** in this way:", "vi": "Bạn cũng có thể dùng **since** theo cách này:" },
+            { "kind": "examples", "items": [
+              { "en": "**Since** it's late and we're tired, let's get a taxi home.", "vi": "Vì đã muộn và chúng ta đều mệt, hãy bắt taxi về nhà thôi." }
+            ] },
+            { "kind": "text", "text": "Compare **as** (= because) and **when**:", "vi": "So sánh **as** (= vì) và **when**:" },
+            { "kind": "table", "table": { "headers": ["as (= because)", "when"], "rows": [
+              ["David wasn't in the office **as** he was on holiday. (= because he was on holiday)", "David lost his passport **when** he was on holiday. (= during the time he was away)"],
+              ["**As** they lived near us, we used to see them quite often. (= because they lived near us)", "**When** they lived near us, we used to see them quite often. (= at the time they lived near us)"]
+            ] } }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "match_pairs",
+      "title": "116.1 · Ghép câu, as nghĩa là 'cùng một lúc'",
+      "titleEn": "116.1 · In this exercise as means 'at the same time as'. Use as to join sentences from the boxes",
+      "instructions": "Trong bài này, as có nghĩa là 'cùng một lúc'. Câu 1 đã có mẫu: 'We all waved goodbye to Liz' được nối với 'she drove away', tạo thành 'We all waved goodbye to Liz as she drove away.' Chạm một câu bên trái, sau đó chạm câu phù hợp bên phải để nối chúng lại với nhau.",
+      "instructionsEn": "In this exercise as means 'at the same time as'. Sentence 1 is already done as an example: 'We all waved goodbye to Liz' pairs with 'she drove away', making 'We all waved goodbye to Liz as she drove away.' Tap a sentence on the left, then tap the sentence on the right that goes with it.",
+      "left": ["We all waved goodbye to Liz", "I listened", "I burnt myself", "The spectators cheered", "A dog ran out in front of the car"],
+      "right": ["we were driving along the road.", "I was taking a hot dish out of the oven.", "she drove away.", "she told me her story.", "the two teams came onto the field."],
+      "answers": ["she drove away.", "she told me her story.", "I was taking a hot dish out of the oven.", "the two teams came onto the field.", "we were driving along the road."]
+    },
+    {
+      "kind": "match_pairs",
+      "title": "116.2 · Ghép câu, as nghĩa là 'vì'",
+      "titleEn": "116.2 · In this exercise as means 'because'. Join sentences from the boxes beginning with as",
+      "instructions": "Trong bài này, as có nghĩa là 'vì'. Câu 1 đã có mẫu: 'I was hungry' được nối với 'I decided to find somewhere to eat', tạo thành 'As I was hungry, I decided to find somewhere to eat.' Chạm một câu bên trái, sau đó chạm câu phù hợp bên phải để nối chúng lại với nhau.",
+      "instructionsEn": "In this exercise as means 'because'. Sentence 1 is already done as an example: 'I was hungry' pairs with 'I decided to find somewhere to eat', making 'As I was hungry, I decided to find somewhere to eat.' Tap a sentence on the left, then tap the sentence on the right that goes with it.",
+      "left": ["I was hungry", "today is a public holiday", "I didn't want to disturb anybody", "I can't go to the concert", "it was a nice day"],
+      "right": ["we went for a walk by the canal", "I tried to be very quiet", "I decided to find somewhere to eat", "all government offices are shut", "you can have my ticket"],
+      "answers": ["I decided to find somewhere to eat", "all government offices are shut", "I tried to be very quiet", "you can have my ticket", "we went for a walk by the canal"]
+    },
+    {
+      "kind": "fill_mc",
+      "title": "116.3 · As trong các câu sau có nghĩa gì?",
+      "titleEn": "116.3 · What does as mean in these sentences?",
+      "instructions": "Chọn nghĩa đúng của as trong mỗi câu.",
+      "instructionsEn": "Choose the right meaning of as in each sentence.",
+      "items": [
+        { "before": "As they lived near us, we used to see them quite often.", "after": "", "options": ["because", "at the same time as"], "answer": "because" },
+        { "before": "Kate slipped as she was getting off the bus.", "after": "", "options": ["because", "at the same time as"], "answer": "at the same time as" },
+        { "before": "As I was tired, I went to bed early.", "after": "", "options": ["because", "at the same time as"], "answer": "because" },
+        { "before": "Unfortunately, as I was parking the car, I hit the car behind me.", "after": "", "options": ["because", "at the same time as"], "answer": "at the same time as" },
+        { "before": "As we climbed the hill, we got more and more tired.", "after": "", "options": ["because", "at the same time as"], "answer": "at the same time as" },
+        { "before": "We decided to go out to eat as we had no food at home.", "after": "", "options": ["because", "at the same time as"], "answer": "because" },
+        { "before": "As we don't use the car very often, we've decided to sell it.", "after": "", "options": ["because", "at the same time as"], "answer": "because" }
+      ]
+    },
+    {
+      "kind": "judge_correct",
+      "title": "116.4 · As dùng đã đúng chưa? Sửa lại nếu cần",
+      "titleEn": "116.4 · In some of these sentences, as is not correct. Correct the sentences where necessary",
+      "instructions": "Kiểm tra cách dùng as trong mỗi câu. Sửa lại những câu sai.",
+      "instructionsEn": "In some of these sentences, as is not correct. Correct the sentences where necessary.",
+      "items": [
+        { "sentence": "Julia got married as she was 22.", "underlined": "as she was 22", "ok": false, "correction": "when she was 22" },
+        { "sentence": "As the day went on, the weather got worse.", "underlined": "As the day went on", "ok": true },
+        { "sentence": "He dropped the glass as he was taking it out of the cupboard.", "underlined": "as he was taking it out of the cupboard", "ok": true },
+        { "sentence": "I lost my phone as I was in London.", "underlined": "as I was in London", "ok": false, "correction": "when I was in London" },
+        { "sentence": "As I left school, I didn't know what to do.", "underlined": "As I left school", "ok": false, "correction": "When I left school" },
+        { "sentence": "The train slowed down as it approached the station.", "underlined": "as it approached the station", "ok": true },
+        { "sentence": "I used to live near the sea as I was a child.", "underlined": "as I was a child", "ok": false, "correction": "when I was a child" },
+        { "sentence": "We can walk to the hotel as it isn't far from here.", "underlined": "as it isn't far from here", "ok": true }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng as để nói 'cùng lúc' hoặc 'vì', ví dụ 'I saw you as I was leaving.', 'As she doesn't have a phone, I can't call her.'.",
+      "instructionsEn": "Write 2-3 English sentences using as to mean 'at the same time as' or 'because', e.g. 'I saw you as I was leaving.', 'As she doesn't have a phone, I can't call her.'.",
+      "ruleSummary": "This unit covers as meaning 'at the same time as' and as meaning 'because'. As = at the same time: 'We all waved goodbye to Liz as she drove away.'; 'As the day went on, the weather got worse.' Just as means 'exactly at that moment': 'Just as I sat down, the doorbell rang.' As only works when two things happen at the same time; use when (not as) if one thing happens after another: 'When I got home, I had something to eat' (not 'as I got home'). As also means because: 'As I was hungry, I decided to find somewhere to eat.' Since can be used the same way. Compare as (= because) and when: 'David wasn't in the office as he was on holiday' (= because) vs 'David lost his passport when he was on holiday' (= during the time he was away). A correct student sentence should use as only for two things happening together in time, or for a reason, and use when instead when one event follows another."
+    }
+  ]
+};
+
+export const UNIT_117_LIKE_AND_AS: GrammarUnit = {
+  "unit": 117,
+  "slug": "like-and-as",
+  "title": "like and as",
+  "topic": "conjunctions and prepositions",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "Like = giống như",
+          "headingEn": "Like = similar to, the same as",
+          "parts": [
+            { "kind": "text", "text": "**Like** = similar to, the same as:", "vi": "**Like** = giống như, tương tự như:" },
+            { "kind": "examples", "items": [
+              { "en": "What a beautiful house! It's **like** a palace.", "note": "(not as a palace)", "vi": "Ngôi nhà đẹp quá! Nó giống như một cung điện." },
+              { "en": "Be careful! The floor has been polished. It's **like** walking on ice.", "note": "(not as walking)", "vi": "Cẩn thận đấy! Sàn nhà vừa được đánh bóng. Đi trên đó giống như đi trên băng vậy." },
+              { "en": "It's raining again. I hate weather **like** this.", "note": "(not as this)", "vi": "Trời lại mưa rồi. Tôi ghét kiểu thời tiết như thế này." },
+              { "en": "'What's that noise?' 'It sounds **like** a baby crying.'", "note": "(not as a baby crying)", "vi": "'Tiếng động gì vậy?' 'Nghe giống như tiếng trẻ con khóc.'" }
+            ] },
+            { "kind": "text", "text": "In these examples, **like** is a preposition. So it is followed by a noun (*like a palace*), a pronoun (*like this*) or *-ing* (*like walking*).", "vi": "Trong những ví dụ này, **like** là giới từ. Vì vậy nó được theo sau bởi một danh từ (*like a palace*), một đại từ (*like this*) hoặc *-ing* (*like walking*)." },
+            { "kind": "text", "text": "Sometimes **like** = *for example*. You can also use **such as**:", "vi": "Đôi khi **like** = *for example* (ví dụ). Bạn cũng có thể dùng **such as**:" },
+            { "kind": "examples", "items": [
+              { "en": "I enjoy water sports, **like** surfing, scuba diving and water-skiing. or I enjoy water sports, **such as** surfing, scuba diving and water-skiing.", "vi": "Tôi thích các môn thể thao dưới nước, như lướt sóng, lặn biển và trượt nước." }
+            ] }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "As = theo cùng một cách",
+          "headingEn": "As = in the same way as, in the same condition as",
+          "parts": [
+            { "kind": "text", "text": "**As** = in the same way as, in the same condition as.", "vi": "**As** = theo cùng một cách như, trong cùng một tình trạng như." },
+            { "kind": "text", "text": "We use **as** with subject (S) + verb (V):", "vi": "Chúng ta dùng **as** với chủ ngữ (S) + động từ (V):" },
+            { "kind": "examples", "items": [
+              { "en": "I didn't move anything. I left everything **as** it was.", "vi": "Tôi không di chuyển gì cả. Tôi để mọi thứ như cũ." },
+              { "en": "You should have done it **as** I showed you.", "vi": "Lẽ ra bạn nên làm điều đó theo cách tôi đã chỉ cho bạn." }
+            ] },
+            { "kind": "text", "text": "We also use **like** in this way (+ subject + verb):", "vi": "Chúng ta cũng dùng **like** theo cách này (+ chủ ngữ + động từ):" },
+            { "kind": "examples", "items": [
+              { "en": "I left everything **like** it was.", "vi": "Tôi để mọi thứ như cũ." }
+            ] },
+            { "kind": "text", "text": "Compare **as** and **like**. You can say:", "vi": "So sánh **as** và **like**. Bạn có thể nói:" },
+            { "kind": "examples", "items": [
+              { "en": "You should have done it **as** I showed you. or ... **like** I showed you.", "vi": "Lẽ ra bạn nên làm điều đó theo cách tôi đã chỉ cho bạn." },
+              { "en": "but You should have done it **like this**.", "note": "(not as this)", "vi": "nhưng: Lẽ ra bạn nên làm điều đó theo cách này." }
+            ] },
+            { "kind": "text", "text": "We say **as usual** / **as always**:", "vi": "Chúng ta nói **as usual** / **as always**:" },
+            { "kind": "examples", "items": [
+              { "en": "You're late **as usual**.", "vi": "Bạn lại đến muộn như mọi khi." },
+              { "en": "**As always**, Nick was the first to complain.", "vi": "Như mọi khi, Nick là người đầu tiên phàn nàn." }
+            ] },
+            { "kind": "text", "text": "We say **the same as** ...:", "vi": "Chúng ta nói **the same as** ...:" },
+            { "kind": "examples", "items": [
+              { "en": "Your phone is **the same as** mine.", "note": "(not the same like)", "vi": "Điện thoại của bạn giống hệt điện thoại của tôi." }
+            ] }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "as trong do as you like, as you know v.v.",
+          "headingEn": "as in do as you like, as you know etc.",
+          "parts": [
+            { "kind": "text", "text": "Sometimes **as** (+ subject + verb) has other meanings. For example, after *do*:", "vi": "Đôi khi **as** (+ chủ ngữ + động từ) có những nghĩa khác. Ví dụ, sau động từ *do*:" },
+            { "kind": "examples", "items": [
+              { "en": "You can **do as** you like.", "note": "(= do what you like)", "vi": "Bạn có thể làm theo ý bạn thích." },
+              { "en": "They **did as** they promised.", "note": "(= They did what they promised.)", "vi": "Họ đã làm đúng như những gì họ đã hứa." }
+            ] },
+            { "kind": "text", "text": "We also say **as you know** / **as I said** / **as she expected** / **as I thought** etc.:", "vi": "Chúng ta cũng nói **as you know** / **as I said** / **as she expected** / **as I thought** v.v.:" },
+            { "kind": "examples", "items": [
+              { "en": "**As you know**, it's Emma's birthday next week.", "note": "(= you know this already)", "vi": "Như bạn đã biết, tuần sau là sinh nhật Emma." },
+              { "en": "Andy failed his driving test, **as he expected**.", "note": "(= he expected this before)", "vi": "Andy đã trượt bài thi lái xe, đúng như anh ấy đã dự đoán." }
+            ] },
+            { "kind": "text", "text": "*Like* is not usual in these expressions, except with *say* (**like I said**):", "vi": "*Like* không thường được dùng trong những cách nói này, trừ với *say* (**like I said**):" },
+            { "kind": "examples", "items": [
+              { "en": "**As I said** yesterday, I'm sure we can solve the problem. or **Like I said** yesterday, I'm sure we can solve the problem.", "vi": "Như tôi đã nói hôm qua, tôi chắc chắn chúng ta có thể giải quyết vấn đề này." }
+            ] }
+          ]
+        },
+        {
+          "label": "D",
+          "heading": "As là giới từ chỉ vai trò",
+          "headingEn": "As can also be a preposition",
+          "parts": [
+            { "kind": "text", "text": "**As** can also be a preposition (**as** + noun), but the meaning is different from **like**.", "vi": "**As** cũng có thể là một giới từ (**as** + danh từ), nhưng nghĩa của nó khác với **like**." },
+            { "kind": "text", "text": "Compare:", "vi": "So sánh:" },
+            { "kind": "table", "table": { "headers": ["as (preposition)", "like (preposition)"], "rows": [
+              ["**As** a taxi driver, I spend most of my working life in a car. (I am a taxi driver, it's my job.)", "Everyone in the family wants me to drive them to places. I'm **like** a taxi driver. (I'm not a taxi driver, but I'm like one.)"]
+            ] } },
+            { "kind": "text", "text": "**As** (preposition) = in the position of, in the form of etc.:", "vi": "**As** (giới từ) = với vai trò là, dưới hình thức là, v.v.:" },
+            { "kind": "examples", "items": [
+              { "en": "Many years ago I worked **as** a photographer.", "note": "(I was a photographer)", "vi": "Nhiều năm trước tôi từng làm nhiếp ảnh gia." },
+              { "en": "Many words, for example 'work' and 'rain', can be used **as** verbs or nouns.", "vi": "Nhiều từ, ví dụ như 'work' và 'rain', có thể được dùng như động từ hoặc danh từ." },
+              { "en": "London is fine **as** a place to visit, but I wouldn't like to live there.", "vi": "London là nơi tốt để ghé thăm, nhưng tôi sẽ không muốn sống ở đó." },
+              { "en": "The news of the tragedy came **as** a great shock.", "vi": "Tin tức về thảm kịch đó đến như một cú sốc lớn." }
+            ] }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "judge_correct",
+      "title": "117.1 · Cần dùng like thay vì as? Sửa lại nếu cần",
+      "titleEn": "117.1 · In some of these sentences, you need like (not as). Correct the sentences where necessary",
+      "instructions": "Một số câu sau cần dùng like thay vì as. Sửa lại những câu sai; viết 'OK' nếu câu đã đúng.",
+      "instructionsEn": "In some of these sentences, you need like (not as). Correct the sentences where necessary. Write 'OK' if the sentence is correct.",
+      "items": [
+        { "sentence": "It's raining again. I hate weather as this.", "underlined": "as this", "ok": false, "correction": "like this" },
+        { "sentence": "You should have done it as I showed you.", "underlined": "as I showed you", "ok": true },
+        { "sentence": "Do you think James looks as his father?", "underlined": "as his father", "ok": false, "correction": "like his father" },
+        { "sentence": "He gets on my nerves. I can't stand people as him.", "underlined": "as him", "ok": false, "correction": "like him" },
+        { "sentence": "Why didn't you do it as I told you to do it?", "underlined": "as I told you to do it", "ok": true },
+        { "sentence": "As her mother, Katherine has a very good voice.", "underlined": "As her mother", "ok": true },
+        { "sentence": "You never listen. Talking to you is as talking to the wall.", "underlined": "as talking to the wall", "ok": false, "correction": "like talking to the wall" },
+        { "sentence": "I prefer the room as it was, before we decorated it.", "underlined": "as it was", "ok": true },
+        { "sentence": "I'll phone you tomorrow as usual, OK?", "underlined": "as usual", "ok": true },
+        { "sentence": "She's a very good swimmer. She swims as a fish.", "underlined": "as a fish", "ok": false, "correction": "like a fish" }
+      ]
+    },
+    {
+      "kind": "match_pairs",
+      "title": "117.2 · Câu nào đi với câu nào?",
+      "titleEn": "117.2 · Which goes with which?",
+      "instructions": "Câu 1 đã có mẫu: 'I won't be able to come to the party.' được nối với 'As you know, I'll be away.' Chạm một câu bên trái, sau đó chạm câu phù hợp bên phải để hoàn thành ý nghĩa.",
+      "instructionsEn": "Sentence 1 is already done as an example: 'I won't be able to come to the party.' pairs with 'As you know, I'll be away.' Tap a sentence on the left, then tap the sentence on the right that goes with it.",
+      "left": ["I won't be able to come to the party.", "I like Tom's idea.", "I'm fed up with my job.", "You drive too fast.", "You don't have to take my advice.", "I couldn't get a seat on the train."],
+      "right": ["It was full, as I expected.", "As I've told you before, it's boring.", "As you know, I'll be away.", "You can do as you like.", "Let's do as he suggests.", "You should take more care, as I keep telling you."],
+      "answers": ["As you know, I'll be away.", "Let's do as he suggests.", "As I've told you before, it's boring.", "You should take more care, as I keep telling you.", "You can do as you like.", "It was full, as I expected."]
+    },
+    {
+      "kind": "type_fill",
+      "title": "117.3 · Hoàn thành câu bằng like hoặc as + từ trong khung",
+      "titleEn": "117.3 · Complete the sentences using like or as + the following",
+      "instructions": "Hoàn thành mỗi câu bằng like hoặc as + một cụm từ trong khung.",
+      "instructionsEn": "Complete the sentences using like or as + the following.",
+      "wordBank": ["a beginner", "blocks of ice", "a palace", "a birthday present", "a child", "a theatre", "winter", "a tour guide"],
+      "examples": [
+        { "label": "1", "prompt": "This house is beautiful. It's ___.", "answer": "like a palace" }
+      ],
+      "items": [
+        { "prompt": "My feet are really cold. They're ___.", "answer": "like blocks of ice" },
+        { "prompt": "I've been playing tennis for years, but I still play ___.", "answer": "like a beginner" },
+        { "prompt": "Marion once had a part-time job ___.", "answer": "as a tour guide" },
+        { "prompt": "I wonder what that building is. It looks ___.", "answer": "like a theatre" },
+        { "prompt": "My brother gave me this watch ___ a long time ago.", "answer": "as a birthday present" },
+        { "prompt": "It's very cold for the middle of summer. It's ___.", "answer": "like winter" },
+        { "prompt": "He's 22 years old, but he sometimes behaves ___.", "answer": "like a child" }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "117.4 · Điền like hoặc as",
+      "titleEn": "117.4 · Put in like or as",
+      "instructions": "Điền like hoặc as vào chỗ trống. Đôi khi cả hai từ đều đúng.",
+      "instructionsEn": "Put in like or as. Sometimes either word is possible.",
+      "wordBank": ["like", "as"],
+      "examples": [
+        { "label": "1", "prompt": "We heard a noise ___ a baby crying.", "answer": "like" }
+      ],
+      "items": [
+        { "prompt": "I wish I had a car ___ yours.", "answer": "like" },
+        { "prompt": "Hannah has been working ___ a waitress for the last two months.", "answer": "as" },
+        { "prompt": "We saw Kevin last night. He was very cheerful, ___ always.", "answer": "as" },
+        { "prompt": "You waste a lot of time doing things ___ sitting in cafes all day.", "answer": "like" },
+        { "prompt": "___ you can imagine, we were very tired after such a long journey.", "answer": "As" },
+        { "prompt": "Tom showed me some photos of the city ___ it was thirty years ago.", "answer": "as", "accept": ["like"] },
+        { "prompt": "My neighbour's house is full of interesting things. It's ___ a museum.", "answer": "like" },
+        { "prompt": "In some countries in Asia, ___ Japan, Indonesia and Thailand, traffic drives on the left.", "answer": "like" },
+        { "prompt": "The weather hasn't changed. It's the same ___ yesterday.", "answer": "as" },
+        { "prompt": "You're different from the other people I know. I don't know anyone else ___ you.", "answer": "like" },
+        { "prompt": "The news that they are getting married came ___ a complete surprise to me.", "answer": "as" },
+        { "prompt": "This tea is awful. It tastes ___ water.", "answer": "like" },
+        { "prompt": "Suddenly there was a terrible noise. It was ___ a bomb exploding.", "answer": "like" },
+        { "prompt": "Right now I'm working in a shop. It's not great, but it's OK ___ a temporary job.", "answer": "as" },
+        { "prompt": "Brian is a student, ___ most of his friends.", "answer": "like" }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng like hoặc as, ví dụ 'It sounds like a great idea.', 'You should do it as I showed you.', 'I worked as a waiter last summer.'.",
+      "instructionsEn": "Write 2-3 English sentences using like or as, e.g. 'It sounds like a great idea.', 'You should do it as I showed you.', 'I worked as a waiter last summer.'.",
+      "ruleSummary": "This unit covers like and as. Like = similar to/the same as, and is a preposition followed by a noun, pronoun, or -ing: 'It's like a palace' (not 'as a palace'); 'I hate weather like this.'; 'It sounds like a baby crying.' Like can also mean 'for example' (= such as): 'water sports, like surfing, scuba diving ...'. As = in the same way as / in the same condition as, and is used with subject + verb: 'I left everything as it was.'; 'You should have done it as I showed you' (like is also possible here, but not 'You should have done it like this', which needs like since there's no verb). Fixed expressions use as, not like: as usual, as always, the same as (not 'the same like'), as you know / as I said / as she expected. As can also be a preposition meaning 'in the position/form of': 'As a taxi driver, I spend most of my working life in a car' (I am a taxi driver) versus 'I'm like a taxi driver' (I'm not one, but similar). A correct student sentence should use like before a noun/pronoun/-ing for comparison, and as before a clause (subject+verb) or before a noun describing someone's actual role or job."
+    }
+  ]
+};
+
+export const UNIT_118_LIKE_AS_IF_AS_THOUGH: GrammarUnit = {
+  "unit": 118,
+  "slug": "like-as-if-as-though",
+  "title": "like, as if, as though",
+  "topic": "conjunctions and prepositions",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "Like và as if để nói ai đó/cái gì đó trông, nghe, cảm thấy như thế nào",
+          "headingEn": "like and as if to say how somebody/something looks, sounds or feels",
+          "parts": [
+            { "kind": "text", "text": "We use **like** or **as if** to say how somebody/something looks, sounds or feels:", "vi": "Chúng ta dùng **like** hoặc **as if** để nói ai đó/cái gì đó trông, nghe, cảm thấy như thế nào:" },
+            { "kind": "examples", "items": [
+              { "en": "That house looks **like** it's going to fall down. or That house looks **as if** it's going to fall down.", "vi": "Ngôi nhà kia trông như thể sắp sập vậy." },
+              { "en": "Amy sounded **like** she had a cold, didn't she? or Amy sounded **as if** she had a cold, didn't she?", "vi": "Amy nghe như thể bị cảm, đúng không?" },
+              { "en": "I've just had a holiday, but I feel very tired. I don't feel **like** I've had a holiday. or I don't feel **as if** I've had a holiday.", "vi": "Tôi vừa mới đi nghỉ về, nhưng tôi cảm thấy rất mệt. Tôi không cảm thấy như thể mình vừa đi nghỉ." }
+            ] },
+            { "kind": "text", "text": "You can also use **as though** in these examples:", "vi": "Bạn cũng có thể dùng **as though** trong những ví dụ này:" },
+            { "kind": "examples", "items": [
+              { "en": "I don't feel **as though** I've had a holiday.", "vi": "Tôi không cảm thấy như thể mình vừa đi nghỉ." }
+            ] },
+            { "kind": "text", "text": "Compare:", "vi": "So sánh:" },
+            { "kind": "examples", "items": [
+              { "en": "You look tired.", "note": "(look + adjective)", "vi": "Bạn trông có vẻ mệt. (look + tính từ)" },
+              { "en": "You look **like** you haven't slept. or You look **as if** you haven't slept.", "note": "(look like/as if + subject + verb)", "vi": "Bạn trông như thể chưa ngủ vậy. (look like/as if + chủ ngữ + động từ)" }
+            ] }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "it looks like ... / it sounds like ...",
+          "headingEn": "it looks like ... / it sounds like ...",
+          "parts": [
+            { "kind": "text", "text": "We say: **it looks like ...** or **it looks as if ...**, **it sounds like ...** or **it sounds as if ...**", "vi": "Chúng ta nói: **it looks like ...** hoặc **it looks as if ...**, **it sounds like ...** hoặc **it sounds as if ...**" },
+            { "kind": "examples", "items": [
+              { "en": "Sarah is very late. **It looks like** she isn't coming. or **It looks as if** she isn't coming.", "vi": "Sarah trễ quá rồi. Có vẻ như cô ấy sẽ không đến." },
+              { "en": "**It looked like** it was going to rain, so we took an umbrella. or **It looked as if** it was going to rain ...", "vi": "Trời có vẻ như sắp mưa, nên chúng tôi mang theo ô." },
+              { "en": "The noise is very loud next door. **It sounds like** they're having a party. or **It sounds as if** they're ...", "vi": "Nhà bên cạnh ồn quá. Nghe như thể họ đang có tiệc." }
+            ] },
+            { "kind": "text", "text": "You can also use **as though**:", "vi": "Bạn cũng có thể dùng **as though**:" },
+            { "kind": "examples", "items": [
+              { "en": "**It sounds as though** they're having a party.", "vi": "Nghe như thể họ đang có tiệc." }
+            ] }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "like / as if / as though với các động từ khác",
+          "headingEn": "like / as if / as though with other verbs",
+          "parts": [
+            { "kind": "text", "text": "You can use **like** / **as if** / **as though** with other verbs to say how somebody does something:", "vi": "Bạn có thể dùng **like** / **as if** / **as though** với các động từ khác để nói ai đó làm việc gì đó như thế nào:" },
+            { "kind": "examples", "items": [
+              { "en": "He ran **like** he was running for his life.", "vi": "Anh ta chạy như thể đang chạy trốn để giữ mạng sống vậy." },
+              { "en": "After the interruption, the speaker went on talking **as if** nothing had happened.", "vi": "Sau khi bị gián đoạn, diễn giả tiếp tục nói như thể không có chuyện gì xảy ra." },
+              { "en": "When I told them my plan, they looked at me **as though** I was mad.", "vi": "Khi tôi kể cho họ nghe kế hoạch của mình, họ nhìn tôi như thể tôi bị điên vậy." }
+            ] }
+          ]
+        },
+        {
+          "label": "D",
+          "heading": "As if + thì quá khứ khi nói về hiện tại",
+          "headingEn": "After as if, sometimes the past for the present",
+          "parts": [
+            { "kind": "text", "text": "After **as if**, we sometimes use the past when we are talking about the present.", "vi": "Sau **as if**, đôi khi chúng ta dùng thì quá khứ dù đang nói về hiện tại." },
+            { "kind": "text", "text": "For example:", "vi": "Ví dụ:" },
+            { "kind": "examples", "items": [
+              { "en": "I don't like him. He talks **as if** he knew everything.", "vi": "Tôi không thích anh ta. Anh ta nói chuyện như thể biết tuốt vậy." }
+            ] },
+            { "kind": "text", "text": "The meaning is not past. We use the past (**as if he knew**) because the idea is not real: he does not know everything. We use the past in the same way with *if* and *wish* (see Unit 39).", "vi": "Nghĩa ở đây không phải là quá khứ. Chúng ta dùng thì quá khứ (**as if he knew**) vì ý này không có thật: anh ta không biết tuốt. Chúng ta cũng dùng thì quá khứ theo cách này với *if* và *wish* (xem Unit 39)." },
+            { "kind": "text", "text": "Some more examples:", "vi": "Thêm một số ví dụ:" },
+            { "kind": "examples", "items": [
+              { "en": "She's always asking me to do things for her - **as if** I didn't have enough to do already.", "note": "(I have enough to do already)", "vi": "Cô ấy lúc nào cũng nhờ tôi làm việc này việc kia cho cô ấy, như thể tôi chưa đủ việc để làm vậy." },
+              { "en": "Joe's only 40. Why do you talk about him **as if** he was an old man?", "note": "(he isn't an old man)", "vi": "Joe mới 40 tuổi thôi. Sao bạn lại nói về anh ấy như thể anh ấy là một ông già vậy?" }
+            ] },
+            { "kind": "text", "text": "When you use the past in this way, you can use **were** instead of **was**:", "vi": "Khi dùng thì quá khứ theo cách này, bạn có thể dùng **were** thay cho **was**:" },
+            { "kind": "examples", "items": [
+              { "en": "Why do you talk about him **as if** he **were** an old man?", "vi": "Sao bạn lại nói về anh ấy như thể anh ấy là một ông già vậy?" },
+              { "en": "They treat me **as if** I **were** their own son. or ... **as if** I **was** their own son.", "note": "(I'm not their son)", "vi": "Họ đối xử với tôi như thể tôi là con ruột của họ vậy." }
+            ] }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "118.1 · Bạn nói gì trong những tình huống này? Dùng từ trong ngoặc để đặt câu",
+      "titleEn": "118.1 · What do you say in these situations? Use the words in brackets to make your sentence",
+      "instructions": "Dùng từ gợi ý trong ngoặc để hoàn thành câu.",
+      "instructionsEn": "Use the words in brackets to make your sentence.",
+      "examples": [
+        { "label": "1", "context": "You meet Bill. He has a black eye and blood on his face. (look / like / be / a fight)", "prompt": "You say to him: ___.", "answer": "You look like you've been in a fight." }
+      ],
+      "items": [
+        { "context": "Claire comes into the room. She looks absolutely terrified. (look / as if / see / a ghost)", "prompt": "What's the matter? You ___?", "answer": "look as if you've seen a ghost" },
+        { "context": "You have just run one kilometre, but you are exhausted. (feel / like / run / a marathon)", "prompt": "I ___.", "answer": "feel like I've run a marathon" },
+        { "context": "Joe is on holiday. He's talking to you on the phone and sounds happy. (sound / as if / have / a good time)", "prompt": "You say to him: You ___.", "answer": "sound as if you're having a good time" }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "118.2 · Đặt câu bắt đầu bằng It looks like ... hoặc It sounds like ...",
+      "titleEn": "118.2 · Make sentences beginning It looks like ... or It sounds like ...",
+      "instructions": "Chọn cụm từ phù hợp trong khung, đặt câu bắt đầu bằng It looks like ... hoặc It sounds like ... .",
+      "instructionsEn": "Make sentences beginning It looks like ... or It sounds like ... .",
+      "wordBank": ["you should see a doctor", "there's been an accident", "they're having an argument", "it's going to rain", "she isn't coming", "they don't have any"],
+      "examples": [
+        { "label": "1", "context": "Sarah said she would be here an hour ago.", "prompt": "You say: ___.", "answer": "It looks like she isn't coming." }
+      ],
+      "items": [
+        { "context": "The sky is full of black clouds.", "prompt": "You say: ___.", "answer": "It looks like it's going to rain." },
+        { "context": "You hear two people shouting at each other next door.", "prompt": "You say: ___.", "answer": "It sounds like they're having an argument." },
+        { "context": "You see an ambulance, some policemen and two damaged cars at the side of the road.", "prompt": "You say: ___.", "answer": "It looks like there's been an accident." },
+        { "context": "You and a friend are in a supermarket. You're looking for bananas, but without success.", "prompt": "You say: ___.", "answer": "It looks like they don't have any." },
+        { "context": "Dave isn't feeling well. He tells you all about it.", "prompt": "You say: ___.", "answer": "It sounds like you should see a doctor." }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "118.3 · Hoàn thành câu với as if, chọn từ trong khung và chia đúng dạng động từ",
+      "titleEn": "118.3 · Complete the sentences with as if. Choose from the box, putting the verbs in the correct form",
+      "instructions": "Chọn cụm từ phù hợp trong khung, chia đúng dạng động từ, rồi hoàn thành câu với as if.",
+      "instructionsEn": "Complete the sentences with as if. Choose from the box, putting the verbs in the correct form.",
+      "wordBank": ["she / enjoy / it", "I / be / crazy", "he / not / eat / for a week", "he / need / a good rest", "she / hurt / her leg", "he / mean / what he / say", "I / not / exist", "she / not / want / come"],
+      "examples": [
+        { "label": "1", "prompt": "Mark looks very tired. He looks as if ___.", "answer": "he needs a good rest" }
+      ],
+      "items": [
+        { "prompt": "I don't think Paul was joking. He looked ___.", "answer": "as if he meant what he said" },
+        { "prompt": "What's the matter with Lisa? She's walking ___.", "answer": "as if she's hurt her leg", "accept": ["as if she has hurt her leg"] },
+        { "prompt": "Paul was extremely hungry and ate his dinner very quickly. He ate ___.", "answer": "as if he hadn't eaten for a week" },
+        { "prompt": "I looked at Sarah during the movie. She had a bored expression on her face. She didn't look ___.", "answer": "as if she was enjoying it" },
+        { "prompt": "I told my friends about my plan. They were amazed. They looked at me ___.", "answer": "as if I was crazy" },
+        { "prompt": "I phoned Kate and invited her to the party, but she wasn't very enthusiastic. She sounded ___.", "answer": "as if she didn't want to come" },
+        { "prompt": "I went into the office, but nobody spoke to me or looked at me. Everybody ignored me ___.", "answer": "as if I didn't exist" }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "118.4 · Những câu này giống như trong mục D. Hoàn thành mỗi câu bằng as if",
+      "titleEn": "118.4 · These sentences are like the ones in Section D. Complete each sentence using as if",
+      "instructions": "Hoàn thành mỗi câu bằng as if, theo mẫu ở mục D.",
+      "instructionsEn": "Complete each sentence using as if.",
+      "examples": [
+        { "label": "1", "context": "Andy is a terrible driver.", "prompt": "He drives ___.", "answer": "as if he were the only driver on the road" }
+      ],
+      "items": [
+        { "prompt": "I'm 20 years old, so please don't talk to me ___ a child.", "answer": "as if I were", "accept": ["as if I was"] },
+        { "prompt": "Steve has never met Nicola, but he talks about her ___ his best friend.", "answer": "as if she were", "accept": ["as if she was"] },
+        { "prompt": "We first met a long time ago, but I remember it ___ yesterday.", "answer": "as if it were", "accept": ["as if it was"] }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng like, as if hoặc as though, ví dụ 'It looks like it's going to rain.', 'She talks as if she knew everything.', 'He looked at me as though I was mad.'.",
+      "instructionsEn": "Write 2-3 English sentences using like, as if or as though, e.g. 'It looks like it's going to rain.', 'She talks as if she knew everything.', 'He looked at me as though I was mad.'.",
+      "ruleSummary": "This unit covers like, as if and as though, all used to say how somebody/something looks, sounds or feels: 'That house looks like it's going to fall down.' or '... looks as if it's going to fall down.' Common fixed patterns: 'it looks like ...' / 'it looks as if ...', 'it sounds like ...' / 'it sounds as if ...'. They can also describe how somebody does something: 'He ran like he was running for his life.' After as if (not usually like), we sometimes use a past tense to talk about something not real in the present: 'He talks as if he knew everything' (he doesn't really know everything); 'They treat me as if I were their own son' (I'm not their son) - were can replace was here. A correct student sentence should use like/as if/as though after look/sound/feel or another verb of manner, and (optionally) a past tense/were after as if for an unreal present situation."
+    }
+  ]
+};
+
+export const UNIT_119_DURING_FOR_AND_WHILE: GrammarUnit = {
+  "unit": 119,
+  "slug": "during-for-and-while",
+  "title": "during, for and while",
+  "topic": "conjunctions and prepositions",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "during",
+          "headingEn": "during",
+          "parts": [
+            { "kind": "text", "text": "**during** = at a time between the start and end of something:", "vi": "**during** = vào một thời điểm nào đó giữa lúc bắt đầu và kết thúc của việc gì đó:" },
+            { "kind": "examples", "items": [
+              { "en": "I fell asleep **during** the movie.", "note": "(= at a time between the start and end of the movie)", "vi": "Tôi đã ngủ quên trong lúc xem phim." },
+              { "en": "We met some really nice people **during** our holiday.", "vi": "Chúng tôi đã gặp một số người rất tốt bụng trong kỳ nghỉ." },
+              { "en": "The ground is wet. It must have rained **during** the night.", "vi": "Mặt đất ướt. Chắc là đã mưa trong đêm." }
+            ] },
+            { "kind": "text", "text": "With 'time words' (*the morning*, *the night*, *the summer* etc.), you can usually say **in** or **during**:", "vi": "Với các 'từ chỉ thời gian' (*the morning*, *the night*, *the summer* v.v.), bạn thường có thể dùng **in** hoặc **during**:" },
+            { "kind": "examples", "items": [
+              { "en": "It rained **in** the night. or ... **during** the night.", "vi": "Trời đã mưa trong đêm." },
+              { "en": "It's lovely here **during** the summer. or ... **in** the summer.", "vi": "Ở đây rất đẹp vào mùa hè." }
+            ] }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "for và during",
+          "headingEn": "for and during",
+          "parts": [
+            { "kind": "text", "text": "We use **for** (+ a period of time) to say how long something goes on:", "vi": "Chúng ta dùng **for** (+ khoảng thời gian) để nói việc gì đó kéo dài bao lâu:" },
+            { "kind": "examples", "items": [
+              { "en": "We watched TV **for** two hours last night.", "vi": "Tối qua chúng tôi đã xem TV trong hai giờ." },
+              { "en": "Jess is going away **for** a week in September.", "vi": "Jess sẽ đi xa một tuần vào tháng Chín." },
+              { "en": "How are you? I haven't seen you **for** ages.", "vi": "Bạn khỏe không? Đã lâu lắm rồi tôi không gặp bạn." },
+              { "en": "Are you going away **for** the weekend?", "vi": "Bạn có đi xa vào cuối tuần không?" }
+            ] },
+            { "kind": "text", "text": "We do not use **during** to say how long something goes on. We do not say *during two hours*, *during five years* etc.:", "vi": "Chúng ta không dùng **during** để nói việc gì đó kéo dài bao lâu. Chúng ta không nói *during two hours*, *during five years* v.v.:" },
+            { "kind": "examples", "items": [
+              { "en": "It rained **for** three days without stopping.", "note": "(not during three days)", "vi": "Trời đã mưa liên tục trong ba ngày." }
+            ] },
+            { "kind": "text", "text": "We use **during** to say when something happens (not how long). Compare **during** and **for**:", "vi": "Chúng ta dùng **during** để nói việc gì đó xảy ra khi nào (không phải kéo dài bao lâu). So sánh **during** và **for**:" },
+            { "kind": "examples", "items": [
+              { "en": "'When did you fall asleep?' 'During the movie.'", "vi": "'Bạn ngủ quên lúc nào?' 'Trong lúc xem phim.'" },
+              { "en": "'How long were you asleep?' 'For half an hour.'", "vi": "'Bạn đã ngủ bao lâu?' 'Nửa tiếng.'" }
+            ] }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "during và while",
+          "headingEn": "during and while",
+          "parts": [
+            { "kind": "text", "text": "We use **during** + noun:", "vi": "Chúng ta dùng **during** + danh từ:" },
+            { "kind": "examples", "items": [
+              { "en": "I fell asleep **during** the movie.", "vi": "Tôi đã ngủ quên trong lúc xem phim." },
+              { "en": "We met a lot of interesting people **during** our holiday.", "vi": "Chúng tôi đã gặp rất nhiều người thú vị trong kỳ nghỉ." },
+              { "en": "Robert suddenly began to feel ill **during** the exam.", "vi": "Robert đột nhiên cảm thấy không khỏe trong lúc thi." }
+            ] },
+            { "kind": "text", "text": "We use **while** + subject + verb:", "vi": "Chúng ta dùng **while** + chủ ngữ + động từ:" },
+            { "kind": "examples", "items": [
+              { "en": "I fell asleep **while** I was watching TV.", "vi": "Tôi đã ngủ quên trong lúc đang xem TV." },
+              { "en": "We met a lot of interesting people **while** we were on holiday.", "vi": "Chúng tôi đã gặp rất nhiều người thú vị trong lúc đang nghỉ." },
+              { "en": "Robert suddenly began to feel ill **while** he was doing the exam.", "vi": "Robert đột nhiên cảm thấy không khỏe trong lúc đang làm bài thi." }
+            ] },
+            { "kind": "text", "text": "Some more examples of **while**:", "vi": "Thêm một số ví dụ về **while**:" },
+            { "kind": "examples", "items": [
+              { "en": "We saw Clare **while** we were waiting for the bus.", "vi": "Chúng tôi đã gặp Clare trong lúc đang đợi xe buýt." },
+              { "en": "**While** you were out, there was a phone call for you.", "vi": "Trong lúc bạn ra ngoài, có một cuộc gọi cho bạn." },
+              { "en": "Alex read a book **while** Amy watched TV.", "vi": "Alex đọc sách trong lúc Amy xem TV." }
+            ] },
+            { "kind": "text", "text": "When we are talking about the future, we use the present after **while**. Do not use *will* (see Unit 25):", "vi": "Khi nói về tương lai, chúng ta dùng thì hiện tại sau **while**. Không dùng *will* (xem Unit 25):" },
+            { "kind": "examples", "items": [
+              { "en": "I'm going to Moscow next week. I hope the weather will be good **while** I'm there.", "note": "(not while I will be)", "vi": "Tuần sau tôi sẽ đi Moscow. Tôi hy vọng thời tiết sẽ đẹp trong lúc tôi ở đó." },
+              { "en": "What are you going to do **while** you're waiting?", "note": "(not while you'll be waiting)", "vi": "Bạn sẽ làm gì trong lúc chờ đợi?" }
+            ] }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "119.1 · Điền for hoặc during",
+      "titleEn": "119.1 · Put in for or during",
+      "instructions": "Điền for hoặc during vào chỗ trống.",
+      "instructionsEn": "Put in for or during.",
+      "wordBank": ["for", "during"],
+      "examples": [
+        { "label": "1", "prompt": "It rained ___ three days without stopping.", "answer": "for" },
+        { "label": "2", "prompt": "I fell asleep ___ the movie.", "answer": "during" }
+      ],
+      "items": [
+        { "prompt": "I went to the theatre last night. I met Sue ___ the interval.", "answer": "during" },
+        { "prompt": "I felt really ill last week. I could hardly eat anything ___ three days.", "answer": "for" },
+        { "prompt": "The traffic was bad. We were stuck in a traffic jam ___ two hours.", "answer": "for" },
+        { "prompt": "Production at the factory was seriously affected ___ the strike.", "answer": "during" },
+        { "prompt": "Sarah was very angry with me. She didn't speak to me ___ a week.", "answer": "for" },
+        { "prompt": "I don't have much free time ___ the week, but I relax at weekends.", "answer": "during" },
+        { "prompt": "I need a break. I think I'll go away ___ a few days.", "answer": "for" },
+        { "prompt": "The president gave a short speech. She spoke ___ only ten minutes.", "answer": "for" },
+        { "prompt": "We were hungry when we arrived. We hadn't eaten anything ___ the journey.", "answer": "during" },
+        { "prompt": "We were hungry when we arrived. We hadn't eaten anything ___ eight hours.", "answer": "for" }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "119.2 · Điền during hoặc while",
+      "titleEn": "119.2 · Put in during or while",
+      "instructions": "Điền during hoặc while vào chỗ trống.",
+      "instructionsEn": "Put in during or while.",
+      "wordBank": ["during", "while"],
+      "examples": [
+        { "label": "1", "prompt": "We met a lot of interesting people ___ we were on holiday.", "answer": "while" },
+        { "label": "2", "prompt": "We met a lot of interesting people ___ our holiday.", "answer": "during" }
+      ],
+      "items": [
+        { "prompt": "I met Mike ___ I was shopping.", "answer": "while" },
+        { "prompt": "___ I was on holiday, I didn't use my phone at all.", "answer": "While" },
+        { "prompt": "I learnt a lot ___ the course. The teachers were very good.", "answer": "during" },
+        { "prompt": "There was a lot of noise ___ the night. What was it?", "answer": "during" },
+        { "prompt": "I'd been away for many years. Many things had changed ___ that time.", "answer": "during" },
+        { "prompt": "What did they say about me ___ I was out of the room?", "answer": "while" },
+        { "prompt": "When I fly anywhere, I never eat anything ___ the flight.", "answer": "during" },
+        { "prompt": "Please don't interrupt me ___ I'm speaking.", "answer": "while" },
+        { "prompt": "___ the festival, it's almost impossible to find a hotel room here.", "answer": "During" },
+        { "prompt": "We were hungry when we arrived. We hadn't eaten anything ___ we were travelling.", "answer": "while" }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "119.3 · Điền during, for hoặc while",
+      "titleEn": "119.3 · Put in during, for or while",
+      "instructions": "Điền during, for hoặc while vào chỗ trống.",
+      "instructionsEn": "Put in during, for or while.",
+      "wordBank": ["during", "for", "while"],
+      "items": [
+        { "prompt": "I used to live in Berlin. I lived there ___ five years.", "answer": "for" },
+        { "prompt": "One of the runners fell ___ the race but managed to get up and continue.", "answer": "during" },
+        { "prompt": "Nobody came to see me ___ I was in hospital.", "answer": "while" },
+        { "prompt": "Try to avoid travelling ___ the busy periods of the day.", "answer": "during" },
+        { "prompt": "I was very tired. I slept ___ ten hours.", "answer": "for" },
+        { "prompt": "Can you hold my bag ___ I try on this jacket?", "answer": "while" },
+        { "prompt": "I'm not sure when we'll arrive, but it will be sometime ___ the afternoon.", "answer": "during" },
+        { "prompt": "I wasn't well last week. I hardly ate anything ___ three days.", "answer": "for" },
+        { "prompt": "My phone rang ___ we were having dinner.", "answer": "while" },
+        { "prompt": "Nobody knows how many people were killed ___ the war.", "answer": "during" }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng during, for hoặc while, ví dụ 'I fell asleep while I was watching TV.', 'It started to rain during the football match.', 'I lived in Hanoi for three years.'.",
+      "instructionsEn": "Write 2-3 English sentences using during, for or while, e.g. 'I fell asleep while I was watching TV.', 'It started to rain during the football match.', 'I lived in Hanoi for three years.'.",
+      "ruleSummary": "This unit covers during, for and while. During = at a time between the start and end of something, used with a noun: 'I fell asleep during the movie.' For (+ a period of time) says how long something goes on: 'We watched TV for two hours.' (not 'during two hours'). While + subject + verb also means during the time that something else was happening: 'I fell asleep while I was watching TV.' (compare 'I fell asleep during the movie.' - same meaning, different structure: during + noun, while + subject + verb). When talking about the future, use the present after while, not will: 'What are you going to do while you're waiting?' (not while you'll be waiting). A correct student sentence should use during before a noun, for before a length of time, and while before a subject + verb clause."
+    }
+  ]
+};
+
+export const UNIT_120_BY_AND_UNTIL: GrammarUnit = {
+  "unit": 120,
+  "slug": "by-and-until",
+  "title": "by and until",
+  "topic": "conjunctions and prepositions",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "by = không muộn hơn",
+          "headingEn": "by = not later than",
+          "parts": [
+            { "kind": "text", "text": "**by** ... = not later than:", "vi": "**by** ... = không muộn hơn:" },
+            { "kind": "examples", "items": [
+              { "en": "I sent the documents today, so they should arrive **by** Monday.", "note": "(= on or before Monday, not later than Monday)", "vi": "Tôi đã gửi tài liệu hôm nay, nên chúng sẽ đến trước thứ Hai." },
+              { "en": "We'd better hurry. We have to be home **by** 5 o'clock.", "note": "(= at or before 5 o'clock, not later than 5 o'clock)", "vi": "Chúng ta nên nhanh lên. Chúng ta phải về nhà trước 5 giờ." },
+              { "en": "Where's Sarah? She should be here **by** now.", "note": "(= now or before now - so she should already be here)", "vi": "Sarah đâu rồi nhỉ? Giờ này cô ấy lẽ ra phải ở đây rồi." }
+            ] }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "until (till)",
+          "headingEn": "until (till)",
+          "parts": [
+            { "kind": "text", "text": "We use **until** (or **till**) to say how long a situation continues:", "vi": "Chúng ta dùng **until** (hoặc **till**) để nói một tình huống kéo dài bao lâu:" },
+            { "kind": "examples", "items": [
+              { "en": "A: Shall we go now? B: No, let's wait **until** it stops raining. or ... **till** it stops raining.", "vi": "A: Chúng ta đi bây giờ nhé? B: Không, hãy đợi đến khi trời tạnh mưa đã." },
+              { "en": "I was very tired this morning. I stayed in bed **until** half past ten.", "vi": "Sáng nay tôi rất mệt. Tôi đã nằm trên giường đến tận mười giờ rưỡi." },
+              { "en": "I didn't get up **until** half past ten.", "vi": "Tôi không dậy cho đến tận mười giờ rưỡi." }
+            ] },
+            { "kind": "text", "text": "Compare **until** and **by**:", "vi": "So sánh **until** và **by**:" },
+            { "kind": "table", "table": { "headers": ["until (a situation continues)", "by (something happens)"], "rows": [
+              ["Joe will be away **until** Monday. (so he'll be back on Monday)", "Joe will be back **by** Monday. (= not later than Monday)"],
+              ["I'll be working **until** 11.30. (so I'll stop working at 11.30)", "I'll have finished my work **by** 11.30. (= I'll finish it not later than 11.30)"]
+            ] } }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "by the time",
+          "headingEn": "by the time",
+          "parts": [
+            { "kind": "text", "text": "You can say '**by the time** something happens':", "vi": "Bạn có thể nói '**by the time** something happens' (đến lúc việc gì đó xảy ra):" },
+            { "kind": "examples", "items": [
+              { "en": "It's too late to go to the bank now. **By the time** we get there, it will be closed.", "note": "(= it will close between now and the time we get there)", "vi": "Bây giờ đi ngân hàng thì muộn quá rồi. Đến lúc chúng ta tới nơi, nó sẽ đóng cửa mất." },
+              { "en": "You'll need plenty of time at the airport. **By the time** you check in and go through security, it will be time for your flight.", "note": "(= check-in and security will take a long time)", "vi": "Bạn sẽ cần nhiều thời gian ở sân bay. Đến lúc bạn làm thủ tục và qua an ninh xong, sẽ đến giờ bay mất." },
+              { "en": "Hurry up! **By the time** we get to the cinema, the film will already have started.", "vi": "Nhanh lên! Đến lúc chúng ta tới rạp, phim sẽ đã bắt đầu chiếu rồi." }
+            ] },
+            { "kind": "text", "text": "You can say '**by the time** something happened' (for the past):", "vi": "Bạn có thể nói '**by the time** something happened' (cho thì quá khứ):" },
+            { "kind": "examples", "items": [
+              { "en": "Karen's car broke down on the way to the party last night. **By the time** she arrived, most of the other guests had left.", "note": "(= it took her a long time to get there and most of the guests left during this time)", "vi": "Xe của Karen bị hỏng trên đường đến bữa tiệc tối qua. Đến lúc cô ấy tới nơi, hầu hết khách khác đã về." },
+              { "en": "I had a lot of work to do yesterday evening. I was very tired **by the time** I finished.", "note": "(= it took me a long time to do the work, and I became more and more tired)", "vi": "Tối qua tôi có rất nhiều việc phải làm. Đến lúc tôi làm xong thì tôi đã rất mệt." },
+              { "en": "We went to the cinema last night. It took us a long time to find somewhere to park the car. **By the time** we got to the cinema, the film had already started.", "vi": "Tối qua chúng tôi đi xem phim. Chúng tôi mất khá lâu mới tìm được chỗ đỗ xe. Đến lúc chúng tôi tới rạp, phim đã bắt đầu chiếu rồi." }
+            ] },
+            { "kind": "text", "text": "You can say **by then** or **by that time**:", "vi": "Bạn có thể nói **by then** hoặc **by that time**:" },
+            { "kind": "examples", "items": [
+              { "en": "Karen finally got to the party at midnight, but **by then** most of the other guests had left. or ... **by that time**, most of the other guests had left.", "vi": "Cuối cùng Karen cũng tới bữa tiệc lúc nửa đêm, nhưng lúc đó hầu hết khách khác đã về rồi." }
+            ] }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "120.1 · Hoàn thành câu với by",
+      "titleEn": "120.1 · Complete the sentences with by",
+      "instructions": "Viết lại câu, dùng by.",
+      "instructionsEn": "Complete the sentences with by.",
+      "examples": [
+        { "label": "1", "context": "We have to be home not later than 5 o'clock.", "prompt": "We have to be home ___.", "answer": "by 5 o'clock" }
+      ],
+      "items": [
+        { "context": "I have to be at the airport not later than 8.30.", "prompt": "I have to be at the airport ___.", "answer": "by 8.30" },
+        { "context": "Let me know not later than Saturday whether you can come to the party.", "prompt": "___ whether you can come to the party.", "answer": "Let me know by Saturday" },
+        { "context": "Please make sure that you're here not later than 2 o'clock.", "prompt": "Please make sure that ___.", "answer": "you're here by 2 o'clock" },
+        { "context": "If we leave now, we should arrive not later than lunchtime.", "prompt": "If we leave now, ___.", "answer": "we should arrive by lunchtime" }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "120.2 · Điền by hoặc until",
+      "titleEn": "120.2 · Put in by or until",
+      "instructions": "Điền by hoặc until vào chỗ trống.",
+      "instructionsEn": "Put in by or until.",
+      "wordBank": ["by", "until"],
+      "examples": [
+        { "label": "1", "prompt": "Steve has gone away. He'll be away ___ Monday.", "answer": "until" }
+      ],
+      "items": [
+        { "prompt": "Sorry, but I must go. I have to be home ___ 5 o'clock.", "answer": "by" },
+        { "prompt": "According to the forecast, the bad weather will continue ___ the weekend.", "answer": "until" },
+        { "prompt": "I don't know whether to apply for the job or not. I have to decide ___ Friday.", "answer": "by" },
+        { "prompt": "I think I'll wait ___ Thursday before making a decision.", "answer": "until" },
+        { "prompt": "I'm still waiting for Tom to call me. He should have called me ___ now.", "answer": "by" },
+        { "prompt": "I need to pay this bill. It has to be paid ___ tomorrow.", "answer": "by" },
+        { "prompt": "Don't pay the bill today. Wait ___ tomorrow.", "answer": "until" },
+        { "prompt": "We haven't finished painting the house yet. We hope to finish ___ Tuesday.", "answer": "by" },
+        { "prompt": "'Will you still be in the office at 6.30?' 'No, I'll have gone home ___ then.'", "answer": "by" },
+        { "prompt": "I'm moving into my new flat next week. I'm staying with a friend ___ then.", "answer": "until" },
+        { "prompt": "I've got a lot of work to do. ___ the time I finish, it will be time to go to bed.", "answer": "By" },
+        { "prompt": "We have plenty of time. The film doesn't start ___ 8.30.", "answer": "until" },
+        { "prompt": "It is hoped that the new bridge will be completed ___ the end of the year.", "answer": "by" }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "120.4 · Đọc tình huống và hoàn thành câu, dùng By the time ...",
+      "titleEn": "120.4 · Read the situations and complete the sentences using By the time ...",
+      "instructions": "Đọc tình huống rồi hoàn thành câu, dùng By the time ... .",
+      "instructionsEn": "Read the situations and complete the sentences using By the time ... .",
+      "examples": [
+        { "label": "1", "context": "I was invited to a party, but I got there much later than I intended.", "prompt": "___", "answer": "By the time I got to the party, most of the other guests had left." }
+      ],
+      "items": [
+        { "context": "I intended to catch a train, but it took me longer than expected to get to the station.", "prompt": "___, my train had already left.", "answer": "By the time I got to the station" },
+        { "context": "I wanted to go shopping after work. But I finished work much later than expected.", "prompt": "___, it was too late to go shopping.", "answer": "By the time I finished work" },
+        { "context": "I saw two men who looked as if they were trying to steal a car. I called the police, but it was some time before they arrived.", "prompt": "___, the two men had disappeared.", "answer": "By the time the police arrived" },
+        { "context": "We climbed a mountain and it took us a long time to get to the top. There wasn't much time to enjoy the view.", "prompt": "___, we had to come down again.", "answer": "By the time we got to the top" }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng by, until hoặc by the time về cuộc sống của riêng bạn, ví dụ 'I stayed up until midnight.', 'I have to finish this report by Friday.', 'By the time I got home, everyone was asleep.'.",
+      "instructionsEn": "Write 2-3 English sentences using by, until or by the time about your own life, e.g. 'I stayed up until midnight.', 'I have to finish this report by Friday.', 'By the time I got home, everyone was asleep.'.",
+      "ruleSummary": "This unit covers by, until and by the time. By = not later than: 'I have to be home by 5 o'clock' (= at or before 5 o'clock). Until (or till) says how long a situation continues: 'Let's wait until it stops raining.' Compare: 'Joe will be away until Monday' (he's away up to Monday, then back) versus 'Joe will be back by Monday' (he'll be back on or before Monday). By the time + a clause introduces a point at which something else has already happened, for both future ('By the time we get there, it will be closed') and past ('By the time she arrived, most of the guests had left') - you can also say by then/by that time. A correct student sentence should use by for a deadline (not later than), until for how long something continues, and by the time to show one event has finished before another happens."
+    }
+  ]
+};
+
+export const UNIT_121_AT_ON_IN_TIME: GrammarUnit = {
+  "unit": 121,
+  "slug": "at-on-in-time",
+  "title": "at/on/in (time)",
+  "topic": "conjunctions and prepositions",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "so sánh at, on và in",
+          "headingEn": "compare at, on and in",
+          "intro": "Compare **at**, **on** and **in**:",
+          "introVi": "So sánh **at**, **on** và **in**:",
+          "parts": [
+            { "kind": "examples", "items": [
+              { "en": "They arrived **at** 5 o'clock.", "vi": "Họ đã đến lúc 5 giờ." },
+              { "en": "They arrived **on** Friday.", "vi": "Họ đã đến vào thứ Sáu." },
+              { "en": "They arrived **in** June. / They arrived **in** 2012.", "vi": "Họ đã đến vào tháng Sáu. / Họ đã đến vào năm 2012." }
+            ] },
+            { "kind": "text", "text": "We use:", "vi": "Chúng ta dùng:" },
+            { "kind": "table", "table": { "variant": "list", "rows": [
+              ["**at** for the time of day", "at five o'clock, at 11.45, at midnight, at lunchtime, at sunset etc."],
+              ["**on** for days and dates", "on 16 May 2012, on New Year's Day, on my birthday, on Friday / on Fridays"],
+              ["**in** for longer periods (months/years/seasons etc.)", "in the past, in winter, in June, in 2012, in the 1990s, in the 20th century"]
+            ] } }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "một số cách nói cố định với at",
+          "headingEn": "some fixed time expressions with at",
+          "parts": [
+            { "kind": "text", "text": "We say:", "vi": "Chúng ta nói:" },
+            { "kind": "text", "text": "**at the moment** / **at the minute** / **at present** / **at this time** (= now):", "vi": "**at the moment** / **at the minute** / **at present** / **at this time** (= bây giờ):" },
+            { "kind": "examples", "items": [
+              { "en": "Can we talk later? I'm busy **at the moment**.", "vi": "Chúng ta nói chuyện sau được không? Tôi đang bận lúc này." }
+            ] },
+            { "kind": "text", "text": "**at the same time**:", "vi": "**at the same time** (cùng lúc):" },
+            { "kind": "examples", "items": [
+              { "en": "Kate and I arrived **at the same time**.", "vi": "Kate và tôi đã đến cùng một lúc." }
+            ] },
+            { "kind": "text", "text": "**at the weekends** / **at weekends** (or *on the weekend* / *on weekends* in American English):", "vi": "**at the weekends** / **at weekends** (hoặc *on the weekend* / *on weekends* trong tiếng Anh Mỹ):" },
+            { "kind": "examples", "items": [
+              { "en": "Will you be here **at the weekend**?", "note": "(or ... on the weekend)", "vi": "Cuối tuần bạn có ở đây không?" }
+            ] },
+            { "kind": "text", "text": "**at Christmas** (but *on Christmas Day*):", "vi": "**at Christmas** (nhưng *on Christmas Day*):" },
+            { "kind": "examples", "items": [
+              { "en": "Do you give each other presents **at Christmas**?", "vi": "Các bạn có tặng quà cho nhau vào dịp Giáng sinh không?" }
+            ] },
+            { "kind": "text", "text": "**at night** (= during nights in general), **in the night** (= during a particular night):", "vi": "**at night** (= vào ban đêm nói chung), **in the night** (= vào một đêm cụ thể):" },
+            { "kind": "examples", "items": [
+              { "en": "I don't like working **at night**.", "vi": "Tôi không thích làm việc vào ban đêm." },
+              { "en": "I was woken up by a noise **in the night**.", "vi": "Tôi bị đánh thức bởi một tiếng động vào đêm đó." }
+            ] }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "buổi sáng, chiều, tối",
+          "headingEn": "mornings, afternoons, evenings",
+          "parts": [
+            { "kind": "text", "text": "We say:", "vi": "Chúng ta nói:" },
+            { "kind": "table", "table": { "headers": ["in (general)", "on (a specific day)"], "rows": [
+              ["in the morning(s) / in the afternoon(s) / in the evening(s)", "on Friday morning(s) / on Sunday afternoon(s) / on Monday evening(s) etc."]
+            ] } },
+            { "kind": "examples", "items": [
+              { "en": "I'll see you **in the morning**.", "vi": "Tôi sẽ gặp bạn vào buổi sáng." },
+              { "en": "Do you work **in the evenings**?", "vi": "Bạn có làm việc vào các buổi tối không?" },
+              { "en": "I'll see you **on Friday morning**.", "vi": "Tôi sẽ gặp bạn vào sáng thứ Sáu." },
+              { "en": "Do you work **on Saturday evenings**?", "vi": "Bạn có làm việc vào các tối thứ Bảy không?" }
+            ] }
+          ]
+        },
+        {
+          "label": "D",
+          "heading": "không dùng at/on/in trước last/next/this/every",
+          "headingEn": "no at/on/in before last/next/this/every",
+          "parts": [
+            { "kind": "text", "text": "We do **not** use at/on/in before *last/next/this/every*:", "vi": "Chúng ta **không** dùng at/on/in trước *last/next/this/every*:" },
+            { "kind": "examples", "items": [
+              { "en": "I'll see you **next Friday**.", "note": "(not on next Friday)", "vi": "Tôi sẽ gặp bạn vào thứ Sáu tới." },
+              { "en": "They got married **last June**.", "vi": "Họ đã kết hôn vào tháng Sáu năm ngoái." }
+            ] },
+            { "kind": "text", "text": "We often leave out *on* before days. So you can say:", "vi": "Chúng ta thường bỏ *on* trước tên ngày. Vậy bạn có thể nói:" },
+            { "kind": "examples", "items": [
+              { "en": "I'll see you **on Friday**. or I'll see you **Friday**.", "vi": "Tôi sẽ gặp bạn vào thứ Sáu." },
+              { "en": "I don't work **on Monday mornings**. or I don't work **Monday mornings**.", "vi": "Tôi không làm việc vào các sáng thứ Hai." }
+            ] }
+          ]
+        },
+        {
+          "label": "E",
+          "heading": "in cho khoảng thời gian kể từ bây giờ",
+          "headingEn": "in = from now, and how long something takes",
+          "parts": [
+            { "kind": "text", "text": "We say that something will happen **in** a few minutes / **in** six months etc.:", "vi": "Chúng ta nói một việc gì đó sẽ xảy ra **in** a few minutes / **in** six months v.v.:" },
+            { "kind": "examples", "items": [
+              { "en": "The train will be leaving **in** a few minutes.", "note": "(= a few minutes from now)", "vi": "Tàu sẽ khởi hành trong vài phút nữa." },
+              { "en": "Andy has gone away. He'll be back **in** a week.", "note": "(= a week from now)", "vi": "Andy đã đi xa. Anh ấy sẽ quay lại sau một tuần nữa." },
+              { "en": "They'll be here **in** a moment.", "note": "(= a moment from now, very soon)", "vi": "Họ sẽ có mặt ở đây trong chốc lát nữa." }
+            ] },
+            { "kind": "text", "text": "We also use **in** ... to say how long it takes to do something:", "vi": "Chúng ta cũng dùng **in** ... để nói làm việc gì đó mất bao lâu:" },
+            { "kind": "examples", "items": [
+              { "en": "I learnt to drive **in** four weeks.", "note": "(= it took me four weeks to learn)", "vi": "Tôi đã học lái xe trong bốn tuần." }
+            ] }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "121.1 · Điền at, on hoặc in",
+      "titleEn": "121.1 · Put in at, on or in",
+      "instructions": "Điền at, on hoặc in vào chỗ trống.",
+      "instructionsEn": "Put in at, on or in.",
+      "wordBank": ["at", "on", "in"],
+      "examples": [
+        { "label": "1", "prompt": "Mozart was born in Salzburg ___ 1756.", "answer": "in" }
+      ],
+      "items": [
+        { "prompt": "I've been invited to a wedding ___ 14 February.", "answer": "on" },
+        { "prompt": "Amy's birthday is ___ May, but I don't know which date.", "answer": "in" },
+        { "prompt": "This park is popular and gets very busy ___ weekends.", "answer": "at" },
+        { "prompt": "I haven't seen Kate for a few days. I last saw her ___ Tuesday.", "answer": "on" },
+        { "prompt": "Jonathan is 63. He'll be retiring from his job ___ two years.", "answer": "in" },
+        { "prompt": "I'm busy right now. I'll be with you ___ a moment.", "answer": "in" },
+        { "prompt": "Sam isn't here ___ the moment, but he'll be here this afternoon.", "answer": "at" },
+        { "prompt": "There are usually a lot of parties ___ New Year's Eve.", "answer": "on" },
+        { "prompt": "I don't like the dark. I try to avoid going out ___ night.", "answer": "at" },
+        { "prompt": "It rained very hard ___ the night. Did you hear it?", "answer": "in" },
+        { "prompt": "My car is being repaired at the garage. It will be ready ___ two hours.", "answer": "in" },
+        { "prompt": "The bus station was busy. A lot of buses were leaving ___ the same time.", "answer": "at" },
+        { "prompt": "Helen and David always go out for dinner ___ their wedding anniversary.", "answer": "on" },
+        { "prompt": "It was a short book and easy to read. I read it ___ a day.", "answer": "in" },
+        { "prompt": "___ midday, the sun is at its highest point in the sky.", "answer": "At" },
+        { "prompt": "This building is very old. It was built ___ the fifteenth century.", "answer": "in" },
+        { "prompt": "The office is closed ___ Wednesday afternoons.", "answer": "on" },
+        { "prompt": "In the UK many people go home to see their families ___ Christmas.", "answer": "at" },
+        { "prompt": "My flight arrives ___ 5 o'clock ___ the morning.", "answer": "at", "extraBlanks": [{ "answer": "in" }] },
+        { "prompt": "The course begins ___ 7 January and ends sometime ___ April.", "answer": "on", "extraBlanks": [{ "answer": "in" }] },
+        { "prompt": "I might not be at home ___ Tuesday morning, but I'll be there ___ the afternoon.", "answer": "on", "extraBlanks": [{ "answer": "in" }] }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "121.2 · Hoàn thành câu, dùng at, on hoặc in + từ cho sẵn",
+      "titleEn": "121.2 · Complete the sentences. Use at, on or in + the following",
+      "instructions": "Hoàn thành câu bằng at, on hoặc in cùng với một cụm trong hộp từ.",
+      "instructionsEn": "Complete the sentences. Use at, on or in + one of the phrases in the word bank.",
+      "wordBank": ["the evening", "about 20 minutes", "1756", "the same time", "the 1920s", "the moment", "21 July 1969", "night", "Saturdays", "11 seconds"],
+      "examples": [
+        { "label": "1", "prompt": "Mozart was born ___.", "answer": "in 1756" }
+      ],
+      "items": [
+        { "prompt": "If the sky is clear, you can see the stars ___.", "answer": "at night" },
+        { "prompt": "After working hard during the day, I like to relax ___.", "answer": "in the evening" },
+        { "prompt": "Neil Armstrong was the first man to walk on the moon ___.", "answer": "on 21 July 1969" },
+        { "prompt": "It's difficult to listen if everyone is speaking ___.", "answer": "at the same time" },
+        { "prompt": "Jazz became popular in the United States ___.", "answer": "in the 1920s" },
+        { "prompt": "I'm just going out to the shop. I'll be back ___.", "answer": "in about 20 minutes" },
+        { "prompt": "I don't think we need an umbrella. It's not raining ___.", "answer": "at the moment" },
+        { "prompt": "Ben is a very fast runner. He can run 100 metres ___.", "answer": "in 11 seconds" },
+        { "prompt": "Lisa works from Monday to Friday. Sometimes she also works ___.", "answer": "on Saturdays" }
+      ]
+    },
+    {
+      "kind": "fill_mc",
+      "title": "121.3 · Câu nào đúng: a, b, hay cả hai?",
+      "titleEn": "121.3 · Which is correct: a, b, or both of them?",
+      "instructions": "Chọn phương án đúng cho mỗi câu.",
+      "instructionsEn": "Which is correct: a, b, or both of them?",
+      "items": [
+        { "before": "I'll see you", "after": ".", "options": ["on Friday", "Friday"], "answer": "on Friday", "accept": ["Friday"] },
+        { "before": "I'll see you", "after": ".", "options": ["on next Friday", "next Friday"], "answer": "next Friday" },
+        { "before": "Paul got married", "after": ".", "options": ["in April", "April"], "answer": "in April" },
+        { "before": "I play tennis", "after": ".", "options": ["on Sunday mornings", "Sunday mornings"], "answer": "on Sunday mornings", "accept": ["Sunday mornings"] },
+        { "before": "We were ill", "after": ".", "options": ["at the same time", "in the same time"], "answer": "at the same time" },
+        { "before": "What are you doing", "after": "?", "options": ["at the weekend", "on the weekend"], "answer": "at the weekend", "accept": ["on the weekend"] },
+        { "before": "Oliver was born", "after": ".", "options": ["at 10 May 1993", "on 10 May 1993"], "answer": "on 10 May 1993" },
+        { "before": "He left school", "after": ".", "options": ["last June", "in last June"], "answer": "last June" },
+        { "before": "Will you be here", "after": "?", "options": ["on Tuesday", "Tuesday"], "answer": "on Tuesday", "accept": ["Tuesday"] },
+        { "before": "I don't like driving", "after": ".", "options": ["in night", "at night"], "answer": "at night" }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng at, on hoặc in để nói về thời gian trong cuộc sống của riêng bạn, ví dụ 'I usually get up at 7 o'clock.', 'My birthday is in July.', 'I don't work on Sundays.'.",
+      "instructionsEn": "Write 2-3 English sentences using at, on or in to talk about time in your own life, e.g. 'I usually get up at 7 o'clock.', 'My birthday is in July.', 'I don't work on Sundays.'.",
+      "ruleSummary": "This unit covers at/on/in for time. At is for a point in time: at five o'clock, at midnight, at lunchtime, at the moment, at the weekend, at Christmas, at night (in general). On is for days and dates: on Friday, on 16 May 2012, on my birthday, on Christmas Day. In is for longer periods: in June, in 2012, in the 1990s, in the morning(s)/afternoon(s)/evening(s) (but on Friday morning), in the night (a particular night). No preposition is used before last/next/this/every ('next Friday', not 'on next Friday'), and on is often dropped before a day name ('I'll see you Friday'). In also means 'from now' (in a few minutes = a few minutes from now) and 'it took ... to' (I learnt to drive in four weeks). A correct student sentence should match at to a clock time or fixed point, on to a day/date, and in to a month/year/longer period."
+    }
+  ]
+};
+
+export const UNIT_122_ON_TIME_AND_IN_TIME_AT_THE_END_AND_IN_THE_END: GrammarUnit = {
+  "unit": 122,
+  "slug": "on-time-in-time-at-the-end-in-the-end",
+  "title": "on time and in time / at the end and in the end",
+  "topic": "conjunctions and prepositions",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "on time và in time",
+          "headingEn": "on time and in time",
+          "parts": [
+            { "kind": "text", "text": "**on time** = punctual, not late", "vi": "**on time** = đúng giờ, không trễ" },
+            { "kind": "text", "text": "If something happens **on time**, it happens at the time that was planned:", "vi": "Nếu điều gì đó xảy ra **on time**, nó xảy ra đúng vào lúc đã định:" },
+            { "kind": "examples", "items": [
+              { "en": "The 11.45 train left **on time**.", "note": "(= it left at 11.45)", "vi": "Chuyến tàu 11 giờ 45 đã khởi hành đúng giờ." },
+              { "en": "Please be **on time**. Don't be late.", "vi": "Làm ơn đến đúng giờ. Đừng đến muộn." },
+              { "en": "The conference was well-organised. Everything began and finished **on time**.", "vi": "Hội nghị được tổ chức rất tốt. Mọi thứ bắt đầu và kết thúc đúng giờ." }
+            ] },
+            { "kind": "text", "text": "**in time** (for something / to do something) = soon enough", "vi": "**in time** (for something / to do something) = kịp lúc, đủ sớm" },
+            { "kind": "examples", "items": [
+              { "en": "Will you be home **in time** for dinner?", "note": "(= soon enough for dinner)", "vi": "Bạn có về nhà kịp giờ ăn tối không?" },
+              { "en": "I sent Amy a birthday present. I hope it arrives **in time**.", "note": "(= on or before her birthday)", "vi": "Tôi đã gửi quà sinh nhật cho Amy. Tôi hy vọng nó đến kịp lúc." },
+              { "en": "I'm in a hurry. I want to get home **in time** to watch the game on TV.", "note": "(= soon enough to see the game)", "vi": "Tôi đang vội. Tôi muốn về nhà kịp để xem trận đấu trên TV." }
+            ] },
+            { "kind": "text", "text": "The opposite of **in time** is **too late**:", "vi": "Trái nghĩa với **in time** là **too late**:" },
+            { "kind": "examples", "items": [
+              { "en": "I got home **too late** to watch the game on TV.", "vi": "Tôi về nhà quá muộn nên không kịp xem trận đấu trên TV." }
+            ] },
+            { "kind": "text", "text": "You can say **just in time** (= almost too late):", "vi": "Bạn có thể nói **just in time** (= vừa kịp lúc, suýt thì muộn):" },
+            { "kind": "examples", "items": [
+              { "en": "We got to the station **just in time** for our train.", "vi": "Chúng tôi đến ga vừa kịp lúc để bắt tàu." },
+              { "en": "A child ran into the road in front of the car, but I managed to stop **just in time**.", "vi": "Một đứa trẻ chạy ra đường trước mũi xe, nhưng tôi đã kịp phanh lại đúng lúc." }
+            ] }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "at the end và in the end",
+          "headingEn": "at the end and in the end",
+          "parts": [
+            { "kind": "text", "text": "**at the end** (of something) = at the time when something ends", "vi": "**at the end** (of something) = vào lúc điều gì đó kết thúc" },
+            { "kind": "text", "text": "For example:", "vi": "Ví dụ:" },
+            { "kind": "table", "table": { "variant": "grid", "rows": [
+              ["at the end of the month", "at the end of January", "at the end of the game"],
+              ["at the end of the film", "at the end of the course", "at the end of the concert"]
+            ] } },
+            { "kind": "examples", "items": [
+              { "en": "I'm going away **at the end of January** / **at the end of the month**.", "vi": "Tôi sẽ đi xa vào cuối tháng Một / cuối tháng." },
+              { "en": "**At the end of the concert**, everyone applauded.", "vi": "Cuối buổi hòa nhạc, mọi người đã vỗ tay." },
+              { "en": "The players shook hands **at the end of the game**.", "vi": "Các cầu thủ đã bắt tay nhau khi trận đấu kết thúc." }
+            ] },
+            { "kind": "text", "text": "We do **not** say 'in the end of ...' . For example, we do not say 'in the end of January'.", "vi": "Chúng ta **không** nói 'in the end of ...'. Ví dụ, chúng ta không nói 'in the end of January'." },
+            { "kind": "text", "text": "The opposite of **at the end** is **at the beginning**:", "vi": "Trái nghĩa với **at the end** là **at the beginning**:" },
+            { "kind": "examples", "items": [
+              { "en": "I'm going away **at the beginning** of January.", "note": "(not in the beginning)", "vi": "Tôi sẽ đi xa vào đầu tháng Một." }
+            ] },
+            { "kind": "text", "text": "**in the end** = finally", "vi": "**in the end** = cuối cùng, rốt cuộc" },
+            { "kind": "text", "text": "We use **in the end** when we say what the final result of a situation was:", "vi": "Chúng ta dùng **in the end** khi nói kết quả cuối cùng của một tình huống là gì:" },
+            { "kind": "examples", "items": [
+              { "en": "We had a lot of problems with our car. We sold it **in the end**.", "note": "(= finally we sold it)", "vi": "Chúng tôi gặp nhiều rắc rối với chiếc xe. Cuối cùng chúng tôi đã bán nó." },
+              { "en": "He got more and more angry. **In the end** he just walked out of the room.", "vi": "Anh ấy ngày càng tức giận. Cuối cùng anh ấy bỏ ra khỏi phòng." },
+              { "en": "Alan couldn't decide where to go for his holidays. He didn't go anywhere **in the end**.", "note": "(not at the end)", "vi": "Alan không thể quyết định đi đâu nghỉ. Cuối cùng anh ấy chẳng đi đâu cả." }
+            ] },
+            { "kind": "text", "text": "The opposite of **in the end** is **at first**:", "vi": "Trái nghĩa với **in the end** là **at first**:" },
+            { "kind": "examples", "items": [
+              { "en": "**At first** we didn't get on very well, but **in the end** we became good friends.", "vi": "Lúc đầu chúng tôi không hợp nhau lắm, nhưng cuối cùng chúng tôi đã trở thành bạn tốt." }
+            ] }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "122.1 · Hoàn thành câu với on time hoặc in time",
+      "titleEn": "122.1 · Complete the sentences with on time or in time",
+      "instructions": "Hoàn thành câu bằng on time hoặc in time.",
+      "instructionsEn": "Complete the sentences with on time or in time.",
+      "wordBank": ["on time", "in time"],
+      "examples": [
+        { "label": "1", "prompt": "The bus is usually ___, but it was late this morning.", "answer": "on time" }
+      ],
+      "items": [
+        { "prompt": "The film was supposed to start at 8.30, but it didn't begin ___.", "answer": "on time" },
+        { "prompt": "The train service isn't very good. The trains are rarely ___.", "answer": "on time" },
+        { "prompt": "We nearly missed our train. We got to the station just ___.", "answer": "in time" },
+        { "prompt": "We want to start the meeting ___, so please don't be late.", "answer": "on time" },
+        { "prompt": "I've just washed this shirt. I want to wear it this evening, so I hope it will be dry ___.", "answer": "in time" },
+        { "prompt": "I almost forgot that it was Joe's birthday. Fortunately I remembered ___.", "answer": "in time" },
+        { "prompt": "Why are you never ___? You always keep everybody waiting.", "answer": "on time" },
+        { "prompt": "It is hoped that the new stadium will be ready ___ for the tournament later this year.", "answer": "in time" }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "122.2 · Đọc tình huống và viết câu, dùng just in time",
+      "titleEn": "122.2 · Read the situations and make sentences using just in time",
+      "instructions": "Đọc tình huống rồi viết câu, dùng just in time và động từ gợi ý trong ngoặc.",
+      "instructionsEn": "Read the situations and make sentences using just in time and the verb given in brackets.",
+      "examples": [
+        { "label": "1", "context": "A child ran into the road in front of your car. You saw the child at the last moment. (manage / stop)", "prompt": "I ___.", "answer": "managed to stop just in time" }
+      ],
+      "items": [
+        { "context": "You were walking home. Just after you got home, it started to rain very heavily. (get / home)", "prompt": "I ___.", "answer": "got home just in time" },
+        { "context": "Your friend was going to sit on the chair you had just painted. You said, 'Don't sit on that chair!', so he didn't. (stop / him)", "prompt": "I ___.", "answer": "stopped him just in time" },
+        { "context": "You and a friend went to the cinema. You were late, and you thought you would miss the beginning of the film. But the film began just as you sat down in the cinema. (get / cinema / beginning / film)", "prompt": "We ___.", "answer": "got to the cinema just in time for the beginning of the film" }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "122.3 · Hoàn thành câu, dùng at the end + từ cho sẵn",
+      "titleEn": "122.3 · Complete the sentences using at the end + the following",
+      "instructions": "Hoàn thành câu bằng at the end + một cụm trong hộp từ.",
+      "instructionsEn": "Complete the sentences using at the end + one of the phrases in the word bank.",
+      "wordBank": ["the course", "the game", "the interview", "the month", "the race"],
+      "examples": [
+        { "label": "1", "prompt": "The players shook hands ___.", "answer": "at the end of the game" }
+      ],
+      "items": [
+        { "prompt": "I get paid ___.", "answer": "at the end of the month" },
+        { "prompt": "The students had a party ___.", "answer": "at the end of the course" },
+        { "prompt": "Two of the runners collapsed ___.", "answer": "at the end of the race" },
+        { "prompt": "I was surprised when I was offered the job ___.", "answer": "at the end of the interview" }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "122.4 · Viết câu với in the end",
+      "titleEn": "122.4 · Write sentences with in the end",
+      "instructions": "Viết câu với in the end, dùng động từ gợi ý trong ngoặc.",
+      "instructionsEn": "Write sentences with in the end. Use the verb in brackets.",
+      "examples": [
+        { "label": "1", "context": "We had a lot of problems with our car. (sell)", "prompt": "___", "answer": "In the end we sold it." }
+      ],
+      "items": [
+        { "context": "Anna got more and more fed up with her job. (resign)", "prompt": "___", "answer": "In the end she resigned." },
+        { "context": "I tried to learn Japanese, but I found it too difficult. (give up)", "prompt": "___", "answer": "In the end I gave up." },
+        { "context": "We couldn't decide whether to go to the party or not. (not / go)", "prompt": "___", "answer": "In the end we didn't go." }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "122.5 · Điền at hoặc in",
+      "titleEn": "122.5 · Put in at or in",
+      "instructions": "Điền at hoặc in vào chỗ trống.",
+      "instructionsEn": "Put in at or in.",
+      "wordBank": ["at", "in"],
+      "examples": [
+        { "label": "1", "prompt": "I'm going away ___ the end of the month.", "answer": "at" }
+      ],
+      "items": [
+        { "prompt": "It took Gary a long time to find work. ___ the end he got a job as a bus driver.", "answer": "In" },
+        { "prompt": "I couldn't decide what to buy Amy for her birthday. I didn't buy her anything ___ the end.", "answer": "in" },
+        { "prompt": "I'm going away ___ the end of this week.", "answer": "at" },
+        { "prompt": "We waited ages for a bus. ___ the end we had to get a taxi.", "answer": "In" },
+        { "prompt": "___ the end of the lesson, all the students left the classroom.", "answer": "At" },
+        { "prompt": "We had a few problems at first, but ___ the end everything was OK.", "answer": "in" },
+        { "prompt": "You were in a difficult position. What did you do ___ the end?", "answer": "in" },
+        { "prompt": "The journey took a very long time, but we got there ___ the end.", "answer": "in" },
+        { "prompt": "Are you going away ___ the beginning of August or ___ the end?", "answer": "at", "extraBlanks": [{ "answer": "at" }] }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng on time, in time, at the end hoặc in the end về cuộc sống của riêng bạn, ví dụ 'My train was on time this morning.', 'I got to the airport just in time for my flight.', 'We had problems, but in the end everything was OK.'.",
+      "instructionsEn": "Write 2-3 English sentences using on time, in time, at the end or in the end about your own life, e.g. 'My train was on time this morning.', 'I got to the airport just in time for my flight.', 'We had problems, but in the end everything was OK.'.",
+      "ruleSummary": "This unit covers on time/in time and at the end/in the end. On time = punctual, happening at the planned time ('The train left on time'). In time (for something / to do something) = soon enough ('Will you be home in time for dinner?'); its opposite is too late; just in time = almost too late. At the end (of something) = at the point when it finishes ('at the end of the film'; opposite: at the beginning) - we never say 'in the end of ...'. In the end = finally, the eventual result of a situation ('We had problems with the car. We sold it in the end'; opposite: at first). A correct student sentence should use on time for punctuality, in time for 'soon enough', at the end of + a noun for a literal finishing point, and in the end for how a situation was finally resolved."
+    }
+  ]
+};
+
+export const UNIT_123_IN_AT_ON_POSITION_1: GrammarUnit = {
+  "unit": 123,
+  "slug": "in-at-on-position-1",
+  "title": "in/at/on (position) 1",
+  "topic": "conjunctions and prepositions",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "in (bên trong một không gian)",
+          "headingEn": "in (inside a space)",
+          "parts": [
+            { "kind": "table", "table": { "variant": "grid", "rows": [
+              ["in a room", "in a garden", "in a pool"],
+              ["in a building", "in a town", "in the sea"],
+              ["in a box", "in the city centre", "in a river"]
+            ] } },
+            { "kind": "examples", "items": [
+              { "en": "There's no-one **in** the room / **in** the building / **in** the garden.", "vi": "Không có ai ở trong phòng / trong tòa nhà / trong vườn." },
+              { "en": "What do you have **in** your hand / **in** your mouth?", "vi": "Bạn đang cầm gì trong tay / ngậm gì trong miệng vậy?" },
+              { "en": "When we were in Italy, we spent a few days **in** Venice.", "vi": "Khi chúng tôi ở Ý, chúng tôi đã dành vài ngày ở Venice." },
+              { "en": "I have a friend who lives **in** a small village **in** the mountains.", "vi": "Tôi có một người bạn sống trong một ngôi làng nhỏ trên núi." },
+              { "en": "There were some people swimming **in** the pool / **in** the sea / **in** the river.", "vi": "Có vài người đang bơi trong bể bơi / dưới biển / trên sông." }
+            ] }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "at (một điểm cụ thể)",
+          "headingEn": "at (a point)",
+          "parts": [
+            { "kind": "table", "table": { "variant": "grid", "rows": [
+              ["at the bus stop", "at the door", "at the roundabout", "at her desk"]
+            ] } },
+            { "kind": "examples", "items": [
+              { "en": "Who is that man standing **at** the bus stop / **at** the door / **at** the window?", "vi": "Người đàn ông đang đứng ở trạm xe buýt / ở cửa / ở cửa sổ kia là ai vậy?" },
+              { "en": "Turn left **at** the traffic lights / **at** the next junction / **at** the roundabout / **at** the church.", "vi": "Rẽ trái ở đèn giao thông / ở ngã tư tiếp theo / ở vòng xuyến / ở nhà thờ." },
+              { "en": "We have to get off the bus **at** the next stop.", "vi": "Chúng ta phải xuống xe buýt ở trạm tiếp theo." },
+              { "en": "When you leave the hotel, please leave your key **at** reception.", "note": "(= at the reception desk)", "vi": "Khi rời khách sạn, làm ơn để chìa khóa lại ở quầy lễ tân." }
+            ] },
+            { "kind": "text", "text": "Compare **in** and **at**:", "vi": "So sánh **in** và **at**:" },
+            { "kind": "examples", "items": [
+              { "en": "There were a lot of people **in** the shop. It was crowded.", "vi": "Có rất nhiều người ở trong cửa hàng. Nó rất đông đúc." },
+              { "en": "Go along this road, then turn left **at** the shop.", "vi": "Đi dọc theo con đường này, sau đó rẽ trái ở cửa hàng." },
+              { "en": "I'll meet you **in** the hotel lobby.", "note": "(= in the building)", "vi": "Tôi sẽ gặp bạn ở sảnh khách sạn." },
+              { "en": "I'll meet you **at** the entrance to the hotel.", "note": "(= outside the building)", "vi": "Tôi sẽ gặp bạn ở lối vào khách sạn." }
+            ] }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "on (trên bề mặt)",
+          "headingEn": "on (a surface)",
+          "parts": [
+            { "kind": "words", "words": ["on the wall", "on the door", "on the ceiling", "on her nose", "on the floor", "on the table", "on a page", "on an island"] },
+            { "kind": "examples", "items": [
+              { "en": "I sat **on** the floor / **on** the ground / **on** the grass / **on** the beach / **on** a chair.", "vi": "Tôi đã ngồi trên sàn / trên mặt đất / trên bãi cỏ / trên bãi biển / trên ghế." },
+              { "en": "There's a dirty mark **on** the ceiling / **on** your nose / **on** your shirt.", "vi": "Có một vết bẩn trên trần nhà / trên mũi bạn / trên áo bạn." },
+              { "en": "Did you see the notice **on** the wall / **on** the door?", "vi": "Bạn có thấy tờ thông báo trên tường / trên cửa không?" },
+              { "en": "You'll find details of TV programmes **on** page seven of the newspaper.", "vi": "Bạn sẽ tìm thấy thông tin về các chương trình TV ở trang bảy của tờ báo." },
+              { "en": "The hotel is **on** a small island in the middle of a lake.", "vi": "Khách sạn nằm trên một hòn đảo nhỏ giữa hồ." }
+            ] },
+            { "kind": "text", "text": "Compare **in** and **on**:", "vi": "So sánh **in** và **on**:" },
+            { "kind": "examples", "items": [
+              { "en": "There is some water **in** the bottle.", "vi": "Có một ít nước trong chai." },
+              { "en": "There is a label **on** the bottle.", "vi": "Có một cái nhãn trên chai." }
+            ] },
+            { "kind": "text", "text": "Compare **at** and **on**:", "vi": "So sánh **at** và **on**:" },
+            { "kind": "examples", "items": [
+              { "en": "There is somebody **at** the door. Shall I go and see who it is?", "vi": "Có ai đó ở cửa kìa. Tôi ra xem là ai nhé?" },
+              { "en": "There is a notice **on** the door. It says 'Do not disturb'.", "vi": "Có một tờ thông báo trên cửa. Nó ghi 'Xin đừng làm phiền'." }
+            ] }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "123.2 · Hoàn thành câu, dùng in, at hoặc on + từ cho sẵn",
+      "titleEn": "123.2 · Complete the sentences. Use in, at or on + the following",
+      "instructions": "Hoàn thành câu bằng in, at hoặc on + một cụm trong hộp từ. (Bài 123.1 dùng hình minh hoạ nên không đưa vào đây.)",
+      "instructionsEn": "Complete the sentences. Use in, at or on + one of the phrases in the word bank. (Exercise 123.1 is picture-based and is skipped here.)",
+      "wordBank": ["the window", "his hand", "the mountains", "that tree", "my guitar", "the river", "the island", "junction 14"],
+      "examples": [
+        { "label": "1", "prompt": "There were some people swimming ___.", "answer": "in the river" }
+      ],
+      "items": [
+        { "prompt": "One of the strings ___ is broken.", "answer": "on my guitar" },
+        { "prompt": "Leave the motorway ___ and then turn left.", "answer": "at junction 14" },
+        { "prompt": "He was holding something ___, but I couldn't see what it was.", "answer": "in his hand" },
+        { "prompt": "The leaves ___ are a beautiful colour.", "answer": "on that tree" },
+        { "prompt": "You can go skiing ___. There's plenty of snow.", "answer": "in the mountains" },
+        { "prompt": "There's nobody living ___ near here. It's uninhabited.", "answer": "on the island" },
+        { "prompt": "He spends most of the day sitting ___ and looking outside.", "answer": "at the window" }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "123.3 · Điền in, at hoặc on",
+      "titleEn": "123.3 · Complete the sentences with in, at or on",
+      "instructions": "Điền in, at hoặc on vào chỗ trống.",
+      "instructionsEn": "Complete the sentences with in, at or on.",
+      "wordBank": ["in", "at", "on"],
+      "examples": [
+        { "label": "1", "prompt": "There was a long queue of people ___ the bus stop.", "answer": "at" }
+      ],
+      "items": [
+        { "prompt": "Nicola was wearing a silver ring ___ her little finger.", "answer": "on" },
+        { "prompt": "There was a security guard standing ___ the entrance to the building.", "answer": "at" },
+        { "prompt": "I wasn't sure whether I had come to the right office. There was no name ___ the door.", "answer": "on" },
+        { "prompt": "There are plenty of shops and restaurants ___ the town centre.", "answer": "in" },
+        { "prompt": "You'll find the weather forecast ___ the back page of the newspaper.", "answer": "on" },
+        { "prompt": "The headquarters of the company are ___ California.", "answer": "in" },
+        { "prompt": "I wouldn't like an office job. I couldn't spend the whole day sitting ___ a desk.", "answer": "at" },
+        { "prompt": "The man the police are looking for has a scar ___ his right cheek.", "answer": "on" },
+        { "prompt": "If you come here by bus, get off ___ the stop after the traffic lights.", "answer": "at" },
+        { "prompt": "Have you ever been camping? Have you ever slept ___ a tent?", "answer": "in" },
+        { "prompt": "Emily was sitting ___ the balcony reading a book.", "answer": "on" },
+        { "prompt": "My brother lives ___ a small village ___ the south-west of England.", "answer": "in", "extraBlanks": [{ "answer": "in" }] },
+        { "prompt": "I like that picture hanging ___ the wall ___ the kitchen.", "answer": "on", "extraBlanks": [{ "answer": "in" }] }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng in, at hoặc on để nói về vị trí của đồ vật hoặc nơi chốn xung quanh bạn, ví dụ 'My phone is on the table.', 'There's a mirror on the wall in my room.', 'I met her at the bus stop.'.",
+      "instructionsEn": "Write 2-3 English sentences using in, at or on to describe the position of things or places around you, e.g. 'My phone is on the table.', 'There's a mirror on the wall in my room.', 'I met her at the bus stop.'.",
+      "ruleSummary": "This unit covers in/at/on for position. In is for inside a space or area: in a room, in a box, in the sea, in a village, in the mountains. At is for a point: at the bus stop, at the door, at her desk, at the traffic lights, at reception; compare 'in the shop' (inside the building, crowded) with 'turn left at the shop' (the shop as a point on a route). On is for a surface: on the wall, on the ceiling, on the floor, on a page, on an island (an island as a surface you can be on); compare 'in the bottle' (water inside it) with 'on the bottle' (a label on its surface), and 'at the door' (somebody there) with 'on the door' (a notice fixed to it). A correct student sentence should use in for something enclosed or inside an area, on for something touching/resting on a surface, and at for a specific point or place."
+    }
+  ]
+};
+
+export const UNIT_124_IN_AT_ON_POSITION_2: GrammarUnit = {
+  "unit": 124,
+  "slug": "in-at-on-position-2",
+  "title": "in/at/on (position) 2",
+  "topic": "conjunctions and prepositions",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "in cho hàng, tranh ảnh, ấn phẩm",
+          "headingEn": "in for rows, pictures, publications",
+          "parts": [
+            { "kind": "text", "text": "We say that somebody/something is:", "vi": "Chúng ta nói ai đó/cái gì đó ở:" },
+            { "kind": "table", "table": { "variant": "grid", "rows": [
+              ["in a line, in a row, in a queue", "in a picture, in a photo(graph)", "in a newspaper, in a magazine, in a book"],
+              ["in an office, in a department", "in the sky, in the world", "in the country (= not in a town)"]
+            ] } },
+            { "kind": "examples", "items": [
+              { "en": "When I go to the cinema, I like to sit **in** the front row.", "vi": "Khi đi xem phim, tôi thích ngồi ở hàng ghế đầu." },
+              { "en": "Amy works **in** the sales department.", "vi": "Amy làm việc trong phòng kinh doanh." },
+              { "en": "Who is the woman **in** that picture?", "vi": "Người phụ nữ trong bức ảnh đó là ai vậy?" },
+              { "en": "Do you live **in** a city or **in** the country?", "vi": "Bạn sống ở thành phố hay ở nông thôn?" },
+              { "en": "It's a lovely day. There isn't a cloud **in** the sky.", "vi": "Hôm nay đẹp trời quá. Không có lấy một đám mây trên bầu trời." }
+            ] }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "on cho trái/phải, tầng nhà, bản đồ",
+          "headingEn": "on for left/right, floors, maps",
+          "parts": [
+            { "kind": "text", "text": "We say that somebody/something is:", "vi": "Chúng ta nói ai đó/cái gì đó ở:" },
+            { "kind": "text", "text": "**on the left**, **on the right** (or *on the left-hand side*, *on the right-hand side*):", "vi": "**on the left**, **on the right** (hoặc *on the left-hand side*, *on the right-hand side*):" },
+            { "kind": "examples", "items": [
+              { "en": "Do you drive **on the left** or **on the right** in your country?", "vi": "Ở nước bạn người ta lái xe bên trái hay bên phải?" }
+            ] },
+            { "kind": "text", "text": "**on the ground floor**, **on the first floor**, **on the second floor** etc.:", "vi": "**on the ground floor**, **on the first floor**, **on the second floor** v.v.:" },
+            { "kind": "examples", "items": [
+              { "en": "Our apartment is **on the second floor** of the building.", "vi": "Căn hộ của chúng tôi ở tầng hai của toà nhà." }
+            ] },
+            { "kind": "text", "text": "**on a map**, **on a menu**, **on a list**, **on a page**, **on a website**:", "vi": "**on a map**, **on a menu**, **on a list**, **on a page**, **on a website**:" },
+            { "kind": "examples", "items": [
+              { "en": "Here's the shopping list. Don't buy anything that's not **on the list**.", "vi": "Đây là danh sách mua sắm. Đừng mua thứ gì không có trong danh sách." },
+              { "en": "You'll find the information you need **on** our website.", "vi": "Bạn sẽ tìm thấy thông tin cần thiết trên trang web của chúng tôi." }
+            ] },
+            { "kind": "text", "text": "We say that a place is **on a river** / **on a road** / **on the coast**:", "vi": "Chúng ta nói một nơi nằm **on a river** / **on a road** / **on the coast**:" },
+            { "kind": "examples", "items": [
+              { "en": "Vienna is **on** the (river) Danube.", "vi": "Vienna nằm bên sông Danube." },
+              { "en": "The town where you live - is it **on the coast** or is it inland?", "vi": "Thị trấn nơi bạn sống nằm trên bờ biển hay trong đất liền?" }
+            ] },
+            { "kind": "text", "text": "We say **on the way** (from one place to another):", "vi": "Chúng ta nói **on the way** (trên đường từ nơi này đến nơi khác):" },
+            { "kind": "examples", "items": [
+              { "en": "We stopped at a shop **on the way** home.", "vi": "Chúng tôi đã dừng lại ở một cửa hàng trên đường về nhà." }
+            ] }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "at the top/bottom/end",
+          "headingEn": "at the top/bottom/end",
+          "parts": [
+            { "kind": "text", "text": "We say:", "vi": "Chúng ta nói:" },
+            { "kind": "text", "text": "**at the top** (of ...), **at the bottom** (of ...), **at the end** (of ...):", "vi": "**at the top** (of ...), **at the bottom** (of ...), **at the end** (of ...):" },
+            { "kind": "examples", "items": [
+              { "en": "Write your name **at the top** of the page.", "vi": "Viết tên bạn ở đầu trang." },
+              { "en": "Jane lives **at the other end** of the street.", "vi": "Jane sống ở đầu kia của con phố." }
+            ] }
+          ]
+        },
+        {
+          "label": "D",
+          "heading": "front/back của xe, toà nhà",
+          "headingEn": "front/back of a car, a building",
+          "parts": [
+            { "kind": "text", "text": "We say:", "vi": "Chúng ta nói:" },
+            { "kind": "text", "text": "**in the front**, **in the back** of a car:", "vi": "**in the front**, **in the back** của một chiếc xe hơi:" },
+            { "kind": "examples", "items": [
+              { "en": "I was **in the back** (of the car) when we had the accident.", "vi": "Tôi đang ngồi ở ghế sau (của xe) khi tai nạn xảy ra." }
+            ] },
+            { "kind": "text", "text": "**at the front**, **at the back** of a building / theatre / group of people etc.:", "vi": "**at the front**, **at the back** của một toà nhà / rạp hát / nhóm người v.v.:" },
+            { "kind": "examples", "items": [
+              { "en": "The garden is **at the back** of the house.", "vi": "Khu vườn ở phía sau ngôi nhà." },
+              { "en": "Let's sit **at the front** (of the cinema).", "vi": "Chúng ta ngồi ở phía trước (rạp chiếu phim) nhé." },
+              { "en": "We were **at the back**, so we couldn't see very well.", "vi": "Chúng tôi ngồi ở phía sau nên không nhìn rõ lắm." }
+            ] },
+            { "kind": "text", "text": "**on the front**, **on the back** of an envelope / a piece of paper etc.:", "vi": "**on the front**, **on the back** của một phong bì / tờ giấy v.v.:" },
+            { "kind": "examples", "items": [
+              { "en": "I wrote the date **on the back** of the photo.", "vi": "Tôi đã viết ngày tháng ở mặt sau tấm ảnh." }
+            ] }
+          ]
+        },
+        {
+          "label": "E",
+          "heading": "corner: in, at, on",
+          "headingEn": "corner: in, at, on",
+          "parts": [
+            { "kind": "text", "text": "We say:", "vi": "Chúng ta nói:" },
+            { "kind": "text", "text": "**in the corner** of a room:", "vi": "**in the corner** của một căn phòng:" },
+            { "kind": "examples", "items": [
+              { "en": "The TV is **in the corner** of the room.", "vi": "Chiếc TV ở trong góc phòng." }
+            ] },
+            { "kind": "text", "text": "**at the corner** or **on the corner** of a street:", "vi": "**at the corner** hoặc **on the corner** của một con phố:" },
+            { "kind": "examples", "items": [
+              { "en": "There is a small shop **at the corner** (of the street). or ... **on the corner** (of the street).", "vi": "Có một cửa hàng nhỏ ở góc phố." }
+            ] }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "124.2 · Hoàn thành câu, dùng in, at hoặc on + từ cho sẵn",
+      "titleEn": "124.2 · Complete the sentences. Use in, at or on + the following",
+      "instructions": "Hoàn thành câu bằng in, at hoặc on + một cụm trong hộp từ. (Bài 124.1 dùng hình minh hoạ nên không đưa vào đây.)",
+      "instructionsEn": "Complete the sentences. Use in, at or on + one of the phrases in the word bank. (Exercise 124.1 is picture-based and is skipped here.)",
+      "wordBank": ["the west coast", "the world", "the back of the class", "the sky", "the front row", "the right", "the back of this card", "the way to work"],
+      "examples": [
+        { "label": "1", "prompt": "It's a lovely day. There isn't a cloud ___.", "answer": "in the sky" }
+      ],
+      "items": [
+        { "prompt": "In most countries people drive ___.", "answer": "on the right" },
+        { "prompt": "What is the tallest building ___?", "answer": "in the world" },
+        { "prompt": "I met a friend of mine ___ this morning.", "answer": "on my way to work" },
+        { "prompt": "San Francisco is ___ of the United States.", "answer": "on the west coast" },
+        { "prompt": "We went to the theatre last night. We had seats ___.", "answer": "in the front row" },
+        { "prompt": "I couldn't hear the teacher. She spoke quietly and I was sitting ___.", "answer": "at the back of the class" },
+        { "prompt": "I don't have your address. Could you write it ___?", "answer": "on the back of this card" }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "124.3 · Điền in, at hoặc on",
+      "titleEn": "124.3 · Complete the sentences with in, at or on",
+      "instructions": "Điền in, at hoặc on vào chỗ trống.",
+      "instructionsEn": "Complete the sentences with in, at or on.",
+      "wordBank": ["in", "at", "on"],
+      "examples": [
+        { "label": "1", "prompt": "Write your name ___ the top of the page.", "answer": "at" }
+      ],
+      "items": [
+        { "prompt": "Is your sister ___ this photo? I don't recognise her.", "answer": "in" },
+        { "prompt": "They live in a small house ___ the bottom of the hill.", "answer": "at" },
+        { "prompt": "We normally use the front entrance to the building, but there's another one ___ the back.", "answer": "at" },
+        { "prompt": "We had to wait ___ a queue for an hour to check in at the airport.", "answer": "in" },
+        { "prompt": "There was a list of names, but my name wasn't ___ the list.", "answer": "on" },
+        { "prompt": "Is there anything interesting ___ today's newspaper?", "answer": "in" },
+        { "prompt": "I love to look up at the stars ___ the sky at night.", "answer": "in" },
+        { "prompt": "When I'm a passenger in a car, I prefer to sit ___ the front.", "answer": "in" },
+        { "prompt": "I live in a very small village. You probably won't find it ___ your map.", "answer": "on" },
+        { "prompt": "Joe works ___ the furniture department of a large store.", "answer": "in" },
+        { "prompt": "Paris is ___ the (river) Seine.", "answer": "on" },
+        { "prompt": "I don't like cities. I'd much prefer to live ___ the country.", "answer": "in" },
+        { "prompt": "My office is ___ the top floor. It's ___ your left as you come out of the lift.", "answer": "on", "extraBlanks": [{ "answer": "on" }] }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng in, at hoặc on về nơi làm việc, nhà ở hoặc thành phố của bạn, ví dụ 'My office is on the third floor.', 'I sit at the back of the class.', 'There's a park at the end of my street.'.",
+      "instructionsEn": "Write 2-3 English sentences using in, at or on about your workplace, home or town, e.g. 'My office is on the third floor.', 'I sit at the back of the class.', 'There's a park at the end of my street.'.",
+      "ruleSummary": "This unit continues in/at/on for position. In is for rows/queues/pictures/publications/departments ('in the front row', 'in a photo', 'in the sales department') and 'in the world'/'in the country'. On is for left/right, floors, maps/lists/menus/websites, rivers/roads/coasts, and 'on the way' ('on the second floor', 'on our website', 'Vienna is on the Danube'). At is used with top/bottom/end ('at the top of the page'). Front/back varies by preposition: 'in the front/back' of a car (inside it), 'at the front/back' of a building or group (a general area), 'on the front/back' of a flat surface like an envelope. Corner works with in (a room's corner, inside) or at/on (a street corner, either is fine). A correct student sentence should pick in for something inside/among a group, on for a surface or a position along a line (floor, coast, map), and at for a fixed reference point (top, bottom, end)."
+    }
+  ]
+};
+
+export const UNIT_125_IN_AT_ON_POSITION_3: GrammarUnit = {
+  "unit": 125,
+  "slug": "in-at-on-position-3",
+  "title": "in/at/on (position) 3",
+  "topic": "conjunctions and prepositions",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "in hospital / at work",
+          "headingEn": "in hospital / at work etc.",
+          "parts": [
+            { "kind": "text", "text": "We say that somebody is **in bed** / **in hospital** / **in prison**:", "vi": "Chúng ta nói ai đó **in bed** / **in hospital** / **in prison**:" },
+            { "kind": "examples", "items": [
+              { "en": "James isn't up yet. He's still **in bed**.", "vi": "James vẫn chưa dậy. Anh ấy vẫn còn nằm trên giường." },
+              { "en": "Anna's mother is **in hospital**.", "vi": "Mẹ của Anna đang nằm viện." }
+            ] },
+            { "kind": "text", "text": "We say that somebody is **at home** / **at work** / **at school** / **at university** / **at college**:", "vi": "Chúng ta nói ai đó **at home** / **at work** / **at school** / **at university** / **at college**:" },
+            { "kind": "examples", "items": [
+              { "en": "I'll be **at work** until 5.30.", "vi": "Tôi sẽ ở chỗ làm đến 5 giờ 30." },
+              { "en": "My sister is **at university**. My brother is still **at school**.", "vi": "Chị tôi đang học đại học. Em trai tôi vẫn còn đi học phổ thông." }
+            ] },
+            { "kind": "text", "text": "We say *be at home* or *be home* (with or without **at**), but *do something* **at home** (with **at**):", "vi": "Chúng ta nói *be at home* hoặc *be home* (có hoặc không có **at**), nhưng *làm gì đó* thì luôn dùng **at home** (có **at**):" },
+            { "kind": "examples", "items": [
+              { "en": "I'll be home all evening. or I'll be **at home** all evening.", "vi": "Tôi sẽ ở nhà cả buổi tối." },
+              { "en": "Shall we go to a restaurant or eat **at home**?", "vi": "Chúng ta đi ăn nhà hàng hay ăn ở nhà?" }
+            ] }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "at a party / at a concert",
+          "headingEn": "at a party / at a concert etc.",
+          "parts": [
+            { "kind": "text", "text": "We say that somebody is **at** an event (**at a party**, **at a conference** etc.):", "vi": "Chúng ta nói ai đó **at** một sự kiện (**at a party**, **at a conference** v.v.):" },
+            { "kind": "examples", "items": [
+              { "en": "Were there many people **at the party** / **at the meeting** / **at the wedding**?", "vi": "Có nhiều người dự tiệc / dự cuộc họp / dự đám cưới không?" },
+              { "en": "I saw Steve **at a conference** / **at a concert** on Saturday.", "vi": "Tôi đã gặp Steve ở một hội nghị / một buổi hoà nhạc vào thứ Bảy." }
+            ] }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "in và at cho toà nhà",
+          "headingEn": "in and at for buildings",
+          "parts": [
+            { "kind": "text", "text": "You can often use **in** or **at** with buildings. For example, you can eat **in** a restaurant or **at** a restaurant; you can buy food **in** a supermarket or **at** a supermarket.", "vi": "Bạn thường có thể dùng **in** hoặc **at** với các toà nhà. Ví dụ, bạn có thể ăn **in** a restaurant hoặc **at** a restaurant; bạn có thể mua đồ ăn **in** a supermarket hoặc **at** a supermarket." },
+            { "kind": "text", "text": "We usually say **at** when we say where an event takes place (a concert, a party, a meeting etc.):", "vi": "Chúng ta thường nói **at** khi nói một sự kiện diễn ra ở đâu (buổi hoà nhạc, bữa tiệc, cuộc họp v.v.):" },
+            { "kind": "examples", "items": [
+              { "en": "We went to a concert **at** the National Concert Hall.", "vi": "Chúng tôi đã đi xem hoà nhạc tại Nhà hát Hoà nhạc Quốc gia." },
+              { "en": "The meeting took place **at** the company's head office **in** Frankfurt.", "vi": "Cuộc họp diễn ra tại trụ sở chính của công ty ở Frankfurt." },
+              { "en": "There was a robbery **at** the supermarket.", "vi": "Đã xảy ra một vụ cướp tại siêu thị." }
+            ] },
+            { "kind": "text", "text": "We say **at somebody's house**:", "vi": "Chúng ta nói **at somebody's house**:" },
+            { "kind": "examples", "items": [
+              { "en": "I was **at Helen's** (house) last night. or I was **at Helen's** last night.", "vi": "Tối qua tôi đã ở nhà Helen." }
+            ] },
+            { "kind": "text", "text": "In the same way we say **at the doctor's**, **at the hairdresser's** etc.", "vi": "Tương tự, chúng ta nói **at the doctor's**, **at the hairdresser's** v.v." },
+            { "kind": "text", "text": "We use **in** when we are thinking about the building itself. Compare **at** and **in**:", "vi": "Chúng ta dùng **in** khi nghĩ đến chính toà nhà đó. So sánh **at** và **in**:" },
+            { "kind": "examples", "items": [
+              { "en": "I was **at** Helen's (house) last night.", "vi": "Tối qua tôi đã ở nhà Helen." },
+              { "en": "It's always cold **in** Helen's house. The heating doesn't work well.", "note": "(not at Helen's house)", "vi": "Nhà của Helen lúc nào cũng lạnh. Hệ thống sưởi không hoạt động tốt." },
+              { "en": "We had dinner **at** the hotel.", "vi": "Chúng tôi đã ăn tối tại khách sạn." },
+              { "en": "All the rooms **in** the hotel have air conditioning.", "note": "(not at the hotel)", "vi": "Tất cả các phòng trong khách sạn đều có điều hoà." }
+            ] },
+            { "kind": "text", "text": "We say **at the station** / **at the airport**:", "vi": "Chúng ta nói **at the station** / **at the airport**:" },
+            { "kind": "examples", "items": [
+              { "en": "There's no need to meet me **at the station**. I can get a taxi.", "vi": "Không cần đón tôi ở ga đâu. Tôi có thể bắt taxi." }
+            ] }
+          ]
+        },
+        {
+          "label": "D",
+          "heading": "in và at cho thành phố, thị trấn",
+          "headingEn": "in and at for towns etc.",
+          "parts": [
+            { "kind": "text", "text": "We normally use **in** with cities, towns and villages:", "vi": "Chúng ta thường dùng **in** với thành phố, thị trấn và làng mạc:" },
+            { "kind": "examples", "items": [
+              { "en": "The Louvre is a famous art museum **in** Paris.", "note": "(not at Paris)", "vi": "Bảo tàng Louvre là một bảo tàng nghệ thuật nổi tiếng ở Paris." },
+              { "en": "Sam's parents live **in** a village **in** the south of France.", "note": "(not at a village)", "vi": "Bố mẹ Sam sống trong một ngôi làng ở miền nam nước Pháp." }
+            ] },
+            { "kind": "text", "text": "We use **at** when we think of the place as a point or station on a journey:", "vi": "Chúng ta dùng **at** khi coi nơi đó là một điểm dừng trên hành trình:" },
+            { "kind": "examples", "items": [
+              { "en": "Does this train stop **at** Oxford?", "note": "(= at Oxford station)", "vi": "Chuyến tàu này có dừng ở Oxford không?" }
+            ] }
+          ]
+        },
+        {
+          "label": "E",
+          "heading": "on a bus / in a car",
+          "headingEn": "on a bus / in a car etc.",
+          "parts": [
+            { "kind": "text", "text": "We usually say **on a bus** / **on a train** / **on a plane** / **on a ship** but **in a car** / **in a taxi**:", "vi": "Chúng ta thường nói **on a bus** / **on a train** / **on a plane** / **on a ship** nhưng **in a car** / **in a taxi**:" },
+            { "kind": "examples", "items": [
+              { "en": "The bus was very full. There were too many people **on** it.", "vi": "Xe buýt rất đông. Có quá nhiều người trên xe." },
+              { "en": "Laura arrived **in** a taxi.", "vi": "Laura đã đến bằng taxi." }
+            ] },
+            { "kind": "text", "text": "We say **on a bike** (= bicycle) / **on a motorbike** / **on a horse**:", "vi": "Chúng ta nói **on a bike** (= xe đạp) / **on a motorbike** / **on a horse**:" },
+            { "kind": "examples", "items": [
+              { "en": "Jane passed me **on** her bike.", "vi": "Jane đã vượt qua tôi trên chiếc xe đạp của cô ấy." }
+            ] }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "125.2 · Hoàn thành câu, dùng in, at hoặc on + từ cho sẵn",
+      "titleEn": "125.2 · Complete the sentences. Use in, at or on + the following",
+      "instructions": "Hoàn thành câu bằng in, at hoặc on + một cụm trong hộp từ. (Bài 125.1 dùng hình minh hoạ nên không đưa vào đây.)",
+      "instructionsEn": "Complete the sentences. Use in, at or on + one of the phrases in the word bank. (Exercise 125.1 is picture-based and is skipped here.)",
+      "wordBank": ["the plane", "the station", "a taxi", "the art gallery", "Tokyo", "school", "prison", "the sports centre"],
+      "examples": [
+        { "label": "1", "prompt": "Some people are ___ for crimes that they did not commit.", "answer": "in prison" }
+      ],
+      "items": [
+        { "prompt": "We can get coffee ___ while we're waiting for our train.", "answer": "at the station" },
+        { "prompt": "We walked to the restaurant, but we went home ___.", "answer": "in a taxi" },
+        { "prompt": "I play basketball ___ on Friday evenings.", "answer": "at the sports centre" },
+        { "prompt": "I enjoyed the flight, but the food ___ was awful.", "answer": "on the plane" },
+        { "prompt": "Vicky has gone to Japan. She's living ___.", "answer": "in Tokyo" },
+        { "context": "A: Does your sister have a job?", "prompt": "B: No, she's only 16. She's still ___.", "answer": "at school" },
+        { "prompt": "There's a new exhibition of paintings ___. Let's go and see it.", "answer": "at the art gallery" }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "125.3 · Điền in, at hoặc on",
+      "titleEn": "125.3 · Complete the sentences with in, at or on",
+      "instructions": "Điền in, at hoặc on vào chỗ trống.",
+      "instructionsEn": "Complete the sentences with in, at or on.",
+      "wordBank": ["in", "at", "on"],
+      "examples": [
+        { "label": "1", "prompt": "We went to a concert ___ the National Concert Hall.", "answer": "at" }
+      ],
+      "items": [
+        { "prompt": "There isn't a shop ___ the village where I live. It's very small.", "answer": "in" },
+        { "prompt": "Joe wasn't ___ the party. I don't know why he didn't go.", "answer": "at" },
+        { "prompt": "There were about ten tables ___ the restaurant, and four tables outside.", "answer": "in" },
+        { "prompt": "I don't know where my umbrella is. Perhaps I left it ___ the bus.", "answer": "on" },
+        { "prompt": "What do you want to study ___ university?", "answer": "at" },
+        { "prompt": "I didn't feel well when I woke up, so I stayed ___ bed.", "answer": "in" },
+        { "prompt": "We were ___ Sarah's house last night. She invited us to dinner.", "answer": "at" },
+        { "prompt": "It was a very slow train. It stopped ___ every station.", "answer": "at" },
+        { "prompt": "Shall we travel ___ your car or mine?", "answer": "in" },
+        { "prompt": "We took a taxi and Ben followed ___ his motorbike.", "answer": "on" },
+        { "prompt": "I'd like to see a movie. What's on ___ the cinema this week?", "answer": "at" },
+        { "prompt": "We went to see a movie last night. It was really cold ___ the cinema.", "answer": "in" },
+        { "prompt": "Two people were injured in the accident and are still ___ hospital.", "answer": "in" },
+        { "prompt": "Our flight was delayed. We had to wait ___ the airport for three hours.", "answer": "at" },
+        { "prompt": "I didn't expect you to be ___ home. I thought you'd be ___ work.", "answer": "at", "extraBlanks": [{ "answer": "at" }] }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng in, at hoặc on để nói về những nơi bạn thường ở hoặc phương tiện bạn thường đi, ví dụ 'I'm usually at work by 8 o'clock.', 'My brother is still at school.', 'I go to work on the bus.'.",
+      "instructionsEn": "Write 2-3 English sentences using in, at or on to talk about places you're usually at or how you usually travel, e.g. 'I'm usually at work by 8 o'clock.', 'My brother is still at school.', 'I go to work on the bus.'.",
+      "ruleSummary": "This unit continues in/at/on for position. Somebody is in bed / in hospital / in prison, but at home / at work / at school / at university / at college; 'do something at home' always keeps at. At is used for events (at a party, at a concert, at a wedding). For buildings, at usually marks where an event happens (at the hotel, at the supermarket) or a fixed point (at the station, at the airport, at somebody's house), while in is used when thinking of the building's interior (all the rooms in the hotel). In is normal for cities/towns/villages (in Paris), at when the place is a stop on a journey (Does this train stop at Oxford?). For transport, on is used for bus/train/plane/ship/bike/motorbike, but in for car/taxi. A correct student sentence should pick at for an event, a fixed point, or a stop on a route, in for being inside a building/place or a city/town, and on for the transport types that take on."
+    }
+  ]
+};
+
+export const UNIT_126_TO_AT_IN_AND_INTO: GrammarUnit = {
+  "unit": 126,
+  "slug": "to-at-in-and-into",
+  "title": "to, at, in and into",
+  "topic": "conjunctions and prepositions",
+  "steps": [
+    {
+      "kind": "rule",
+      "title": "Học quy tắc",
+      "titleEn": "Learn the rule",
+      "blocks": [
+        {
+          "label": "A",
+          "heading": "to cho sự chuyển động đến một nơi",
+          "headingEn": "to for movement to a place",
+          "parts": [
+            { "kind": "text", "text": "We say **go/come/travel** (etc.) **to** a place or event. For example:", "vi": "Chúng ta nói **go/come/travel** (v.v.) **to** một nơi hoặc một sự kiện. Ví dụ:" },
+            { "kind": "table", "table": { "variant": "grid", "rows": [
+              ["go to China", "go to work", "come to my house"],
+              ["go back to Italy", "go to the bank", "drive to the airport"],
+              ["return to London", "go to a party", "be taken to hospital"]
+            ] } },
+            { "kind": "examples", "items": [
+              { "en": "When are your friends going back **to** Italy?", "note": "(not going back in Italy)", "vi": "Khi nào bạn bè của bạn quay lại Ý?" },
+              { "en": "Three people were injured in the accident and taken **to** hospital.", "vi": "Ba người đã bị thương trong vụ tai nạn và được đưa đến bệnh viện." }
+            ] },
+            { "kind": "text", "text": "In the same way we say **Welcome to** ..., **a trip to** ..., **a visit to** ..., **on my way to** ... etc.:", "vi": "Tương tự, chúng ta nói **Welcome to** ..., **a trip to** ..., **a visit to** ..., **on my way to** ... v.v.:" },
+            { "kind": "examples", "items": [
+              { "en": "**Welcome to** our country!", "note": "(not Welcome in)", "vi": "Chào mừng bạn đến với đất nước chúng tôi!" },
+              { "en": "We had to cancel our **trip to** Paris.", "vi": "Chúng tôi đã phải huỷ chuyến đi Paris." }
+            ] },
+            { "kind": "text", "text": "Compare **to** (for movement) and **in/at** (for position):", "vi": "So sánh **to** (chỉ sự chuyển động) và **in/at** (chỉ vị trí):" },
+            { "kind": "examples", "items": [
+              { "en": "They are going **to** France. but They live **in** France.", "vi": "Họ đang đi đến Pháp. Nhưng họ sống ở Pháp." },
+              { "en": "Can you come **to** the party? but I'll see you **at** the party.", "vi": "Bạn có thể đến bữa tiệc không? Nhưng tôi sẽ gặp bạn tại bữa tiệc." }
+            ] },
+            { "kind": "text", "text": "We say '(I've) **been to**' a place or an event:", "vi": "Chúng ta nói '(I've) **been to**' một nơi hoặc một sự kiện:" },
+            { "kind": "examples", "items": [
+              { "en": "I've **been to** Italy four times, but I've never **been to** Rome.", "vi": "Tôi đã đến Ý bốn lần, nhưng chưa bao giờ đến Rome." },
+              { "en": "Amanda has never **been to** a football match in her life.", "vi": "Amanda chưa bao giờ đi xem một trận bóng đá nào trong đời." }
+            ] }
+          ]
+        },
+        {
+          "label": "B",
+          "heading": "get và arrive",
+          "headingEn": "get and arrive",
+          "parts": [
+            { "kind": "text", "text": "We say **get to** a place:", "vi": "Chúng ta nói **get to** một nơi:" },
+            { "kind": "examples", "items": [
+              { "en": "They **got to** the hotel at midnight.", "vi": "Họ đã đến khách sạn lúc nửa đêm." },
+              { "en": "What time did you **get to** the party?", "vi": "Mấy giờ thì bạn đến bữa tiệc?" }
+            ] },
+            { "kind": "text", "text": "We say **arrive in** ... or **arrive at** ... (not *arrive to*). We say **arrive in** a town or country:", "vi": "Chúng ta nói **arrive in** ... hoặc **arrive at** ... (không dùng *arrive to*). Chúng ta nói **arrive in** một thành phố hoặc quốc gia:" },
+            { "kind": "examples", "items": [
+              { "en": "They **arrived in** Madrid / **in** Spain a week ago.", "vi": "Họ đã đến Madrid / đến Tây Ban Nha một tuần trước." }
+            ] },
+            { "kind": "text", "text": "For other places (buildings etc.) or events, we say **arrive at**:", "vi": "Với các nơi khác (toà nhà v.v.) hoặc sự kiện, chúng ta nói **arrive at**:" },
+            { "kind": "examples", "items": [
+              { "en": "What time did you **arrive at** the hotel / **at** the airport / **at** the party?", "vi": "Mấy giờ thì bạn đến khách sạn / đến sân bay / đến bữa tiệc?" }
+            ] }
+          ]
+        },
+        {
+          "label": "C",
+          "heading": "home (không dùng giới từ)",
+          "headingEn": "home (no preposition)",
+          "parts": [
+            { "kind": "text", "text": "We say: **go home**, **come home**, **get home**, **arrive home**, **on the way home** etc. (no preposition). We do **not** say 'to home':", "vi": "Chúng ta nói: **go home**, **come home**, **get home**, **arrive home**, **on the way home** v.v. (không có giới từ). Chúng ta **không** nói 'to home':" },
+            { "kind": "examples", "items": [
+              { "en": "What time did you **get home**?", "note": "(not get to home)", "vi": "Mấy giờ bạn về đến nhà?" },
+              { "en": "I met Lisa **on my way home**.", "vi": "Tôi đã gặp Lisa trên đường về nhà." }
+            ] }
+          ]
+        },
+        {
+          "label": "D",
+          "heading": "into",
+          "headingEn": "into",
+          "parts": [
+            { "kind": "text", "text": "**go into**, **get into** ... etc. = enter (a room / a building / a car etc.):", "vi": "**go into**, **get into** ... v.v. = đi vào (một căn phòng / toà nhà / chiếc xe v.v.):" },
+            { "kind": "examples", "items": [
+              { "en": "I opened the door, went **into** the room and sat down.", "vi": "Tôi mở cửa, bước vào phòng và ngồi xuống." },
+              { "en": "A bird flew **into** the kitchen through the window.", "vi": "Một con chim bay vào bếp qua cửa sổ." },
+              { "en": "Every month my salary is paid directly **into** my bank account.", "vi": "Mỗi tháng lương của tôi được chuyển thẳng vào tài khoản ngân hàng." }
+            ] },
+            { "kind": "text", "text": "With some verbs (especially *go/get/put*) we often use **in** (instead of *into*):", "vi": "Với một số động từ (đặc biệt là *go/get/put*) chúng ta thường dùng **in** (thay vì *into*):" },
+            { "kind": "examples", "items": [
+              { "en": "She got **in** the car and drove away. or She got **into** the car ...", "vi": "Cô ấy lên xe và lái đi." },
+              { "en": "I read the letter and put it back **in** the envelope.", "vi": "Tôi đọc lá thư rồi cho nó trở lại vào phong bì." }
+            ] },
+            { "kind": "text", "text": "The opposite of **into** is **out of**:", "vi": "Trái nghĩa với **into** là **out of**:" },
+            { "kind": "examples", "items": [
+              { "en": "She got **out of** the car and went **into** a shop.", "vi": "Cô ấy ra khỏi xe và đi vào một cửa hàng." }
+            ] },
+            { "kind": "text", "text": "For buses, trains and planes, we usually say **get on** and **get off**:", "vi": "Với xe buýt, tàu hoả và máy bay, chúng ta thường nói **get on** và **get off**:" },
+            { "kind": "examples", "items": [
+              { "en": "She got **on** the bus and I never saw her again.", "vi": "Cô ấy lên xe buýt và tôi không bao giờ gặp lại cô ấy nữa." },
+              { "en": "You need to get **off** (the train) at the next station.", "vi": "Bạn cần xuống (tàu) ở ga tiếp theo." }
+            ] }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "126.1 · Điền to/at/in/into nếu cần",
+      "titleEn": "126.1 · Put in to/at/in/into where necessary",
+      "instructions": "Điền to, at, in hoặc into vào chỗ trống nếu cần. Nếu câu không cần giới từ, gõ dấu - để đánh dấu là không cần thêm từ.",
+      "instructionsEn": "Put in to/at/in/into where necessary. If no preposition is necessary, type - to mark that nothing is needed.",
+      "wordBank": ["to", "at", "in", "into", "-"],
+      "examples": [
+        { "label": "1", "prompt": "Three people were taken ___ hospital after the accident.", "answer": "to" }
+      ],
+      "items": [
+        { "prompt": "I'm tired. Let's go ___ home now.", "answer": "-" },
+        { "prompt": "We left our luggage ___ the station and went to find something to eat.", "answer": "at" },
+        { "prompt": "Shall we take a taxi ___ the station or shall we walk?", "answer": "to" },
+        { "prompt": "I have to go ___ the bank today. What time does it open?", "answer": "to" },
+        { "prompt": "The Amazon flows ___ the Atlantic Ocean.", "answer": "into" },
+        { "prompt": "I missed the bus, so I walked ___ home.", "answer": "-" },
+        { "prompt": "Have you ever been ___ Canada?", "answer": "to" },
+        { "prompt": "I lost my key, but I managed to climb ___ the house through a window.", "answer": "into" },
+        { "prompt": "We got stuck in a traffic jam on our way ___ the airport.", "answer": "to" },
+        { "prompt": "We had lunch ___ the airport while we were waiting for our plane.", "answer": "at" },
+        { "prompt": "It took us four hours to get ___ the top of the mountain.", "answer": "to" },
+        { "prompt": "Welcome ___ the hotel. We hope you enjoy your stay here.", "answer": "to" },
+        { "prompt": "We drove along the main road and then turned ___ a narrow side street.", "answer": "into" },
+        { "prompt": "Did you enjoy your visit ___ the zoo?", "answer": "to" },
+        { "prompt": "I did some shopping on my way ___ home.", "answer": "-" },
+        { "prompt": "Marcel is French. He has just returned ___ France after two years ___ Brazil.", "answer": "to", "extraBlanks": [{ "answer": "in" }] },
+        { "prompt": "Carl was born ___ Chicago, but his family moved ___ Boston when he was three.", "answer": "in", "extraBlanks": [{ "answer": "to" }] }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "126.3 · Điền to/at/in nếu cần",
+      "titleEn": "126.3 · Put in to/at/in where necessary",
+      "instructions": "Điền to, at hoặc in vào chỗ trống nếu cần. Nếu câu không cần giới từ, gõ dấu - để đánh dấu là không cần thêm từ.",
+      "instructionsEn": "Put in to/at/in where necessary. If no preposition is necessary, type - to mark that nothing is needed.",
+      "wordBank": ["to", "at", "in", "-"],
+      "examples": [
+        { "label": "1", "prompt": "What time does this train get ___ London?", "answer": "to" }
+      ],
+      "items": [
+        { "prompt": "They arrived ___ Barcelona a few days ago.", "answer": "in" },
+        { "prompt": "What time did you get ___ home last night?", "answer": "-" },
+        { "prompt": "What time do you usually arrive ___ work in the morning?", "answer": "at" },
+        { "prompt": "When we got ___ the cinema, there was a long queue outside.", "answer": "to" },
+        { "prompt": "We were delayed and arrived ___ home very late.", "answer": "-" }
+      ]
+    },
+    {
+      "kind": "type_fill",
+      "title": "126.4 · Viết câu với got + into / out of / on / off",
+      "titleEn": "126.4 · Write sentences using got + into / out of / on / off",
+      "instructions": "Đọc tình huống rồi viết câu, dùng got + into / out of / on / off.",
+      "instructionsEn": "Read the situations and write sentences using got + into / out of / on / off.",
+      "examples": [
+        { "label": "1", "context": "You were walking home. A friend passed you in her car. She saw you, stopped and offered you a lift. She opened the door. What did you do?", "prompt": "___", "answer": "I got into the car." }
+      ],
+      "items": [
+        { "context": "You were waiting at the bus stop. At last your bus came and stopped. The doors opened. What did you do then?", "prompt": "I ___.", "answer": "got on the bus" },
+        { "context": "You drove home in your car. You stopped outside your house and parked the car. What did you do then?", "prompt": "___", "answer": "I got out of the car." },
+        { "context": "You were travelling by train to Manchester. When the train got to Manchester, what did you do?", "prompt": "___", "answer": "I got off the train." },
+        { "context": "You needed a taxi. After a few minutes a taxi stopped for you. You opened the door. What did you do then?", "prompt": "___", "answer": "I got into the taxi." },
+        { "context": "You were travelling by plane. At the end of your flight, your plane landed at the airport and stopped. The doors were opened, you took your bag and stood up. What did you do then?", "prompt": "___", "answer": "I got off the plane." }
+      ]
+    },
+    {
+      "kind": "ai_practice",
+      "title": "Luyện với AI",
+      "titleEn": "Practise with AI",
+      "instructions": "Hãy viết 2-3 câu tiếng Anh dùng to, at, in, into hoặc I've been to / I've never been to để nói về nơi bạn đã từng đến hoặc chưa từng đến, ví dụ 'I've been to Japan twice.', 'I've never been to Australia.', 'We arrived at the airport at 6 o'clock.'.",
+      "instructionsEn": "Write 2-3 English sentences using to, at, in, into or I've been to / I've never been to about places you have or haven't visited, e.g. 'I've been to Japan twice.', 'I've never been to Australia.', 'We arrived at the airport at 6 o'clock.'.",
+      "ruleSummary": "This unit covers to/at/in/into for movement, plus arrive and home. To marks movement towards a place or event (go to work, a trip to Paris, Welcome to ...) and contrasts with in/at for position (going to France vs living in France). 'Been to' describes a visit (I've been to Italy four times). Get to is used before any place; arrive in is used for towns/countries, arrive at for buildings and events (not 'arrive to'). Home takes no preposition after go/come/get/arrive/on the way (get home, not get to home). Into (or often in after go/get/put) means entering an enclosed space, opposite out of; for bus/train/plane we say get on and get off instead. A correct student sentence should use to for movement toward a destination, arrive in for a country/city, arrive at for a specific place, and into/get on/get off for entering or boarding something."
+    }
+  ]
+};

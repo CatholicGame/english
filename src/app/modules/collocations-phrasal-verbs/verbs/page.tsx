@@ -11,6 +11,7 @@ import { isVerbLocked } from "@/lib/content-access";
 import { LockIcon } from "@/components/LockIcon";
 import { PurchaseModal } from "@/components/PurchaseModal";
 import { useUiLang } from "@/lib/i18n";
+import { useScrollRestoration } from "@/lib/use-scroll-restoration";
 
 const GROUP_KEYS = ["all", ...Object.keys(GROUP_LABELS)];
 
@@ -21,6 +22,7 @@ const CheckIcon = ({ className = "h-4 w-4" }: { className?: string }) => (
 );
 
 export default function VerbsPage() {
+  useScrollRestoration();
   const router = useRouter();
   const { progress } = useProgress();
   const { isUnlocked } = useSubscriptionStore();

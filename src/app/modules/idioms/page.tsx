@@ -9,10 +9,12 @@ import { useSubscriptionStore } from "@/lib/use-subscription-store";
 import { isIdiomUnitLocked } from "@/lib/content-access";
 import { LockIcon } from "@/components/LockIcon";
 import { PurchaseModal } from "@/components/PurchaseModal";
+import { useScrollRestoration } from "@/lib/use-scroll-restoration";
 
 const LEARNED_LVL = 3;
 
 export default function IdiomUnitsPage() {
+  useScrollRestoration();
   const { progress } = useProgress();
   const { isUnlocked } = useSubscriptionStore();
   const [showPurchase, setShowPurchase] = useState(false);

@@ -9,8 +9,10 @@ import { useSubscriptionStore } from "@/lib/use-subscription-store";
 import { isGrammarUnitLocked } from "@/lib/content-access";
 import { LockIcon } from "@/components/LockIcon";
 import { PurchaseModal } from "@/components/PurchaseModal";
+import { useScrollRestoration } from "@/lib/use-scroll-restoration";
 
 export default function GrammarUnitsPage() {
+  useScrollRestoration();
   const { progress } = useProgress();
   const { isUnlocked } = useSubscriptionStore();
   const [showPurchase, setShowPurchase] = useState(false);

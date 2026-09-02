@@ -3,6 +3,7 @@ import { LISTEN_LESSONS } from "./listen-a-minute";
 import { UNITS_META } from "./cambridge-vocabulary-ielts";
 import { UNITS_META as IDIOM_UNITS_META } from "./idioms";
 import { UNITS_META as GRAMMAR_UNITS_META } from "./english-grammar-in-use";
+import { IRREGULAR_VERBS } from "./irregular-verbs";
 
 export interface ModuleDef {
   slug: string;
@@ -59,6 +60,15 @@ export const MODULES: ModuleDef[] = [
     description:
       "Work through each unit's real listening, reading, speaking and vocabulary-building tasks from the Cambridge IELTS Advanced coursebook, fully interactive.",
     statsLabel: `${UNITS_META.length} units · ${UNITS_META.filter((u) => u.available).length} ready`,
+    available: true,
+  },
+  {
+    slug: "irregular-verbs",
+    title: "Irregular Verbs",
+    subtitle: `${IRREGULAR_VERBS.length} verbs`,
+    description:
+      "Look up the base, past simple and past participle of every common irregular verb, each with an example sentence per form.",
+    statsLabel: `${IRREGULAR_VERBS.length} verbs`,
     available: true,
   },
 ];

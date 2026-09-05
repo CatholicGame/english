@@ -382,6 +382,32 @@ export const STRINGS: Record<string, DictEntry> = {
   "grammar.stepListAria": { vi: "Danh sách các phần trong unit", en: "List of sections in this unit" },
   "grammar.stepListTitle": { vi: "Các phần trong unit", en: "Sections in this unit" },
   "grammar.close": { vi: "Đóng", en: "Close" },
+  "grammar.viewRule": { vi: "Quy tắc", en: "Rule" },
+  "grammar.ruleReminder": {
+    vi: "Sai chỗ nào thì mở lại trang quy tắc xem vì sao.",
+    en: "When an answer is wrong, open the rule page again to see why.",
+  },
+  "grammar.retryWrong": { vi: "Làm lại {count} câu sai", en: "Retry {count} wrong" },
+  "grammar.redoStep": { vi: "Làm lại cả bài từ đầu", en: "Redo the whole exercise" },
+  "grammar.redo": { vi: "Làm lại", en: "Redo" },
+  "grammar.resumed": { vi: "Đã lưu tiến độ. Bạn đang học tiếp từ phần {step}.", en: "Progress saved. Continuing from section {step}." },
+  "grammar.weakSteps": { vi: "Nên làm lại", en: "Worth another go" },
+  "grammar.nextUnit": { vi: "Unit tiếp theo", en: "Next unit" },
+  "grammar.restartUnit": { vi: "Làm lại cả unit", en: "Restart the unit" },
+  "grammar.list.intro": {
+    vi: "Mỗi unit đi theo đúng sách: học quy tắc ngữ pháp, rồi thực hành với chính bài tập trong sách, kết thúc bằng một câu luyện viết được AI chấm.",
+    en: "Each unit follows the book: study the grammar rule, practise with the book's own exercises, then write one sentence for the AI to mark.",
+  },
+  "grammar.list.progress": { vi: "Tiến độ", en: "Progress" },
+  "grammar.list.units": { vi: "Units", en: "Units" },
+  "grammar.list.search": { vi: "Tìm theo số hoặc tên (VD: 12, hiện tại hoàn thành)", en: "Search by number or name (e.g. 12, present perfect)" },
+  "grammar.list.empty": { vi: "Không tìm thấy unit nào.", en: "No unit found." },
+  "grammar.list.done": { vi: "Xong", en: "Done" },
+  "grammar.list.soon": { vi: "Sắp có", en: "Coming soon" },
+  "grammar.list.locked": { vi: "Khoá", en: "Locked" },
+  "grammar.list.due": { vi: "Cần ôn", en: "Review due" },
+  "grammar.list.continue": { vi: "Học tiếp", en: "Continue" },
+  "grammar.list.continueAt": { vi: "Đang dở ở phần {step}", en: "Left off at section {step}" },
 };
 
 const STORAGE_KEY = "english-ui-lang";

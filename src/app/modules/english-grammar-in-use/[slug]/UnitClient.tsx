@@ -1,9 +1,10 @@
 "use client";
 
-import { useMemo, useState, useSyncExternalStore } from "react";
+import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import { useRouter } from "next/navigation";
 import {
   getGrammarUnit,
+  UNITS_META,
   type AiPracticeStep,
   type FillMcStep,
   type JudgeCorrectStep,
@@ -33,14 +34,50 @@ import { isGrammarUnitLocked } from "@/lib/content-access";
 import { ProPaywallNotice } from "@/components/ProPaywallNotice";
 import { ActionBarScreen, useActionBar } from "@/components/ActionBar";
 import { ruleLine } from "@/lib/grammar-rule-line";
+import { Modal } from "@/components/Modal";
+import { dropSession, readSession, updateSession, withoutStep, type StepScore as Score } from "@/lib/grammar-session";
 
 const MODULE_KEY = "english-grammar-in-use";
 
 const QUIZ_LETTERS_LOWER = "abcdefghij".split("");
 
-interface Score {
-  correct: number;
-  total: number;
+// ---------- Saved answers (see src/lib/grammar-session.ts) ----------
+
+/** Read/write access to the current step's slice of the saved session, plus
+ * "start this exercise over". Provided by the wizard, so a step view never has
+ * to know about storage or about which step number it is. */
+const StepSessionContext = createContext<{
+  read: (slot: string) => unknown;
+  write: (slot: string, value: unknown) => void;
+  redo: () => void;
+} | null>(null);
+
+/** useState that survives leaving the step and reloading the app. `isValid`
+ * rejects a restored value whose shape no longer matches the exercise (a unit's
+ * items can change between builds while a session is still saved), falling back
+ * to a blank start rather than indexing into an array that got shorter. */
+function useStepState<T>(
+  slot: string,
+  initial: () => T,
+  isValid?: (value: T) => boolean,
+): [T, React.Dispatch<React.SetStateAction<T>>] {
+  const store = useContext(StepSessionContext);
+  const [value, setValue] = useState<T>(() => {
+    const saved = store?.read(slot) as T | undefined;
+    return saved !== undefined && (!isValid || isValid(saved)) ? saved : initial();
+  });
+  const mounted = useRef(false);
+  useEffect(() => {
+    // Skip the mount run: at that point `value` is either the blank start
+    // (nothing worth saving, and saving it would mark an untouched unit as
+    // "in progress") or exactly what was just restored.
+    if (!mounted.current) {
+      mounted.current = true;
+      return;
+    }
+    store?.write(slot, value);
+  }, [store, slot, value]);
+  return [value, setValue];
 }
 
 function autoGrow(e: React.FormEvent<HTMLTextAreaElement>) {
@@ -389,6 +426,21 @@ function RuleLangToggle() {
   );
 }
 
+/** The unit's left-hand book page. Shared by the rule step and by the "Quy
+ * tắc" popup an exercise can open, so both always show the same thing. */
+function RuleBody({ blocks }: { blocks: RuleBlock[] }) {
+  return (
+    <>
+      <RuleLangToggle />
+      <div className="flex flex-col gap-4">
+        {blocks.map((b, i) => (
+          <RuleBlockView key={i} block={b} />
+        ))}
+      </div>
+    </>
+  );
+}
+
 function RuleStepView({ step, onNext }: { step: RuleStep; onNext: (score?: Score) => void }) {
   const { t } = useUiLang();
   const inlineAction = usePinnedAction(
@@ -398,12 +450,7 @@ function RuleStepView({ step, onNext }: { step: RuleStep; onNext: (score?: Score
   );
   return (
     <div className="flex flex-1 flex-col p-4">
-      <RuleLangToggle />
-      <div className="flex flex-col gap-4">
-        {step.blocks.map((b, i) => (
-          <RuleBlockView key={i} block={b} />
-        ))}
-      </div>
+      <RuleBody blocks={step.blocks} />
       {inlineAction}
     </div>
   );
@@ -616,7 +663,15 @@ function WorkedExamples({ examples }: { examples?: WorkedExample[] }) {
 
 /** Score plus primary action, pinned to the bottom of the viewport. The score
  * used to sit at the very end of the scrollable content, which on a 19-item
- * exercise meant scrolling past everything to find out how you did. */
+ * exercise meant scrolling past everything to find out how you did.
+ *
+ * After checking there are three ways forward, not one: move on, have another
+ * go at just the items that were wrong (`onRetryWrong` clears those answers and
+ * leaves the right ones in place, so the second attempt is spent on what
+ * actually needs the thought), or start the whole exercise over from blank
+ * (`redo` from the session context). Before this, a wrong answer was final:
+ * "Kiểm tra" led only to "Tiếp tục", so nothing a learner got wrong could ever
+ * be practised again in the same sitting. */
 function PracticeFooter({
   checked,
   done,
@@ -625,6 +680,7 @@ function PracticeFooter({
   canCheck = true,
   onCheck,
   onContinue,
+  onRetryWrong,
 }: {
   checked: boolean;
   done?: number;
@@ -633,8 +689,11 @@ function PracticeFooter({
   canCheck?: boolean;
   onCheck?: () => void;
   onContinue: () => void;
+  onRetryWrong?: () => void;
 }) {
   const { t } = useUiLang();
+  const session = useContext(StepSessionContext);
+  const wrong = checked && correct != null && total != null ? total - correct : 0;
   if (!checked) {
     return (
       <>
@@ -657,9 +716,21 @@ function PracticeFooter({
           <span className="font-extrabold text-accent">{t("grammar.scoreCorrect", { correct, total })}</span>
         </div>
       )}
-      <button className="btn btn-primary btn-block px-4 py-3" onClick={onContinue}>
-        {t("grammar.continue")}
-      </button>
+      {wrong > 0 && session && (
+        <button className="btn btn-ghost mx-auto mb-1 block px-2 py-1 text-[16px]" onClick={session.redo}>
+          {t("grammar.redoStep")}
+        </button>
+      )}
+      <div className="flex gap-[2px]">
+        {wrong > 0 && onRetryWrong && (
+          <button className="btn btn-secondary flex-1 justify-center px-3 py-3" onClick={onRetryWrong}>
+            {t("grammar.retryWrong", { count: wrong })}
+          </button>
+        )}
+        <button className="btn btn-primary flex-1 justify-center px-4 py-3" onClick={onContinue}>
+          {t("grammar.continue")}
+        </button>
+      </div>
     </>
   );
 }
@@ -684,8 +755,12 @@ function mcSentence(it: { before: string; after: string }): string {
 }
 
 function FillMcStepView({ step, onNext }: { step: FillMcStep; onNext: (score?: Score) => void }) {
-  const [picked, setPicked] = useState<(string | null)[]>(() => step.items.map(() => null));
-  const [checked, setChecked] = useState(false);
+  const [picked, setPicked] = useStepState<(string | null)[]>(
+    "picked",
+    () => step.items.map(() => null),
+    (v) => Array.isArray(v) && v.length === step.items.length,
+  );
+  const [checked, setChecked] = useStepState("checked", () => false);
   const allPicked = picked.every((p) => p !== null);
   const correctCount = picked.filter((p, i) => p !== null && matchesAnswer(p, step.items[i])).length;
   const startNumber = step.startNumber ?? (step.examples?.length ?? 0) + 1;
@@ -699,6 +774,10 @@ function FillMcStepView({ step, onNext }: { step: FillMcStep; onNext: (score?: S
       canCheck={allPicked}
       onCheck={() => setChecked(true)}
       onContinue={() => onNext({ correct: correctCount, total: step.items.length })}
+      onRetryWrong={() => {
+        setPicked((prev) => prev.map((p, i) => (p !== null && matchesAnswer(p, step.items[i]) ? p : null)));
+        setChecked(false);
+      }}
     />,
   );
 
@@ -767,9 +846,9 @@ interface PairSel {
 
 function MatchPairsStepView({ step, onNext }: { step: MatchPairsStep; onNext: (score?: Score) => void }) {
   const [sel, setSel] = useState<PairSel | null>(null);
-  const [doneLeft, setDoneLeft] = useState<Record<number, number>>({});
+  const [doneLeft, setDoneLeft] = useStepState<Record<number, number>>("doneLeft", () => ({}));
   const [wrong, setWrong] = useState<{ l: number; r: number } | null>(null);
-  const [mistakes, setMistakes] = useState(0);
+  const [mistakes, setMistakes] = useStepState("mistakes", () => 0);
   const matchedRight = new Set(Object.values(doneLeft));
   const allDone = Object.keys(doneLeft).length === step.left.length;
 
@@ -874,8 +953,12 @@ function blanksOf(item: TypeFillItem): { answer: string; accept?: string[] }[] {
 function TypeFillStepView({ step, onNext }: { step: TypeFillStep; onNext: (score?: Score) => void }) {
   const { t } = useUiLang();
   const blanks = useMemo(() => step.items.map(blanksOf), [step]);
-  const [inputs, setInputs] = useState<string[][]>(() => blanks.map((b) => b.map(() => "")));
-  const [checked, setChecked] = useState(false);
+  const [inputs, setInputs] = useStepState<string[][]>(
+    "inputs",
+    () => blanks.map((b) => b.map(() => "")),
+    (v) => Array.isArray(v) && v.length === blanks.length && v.every((row, i) => Array.isArray(row) && row.length === blanks[i].length),
+  );
+  const [checked, setChecked] = useStepState("checked", () => false);
   const [focused, setFocused] = useState<[number, number]>([0, 0]);
   const startNumber = step.startNumber ?? (step.examples?.length ?? 0) + 1;
 
@@ -898,6 +981,10 @@ function TypeFillStepView({ step, onNext }: { step: TypeFillStep; onNext: (score
       correct={correctCount}
       onCheck={() => setChecked(true)}
       onContinue={() => onNext({ correct: correctCount, total })}
+      onRetryWrong={() => {
+        setInputs((prev) => prev.map((row, i) => row.map((v, j) => (matchesAnswer(v, blanks[i][j]) ? v : ""))));
+        setChecked(false);
+      }}
     />,
   );
 
@@ -965,9 +1052,17 @@ function TypeFillStepView({ step, onNext }: { step: TypeFillStep; onNext: (score
  * anything doesn't earn credit. */
 function JudgeCorrectStepView({ step, onNext }: { step: JudgeCorrectStep; onNext: (score?: Score) => void }) {
   const { t } = useUiLang();
-  const [verdicts, setVerdicts] = useState<(boolean | null)[]>(() => step.items.map(() => null));
-  const [fixes, setFixes] = useState<string[]>(() => step.items.map(() => ""));
-  const [checked, setChecked] = useState(false);
+  const [verdicts, setVerdicts] = useStepState<(boolean | null)[]>(
+    "verdicts",
+    () => step.items.map(() => null),
+    (v) => Array.isArray(v) && v.length === step.items.length,
+  );
+  const [fixes, setFixes] = useStepState<string[]>(
+    "fixes",
+    () => step.items.map(() => ""),
+    (v) => Array.isArray(v) && v.length === step.items.length,
+  );
+  const [checked, setChecked] = useStepState("checked", () => false);
   const startNumber = step.startNumber ?? 1;
 
   function isRight(i: number): boolean {
@@ -989,6 +1084,12 @@ function JudgeCorrectStepView({ step, onNext }: { step: JudgeCorrectStep; onNext
       canCheck={allAnswered}
       onCheck={() => setChecked(true)}
       onContinue={() => onNext({ correct: correctCount, total: step.items.length })}
+      onRetryWrong={() => {
+        const keep = step.items.map((_, i) => isRight(i));
+        setVerdicts((prev) => prev.map((v, i) => (keep[i] ? v : null)));
+        setFixes((prev) => prev.map((f, i) => (keep[i] ? f : "")));
+        setChecked(false);
+      }}
     />,
   );
 
@@ -1081,11 +1182,11 @@ function AiPracticeStepView({
 }) {
   const { t } = useUiLang();
   const { appendMessages, getConvos } = useAiConvoStore(MODULE_KEY);
-  const [sentence, setSentence] = useState("");
+  const [sentence, setSentence] = useStepState("sentence", () => "");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [result, setResult] = useState<unknown>(null);
-  const [xpEarned, setXpEarned] = useState<number | null>(null);
+  const [result, setResult] = useStepState<unknown>("result", () => null);
+  const [xpEarned, setXpEarned] = useStepState<number | null>("xp", () => null);
   const [cid, setCid] = useState<string | null>(() => {
     const convos = getConvos(itemKey);
     return convos.length ? convos[convos.length - 1].id : null;
@@ -1182,7 +1283,81 @@ export function UnitClient({ slug }: { slug: string }) {
   // step twice and push the final percentage past what they actually scored.
   const [scores, setScores] = useState<Record<number, Score>>({});
   const [finished, setFinished] = useState(false);
+  const [graded, setGraded] = useState(false);
   const [showStepList, setShowStepList] = useState(false);
+  const [showRule, setShowRule] = useState(false);
+  /** Bumped per step to force a fresh mount when that exercise is restarted
+   * from blank: the step views restore their answers from the saved session, so
+   * clearing those answers is only half of "start over". */
+  const [redoNonce, setRedoNonce] = useState<Record<number, number>>({});
+  /** Set when an exercise was reopened from the summary screen, so finishing it
+   * returns straight to the summary instead of walking through every later step
+   * again. */
+  const [fromSummary, setFromSummary] = useState(false);
+  /** 1-based step number the session was resumed at, for the "picked up where
+   * you left off" line. 0 once the learner has moved on. */
+  const [resumeNote, setResumeNote] = useState(0);
+  /** Whether the saved session has been read yet. localStorage can only be
+   * touched after mount (the server has none), and painting step 1 for a frame
+   * before jumping to the saved step would be its own small bug, so nothing
+   * renders until this flips. */
+  const [restored, setRestored] = useState(false);
+
+  useEffect(() => {
+    const saved = readSession(slug);
+    if (saved) {
+      setStepIndex(saved.stepIndex);
+      setScores(saved.scores);
+      setFinished(saved.finished);
+      setGraded(saved.graded);
+      if (saved.stepIndex > 0 && !saved.finished) setResumeNote(saved.stepIndex + 1);
+    }
+    setRestored(true);
+  }, [slug]);
+
+  // Persist the wizard's own position. Each exercise's answers are written
+  // separately by useStepState through the context below, and updateSession
+  // merges, so the two writers don't clobber each other.
+  const savedOnce = useRef(false);
+  useEffect(() => {
+    if (!restored) return;
+    if (!savedOnce.current) {
+      savedOnce.current = true; // just-restored values: nothing new to write yet
+      return;
+    }
+    updateSession(slug, (s) => ({ ...s, stepIndex, scores, finished, graded }));
+  }, [restored, slug, stepIndex, scores, finished, graded]);
+
+  const goToStep = useCallback((index: number) => {
+    setStepIndex(index);
+    setResumeNote(0);
+  }, []);
+
+  /** Throws away one exercise's score and answers and reopens it blank. */
+  const redoStep = useCallback(
+    (index: number) => {
+      updateSession(slug, (s) => withoutStep(s, index));
+      setScores((prev) => {
+        const next = { ...prev };
+        delete next[index];
+        return next;
+      });
+      setRedoNonce((prev) => ({ ...prev, [index]: (prev[index] ?? 0) + 1 }));
+      setFinished(false);
+      goToStep(index);
+    },
+    [slug, goToStep],
+  );
+
+  const stepSession = useMemo(
+    () => ({
+      read: (slot: string) => readSession(slug)?.steps[`${stepIndex}:${slot}`],
+      write: (slot: string, value: unknown) =>
+        updateSession(slug, (s) => ({ ...s, steps: { ...s.steps, [`${stepIndex}:${slot}`]: value } })),
+      redo: () => redoStep(stepIndex),
+    }),
+    [slug, stepIndex, redoStep],
+  );
 
   const tally = Object.values(scores).reduce(
     (a, s) => ({ correct: a.correct + s.correct, total: a.total + s.total }),
@@ -1206,31 +1381,53 @@ export function UnitClient({ slug }: { slug: string }) {
 
   const steps = unit.steps;
   const step = steps[stepIndex];
+  const ruleStep = steps.find((s) => s.kind === "rule") as RuleStep | undefined;
+  const nextUnit = UNITS_META.find((u) => u.unit === unit.unit + 1 && u.available);
+  /** Exercises the learner did not get full marks on, offered on the summary
+   * for another go. */
+  const weakSteps = Object.entries(scores)
+    .map(([index, s]) => ({ index: Number(index), ...s }))
+    .filter((s) => s.correct < s.total)
+    .sort((a, b) => a.index - b.index);
 
   function goBack() {
     if (stepIndex === 0) {
       router.push("/modules/english-grammar-in-use");
       return;
     }
-    setStepIndex((i) => i - 1);
+    goToStep(stepIndex - 1);
   }
 
   function handleNext(score?: Score) {
     const at = stepIndex;
     if (score) setScores((prev) => ({ ...prev, [at]: score }));
-    if (stepIndex + 1 >= steps.length) {
-      grade(unit!.slug, true);
+    if (fromSummary || at + 1 >= steps.length) {
+      // Graded once per session: redoing an exercise from the summary and
+      // reaching the end again must not award XP or bump the SRS level twice.
+      if (!graded) {
+        grade(unit!.slug, true);
+        setGraded(true);
+      }
+      setFromSummary(false);
       setFinished(true);
       return;
     }
-    setStepIndex((i) => i + 1);
+    goToStep(at + 1);
   }
 
   function restart() {
-    setStepIndex(0);
+    dropSession(slug);
     setScores({});
     setFinished(false);
+    setGraded(false);
+    setFromSummary(false);
+    setRedoNonce((prev) => Object.fromEntries(steps.map((_, i) => [i, (prev[i] ?? 0) + 1])));
+    goToStep(0);
   }
+
+  // Nothing until the saved session has been read, so a resumed unit never
+  // paints step 1 first and then jumps.
+  if (!restored) return <div className="fixed inset-0 z-[60] bg-bg" />;
 
   if (finished) {
     const pct = tally.total ? Math.round((tally.correct / tally.total) * 100) : 100;
@@ -1245,6 +1442,35 @@ export function UnitClient({ slug }: { slug: string }) {
             {sub} {t("grammar.correctInPractice", { correct: tally.correct, total: tally.total })}
           </div>
         </div>
+        {/* The exercises that didn't come out right, each one tap away from a
+            fresh attempt. Without this the only thing on offer after a weak
+            score was redoing the entire unit, so in practice nobody redid
+            anything. */}
+        {weakSteps.length > 0 && (
+          <div className="divider-b px-4 py-3">
+            <div className="label-xs mb-1.5 text-neutral-500">{t("grammar.weakSteps")}</div>
+            {weakSteps.map((s) => (
+              <button
+                key={s.index}
+                className="divider-b flex w-full items-center gap-3 py-2 text-left last:border-b-0"
+                onClick={() => {
+                  setFromSummary(true);
+                  redoStep(s.index);
+                }}
+              >
+                <span className="min-w-0 flex-1">
+                  <span className="block truncate text-[17px] font-extrabold">
+                    {loc(steps[s.index].title, steps[s.index].titleEn, lang)}
+                  </span>
+                  <span className="label-xs mt-0.5 block text-neutral-600">
+                    {t("grammar.scoreCorrect", { correct: s.correct, total: s.total })}
+                  </span>
+                </span>
+                <span className="label-xs flex-none text-accent">{t("grammar.redo")}</span>
+              </button>
+            ))}
+          </div>
+        )}
         <div className="flex gap-[2px] p-4">
           <button
             className="btn btn-secondary flex-1 justify-center px-4 py-3"
@@ -1252,10 +1478,24 @@ export function UnitClient({ slug }: { slug: string }) {
           >
             {t("grammar.allUnits")}
           </button>
-          <button className="btn btn-primary flex-1 justify-center px-4 py-3" onClick={restart}>
-            {t("grammar.retry")}
-          </button>
+          {nextUnit ? (
+            <button
+              className="btn btn-primary flex-1 justify-center px-4 py-3"
+              onClick={() => router.push(`/modules/english-grammar-in-use/${nextUnit.slug}`)}
+            >
+              {t("grammar.nextUnit")}
+            </button>
+          ) : (
+            <button className="btn btn-primary flex-1 justify-center px-4 py-3" onClick={restart}>
+              {t("grammar.retry")}
+            </button>
+          )}
         </div>
+        {nextUnit && (
+          <button className="btn btn-ghost mx-4 mb-4 justify-center px-4 py-2" onClick={restart}>
+            {t("grammar.restartUnit")}
+          </button>
+        )}
       </div>
     );
   }
@@ -1267,6 +1507,11 @@ export function UnitClient({ slug }: { slug: string }) {
   return (
     <div className="fixed inset-0 z-[60] bg-bg">
       <div className="mx-auto h-full max-w-[480px] lg:max-w-[min(90vw,2400px)]">
+        {/* Wraps the whole ActionBarScreen, not just its content: the pinned
+            footer is rendered by ActionBarScreen in its own subtree, so a
+            provider around only the content would leave PracticeFooter (which
+            lives in that footer) outside it. */}
+        <StepSessionContext.Provider value={stepSession}>
         <ActionBarScreen
           fullViewport
           header={
@@ -1288,9 +1533,19 @@ export function UnitClient({ slug }: { slug: string }) {
                 </button>
               </div>
               <div className="divider-b flex items-center justify-between gap-3 px-4 pb-2">
-                <span className="label-xs truncate text-accent">
+                <span className="label-xs min-w-0 flex-1 truncate text-accent">
                   Unit {unit.unit} · {unit.title} · {stepKindLabel(step.kind, t)}
                 </span>
+                {/* The book's own instruction when an answer comes out wrong is
+                    "study the left-hand page again" (To the student, p.viii).
+                    Stepping back to it used to be the only way, and that threw
+                    away every answer already given on this exercise, so in
+                    practice the rule page was unreachable once you started. */}
+                {ruleStep && step.kind !== "rule" && (
+                  <button className="btn btn-ghost flex-none px-0 text-[16px]" onClick={() => setShowRule(true)}>
+                    {t("grammar.viewRule")}
+                  </button>
+                )}
                 <button
                   className="btn btn-ghost flex-none px-0 text-[16px]"
                   onClick={() => router.push("/modules/english-grammar-in-use")}
@@ -1314,26 +1569,43 @@ export function UnitClient({ slug }: { slug: string }) {
                   {steps.map((s, i) => {
                     const done = scores[i] !== undefined;
                     return (
-                      <button
+                      <div
                         key={i}
-                        onClick={() => {
-                          setStepIndex(i);
-                          setShowStepList(false);
-                        }}
-                        className="divider-b flex w-full items-center gap-3 px-4 py-3 text-left hover:bg-surface"
+                        className="divider-b flex w-full items-center gap-3 px-4 text-left"
                         style={i === stepIndex ? { background: "var(--color-accent-100)" } : undefined}
                       >
-                        <span className="label-xs w-6 flex-none text-neutral-600">{i + 1}</span>
-                        <span className="flex-1">
-                          <span className="block text-[17px] font-extrabold">{loc(s.title, s.titleEn, lang)}</span>
-                          <span className="label-xs mt-0.5 block text-neutral-600">{stepKindLabel(s.kind, t)}</span>
-                        </span>
-                        {done && (
-                          <span className="label-xs flex-none text-accent">
-                            {scores[i].correct}/{scores[i].total}
+                        <button
+                          onClick={() => {
+                            setFromSummary(false);
+                            goToStep(i);
+                            setShowStepList(false);
+                          }}
+                          className="flex min-w-0 flex-1 items-center gap-3 py-3 text-left"
+                        >
+                          <span className="label-xs w-6 flex-none text-neutral-600">{i + 1}</span>
+                          <span className="min-w-0 flex-1">
+                            <span className="block text-[17px] font-extrabold">{loc(s.title, s.titleEn, lang)}</span>
+                            <span className="label-xs mt-0.5 block text-neutral-600">{stepKindLabel(s.kind, t)}</span>
                           </span>
+                          {done && (
+                            <span className="label-xs flex-none text-accent">
+                              {scores[i].correct}/{scores[i].total}
+                            </span>
+                          )}
+                        </button>
+                        {done && (
+                          <button
+                            className="btn btn-ghost flex-none px-1 py-3 text-[16px]"
+                            onClick={() => {
+                              setFromSummary(false);
+                              redoStep(i);
+                              setShowStepList(false);
+                            }}
+                          >
+                            {t("grammar.redo")}
+                          </button>
                         )}
-                      </button>
+                      </div>
                     );
                   })}
                 </div>
@@ -1341,20 +1613,56 @@ export function UnitClient({ slug }: { slug: string }) {
             </div>
           )}
 
+          {showRule && ruleStep && (
+            <Modal onClose={() => setShowRule(false)}>
+              <div className="mb-1 pr-6 text-[19px] leading-snug font-extrabold">
+                Unit {unit.unit} · {unit.title}
+              </div>
+              <p className="mb-3 text-[16px] text-neutral-600">{t("grammar.ruleReminder")}</p>
+              <RuleBody blocks={ruleStep.blocks} />
+            </Modal>
+          )}
+
           {/* overscroll-contain: without it, scrolling past this div's own end
               chains the wheel/touch scroll to the page behind it, which visibly
               moves even though the outer layout is sized to never need to. */}
           <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain">
-            {step.kind === "rule" && <RuleStepView key={stepIndex} step={step} onNext={handleNext} />}
-            {step.kind === "fill_mc" && <FillMcStepView key={stepIndex} step={step} onNext={handleNext} />}
-            {step.kind === "type_fill" && <TypeFillStepView key={stepIndex} step={step} onNext={handleNext} />}
-            {step.kind === "judge_correct" && <JudgeCorrectStepView key={stepIndex} step={step} onNext={handleNext} />}
-            {step.kind === "match_pairs" && <MatchPairsStepView key={stepIndex} step={step} onNext={handleNext} />}
-            {step.kind === "ai_practice" && (
-              <AiPracticeStepView key={stepIndex} step={step} unitTitle={unit.title} itemKey={unit.slug} onNext={handleNext} />
+            {resumeNote > 0 && (
+              <div
+                className="flex items-center gap-2 px-4 py-2 text-[16px]"
+                style={{ background: "var(--color-accent-100)", color: "var(--color-accent-800)" }}
+              >
+                <span className="min-w-0 flex-1">{t("grammar.resumed", { step: resumeNote })}</span>
+                <button className="flex-none px-1 font-extrabold" onClick={() => setResumeNote(0)} aria-label={t("grammar.close")}>
+                  ✕
+                </button>
+              </div>
             )}
+            {/* The key remounts on a step change (each view keeps its own
+                answers) and on a redo (nonce), which is what makes "start this
+                exercise over" actually start it over. */}
+            {(() => {
+              const key = `${stepIndex}:${redoNonce[stepIndex] ?? 0}`;
+              switch (step.kind) {
+                case "rule":
+                  return <RuleStepView key={key} step={step} onNext={handleNext} />;
+                case "fill_mc":
+                  return <FillMcStepView key={key} step={step} onNext={handleNext} />;
+                case "type_fill":
+                  return <TypeFillStepView key={key} step={step} onNext={handleNext} />;
+                case "judge_correct":
+                  return <JudgeCorrectStepView key={key} step={step} onNext={handleNext} />;
+                case "match_pairs":
+                  return <MatchPairsStepView key={key} step={step} onNext={handleNext} />;
+                case "ai_practice":
+                  return (
+                    <AiPracticeStepView key={key} step={step} unitTitle={unit.title} itemKey={unit.slug} onNext={handleNext} />
+                  );
+              }
+            })()}
           </div>
         </ActionBarScreen>
+        </StepSessionContext.Provider>
       </div>
     </div>
   );

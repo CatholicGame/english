@@ -168,3 +168,38 @@ export const GRAMMAR_UNITS: GrammarUnit[] = [UNIT_1_PRESENT_CONTINUOUS, UNIT_2_P
 export function getGrammarUnit(slug: string): GrammarUnit | undefined {
   return GRAMMAR_UNITS.find((u) => u.slug === slug);
 }
+
+/** The book's own Contents grouping (pages iii-vi): 16 sections covering units
+ * 1-145, in the book's printed order and with its printed names. It is NOT the
+ * per-unit `topic` field, which is a finer-grained label some units narrow down
+ * further ("quantifiers", "word order"); this is the chapter a learner scans
+ * for when they want "the unit about relative clauses" and don't know its
+ * number. The book is explicit that this is how it should be used: "The units
+ * are not in order of difficulty ... Use the Contents and/or Index to find
+ * which unit deals with the point you are interested in" (To the student,
+ * p.viii). `vi` is the Vietnamese label, `en` the book's own heading. */
+export interface GrammarSection {
+  from: number;
+  to: number;
+  vi: string;
+  en: string;
+}
+
+export const GRAMMAR_SECTIONS: GrammarSection[] = [
+  { from: 1, to: 6, vi: "Hiện tại và quá khứ", en: "Present and past" },
+  { from: 7, to: 18, vi: "Hiện tại hoàn thành và quá khứ", en: "Present perfect and past" },
+  { from: 19, to: 25, vi: "Tương lai", en: "Future" },
+  { from: 26, to: 37, vi: "Động từ khuyết thiếu", en: "Modals" },
+  { from: 38, to: 41, vi: "if và wish", en: "if and wish" },
+  { from: 42, to: 46, vi: "Câu bị động", en: "Passive" },
+  { from: 47, to: 48, vi: "Câu tường thuật", en: "Reported speech" },
+  { from: 49, to: 52, vi: "Câu hỏi và trợ động từ", en: "Questions and auxiliary verbs" },
+  { from: 53, to: 68, vi: "Dạng -ing và to ...", en: "-ing and to ..." },
+  { from: 69, to: 81, vi: "Mạo từ và danh từ", en: "Articles and nouns" },
+  { from: 82, to: 91, vi: "Đại từ và từ hạn định", en: "Pronouns and determiners" },
+  { from: 92, to: 97, vi: "Mệnh đề quan hệ", en: "Relative clauses" },
+  { from: 98, to: 112, vi: "Tính từ và trạng từ", en: "Adjectives and adverbs" },
+  { from: 113, to: 120, vi: "Liên từ và giới từ", en: "Conjunctions and prepositions" },
+  { from: 121, to: 136, vi: "Giới từ", en: "Prepositions" },
+  { from: 137, to: 145, vi: "Cụm động từ", en: "Phrasal verbs" },
+];

@@ -15,6 +15,20 @@ export function norm(s: string): string {
     .trim();
 }
 
+/** Accent-insensitive text for searching. norm() above is for MATCHING English
+ * answers, so it drops everything outside a-z - which deletes every accented
+ * Vietnamese letter instead of folding it ("ngữ pháp" becomes "ng phm"), making
+ * it useless for a search box a Vietnamese learner types into. */
+export function fold(s: string): string {
+  return (s || "")
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .replace(/đ/g, "d")
+    .replace(/Đ/g, "D")
+    .toLowerCase()
+    .trim();
+}
+
 export function dayKey(d: Date): string {
   return d.toISOString().slice(0, 10);
 }

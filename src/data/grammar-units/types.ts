@@ -294,6 +294,15 @@ export interface GrammarUnitMeta {
   available: boolean;
 }
 
+/** One chapter of a book's Contents page: the units it spans plus its name,
+ * `vi` the Vietnamese label and `en` the book's own heading. */
+export interface GrammarSection {
+  from: number;
+  to: number;
+  vi: string;
+  en: string;
+}
+
 export interface GrammarUnit {
   unit: number;
   slug: string;

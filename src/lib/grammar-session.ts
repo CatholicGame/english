@@ -114,9 +114,11 @@ export function dropSession(slug: string) {
 }
 
 /** The unit the learner was last in the middle of, for the unit list's
- * "continue" card. Finished and barely-started units are not offered. */
-export function latestUnfinished(): { slug: string; stepIndex: number } | null {
-  const open = Object.entries(all()).filter(([, s]) => continuable(s));
+ * "continue" card. Finished and barely-started units are not offered.
+ * `inBook` keeps it to the book whose list is showing: every book shares this
+ * one session map (their slugs never collide, see grammar-books.ts). */
+export function latestUnfinished(inBook: (slug: string) => boolean): { slug: string; stepIndex: number } | null {
+  const open = Object.entries(all()).filter(([slug, s]) => inBook(slug) && continuable(s));
   if (open.length === 0) return null;
   const [slug, s] = open.sort((a, b) => b[1].t - a[1].t)[0];
   return { slug, stepIndex: s.stepIndex };

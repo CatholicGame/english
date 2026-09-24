@@ -21,6 +21,7 @@ import { UNITS_META } from "@/data/cambridge-vocabulary-ielts";
 import { LISTEN_LESSONS } from "@/data/listen-a-minute";
 import { allIdiomItems } from "@/data/idioms";
 import { UNITS_META as GRAMMAR_UNITS_META } from "@/data/english-grammar-in-use";
+import { ADV_UNITS_META } from "@/data/advanced-grammar-in-use";
 
 const MODULE_KEYS = {
   collocations: "collocations-phrasal-verbs",
@@ -28,6 +29,7 @@ const MODULE_KEYS = {
   listen: "listen-a-minute",
   idioms: "idioms",
   grammar: "english-grammar-in-use",
+  advGrammar: "advanced-grammar-in-use",
 } as const;
 
 type ModuleId = keyof typeof MODULE_KEYS;
@@ -41,6 +43,7 @@ function loadAllSnapshots(): Snapshots {
     listen: loadState(MODULE_KEYS.listen),
     idioms: loadState(MODULE_KEYS.idioms),
     grammar: loadState(MODULE_KEYS.grammar),
+    advGrammar: loadState(MODULE_KEYS.advGrammar),
   };
 }
 
@@ -58,6 +61,8 @@ export interface DashboardProgress {
   idiomsTotal: number;
   grammarDone: number;
   grammarTotal: number;
+  advGrammarDone: number;
+  advGrammarTotal: number;
 }
 
 export function useDashboardProgress(): DashboardProgress {
@@ -107,13 +112,7 @@ export function useDashboardProgress(): DashboardProgress {
 
   const unifiedDays = useMemo(() => {
     if (!snapshots) return {} as DaysMap;
-    return mergeDays(
-      mergeDays(
-        mergeDays(mergeDays(snapshots.collocations.days, snapshots.cambridge.days), snapshots.listen.days),
-        snapshots.idioms.days,
-      ),
-      snapshots.grammar.days,
-    );
+    return Object.values(snapshots).reduce((acc, s) => mergeDays(acc, s.days), {} as DaysMap);
   }, [snapshots]);
 
   const streak = useMemo(() => computeStreak(unifiedDays), [unifiedDays]);
@@ -150,6 +149,11 @@ export function useDashboardProgress(): DashboardProgress {
     return GRAMMAR_UNITS_META.filter((u) => lvlOf(snapshots.grammar.progress, u.slug) > 0).length;
   }, [snapshots]);
 
+  const advGrammarDone = useMemo(() => {
+    if (!snapshots) return 0;
+    return ADV_UNITS_META.filter((u) => lvlOf(snapshots.advGrammar.progress, u.slug) > 0).length;
+  }, [snapshots]);
+
   return {
     loaded: snapshots !== null,
     streak,
@@ -164,5 +168,7 @@ export function useDashboardProgress(): DashboardProgress {
     idiomsTotal: idiomItems.length,
     grammarDone,
     grammarTotal: GRAMMAR_UNITS_META.length,
+    advGrammarDone,
+    advGrammarTotal: ADV_UNITS_META.length,
   };
 }

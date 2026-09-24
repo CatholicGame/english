@@ -1,5 +1,6 @@
-// Structural self-check for the English Grammar in Use unit data
-// (src/data/english-grammar-in-use.ts + src/data/grammar-units/units-*.ts).
+// Structural self-check for the Grammar in Use unit data of every book
+// (src/data/grammar-units/units-*.ts for English Grammar in Use,
+// src/data/advanced-grammar-units/units-*.ts for Advanced Grammar in Use).
 //
 // Run: node scripts/check-grammar-data.mjs
 //
@@ -18,11 +19,15 @@
 import { readFileSync, readdirSync } from "node:fs";
 import { ruleLine } from "../src/lib/grammar-rule-line.ts";
 
-const UNITS_DIR = "src/data/grammar-units";
-const SRCS = readdirSync(UNITS_DIR)
-  .filter((f) => /^units-[\d-]+\.ts$/.test(f))
-  .sort()
-  .map((f) => `${UNITS_DIR}/${f}`);
+// One directory per book (see src/data/grammar-books.ts).
+// Pass directories as arguments to check draft units elsewhere instead.
+const UNITS_DIRS = process.argv.length > 2 ? process.argv.slice(2) : ["src/data/grammar-units", "src/data/advanced-grammar-units"];
+const SRCS = UNITS_DIRS.flatMap((dir) =>
+  readdirSync(dir)
+    .filter((f) => /^units-[\d-]+\.ts$/.test(f))
+    .sort()
+    .map((f) => `${dir}/${f}`),
+);
 const PRACTICE = ["fill_mc", "type_fill", "judge_correct", "match_pairs"];
 const errors = [];
 
@@ -49,16 +54,23 @@ for (const [label, got, want] of [
   );
 }
 
-check(SRCS.length > 0, `${UNITS_DIR}: no units-*.ts files found - has the file layout changed?`);
+for (const dir of UNITS_DIRS) {
+  check(SRCS.some((s) => s.startsWith(dir)), `${dir}: no units-*.ts files found - has the file layout changed?`);
+}
 const blocks = [];
 for (const src of SRCS) {
   const text = readFileSync(src, "utf8");
   const found = [...text.matchAll(/^export const (UNIT_[A-Z0-9_]+): GrammarUnit = (\{[\s\S]*?\r?\n\});\r?$/gm)];
   check(found.length > 0, `${src}: no unit blocks found - has the file format changed?`);
-  blocks.push(...found);
+  blocks.push(...found.map((m) => [src, m[1], m[2]]));
 }
 
-for (const [, name, json] of blocks) {
+// Every book's sessions share one localStorage map keyed by slug
+// (src/lib/grammar-session.ts), so a slug must be unique across all books.
+const seenSlugs = new Map();
+
+for (const [src, name, json] of blocks) {
+  const errorsBefore = errors.length;
   let unit;
   try {
     unit = JSON.parse(json);
@@ -67,6 +79,8 @@ for (const [, name, json] of blocks) {
     continue;
   }
   const at = (step, extra = "") => `Unit ${unit.unit} "${step.title}"${extra}`;
+  check(!seenSlugs.has(unit.slug), `Unit ${unit.unit}: slug "${unit.slug}" is also used by ${seenSlugs.get(unit.slug)}`);
+  seenSlugs.set(unit.slug, `${src} ${name}`);
 
   // Step order: rule, then auto-graded practice, then the AI step.
   const kinds = unit.steps.map((s) => s.kind);
@@ -169,11 +183,13 @@ for (const [, name, json] of blocks) {
       `${at(step)}: duplicate item numbers (${labels.join(", ")})`,
     );
   }
+  // Unit numbers repeat across books, so say which file the problem is in.
+  for (let i = errorsBefore; i < errors.length; i++) errors[i] = `${src}: ${errors[i]}`;
 }
 
 if (errors.length) {
-  console.error(`${errors.length} problem(s) in ${UNITS_DIR}:`);
+  console.error(`${errors.length} problem(s):`);
   for (const e of errors) console.error("  - " + e);
   process.exit(1);
 }
-console.log(`${UNITS_DIR}: ${blocks.length} units OK`);
+console.log(`${UNITS_DIRS.join(", ")}: ${blocks.length} units OK`);

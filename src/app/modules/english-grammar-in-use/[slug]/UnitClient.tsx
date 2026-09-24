@@ -3,8 +3,6 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import { useRouter } from "next/navigation";
 import {
-  getGrammarUnit,
-  UNITS_META,
   type AiPracticeStep,
   type FillMcStep,
   type JudgeCorrectStep,
@@ -21,6 +19,7 @@ import {
   type GrammarExample,
   type GrammarUnitStep,
 } from "@/data/english-grammar-in-use";
+import { getGrammarBook } from "@/data/grammar-books";
 import { useProgress } from "@/lib/progress-context";
 import { norm } from "@/lib/utils";
 import { useAiConvoStore } from "@/lib/use-ai-convo-store";
@@ -36,8 +35,6 @@ import { ActionBarScreen, useActionBar } from "@/components/ActionBar";
 import { ruleLine } from "@/lib/grammar-rule-line";
 import { Modal } from "@/components/Modal";
 import { dropSession, readSession, updateSession, withoutStep, type StepScore as Score } from "@/lib/grammar-session";
-
-const MODULE_KEY = "english-grammar-in-use";
 
 const QUIZ_LETTERS_LOWER = "abcdefghij".split("");
 
@@ -937,11 +934,14 @@ function MatchPairsStepView({ step, onNext }: { step: MatchPairsStep; onNext: (s
 /** The book prints one answer, but a written question or clause has several
  * equally correct forms (contracted vs full, "anybody" vs "anyone"), so an item
  * can carry extra accepted wordings. norm() strips apostrophes and case, so
- * "I'm"/"I am" really are distinct strings and must both be listed. */
+ * "I'm"/"I am" really are distinct strings and must both be listed. A bare
+ * "-" (the books' mark for "no article / no word here") would norm() to "", so
+ * it is compared as itself. */
 function matchesAnswer(input: string, item: { answer: string; accept?: string[] }): boolean {
-  const v = norm(input);
+  const key = (s: string) => (s.trim() === "-" ? "-" : norm(s));
+  const v = key(input);
   if (!v) return false;
-  return v === norm(item.answer) || (item.accept ?? []).some((a) => norm(a) === v);
+  return v === key(item.answer) || (item.accept ?? []).some((a) => key(a) === v);
 }
 
 /** An item's gaps, in the order they appear in `prompt`: the first is the
@@ -1170,18 +1170,20 @@ function JudgeCorrectStepView({ step, onNext }: { step: JudgeCorrectStep; onNext
 // ---------- AI practice ----------
 
 function AiPracticeStepView({
+  moduleSlug,
   step,
   unitTitle,
   itemKey,
   onNext,
 }: {
+  moduleSlug: string;
   step: AiPracticeStep;
   unitTitle: string;
   itemKey: string;
   onNext: (score?: Score) => void;
 }) {
   const { t } = useUiLang();
-  const { appendMessages, getConvos } = useAiConvoStore(MODULE_KEY);
+  const { appendMessages, getConvos } = useAiConvoStore(moduleSlug);
   const [sentence, setSentence] = useStepState("sentence", () => "");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -1270,12 +1272,14 @@ function stepKindLabel(kind: GrammarUnitStep["kind"], t: TranslateFn): string {
   }
 }
 
-export function UnitClient({ slug }: { slug: string }) {
+export function UnitClient({ moduleSlug, slug }: { moduleSlug: string; slug: string }) {
   const router = useRouter();
   const { lang, t } = useUiLang();
   const { grade } = useProgress();
   const { isUnlocked } = useSubscriptionStore();
-  const unit = useMemo(() => getGrammarUnit(slug), [slug]);
+  const book = getGrammarBook(moduleSlug);
+  const listHref = `/modules/${moduleSlug}`;
+  const unit = useMemo(() => book.units.find((u) => u.slug === slug), [book, slug]);
 
   const [stepIndex, setStepIndex] = useState(0);
   // Keyed by step index rather than accumulated, because the step menu lets a
@@ -1368,7 +1372,7 @@ export function UnitClient({ slug }: { slug: string }) {
     return (
       <div className="p-4">
         <p className="text-[16px] text-neutral-600">{t("grammar.unitNotFound")}</p>
-        <button className="btn btn-ghost mt-3" onClick={() => router.push("/modules/english-grammar-in-use")}>
+        <button className="btn btn-ghost mt-3" onClick={() => router.push(listHref)}>
           {t("grammar.allUnits")}
         </button>
       </div>
@@ -1382,7 +1386,7 @@ export function UnitClient({ slug }: { slug: string }) {
   const steps = unit.steps;
   const step = steps[stepIndex];
   const ruleStep = steps.find((s) => s.kind === "rule") as RuleStep | undefined;
-  const nextUnit = UNITS_META.find((u) => u.unit === unit.unit + 1 && u.available);
+  const nextUnit = book.meta.find((u) => u.unit === unit.unit + 1 && u.available);
   /** Exercises the learner did not get full marks on, offered on the summary
    * for another go. */
   const weakSteps = Object.entries(scores)
@@ -1392,7 +1396,7 @@ export function UnitClient({ slug }: { slug: string }) {
 
   function goBack() {
     if (stepIndex === 0) {
-      router.push("/modules/english-grammar-in-use");
+      router.push(listHref);
       return;
     }
     goToStep(stepIndex - 1);
@@ -1474,14 +1478,14 @@ export function UnitClient({ slug }: { slug: string }) {
         <div className="flex gap-[2px] p-4">
           <button
             className="btn btn-secondary flex-1 justify-center px-4 py-3"
-            onClick={() => router.push("/modules/english-grammar-in-use")}
+            onClick={() => router.push(listHref)}
           >
             {t("grammar.allUnits")}
           </button>
           {nextUnit ? (
             <button
               className="btn btn-primary flex-1 justify-center px-4 py-3"
-              onClick={() => router.push(`/modules/english-grammar-in-use/${nextUnit.slug}`)}
+              onClick={() => router.push(`${listHref}/${nextUnit.slug}`)}
             >
               {t("grammar.nextUnit")}
             </button>
@@ -1548,7 +1552,7 @@ export function UnitClient({ slug }: { slug: string }) {
                 )}
                 <button
                   className="btn btn-ghost flex-none px-0 text-[16px]"
-                  onClick={() => router.push("/modules/english-grammar-in-use")}
+                  onClick={() => router.push(listHref)}
                 >
                   {t("grammar.exit")}
                 </button>
@@ -1656,7 +1660,7 @@ export function UnitClient({ slug }: { slug: string }) {
                   return <MatchPairsStepView key={key} step={step} onNext={handleNext} />;
                 case "ai_practice":
                   return (
-                    <AiPracticeStepView key={key} step={step} unitTitle={unit.title} itemKey={unit.slug} onNext={handleNext} />
+                    <AiPracticeStepView key={key} moduleSlug={moduleSlug} step={step} unitTitle={unit.title} itemKey={unit.slug} onNext={handleNext} />
                   );
               }
             })()}

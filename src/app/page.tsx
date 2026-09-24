@@ -102,6 +102,8 @@ function moduleStatLabel(slug: string, d: DashboardProgress, t: TranslateFn): st
       return t("stat.idiomsLearned", { done: d.idiomsLearned, total: d.idiomsTotal });
     case "english-grammar-in-use":
       return t("stat.grammarDone", { done: d.grammarDone, total: d.grammarTotal });
+    case "advanced-grammar-in-use":
+      return t("stat.grammarDone", { done: d.advGrammarDone, total: d.advGrammarTotal });
     default:
       return null;
   }

@@ -3,6 +3,7 @@ import { LISTEN_LESSONS } from "./listen-a-minute";
 import { UNITS_META } from "./cambridge-vocabulary-ielts";
 import { UNITS_META as IDIOM_UNITS_META } from "./idioms";
 import { UNITS_META as GRAMMAR_UNITS_META } from "./english-grammar-in-use";
+import { ADV_UNITS_META } from "./advanced-grammar-in-use";
 import { IRREGULAR_VERBS } from "./irregular-verbs";
 
 export interface ModuleDef {
@@ -42,6 +43,15 @@ export const MODULES: ModuleDef[] = [
     description:
       "Work through Raymond Murphy's classic grammar reference unit by unit: learn the rule, then practice with the book's own exercises.",
     statsLabel: `${GRAMMAR_UNITS_META.length} units · ${GRAMMAR_UNITS_META.filter((u) => u.available).length} ready`,
+    available: true,
+  },
+  {
+    slug: "advanced-grammar-in-use",
+    title: "Advanced Grammar in Use",
+    subtitle: "120 units · Advanced",
+    description:
+      "Martin Hewings' advanced grammar reference: the finer points of tenses, modals, articles, clauses and more, each unit with the book's own exercises.",
+    statsLabel: `${ADV_UNITS_META.length} units · ${ADV_UNITS_META.filter((u) => u.available).length} ready`,
     available: true,
   },
   {

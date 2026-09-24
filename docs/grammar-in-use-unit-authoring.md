@@ -31,6 +31,31 @@ block) and the barrel (one name added to an import line, one `UNITS_META` entry,
 to the `GRAMMAR_UNITS` array). `npm run check:grammar` scans every `units-*.ts` file under
 `src/data/grammar-units/`, so it does not need to change when a new range file is created.
 
+## 0b. The second book: Advanced Grammar in Use
+
+`docs/Advanced_Grammar_in_Use_Cambridge.pdf` (Martin Hewings, 1999, 120 units) is digitized with
+the SAME types, renderer and standard as this doc describes; only the file locations and the PDF
+differ:
+
+- Unit data: `src/data/advanced-grammar-units/units-<range>.ts` (same 25-per-file rule, import
+  types from `../grammar-units/types`). Barrel: `src/data/advanced-grammar-in-use.ts`, where
+  adding a unit means one import, one name in `ADV_GRAMMAR_UNITS`; `ADV_UNITS_META` is derived
+  from the book's Contents list there, so a unit not authored yet already shows as "Sắp có".
+- Both books are registered in `src/data/grammar-books.ts` (module slug, title, units, sections).
+  The unit list (`GrammarUnitsList.tsx`) and wizard (`[slug]/UnitClient.tsx`) under
+  `src/app/modules/english-grammar-in-use/` are shared and take a `moduleSlug`; the
+  `advanced-grammar-in-use` routes are thin wrappers. A third book is a new barrel + one registry
+  entry + three wrapper route files, never a copy of the components.
+- **Slugs start with `adv-`.** Saved sessions for every book share one localStorage map keyed by
+  slug (`grammar-session.ts`); `npm run check:grammar` fails on a slug used twice across books.
+- Pages: unit n explanation = PDF page `9 + 2n`, exercises = `10 + 2n`. The Key starts at PDF
+  page 298 (printed page 289; printed = PDF - 9).
+- The PDF is an OCR'd scan, much noisier than the Intermediate book: misread words ("Surest" for
+  "Suggest"), garbled lines, and the A/B/C section letters are usually lost. Reconstruct the text,
+  infer block letters from the exercises' "(A & B)" references, and take every answer (and every
+  "'X' is also possible" alternative, into `accept`) from the Key. Never invent an item the OCR
+  lost; omit it.
+
 ## 1. Get the source text
 
 Only `pdftotext` is available in this environment (no `pdftoppm`/`pdfimages`/`pdfinfo`), which is also

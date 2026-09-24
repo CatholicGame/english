@@ -220,8 +220,8 @@ export const STRINGS: Record<string, DictEntry> = {
   "guide.subtitle": { vi: "Những điều cần biết để bắt đầu nhanh nhất.", en: "Everything you need to start fast." },
   "guide.start.title": { vi: "🚀 Bắt đầu: lộ trình 3 giai đoạn", en: "🚀 Getting started: the 3-stage path" },
   "guide.start.body": {
-    vi: "App dạy tiếng Anh theo lộ trình: giai đoạn 1 xây vốn từ vựng (Collocations & Phrasal Verbs), giai đoạn 2 giao tiếp tự nhiên (Idioms, Listen A Minute), giai đoạn 3 nâng cao IELTS (Cambridge IELTS Advanced). Bắt đầu từ Collocations, rồi mở dần các module khác.",
-    en: "The app teaches English along a path: stage 1 builds vocabulary (Collocations & Phrasal Verbs), stage 2 natural communication (Idioms, Listen A Minute), stage 3 IELTS mastery (Cambridge IELTS Advanced). Start with Collocations, then open the rest.",
+    vi: "App dạy tiếng Anh theo lộ trình: giai đoạn 1 xây vốn từ vựng (Collocations & Phrasal Verbs), giai đoạn 2 giao tiếp tự nhiên (Idioms, Listen A Minute), giai đoạn 3 nâng cao IELTS (Cambridge IELTS Advanced). Bắt đầu từ Collocations, rồi mở dần các module khác. Song song, học ngữ pháp với English Grammar in Use (trung cấp), rồi Advanced Grammar in Use (nâng cao).",
+    en: "The app teaches English along a path: stage 1 builds vocabulary (Collocations & Phrasal Verbs), stage 2 natural communication (Idioms, Listen A Minute), stage 3 IELTS mastery (Cambridge IELTS Advanced). Start with Collocations, then open the rest. Alongside, study grammar with English Grammar in Use (intermediate), then Advanced Grammar in Use.",
   },
   "guide.practice.title": { vi: "✏️ Luyện tập & động lực", en: "✏️ Practice & motivation" },
   "guide.practice.body": {
